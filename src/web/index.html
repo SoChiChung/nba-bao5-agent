@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>BAO5 · 每日一阵 AI 实验室</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">B</span><span><b>BAO5</b><small>LINEUP LAB</small></span></a>
+      <div class="top-actions"><span id="phase-badge" class="season-pill"><i></i> 2026–27 季前赛测试</span><button id="refresh" class="icon-button" aria-label="刷新数据" title="刷新数据">↻</button></div>
+    </header>
+    <main>
+      <section class="hero">
+        <div><p class="eyebrow">AI DAILY LINEUP · PRESEASON</p><h1>每日一阵，<em>从数据开始。</em></h1><p class="hero-copy">逐日预测、动态更新，用真实赛果校准每一次选择。</p></div>
+        <div class="hero-note"><span class="pulse"></span><div><b id="live-state">正在连接数据</b><small id="live-detail">读取 BAO5 球员库与赛程</small></div></div>
+      </section>
+      <section class="toolbar"><div id="date-tabs" class="date-tabs"></div><div class="toolbar-right"><span id="slate-meta" class="muted"></span><button id="recalculate" class="button button-dark">重新计算 <span>↗</span></button></div></section>
+      <section id="loading" class="loading-card"><div class="loader"></div><span>正在计算首批季前赛阵容…</span></section>
+      <section id="dashboard" class="dashboard hidden">
+        <div class="main-column">
+          <article class="lineup-card">
+            <div class="card-heading"><div><p class="eyebrow">MODEL PICK · <span id="selected-date"></span></p><h2>今日推荐阵容</h2></div><span id="formation" class="formation-pill">—</span></div>
+            <div class="score-strip"><div><small>模型预期总分</small><strong id="total-score">—</strong><span>按游戏官方计分公式</span></div><div><small>已用能量</small><strong id="energy-used">—<i> / 150</i></strong><span id="remaining-energy">—</span></div><div><small>阵容结构</small><strong id="shape">—</strong><span>满足游戏阵型限制</span></div></div>
+            <div id="lineup-list" class="lineup-list"></div>
+            <div class="lineup-footer"><div class="confidence"><span class="confidence-dot"></span><span id="confidence-text">数据完整度评估中</span></div><button id="save-draft" class="button button-blue">保存为选人草稿 <span>→</span></button></div>
+          </article>
+          <article class="table-card">
+            <div class="card-heading"><div><p class="eyebrow">PLAYER POOL</p><h2>候选球员池</h2></div><label class="search"><span>⌕</span><input id="search" placeholder="搜索球员或球队"></label></div>
+            <div class="table-wrap"><table><thead><tr><th>球员</th><th>对手</th><th>能量</th><th>基础分</th><th>预计分</th><th>分 / 能量</th><th>状态</th></tr></thead><tbody id="player-rows"></tbody></table></div>
+            <p class="table-note">预计分为季前赛测试估计值，不是保证得分。点击候选人可查看模型依据。</p>
+          </article>
+        </div>
+        <aside class="side-column">
+          <article class="side-card game-card"><div class="side-title"><span class="mini-icon">◉</span><div><p class="eyebrow">TODAY'S SLATE</p><h3>比赛与数据</h3></div></div><div id="games-list" class="games-list"></div><div class="source-list" id="source-list"></div></article>
+          <article class="side-card"><div class="side-title"><span class="mini-icon lilac">✳</span><div><p class="eyebrow">WHY THESE FIVE</p><h3>模型怎么判断</h3></div></div><div id="thinking" class="thinking-list"></div></article>
+          <article class="side-card rules-card"><div class="side-title"><span class="mini-icon gold">⌘</span><div><p class="eyebrow">GAME RULES</p><h3>阵容硬约束</h3></div></div><div class="rule-row"><span>阵容人数</span><b>5 人</b></div><div class="rule-row"><span>能量上限</span><b>150</b></div><div class="rule-row"><span>允许阵型</span><b>3前2后 / 2前3后</b></div><div class="rule-row"><span>开赛锁定</span><b>提前 15 分钟</b></div><div class="formula">得分 + 1.2×篮板 + 1.5×助攻<br>+ 3×抢断 + 3×盖帽 − 失误</div></article>
+        </aside>
+      </section>
+      <section class="bottom-grid"><article class="history-card"><div class="card-heading"><div><p class="eyebrow">MODEL LEARNING LOOP</p><h2>逐日回测记录</h2></div><span class="muted">每场结束后录入实际总分</span></div><div id="history-list" class="history-list"><div class="empty-state">首场比赛完成后，这里会记录预测与实际分差。</div></div></article><article class="method-card"><p class="eyebrow">SCORING MODEL · V0.1</p><h2>先透明，再学习。</h2><p>把球员当季场均技术统计按游戏公式换算成基础分；出场样本较少时向联盟平均收缩。对位和盘口只作小幅修正，伤病数据按来源可信度处理。季前赛另扣 16% 轮换不确定性，常规赛启用后自动撤掉这项折扣。</p><div class="weight-bars"><div><span>基础技术统计</span><i><b style="width:74%"></b></i><strong>主信号</strong></div><div><span>对手位置对位</span><i><b style="width:34%"></b></i><strong>±6%</strong></div><div><span>盘口总分</span><i><b style="width:24%"></b></i><strong>±4%</strong></div><div><span>伤病与轮换</span><i><b style="width:48%"></b></i><strong>风险折算</strong></div></div><p id="calibration-label" class="calibration-label">当前模型校准系数：1.000（还没有实战回测样本）</p></article></section>
+      <footer><span>BAO5 LINEUP LAB · LOCAL MODEL PREVIEW</span><span>数据刷新 <b id="updated-at">—</b></span></footer>
+    </main>
+  </div>
+  <dialog id="reason-dialog"><div class="dialog-head"><div><p class="eyebrow">PLAYER MODEL NOTES</p><h3 id="reason-name">球员判断</h3></div><button id="close-dialog" class="icon-button">×</button></div><div id="reason-body" class="reason-body"></div></dialog>
+  <div id="toast" class="toast"></div>
+  <script type="module" src="/app.js"></script>
+</body></html>

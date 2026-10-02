@@ -1,0 +1,12 @@
+{
+  "apiKey": "PUT-YOUR-ODDSPAPI-KEY-HERE",
+  "baseUrl": "https://api.oddspapi.io",
+  "bookmaker": "pinnacle",
+  "language": "en",
+  "verbosity": 3,
+  "tournamentIds": {
+    "nba": 132,
+    "nbaPreseason": 2382
+  },
+  "monthlyQuota": 200
+}

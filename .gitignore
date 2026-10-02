@@ -1,0 +1,20 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/bao1/config.json
+data/bao1/picks.json
+data/bao1/picks-commit.json
+data/bao1/automation.log
+data/bao1/run-report.txt
+data/bao1/probe-result.txt
+data/bao1/picks-bad.json
+data/odds/config.json
+data/odds/raw/
+data/odds/usage-log.json
+data/odds/tournaments_sport11_en.json
+.DS_Store
+Thumbs.db
+
+# 本地助手工作区（记忆与日志，不入公开仓库）
+.workbuddy/

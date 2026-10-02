@@ -1,0 +1,10 @@
+{
+  "name": "bao5-lineup-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "model": "node data/bao1/run-model.mjs"
+  }
+}

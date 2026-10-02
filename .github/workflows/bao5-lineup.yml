@@ -1,0 +1,58 @@
+name: BAO5 lineup assistant
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Frequent checks are gated in code by the 45-minute pre-lock window;
+    # odds are refreshed at most every 8h.
+    - cron: '0 20,22,0,2,4,6,8,10,12,14 * * *'
+      timezone: Asia/Shanghai
+    - cron: '*/5 * * * *'
+      timezone: Asia/Shanghai
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bao5-lineup-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Restore private runtime configuration
+        env:
+          BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
+          BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}
+          ODDSPAPI_API_KEY: ${{ secrets.ODDSPAPI_API_KEY }}
+        run: |
+          test -n "$BAO5_EMAIL" || (echo "Missing BAO5_EMAIL secret" && exit 1)
+          test -n "$BAO5_PASSWORD" || (echo "Missing BAO5_PASSWORD secret" && exit 1)
+          node -e "const fs=require('fs'); fs.writeFileSync('data/bao1/config.json', JSON.stringify({email:process.env.BAO5_EMAIL,password:process.env.BAO5_PASSWORD,baseUrl:'https://nbabao5.cn'})); if(process.env.ODDSPAPI_API_KEY) fs.writeFileSync('data/odds/config.json', JSON.stringify({apiKey:process.env.ODDSPAPI_API_KEY,baseUrl:'https://api.oddspapi.io',bookmaker:'pinnacle',language:'en',verbosity:3,tournamentIds:{nba:132,nbaPreseason:2382},monthlyQuota:200}));"
+      - name: Restore non-secret odds usage counter
+        run: |
+          if [ ! -f data/odds/usage-log.json ]; then echo '{"monthlyQuota":200,"calls":[]}' > data/odds/usage-log.json; fi
+      - name: Refresh data, optimize and submit if changed
+        env:
+          BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
+          BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}
+          ODDSPAPI_API_KEY: ${{ secrets.ODDSPAPI_API_KEY }}
+        run: node data/bao1/run-model.mjs
+      - name: Remove runtime secrets
+        if: always()
+        run: rm -f data/bao1/config.json data/odds/config.json
+      - name: Commit public model data
+        if: always() && github.event_name == 'workflow_dispatch'
+        run: |
+          rm -f data/bao1/config.json data/odds/config.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/bao1/model-history.json data/bao1/model-picks-*.json data/bao1/run-report.txt data/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/odds/usage-log.json
+          git diff --cached --quiet || git commit -m "chore: update NBA model data"
+          git push
