@@ -57,6 +57,13 @@ try {
   const now=Date.now();
   const slates=result.slates.filter(s=>s.lineup&&s.games.some(g=>g.status!==3)).slice(0,7);
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
+  const nowShanghai=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
+  const [localHour,localMinute]=nowShanghai.split(':').map(Number);
+  const dailyRefresh=localHour===6&&localMinute<10;
+  const nearLock=slates.some(s=>s.lockedAt-Date.now()>0&&s.lockedAt-Date.now()<=30*60_000);
+  const manual=process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
+  if(!dailyRefresh&&!nearLock&&!manual){say('非每日基线刷新时段，也不在开赛锁定前 30 分钟；本轮不执行账号阵容处理');process.exit(0);}
+  say(dailyRefresh?'执行每日基础刷新':nearLock?'进入锁定前 30 分钟高频检查':'手动触发，执行完整检查');
   let history=previous;
   const failures=[];
   for(const slate of slates){
@@ -68,7 +75,7 @@ try {
       const prior=history.find(x=>x.dateKey===slate.dateKey);
       const lineupIds=()=>lineup.players.map(p=>String(p.id));
       // Probe official NBA boxscores only near the daily lock; don't infer starters from projections.
-      if(minsToLock<=45&&minsToLock>-5){
+      if(minsToLock<=30&&minsToLock>-5){
         const selected=new Set(lineupIds());
         const allUpcoming=slate.games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>Date.now());
         for(const game of allUpcoming){

@@ -3,9 +3,8 @@ name: BAO5 lineup assistant
 on:
   workflow_dispatch:
   schedule:
-    # Frequent checks are gated in code by the 45-minute pre-lock window;
-    # odds are refreshed at most every 8h.
-    - cron: '0 20,22,0,2,4,6,8,10,12,14 * * *'
+    # Daily baseline refresh; intensive updates are limited to the final 30m before lineup lock.
+    - cron: '0 6 * * *'
       timezone: Asia/Shanghai
     - cron: '*/5 * * * *'
       timezone: Asia/Shanghai
