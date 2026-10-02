@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "src/server.mjs": {
+      "includeFiles": "data/**"
+    },
+    "api/**/*.mjs": {
+      "includeFiles": "data/**"
+    }
+  }
+}
