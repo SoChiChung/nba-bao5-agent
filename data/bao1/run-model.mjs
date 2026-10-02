@@ -12,7 +12,7 @@ const logFile=path.join(here,'automation.log');
 const log=[];
 const say=s=>{log.push(`[${new Date().toISOString()}] ${s}`);console.log(s);};
 const run=(file,args)=>{
-  const result=spawnSync(process.execPath,[path.join(here,file),...args],{cwd:ROOT,encoding:'utf8',timeout:120_000});
+  const result=spawnSync(process.execPath,[path.resolve(here,file),...args],{cwd:ROOT,encoding:'utf8',timeout:120_000});
   if(result.stdout)process.stdout.write(result.stdout);
   if(result.stderr)process.stderr.write(result.stderr);
   if(result.status!==0)throw new Error(`${file} 失败（退出码 ${result.status}）`);
@@ -23,15 +23,15 @@ const saveHistory=rows=>fs.writeFileSync(historyFile,JSON.stringify(rows,null,2)
 
 try {
   say('刷新伤病名单与赔率快照');
-  run('..\\injury\\fetch-injuries.mjs',['--no-names']);
+  run('../injury/fetch-injuries.mjs',['--no-names']);
   const priorOddsPath=path.join(ROOT,'data','odds','latest.json');
   let refreshOdds=true;
   if(fs.existsSync(priorOddsPath)){
     const priorOdds=JSON.parse(fs.readFileSync(priorOddsPath,'utf8'));
     refreshOdds=!Number.isFinite(Date.parse(priorOdds.fetchedAt))||Date.now()-Date.parse(priorOdds.fetchedAt)>=8*60*60*1000;
   }
-  if(refreshOdds&&process.env.ODDSPAPI_API_KEY)run('..\\odds\\fetch-odds.mjs',['--commit','--force']);
-  else if(refreshOdds&&fs.existsSync(path.join(ROOT,'data','odds','config.json')))run('..\\odds\\fetch-odds.mjs',['--commit','--force']);
+  if(refreshOdds&&process.env.ODDSPAPI_API_KEY)run('../odds/fetch-odds.mjs',['--commit','--force']);
+  else if(refreshOdds&&fs.existsSync(path.join(ROOT,'data','odds','config.json')))run('../odds/fetch-odds.mjs',['--commit','--force']);
   else if(refreshOdds)say('赔率数据源未配置 API key，本轮跳过刷新');
   else say('赔率快照未超过 8 小时，跳过抓取');
 
@@ -125,4 +125,5 @@ try {
   process.exitCode=1;
 } finally {
   fs.appendFileSync(logFile,log.join('\n')+'\n','utf8');
+  fs.writeFileSync(path.join(here,'run-report.txt'),log.join('\n')+'\n','utf8');
 }
