@@ -6,14 +6,14 @@
 - 模型推荐：科怀·伦纳德、斯科蒂·巴恩斯、戴维恩·米切尔、小蒂姆·哈达威、克莱·汤普森。
 - 预测总分 126.8，能量 150/150，阵型 2 前 3 后。
 - 页面展示未来 7 个比赛日的暂定阵容；打开页面期间每 5 分钟自动刷新一次。
-- GitHub Actions 每 5 分钟重算阵容；临近当天首场锁定时按球队核对已公布的官方首发。确认有人非首发就重选并自动提交、回读校验。
+- GitHub Actions 每 5 分钟重算未来 7 个有比赛的日期；临近各日期首场锁定时按球队核对已公布的官方首发。确认有人非首发就重选并自动提交、回读校验。
 - 赔率快照最多每 8 小时强制刷新一次，预计每天不超过 3 次抓取，控制第三方月度额度。
 
 BAO5 按赛程日锁阵：当天最早比赛开赛前 15 分钟锁定当天阵容，并非每场比赛分别解锁。因此首发调整仅能在当天最早比赛锁定前完成。季前赛后续场次的首发可能还未公布：脚本只剔除已确认非首发的球员，未公布的一律视作未知；若 NBA 数据源请求失败，工作流报错并保留已提交阵容。
 
 部署在 GitHub Actions 之前，在仓库 Settings → Secrets and variables → Actions 添加 `BAO5_EMAIL`、`BAO5_PASSWORD`、`ODDSPAPI_API_KEY`。前两个必填；赔率 key 可选（不填会沿用当前赔率快照，不进行主动过期拦截）。禁止提交任何 `config.json`。手动运行 workflow 时会把新模型数据作为普通提交推回默认分支；定时运行的日志和结果留在 Actions，不会每 5 分钟制造一次数据提交。
 
-Vercel 网页端如需直接提交阵容，在 Project Settings → Environment Variables 为 Production 设置 `BAO5_EMAIL`、`BAO5_PASSWORD` 和独立的 `BAO5_WEB_SUBMIT_TOKEN`，保存后重新部署。网页提交会要求输入此口令，再由服务端登录 BAO5、校验锁定时间与阵容规则、提交并回读确认。口令不要放进前端源代码或 GitHub。
+Vercel 网页端如需直接提交阵容，在 Project Settings → Environment Variables 为 Production 设置 `BAO5_EMAIL`、`BAO5_PASSWORD` 和独立的 `BAO5_WEB_SUBMIT_TOKEN`，保存后重新部署。网页支持单日提交，也支持“一键同步未来 7 天”；会逐日校验锁定时间与阵容规则，提交后回读确认。口令不要放进前端源代码或 GitHub。
 
 当前拆分为 GitHub Actions 定时跑模型与提交、Vercel 承载交互页面；网页提交由 Vercel 服务端执行。GitHub Actions 的 5 分钟 schedule 负责季前赛频繁变动的账号阵容更新。
 
@@ -27,7 +27,7 @@ npm start
 
 然后打开 `http://127.0.0.1:4173`。服务通过 BAO5 现有本地账号配置读取球员库和赛程，不会在页面显示账号凭据。
 
-页面的“重新计算”只刷新预测并保存版本；“保存为选人草稿”只生成 `data/bao1/model-picks-YYYY-MM-DD.json`。正式自动提交由每日任务完成，依然经过 `auto-lineup.mjs` 的规则校验。
+页面的“重新计算”只刷新预测并保存版本；“一键同步未来 7 天”会由网页服务登录 BAO5 并逐日提交当前模型阵容。云端定时自动更新由 GitHub Actions 执行，不依赖个人电脑开机；工作流每 5 分钟检查未来日期并在首发公布后调整，所有实际提交仍通过 `auto-lineup.mjs` 的规则校验。
 
 ## 当前评分方法
 

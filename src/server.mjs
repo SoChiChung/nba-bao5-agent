@@ -49,6 +49,43 @@ function saveHistory(rows) { fs.writeFileSync(historyPath, JSON.stringify(rows,n
 function calibration(rows){const done=rows.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));const predicted=done.reduce((s,x)=>s+x.expected,0),actual=done.reduce((s,x)=>s+x.actualTotal,0);return predicted?Number(Math.max(.85,Math.min(1.15,actual/predicted)).toFixed(3)):1;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
 async function body(req) { let data=''; for await (const chunk of req) data+=chunk; return data ? JSON.parse(data) : {}; }
+function submitAuthError(req) {
+  const expected=process.env.BAO5_WEB_SUBMIT_TOKEN??'';
+  const supplied=String(req.headers['x-bao5-submit-token']??'');
+  if(!expected)return {status:503,error:'尚未启用网页提交：请在 Vercel 配置 BAO5_WEB_SUBMIT_TOKEN 并重新部署'};
+  const a=Buffer.from(expected),b=Buffer.from(supplied);
+  if(a.length!==b.length||!timingSafeEqual(a,b))return {status:401,error:'提交口令不正确'};
+  const origin=req.headers.origin;
+  const requestHost=String(req.headers['x-forwarded-host']??req.headers.host??'').split(',')[0].trim();
+  if(origin&&new URL(origin).host!==requestHost)return {status:403,error:'请求来源与当前站点不匹配'};
+  return null;
+}
+async function syncSlate(api,slate,playerIds) {
+  const dateKey=slate.dateKey;
+  if(Date.now()>=slate.lockedAt||slate.games.some(g=>g.status===2||g.status===3))throw new Error('已锁定或比赛已开始');
+  if(!slate.lineup)throw new Error('该比赛日没有可提交的合法阵容');
+  if(!Array.isArray(playerIds)||playerIds.length!==5||new Set(playerIds.map(String)).size!==5)throw new Error('需要不重复的 5 名球员');
+  const ids=playerIds.map(String);
+  const candidateMap=new Map(slate.players.map(p=>[String(p.id),p]));
+  const chosen=ids.map(id=>candidateMap.get(id));
+  if(chosen.some(p=>!p))throw new Error('阵容包含不属于该比赛日或已失效的球员');
+  const front=chosen.filter(p=>p.position==='front').length;
+  const back=chosen.filter(p=>p.position==='back').length;
+  const energy=chosen.reduce((sum,p)=>sum+Number(p.energy||0),0);
+  if(![2,3].includes(front)||back!==5-front||energy>150)throw new Error(`阵容规则不满足（前场 ${front}、后场 ${back}、能量 ${energy}/150）`);
+  const expected=Number(chosen.reduce((sum,p)=>sum+Number(p.projected||0),0).toFixed(1));
+  const current=await api.getLineup(dateKey);
+  const oldIds=(current.json?.lineup?.playerIds??[]).map(String).sort();
+  const sortedIds=[...ids].sort();
+  if(oldIds.length===5&&oldIds.every((id,i)=>id===sortedIds[i]))return {dateKey,status:'unchanged',players:chosen.map(p=>p.name),expected,energy,formation:`${front}前${back}后`,message:'账号阵容已一致'};
+  if(Date.now()>=slate.lockedAt)throw new Error('提交过程中已进入锁定时间');
+  const result=await api.post('/api/lineups',{dateKey,playerIds:chosen.map(p=>p.id),salaryUsed:energy});
+  if(!result.ok)throw new Error(`每日一阵拒绝提交（HTTP ${result.status}）：${result.json?.message??result.text.slice(0,180)}`);
+  const verify=await api.getLineup(dateKey);
+  const verified=(verify.json?.lineup?.playerIds??[]).map(String).sort();
+  if(verified.length!==sortedIds.length||verified.some((id,i)=>id!==sortedIds[i]))throw new Error('提交后回读校验不一致');
+  return {dateKey,status:'submitted',players:chosen.map(p=>p.name),expected,energy,formation:`${front}前${back}后`,message:'已提交并回读确认'};
+}
 
 const server = http.createServer(async (req,res) => {
   const url = new URL(req.url, 'http://localhost');
@@ -90,41 +127,35 @@ const server = http.createServer(async (req,res) => {
       return send(res,200,{ok:true,file:path.relative(ROOT,file),message:'模型选人文件已生成；服务器提交仍需人工确认。'});
     }
     if (url.pathname === '/api/submit' && req.method === 'POST') {
-      const expected=process.env.BAO5_WEB_SUBMIT_TOKEN??'';
-      const supplied=String(req.headers['x-bao5-submit-token']??'');
-      if(!expected)return send(res,503,{error:'尚未启用网页提交：请在 Vercel 配置 BAO5_WEB_SUBMIT_TOKEN 并重新部署'});
-      const a=Buffer.from(expected),b=Buffer.from(supplied);
-      if(a.length!==b.length||!timingSafeEqual(a,b))return send(res,401,{error:'提交口令不正确'});
-      const origin=req.headers.origin;
-      const requestHost=String(req.headers['x-forwarded-host']??req.headers.host??'').split(',')[0].trim();
-      if(origin&&new URL(origin).host!==requestHost)return send(res,403,{error:'请求来源与当前站点不匹配'});
+      const auth=submitAuthError(req);if(auth)return send(res,auth.status,{error:auth.error});
       const {dateKey,playerIds}=await body(req);
-      if(!/^\d{4}-\d\d-\d\d$/.test(dateKey)||!Array.isArray(playerIds)||playerIds.length!==5||new Set(playerIds.map(String)).size!==5)return send(res,400,{error:'需要选择一个比赛日和不重复的 5 名球员'});
+      if(!/^\d{4}-\d\d-\d\d$/.test(dateKey))return send(res,400,{error:'请提供有效的比赛日期'});
       const data=await getDashboard({refresh:true});
       const slate=data.slates.find(s=>s.dateKey===dateKey);
-      if(!slate?.lineup)return send(res,422,{error:'该赛程日没有可提交的合法阵容'});
-      if(Date.now()>=slate.lockedAt||slate.games.some(g=>g.status===2||g.status===3))return send(res,409,{error:'该比赛日已锁定或比赛已开始，不能再更新阵容'});
-      const submittedIds=playerIds.map(String).sort();
-      const candidateMap=new Map(slate.players.map(p=>[String(p.id),p]));
-      const chosen=submittedIds.map(id=>candidateMap.get(id));
-      if(chosen.some(p=>!p))return send(res,409,{error:'阵容包含不属于该比赛日或已失效的球员，请刷新后再试'});
-      const front=chosen.filter(p=>p.position==='front').length;
-      const back=chosen.filter(p=>p.position==='back').length;
-      const energy=chosen.reduce((sum,p)=>sum+Number(p.energy||0),0);
-      if(chosen.length!==5||![2,3].includes(front)||back!==5-front||energy>150)return send(res,422,{error:`阵容规则不满足（前场 ${front}、后场 ${back}、能量 ${energy}/150）`});
-      const expectedScore=Number(chosen.reduce((sum,p)=>sum+Number(p.projected||0),0).toFixed(1));
+      if(!slate)return send(res,404,{error:'找不到该比赛日，请刷新页面'});
       const cfg=loadConfig();
       const api=new Bao5({baseUrl:cfg.baseUrl});
       await api.login(cfg.email,cfg.password);
-      const current=await api.getLineup(dateKey);
-      const currentIds=(current.json?.lineup?.playerIds??[]).map(String).sort();
-      if(currentIds.length===5&&currentIds.every((id,i)=>id===submittedIds[i]))return send(res,200,{ok:true,alreadySubmitted:true,dateKey,players:chosen.map(p=>p.name),expected:expectedScore,message:'该阵容已在每日一阵账号中，无需重复提交'});
-      const result=await api.post('/api/lineups',{dateKey,playerIds:chosen.map(p=>p.id),salaryUsed:energy});
-      if(!result.ok)return send(res,502,{error:`每日一阵拒绝提交（HTTP ${result.status}）：${result.json?.message??result.text.slice(0,180)}`});
-      const verify=await api.getLineup(dateKey);
-      const verified=(verify.json?.lineup?.playerIds??[]).map(String).sort();
-      if(verified.length!==submittedIds.length||verified.some((id,i)=>id!==submittedIds[i]))return send(res,502,{error:'每日一阵提交后回读校验不一致，请检查账号阵容'});
-      return send(res,200,{ok:true,dateKey,players:chosen.map(p=>p.name),expected:expectedScore,energy,formation:`${front}前${back}后`,message:'阵容已同步到每日一阵账号，并已回读确认'});
+      const result=await syncSlate(api,slate,playerIds);
+      return send(res,200,{ok:true,...result,message:result.status==='unchanged'?'该阵容已在每日一阵账号中，无需重复提交':result.message});
+    }
+    if (url.pathname === '/api/submit-week' && req.method === 'POST') {
+      const auth=submitAuthError(req);if(auth)return send(res,auth.status,{error:auth.error});
+      const data=await getDashboard({refresh:true});
+      const cfg=loadConfig();
+      const api=new Bao5({baseUrl:cfg.baseUrl});
+      await api.login(cfg.email,cfg.password);
+      const results=[];
+      for(const slate of data.slates.slice(0,7)){
+        if(!slate.lineup){results.push({dateKey:slate.dateKey,status:'skipped',message:'没有可用阵容'});continue;}
+        if(Date.now()>=slate.lockedAt||slate.games.some(g=>g.status===2||g.status===3)){
+          results.push({dateKey:slate.dateKey,status:'skipped',message:'已锁定或比赛已开始'});continue;
+        }
+        try{results.push(await syncSlate(api,slate,slate.lineup.players.map(p=>p.id)));}
+        catch(error){results.push({dateKey:slate.dateKey,status:'failed',message:error.message});}
+      }
+      const failed=results.filter(x=>x.status==='failed').length;
+      return send(res,failed?207:200,{ok:failed===0,results,summary:`${results.filter(x=>x.status==='submitted').length} 天已提交，${results.filter(x=>x.status==='unchanged').length} 天无需更新，${results.filter(x=>x.status==='skipped').length} 天跳过，${failed} 天失败`});
     }
     const resolved=path.resolve(webRoot, `.${decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname)}`);
     if (!resolved.startsWith(webRoot)) return send(res,404,{error:'not found'});

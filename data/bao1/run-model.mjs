@@ -55,64 +55,68 @@ try {
   const factor=predicted?Math.max(.85,Math.min(1.15,actual/predicted)):1;
   const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor});
   const now=Date.now();
-  const slate=result.slates.find(s=>s.startMs>now-15*60_000&&s.games.some(g=>g.status!==3));
-  if(!slate?.lineup)throw new Error('未找到尚未锁定且有比赛的下一赛程日');
-  say(`目标赛程日 ${slate.dateKey}：${slate.games.length} 场；首场锁定 ${new Date(slate.lockedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}（北京时间）`);
-  if(now>=slate.lockedAt)throw new Error('BAO5 已到当日锁定时间；按平台规则停止提交');
-  if(slate.games.some(g=>g.status===2))throw new Error('当日比赛已开始，停止更新已锁定阵容');
-  let lineup=slate.lineup;
-  const minsToLock=(slate.lockedAt-now)/60_000;
-  const prior=previous.find(x=>x.dateKey===slate.dateKey);
-  const lineupIds=()=>lineup.players.map(p=>String(p.id));
-  // Probe official NBA boxscores only near the daily lock; don't infer starters from projections.
-  if(minsToLock<=45&&minsToLock>-5){
-    const selected=new Set(lineupIds());
-    const allUpcoming=slate.games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>now);
-    for(const game of allUpcoming){
-      const gameId=game.gameId??game.id??game.game_id;
-      if(!gameId)throw new Error(`赛程 ${game.away}@${game.home} 缺少 NBA Game ID，无法安全核实首发`);
-      const box=await api.getGameBoxscore(gameId);
-      const sides=[box.game?.homeTeam,box.game?.awayTeam].filter(Boolean);
-      for(const side of sides){
-        const roster=side.players??[];
-        const starters=roster.filter(p=>p.starter===1||p.starter==='1'||p.starter===true);
-        if(starters.length<5){say(`${gameId} ${side.teamTricode??''} 首发尚未完整公布，暂不调整该队球员`);continue;}
-        const starterIds=new Set(starters.map(p=>String(p.personId)));
-        for(const p of slate.players){
-          if(!roster.some(r=>String(r.personId)===String(p.id)))continue;
-          p.starterConfirmed=starterIds.has(String(p.id));
-          if(selected.has(String(p.id))&&!p.starterConfirmed)say(`NBA 首发已确认：${p.name}（${p.id}）未首发，将重新优化阵容`);
+  const slates=result.slates.filter(s=>s.lineup&&s.games.some(g=>g.status!==3)).slice(0,7);
+  if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
+  let history=previous;
+  const failures=[];
+  for(const slate of slates){
+    try{
+      say(`检查赛程日 ${slate.dateKey}：${slate.games.length} 场；首场锁定 ${new Date(slate.lockedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}（北京时间）`);
+      if(Date.now()>=slate.lockedAt||slate.games.some(g=>g.status===2)){say(`${slate.dateKey} 已锁定或比赛已开始，跳过`);continue;}
+      let lineup=slate.lineup;
+      const minsToLock=(slate.lockedAt-Date.now())/60_000;
+      const prior=history.find(x=>x.dateKey===slate.dateKey);
+      const lineupIds=()=>lineup.players.map(p=>String(p.id));
+      // Probe official NBA boxscores only near the daily lock; don't infer starters from projections.
+      if(minsToLock<=45&&minsToLock>-5){
+        const selected=new Set(lineupIds());
+        const allUpcoming=slate.games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>Date.now());
+        for(const game of allUpcoming){
+          const gameId=game.gameId??game.id??game.game_id;
+          if(!gameId)throw new Error(`赛程 ${game.away}@${game.home} 缺少 NBA Game ID，无法安全核实首发`);
+          const box=await api.getGameBoxscore(gameId);
+          const sides=[box.game?.homeTeam,box.game?.awayTeam].filter(Boolean);
+          for(const side of sides){
+            const roster=side.players??[];
+            const starters=roster.filter(p=>p.starter===1||p.starter==='1'||p.starter===true);
+            if(starters.length<5){say(`${gameId} ${side.teamTricode??''} 首发尚未完整公布，暂不调整该队球员`);continue;}
+            const starterIds=new Set(starters.map(p=>String(p.personId)));
+            for(const p of slate.players){
+              if(!roster.some(r=>String(r.personId)===String(p.id)))continue;
+              p.starterConfirmed=starterIds.has(String(p.id));
+              if(selected.has(String(p.id))&&!p.starterConfirmed)say(`NBA 首发已确认：${p.name}（${p.id}）未首发，将重新优化阵容`);
+            }
+          }
+        }
+        const needsSwap=lineup.players.some(p=>p.starterConfirmed===false);
+        if(needsSwap){
+          const { optimizeLineup }=await import('../../src/model.mjs');
+          const optimized=optimizeLineup(slate.players.filter(p=>p.starterConfirmed!==false));
+          if(!optimized)throw new Error('已确认首发不足以组成合法阵容；为避免空缺，不自动提交');
+          lineup=optimized;
+          say(`首发过滤后新阵容：${lineup.players.map(p=>p.name).join('、')}；预期 ${lineup.expected} 分`);
         }
       }
-    }
-    const confirmedPool=slate.players.filter(p=>p.starterConfirmed!==false);
-    const needsSwap=lineup.players.some(p=>p.starterConfirmed===false);
-    if(needsSwap){
-      const { optimizeLineup }=await import('../../src/model.mjs');
-      const optimized=optimizeLineup(confirmedPool);
-      if(!optimized)throw new Error('已确认首发不足以组成合法阵容；为避免空缺，不自动提交');
-      lineup=optimized;
-      say(`首发过滤后新阵容：${lineup.players.map(p=>p.name).join('、')}；预期 ${lineup.expected} 分`);
-    }
+      if(Date.now()>=slate.lockedAt)throw new Error('处理期间已进入 BAO5 锁定时间');
+      const picksPath=writePicks(slate.dateKey,lineupIds());
+      const current=await api.getLineup(slate.dateKey);
+      const oldIds=current.json?.lineup?.playerIds??[];
+      const same=oldIds.length===5&&oldIds.every(id=>lineup.players.some(p=>String(p.id)===String(id)));
+      if(same)say(`${slate.dateKey} 当前阵容与模型结果一致，无需重复提交`);
+      else{
+        say(`${slate.dateKey} 模型阵容 ${lineup.formation}、能量 ${lineup.energy}/150、预期 ${lineup.expected} 分；提交更新`);
+        run('auto-lineup.mjs',['--picks',path.relative(ROOT,picksPath),'--date',slate.dateKey,'--commit']);
+      }
+      const verification=await api.getLineup(slate.dateKey);
+      const submitted=verification.json?.lineup?.playerIds??[];
+      if(lineup.players.length!==submitted.length||!lineup.players.every(p=>submitted.map(String).includes(String(p.id))))throw new Error('提交后回读阵容与模型结果不一致');
+      const row={dateKey:slate.dateKey,updatedAt:new Date().toISOString(),players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,...(prior?.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1))}:{})};
+      history=[...history.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
+      saveHistory(history);
+      say(`${slate.dateKey} 已确认 BAO5 阵容：${lineup.players.map(p=>p.name).join('、')}`);
+    }catch(error){failures.push(`${slate.dateKey}: ${error.message}`);say(`${slate.dateKey} 处理失败：${error.message}`);}
   }
-  if(now>=slate.lockedAt)throw new Error('BAO5 已到当日锁定时间；按平台规则停止提交');
-  const picksPath=writePicks(slate.dateKey,lineupIds());
-  const current=await api.getLineup(slate.dateKey);
-  const oldIds=current.json?.lineup?.playerIds??[];
-  const same=oldIds.length===5&&oldIds.every(id=>lineup.players.some(p=>String(p.id)===String(id)));
-  if(same) say('当前已提交阵容与模型结果一致，无需重复提交');
-  else {
-    say(`模型阵容 ${lineup.formation}、能量 ${lineup.energy}/150、预期 ${lineup.expected} 分；更新游戏阵容`);
-    const relative=path.relative(ROOT,picksPath);
-    run('auto-lineup.mjs',['--picks',relative,'--date',slate.dateKey,'--commit']);
-  }
-  const verification=await api.getLineup(slate.dateKey);
-  const submitted=verification.json?.lineup?.playerIds??[];
-  const verified=lineup.players.length===submitted.length&&lineup.players.every(p=>submitted.map(String).includes(String(p.id)));
-  if(!verified)throw new Error('提交后回读阵容与模型结果不一致');
-  const row={dateKey:slate.dateKey,updatedAt:new Date().toISOString(),players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,...(prior?.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1))}:{})};
-  saveHistory([...previous.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey)));
-  say(`已确认 BAO5 阵容：${lineup.players.map(p=>p.name).join('、')}`);
+  if(failures.length)throw new Error(`${failures.length} 个比赛日处理失败：${failures.join('；')}`);
 } catch(error) {
   say(`失败：${error.message}`);
   process.exitCode=1;
