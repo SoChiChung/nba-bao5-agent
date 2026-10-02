@@ -1,6 +1,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from '../data/bao1/bao5.mjs';
 import { buildDashboardData, ROOT, writePicks } from './model.mjs';
@@ -88,7 +89,43 @@ const server = http.createServer(async (req,res) => {
       const file=writePicks(dateKey,ids);
       return send(res,200,{ok:true,file:path.relative(ROOT,file),message:'模型选人文件已生成；服务器提交仍需人工确认。'});
     }
-    if (url.pathname === '/api/submit' && req.method === 'POST') return send(res,403,{error:'页面当前为预测/草稿模式。请通过本地命令行 dry-run 复核后，再显式执行 --commit。'});
+    if (url.pathname === '/api/submit' && req.method === 'POST') {
+      const expected=process.env.BAO5_WEB_SUBMIT_TOKEN??'';
+      const supplied=String(req.headers['x-bao5-submit-token']??'');
+      if(!expected)return send(res,503,{error:'尚未启用网页提交：请在 Vercel 配置 BAO5_WEB_SUBMIT_TOKEN 并重新部署'});
+      const a=Buffer.from(expected),b=Buffer.from(supplied);
+      if(a.length!==b.length||!timingSafeEqual(a,b))return send(res,401,{error:'提交口令不正确'});
+      const origin=req.headers.origin;
+      const requestHost=String(req.headers['x-forwarded-host']??req.headers.host??'').split(',')[0].trim();
+      if(origin&&new URL(origin).host!==requestHost)return send(res,403,{error:'请求来源与当前站点不匹配'});
+      const {dateKey,playerIds}=await body(req);
+      if(!/^\d{4}-\d\d-\d\d$/.test(dateKey)||!Array.isArray(playerIds)||playerIds.length!==5||new Set(playerIds.map(String)).size!==5)return send(res,400,{error:'需要选择一个比赛日和不重复的 5 名球员'});
+      const data=await getDashboard({refresh:true});
+      const slate=data.slates.find(s=>s.dateKey===dateKey);
+      if(!slate?.lineup)return send(res,422,{error:'该赛程日没有可提交的合法阵容'});
+      if(Date.now()>=slate.lockedAt||slate.games.some(g=>g.status===2||g.status===3))return send(res,409,{error:'该比赛日已锁定或比赛已开始，不能再更新阵容'});
+      const submittedIds=playerIds.map(String).sort();
+      const candidateMap=new Map(slate.players.map(p=>[String(p.id),p]));
+      const chosen=submittedIds.map(id=>candidateMap.get(id));
+      if(chosen.some(p=>!p))return send(res,409,{error:'阵容包含不属于该比赛日或已失效的球员，请刷新后再试'});
+      const front=chosen.filter(p=>p.position==='front').length;
+      const back=chosen.filter(p=>p.position==='back').length;
+      const energy=chosen.reduce((sum,p)=>sum+Number(p.energy||0),0);
+      if(chosen.length!==5||![2,3].includes(front)||back!==5-front||energy>150)return send(res,422,{error:`阵容规则不满足（前场 ${front}、后场 ${back}、能量 ${energy}/150）`});
+      const expectedScore=Number(chosen.reduce((sum,p)=>sum+Number(p.projected||0),0).toFixed(1));
+      const cfg=loadConfig();
+      const api=new Bao5({baseUrl:cfg.baseUrl});
+      await api.login(cfg.email,cfg.password);
+      const current=await api.getLineup(dateKey);
+      const currentIds=(current.json?.lineup?.playerIds??[]).map(String).sort();
+      if(currentIds.length===5&&currentIds.every((id,i)=>id===submittedIds[i]))return send(res,200,{ok:true,alreadySubmitted:true,dateKey,players:chosen.map(p=>p.name),expected:expectedScore,message:'该阵容已在每日一阵账号中，无需重复提交'});
+      const result=await api.post('/api/lineups',{dateKey,playerIds:chosen.map(p=>p.id),salaryUsed:energy});
+      if(!result.ok)return send(res,502,{error:`每日一阵拒绝提交（HTTP ${result.status}）：${result.json?.message??result.text.slice(0,180)}`});
+      const verify=await api.getLineup(dateKey);
+      const verified=(verify.json?.lineup?.playerIds??[]).map(String).sort();
+      if(verified.length!==submittedIds.length||verified.some((id,i)=>id!==submittedIds[i]))return send(res,502,{error:'每日一阵提交后回读校验不一致，请检查账号阵容'});
+      return send(res,200,{ok:true,dateKey,players:chosen.map(p=>p.name),expected:expectedScore,energy,formation:`${front}前${back}后`,message:'阵容已同步到每日一阵账号，并已回读确认'});
+    }
     const resolved=path.resolve(webRoot, `.${decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname)}`);
     if (!resolved.startsWith(webRoot)) return send(res,404,{error:'not found'});
     if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) return send(res,404,{error:'not found'});

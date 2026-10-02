@@ -68,31 +68,24 @@ try {
   if(minsToLock<=45&&minsToLock>-5){
     const selected=new Set(lineupIds());
     const allUpcoming=slate.games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>now);
-    const covered=new Set();
     for(const game of allUpcoming){
       const gameId=game.gameId??game.id??game.game_id;
       if(!gameId)throw new Error(`赛程 ${game.away}@${game.home} 缺少 NBA Game ID，无法安全核实首发`);
       const box=await api.getGameBoxscore(gameId);
-      const roster=[...(box.game?.homeTeam?.players??[]),...(box.game?.awayTeam?.players??[])];
-      for(const p of roster)covered.add(String(p.personId));
-      if(!roster.some(p=>p.starter===1||p.starter==='1'||p.starter===true)){
-        if(selected.size===5&&lineup.players.every(p=>roster.some(r=>String(r.personId)===String(p.id)))){
-          say(`比赛 ${gameId} roster 已发布，所选 5 人均已确认列入名单；starter 标记暂不可用，维持当前选择`);
-          continue;
+      const sides=[box.game?.homeTeam,box.game?.awayTeam].filter(Boolean);
+      for(const side of sides){
+        const roster=side.players??[];
+        const starters=roster.filter(p=>p.starter===1||p.starter==='1'||p.starter===true);
+        if(starters.length<5){say(`${gameId} ${side.teamTricode??''} 首发尚未完整公布，暂不调整该队球员`);continue;}
+        const starterIds=new Set(starters.map(p=>String(p.personId)));
+        for(const p of slate.players){
+          if(!roster.some(r=>String(r.personId)===String(p.id)))continue;
+          p.starterConfirmed=starterIds.has(String(p.id));
+          if(selected.has(String(p.id))&&!p.starterConfirmed)say(`NBA 首发已确认：${p.name}（${p.id}）未首发，将重新优化阵容`);
         }
-        throw new Error(`比赛 ${gameId} 的官方首发尚未公布；保留原阵容，等待下一轮检查`);
-      }
-      const starters=new Set(roster.filter(p=>p.starter===1||p.starter==='1'||p.starter===true).map(p=>String(p.personId)));
-      for(const id of selected){
-        const nbaPlayer=roster.find(p=>String(p.personId)===id);
-        if(nbaPlayer&&!starters.has(id))say(`NBA 首发核实：${nbaPlayer.name}（${id}）不在首发，启动阵容重新优化`);
-      }
-      for(const p of lineup.players){
-        if(roster.some(r=>String(r.personId)===String(p.id)))p.starterConfirmed=starters.has(String(p.id));
       }
     }
-    for(const p of slate.players)if(selected.has(String(p.id))&&!covered.has(String(p.id)))throw new Error(`所选球员 ${p.name} 的首发状态未能核实；停止提交`);
-    const confirmedPool=slate.players.filter(p=>p.starterConfirmed===true);
+    const confirmedPool=slate.players.filter(p=>p.starterConfirmed!==false);
     const needsSwap=lineup.players.some(p=>p.starterConfirmed===false);
     if(needsSwap){
       const { optimizeLineup }=await import('../../src/model.mjs');
