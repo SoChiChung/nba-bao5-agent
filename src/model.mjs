@@ -3,6 +3,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Vercel bundles the project under /var/task, which is read-only at runtime.
+// Keep mutable runtime state in /tmp there; local runs continue using the repo.
+export const RUNTIME_ROOT = process.env.VERCEL ? path.join('/tmp', 'nba-agent') : ROOT;
 const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 const round = x => Math.round((x + Number.EPSILON) * 10) / 10;
@@ -194,7 +197,8 @@ export function optimizeLineup(pool) {
 const optimize = optimizeLineup;
 
 export function writePicks(dateKey, ids) {
-  const target = path.join(ROOT, 'data', 'bao5', 'bao1', `model-picks-${dateKey}.json`);
+  const target = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', `model-picks-${dateKey}.json`);
+  fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, JSON.stringify({ ids }, null, 2) + '\n', 'utf8');
   return target;
 }

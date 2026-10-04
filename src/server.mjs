@@ -4,12 +4,15 @@ import path from 'node:path';
 import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
-import { buildDashboardData, ROOT, writePicks } from './model.mjs';
+import { buildDashboardData, ROOT, RUNTIME_ROOT, writePicks } from './model.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
-const historyPath = path.join(ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
-const scoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
+const historyPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
+const sourceHistoryPath = path.join(ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
+const scoreDir = path.join(RUNTIME_ROOT, 'data', 'bao5', 'scores');
+const sourceScoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
 const lineupHistoryPath = path.join(scoreDir, 'top-five-lineups.json');
+const sourceLineupHistoryPath = path.join(sourceScoreDir, 'top-five-lineups.json');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml' };
 let cache = null;
 let refreshing = null;
@@ -74,10 +77,11 @@ async function getDashboard({ refresh = false } = {}) {
 function combineDefense(json) { return json.season_2025_26 ?? []; }
 
 function readJson(relative, fallback) { try { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); } catch { return fallback; } }
-function readHistory() { try { return JSON.parse(fs.readFileSync(historyPath,'utf8')); } catch { return []; } }
-const preferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
-function readPreferences(){try{return JSON.parse(fs.readFileSync(preferencesPath,'utf8'));}catch{return {mode:'lowRisk',customWeights:null};}}
-function savePreferences(value){fs.writeFileSync(preferencesPath,JSON.stringify(value,null,2)+'\n','utf8');}
+function readHistory() { for(const file of [historyPath,sourceHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}} return []; }
+const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
+const sourcePreferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
+function readPreferences(){for(const file of [preferencesPath,sourcePreferencesPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {mode:'lowRisk',customWeights:null};}
+function savePreferences(value){fs.mkdirSync(path.dirname(preferencesPath),{recursive:true});fs.writeFileSync(preferencesPath,JSON.stringify(value,null,2)+'\n','utf8');}
 async function getDailyScoreSnapshot(api){
   const dateKey=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const target=path.join(scoreDir,`rankings_${dateKey}.json`);
@@ -91,7 +95,7 @@ async function getDailyScoreSnapshot(api){
   try{return JSON.parse(fs.readFileSync(target,'utf8'));}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
 }
 async function refreshTopFiveLineups(api,score,players){
-  const store=(()=>{try{return JSON.parse(fs.readFileSync(lineupHistoryPath,'utf8'));}catch{return {dates:{}};}})();store.dates??={};
+  const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};
   if(score?.date&&Array.isArray(score.board)&&(!store.dates[score.date]?.lineups?.length||store.dates[score.date].lineups.length<5)){
     const top=score.board.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
     const dateRecord={date:score.date,fetchedAt:new Date().toISOString(),lineups:[...(store.dates[score.date]?.lineups??[])]};
@@ -133,7 +137,7 @@ function analyzeTopFive(row,score,players=[]){
   return {mine:{score:mine.score,rank:mine.rank},leader:{score:top[0]?.score??null,name:top[0]?.displayName??null},gapToLeader:top[0]?Number((Number(top[0].score)-Number(mine.score)).toFixed(1)):null,topFive:top.map(x=>{const lineup=dailyLineups.find(y=>String(y.userId)===String(x.userId));return {name:x.displayName,score:x.score,rank:x.rank,remainingSalary:x.remainingSalary,players:(lineup?.playerIds??[]).map(id=>({id,name:playerNames.get(String(id))??lineup.playerNames?.[String(id)]??lineup.names?.[String(id)]??lineup.players?.find(p=>String(p.id??p.playerId??p.userId)===String(id))?.name??lineup.players?.find(p=>String(p.id??p.playerId??p.userId)===String(id))?.playerName??`球员 ${String(id)}`,score:Number(lineup.playerScores?.[String(id)]??lineup.scores?.[String(id)]??0)}))};}),popularPicks,selectedPlayers:mySelectedPlayers,notes:[row.scoreDelta<0?`预测高估 ${Math.abs(row.scoreDelta).toFixed(1)} 分；对比前五后优先复盘未选中的高产球员、伤病状态、首发与实际上场情况。`: '实际分数达到或超过预测，继续观察该模式稳定性。',dailyLineups.length?'已读取公开的前五名结算阵容及逐人得分；选人偏好会累计保存并以低权重参与后续决策。':'尚未读取到已揭晓的前五阵容，可能是结算未揭晓或接口暂不可用。']};
 }
 function aggregateTopFivePicks(lineups,playerNames=new Map()){const byPlayer=new Map();for(const lineup of lineups)for(const id of lineup.playerIds??[]){const key=String(id);const detail=lineup.players?.find(p=>String(p.id??p.playerId)===key);const item=byPlayer.get(key)??{id:key,name:playerNames.get(key)??lineup.playerNames?.[key]??detail?.name??detail?.playerName??`球员 ${key}`,selections:0,points:0};item.name??=lineup.playerNames?.[key]??detail?.name??detail?.playerName;item.selections++;item.points+=Number(lineup.playerScores?.[key]??lineup.scores?.[key]??detail?.score??detail?.points??0);byPlayer.set(key,item);}return [...byPlayer.values()].map(x=>({...x,averagePoints:Number((x.points/x.selections).toFixed(1))})).sort((a,b)=>b.selections-a.selections||b.averagePoints-a.averagePoints);}
-function saveHistory(rows) { fs.writeFileSync(historyPath, JSON.stringify(rows,null,2)+'\n','utf8'); }
+function saveHistory(rows) { fs.mkdirSync(path.dirname(historyPath),{recursive:true});fs.writeFileSync(historyPath, JSON.stringify(rows,null,2)+'\n','utf8'); }
 function calibration(rows){const done=rows.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));const predicted=done.reduce((s,x)=>s+x.expected,0),actual=done.reduce((s,x)=>s+x.actualTotal,0);return predicted?Number(Math.max(.85,Math.min(1.15,actual/predicted)).toFixed(3)):1;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
 async function body(req) { let data=''; for await (const chunk of req) data+=chunk; return data ? JSON.parse(data) : {}; }
