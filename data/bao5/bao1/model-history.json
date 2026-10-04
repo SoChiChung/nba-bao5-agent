@@ -316,28 +316,28 @@
   },
   {
     "dateKey": "2026-10-05",
-    "updatedAt": "2026-10-04T06:06:52.987Z",
+    "updatedAt": "2026-10-04T10:02:40.941Z",
     "players": [
       "1627750",
       "201939",
-      "1629001",
+      "1631128",
       "1642846",
       "201572"
     ],
-    "expected": 125.3,
+    "expected": 113.9,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
     "injuryDate": "2026-10-04",
-    "injuryUpdatedAt": "2026-10-04T06:06:48.999Z",
+    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
     "submission": {
-      "status": "unchanged-verified",
-      "verifiedAt": "2026-10-04T06:06:52.987Z",
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-04T10:02:40.941Z",
       "playerIds": [
         "1627750",
         "201939",
-        "1629001",
+        "1631128",
         "1642846",
         "201572"
       ]
@@ -369,22 +369,200 @@
           "201572"
         ],
         "expected": 125.3
-      }
-    ],
-    "rankSnapshot": [
-      {
-        "leagueName": "AI Bao5 league",
-        "rank": 1,
-        "score": 48,
-        "weeklyRank": 1,
-        "weeklyScore": 48
       },
       {
-        "leagueName": "李堡是笨蛋",
-        "rank": 3,
-        "score": 48,
-        "weeklyRank": 3,
-        "weeklyScore": 48
+        "at": "2026-10-04T10:02:40.941Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1627750",
+          "201939",
+          "1631128",
+          "1642846",
+          "201572"
+        ],
+        "expected": 113.9,
+        "submission": "submitted-verified"
+      }
+    ]
+  },
+  {
+    "dateKey": "2026-10-06",
+    "updatedAt": "2026-10-04T10:02:46.156Z",
+    "players": [
+      "1630162",
+      "1630163",
+      "1631157",
+      "1630173",
+      "1642854"
+    ],
+    "expected": 115.4,
+    "energy": 150,
+    "formation": "2前3后",
+    "source": "scheduled-model",
+    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
+    "injuryDate": "2026-10-04",
+    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "submission": {
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-04T10:02:46.156Z",
+      "playerIds": [
+        "1630162",
+        "1630163",
+        "1631157",
+        "1630173",
+        "1642854"
+      ]
+    },
+    "updates": [
+      {
+        "at": "2026-10-04T10:02:46.156Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630162",
+          "1630163",
+          "1631157",
+          "1630173",
+          "1642854"
+        ],
+        "expected": 115.4,
+        "submission": "submitted-verified"
+      }
+    ]
+  },
+  {
+    "dateKey": "2026-10-07",
+    "updatedAt": "2026-10-04T10:02:51.973Z",
+    "players": [
+      "1627750",
+      "1641718",
+      "201942",
+      "1642846",
+      "1626172"
+    ],
+    "expected": 113.2,
+    "energy": 150,
+    "formation": "2前3后",
+    "source": "scheduled-model",
+    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
+    "injuryDate": "2026-10-04",
+    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "submission": {
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-04T10:02:51.973Z",
+      "playerIds": [
+        "1627750",
+        "1641718",
+        "201942",
+        "1642846",
+        "1626172"
+      ]
+    },
+    "updates": [
+      {
+        "at": "2026-10-04T10:02:51.973Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1627750",
+          "1641718",
+          "201942",
+          "1642846",
+          "1626172"
+        ],
+        "expected": 113.2,
+        "submission": "submitted-verified"
+      }
+    ]
+  },
+  {
+    "dateKey": "2026-10-08",
+    "updatedAt": "2026-10-04T10:02:58.663Z",
+    "players": [
+      "1630162",
+      "1630163",
+      "1630245",
+      "201143",
+      "1641783"
+    ],
+    "expected": 115.2,
+    "energy": 150,
+    "formation": "2前3后",
+    "source": "scheduled-model",
+    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
+    "injuryDate": "2026-10-04",
+    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "submission": {
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-04T10:02:58.663Z",
+      "playerIds": [
+        "1630162",
+        "1630163",
+        "1630245",
+        "201143",
+        "1641783"
+      ]
+    },
+    "updates": [
+      {
+        "at": "2026-10-04T10:02:58.663Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630162",
+          "1630163",
+          "1630245",
+          "201143",
+          "1641783"
+        ],
+        "expected": 115.2,
+        "submission": "submitted-verified"
+      }
+    ]
+  },
+  {
+    "dateKey": "2026-10-09",
+    "updatedAt": "2026-10-04T10:02:59.762Z",
+    "players": [
+      "1628973",
+      "1628404",
+      "1631099",
+      "1642847",
+      "1630173"
+    ],
+    "expected": 115,
+    "energy": 150,
+    "formation": "2前3后",
+    "source": "scheduled-model",
+    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
+    "injuryDate": "2026-10-04",
+    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "submission": {
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-04T10:02:59.762Z",
+      "playerIds": [
+        "1628973",
+        "1628404",
+        "1631099",
+        "1642847",
+        "1630173"
+      ]
+    },
+    "updates": [
+      {
+        "at": "2026-10-04T10:02:59.762Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1628973",
+          "1628404",
+          "1631099",
+          "1642847",
+          "1630173"
+        ],
+        "expected": 115,
+        "submission": "unchanged-verified"
       }
     ]
   }
