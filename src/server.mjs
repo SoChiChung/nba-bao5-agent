@@ -24,7 +24,9 @@ async function getDashboard({ refresh = false } = {}) {
     const [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
     const injuries = readJson('data/bao5/injury/latest.json');
     const latestOdds = readJson('data/odds/latest.json');
-    const usage=readJson('data/odds/usage-log.json');
+    // usage-log.json is intentionally gitignored because it is local runtime state.
+    // A fresh deployment may not have it yet, so treat it as an empty usage log.
+    const usage=readJson('data/odds/usage-log.json',{monthlyQuota:200,calls:[]});
     const weeklyLeague=readJson('data/bao5/league/latest.json');
     const preseasonOddsFile = latestOdds?.tournaments?.nbaPreseason?.file ?? 'nba-preseason/odds_2026-10-02.json';
     const nbaOddsFile = latestOdds?.tournaments?.nba?.file ?? 'nba/odds_2026-10-02.json';
@@ -71,7 +73,7 @@ async function getDashboard({ refresh = false } = {}) {
 
 function combineDefense(json) { return json.season_2025_26 ?? []; }
 
-function readJson(relative) { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); }
+function readJson(relative, fallback) { try { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); } catch { return fallback; } }
 function readHistory() { try { return JSON.parse(fs.readFileSync(historyPath,'utf8')); } catch { return []; } }
 const preferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
 function readPreferences(){try{return JSON.parse(fs.readFileSync(preferencesPath,'utf8'));}catch{return {mode:'lowRisk',customWeights:null};}}
