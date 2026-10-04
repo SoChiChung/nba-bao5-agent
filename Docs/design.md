@@ -1,7 +1,8 @@
 # Design — 数据来源与获取方式
 
-> 本文档记录本项目所依赖的 **七个数据源**：各自的位置、用途、运行方式，以及**输入 / 输出格式**。
-> 核心原则：**数据采集与决策解耦**。`data/bao1/` 只负责「执行已决策结果」，不产生决策。
+> 本文档记录本项目所依赖的 **九个数据源**：各自的位置、用途、运行方式，以及**输入 / 输出格式**。
+> 本站 API 的**全量端点总表**（含尚未接入的端点）统一维护在 **`data/bao5/API.md`**；下表只列「已成为本项目数据源」的模块。
+> 核心原则：**数据采集与决策解耦**。`data/bao5/bao1/` 只负责「执行已决策结果」，不产生决策。
 >
 > **当前优先级：专注「逻辑一 BAO5 每日一阵」。逻辑二 NBA Fantasy 暂缓**——§3 内容保留备查，暂不投入开发。
 
@@ -22,7 +23,7 @@
 | 周期节奏 | **逐日**（`dateKey`，美东日期） | **Gameweek / Day**（共 159 个赛事日） |
 | 数据来源 | 本站自有 API：`/api/nba/players` + `/api/nba/schedule` | 官方 `bootstrap-static` |
 | 提交动作 | 需登录，`POST /api/lineups` | 官方玩法，本项目目前**未接入提交** |
-| 本项目模块 | `data/bao1/` | 评分模型（见 `NBA_Fantasy_Model_Handoff.md`） |
+| 本项目模块 | `data/bao5/bao1/` | 评分模型（见 `NBA_Fantasy_Model_Handoff.md`） |
 | 当前优先级 | **★ 优先实现** | 暂缓 |
 
 ---
@@ -31,13 +32,15 @@
 
 | # | 数据源 | 归属逻辑 | 本地位置 | 类型 | 获取方式 |
 | --- | --- | --- | --- | --- | --- |
-| **A** | BAO5 球员库 + 赛程 | 逻辑一 | 实时拉取（脚本位于 `data/bao1/`） | 本站 REST API（需登录） | Node 脚本 GET |
-| **B** | BAO5 提交执行层 | 逻辑一 | `data/bao1/` | 本站 REST API（需登录） | Node 脚本 POST |
+| **A** | BAO5 球员库 + 赛程 | 逻辑一 | 实时拉取（脚本位于 `data/bao5/bao1/`） | 本站 REST API（需登录） | Node 脚本 GET |
+| **B** | BAO5 提交执行层 | 逻辑一 | `data/bao5/bao1/` | 本站 REST API（需登录） | Node 脚本 POST |
 | **C** | NBA Defense vs Position | 两者共用 | `data/position/` | 服务端渲染网页（**无 JSON 接口**） | Python 模拟 PostBack |
 | **D** | NBA 官方 bootstrap-static | 逻辑二 | 无本地缓存（实时拉取） | 公开 REST API（免认证） | HTTP GET |
 | **E** | 赛前赔率（Pinnacle / OddsPapi） | 逻辑一（可复用于逻辑二） | `data/odds/` | 第三方 REST API（需 Key，**约 200 次/月**） | Node 脚本 GET |
 | **F** | 球员历史对阵表现（fantasynba） | 逻辑一 | `data/history-player/` | 公开网页（**无需登录**） | Node 脚本页面抓取 |
-| **G** | 伤兵名单（BAO5） | 逻辑一 | `data/injury/` | 本站 REST API（**免登录**） | Node 脚本 GET |
+| **G** | 伤兵名单（BAO5） | 逻辑一 | `data/bao5/injury/` | 本站 REST API（**免登录**） | Node 脚本 GET |
+| **H** | 联赛与排行榜（BAO5） | 逻辑一（**反馈层**） | `data/bao5/league/` | 本站 REST API（**需登录**） | Node 脚本 GET |
+| **I** | 我的得分与全站榜（BAO5） | 逻辑一（**反馈层**） | `data/bao5/` | 本站 REST API（**需登录**） | Node 脚本 GET |
 
 ---
 
@@ -120,7 +123,7 @@ BAO5 侧的一切球员信息与赛程信息，**均以本站这两个接口为�
 - **锁定判定**：某日最早一场的 `utc` 减 15 分钟为锁定线；`status === 3` 视为已结束。
 - **编码注意**：`name` / `teamName` 为中文，跨进程读取时需保证 UTF-8，否则易乱码。
 
-### 2.2 数据源 B —— 提交执行层（`data/bao1/`）
+### 2.2 数据源 B —— 提交执行层（`data/bao5/bao1/`）
 
 **定位（重要）**：本层 **不产生决策**。它接收模型或人工已定好的 5 人名单，负责「解析 → 规则校验 → 生成载荷 → 提交」。
 
@@ -170,7 +173,7 @@ node auto-lineup.mjs --picks picks.json --date 2026-10-06 --commit   # 手动指
 { "dateKey": "2026-10-04", "playerIds": ["203507", "1630567"], "salaryUsed": 148 }
 ```
 
-**运行报告**：控制台逐行日志，同时写入 `data/bao1/run-report.txt`。以下格式取自真实运行（`{...}` 为随当日变化的占位）：
+**运行报告**：控制台逐行日志，同时写入 `data/bao5/bao1/run-report.txt`。以下格式取自真实运行（`{...}` 为随当日变化的占位）：
 
 ```text
 [登录] OK  末路狂花孙皓月 <...>  id=...
@@ -373,7 +376,7 @@ node data/history-player/aggregate.js  <球员ID> [--out=<dir>]       # 聚合�
 1. **拆分赛季类型再比较**：`aggregate.js` 当前把**常规赛与季后赛混算**场均（穆雷 247 场里含 85 场季后赛），而季后赛强度与出场环境不同。建议按 `seasonType` 分开统计。
 2. **跨源关联需建映射**：`playerId` 是 fantasynba 自有编号，对手是**中文队名** —— 两者都与项目其余部分不同口径，见 §5。
 
-### 2.5 数据源 G —— 伤兵名单（`data/injury/`）
+### 2.5 数据源 G —— 伤兵名单（`data/bao5/injury/`）
 
 **端点**：`GET https://nbabao5.cn/api/nba/injuries?date=YYYY-MM-DD`
 **鉴权**：**无需登录**（公开接口，实测带 / 不带 token 结果完全一致）
@@ -394,7 +397,7 @@ node data/history-player/aggregate.js  <球员ID> [--out=<dir>]       # 聚合�
 #### G-2. 输入
 
 ```bash
-node data/injury/fetch-injuries.mjs [--date=YYYY-MM-DD] [--dry-run] [--force] \
+node data/bao5/injury/fetch-injuries.mjs [--date=YYYY-MM-DD] [--dry-run] [--force] \
                                    [--diff-only] [--no-names] [--list] [--prune=N]
 ```
 
@@ -502,6 +505,207 @@ node data/injury/fetch-injuries.mjs [--date=YYYY-MM-DD] [--dry-run] [--force] \
 - **单日原始快照约 77 KB**，一季（~200 天）约 15 MB → 用 `--prune=N` 或按月归档。
 - 「季前赛期间 `available=false`」是**正常状态，不是故障**：联赛此时尚未发布官方报告。
 - 该接口返回 565 人，**全体球员每天都会出现在 `statuses` 里**（含 `available`），因此不要用「是否出现在 statuses」判断伤病，要用 `key !== 'available'`。
+
+### 2.6 数据源 H —— 联赛与排行榜（`data/bao5/league/`）
+
+**端点**：`GET /api/leagues/mine`、`GET /api/leagues/{leagueId}?period=daily|weekly|season[&date=YYYY-MM-DD]`
+**鉴权**：**需登录**，直接复用 `data/bao5/bao1/config.json` 的 `email` / `password`（无独立配置）
+**用途**：拿到账号加入的联赛清单与各周期排行榜，作为「我的名次」的**反馈信号**（**不是**选人输入，也不产生决策）
+
+#### H-1. 关键行为（务必先读）
+
+| 行为 | 实测（2026-10-04） | 影响 |
+| --- | --- | --- |
+| **`period` 服务端不校验** | 传 `period=bogus` 仍返回 200，数值与合法值完全一致（**静默回落**） | 下游必须**自建白名单**（daily / weekly / season），不能依赖服务端 |
+| **`date` 仅在 `daily` 下有实质差异** | `daily&date=2026-10-03` → 只返回当日有分者；`season&date=2026-10-03` → 仍返回完整榜且 `range` 不变 | 默认**不传** `date` |
+| **登录响应带 `displayName`** | `user.displayName = "ZCJenius"`，与 `rows[].displayName` 一致 | 识别「我」无需额外请求 |
+| **`rows` 可能不含零分成员** | — | 须以 `members` 并集补全，未上榜者标 `hasScore:false` / `rank:null` |
+| **`seasons` 恒为 `[]`** | 2026-27 为首个赛季 | 跨赛季对比暂不可得 |
+
+#### H-2. 输入
+
+```bash
+node data/bao5/league/fetch-leagues.mjs [--period=season] [--date=YYYY-MM-DD] \
+                                   [--dry-run] [--force] [--list] [--prune=N]
+```
+
+| 参数 | 说明 |
+| --- | --- |
+| `--period=` | `daily` / `weekly` / `season`，默认 `season`；**本地白名单校验，非法值直接报错** |
+| `--date=` | 日期锚点，透传 `&date=`（默认不传） |
+| `--dry-run` | 只打印，不落盘 |
+| `--force` | 当日同周期已有快照也覆盖重写 |
+| `--list` / `--prune=N` | 列出快照 / 只保留最近 N 个 |
+
+退出码：`0` 成功 / `1` 异常（登录失败、接口失败、`--period` 非法）。
+
+#### H-3. 输出
+
+| 文件 | 内容 |
+| --- | --- |
+| `snapshots/leagues_<date>_<period>.json` | **原始响应全文**（`mine` + 各联赛榜），可回溯 |
+| `changes/rank_<date>_<period>.{json,md}` | **我的**名次 / 得分变化报告 |
+| `latest.json` | 汇总：联赛列表 + 各联赛榜单 + `myStanding` + `delta` |
+
+`<date>` 取**响应里的 `date`**（服务器真相），非本地日期；`<period>` 为 `daily|weekly|season`。
+
+**`/api/leagues/mine` → `leagues[]`**
+
+| 字段 | 类型 | 含义 |
+| --- | --- | --- |
+| `id` | str | 联赛 UUID（查榜主键） |
+| `name` / `inviteCode` | str | 联赛名 / 邀请码（**可让他人加入**，见 §7 风险项） |
+| `leaderboardConfig` | obj | `{ daily, weekly, season }` 三个周期榜是否开启 |
+| `memberCount` / `todayRank` | int | 成员数 / **我的当日排名**（免额外请求即得一维信号） |
+| `isOwner` | bool | 我是否为盟主 |
+| `seasonKey` | str | 赛季（`2026-27`） |
+| `locked` / `joinOpen` / `archivedAt` | bool / bool / str\|null | 锁定 / 是否开放加入 / 归档时间 |
+
+**`/api/leagues/{id}?period=X` → 响应**
+
+| 字段 | 类型 | 含义 |
+| --- | --- | --- |
+| `league` | obj | 联赛元信息（比 `mine` 多 `memberLimit: 20`） |
+| `members[]` | list | `{ userId, displayName, avatarKey }`（`avatarKey` 为球队缩写，如 `POR`） |
+| `rows[]` | list | **排行榜**：`{ userId, displayName, avatarKey, score, rank }`，按 `rank` 升序 |
+| `date` / `range` | str / obj | 榜单锚定日期 / 统计窗口 `{ start, end }`（实测 `2026-10-04 ~ 9999-12-31`） |
+| `seasons` | list | 历史赛季（**实测恒为空**） |
+
+**真实样例（节选）**
+
+`GET /api/leagues/mine`：
+
+```json
+{ "ok": true,
+  "leagues": [
+    { "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9", "name": "李堡是笨蛋",
+      "inviteCode": "ZXVVYA", "mode": "classic", "h2hPeriod": "week",
+      "leaderboardConfig": { "daily": true, "weekly": true, "season": true },
+      "startDate": null, "locked": false, "memberCount": 4, "isOwner": false,
+      "createdAt": 1789042742844, "startedAt": null, "seasonKey": "2026-27",
+      "archivedAt": null, "joinOpen": true, "todayRank": 3 } ] }
+```
+
+`GET /api/leagues/{id}?period=season`（节选，榜单只留 2 行）：
+
+```json
+{ "ok": true,
+  "league": { "id": "c598a342-...", "name": "李堡是笨蛋", "isOwner": false,
+              "memberLimit": 20, "seasonKey": "2026-27", "joinOpen": true },
+  "members": [ { "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+                 "displayName": "ZCJenius", "avatarKey": "POR" } ],
+  "seasons": [], "period": "season", "date": "2026-10-04",
+  "range": { "start": "2026-10-04", "end": "9999-12-31" },
+  "rows": [ { "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc", "displayName": "CoFlagg",
+              "avatarKey": "DAL", "score": 95.1, "rank": 1 },
+            { "userId": "00a5610a-08c9-4a02-b394-df3266cbf588", "displayName": "ZCJenius",
+              "avatarKey": "POR", "score": 48, "rank": 3 } ] }
+```
+
+`data/bao5/league/latest.json`（本地产出，节选）：
+
+```json
+{ "date": "2026-10-04", "period": "season", "userId": "00a5610a-...",
+  "displayName": "ZCJenius", "leagueCount": 2,
+  "snapshotFile": "snapshots/leagues_2026-10-04_season.json",
+  "delta": { "baseline": false, "previousDate": "2026-10-04", "changes": [] },
+  "leagues": [ { "id": "c598a342-...", "name": "李堡是笨蛋", "todayRank": 3,
+                 "myStanding": { "rank": 3, "score": 48, "of": 4, "hasScore": true },
+                 "standings": [ { "rank": 1, "displayName": "CoFlagg", "score": 95.1, "isMe": false } ] } ] }
+```
+
+#### H-4. 已实测结论（2026-10-04）
+
+- 账号下有 **2 个联赛**：`AI Bao5 league`（1 人，我是盟主，第 1 名）、`李堡是笨蛋`（4 人，我第 3 名，48 分）。
+- 各周期数值**当前完全相同** —— 赛季仅 `2026-10-04` 一个比赛日，**无法据此判断周期口径差异**（待赛季推进后复核）。
+
+#### H-5. 使用要点
+
+- **不做全榜 diff**：`delta` 只跟踪「我」的名次 / 得分，且**周期不同则不比较**（口径不同，比较无意义）。
+- `latest.json` 只保留最后一次抓取 —— 交替跑不同 `period` 会切断 `delta` 基线（表现为 `baseline: true` + 原因说明），日常应固定周期定时跑。
+- **`avatarKey` 不是球队关联键**：它只是用户头像所用的球队缩写，不代表该用户支持或隶属该球队。
+
+### 2.7 数据源 I —— 我的得分与全站榜（`data/bao5/`）
+
+**端点**：`GET /api/rankings?mine=1[&date=YYYY-MM-DD]`、`GET /api/rankings?period=daily|weekly|season`
+**鉴权**：**需登录**，复用 `data/bao5/bao1/config.json`
+**用途**：回答「**我今天拿了多少分、在全站排第几**」—— 这是本项目此前完全缺失的一维：**自身表现的反馈**。
+**总表**：本站全部端点见 **`data/bao5/API.md`**。
+
+#### I-1. 关键行为（务必先读）
+
+| 行为 | 实测（2026-10-04） | 影响 |
+| --- | --- | --- |
+| **`rank === 0` 表示无数据** | `date=2026-10-03` → `{rank:0, score:0, total:0}` | **不是「第 0 名」**，前端亦以此判空；必须显式判 0 |
+| **未来日期返回「已提交人数」** | `date=2026-10-05` → `{rank:5, score:0, total:11}` | `score` 恒 0，`rank` 排序规则未明，**不可用于分析** |
+| **`period` 回显但不生效** | 传 `bogus` → 响应 `period:"bogus"`，数据实为默认 `season` | **比 H 更阴险**：回显会骗人；必须客户端白名单 |
+| 不传 `period` 默认 `season` | `/api/rankings` → `period=season` | 与 H 同源规律 |
+| **全站口径 ≠ 联赛口径** | 全站 17 人我第 17；联赛 4 人我第 3；**分数同为 48** | 两者不可混用，见 I-4 |
+
+#### I-2. 输入
+
+```bash
+node data/bao5/fetch-my-scores.mjs [--date=YYYY-MM-DD] [--top=N] \
+                                   [--watch] [--interval=60] [--json] [--no-save]
+```
+
+| 参数 | 说明 |
+| --- | --- |
+| `--date=` | 指定日期（不传取服务器当日） |
+| `--top=N` | 全站榜显示前 N 名（默认 5）；若我不在前 N，额外补一行「← 我」 |
+| `--watch` / `--interval=` | 持续刷新，默认 60s |
+| `--json` / `--no-save` | 纯 JSON 输出 / 不落盘 |
+
+#### I-3. 输出
+
+| 文件 | 内容 |
+| --- | --- |
+| `scores/rankings_<date>.json` | 我的 `mine`（day/week/season）+ 全站当日榜 `rows` |
+| `latest.json` | 最近一次抓取汇总（含 `file` 指向当日快照） |
+
+`mine` 叠加在 `rows` 之上构成一次完整的「战绩自检」：
+
+- `mine.day.rank` —— 我在**全站**当日榜的名次
+- `mine.day.total` —— 全站参与人数（**与 `rows.length` 一致**）
+- `mine.day.score` —— 我的当日得分
+
+**实测样例**
+
+```json
+{ "mine": { "day":    { "rank": 17, "score": 48, "total": 17 },
+            "week":   { "rank": 17, "score": 48, "total": 17 },
+            "season": { "rank": 17, "score": 48, "total": 17 } } }
+```
+
+```json
+{ "period": "daily", "date": "2026-10-04",
+  "range": { "start": "0000-00-00", "end": "9999-12-31" },
+  "rows": [ { "userId": "71a9dd2d-...", "displayName": "阿道", "avatarKey": null,
+              "score": 116.3, "remainingSalary": 0, "rank": 1 } ] }
+```
+
+> 全站榜比联赛榜多一个 `remainingSalary`（剩余薪资）字段。
+
+#### I-4. 与 H 的口径对照（最易混淆）
+
+以 2026-10-04 实测为例：
+
+| 维度 | I 全站榜 | H 联赛榜 |
+| --- | --- | --- |
+| 端点 | `/api/rankings` | `/api/leagues/{id}` |
+| 范围 | **全站所有玩家** | 单个联赛成员 |
+| 参与人数 | 17 | 4（李堡是笨蛋）/ 1（AI Bao5 league） |
+| 我的名次 | **第 17 名** | 第 3 名 / 第 1 名 |
+| 我的得分 | 48 | 48（**分数一致**） |
+| 直取我的数据 | `?mine=1` 直接返回 | 需在 `rows` 里按 `userId` 查 |
+
+**同一个 48 分，名次 17 与 3 并存 —— 分母不同。**
+
+#### I-5. 使用要点
+
+- **`data/bao5/API.md` 是本站接口的权威清单**：§1 端点总表（26 条）、§2 逐条详解、§3 两个排行榜口径对照、§4「常见任务 → 该调哪个接口」。
+- 本轮同时逆向出**此前未记录的端点**：`/api/nba/live`（实时比分）、`/api/nba/player-log`（球员日志，功能与数据源 F 近似但**同源口径、无需跨源映射**）、`/api/nba/energy-changes`（能量周变化）、`/api/nba/roster-moves`（签约 / 交易）、`/api/auth/profile`、`/api/notice`。这些**尚未建成模块**，需要时按 `API.md` 接入即可。
+- 枚举端点的方法可复现：`node data/bao5/probe-api.mjs`。
 
 ---
 
@@ -654,9 +858,12 @@ SF,BOS,1,21.4,20,43.3,12,...
 | **球员姓名（易错）** | fantasynba 中文名 ↔ 逻辑一 `name` | 连接符与音译**双重不一致**：`尼科拉-约基奇` vs `尼古拉·约基奇`、`阿隆-戈登` vs `阿龙·戈登`（`-` vs `·`）。**纯姓名匹配会漏配或误配**，须先归一化（分隔符 + 音译别名表），并**叠加球队消歧**（「穆雷」在 bao5 命中 5 人） |
 | **球队（历史对阵）** | fantasynba `teams[].id`(1–30) ↔ NBA 官方球队 ID | 自成体系：`1`=老鹰 … `30`=黄蜂（固定表）。**与 `players.teamId` 不等价**，须用固定映射表转换；对手文本为中文队名，与三字母缩写亦不同口径 |
 | **球员（伤兵）** | 伤兵 `statuses` 的键 ↔ 逻辑一 `players.id` | **同一套 NBA 官方球员 ID，可直接等值连接，无需映射表**。实测交集 517 人；59 名受限球员里 55 人（93%）在球员库内（见 §2.5 G-5） |
+| **联赛（H）** | 联赛榜 `userId` / `avatarKey` ↔ 球员、球队体系 | **不参与跨源连接**。`userId` 是站内用户标识；`avatarKey` 仅为该用户头像所用的球队缩写（`POR` / `MEM`），**不代表其支持或隶属该队** |
+| **用户（H ↔ I）** | 联赛榜 `userId` ↔ 全站榜 `userId` | **同一套站内用户 ID，可直接等值连接**（实测两榜都能用 `00a5610a-…` 命中本人）→ 可用于「同一玩家在全站与联赛两个口径下的名次对照」 |
 
 **结论**：跨源关联应以 **球员官方 ID** 与 **球队三字母缩写** 作为主键，**不要**使用逻辑二的 `elements[].id`。
 **唯一例外**：数据源 F（fantasynba）两套编号都是自有的（球员 `p`、球队 `1–30`），是**唯一需要额外建映射**的数据源 —— 须先做一次全联盟 ID 映射（约 30 请求，一次性），此后即可长期复用。
+**无需映射者**：数据源 H（联赛榜）与 I（全站榜）只含站内用户标识与头像缩写，**与球员 / 球队体系无关联，不做跨源连接**；但 **H 与 I 之间**的 `userId` 同源可比对。
 
 ---
 
@@ -668,7 +875,9 @@ SF,BOS,1,21.4,20,43.3,12,...
   A) GET /api/nba/schedule  (赛程 1267 场：dateKey / utc / away / home)
   E) GET /v4/odds-by-tournaments (赔率：总分 / 让分 / 胜负，含球队缩写，约 200 次月额度)
   F) fantasynba 历史对阵 (球员 × 30 队梦幻积分，滚动近三年 · data/history-player/)
-  G) GET /api/nba/injuries (伤兵：键=官方球员ID，状态+出战概率+每日变更 · data/injury/)
+  G) GET /api/nba/injuries (伤兵：键=官方球员ID，状态+出战概率+每日变更 · data/bao5/injury/)
+  H) GET /api/leagues/mine + /api/leagues/{id} (联赛榜：联赛内名次 · data/bao5/league/)
+  I) GET /api/rankings?mine=1 (+ ?period=) (我的每日得分与全站名次 · data/bao5/)
                     │
   C) 对位数据 ──────┼──> 模型（见 NBA_Fantasy_Model_Handoff.md）
                     │         │
@@ -683,7 +892,7 @@ SF,BOS,1,21.4,20,43.3,12,...
                                                                         └──> 暂无自动提交
 ```
 
-**边界声明**：A 与 B 属于**同一条执行链**（A 供数据、B 做提交）；C 是两个逻辑共用的特征源；E、F、G 主要服务逻辑一（**F 为异源口径，只作相对参考**；**G 兼作候选池前置过滤器**），E 后续可复用于逻辑二；D 仅服务逻辑二，与 B 的提交动作无关联。
+**边界声明**：A 与 B 属于**同一条执行链**（A 供数据、B 做提交）；C 是两个逻辑共用的特征源；E、F、G 主要服务逻辑一（**F 为异源口径，只作相对参考**；**G 兼作候选池前置过滤器**），E 后续可复用于逻辑二；**H 与 I 为只读反馈层**，与选人 / 提交主链路无耦合（不回写、不影响 `picks.json`）；D 仅服务逻辑二，与 B 的提交动作无关联。
 
 ---
 
@@ -718,3 +927,15 @@ SF,BOS,1,21.4,20,43.3,12,...
 | 中 | **G 的 `probable` / `doubtful` 在季前赛不出现**，但常规赛会出现（实测 2025-12-25 有 1 个 `doubtful`、4 个 `probable`）→ 状态映射表需按 5 种 key 设计，不能只写 3 种。 |
 | 低 | G 单日原始快照约 77 KB，一季约 15 MB → 需 `--prune=N` 或归档策略。 |
 | 低 | G 的姓名补全依赖 bao5 登录态；凭据失效时会降级为纯 ID 输出（不报错），下游若依赖姓名需自行判断 `name === null`。 |
+| 中 | **H 的 `period` 不可信**：服务端**不校验**该参数（传 `bogus` 仍返回 200 并静默回落），下游须自建白名单，否则会把错误周期的榜单当正确周期用（同类陷阱见 G 的 `date`）。 |
+| 中 | **H 的 `inviteCode` 会入库**（快照 + 汇总），而本仓库为 public —— 邀请码可让他人加入对应联赛。介意时取消 `data/bao5/league/.gitignore` 中 `snapshots/`、`latest.json` 两行的注释。 |
+| 中 | **H 的周期口径差异未经验证**：赛季仅 1 个比赛日，`daily` / `weekly` / `season` 返回完全相同，需赛季推进后复核三者是否真的分口径。 |
+| 低 | **H 的 `date` 语义未明**：仅在 `daily` 榜下有实测差异，`range` 恒不随其变化；默认不使用该参数。 |
+| 低 | **H 的 `seasons` 恒为空**（2026-27 为首赛季），当前无法做跨赛季对比。 |
+| 中 | **I 的 `rank === 0` 是「无数据」而非第 0 名**：未结算的日期一律返回 `{rank:0, score:0, total:0}`。若直接展示，会把「没有数据」误报成「倒数第一」。 |
+| 中 | **I 的 `period` 会回显但不生效**：传非法值响应里 `period` 照样回显该值，数据实为默认 `season` —— 比 H 的静默回落更隐晦（回显具有欺骗性）。必须客户端白名单。 |
+| 中 | **I（全站榜）与 H（联赛榜）口径易混**：同一分数下名次不同（48 分 → 全站第 17、联赛第 3），因分母不同。**回答「我排第几」前必须先明确是哪个口径**。 |
+| 中 | **本站无公开 API 文档**：`data/bao5/API.md` 系前端 bundle 逆向 + 实测产物，**网站改版后可能整体失效**。需重跑 `node data/bao5/probe-api.mjs` 校验端点清单。 |
+| 中 | **`data/bao5/` 的目录归拢尚未执行**：`bao1` / `injury` / `league` 仍在 `data/` 下平级，迁入需同步修改 9 处（含 **CI 工作流路径**，改错即断线）。方案与影响清单见 `data/bao5/README.md`。 |
+| 低 | **I 的未来日期语义未明**：`date` 为未来时返回「已提交人数」维度（`score` 恒 0、`rank` 规则不明），**不可用于分析**，仅可当作「已有多少人提交」的信号。 |
+| 低 | **荣誉体系未接入**：`GET /api/honors/v1/me` 实测返回 **401**，需独立 `honors-token`，当前未打通。 |

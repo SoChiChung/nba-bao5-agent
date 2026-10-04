@@ -3,11 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { Bao5, loadConfig } from '../data/bao1/bao5.mjs';
+import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
 import { buildDashboardData, ROOT, writePicks } from './model.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
-const historyPath = path.join(ROOT, 'data', 'bao1', 'model-history.json');
+const historyPath = path.join(ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml' };
 let cache = null;
 let refreshing = null;
@@ -20,8 +20,10 @@ async function getDashboard({ refresh = false } = {}) {
     const api = new Bao5({ baseUrl: cfg.baseUrl });
     await api.login(cfg.email, cfg.password);
     const [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
-    const injuries = readJson('data/injury/latest.json');
+    const injuries = readJson('data/bao5/injury/latest.json');
     const latestOdds = readJson('data/odds/latest.json');
+    const usage=readJson('data/odds/usage-log.json');
+    const weeklyLeague=readJson('data/bao5/league/latest.json');
     const preseasonOddsFile = latestOdds?.tournaments?.nbaPreseason?.file ?? 'nba-preseason/odds_2026-10-02.json';
     const nbaOddsFile = latestOdds?.tournaments?.nba?.file ?? 'nba/odds_2026-10-02.json';
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
@@ -30,9 +32,22 @@ async function getDashboard({ refresh = false } = {}) {
     const complete = histories.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
     const predictedSum=complete.reduce((sum,x)=>sum+x.expected,0), actualSum=complete.reduce((sum,x)=>sum+x.actualTotal,0);
     const calibrationFactor=predictedSum>0?Math.max(.85,Math.min(1.15,actualSum/predictedSum)):1;
-    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor });
-    data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures}, defense:{season:'2025-26'}, };
-    data.history = histories;
+    const prefs=readPreferences();
+    const effectiveMode=prefs.mode==='custom'?'lowRisk':prefs.mode;
+    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null });
+    if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';}
+    const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
+    data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, };
+    const league=readJson('data/bao5/league/latest.json');
+    data.account={displayName:league.displayName??api.user?.displayName??'BAO5'};
+    const weeklyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_weekly.json`);const weekly=fs.existsSync(weeklyPath)?JSON.parse(fs.readFileSync(weeklyPath,'utf8')):null;
+    const dailyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_daily.json`);const daily=fs.existsSync(dailyPath)?JSON.parse(fs.readFileSync(dailyPath,'utf8')):null;
+    const standingFrom=(doc,id)=>{const me=doc?.leagues?.[id]?.rows?.find(r=>String(r.userId)===String(league.userId));return me?{rank:me.rank,score:me.score}:null;};
+    data.leagues=(league.leagues??[]).map(l=>({...l,dailyStanding:standingFrom(daily,l.id),weeklyStanding:standingFrom(weekly,l.id)}));
+    const rankTrend=[];const leagueDir=path.join(ROOT,'data','bao5','league','snapshots');
+    if(fs.existsSync(leagueDir))for(const file of fs.readdirSync(leagueDir).filter(f=>f.endsWith('_weekly.json')).sort().slice(-7)){try{const snap=JSON.parse(fs.readFileSync(path.join(leagueDir,file),'utf8'));for(const [id,raw] of Object.entries(snap.leagues??{})){const me=raw.rows?.find(r=>String(r.userId)===String(league.userId));const meta=(league.leagues??[]).find(l=>l.id===id);if(me)rankTrend.push({date:snap.date,leagueName:meta?.name??id,rank:me.rank,score:me.score});}}catch{}}
+    data.rankTrend=rankTrend;
+    data.history=histories.map(row=>({...row,rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score}))}));
     data.calibrationFactor=Number(calibrationFactor.toFixed(3));
     data.live = { fetchedAt:new Date().toISOString(), players:players.length, games:games.length };
     cache = data;
@@ -45,6 +60,9 @@ function combineDefense(json) { return json.season_2025_26 ?? []; }
 
 function readJson(relative) { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); }
 function readHistory() { try { return JSON.parse(fs.readFileSync(historyPath,'utf8')); } catch { return []; } }
+const preferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
+function readPreferences(){try{return JSON.parse(fs.readFileSync(preferencesPath,'utf8'));}catch{return {mode:'lowRisk',customWeights:null};}}
+function savePreferences(value){fs.writeFileSync(preferencesPath,JSON.stringify(value,null,2)+'\n','utf8');}
 function saveHistory(rows) { fs.writeFileSync(historyPath, JSON.stringify(rows,null,2)+'\n','utf8'); }
 function calibration(rows){const done=rows.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));const predicted=done.reduce((s,x)=>s+x.expected,0),actual=done.reduce((s,x)=>s+x.actualTotal,0);return predicted?Number(Math.max(.85,Math.min(1.15,actual/predicted)).toFixed(3)):1;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
@@ -91,6 +109,11 @@ const server = http.createServer(async (req,res) => {
   const url = new URL(req.url, 'http://localhost');
   try {
     if (url.pathname === '/api/dashboard' && req.method === 'GET') return send(res,200,await getDashboard({refresh:url.searchParams.get('refresh')==='1'}));
+    if (url.pathname === '/api/preferences' && req.method === 'POST') {
+      const input=await body(req);if(!['lowRisk','highRisk','custom'].includes(input.mode))return send(res,400,{error:'未知的决策模式'});
+      const customWeights=input.customWeights??null;if(customWeights&&Object.values(customWeights).some(x=>!Number.isFinite(Number(x))||Number(x)<0||Number(x)>.5))return send(res,400,{error:'自定义权重需在 0 到 0.5 之间'});
+      savePreferences({mode:input.mode,customWeights});cache=null;return send(res,200,{ok:true});
+    }
     if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; return send(res,200,await getDashboard({refresh:true})); }
     if (url.pathname === '/api/recalculate' && req.method === 'POST') {
       const data = await getDashboard({refresh:true});

@@ -65,7 +65,7 @@ npm start
 | `src/model.mjs` | 特征评分、风险调整、阵容优化 |
 | `src/server.mjs` | 本地 API 与仪表盘服务 |
 | `src/web/` | 中文前端页面 |
-| `data/bao1/run-model.mjs` | 每日刷新、选阵、提交和回读验证入口 |
-| `data/bao1/model-history.json` | 预测与赛果回测记录 |
-| `data/bao1/automation.log` | 每日任务运行日志 |
-| `data/bao1/auto-lineup.mjs` | BAO5 规则校验与提交执行器 |
+| `data/bao5/bao1/run-model.mjs` | 每日刷新、选阵、提交和回读验证入口 |
+| `data/bao5/bao1/model-history.json` | 预测与赛果回测记录 |
+| `data/bao5/bao1/automation.log` | 每日任务运行日志 |
+| `data/bao5/bao1/auto-lineup.mjs` | BAO5 规则校验与提交执行器 |

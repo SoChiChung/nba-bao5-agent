@@ -1,0 +1,7 @@
+# 探测脚本的临时输出（可随时用 `node probe.mjs` 重建）
+_probe/
+
+# 若「不希望联赛邀请码（inviteCode）进入公开仓库」，
+# 取消下面两行注释即可让快照与汇总都不入库。
+# snapshots/
+# latest.json

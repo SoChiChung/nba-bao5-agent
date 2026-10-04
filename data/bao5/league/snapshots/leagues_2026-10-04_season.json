@@ -1,0 +1,185 @@
+{
+  "fetchedAt": "2026-10-04T06:58:57.610Z",
+  "date": "2026-10-04",
+  "period": "season",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "mine": {
+    "ok": true,
+    "leagues": [
+      {
+        "id": "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5",
+        "name": "AI Bao5 league",
+        "inviteCode": "SBALRB",
+        "mode": "classic",
+        "h2hPeriod": "week",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 1,
+        "isOwner": true,
+        "createdAt": 1790962968825,
+        "startedAt": null,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": true,
+        "todayRank": 1
+      },
+      {
+        "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9",
+        "name": "李堡是笨蛋",
+        "inviteCode": "ZXVVYA",
+        "mode": "classic",
+        "h2hPeriod": "week",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 4,
+        "isOwner": false,
+        "createdAt": 1789042742844,
+        "startedAt": null,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": true,
+        "todayRank": 3
+      }
+    ]
+  },
+  "leagues": {
+    "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5": {
+      "ok": true,
+      "league": {
+        "id": "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5",
+        "name": "AI Bao5 league",
+        "inviteCode": "SBALRB",
+        "isOwner": true,
+        "mode": "classic",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "week",
+        "locked": false,
+        "startedAt": null,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": true,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR"
+        }
+      ],
+      "seasons": [],
+      "period": "season",
+      "date": "2026-10-04",
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "rows": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR",
+          "score": 48,
+          "rank": 1
+        }
+      ]
+    },
+    "c598a342-46e3-48b7-b553-7ab4c7d07ec9": {
+      "ok": true,
+      "league": {
+        "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9",
+        "name": "李堡是笨蛋",
+        "inviteCode": "ZXVVYA",
+        "isOwner": false,
+        "mode": "classic",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "week",
+        "locked": false,
+        "startedAt": null,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": true,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR"
+        },
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "MEM"
+        },
+        {
+          "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
+          "displayName": "CoFlagg",
+          "avatarKey": "DAL"
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL"
+        }
+      ],
+      "seasons": [],
+      "period": "season",
+      "date": "2026-10-04",
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "rows": [
+        {
+          "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
+          "displayName": "CoFlagg",
+          "avatarKey": "DAL",
+          "score": 95.1,
+          "rank": 1
+        },
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "MEM",
+          "score": 89.7,
+          "rank": 2
+        },
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR",
+          "score": 48,
+          "rank": 3
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL",
+          "score": 0,
+          "rank": 4
+        }
+      ]
+    }
+  }
+}

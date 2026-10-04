@@ -1,0 +1,127 @@
+{
+  "updatedAt": "2026-10-04T07:01:45.870Z",
+  "date": "2026-10-04",
+  "requestedDate": null,
+  "period": "season",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "displayName": "ZCJenius",
+  "leagueCount": 2,
+  "snapshotFile": "snapshots/leagues_2026-10-04_season.json",
+  "changeFile": "changes/rank_2026-10-04_season.json",
+  "delta": {
+    "baseline": false,
+    "previousDate": "2026-10-03",
+    "changes": []
+  },
+  "leagues": [
+    {
+      "id": "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5",
+      "name": "AI Bao5 league",
+      "inviteCode": "SBALRB",
+      "mode": "classic",
+      "h2hPeriod": "week",
+      "isOwner": true,
+      "memberCount": 1,
+      "memberLimit": 20,
+      "seasonKey": "2026-27",
+      "locked": false,
+      "joinOpen": true,
+      "archivedAt": null,
+      "leaderboardConfig": {
+        "daily": true,
+        "weekly": true,
+        "season": true
+      },
+      "todayRank": 1,
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "myStanding": {
+        "rank": 1,
+        "score": 48,
+        "of": 1,
+        "hasScore": true
+      },
+      "standings": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR",
+          "score": 48,
+          "rank": 1,
+          "isMe": true,
+          "hasScore": true
+        }
+      ]
+    },
+    {
+      "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9",
+      "name": "李堡是笨蛋",
+      "inviteCode": "ZXVVYA",
+      "mode": "classic",
+      "h2hPeriod": "week",
+      "isOwner": false,
+      "memberCount": 4,
+      "memberLimit": 20,
+      "seasonKey": "2026-27",
+      "locked": false,
+      "joinOpen": true,
+      "archivedAt": null,
+      "leaderboardConfig": {
+        "daily": true,
+        "weekly": true,
+        "season": true
+      },
+      "todayRank": 3,
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "myStanding": {
+        "rank": 3,
+        "score": 48,
+        "of": 4,
+        "hasScore": true
+      },
+      "standings": [
+        {
+          "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
+          "displayName": "CoFlagg",
+          "avatarKey": "DAL",
+          "score": 95.1,
+          "rank": 1,
+          "isMe": false,
+          "hasScore": true
+        },
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "MEM",
+          "score": 89.7,
+          "rank": 2,
+          "isMe": false,
+          "hasScore": true
+        },
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "POR",
+          "score": 48,
+          "rank": 3,
+          "isMe": true,
+          "hasScore": true
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL",
+          "score": 0,
+          "rank": 4,
+          "isMe": false,
+          "hasScore": true
+        }
+      ]
+    }
+  ]
+}
