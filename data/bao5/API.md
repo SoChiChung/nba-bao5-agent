@@ -58,7 +58,7 @@
 | 方法 | 端点 | 说明 | 实测 |
 | --- | --- | --- | --- |
 | GET | `/api/lineups?date=` | **我的**阵容与草稿 | ✅ |
-| GET | `/api/lineups?date=&userId=` | **他人**阵容（受 `revealed` 控制） | 📄 仅前端代码 |
+| GET | `/api/lineups?date=&userId=` | **他人**阵容（受 `revealed` 控制；已实测结算后可见） | ✅ |
 | POST | `/api/lineups` | 提交阵容 `{dateKey, playerIds, salaryUsed}` | ✅（历史已验证） |
 | POST | `/api/lineups/draft` | 自动保存草稿 `{dateKey, playerIds}` | 📄 仅前端代码 |
 
@@ -191,7 +191,13 @@
 
 > **该接口不含得分**。要拿分数必须用 §2.2 的 `/api/rankings?mine=1`。
 
-### 2.5 `GET /api/nba/live?gameIds=a,b,c` —— 实时比分
+### 2.5 `GET /api/lineups?date=YYYY-MM-DD&userId=...` —— 已揭晓的他人阵容
+
+**实测**：对 2026-10-04 全站日榜前五逐一请求均返回 HTTP 200、`revealed: true`，`lineup.playerIds`、`lineup.scores`（逐球员 BAO5 得分）、`salaryUsed` 与 `totalScore`。未揭晓阵容应尊重响应的 `revealed` 标记，不纳入分析。
+
+全站榜中的 `rows[].rank` 是全站排名；联赛详情中的 `rows[].rank` 是联赛内排名，不能混用。2026-10-04 的实测全站榜共 17 人，当前账号排名第 17。
+
+### 2.6 `GET /api/nba/live?gameIds=a,b,c` —— 实时比分
 
 **响应** `200`（比赛未开始时为空）
 
@@ -202,7 +208,7 @@
 - `gameIds` 为逗号分隔的比赛 ID（取自 `/api/nba/schedule` 的 `id`）。
 - 前端在比赛期间轮询该接口刷新比分与球员实时数据。
 
-### 2.6 `GET /api/leagues/{id}?period=` —— 联赛榜（详见 `data/bao5/league/README.md`）
+### 2.7 `GET /api/leagues/{id}?period=` —— 联赛榜（详见 `data/bao5/league/README.md`）
 
 ```json
 { "ok": true, "league": { "...": "..." },

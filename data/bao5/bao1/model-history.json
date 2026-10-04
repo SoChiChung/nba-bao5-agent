@@ -14,7 +14,305 @@
     "formation": "2前3后",
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-02T16:33:44.623Z",
-    "injuryDate": "2026-10-02"
+    "injuryDate": "2026-10-02",
+    "rankSnapshot": [
+      {
+        "leagueName": "AI Bao5 league",
+        "rank": 1,
+        "score": 48,
+        "weeklyRank": 1,
+        "weeklyScore": 48
+      },
+      {
+        "leagueName": "李堡是笨蛋",
+        "rank": 3,
+        "score": 48,
+        "weeklyRank": 3,
+        "weeklyScore": 48
+      }
+    ],
+    "actualTotal": 48,
+    "rank": 17,
+    "rankTotal": 17,
+    "scoreDelta": -78.8,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-04T07:35:32.091Z",
+    "topFiveAnalysis": {
+      "mine": {
+        "score": 48,
+        "rank": 17
+      },
+      "leader": {
+        "score": 116.3,
+        "name": "阿道"
+      },
+      "gapToLeader": 68.3,
+      "topFive": [
+        {
+          "name": "阿道",
+          "score": 116.3,
+          "rank": 1,
+          "remainingSalary": 0,
+          "players": [
+            {
+              "id": "1630567",
+              "name": "斯科蒂·巴恩斯",
+              "score": 22.4
+            },
+            {
+              "id": "1641796",
+              "name": "佩勒·拉尔松",
+              "score": 23.4
+            },
+            {
+              "id": "1631107",
+              "name": "尼科拉·约维奇",
+              "score": 29.4
+            },
+            {
+              "id": "203507",
+              "name": "扬尼斯·阿德托昆博",
+              "score": 22.3
+            },
+            {
+              "id": "1641869",
+              "name": "马拉奇·史密斯",
+              "score": 18.8
+            }
+          ]
+        },
+        {
+          "name": "蒂兰基尔尼",
+          "score": 113.4,
+          "rank": 2,
+          "remainingSalary": 15,
+          "players": [
+            {
+              "id": "1630567",
+              "name": "斯科蒂·巴恩斯",
+              "score": 22.4
+            },
+            {
+              "id": "1631107",
+              "name": "尼科拉·约维奇",
+              "score": 29.4
+            },
+            {
+              "id": "1630558",
+              "name": "戴维恩·米切尔",
+              "score": 11.2
+            },
+            {
+              "id": "1641796",
+              "name": "佩勒·拉尔松",
+              "score": 23.4
+            },
+            {
+              "id": "1642347",
+              "name": "贾马尔·谢德",
+              "score": 27
+            }
+          ]
+        },
+        {
+          "name": "桑滴二大妈",
+          "score": 112.3,
+          "rank": 3,
+          "remainingSalary": 0,
+          "players": [
+            {
+              "id": "1630567",
+              "name": "斯科蒂·巴恩斯",
+              "score": 22.4
+            },
+            {
+              "id": "1642347",
+              "name": "贾马尔·谢德",
+              "score": 27
+            },
+            {
+              "id": "203507",
+              "name": "扬尼斯·阿德托昆博",
+              "score": 22.3
+            },
+            {
+              "id": "1630558",
+              "name": "戴维恩·米切尔",
+              "score": 11.2
+            },
+            {
+              "id": "1631107",
+              "name": "尼科拉·约维奇",
+              "score": 29.4
+            }
+          ]
+        },
+        {
+          "name": "直井怜张元英",
+          "score": 105,
+          "rank": 4,
+          "remainingSalary": 7,
+          "players": [
+            {
+              "id": "1642867",
+              "name": "科林·穆雷·博伊尔斯",
+              "score": 18.3
+            },
+            {
+              "id": "1641796",
+              "name": "佩勒·拉尔松",
+              "score": 23.4
+            },
+            {
+              "id": "1630567",
+              "name": "斯科蒂·巴恩斯",
+              "score": 22.4
+            },
+            {
+              "id": "1630193",
+              "name": "伊曼纽尔·奎克利",
+              "score": 13.9
+            },
+            {
+              "id": "1642347",
+              "name": "贾马尔·谢德",
+              "score": 27
+            }
+          ]
+        },
+        {
+          "name": "静安赫尔特",
+          "score": 103.7,
+          "rank": 5,
+          "remainingSalary": 2,
+          "players": [
+            {
+              "id": "1630193",
+              "name": "伊曼纽尔·奎克利",
+              "score": 13.9
+            },
+            {
+              "id": "1642347",
+              "name": "贾马尔·谢德",
+              "score": 27
+            },
+            {
+              "id": "1642867",
+              "name": "科林·穆雷·博伊尔斯",
+              "score": 18.3
+            },
+            {
+              "id": "1630567",
+              "name": "斯科蒂·巴恩斯",
+              "score": 22.4
+            },
+            {
+              "id": "1629628",
+              "name": "RJ·巴雷特",
+              "score": 22.1
+            }
+          ]
+        }
+      ],
+      "popularPicks": [
+        {
+          "id": "1630567",
+          "name": "斯科蒂·巴恩斯",
+          "selections": 5,
+          "points": 112,
+          "averagePoints": 22.4
+        },
+        {
+          "id": "1642347",
+          "name": "贾马尔·谢德",
+          "selections": 4,
+          "points": 108,
+          "averagePoints": 27
+        },
+        {
+          "id": "1631107",
+          "name": "尼科拉·约维奇",
+          "selections": 3,
+          "points": 88.19999999999999,
+          "averagePoints": 29.4
+        },
+        {
+          "id": "1641796",
+          "name": "佩勒·拉尔松",
+          "selections": 3,
+          "points": 70.19999999999999,
+          "averagePoints": 23.4
+        },
+        {
+          "id": "203507",
+          "name": "扬尼斯·阿德托昆博",
+          "selections": 2,
+          "points": 44.6,
+          "averagePoints": 22.3
+        },
+        {
+          "id": "1642867",
+          "name": "科林·穆雷·博伊尔斯",
+          "selections": 2,
+          "points": 36.6,
+          "averagePoints": 18.3
+        },
+        {
+          "id": "1630193",
+          "name": "伊曼纽尔·奎克利",
+          "selections": 2,
+          "points": 27.8,
+          "averagePoints": 13.9
+        },
+        {
+          "id": "1630558",
+          "name": "戴维恩·米切尔",
+          "selections": 2,
+          "points": 22.4,
+          "averagePoints": 11.2
+        },
+        {
+          "id": "1629628",
+          "name": "RJ·巴雷特",
+          "selections": 1,
+          "points": 22.1,
+          "averagePoints": 22.1
+        },
+        {
+          "id": "1641869",
+          "name": "马拉奇·史密斯",
+          "selections": 1,
+          "points": 18.8,
+          "averagePoints": 18.8
+        }
+      ],
+      "selectedPlayers": [
+        {
+          "id": "202695",
+          "name": "科怀·伦纳德"
+        },
+        {
+          "id": "1630567",
+          "name": "斯科蒂·巴恩斯"
+        },
+        {
+          "id": "1630558",
+          "name": "戴维恩·米切尔"
+        },
+        {
+          "id": "203501",
+          "name": "小蒂姆·哈达威"
+        },
+        {
+          "id": "202691",
+          "name": "克莱·汤普森"
+        }
+      ],
+      "notes": [
+        "预测高估 78.8 分；对比前五后优先复盘未选中的高产球员、伤病状态、首发与实际上场情况。",
+        "已读取公开的前五名结算阵容及逐人得分；选人偏好会累计保存并以低权重参与后续决策。"
+      ]
+    }
   },
   {
     "dateKey": "2026-10-05",
@@ -71,6 +369,22 @@
           "201572"
         ],
         "expected": 125.3
+      }
+    ],
+    "rankSnapshot": [
+      {
+        "leagueName": "AI Bao5 league",
+        "rank": 1,
+        "score": 48,
+        "weeklyRank": 1,
+        "weeklyScore": 48
+      },
+      {
+        "leagueName": "李堡是笨蛋",
+        "rank": 3,
+        "score": 48,
+        "weeklyRank": 3,
+        "weeklyScore": 48
       }
     ]
   }

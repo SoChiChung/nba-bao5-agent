@@ -62,7 +62,7 @@ jobs:
           rm -f data/bao5/bao1/config.json data/odds/config.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes
+          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes data/bao5/scores/top-five-lineups.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: update NBA model data"
             git push

@@ -34,6 +34,29 @@ try {
   const api=new Bao5({baseUrl:cfg.baseUrl});
   await api.login(cfg.email,cfg.password);
   const [players,games]=await Promise.all([api.getPlayers(),api.getSchedule()]);
+  const scoreDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const scoreResult=await api.get(`/api/rankings?mine=1&date=${scoreDate}`);
+  const boardResult=await api.get(`/api/rankings?period=daily&date=${scoreDate}`);
+  const dailyRankings=boardResult.json?.rows??[];
+  const lineupFile=path.join(ROOT,'data','bao5','scores','top-five-lineups.json');
+  let topFiveStore={dates:{}};try{topFiveStore=JSON.parse(fs.readFileSync(lineupFile,'utf8'));}catch{}topFiveStore.dates??={};
+  if(scoreResult.json?.mine?.day?.rank>0&&dailyRankings.length){
+    const old=topFiveStore.dates[scoreDate]?.lineups??[];const known=new Set(old.map(x=>String(x.userId)));const lineups=[...old];
+    for(const member of dailyRankings.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank)){
+      if(known.has(String(member.userId)))continue;
+      const response=await api.get(`/api/lineups?date=${scoreDate}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
+      if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
+      lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))});
+    }
+    if(lineups.length)topFiveStore.dates[scoreDate]={date:scoreDate,fetchedAt:new Date().toISOString(),lineups};
+    topFiveStore.updatedAt=new Date().toISOString();fs.mkdirSync(path.dirname(lineupFile),{recursive:true});fs.writeFileSync(lineupFile,JSON.stringify(topFiveStore,null,2)+'\n','utf8');
+    say(`已记录 ${topFiveStore.dates[scoreDate]?.lineups?.length??0}/5 份今日总榜前五阵容`);
+  }
+  const countByPlayer=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[]){const key=String(id);countByPlayer.set(key,(countByPlayer.get(key)??0)+1);}
+  const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
+  const preferenceCounts=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[]){const key=String(id);const item=preferenceCounts.get(key)??{selections:0,points:0};item.selections++;item.points+=Number(lineup.playerScores?.[key]??0);preferenceCounts.set(key,item);}
+  const sampleCount=Object.values(topFiveStore.dates).reduce((n,d)=>n+(d.lineups?.length??0),0);
+  const lineupFeedback={preferences:[...preferenceCounts].map(([playerId,item])=>({playerId,selections:item.selections,selectionRate:Number((item.selections/Math.max(1,sampleCount)).toFixed(3)),averagePoints:Number((item.points/item.selections).toFixed(1)),name:playerNames.get(playerId)}))};
   const fullSchedule=games;
   const gamesToWatch=games.filter(g=>g.status!==3&&Number.isFinite(Date.parse(g.utc))&&Date.parse(g.utc)>Date.now()&&Date.parse(g.utc)-Date.now()<=7*86400_000);
   const schedulerState=readState();
@@ -61,7 +84,7 @@ try {
   const predicted=trained.reduce((s,x)=>s+x.expected,0),actual=trained.reduce((s,x)=>s+x.actualTotal,0);
   const factor=predicted?Math.max(.85,Math.min(1.15,actual/predicted)):1;
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'lowRisk'};}})();
-  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:preferences.mode==='highRisk'?'highRisk':'lowRisk',customWeights:preferences.mode==='custom'?preferences.customWeights:null});
+  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:preferences.mode==='highRisk'?'highRisk':'lowRisk',customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort();
   const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(g=>/preseason/i.test(g.label??''));const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1),value:Number(p.average??0)/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','doubtful','questionable'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');

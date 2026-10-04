@@ -147,6 +147,11 @@ async function main() {
   }
 
   const { url, ids } = buildUrl(cfg);
+  const usageDb=readJson(path.join(DIR,'usage-log.json'),{monthlyQuota:cfg.monthlyQuota??200,calls:[]});
+  const currentMonth=shanghai().date.slice(0,7);
+  const monthUsed=(usageDb.calls??[]).filter(c=>String(c.date??'').startsWith(currentMonth)&&c.ok).length;
+  const remaining=Math.max(0,Number(cfg.monthlyQuota??usageDb.monthlyQuota??200)-monthUsed);
+  if(remaining<=10)say(`[额度提醒] ${currentMonth} OddsPapi 仅剩约 ${remaining} 次配额；关键赛前赔率仍会照常尝试抓取。`);
   const target = {
     raw: path.join(DIR, 'raw', `odds_${today}.json`),
     byKey: {},
@@ -260,6 +265,8 @@ function recordUsage(cfg, date, ids, ok, fixtureCount) {
   const month = date.slice(0, 7);
   const used = db.calls.filter(c => c.date.startsWith(month) && c.ok).length;
   say(`[额度] ${month} 已用 ${used} / ${db.monthlyQuota} 次`);
+  const left=Math.max(0,db.monthlyQuota-used);
+  if(left<=10)say(`[额度提醒] 月度剩余 ${left} 次；达到上限后服务商可能拒绝请求，建议检查或轮换 API Key。`);
 }
 
 main().catch(e => {

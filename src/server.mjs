@@ -8,6 +8,8 @@ import { buildDashboardData, ROOT, writePicks } from './model.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
 const historyPath = path.join(ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
+const scoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
+const lineupHistoryPath = path.join(scoreDir, 'top-five-lineups.json');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml' };
 let cache = null;
 let refreshing = null;
@@ -29,12 +31,14 @@ async function getDashboard({ refresh = false } = {}) {
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
     const defense = readJson('data/position/defense_vs_position.json');
     const histories = readHistory();
+    const scoreData=await getDailyScoreSnapshot(api);
+    const lineupFeedback=await refreshTopFiveLineups(api,scoreData,players);
     const complete = histories.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
     const predictedSum=complete.reduce((sum,x)=>sum+x.expected,0), actualSum=complete.reduce((sum,x)=>sum+x.actualTotal,0);
     const calibrationFactor=predictedSum>0?Math.max(.85,Math.min(1.15,actualSum/predictedSum)):1;
     const prefs=readPreferences();
     const effectiveMode=prefs.mode==='custom'?'lowRisk':prefs.mode;
-    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null });
+    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{}),weight:prefs.crowdWeight??0.04} });
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, };
@@ -48,6 +52,15 @@ async function getDashboard({ refresh = false } = {}) {
     if(fs.existsSync(leagueDir))for(const file of fs.readdirSync(leagueDir).filter(f=>f.endsWith('_weekly.json')).sort().slice(-7)){try{const snap=JSON.parse(fs.readFileSync(path.join(leagueDir,file),'utf8'));for(const [id,raw] of Object.entries(snap.leagues??{})){const me=raw.rows?.find(r=>String(r.userId)===String(league.userId));const meta=(league.leagues??[]).find(l=>l.id===id);if(me)rankTrend.push({date:snap.date,leagueName:meta?.name??id,rank:me.rank,score:me.score});}}catch{}}
     data.rankTrend=rankTrend;
     data.history=histories.map(row=>({...row,rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score}))}));
+    data.dailyScore=scoreData;
+    data.topFiveLineups=lineupFeedback.daily?.lineups??[];
+    const topFiveHistory=readHistory().find(x=>x.dateKey===scoreData.date);
+    let scoreDayPicks=topFiveHistory?.players??[];if(!scoreDayPicks.length){try{scoreDayPicks=JSON.parse(fs.readFileSync(path.join(ROOT,"data","bao5","bao1",`model-picks-${scoreData.date}.json`),"utf8")).ids??[];}catch{}}
+    data.topFiveAnalysis=scoreData?.mine?.day?.rank>0?analyzeTopFive({dateKey:scoreData.date,players:scoreDayPicks,scoreDelta:topFiveHistory?.scoreDelta},scoreData,players):null;
+    data.topFivePlayerPreferences=lineupFeedback.preferences;
+    data.crowdWeight=prefs.crowdWeight??0.04;
+    data.history=mergeDailyResult(data.history,scoreData,players);
+    if(scoreData?.mine?.day?.rank>0)saveHistory(data.history.filter(x=>x.dateKey));
     data.calibrationFactor=Number(calibrationFactor.toFixed(3));
     data.live = { fetchedAt:new Date().toISOString(), players:players.length, games:games.length };
     cache = data;
@@ -63,6 +76,61 @@ function readHistory() { try { return JSON.parse(fs.readFileSync(historyPath,'ut
 const preferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
 function readPreferences(){try{return JSON.parse(fs.readFileSync(preferencesPath,'utf8'));}catch{return {mode:'lowRisk',customWeights:null};}}
 function savePreferences(value){fs.writeFileSync(preferencesPath,JSON.stringify(value,null,2)+'\n','utf8');}
+async function getDailyScoreSnapshot(api){
+  const dateKey=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const target=path.join(scoreDir,`rankings_${dateKey}.json`);
+  try{const cached=JSON.parse(fs.readFileSync(target,'utf8'));if(cached.mine?.day?.rank>0&&cached.board?.length)return cached; if(cached.fetchedAt&&Date.now()-Date.parse(cached.fetchedAt)<10*60*1000)return cached;}catch{}
+  const proc=await import('node:child_process');
+  const cfgPath=path.join(ROOT,'data','bao5','bao1','config.json');
+  try{
+    const result=proc.spawnSync(process.execPath,[path.join(ROOT,'data','bao5','fetch-my-scores.mjs'),`--date=${dateKey}`,'--json'],{cwd:ROOT,encoding:'utf8',timeout:30_000,env:process.env});
+    if(result.status===0){const parsed=JSON.parse(result.stdout);return {...parsed,userId:api.user?.id,displayName:api.user?.displayName};}
+  }catch(error){console.warn('BAO5 当日得分刷新失败:',error.message);}
+  try{return JSON.parse(fs.readFileSync(target,'utf8'));}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
+}
+async function refreshTopFiveLineups(api,score,players){
+  const store=(()=>{try{return JSON.parse(fs.readFileSync(lineupHistoryPath,'utf8'));}catch{return {dates:{}};}})();store.dates??={};
+  if(score?.date&&Array.isArray(score.board)&&(!store.dates[score.date]?.lineups?.length||store.dates[score.date].lineups.length<5)){
+    const top=score.board.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
+    const dateRecord={date:score.date,fetchedAt:new Date().toISOString(),lineups:[...(store.dates[score.date]?.lineups??[])]};
+    const known=new Set(dateRecord.lineups.map(x=>String(x.userId)));
+    for(const member of top){
+      if(known.has(String(member.userId)))continue;
+      try{const response=await api.get(`/api/lineups?date=${encodeURIComponent(score.date)}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
+        if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
+        const points=lineup.scores??{};dateRecord.lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(points[String(id)]??0)]))});
+      }catch(error){console.warn(`BAO5 前五阵容读取失败 (${member.displayName}):`,error.message);}
+    }
+    if(dateRecord.lineups.length)store.dates[score.date]=dateRecord;
+    store.updatedAt=new Date().toISOString();fs.mkdirSync(scoreDir,{recursive:true});fs.writeFileSync(lineupHistoryPath,JSON.stringify(store,null,2)+'\n','utf8');
+  }
+  const accumulated=new Map();
+  for(const date of Object.values(store.dates))for(const lineup of date.lineups??[])for(const id of lineup.playerIds??[]){
+    const item=accumulated.get(String(id))??{playerId:String(id),selections:0,topOne:0,totalPoints:0,appearances:0};item.selections++;if(lineup.rank===1)item.topOne++;item.totalPoints+=Number(lineup.playerScores?.[String(id)]??0);item.appearances++;accumulated.set(String(id),item);
+  }
+  const names=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
+  const preferences=[...accumulated.values()].map(x=>({...x,name:names.get(x.playerId)??x.playerId,selectionRate:Number((x.selections/Math.max(1,Object.values(store.dates).reduce((n,d)=>n+(d.lineups?.length??0),0))).toFixed(3)),averagePoints:Number((x.totalPoints/Math.max(1,x.appearances)).toFixed(1))})).sort((a,b)=>b.selections-a.selections||b.averagePoints-a.averagePoints);
+  return {daily:store.dates[score?.date]??null,preferences};
+}
+function mergeDailyResult(rows,score,players=[]){
+  if(!score?.date||!(Number(score.mine?.day?.rank)>0))return rows;
+  const idx=rows.findIndex(x=>x.dateKey===score.date);
+  if(idx<0){const pickFile=path.join(ROOT,'data','bao5','bao1',`model-picks-${score.date}.json`);let picks=[];try{picks=JSON.parse(fs.readFileSync(pickFile,'utf8')).ids??[];}catch{}if(!picks.length)return rows;rows.push({dateKey:score.date,players:picks,expected:null,source:'submitted-picks',formation:'—'});}
+  const row=rows.find(x=>x.dateKey===score.date);row.actualTotal=Number(Number(score.mine.day.score).toFixed(1));row.rank=score.mine.day.rank;row.rankTotal=score.mine.day.total;row.scoreDelta=row.expected!=null&&Number.isFinite(Number(row.expected))?Number((row.actualTotal-row.expected).toFixed(1)):null;row.resultSource='bao5-rankings-api';row.resultUpdatedAt=score.fetchedAt??new Date().toISOString();row.topFiveAnalysis=analyzeTopFive(row,score,players);
+  return rows;
+}
+function analyzeTopFive(row,score,players=[]){
+  const top=(score.board??[]).filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
+  const selected=new Set((row.players??[]).map(String));
+  const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
+  const gaps=(score.board??[]).filter(x=>String(x.userId)===String(score.userId));
+  const mine=gaps[0]??{score:score.mine.day.score,rank:score.mine.day.rank};
+  const mySelectedPlayers=[...selected].map(id=>({id,name:playerNames.get(id)??id}));
+  const dailyLineups=(()=>{try{return JSON.parse(fs.readFileSync(lineupHistoryPath,'utf8')).dates?.[score.date]?.lineups??[];}catch{return[];}})();
+  const popularPicks=aggregateTopFivePicks(dailyLineups,playerNames);
+  return {mine:{score:mine.score,rank:mine.rank},leader:{score:top[0]?.score??null,name:top[0]?.displayName??null},gapToLeader:top[0]?Number((Number(top[0].score)-Number(mine.score)).toFixed(1)):null,topFive:top.map(x=>{const lineup=dailyLineups.find(y=>String(y.userId)===String(x.userId));return {name:x.displayName,score:x.score,rank:x.rank,remainingSalary:x.remainingSalary,players:(lineup?.playerIds??[]).map(id=>({id,name:playerNames.get(String(id))??lineup.playerNames?.[String(id)]??lineup.names?.[String(id)]??lineup.players?.find(p=>String(p.id??p.playerId??p.userId)===String(id))?.name??lineup.players?.find(p=>String(p.id??p.playerId??p.userId)===String(id))?.playerName??`球员 ${String(id)}`,score:Number(lineup.playerScores?.[String(id)]??lineup.scores?.[String(id)]??0)}))};}),popularPicks,selectedPlayers:mySelectedPlayers,notes:[row.scoreDelta<0?`预测高估 ${Math.abs(row.scoreDelta).toFixed(1)} 分；对比前五后优先复盘未选中的高产球员、伤病状态、首发与实际上场情况。`: '实际分数达到或超过预测，继续观察该模式稳定性。',dailyLineups.length?'已读取公开的前五名结算阵容及逐人得分；选人偏好会累计保存并以低权重参与后续决策。':'尚未读取到已揭晓的前五阵容，可能是结算未揭晓或接口暂不可用。']};
+}
+function aggregateTopFivePicks(lineups,playerNames=new Map()){const byPlayer=new Map();for(const lineup of lineups)for(const id of lineup.playerIds??[]){const key=String(id);const detail=lineup.players?.find(p=>String(p.id??p.playerId)===key);const item=byPlayer.get(key)??{id:key,name:playerNames.get(key)??lineup.playerNames?.[key]??detail?.name??detail?.playerName??`球员 ${key}`,selections:0,points:0};item.name??=lineup.playerNames?.[key]??detail?.name??detail?.playerName;item.selections++;item.points+=Number(lineup.playerScores?.[key]??lineup.scores?.[key]??detail?.score??detail?.points??0);byPlayer.set(key,item);}return [...byPlayer.values()].map(x=>({...x,averagePoints:Number((x.points/x.selections).toFixed(1))})).sort((a,b)=>b.selections-a.selections||b.averagePoints-a.averagePoints);}
 function saveHistory(rows) { fs.writeFileSync(historyPath, JSON.stringify(rows,null,2)+'\n','utf8'); }
 function calibration(rows){const done=rows.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));const predicted=done.reduce((s,x)=>s+x.expected,0),actual=done.reduce((s,x)=>s+x.actualTotal,0);return predicted?Number(Math.max(.85,Math.min(1.15,actual/predicted)).toFixed(3)):1;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
@@ -112,7 +180,8 @@ const server = http.createServer(async (req,res) => {
     if (url.pathname === '/api/preferences' && req.method === 'POST') {
       const input=await body(req);if(!['lowRisk','highRisk','custom'].includes(input.mode))return send(res,400,{error:'未知的决策模式'});
       const customWeights=input.customWeights??null;if(customWeights&&Object.values(customWeights).some(x=>!Number.isFinite(Number(x))||Number(x)<0||Number(x)>.5))return send(res,400,{error:'自定义权重需在 0 到 0.5 之间'});
-      savePreferences({mode:input.mode,customWeights});cache=null;return send(res,200,{ok:true});
+      const crowdWeight=input.crowdWeight==null?undefined:Number(input.crowdWeight);if(crowdWeight!=null&&(!Number.isFinite(crowdWeight)||crowdWeight<0||crowdWeight>.15))return send(res,400,{error:'前五选人偏好权重需在 0 到 0.15 之间'});
+      savePreferences({mode:input.mode,customWeights,...(crowdWeight==null?{}:{crowdWeight})});cache=null;return send(res,200,{ok:true});
     }
     if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; return send(res,200,await getDashboard({refresh:true})); }
     if (url.pathname === '/api/recalculate' && req.method === 'POST') {
@@ -123,7 +192,9 @@ const server = http.createServer(async (req,res) => {
       const prior=readHistory().find(x=>x.dateKey===slate.dateKey);
       const row={...prior,dateKey:slate.dateKey,updatedAt:new Date().toISOString(),players:slate.lineup.players.map(p=>p.id),expected:slate.lineup.expected,energy:slate.lineup.energy,formation:slate.lineup.formation,source:'model',...(prior?.actualTotal!=null?{scoreDelta:Number((prior.actualTotal-slate.lineup.expected).toFixed(1))}:{})};
       const history=readHistory().filter(x=>x.dateKey!==row.dateKey); history.push(row); history.sort((a,b)=>a.dateKey.localeCompare(b.dateKey)); saveHistory(history);
-      return send(res,200,{...data,history});
+      const merged=mergeDailyResult(history,data.dailyScore,data.slates.flatMap(s=>s.players));
+      saveHistory(merged);
+      return send(res,200,{...data,history:merged});
     }
     if (url.pathname === '/api/result' && req.method === 'POST') {
       const {dateKey,actualTotal}=await body(req);
