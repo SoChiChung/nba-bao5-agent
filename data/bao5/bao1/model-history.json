@@ -316,7 +316,7 @@
   },
   {
     "dateKey": "2026-10-05",
-    "updatedAt": "2026-10-04T10:02:40.941Z",
+    "updatedAt": "2026-10-04T14:04:21.805Z",
     "players": [
       "1627750",
       "201939",
@@ -330,10 +330,10 @@
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
     "injuryDate": "2026-10-04",
-    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "injuryUpdatedAt": "2026-10-04T14:04:14.536Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-04T10:02:40.941Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-04T14:04:21.805Z",
       "playerIds": [
         "1627750",
         "201939",
@@ -383,33 +383,53 @@
         ],
         "expected": 113.9,
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-04T14:04:21.805Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1627750",
+          "201939",
+          "1631128",
+          "1642846",
+          "201572"
+        ],
+        "expected": 113.9,
+        "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "actualTotal": 52.1,
+    "rank": 19,
+    "rankTotal": 20,
+    "scoreDelta": -61.8,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-05T20:04:19.167Z"
   },
   {
     "dateKey": "2026-10-06",
-    "updatedAt": "2026-10-04T10:02:46.156Z",
+    "updatedAt": "2026-10-05T20:04:18.260Z",
     "players": [
       "1630162",
       "1630163",
-      "1631157",
+      "1630700",
       "1630173",
       "1642854"
     ],
-    "expected": 115.4,
+    "expected": 115.7,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
-    "injuryDate": "2026-10-04",
-    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "oddsFetchedAt": "2026-10-05T16:08:15.645Z",
+    "injuryDate": "2026-10-05",
+    "injuryUpdatedAt": "2026-10-05T20:04:06.447Z",
     "submission": {
       "status": "submitted-verified",
-      "verifiedAt": "2026-10-04T10:02:46.156Z",
+      "verifiedAt": "2026-10-05T20:04:18.260Z",
       "playerIds": [
         "1630162",
         "1630163",
-        "1631157",
+        "1630700",
         "1630173",
         "1642854"
       ]
@@ -428,8 +448,42 @@
         ],
         "expected": 115.4,
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-05T16:08:25.085Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630162",
+          "1630163",
+          "1630700",
+          "1630173",
+          "1642854"
+        ],
+        "expected": 115.7,
+        "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-05T20:04:18.260Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630162",
+          "1630163",
+          "1630700",
+          "1630173",
+          "1642854"
+        ],
+        "expected": 115.7,
+        "submission": "submitted-verified"
       }
-    ]
+    ],
+    "actualTotal": 0,
+    "rank": 8,
+    "rankTotal": 19,
+    "scoreDelta": -115.7,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-05T20:04:20.112Z"
   },
   {
     "dateKey": "2026-10-07",
@@ -474,7 +528,13 @@
         "expected": 113.2,
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "actualTotal": 0,
+    "rank": 2,
+    "rankTotal": 4,
+    "scoreDelta": -113.2,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-05T20:04:20.993Z"
   },
   {
     "dateKey": "2026-10-08",
@@ -519,7 +579,13 @@
         "expected": 115.2,
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "actualTotal": 0,
+    "rank": 2,
+    "rankTotal": 2,
+    "scoreDelta": -115.2,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-05T20:04:21.893Z"
   },
   {
     "dateKey": "2026-10-09",
@@ -564,6 +630,12 @@
         "expected": 115,
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "actualTotal": 0,
+    "rank": 2,
+    "rankTotal": 2,
+    "scoreDelta": -115,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-05T20:04:22.772Z"
   }
 ]
