@@ -11,7 +11,9 @@ const historyFile=path.join(here,'model-history.json');
 const stateFile=path.join(here,'scheduler-state.json');
 const logFile=path.join(here,'automation.log');
 const hourlyLogFile=path.join(here,'hourly-operations.jsonl');
+const runsFile=path.join(here,'automation-runs.json');
 const log=[];
+const runStartedAt=new Date().toISOString();
 const say=s=>{log.push(`[${new Date().toISOString()}] ${s}`);console.log(s);};
 const run=(file,args)=>{
   const result=spawnSync(process.execPath,[path.resolve(here,file),...args],{cwd:ROOT,encoding:'utf8',timeout:120_000});
@@ -24,6 +26,12 @@ const readHistory=()=>{try{return JSON.parse(fs.readFileSync(historyFile,'utf8')
 const saveHistory=rows=>fs.writeFileSync(historyFile,JSON.stringify(rows,null,2)+'\n','utf8');
 const readState=()=>{try{return JSON.parse(fs.readFileSync(stateFile,'utf8'));}catch{return{};}};
 const saveState=state=>fs.writeFileSync(stateFile,JSON.stringify(state,null,2)+'\n','utf8');
+function saveRunReport(status,error=null){
+  const history=readHistory();const lineupStore=(()=>{try{return JSON.parse(fs.readFileSync(path.join(ROOT,'data','bao5','scores','top-five-lineups.json'),'utf8'));}catch{return {dates:{}};}})();
+  const report={id:process.env.GITHUB_RUN_ID??`local-${Date.now()}`,runNumber:process.env.GITHUB_RUN_NUMBER??null,workflow:process.env.GITHUB_WORKFLOW??'BAO5 lineup assistant',event:process.env.GITHUB_EVENT_NAME??'local',startedAt:runStartedAt,finishedAt:new Date().toISOString(),status,summary:status==='success'?'自动更新完成':`自动更新失败：${error?.message??'未知错误'}`,processedDates:log.filter(x=>/检查赛程日/.test(x)).map(x=>x.match(/检查赛程日 (\d{4}-\d\d-\d\d)/)?.[1]).filter(Boolean),settledDates:log.filter(x=>/从 BAO5 日榜回填|自动回填实际得分/.test(x)).map(x=>x.match(/(\d{4}-\d\d-\d\d)/)?.[1]).filter(Boolean),topFiveDates:Object.entries(lineupStore.dates??{}).map(([dateKey,day])=>({dateKey,lineups:day.lineups?.length??0})).filter(x=>x.lineups),learning:log.find(x=>x.includes('前五选人学习样本'))?.replace(/^.*?前五选人学习样本：/, '')??'',messages:[...log,...(error?[`失败：${error.stack??error.message}`]:[])].slice(-100)};
+  let store={runs:[]};try{store=JSON.parse(fs.readFileSync(runsFile,'utf8'));}catch{}store.runs??=[];store.runs=[report,...store.runs.filter(x=>x.id!==report.id)].slice(0,100);fs.writeFileSync(runsFile,JSON.stringify(store,null,2)+'\n','utf8');
+  fs.appendFileSync(hourlyLogFile,JSON.stringify({type:'workflow-run',...report})+'\n','utf8');
+}
 
 try {
   say('刷新伤病名单');
@@ -35,7 +43,9 @@ try {
   const scoreDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const settledDate=games.filter(g=>g.status===3&&g.date).map(g=>g.date).sort().at(-1);
   const history=readHistory();
-  const datesToBackfill=[...new Set([settledDate, ...history.filter(x=>!Number.isFinite(x.actualTotal)).map(x=>x.dateKey)].filter(Boolean))];
+  const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
+  const settledDates=[...new Set(games.filter(g=>g.status===3&&g.date).map(g=>g.date))].sort();
+  const datesToBackfill=[...new Set([...settledDates,...history.filter(x=>!Number.isFinite(x.actualTotal)).map(x=>x.dateKey)])];
   const lineupFile=path.join(ROOT,'data','bao5','scores','top-five-lineups.json');
   let topFiveStore={dates:{}};try{topFiveStore=JSON.parse(fs.readFileSync(lineupFile,'utf8'));}catch{}topFiveStore.dates??={};
   for(const dateKey of datesToBackfill){
@@ -48,11 +58,13 @@ try {
     fs.mkdirSync(path.dirname(scoreFile),{recursive:true});
     const oldSnapshot=(()=>{try{return JSON.parse(fs.readFileSync(scoreFile,'utf8'));}catch{return {};}})();
     fs.writeFileSync(scoreFile,JSON.stringify({ ...oldSnapshot,fetchedAt:new Date().toISOString(),date:dateKey,userId:api.user?.id,displayName:api.user?.displayName,mine:myResult.json?.mine??oldSnapshot.mine,boardCount:dailyRankings.length||oldSnapshot.boardCount,board:dailyRankings.length?dailyRankings:oldSnapshot.board??[],source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=daily&date=${dateKey}`}},null,2)+'\n','utf8');
-    const currentHistory=history.find(x=>x.dateKey===dateKey);
+    let currentHistory=history.find(x=>x.dateKey===dateKey);
     if(currentHistory?.players?.length)currentHistory.playerNames=currentHistory.players.map(id=>lineupNames.get(String(id))??`球员 ${id}`);
     const historyRow=history.find(x=>x.dateKey===dateKey);
-    if(myResult.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&historyRow&&!Number.isFinite(historyRow.actualTotal)){
-      historyRow.actualTotal=Number(mine.score);historyRow.rank=Number(mine.rank);historyRow.rankTotal=Number(mine.total??0);historyRow.scoreDelta=Number.isFinite(Number(historyRow.expected))?Number((historyRow.actualTotal-historyRow.expected).toFixed(1)):null;historyRow.resultSource='bao5-rankings-api';historyRow.resultUpdatedAt=new Date().toISOString();
+    if(myResult.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&settledDates.includes(dateKey)){
+      const row=historyRow??{dateKey,updatedAt:new Date().toISOString(),players:[],playerNames:[],expected:null,formation:'—',source:'settled-score-only'};
+      row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number.isFinite(Number(row.expected))?Number((row.actualTotal-row.expected).toFixed(1)):null;row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();if(!row.players?.length){row.players=[];row.playerNames=[];}if(!historyRow)history.push(row);
+      currentHistory=row;
     }
     if(dailyRankings.length){
       const old=topFiveStore.dates[dateKey]?.lineups??[];const lineups=[...old];
@@ -67,16 +79,21 @@ try {
       for(const lineup of topFiveStore.dates[dateKey]?.lineups??[])lineup.playerNames=Object.fromEntries((lineup.playerIds??[]).map(id=>[String(id),lineupNames.get(String(id))??lineup.playerNames?.[String(id)]??`球员 ${id}`]));
       say(`${dateKey} 已记录 ${topFiveStore.dates[dateKey]?.lineups?.length??0}/5 份总榜前五阵容`);
     }
+    if(currentHistory&&settledDates.includes(dateKey))currentHistory.topFive={date:dateKey,lineups:topFiveStore.dates[dateKey]?.lineups??[],commonPicks:[]};
   }
   saveHistory(history);
   if(Object.keys(topFiveStore.dates).length){
     topFiveStore.updatedAt=new Date().toISOString();fs.mkdirSync(path.dirname(lineupFile),{recursive:true});fs.writeFileSync(lineupFile,JSON.stringify(topFiveStore,null,2)+'\n','utf8');
   }
   const countByPlayer=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[]){const key=String(id);countByPlayer.set(key,(countByPlayer.get(key)??0)+1);}
-  const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
   const preferenceCounts=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[]){const key=String(id);const item=preferenceCounts.get(key)??{selections:0,points:0};item.selections++;item.points+=Number(lineup.playerScores?.[key]??0);preferenceCounts.set(key,item);}
   const sampleCount=Object.values(topFiveStore.dates).reduce((n,d)=>n+(d.lineups?.length??0),0);
   const lineupFeedback={preferences:[...preferenceCounts].map(([playerId,item])=>({playerId,selections:item.selections,selectionRate:Number((item.selections/Math.max(1,sampleCount)).toFixed(3)),averagePoints:Number((item.points/item.selections).toFixed(1)),name:playerNames.get(playerId)}))};
+  say(`前五选人学习样本：${sampleCount} 份阵容、${lineupFeedback.preferences.length} 位独立球员；常见选人 ${lineupFeedback.preferences.slice(0,5).map(p=>`${p.name??p.playerId} ${p.selections}/${sampleCount}`).join('、')||'暂无'}`);
+  for(const row of history.filter(x=>settledDates.includes(x.dateKey))){const day=topFiveStore.dates[row.dateKey];if(!day)continue;const common=new Map();for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);row.playerNames=(row.players??[]).map(id=>playerNames.get(String(id))??`球员 ${id}`);row.topFive={date:row.dateKey,lineups:(day.lineups??[]).map(lineup=>({...lineup,playerNames:(lineup.playerIds??[]).map(id=>lineup.playerNames?.[String(id)]??playerNames.get(String(id))??`球员 ${id}`)})),commonPicks:[...common].map(([id,selections])=>({id,name:playerNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day.lineups.length)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
+  saveHistory(history);
+  const learnedCounts=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])learnedCounts.set(String(id),(learnedCounts.get(String(id))??0)+1);
+  for(const row of history.filter(x=>settledDates.includes(x.dateKey))){const day=topFiveStore.dates[row.dateKey];if(!day)continue;const common=new Map();for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);row.playerNames=(row.players??[]).map(id=>playerNames.get(String(id))??`球员 ${id}`);row.topFive={date:row.dateKey,lineups:(day.lineups??[]).map(lineup=>({...lineup,playerNames:(lineup.playerIds??[]).map(id=>lineup.playerNames?.[String(id)]??playerNames.get(String(id))??`球员 ${id}`)})),commonPicks:[...common].map(([id,selections])=>({id,name:playerNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day.lineups.length)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
   const fullSchedule=games;
   const gamesToWatch=games.filter(g=>g.status!==3&&Number.isFinite(Date.parse(g.utc))&&Date.parse(g.utc)>Date.now()&&Date.parse(g.utc)-Date.now()<=7*86400_000);
   const schedulerState=readState();
@@ -218,9 +235,11 @@ try {
   if(failures.length)throw new Error(`${failures.length} 个比赛日处理失败：${failures.join('；')}`);
   if(dailyRefresh){schedulerState.lastBaselineAt=new Date().toISOString();saveState(schedulerState);}
 } catch(error) {
+  var runError=error;
   say(`失败：${error.message}`);
   process.exitCode=1;
 } finally {
+  saveRunReport(runError?'failure':'success',runError??null);
   fs.appendFileSync(logFile,log.join('\n')+'\n','utf8');
   const endedAt=new Date();
   const hourKey=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).format(endedAt).replace(' ','T');

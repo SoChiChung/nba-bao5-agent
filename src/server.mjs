@@ -56,7 +56,8 @@ async function getDashboard({ refresh = false } = {}) {
     const rankTrend=[];const leagueDir=path.join(ROOT,'data','bao5','league','snapshots');
     if(fs.existsSync(leagueDir))for(const file of fs.readdirSync(leagueDir).filter(f=>f.endsWith('_weekly.json')).sort().slice(-7)){try{const snap=JSON.parse(fs.readFileSync(path.join(leagueDir,file),'utf8'));for(const [id,raw] of Object.entries(snap.leagues??{})){const me=raw.rows?.find(r=>String(r.userId)===String(league.userId));const meta=(league.leagues??[]).find(l=>l.id===id);if(me)rankTrend.push({date:snap.date,leagueName:meta?.name??id,rank:me.rank,score:me.score});}}catch{}}
     data.rankTrend=rankTrend;
-    data.history=histories.map(row=>({...row,rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score}))}));
+    const persistedLineups=lineupFeedback.store??readTopFiveStore();
+    data.history=histories.map(row=>({...row,playerNames:(row.players??[]).map(id=>namesForPlayer(players,id)),rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score})),...(persistedLineups.dates?.[row.dateKey]?{topFive:buildTopFiveSummary(persistedLineups.dates[row.dateKey],players)}:{})}));
     data.dailyScore=scoreData;
     data.topFiveLineups=lineupFeedback.daily?.lineups??[];
     const topFiveHistory=readHistory().find(x=>x.dateKey===scoreData.date);
@@ -66,7 +67,8 @@ async function getDashboard({ refresh = false } = {}) {
     data.topFivePlayerPreferences=lineupFeedback.preferences;
     data.crowdWeight=prefs.crowdWeight??0.04;
     data.history=mergeDailyResult(data.history,scoreData,players);
-    if(analysis){const row=data.history.find(x=>x.dateKey===scoreData.date);if(row)row.topFiveAnalysis=analysis;}
+    if(analysis){const row=data.history.find(x=>x.dateKey===scoreData.date);if(row){row.topFiveAnalysis=analysis;row.topFive=buildTopFiveSummary({date:scoreData.date,lineups:data.topFiveLineups},players);}}
+    for(const row of data.history){if(row.topFive)continue;const day=persistedLineups.dates?.[row.dateKey];if(day)row.topFive=buildTopFiveSummary(day,players);}
     if(scoreData?.mine?.day?.rank>0)saveHistory(data.history.filter(x=>x.dateKey));
     data.calibrationFactor=Number(calibrationFactor.toFixed(3));
     data.live = { fetchedAt:new Date().toISOString(), players:players.length, games:games.length };
@@ -98,15 +100,13 @@ async function getDailyScoreSnapshot(api){
 }
 async function refreshTopFiveLineups(api,score,players){
   const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};
-  if(score?.date&&Array.isArray(score.board)&&(!store.dates[score.date]?.lineups?.length||store.dates[score.date].lineups.length<5)){
+  if(score?.date&&Array.isArray(score.board)){
     const top=score.board.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
     const dateRecord={date:score.date,fetchedAt:new Date().toISOString(),lineups:[...(store.dates[score.date]?.lineups??[])]};
-    const known=new Set(dateRecord.lineups.map(x=>String(x.userId)));
     for(const member of top){
-      if(known.has(String(member.userId)))continue;
       try{const response=await api.get(`/api/lineups?date=${encodeURIComponent(score.date)}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
         if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
-        const points=lineup.scores??{};dateRecord.lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(points[String(id)]??0)]))});
+        const points=lineup.scores??{};const entry={rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerNames:Object.fromEntries(lineup.playerIds.map(id=>[String(id),namesForPlayer(players,id)])),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(points[String(id)]??0)]))};const index=dateRecord.lineups.findIndex(x=>String(x.userId)===String(member.userId));if(index>=0)dateRecord.lineups[index]=entry;else dateRecord.lineups.push(entry);
       }catch(error){console.warn(`BAO5 前五阵容读取失败 (${member.displayName}):`,error.message);}
     }
     if(dateRecord.lineups.length)store.dates[score.date]=dateRecord;
@@ -118,8 +118,11 @@ async function refreshTopFiveLineups(api,score,players){
   }
   const names=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
   const preferences=[...accumulated.values()].map(x=>({...x,name:names.get(x.playerId)??x.playerId,selectionRate:Number((x.selections/Math.max(1,Object.values(store.dates).reduce((n,d)=>n+(d.lineups?.length??0),0))).toFixed(3)),averagePoints:Number((x.totalPoints/Math.max(1,x.appearances)).toFixed(1))})).sort((a,b)=>b.selections-a.selections||b.averagePoints-a.averagePoints);
-  return {daily:store.dates[score?.date]??null,preferences};
+  return {daily:store.dates[score?.date]??null,preferences,store};
 }
+function namesForPlayer(players,id){const p=players.find(x=>String(x.id)===String(id));return p?.name??p?.englishName??`球员 ${String(id)}`;}
+function readTopFiveStore(){for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};}
+function buildTopFiveSummary(day,players=[]){const names=new Map(players.map(p=>[String(p.id),p.name??p.englishName]));const lineups=(day.lineups??[]).slice().sort((a,b)=>a.rank-b.rank).map(lineup=>({...lineup,playerNames:(lineup.playerIds??[]).map(id=>names.get(String(id))??lineup.playerNames?.[String(id)]??`球员 ${id}`)}));const counts=new Map();for(const lineup of lineups)for(const id of lineup.playerIds??[])counts.set(String(id),(counts.get(String(id))??0)+1);return {date:day.date,lineups,commonPicks:[...counts].map(([id,selections])=>({id,name:names.get(id)??lineups.find(x=>x.playerIds?.map(String).includes(id))?.playerNames?.[lineups.find(x=>x.playerIds?.map(String).includes(id))?.playerIds?.map(String).indexOf(id)]??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,lineups.length)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
 function mergeDailyResult(rows,score,players=[]){
   if(!score?.date||!(Number(score.mine?.day?.rank)>0))return rows;
   const idx=rows.findIndex(x=>x.dateKey===score.date);
@@ -192,6 +195,10 @@ const server = http.createServer(async (req,res) => {
       savePreferences({mode:input.mode,customWeights,...(crowdWeight==null?{}:{crowdWeight})});cache=null;return send(res,200,{ok:true});
     }
     if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; return send(res,200,await getDashboard({refresh:true})); }
+    if (url.pathname === '/api/automation-log' && req.method === 'GET') {
+      const file=path.join(ROOT,'data','bao5','bao1','automation-runs.json');
+      try{return send(res,200,JSON.parse(fs.readFileSync(file,'utf8')));}catch{return send(res,200,{runs:[]});}
+    }
     if (url.pathname === '/api/recalculate' && req.method === 'POST') {
       const data = await getDashboard({refresh:true});
       const input = await body(req);
