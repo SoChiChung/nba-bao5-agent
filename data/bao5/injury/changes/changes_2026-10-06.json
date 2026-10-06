@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T14:01:39.490Z",
+  "generatedAt": "2026-10-06T18:23:34.729Z",
   "serverDate": "2026-10-06",
   "requestedDate": null,
   "available": false,
@@ -9,17 +9,17 @@
   "updatedAt": null,
   "counts": {
     "total": 567,
-    "questionable": 74,
-    "available": 476,
+    "questionable": 72,
+    "available": 478,
     "out": 17
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 476,
-    "filledCount": 91,
+    "projectedCount": 478,
+    "filledCount": 89,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出91人，其余476人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出89人，其余478人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-05",
   "changeCount": 38,
@@ -192,21 +192,6 @@
     {
       "kind": "newInjury",
       "id": "1630559",
-      "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "newInjury",
-      "id": "1630567",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
@@ -521,6 +506,21 @@
     },
     {
       "kind": "cleared",
+      "id": "1642918",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在ESPN、RotoWire、Sleeper伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
       "id": "1642923",
       "from": "questionable",
       "to": "available",
@@ -599,12 +599,12 @@
     {
       "field": "projectedCount",
       "from": 499,
-      "to": 476
+      "to": 478
     },
     {
       "field": "filledCount",
       "from": 66,
-      "to": 91
+      "to": 89
     }
   ]
 }

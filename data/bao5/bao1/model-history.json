@@ -483,11 +483,18 @@
     "rankTotal": 19,
     "scoreDelta": -115.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-05T20:04:20.112Z"
+    "resultUpdatedAt": "2026-10-05T20:04:20.112Z",
+    "playerNames": [
+      "安东尼·爱德华兹",
+      "拉梅洛·鲍尔",
+      "戴森·丹尼尔斯",
+      "普雷舍斯·阿丘瓦",
+      "阿萨·纽厄尔"
+    ]
   },
   {
     "dateKey": "2026-10-07",
-    "updatedAt": "2026-10-06T14:01:50.500Z",
+    "updatedAt": "2026-10-06T18:23:43.517Z",
     "players": [
       "1641718",
       "203944",
@@ -501,10 +508,10 @@
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-06T14:01:48.604Z",
     "injuryDate": "2026-10-06",
-    "injuryUpdatedAt": "2026-10-06T14:01:39.490Z",
+    "injuryUpdatedAt": "2026-10-06T18:23:34.729Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-06T14:01:50.500Z",
+      "verifiedAt": "2026-10-06T18:23:43.517Z",
       "playerIds": [
         "1641718",
         "203944",
@@ -572,6 +579,20 @@
       },
       {
         "at": "2026-10-06T14:01:50.500Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641718",
+          "203944",
+          "201942",
+          "1642846",
+          "1630611"
+        ],
+        "expected": 112,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-06T18:23:43.517Z",
         "reason": "schedule-window",
         "games": [],
         "players": [
