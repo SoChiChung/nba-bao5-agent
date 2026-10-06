@@ -36,7 +36,7 @@
     "rankTotal": 17,
     "scoreDelta": -78.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-06T18:51:00.024Z",
+    "resultUpdatedAt": "2026-10-06T23:39:10.641Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 48,
@@ -464,7 +464,7 @@
           ]
         },
         {
-          "rank": 3,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
           "score": 322.6,
@@ -492,10 +492,10 @@
           ]
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
           "displayName": "魔法披风",
-          "score": 318.8,
+          "score": 327.7,
           "salaryUsed": 149,
           "playerIds": [
             "203507",
@@ -546,86 +546,120 @@
             "斯科蒂·巴恩斯",
             "佩勒·拉尔松"
           ]
+        },
+        {
+          "rank": 4,
+          "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+          "displayName": "nbw",
+          "score": 324.7,
+          "salaryUsed": 150,
+          "playerIds": [
+            "203507",
+            "1630567",
+            "1631323",
+            "203501",
+            "1630558"
+          ],
+          "playerScores": {
+            "203501": 13,
+            "203507": 22.3,
+            "1630558": 11.2,
+            "1630567": 22.4,
+            "1631323": 8.9
+          },
+          "playerNames": [
+            "扬尼斯·阿德托昆博",
+            "斯科蒂·巴恩斯",
+            "西莫内·丰泰基奥",
+            "小蒂姆·哈达威",
+            "戴维恩·米切尔"
+          ]
         }
       ],
       "commonPicks": [
         {
           "id": "1630567",
           "name": "斯科蒂·巴恩斯",
-          "selections": 8,
+          "selections": 9,
           "rate": 1
         },
         {
           "id": "1641796",
           "name": "佩勒·拉尔松",
           "selections": 5,
-          "rate": 0.63
+          "rate": 0.56
+        },
+        {
+          "id": "1630558",
+          "name": "戴维恩·米切尔",
+          "selections": 4,
+          "rate": 0.44
         },
         {
           "id": "1642347",
           "name": "贾马尔·谢德",
           "selections": 4,
-          "rate": 0.5
+          "rate": 0.44
         },
         {
           "id": "1642867",
           "name": "科林·穆雷·博伊尔斯",
           "selections": 4,
-          "rate": 0.5
+          "rate": 0.44
         },
         {
-          "id": "1630558",
-          "name": "戴维恩·米切尔",
-          "selections": 3,
-          "rate": 0.38
+          "id": "203507",
+          "name": "扬尼斯·阿德托昆博",
+          "selections": 4,
+          "rate": 0.44
         },
         {
           "id": "1631107",
           "name": "尼古拉·约维奇",
           "selections": 3,
-          "rate": 0.38
-        },
-        {
-          "id": "203507",
-          "name": "扬尼斯·阿德托昆博",
-          "selections": 3,
-          "rate": 0.38
+          "rate": 0.33
         },
         {
           "id": "1630193",
           "name": "伊曼纽尔·奎克利",
           "selections": 3,
-          "rate": 0.38
+          "rate": 0.33
         },
         {
           "id": "1629628",
           "name": "RJ·巴雷特",
           "selections": 3,
-          "rate": 0.38
+          "rate": 0.33
+        },
+        {
+          "id": "203501",
+          "name": "小蒂姆·哈达威",
+          "selections": 2,
+          "rate": 0.22
         },
         {
           "id": "1641869",
           "name": "马拉奇·史密斯",
           "selections": 1,
-          "rate": 0.13
+          "rate": 0.11
         },
         {
           "id": "1631211",
           "name": "特雷弗·基尔斯",
           "selections": 1,
-          "rate": 0.13
+          "rate": 0.11
         },
         {
-          "id": "203501",
-          "name": "小蒂姆·哈达威",
+          "id": "1631323",
+          "name": "西莫内·丰泰基奥",
           "selections": 1,
-          "rate": 0.13
+          "rate": 0.11
         },
         {
           "id": "1627751",
           "name": "雅各布·珀尔特尔",
           "selections": 1,
-          "rate": 0.13
+          "rate": 0.11
         }
       ]
     }
@@ -720,7 +754,7 @@
     "rankTotal": 20,
     "scoreDelta": -61.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-06T18:51:03.799Z",
+    "resultUpdatedAt": "2026-10-06T23:39:16.000Z",
     "playerNames": [
       "贾马尔·穆雷",
       "斯蒂芬·库里",
@@ -844,7 +878,7 @@
           ]
         },
         {
-          "rank": 3,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
           "score": 322.6,
@@ -872,10 +906,10 @@
           ]
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
           "displayName": "魔法披风",
-          "score": 318.8,
+          "score": 327.7,
           "salaryUsed": 148,
           "playerIds": [
             "201942",
@@ -926,80 +960,114 @@
             "达里厄斯·加兰",
             "达林·彼得森"
           ]
+        },
+        {
+          "rank": 4,
+          "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+          "displayName": "nbw",
+          "score": 324.7,
+          "salaryUsed": 135,
+          "playerIds": [
+            "1641718",
+            "1641764",
+            "1629636",
+            "1642846",
+            "1642865"
+          ],
+          "playerScores": {
+            "1629636": 26.6,
+            "1641718": 23.3,
+            "1641764": 14.4,
+            "1642846": 21,
+            "1642865": 22.3
+          },
+          "playerNames": [
+            "基扬特·乔治",
+            "布兰丁·波杰姆斯基",
+            "达里厄斯·加兰",
+            "埃斯·贝利",
+            "亚克塞尔·伦德博格"
+          ]
         }
       ],
       "commonPicks": [
         {
+          "id": "1642846",
+          "name": "埃斯·贝利",
+          "selections": 7,
+          "rate": 0.88
+        },
+        {
           "id": "1643408",
           "name": "达林·彼得森",
           "selections": 7,
-          "rate": 1
-        },
-        {
-          "id": "1642846",
-          "name": "埃斯·贝利",
-          "selections": 6,
-          "rate": 0.86
+          "rate": 0.88
         },
         {
           "id": "1642865",
           "name": "亚克塞尔·伦德博格",
-          "selections": 6,
-          "rate": 0.86
+          "selections": 7,
+          "rate": 0.88
+        },
+        {
+          "id": "1629636",
+          "name": "达里厄斯·加兰",
+          "selections": 4,
+          "rate": 0.5
         },
         {
           "id": "203999",
           "name": "尼古拉·约基奇",
           "selections": 4,
-          "rate": 0.57
-        },
-        {
-          "id": "1629636",
-          "name": "达里厄斯·加兰",
-          "selections": 3,
-          "rate": 0.43
+          "rate": 0.5
         },
         {
           "id": "1643413",
           "name": "基顿·瓦格勒",
           "selections": 3,
-          "rate": 0.43
+          "rate": 0.38
+        },
+        {
+          "id": "1641718",
+          "name": "基扬特·乔治",
+          "selections": 2,
+          "rate": 0.25
+        },
+        {
+          "id": "1641764",
+          "name": "布兰丁·波杰姆斯基",
+          "selections": 1,
+          "rate": 0.13
         },
         {
           "id": "201942",
           "name": "德马尔·德罗赞",
           "selections": 1,
-          "rate": 0.14
-        },
-        {
-          "id": "1641718",
-          "name": "基扬特·乔治",
-          "selections": 1,
-          "rate": 0.14
+          "rate": 0.13
         },
         {
           "id": "1631128",
           "name": "克里斯蒂安·布劳恩",
           "selections": 1,
-          "rate": 0.14
+          "rate": 0.13
         },
         {
           "id": "1628963",
           "name": "马文·巴格利三世",
           "selections": 1,
-          "rate": 0.14
+          "rate": 0.13
         },
         {
           "id": "1628991",
           "name": "小贾伦·杰克逊",
           "selections": 1,
-          "rate": 0.14
+          "rate": 0.13
         },
         {
           "id": "203994",
           "name": "优素福·努尔基奇",
           "selections": 1,
-          "rate": 0.14
+          "rate": 0.13
         }
       ]
     }
@@ -1081,7 +1149,7 @@
     "rankTotal": 19,
     "scoreDelta": -13.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-06T18:51:07.507Z",
+    "resultUpdatedAt": "2026-10-06T23:39:21.210Z",
     "playerNames": [
       "安东尼·爱德华兹",
       "拉梅洛·鲍尔",
@@ -1149,7 +1217,7 @@
           ]
         },
         {
-          "rank": 3,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
           "score": 322.6,
@@ -1177,10 +1245,10 @@
           ]
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
           "displayName": "魔法披风",
-          "score": 318.8,
+          "score": 327.7,
           "salaryUsed": 148,
           "playerIds": [
             "1643411",
@@ -1231,6 +1299,34 @@
             "桑德罗·马穆凯拉什维利",
             "马克西姆·雷诺"
           ]
+        },
+        {
+          "rank": 4,
+          "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+          "displayName": "nbw",
+          "score": 324.7,
+          "salaryUsed": 137,
+          "playerIds": [
+            "1628970",
+            "1642276",
+            "1642345",
+            "1642845",
+            "1642907"
+          ],
+          "playerScores": {
+            "1628970": 22,
+            "1642276": 34.4,
+            "1642345": 14,
+            "1642845": 27.3,
+            "1642907": 22
+          },
+          "playerNames": [
+            "迈尔斯·布里奇斯",
+            "凯莱尔·韦尔",
+            "奥索·伊戈达罗",
+            "VJ·埃奇库姆",
+            "塞德里克·考沃德"
+          ]
         }
       ],
       "commonPicks": [
@@ -1238,85 +1334,109 @@
           "id": "1643411",
           "name": "小达里厄斯·埃卡夫",
           "selections": 5,
-          "rate": 1
+          "rate": 0.83
         },
         {
           "id": "1643409",
           "name": "卡梅隆·布泽尔",
           "selections": 4,
-          "rate": 0.8
+          "rate": 0.67
+        },
+        {
+          "id": "1642276",
+          "name": "凯莱尔·韦尔",
+          "selections": 3,
+          "rate": 0.5
         },
         {
           "id": "1643415",
           "name": "布雷登·伯里斯",
           "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "1642276",
-          "name": "凯莱尔·韦尔",
-          "selections": 2,
-          "rate": 0.4
+          "rate": 0.33
         },
         {
           "id": "1629029",
           "name": "卢卡·东契奇",
           "selections": 2,
-          "rate": 0.4
+          "rate": 0.33
         },
         {
           "id": "1642875",
           "name": "马克西姆·雷诺",
           "selections": 2,
-          "rate": 0.4
+          "rate": 0.33
         },
         {
           "id": "1630162",
           "name": "安东尼·爱德华兹",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
+        },
+        {
+          "id": "1642345",
+          "name": "奥索·伊戈达罗",
+          "selections": 1,
+          "rate": 0.17
         },
         {
           "id": "1626164",
           "name": "德文·布克",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
         },
         {
           "id": "1628415",
           "name": "狄龙·布鲁克斯",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
         },
         {
           "id": "1642863",
           "name": "卡曼·马卢阿奇",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
+        },
+        {
+          "id": "1628970",
+          "name": "迈尔斯·布里奇斯",
+          "selections": 1,
+          "rate": 0.17
         },
         {
           "id": "1642363",
           "name": "尼克·克利福德",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
+        },
+        {
+          "id": "1642907",
+          "name": "塞德里克·考沃德",
+          "selections": 1,
+          "rate": 0.17
         },
         {
           "id": "1630572",
           "name": "桑德罗·马穆凯拉什维利",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
         },
         {
           "id": "1629660",
           "name": "泰·杰罗姆",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
         },
         {
           "id": "1631170",
           "name": "小海梅·哈克斯",
           "selections": 1,
-          "rate": 0.2
+          "rate": 0.17
+        },
+        {
+          "id": "1642845",
+          "name": "VJ·埃奇库姆",
+          "selections": 1,
+          "rate": 0.17
         }
       ]
     }
