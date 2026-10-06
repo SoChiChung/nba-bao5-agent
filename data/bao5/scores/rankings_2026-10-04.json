@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T07:35:32.091Z",
+  "fetchedAt": "2026-10-06T18:51:00.024Z",
   "date": "2026-10-04",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -15,76 +15,180 @@
       "total": 17
     },
     "season": {
-      "rank": 17,
-      "score": 48,
-      "total": 17
+      "rank": 15,
+      "score": 202.1,
+      "total": 23
     }
   },
-  "boardCount": 17,
+  "boardCount": 23,
   "board": [
-    {
-      "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
-      "displayName": "阿道",
-      "avatarKey": null,
-      "score": 116.3,
-      "remainingSalary": 0,
-      "rank": 1
-    },
-    {
-      "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
-      "displayName": "蒂兰基尔尼",
-      "avatarKey": null,
-      "score": 113.4,
-      "remainingSalary": 15,
-      "rank": 2
-    },
     {
       "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
       "displayName": "桑滴二大妈",
       "avatarKey": null,
-      "score": 112.3,
-      "remainingSalary": 0,
+      "score": 337,
+      "remainingSalary": 1,
+      "rank": 1
+    },
+    {
+      "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
+      "displayName": "阿道",
+      "avatarKey": null,
+      "score": 330.3,
+      "remainingSalary": 3,
+      "rank": 2
+    },
+    {
+      "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+      "displayName": "Benben",
+      "avatarKey": "MEM",
+      "score": 322.6,
+      "remainingSalary": 5,
       "rank": 3
     },
     {
-      "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
-      "displayName": "直井怜张元英",
-      "avatarKey": null,
-      "score": 105,
-      "remainingSalary": 7,
-      "rank": 4
-    },
-    {
-      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
-      "displayName": "静安赫尔特",
-      "avatarKey": null,
-      "score": 103.7,
+      "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+      "displayName": "魔法披风",
+      "avatarKey": "HOU",
+      "score": 318.8,
       "remainingSalary": 2,
-      "rank": 5
+      "rank": 4
     },
     {
       "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
       "displayName": "NJZisen",
       "avatarKey": "SAS",
-      "score": 97.4,
-      "remainingSalary": 15,
+      "score": 315.9,
+      "remainingSalary": 25,
+      "rank": 5
+    },
+    {
+      "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+      "displayName": "直井怜张元英",
+      "avatarKey": null,
+      "score": 312.5,
+      "remainingSalary": 12,
       "rank": 6
+    },
+    {
+      "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+      "displayName": "nbw",
+      "avatarKey": null,
+      "score": 305.1,
+      "remainingSalary": 13,
+      "rank": 7
     },
     {
       "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
       "displayName": "好堡",
       "avatarKey": "BOS",
-      "score": 95.3,
-      "remainingSalary": 0,
-      "rank": 7
+      "score": 304.8,
+      "remainingSalary": 3,
+      "rank": 8
+    },
+    {
+      "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
+      "displayName": "蒂兰基尔尼",
+      "avatarKey": "MIL",
+      "score": 297.9,
+      "remainingSalary": 9,
+      "rank": 9
+    },
+    {
+      "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+      "displayName": "奶味大宇宙",
+      "avatarKey": "SAS",
+      "score": 270.1,
+      "remainingSalary": 3,
+      "rank": 10
+    },
+    {
+      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
+      "displayName": "RR",
+      "avatarKey": "UTA",
+      "score": 245.5,
+      "remainingSalary": 3,
+      "rank": 11
+    },
+    {
+      "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
+      "displayName": "鲁迪费尔南德斯",
+      "avatarKey": null,
+      "score": 244.6,
+      "remainingSalary": 9,
+      "rank": 12
     },
     {
       "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
       "displayName": "CoFlagg",
       "avatarKey": "DAL",
-      "score": 95.1,
+      "score": 243.8,
+      "remainingSalary": 1,
+      "rank": 13
+    },
+    {
+      "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
+      "displayName": "红葱酱",
+      "avatarKey": "MIN",
+      "score": 202.2,
+      "remainingSalary": 11,
+      "rank": 14
+    },
+    {
+      "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+      "displayName": "ZCJenius",
+      "avatarKey": "POR",
+      "score": 202.1,
+      "remainingSalary": 0,
+      "rank": 15
+    },
+    {
+      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+      "displayName": "静安赫尔特",
+      "avatarKey": null,
+      "score": 187.7,
       "remainingSalary": 3,
-      "rank": 8
+      "rank": 16
+    },
+    {
+      "userId": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+      "displayName": "Kimi",
+      "avatarKey": "LAL",
+      "score": 183.8,
+      "remainingSalary": 2,
+      "rank": 17
+    },
+    {
+      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+      "displayName": "宁波爆胎王",
+      "avatarKey": "ATL",
+      "score": 167.2,
+      "remainingSalary": 2,
+      "rank": 18
+    },
+    {
+      "userId": "6bdca8a5-8259-4aa6-8c00-26c725a37ee9",
+      "displayName": "老孙",
+      "avatarKey": null,
+      "score": 163.5,
+      "remainingSalary": 3,
+      "rank": 19
+    },
+    {
+      "userId": "4fe5bdea-cd7d-47b0-aaee-ff87210f2889",
+      "displayName": "org",
+      "avatarKey": null,
+      "score": 119.2,
+      "remainingSalary": 39,
+      "rank": 20
+    },
+    {
+      "userId": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+      "displayName": "小猴堡棒棒的",
+      "avatarKey": null,
+      "score": 106.7,
+      "remainingSalary": 33,
+      "rank": 21
     },
     {
       "userId": "7d593c13-6e15-4ccf-9d7a-03cd6a4454fc",
@@ -92,71 +196,15 @@
       "avatarKey": "TOR",
       "score": 94.6,
       "remainingSalary": 23,
-      "rank": 9
+      "rank": 22
     },
     {
-      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
-      "displayName": "RR",
-      "avatarKey": null,
-      "score": 94.6,
+      "userId": "42ed5146-29a4-419f-98a5-33b9a7ce81e4",
+      "displayName": "王堡",
+      "avatarKey": "MIN",
+      "score": 0,
       "remainingSalary": 2,
-      "rank": 10
-    },
-    {
-      "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
-      "displayName": "鲁迪费尔南德斯",
-      "avatarKey": null,
-      "score": 93.6,
-      "remainingSalary": 18,
-      "rank": 11
-    },
-    {
-      "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
-      "displayName": "Benben",
-      "avatarKey": "MEM",
-      "score": 89.7,
-      "remainingSalary": 1,
-      "rank": 12
-    },
-    {
-      "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
-      "displayName": "魔法披风",
-      "avatarKey": "HOU",
-      "score": 87.8,
-      "remainingSalary": 2,
-      "rank": 13
-    },
-    {
-      "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
-      "displayName": "奶味大宇宙",
-      "avatarKey": "SAS",
-      "score": 82.7,
-      "remainingSalary": 1,
-      "rank": 14
-    },
-    {
-      "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
-      "displayName": "nbw",
-      "avatarKey": null,
-      "score": 77.8,
-      "remainingSalary": 8,
-      "rank": 15
-    },
-    {
-      "userId": "6bdca8a5-8259-4aa6-8c00-26c725a37ee9",
-      "displayName": "老孙",
-      "avatarKey": null,
-      "score": 63.3,
-      "remainingSalary": 1,
-      "rank": 16
-    },
-    {
-      "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
-      "displayName": "ZCJenius",
-      "avatarKey": "POR",
-      "score": 48,
-      "remainingSalary": 0,
-      "rank": 17
+      "rank": 23
     }
   ],
   "source": {
