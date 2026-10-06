@@ -487,30 +487,30 @@
   },
   {
     "dateKey": "2026-10-07",
-    "updatedAt": "2026-10-04T10:02:51.973Z",
+    "updatedAt": "2026-10-06T14:01:50.500Z",
     "players": [
-      "1627750",
       "1641718",
+      "203944",
       "201942",
       "1642846",
-      "1626172"
+      "1630611"
     ],
-    "expected": 113.2,
+    "expected": 112,
     "energy": 150,
-    "formation": "2前3后",
+    "formation": "3前2后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-04T06:05:47.270Z",
-    "injuryDate": "2026-10-04",
-    "injuryUpdatedAt": "2026-10-04T10:02:29.186Z",
+    "oddsFetchedAt": "2026-10-06T14:01:48.604Z",
+    "injuryDate": "2026-10-06",
+    "injuryUpdatedAt": "2026-10-06T14:01:39.490Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-04T10:02:51.973Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-06T14:01:50.500Z",
       "playerIds": [
-        "1627750",
         "1641718",
+        "203944",
         "201942",
         "1642846",
-        "1626172"
+        "1630611"
       ]
     },
     "updates": [
@@ -527,14 +527,66 @@
         ],
         "expected": 113.2,
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-06T04:56:40.376Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641718",
+          "203944",
+          "201942",
+          "1642846",
+          "1630611"
+        ],
+        "expected": 112,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-06T06:04:17.445Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641718",
+          "203944",
+          "201942",
+          "1642846",
+          "1630611"
+        ],
+        "expected": 112,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-06T10:03:06.261Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641718",
+          "203944",
+          "201942",
+          "1642846",
+          "1630611"
+        ],
+        "expected": 112,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-06T14:01:50.500Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641718",
+          "203944",
+          "201942",
+          "1642846",
+          "1630611"
+        ],
+        "expected": 112,
+        "submission": "unchanged-verified"
       }
     ],
     "actualTotal": 0,
-    "rank": 2,
-    "rankTotal": 4,
-    "scoreDelta": -113.2,
-    "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-05T20:04:20.993Z"
+    "scoreDelta": -112
   },
   {
     "dateKey": "2026-10-08",

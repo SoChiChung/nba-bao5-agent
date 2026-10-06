@@ -70,7 +70,7 @@ data/bao5/
 
 本次归拢同步修改了以下引用：
 
-1. `.github/workflows/bao5-lineup.yml` —— CI 定时任务的 config 写入、脚本调用、`git add` 路径
+1. `.github/workflows/bao5-lineup.yml` —— CI 定时任务的 config 写入、脚本调用、定时与手动任务完成后的数据保存路径
 2. `src/server.mjs` —— import、`model-history.json` / `preferences.json` / injury / league 读取路径
 3. `src/model.mjs` —— `writePicks` 落盘目录
 4. `data/bao5/bao1/run-model.mjs` —— **自身下移一层**，`../../src` → `../../../src`、`../odds` → `../../odds`

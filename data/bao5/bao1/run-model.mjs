@@ -34,22 +34,43 @@ try {
   const [players,games]=await Promise.all([api.getPlayers(),api.getSchedule()]);
   const scoreDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const settledDate=games.filter(g=>g.status===3&&g.date).map(g=>g.date).sort().at(-1);
-  const scoreResult=await api.get(`/api/rankings?mine=1&date=${settledDate??scoreDate}`);
-  const boardResult=await api.get(`/api/rankings?period=daily&date=${scoreDate}`);
-  const dailyRankings=boardResult.json?.rows??[];
+  const history=readHistory();
+  const datesToBackfill=[...new Set([settledDate, ...history.filter(x=>!Number.isFinite(x.actualTotal)).map(x=>x.dateKey)].filter(Boolean))];
   const lineupFile=path.join(ROOT,'data','bao5','scores','top-five-lineups.json');
   let topFiveStore={dates:{}};try{topFiveStore=JSON.parse(fs.readFileSync(lineupFile,'utf8'));}catch{}topFiveStore.dates??={};
-  if(scoreResult.json?.mine?.day?.rank>0&&dailyRankings.length){
-    const old=topFiveStore.dates[scoreDate]?.lineups??[];const known=new Set(old.map(x=>String(x.userId)));const lineups=[...old];
-    for(const member of dailyRankings.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank)){
-      if(known.has(String(member.userId)))continue;
-      const response=await api.get(`/api/lineups?date=${scoreDate}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
-      if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
-      lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))});
+  for(const dateKey of datesToBackfill){
+    const boardResult=await api.get(`/api/rankings?period=daily&date=${encodeURIComponent(dateKey)}`);
+    const dailyRankings=boardResult.json?.rows??[];
+    const myResult=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(dateKey)}`);
+    const mine=myResult.json?.mine?.day;
+    const lineupNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
+    const scoreFile=path.join(ROOT,'data','bao5','scores',`rankings_${dateKey}.json`);
+    fs.mkdirSync(path.dirname(scoreFile),{recursive:true});
+    const oldSnapshot=(()=>{try{return JSON.parse(fs.readFileSync(scoreFile,'utf8'));}catch{return {};}})();
+    fs.writeFileSync(scoreFile,JSON.stringify({ ...oldSnapshot,fetchedAt:new Date().toISOString(),date:dateKey,userId:api.user?.id,displayName:api.user?.displayName,mine:myResult.json?.mine??oldSnapshot.mine,boardCount:dailyRankings.length||oldSnapshot.boardCount,board:dailyRankings.length?dailyRankings:oldSnapshot.board??[],source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=daily&date=${dateKey}`}},null,2)+'\n','utf8');
+    const currentHistory=history.find(x=>x.dateKey===dateKey);
+    if(currentHistory?.players?.length)currentHistory.playerNames=currentHistory.players.map(id=>lineupNames.get(String(id))??`球员 ${id}`);
+    const historyRow=history.find(x=>x.dateKey===dateKey);
+    if(myResult.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&historyRow&&!Number.isFinite(historyRow.actualTotal)){
+      historyRow.actualTotal=Number(mine.score);historyRow.rank=Number(mine.rank);historyRow.rankTotal=Number(mine.total??0);historyRow.scoreDelta=Number.isFinite(Number(historyRow.expected))?Number((historyRow.actualTotal-historyRow.expected).toFixed(1)):null;historyRow.resultSource='bao5-rankings-api';historyRow.resultUpdatedAt=new Date().toISOString();
     }
-    if(lineups.length)topFiveStore.dates[scoreDate]={date:scoreDate,fetchedAt:new Date().toISOString(),lineups};
+    if(dailyRankings.length){
+      const old=topFiveStore.dates[dateKey]?.lineups??[];const lineups=[...old];
+      for(const member of dailyRankings.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank)){
+        const existing=lineups.findIndex(x=>String(x.userId)===String(member.userId));
+        const response=await api.get(`/api/lineups?date=${encodeURIComponent(dateKey)}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
+        if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
+        const entry={rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))};
+        if(existing>=0)lineups[existing]=entry;else lineups.push(entry);
+      }
+      if(lineups.length)topFiveStore.dates[dateKey]={date:dateKey,fetchedAt:new Date().toISOString(),lineups};
+      for(const lineup of topFiveStore.dates[dateKey]?.lineups??[])lineup.playerNames=Object.fromEntries((lineup.playerIds??[]).map(id=>[String(id),lineupNames.get(String(id))??lineup.playerNames?.[String(id)]??`球员 ${id}`]));
+      say(`${dateKey} 已记录 ${topFiveStore.dates[dateKey]?.lineups?.length??0}/5 份总榜前五阵容`);
+    }
+  }
+  saveHistory(history);
+  if(Object.keys(topFiveStore.dates).length){
     topFiveStore.updatedAt=new Date().toISOString();fs.mkdirSync(path.dirname(lineupFile),{recursive:true});fs.writeFileSync(lineupFile,JSON.stringify(topFiveStore,null,2)+'\n','utf8');
-    say(`已记录 ${topFiveStore.dates[scoreDate]?.lineups?.length??0}/5 份今日总榜前五阵容`);
   }
   const countByPlayer=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[]){const key=String(id);countByPlayer.set(key,(countByPlayer.get(key)??0)+1);}
   const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
@@ -80,7 +101,7 @@ try {
   const nbaOddsFile=oddsMeta?.tournaments?.nba?.file??'nba/odds_2026-10-02.json';
   const odds=[...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
   const defense=readJson('data/position/defense_vs_position.json').season_2025_26??[];
-  const previous=readHistory();
+  const previous=history;
   const trained=previous.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
   const predicted=trained.reduce((s,x)=>s+x.expected,0),actual=trained.reduce((s,x)=>s+x.actualTotal,0);
   const factor=predicted?Math.max(.85,Math.min(1.15,actual/predicted)):1;
@@ -96,14 +117,14 @@ try {
   const nearGame=windows.length>0;
   const manual=process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
   say(nearGame?`比赛窗口检查：${windows.map(x=>`${x.game.away}@${x.game.home} ${Math.round(x.mins)} 分钟`).join('，')}`:'按下一场未锁定比赛日执行阵容检查');
-  let history=previous;
+  let runHistory=previous;
   const failures=[];
   for(const slate of slates){
     try{
       say(`检查赛程日 ${slate.dateKey}：${slate.games.length} 场；首场锁定 ${new Date(slate.lockedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}（北京时间）`);
       if(slate.games.every(g=>g.status===3)){say(`${slate.dateKey} 全部比赛已结束，跳过阵容`);continue;}
       let lineup=slate.lineup;
-      const prior=history.find(x=>x.dateKey===slate.dateKey);
+      const prior=runHistory.find(x=>x.dateKey===slate.dateKey);
       if(!slate.lineup){say(`${slate.dateKey} 无符合健康和规则约束的阵容，跳过提交`);continue;}
       const lineupIds=()=>lineup.players.map(p=>String(p.id));
       // Probe NBA boxscores in either requested per-game decision window.
@@ -160,8 +181,8 @@ try {
       if(lineup.players.length!==submitted.length||!lineup.players.every(p=>submitted.map(String).includes(String(p.id))))throw new Error('提交后回读阵容与模型结果不一致');
       const verifiedAt=new Date().toISOString();
       const row={dateKey:slate.dateKey,updatedAt:verifiedAt,players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,injuryUpdatedAt:injuries.updatedAt,submission:{status:same?'unchanged-verified':'submitted-verified',verifiedAt,playerIds:submitted.map(String)},updates:[...(prior?.updates??[]),{at:verifiedAt,reason:dailyRefresh?'daily-refresh':windowGames.length&&windowGames.every(g=>Date.parse(g.utc)-Date.now()<=25*60_000)?'pre-tip-25m-final':windowGames.length?'pre-tip-starters':'schedule-window',games:windowGames.map(g=>g.gameId??g.id??g.game_id),players:lineup.players.map(p=>p.id),expected:lineup.expected,submission:same?'unchanged-verified':'submitted-verified'}],...(prior?.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1))}:{})};
-      history=[...history.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
-      saveHistory(history);
+      runHistory=[...runHistory.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
+      saveHistory(runHistory);
       say(`${slate.dateKey} 已确认 BAO5 阵容：${lineup.players.map(p=>p.name).join('、')}`);
     }catch(error){failures.push(`${slate.dateKey}: ${error.message}`);say(`${slate.dateKey} 处理失败：${error.message}`);}
   }
@@ -171,12 +192,12 @@ try {
       const settled=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(settledDate)}`);
       const mine=settled.json?.mine?.day;
       if(settled.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))){
-        const row=history.find(x=>x.dateKey===settledDate);
+        const row=runHistory.find(x=>x.dateKey===settledDate);
         if(row&&!Number.isFinite(row.actualTotal)){row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();say(`${settledDate} 从 BAO5 日榜回填实际得分 ${row.actualTotal}（第 ${row.rank} 名）`);}
       }
     } catch(error) { say(`${settledDate} BAO5 日榜暂不可用：${error.message}`); }
   }
-  for(const row of history){
+  for(const row of runHistory){
     if(Number.isFinite(row.actualTotal)||!row.players?.length)continue;
     try {
       const result=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(row.dateKey)}`);
@@ -193,7 +214,7 @@ try {
       if(matched===row.players.length){row.actualTotal=Number(total.toFixed(1));row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='nba-official-boxscore';row.resultUpdatedAt=new Date().toISOString();say(`${row.dateKey} 自动回填实际得分 ${row.actualTotal}`);}
     }catch(e){say(`${row.dateKey} 官方赛果暂不可用：${e.message}`);}
   }
-  saveHistory(history);
+  saveHistory(runHistory);
   if(failures.length)throw new Error(`${failures.length} 个比赛日处理失败：${failures.join('；')}`);
   if(dailyRefresh){schedulerState.lastBaselineAt=new Date().toISOString();saveState(schedulerState);}
 } catch(error) {
