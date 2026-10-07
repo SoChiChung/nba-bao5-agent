@@ -44,8 +44,8 @@ async function getDashboard({ refresh = false } = {}) {
     const calibrationFactor=predictedSum>0?Math.max(.85,Math.min(1.15,actualSum/predictedSum)):1;
     const prefs=readPreferences();
     const effectiveMode=prefs.mode==='custom'?'lowRisk':prefs.mode;
-    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{}),weight:prefs.crowdWeight??0.04} });
-    if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';}
+    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
+    if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, };
     const league=readJson('data/bao5/league/latest.json');
@@ -232,11 +232,14 @@ const server = http.createServer(async (req,res) => {
   try {
     if (url.pathname === '/api/dashboard' && req.method === 'GET') return send(res,200,await getDashboard({refresh:url.searchParams.get('refresh')==='1'}));
     if (url.pathname === '/api/preferences' && req.method === 'POST') {
-      const input=await body(req);if(!['lowRisk','highRisk','custom'].includes(input.mode))return send(res,400,{error:'未知的决策模式'});
-      const customWeights=input.customWeights??null;if(customWeights&&(Object.keys(customWeights).length!==5||['recent','history','matchup','odds','crowd'].some(k=>!Number.isFinite(Number(customWeights[k]))||Number(customWeights[k])<0)||Math.abs(['recent','history','matchup','odds','crowd'].reduce((s,k)=>s+Number(customWeights[k]??0),0)-1)>.00001))return send(res,400,{error:'五项自定义权重之和必须为 100%'});if(customWeights){const shares=customWeights;Object.assign(customWeights,{recent:shares.recent*.5,history:shares.history*.5,matchup:shares.matchup*.12,odds:shares.odds*.08,crowd:shares.crowd*.15});}
-      if(customWeights){const shares=customWeights;customWeights={recent:shares.recent*.5,history:shares.history*.5,matchup:shares.matchup*.12,odds:shares.odds*.08,crowd:shares.crowd*.15};}
-      const crowdWeight=input.crowdWeight==null?undefined:Number(input.crowdWeight);if(crowdWeight!=null&&(!Number.isFinite(crowdWeight)||crowdWeight<0||crowdWeight>.15))return send(res,400,{error:'前五选人偏好权重需在 0 到 0.15 之间'});
-      savePreferences({mode:input.mode,customWeights,...(crowdWeight==null?{}:{crowdWeight})});cache=null;return send(res,200,{ok:true});
+      const input=await body(req);const modeKeys=['lowRisk','highRisk','crowdFocus','matchupFocus','balanced','custom'];if(!modeKeys.includes(input.mode))return send(res,400,{error:'未知的决策模式'});
+      let customWeights=input.customWeights??null;
+      if(input.mode==='custom'){
+        const keys=['recent','history','matchup','odds','crowd'];
+        if(!customWeights||keys.some(k=>!Number.isFinite(Number(customWeights[k]))||Number(customWeights[k])<0||Number(customWeights[k])>1)||keys.reduce((sum,k)=>sum+Number(customWeights[k]),0)>1.000001)return send(res,400,{error:'五项自定义比例需在 0 到 100% 之间，且合计不能超过 100%'});
+        customWeights=Object.fromEntries(keys.map(k=>[k,Number(customWeights[k])]));
+      }
+      savePreferences({mode:input.mode,...(input.mode==='custom'?{customWeights}:{})});cache=null;return send(res,200,{ok:true});
     }
     if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; return send(res,200,await getDashboard({refresh:true})); }
     if (url.pathname === '/api/automation-log' && req.method === 'GET') {

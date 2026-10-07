@@ -1,5 +1,10 @@
 {
-  "mode": "highRisk",
-  "customWeights": null,
-  "crowdWeight": 0
+  "mode": "custom",
+  "customWeights": {
+    "recent": 0.1,
+    "history": 0.25,
+    "matchup": 0.3,
+    "odds": 0.2,
+    "crowd": 0.15
+  }
 }

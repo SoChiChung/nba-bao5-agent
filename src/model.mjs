@@ -13,12 +13,15 @@ const round = x => Math.round((x + Number.EPSILON) * 10) / 10;
 const TEAM_CN = { ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才' };
 
 export const MODEL_MODES = {
-  lowRisk: { label:'偏低风险', recent:0.18, history:0.08, matchup:0.08, odds:0.04, injury:1.25, replacement:0.14, crowd:0.04 },
-  highRisk: { label:'高风险', recent:0.42, history:0.24, matchup:0.12, odds:0.08, injury:1, replacement:0.28, crowd:0.08 },
+  lowRisk: { label:'稳健优先', recent:0.18, history:0.08, matchup:0.08, odds:0.04, injury:1.25, replacement:0.14, crowd:0.08 },
+  highRisk: { label:'近期冲刺', recent:0.42, history:0.24, matchup:0.12, odds:0.08, injury:1, replacement:0.28, crowd:0.12 },
+  crowdFocus: { label:'前五趋势', recent:0.24, history:0.12, matchup:0.08, odds:0.04, injury:1.1, replacement:0.18, crowd:0.3 },
+  matchupFocus: { label:'对位优先', recent:0.2, history:0.1, matchup:0.2, odds:0.08, injury:1.15, replacement:0.18, crowd:0.12 },
+  balanced: { label:'均衡探索', recent:0.28, history:0.16, matchup:0.12, odds:0.08, injury:1.1, replacement:0.2, crowd:0.18 },
 };
 
 export function buildDashboardData({ players, schedule, injuries, odds, defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
-  const weights={...(MODEL_MODES[mode]??MODEL_MODES.lowRisk),...(customWeights??{})};if(lineupFeedback?.weight!=null)weights.crowd=Number(lineupFeedback.weight);
+  const weights={...(MODEL_MODES[mode]??MODEL_MODES.lowRisk),...(customWeights??{})};
   const games = Array.isArray(schedule) ? schedule : schedule.games ?? [];
   const now=Date.now();
   const upcoming=games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>now);
