@@ -13,6 +13,7 @@ const scoreDir = path.join(RUNTIME_ROOT, 'data', 'bao5', 'scores');
 const sourceScoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
 const lineupHistoryPath = path.join(scoreDir, 'top-five-lineups.json');
 const sourceLineupHistoryPath = path.join(sourceScoreDir, 'top-five-lineups.json');
+const avatarPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'account-avatar.json');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml' };
 let cache = null;
 let refreshing = null;
@@ -48,7 +49,8 @@ async function getDashboard({ refresh = false } = {}) {
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, };
     const league=readJson('data/bao5/league/latest.json');
-    data.account={displayName:league.displayName??api.user?.displayName??'BAO5'};
+    const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
+    data.account={displayName:league.displayName??api.user?.displayName??'BAO5',avatar:accountAvatar};
     const weeklyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_weekly.json`);const weekly=fs.existsSync(weeklyPath)?JSON.parse(fs.readFileSync(weeklyPath,'utf8')):null;
     const dailyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_daily.json`);const daily=fs.existsSync(dailyPath)?JSON.parse(fs.readFileSync(dailyPath,'utf8')):null;
     const standingFrom=(doc,id)=>{const me=doc?.leagues?.[id]?.rows?.find(r=>String(r.userId)===String(league.userId));return me?{rank:me.rank,score:me.score}:null;};
@@ -79,7 +81,11 @@ async function getDashboard({ refresh = false } = {}) {
 }
 
 function combineDefense(json) { return json.season_2025_26 ?? []; }
-
+async function getAccountAvatar(avatarKey){
+  try{const cached=JSON.parse(fs.readFileSync(avatarPath,'utf8'));if(cached.avatarKey===avatarKey&&cached.dataUrl)return cached.dataUrl;}catch{}
+  if(!avatarKey)return null;
+  try{const cfg=loadConfig();const key=String(avatarKey);const url=key.startsWith('badge:')?`${cfg.baseUrl}/honors/thumbs/192/${encodeURIComponent(key.slice(6))}.webp`:`${cfg.baseUrl}/team-avatars/${encodeURIComponent(key)}.png`;const image=await fetch(url);if(!image.ok)return null;const type=image.headers.get('content-type')??'image/png';if(!type.startsWith('image/'))return null;const bytes=Buffer.from(await image.arrayBuffer());if(bytes.length>2_000_000)return null;const dataUrl=`data:${type};base64,${bytes.toString('base64')}`;fs.mkdirSync(path.dirname(avatarPath),{recursive:true});fs.writeFileSync(avatarPath,JSON.stringify({avatarKey,dataUrl,fetchedAt:new Date().toISOString()}));return dataUrl;}catch{return null;}
+}
 function readJson(relative, fallback) { try { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); } catch { return fallback; } }
 function readHistory() { for(const file of [historyPath,sourceHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}} return []; }
 const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
@@ -190,7 +196,8 @@ const server = http.createServer(async (req,res) => {
     if (url.pathname === '/api/dashboard' && req.method === 'GET') return send(res,200,await getDashboard({refresh:url.searchParams.get('refresh')==='1'}));
     if (url.pathname === '/api/preferences' && req.method === 'POST') {
       const input=await body(req);if(!['lowRisk','highRisk','custom'].includes(input.mode))return send(res,400,{error:'未知的决策模式'});
-      const customWeights=input.customWeights??null;if(customWeights&&Object.values(customWeights).some(x=>!Number.isFinite(Number(x))||Number(x)<0||Number(x)>.5))return send(res,400,{error:'自定义权重需在 0 到 0.5 之间'});
+      const customWeights=input.customWeights??null;if(customWeights&&(Object.keys(customWeights).length!==5||['recent','history','matchup','odds','crowd'].some(k=>!Number.isFinite(Number(customWeights[k]))||Number(customWeights[k])<0)||Math.abs(['recent','history','matchup','odds','crowd'].reduce((s,k)=>s+Number(customWeights[k]??0),0)-1)>.00001))return send(res,400,{error:'五项自定义权重之和必须为 100%'});if(customWeights){const shares=customWeights;Object.assign(customWeights,{recent:shares.recent*.5,history:shares.history*.5,matchup:shares.matchup*.12,odds:shares.odds*.08,crowd:shares.crowd*.15});}
+      if(customWeights){const shares=customWeights;customWeights={recent:shares.recent*.5,history:shares.history*.5,matchup:shares.matchup*.12,odds:shares.odds*.08,crowd:shares.crowd*.15};}
       const crowdWeight=input.crowdWeight==null?undefined:Number(input.crowdWeight);if(crowdWeight!=null&&(!Number.isFinite(crowdWeight)||crowdWeight<0||crowdWeight>.15))return send(res,400,{error:'前五选人偏好权重需在 0 到 0.15 之间'});
       savePreferences({mode:input.mode,customWeights,...(crowdWeight==null?{}:{crowdWeight})});cache=null;return send(res,200,{ok:true});
     }

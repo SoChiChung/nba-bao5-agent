@@ -41,14 +41,16 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
       scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback })
     );
-    const lineup = optimize(candidates.filter(p => !p.injury?.hardExclude));
+    const eligible = candidates.filter(p => !p.injury?.hardExclude);
+    const lineup = optimize(eligible);
+    const efficientLineup = preseason ? optimize(eligible, 0.9) : null;
     const startMs = Math.min(...dayGames.map(g => new Date(g.utc).getTime()));
     return {
       dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season',
       players: [...candidates].sort((a,b)=>b.projected-a.projected),
       injuryMeta: { date: injuries.serverDate, available: Boolean(officialInjuries), note: officialInjuries ? '官方报告可用' : '季前赛暂无官方伤病报告；聚合伤病只作低置信度软惩罚' },
       oddsMeta: gameOdds.length ? { updatedAt: gameOdds[0].updatedAt, count: gameOdds.length } : null,
-      lineup, startMs, lockedAt: startMs - 15 * 60_000,
+      lineup, efficientLineup, startMs, lockedAt: startMs - 15 * 60_000,
     };
   });
   return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES };
@@ -172,16 +174,17 @@ function parseCsv(text) {
   return lines.slice(1).map(line => Object.fromEntries(line.split(',').map((v,i) => [headers[i], v])));
 }
 
-export function optimizeLineup(pool) {
+export function optimizeLineup(pool, energyLimit = 150) {
+  const cap=Math.max(0,Math.min(150,Math.floor(Number(energyLimit)||150)));
   const front=pool.filter(p=>p.position==='front'), back=pool.filter(p=>p.position==='back');
   let best=null;
   for(const frontCount of [2,3]){
     const backCount=5-frontCount;
-    const dp=Array.from({length:frontCount+1},()=>Array.from({length:backCount+1},()=>Array(151).fill(null)));
+    const dp=Array.from({length:frontCount+1},()=>Array.from({length:backCount+1},()=>Array(cap+1).fill(null)));
     dp[0][0][0]={score:0,players:[]};
     for(const p of pool){
       const isFront=p.position==='front',cost=Number(p.energy);
-      for(let f=frontCount;f>=0;f--) for(let b=backCount;b>=0;b--) for(let e=150-cost;e>=0;e--){
+      for(let f=frontCount;f>=0;f--) for(let b=backCount;b>=0;b--) for(let e=cap-cost;e>=0;e--){
         const prevF=f-(isFront?1:0),prevB=b-(isFront?0:1);
         if(prevF<0||prevB<0)continue;
         const prior=dp[prevF][prevB][e]; if(!prior)continue;
@@ -189,7 +192,7 @@ export function optimizeLineup(pool) {
         if(!dp[f][b][e+cost]||next.score>dp[f][b][e+cost].score)dp[f][b][e+cost]=next;
       }
     }
-    for(let e=0;e<=150;e++){const item=dp[frontCount][backCount][e];if(item&&(!best||item.score>best.expected))best={players:item.players.sort((a,b)=>b.projected-a.projected),expected:round(item.score),energy:e,formation:`${frontCount}前${backCount}后`};}
+    for(let e=0;e<=cap;e++){const item=dp[frontCount][backCount][e];if(item&&(!best||item.score>best.expected))best={players:item.players.sort((a,b)=>b.projected-a.projected),expected:round(item.score),energy:e,energyCap:cap,formation:`${frontCount}前${backCount}后`};}
   }
   return best;
 }
