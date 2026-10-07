@@ -58,6 +58,7 @@ async function getDashboard({ refresh = false } = {}) {
     const rankTrend=[];const leagueDir=path.join(ROOT,'data','bao5','league','snapshots');
     if(fs.existsSync(leagueDir))for(const file of fs.readdirSync(leagueDir).filter(f=>f.endsWith('_weekly.json')).sort().slice(-7)){try{const snap=JSON.parse(fs.readFileSync(path.join(leagueDir,file),'utf8'));for(const [id,raw] of Object.entries(snap.leagues??{})){const me=raw.rows?.find(r=>String(r.userId)===String(league.userId));const meta=(league.leagues??[]).find(l=>l.id===id);if(me)rankTrend.push({date:snap.date,leagueName:meta?.name??id,rank:me.rank,score:me.score});}}catch{}}
     data.rankTrend=rankTrend;
+    data.myRankTrend=buildMyRankTrend(7,scoreData);
     const persistedLineups=lineupFeedback.store??readTopFiveStore();
     data.history=histories.map(row=>({...row,playerNames:(row.players??[]).map(id=>namesForPlayer(players,id)),rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score})),...(persistedLineups.dates?.[row.dateKey]?{topFive:buildTopFiveSummary(persistedLineups.dates[row.dateKey],players)}:{})}));
     data.dailyScore=scoreData;
@@ -78,6 +79,42 @@ async function getDashboard({ refresh = false } = {}) {
     return cache;
   })().finally(() => { refreshing = null; });
   return refreshing;
+}
+
+// 排名曲线：读data/bao5/scores/rankings_*.json（每天一份 /api/rankings?mine=1 快照），
+// 逐日抽出三个口径。BAO5 只有 day/week/season，没有自然月，因此不做「月排名」。
+//   seasonRank/seasonScore → 总榜（赛季累计，全站口径）
+//   dayRank/dayScore       → 日榜（当日结算，全站口径）
+// rank===0 表示当日无结算，必须连同 score 一起丢弃，否则曲线会被 0 值拉出假谷底。
+// freshScore 为本次刷新拿到的当日快照：今日名次会随比赛结算变动，
+// 落盘文件可能是几小时前的旧值（实测出现过 day.rank 9 → 实际 7），
+// 因此今日点一律以 freshScore 覆盖，避免曲线与「今日战绩」自相矛盾。
+function buildMyRankTrend(days=7,freshScore=null){
+  const dir=sourceScoreDir;
+  if(!fs.existsSync(dir))return {days:[],latest:null,availableDates:0};
+  const files=fs.readdirSync(dir).filter(f=>/^rankings_\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().slice(-days);
+  const points=[];
+  for(const file of files){
+    try{
+      const doc=JSON.parse(fs.readFileSync(path.join(dir,file),'utf8'));
+      points.push(normalizeRankPoint(doc.date??file.slice(9,19),doc.mine??{}));
+    }catch{}
+  }
+  if(freshScore?.date&&Number(freshScore.mine?.day?.rank)>0){
+    const today=normalizeRankPoint(freshScore.date,freshScore.mine??{});
+    const idx=points.findIndex(p=>p.date===today.date);
+    if(idx>=0)points[idx]=today;else points.push(today);
+  }
+  points.sort((a,b)=>a.date.localeCompare(b.date));
+  return {days:points.slice(-days),latest:points.at(-1)??null,availableDates:points.length};
+}
+function normalizeRankPoint(date,mine){
+  const day=mine.day??{},week=mine.week??{},season=mine.season??{};
+  const point={date};
+  if(Number(day.rank)>0){point.dayRank=Number(day.rank);point.dayScore=Number(day.score);point.dayTotal=Number(day.total);}
+  if(Number(season.rank)>0){point.seasonRank=Number(season.rank);point.seasonScore=Number(season.score);point.seasonTotal=Number(season.total);}
+  if(Number(week.rank)>0){point.weekRank=Number(week.rank);point.weekScore=Number(week.score);}
+  return point;
 }
 
 function combineDefense(json) { return json.season_2025_26 ?? []; }
