@@ -37,11 +37,23 @@
       "source": "公开名单"
     },
     "201143": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在ESPN、RotoWire、Sleeper伤病名单中",
-      "source": "公开名单"
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "RotoWire",
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（轮休）"
+        },
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ]
     },
     "201144": {
       "key": "available",
@@ -72,11 +84,23 @@
       "source": "公开名单"
     },
     "201939": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在ESPN、RotoWire、Sleeper伤病名单中",
-      "source": "公开名单"
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "RotoWire",
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（轮休）"
+        },
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ]
     },
     "201950": {
       "key": "available",
@@ -207,11 +231,23 @@
       "source": "公开名单"
     },
     "203110": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在ESPN、RotoWire、Sleeper伤病名单中",
-      "source": "公开名单"
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "RotoWire",
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（轮休）"
+        },
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ]
     },
     "203114": {
       "key": "available",
@@ -1574,23 +1610,11 @@
       "source": "公开名单"
     },
     "1630182": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "RotoWire",
-          "label": "出战成疑",
-          "detail": "RotoWire伤病名单：出战成疑（膝盖）"
-        },
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ]
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在ESPN、RotoWire、Sleeper伤病名单中",
+      "source": "公开名单"
     },
     "1630183": {
       "key": "available",
@@ -5020,13 +5044,13 @@
     }
   },
   "officialCount": 0,
-  "projectedCount": 474,
-  "filledCount": 93,
+  "projectedCount": 472,
+  "filledCount": 95,
   "fallbackSource": "mixed",
   "updatedAt": null,
   "updatedAtLabel": null,
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出93人，其余474人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出95人，其余472人未被列入（视为可出战）。"
 }
