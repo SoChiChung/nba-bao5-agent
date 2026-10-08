@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-08T00:04:05.149Z",
+  "updatedAt": "2026-10-08T05:55:27.125Z",
   "dates": {
     "2026-10-04": {
       "date": "2026-10-04",
-      "fetchedAt": "2026-10-08T00:03:55.159Z",
+      "fetchedAt": "2026-10-08T05:55:18.303Z",
       "lineups": [
         {
           "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 442.3,
+          "score": 563.2,
           "salaryUsed": 149,
           "playerIds": [
             "1630567",
@@ -34,10 +34,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 4,
           "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
           "displayName": "蒂兰基尔尼",
-          "score": 394,
+          "score": 514.3,
           "salaryUsed": 123,
           "playerIds": [
             "1630567",
@@ -65,7 +65,7 @@
           "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 431.9,
+          "score": 546.5,
           "salaryUsed": 150,
           "playerIds": [
             "1630567",
@@ -90,10 +90,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 396.1,
+          "score": 514,
           "salaryUsed": 138,
           "playerIds": [
             "1642867",
@@ -146,10 +146,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 419.8,
+          "score": 536.3,
           "salaryUsed": 149,
           "playerIds": [
             "1629628",
@@ -289,13 +289,13 @@
     },
     "2026-10-05": {
       "date": "2026-10-05",
-      "fetchedAt": "2026-10-08T00:03:58.577Z",
+      "fetchedAt": "2026-10-08T05:55:20.511Z",
       "lineups": [
         {
           "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 431.9,
+          "score": 546.5,
           "salaryUsed": 149,
           "playerIds": [
             "1643413",
@@ -320,10 +320,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 396.1,
+          "score": 514,
           "salaryUsed": 134,
           "playerIds": [
             "1642865",
@@ -379,7 +379,7 @@
           "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 442.3,
+          "score": 563.2,
           "salaryUsed": 150,
           "playerIds": [
             "1642846",
@@ -404,10 +404,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 419.8,
+          "score": 536.3,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -516,10 +516,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 4,
           "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
           "displayName": "蒂兰基尔尼",
-          "score": 394,
+          "score": 514.3,
           "salaryUsed": 150,
           "playerIds": [
             "1643408",
@@ -547,13 +547,13 @@
     },
     "2026-10-06": {
       "date": "2026-10-06",
-      "fetchedAt": "2026-10-08T00:04:01.879Z",
+      "fetchedAt": "2026-10-08T05:55:22.759Z",
       "lineups": [
         {
           "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 431.9,
+          "score": 546.5,
           "salaryUsed": 149,
           "playerIds": [
             "1626164",
@@ -581,7 +581,7 @@
           "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 442.3,
+          "score": 563.2,
           "salaryUsed": 147,
           "playerIds": [
             "1643409",
@@ -606,10 +606,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 419.8,
+          "score": 536.3,
           "salaryUsed": 126,
           "playerIds": [
             "1643409",
@@ -718,10 +718,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 4,
           "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
           "displayName": "蒂兰基尔尼",
-          "score": 394,
+          "score": 514.3,
           "salaryUsed": 150,
           "playerIds": [
             "1628970",
@@ -746,10 +746,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 396.1,
+          "score": 514,
           "salaryUsed": 144,
           "playerIds": [
             "1642845",
@@ -805,13 +805,13 @@
     },
     "2026-10-07": {
       "date": "2026-10-07",
-      "fetchedAt": "2026-10-08T00:04:05.148Z",
+      "fetchedAt": "2026-10-08T05:55:24.922Z",
       "lineups": [
         {
           "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 431.9,
+          "score": 546.5,
           "salaryUsed": 149,
           "playerIds": [
             "1642349",
@@ -836,10 +836,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 4,
           "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
           "displayName": "蒂兰基尔尼",
-          "score": 394,
+          "score": 514.3,
           "salaryUsed": 140,
           "playerIds": [
             "1642856",
@@ -867,7 +867,7 @@
           "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 442.3,
+          "score": 563.2,
           "salaryUsed": 142,
           "playerIds": [
             "1629646",
@@ -892,10 +892,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 419.8,
+          "score": 536.3,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -948,10 +948,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 396.1,
+          "score": 514,
           "salaryUsed": 133,
           "playerIds": [
             "1643408",
@@ -1001,6 +1001,152 @@
             "1642847": "杰里迈亚·费尔斯",
             "1642852": "德里克·奎因",
             "1643408": "达林·彼得森"
+          }
+        }
+      ]
+    },
+    "2026-10-08": {
+      "date": "2026-10-08",
+      "fetchedAt": "2026-10-08T05:55:27.124Z",
+      "lineups": [
+        {
+          "rank": 1,
+          "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
+          "displayName": "阿道",
+          "score": 563.2,
+          "salaryUsed": 144,
+          "playerIds": [
+            "1642276",
+            "1643410",
+            "1643409",
+            "1642892",
+            "1630162"
+          ],
+          "playerScores": {
+            "1630162": 21.7,
+            "1642276": 35.9,
+            "1642892": 31,
+            "1643409": 24.2,
+            "1643410": 23.8
+          },
+          "playerNames": {
+            "1630162": "安东尼·爱德华兹",
+            "1642276": "凯莱尔·韦尔",
+            "1642892": "本内特·斯特茨",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊"
+          }
+        },
+        {
+          "rank": 2,
+          "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+          "displayName": "桑滴二大妈",
+          "score": 546.5,
+          "salaryUsed": 102,
+          "playerIds": [
+            "1643409",
+            "1630169",
+            "203081",
+            "1643410",
+            "1642276"
+          ],
+          "playerScores": {
+            "203081": 22.7,
+            "1630169": 24,
+            "1642276": 35.9,
+            "1643409": 24.2,
+            "1643410": 23.8
+          },
+          "playerNames": {
+            "203081": "达米安·利拉德",
+            "1630169": "泰瑞斯·哈利伯顿",
+            "1642276": "凯莱尔·韦尔",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊"
+          }
+        },
+        {
+          "rank": 3,
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "score": 536.3,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1643410",
+            "1643409",
+            "1630162",
+            "1642276",
+            "1630314"
+          ],
+          "playerScores": {
+            "1630162": 21.7,
+            "1630314": 26.6,
+            "1642276": 35.9,
+            "1643409": 24.2,
+            "1643410": 23.8
+          },
+          "playerNames": {
+            "1630162": "安东尼·爱德华兹",
+            "1630314": "布兰登·威廉姆斯",
+            "1642276": "凯莱尔·韦尔",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊"
+          }
+        },
+        {
+          "rank": 4,
+          "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
+          "displayName": "蒂兰基尔尼",
+          "score": 514.3,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1630314",
+            "1630581",
+            "1643409",
+            "1642907",
+            "1641824"
+          ],
+          "playerScores": {
+            "1630314": 26.6,
+            "1630581": 22.1,
+            "1641824": 30.1,
+            "1642907": 17.3,
+            "1643409": 24.2
+          },
+          "playerNames": {
+            "1630314": "布兰登·威廉姆斯",
+            "1630581": "约什·吉迪",
+            "1641824": "马塔斯·布泽利斯",
+            "1642907": "塞德里克·考沃德",
+            "1643409": "卡梅隆·布泽尔"
+          }
+        },
+        {
+          "rank": 5,
+          "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+          "displayName": "直井怜张元英",
+          "score": 514,
+          "salaryUsed": 130,
+          "playerIds": [
+            "1643409",
+            "1643633",
+            "1630314",
+            "1643410",
+            "1630581"
+          ],
+          "playerScores": {
+            "1630314": 26.6,
+            "1630581": 22.1,
+            "1643409": 24.2,
+            "1643410": 23.8,
+            "1643633": 21.2
+          },
+          "playerNames": {
+            "1630314": "布兰登·威廉姆斯",
+            "1630581": "约什·吉迪",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊",
+            "1643633": "格雷厄姆·艾克"
           }
         }
       ]
