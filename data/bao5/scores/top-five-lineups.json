@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-09T00:12:09.142Z",
+  "updatedAt": "2026-10-09T06:15:04.567Z",
   "dates": {
     "2026-10-04": {
       "date": "2026-10-04",
-      "fetchedAt": "2026-10-09T00:12:00.385Z",
+      "fetchedAt": "2026-10-09T06:14:53.348Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 574.8,
+          "score": 650.7,
           "salaryUsed": 149,
           "playerIds": [
             "1630567",
@@ -62,10 +62,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 564,
+          "score": 650.9,
           "salaryUsed": 150,
           "playerIds": [
             "1630567",
@@ -90,10 +90,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 3,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 514,
+          "score": 618.2,
           "salaryUsed": 138,
           "playerIds": [
             "1642867",
@@ -146,10 +146,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 544.6,
+          "score": 608.8,
           "salaryUsed": 149,
           "playerIds": [
             "1629628",
@@ -286,10 +286,10 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 4,
           "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
           "displayName": "奶味大宇宙",
-          "score": 555.4,
+          "score": 611.8,
           "salaryUsed": 150,
           "playerIds": [
             "203507",
@@ -317,13 +317,13 @@
     },
     "2026-10-05": {
       "date": "2026-10-05",
-      "fetchedAt": "2026-10-09T00:12:02.904Z",
+      "fetchedAt": "2026-10-09T06:14:55.475Z",
       "lineups": [
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 564,
+          "score": 650.9,
           "salaryUsed": 149,
           "playerIds": [
             "1643413",
@@ -348,10 +348,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 3,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 514,
+          "score": 618.2,
           "salaryUsed": 134,
           "playerIds": [
             "1642865",
@@ -404,10 +404,10 @@
           }
         },
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 574.8,
+          "score": 650.7,
           "salaryUsed": 150,
           "playerIds": [
             "1642846",
@@ -432,10 +432,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 544.6,
+          "score": 608.8,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -572,10 +572,10 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 4,
           "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
           "displayName": "奶味大宇宙",
-          "score": 555.4,
+          "score": 611.8,
           "salaryUsed": 148,
           "playerIds": [
             "1628991",
@@ -603,13 +603,13 @@
     },
     "2026-10-06": {
       "date": "2026-10-06",
-      "fetchedAt": "2026-10-09T00:12:04.947Z",
+      "fetchedAt": "2026-10-09T06:14:57.588Z",
       "lineups": [
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 564,
+          "score": 650.9,
           "salaryUsed": 149,
           "playerIds": [
             "1626164",
@@ -634,10 +634,10 @@
           }
         },
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 574.8,
+          "score": 650.7,
           "salaryUsed": 147,
           "playerIds": [
             "1643409",
@@ -662,10 +662,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 544.6,
+          "score": 608.8,
           "salaryUsed": 126,
           "playerIds": [
             "1643409",
@@ -802,10 +802,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 3,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 514,
+          "score": 618.2,
           "salaryUsed": 144,
           "playerIds": [
             "1642845",
@@ -858,10 +858,10 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 4,
           "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
           "displayName": "奶味大宇宙",
-          "score": 555.4,
+          "score": 611.8,
           "salaryUsed": 145,
           "playerIds": [
             "1629660",
@@ -889,13 +889,13 @@
     },
     "2026-10-07": {
       "date": "2026-10-07",
-      "fetchedAt": "2026-10-09T00:12:07.068Z",
+      "fetchedAt": "2026-10-09T06:14:59.699Z",
       "lineups": [
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 564,
+          "score": 650.9,
           "salaryUsed": 149,
           "playerIds": [
             "1642349",
@@ -948,10 +948,10 @@
           }
         },
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 574.8,
+          "score": 650.7,
           "salaryUsed": 142,
           "playerIds": [
             "1629646",
@@ -976,10 +976,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 544.6,
+          "score": 608.8,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -1032,10 +1032,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 3,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 514,
+          "score": 618.2,
           "salaryUsed": 133,
           "playerIds": [
             "1643408",
@@ -1088,10 +1088,10 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 4,
           "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
           "displayName": "奶味大宇宙",
-          "score": 555.4,
+          "score": 611.8,
           "salaryUsed": 144,
           "playerIds": [
             "203944",
@@ -1119,13 +1119,13 @@
     },
     "2026-10-08": {
       "date": "2026-10-08",
-      "fetchedAt": "2026-10-09T00:12:09.141Z",
+      "fetchedAt": "2026-10-09T06:15:02.256Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 574.8,
+          "score": 650.7,
           "salaryUsed": 144,
           "playerIds": [
             "1642276",
@@ -1150,10 +1150,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 564,
+          "score": 650.9,
           "salaryUsed": 102,
           "playerIds": [
             "1643409",
@@ -1178,10 +1178,10 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 5,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 544.6,
+          "score": 608.8,
           "salaryUsed": 150,
           "playerIds": [
             "1643410",
@@ -1234,10 +1234,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 3,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 514,
+          "score": 618.2,
           "salaryUsed": 130,
           "playerIds": [
             "1643409",
@@ -1262,10 +1262,10 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 4,
           "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
           "displayName": "奶味大宇宙",
-          "score": 555.4,
+          "score": 611.8,
           "salaryUsed": 101,
           "playerIds": [
             "1643409",
@@ -1315,6 +1315,152 @@
             "1630169": "泰瑞斯·哈利伯顿",
             "1643409": "卡梅隆·布泽尔",
             "1643410": "凯莱布·威尔逊"
+          }
+        }
+      ]
+    },
+    "2026-10-09": {
+      "date": "2026-10-09",
+      "fetchedAt": "2026-10-09T06:15:04.567Z",
+      "lineups": [
+        {
+          "rank": 1,
+          "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+          "displayName": "桑滴二大妈",
+          "score": 650.9,
+          "salaryUsed": 147,
+          "playerIds": [
+            "1643407",
+            "1643411",
+            "1643509",
+            "1642847",
+            "1641705"
+          ],
+          "playerScores": {
+            "1641705": 18.7,
+            "1642847": 13.4,
+            "1643407": 28.4,
+            "1643411": 19.5,
+            "1643509": 24.4
+          },
+          "playerNames": {
+            "1641705": "维克托·文班亚马",
+            "1642847": "杰里迈亚·费尔斯",
+            "1643407": "AJ·迪班萨",
+            "1643411": "小达里厄斯·埃卡夫",
+            "1643509": "米利克·托马斯"
+          }
+        },
+        {
+          "rank": 2,
+          "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
+          "displayName": "阿道",
+          "score": 650.7,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1643407",
+            "1643411",
+            "1631126",
+            "1641705",
+            "1642928"
+          ],
+          "playerScores": {
+            "1631126": 11.5,
+            "1641705": 18.7,
+            "1642928": 9.4,
+            "1643407": 28.4,
+            "1643411": 19.5
+          },
+          "playerNames": {
+            "1631126": "凯莱布·乐福",
+            "1641705": "维克托·文班亚马",
+            "1642928": "迪伦·卡德韦尔",
+            "1643407": "AJ·迪班萨",
+            "1643411": "小达里厄斯·埃卡夫"
+          }
+        },
+        {
+          "rank": 3,
+          "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+          "displayName": "直井怜张元英",
+          "score": 618.2,
+          "salaryUsed": 138,
+          "playerIds": [
+            "1643411",
+            "1641705",
+            "1643407",
+            "1642854",
+            "1642363"
+          ],
+          "playerScores": {
+            "1641705": 18.7,
+            "1642363": 20.4,
+            "1642854": 17.2,
+            "1643407": 28.4,
+            "1643411": 19.5
+          },
+          "playerNames": {
+            "1641705": "维克托·文班亚马",
+            "1642363": "尼克·克利福德",
+            "1642854": "阿萨·纽厄尔",
+            "1643407": "AJ·迪班萨",
+            "1643411": "小达里厄斯·埃卡夫"
+          }
+        },
+        {
+          "rank": 4,
+          "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+          "displayName": "奶味大宇宙",
+          "score": 611.8,
+          "salaryUsed": 148,
+          "playerIds": [
+            "1643542",
+            "203944",
+            "1627759",
+            "1642281",
+            "1642852"
+          ],
+          "playerScores": {
+            "203944": 29.2,
+            "1627759": 23.4,
+            "1642281": 20.6,
+            "1642852": 14.1,
+            "1643542": 10.7
+          },
+          "playerNames": {
+            "203944": "朱利叶斯·兰德尔",
+            "1627759": "杰伦·布朗",
+            "1642281": "杰隆·泰森",
+            "1642852": "德里克·奎因",
+            "1643542": "小塔里斯·里德"
+          }
+        },
+        {
+          "rank": 5,
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "score": 608.8,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1629029",
+            "1643411",
+            "1642843",
+            "1626209",
+            "1642928"
+          ],
+          "playerScores": {
+            "1626209": 14.5,
+            "1629029": 29.1,
+            "1642843": 0,
+            "1642928": 9.4,
+            "1643411": 19.5
+          },
+          "playerNames": {
+            "1626209": "马里奥·海佐尼亚",
+            "1629029": "卢卡·东契奇",
+            "1642843": "库珀·弗拉格",
+            "1642928": "迪伦·卡德韦尔",
+            "1643411": "小达里厄斯·埃卡夫"
           }
         }
       ]
