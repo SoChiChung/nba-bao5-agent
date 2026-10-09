@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T17:23:38.251Z",
+  "generatedAt": "2026-10-09T23:52:54.247Z",
   "serverDate": "2026-10-09",
   "requestedDate": null,
   "available": false,
@@ -8,21 +8,21 @@
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "updatedAt": null,
   "counts": {
-    "total": 685,
-    "available": 576,
+    "total": 692,
+    "available": 582,
     "questionable": 91,
-    "out": 18
+    "out": 19
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 576,
-    "filledCount": 109,
+    "projectedCount": 582,
+    "filledCount": 110,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出109人，其余576人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出110人，其余582人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-08",
-  "changeCount": 44,
+  "changeCount": 46,
   "changes": [
     {
       "kind": "newInjury",
@@ -177,6 +177,21 @@
     {
       "kind": "newInjury",
       "id": "1629674",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630188",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
@@ -475,6 +490,21 @@
       "energy": null
     },
     {
+      "kind": "worsened",
+      "id": "1630191",
+      "from": "questionable",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "kind": "cleared",
       "id": "1629029",
       "from": "questionable",
@@ -689,12 +719,12 @@
     {
       "field": "projectedCount",
       "from": 424,
-      "to": 576
+      "to": 582
     },
     {
       "field": "filledCount",
       "from": 93,
-      "to": 109
+      "to": 110
     }
   ]
 }
