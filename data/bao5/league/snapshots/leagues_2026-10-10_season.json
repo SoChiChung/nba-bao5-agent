@@ -1,0 +1,1391 @@
+{
+  "fetchedAt": "2026-10-09T17:24:24.141Z",
+  "date": "2026-10-10",
+  "period": "season",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "mine": {
+    "ok": true,
+    "leagues": [
+      {
+        "id": "de74e71d-ca6a-45d8-bd9b-9459b3ff69be",
+        "name": "锁定test",
+        "inviteCode": "PXTFQY",
+        "mode": "classic",
+        "h2hPeriod": "week",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": false,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 2,
+        "isOwner": false,
+        "createdAt": 1791128625726,
+        "startedAt": null,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": true,
+        "todayRank": 1
+      },
+      {
+        "id": "0d3f9be8-c88f-4aff-8588-383ed0907c99",
+        "name": "笨蛋头碰头",
+        "inviteCode": "EFMGHQ",
+        "mode": "h2h",
+        "h2hPeriod": "day",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 13,
+        "isOwner": false,
+        "createdAt": 1791082755974,
+        "startedAt": 1791166069121,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": false,
+        "todayRank": 1
+      },
+      {
+        "id": "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5",
+        "name": "AI Bao5 league",
+        "inviteCode": "SBALRB",
+        "mode": "classic",
+        "h2hPeriod": "week",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 1,
+        "isOwner": true,
+        "createdAt": 1790962968825,
+        "startedAt": null,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": true,
+        "todayRank": 1
+      },
+      {
+        "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9",
+        "name": "李堡是笨蛋",
+        "inviteCode": "ZXVVYA",
+        "mode": "classic",
+        "h2hPeriod": "week",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "locked": false,
+        "memberCount": 4,
+        "isOwner": false,
+        "createdAt": 1789042742844,
+        "startedAt": null,
+        "seasonKey": "2026-27",
+        "archivedAt": null,
+        "joinOpen": true,
+        "todayRank": 1
+      }
+    ]
+  },
+  "leagues": {
+    "de74e71d-ca6a-45d8-bd9b-9459b3ff69be": {
+      "ok": true,
+      "league": {
+        "id": "de74e71d-ca6a-45d8-bd9b-9459b3ff69be",
+        "name": "锁定test",
+        "inviteCode": "PXTFQY",
+        "isOwner": false,
+        "mode": "classic",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": false,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "week",
+        "locked": false,
+        "startedAt": null,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": true,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07"
+        },
+        {
+          "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
+          "displayName": "红葱酱",
+          "avatarKey": "MIN"
+        }
+      ],
+      "seasons": [
+        {
+          "seasonKey": "2026-27",
+          "mode": "classic",
+          "recordedAt": 1791176201503
+        }
+      ],
+      "period": "season",
+      "date": "2026-10-10",
+      "range": {
+        "start": "2026-10-05",
+        "end": "9999-12-31"
+      },
+      "rows": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07",
+          "score": 463.5,
+          "rank": 1
+        },
+        {
+          "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
+          "displayName": "红葱酱",
+          "avatarKey": "MIN",
+          "score": 460.3,
+          "rank": 2
+        }
+      ]
+    },
+    "0d3f9be8-c88f-4aff-8588-383ed0907c99": {
+      "ok": true,
+      "league": {
+        "id": "0d3f9be8-c88f-4aff-8588-383ed0907c99",
+        "name": "笨蛋头碰头",
+        "inviteCode": "EFMGHQ",
+        "isOwner": false,
+        "mode": "h2h",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "day",
+        "locked": false,
+        "startedAt": 1791166069121,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": false,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07"
+        },
+        {
+          "userId": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+          "displayName": "小猴堡棒棒的",
+          "avatarKey": "badge:F07"
+        },
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "badge:T09_S"
+        },
+        {
+          "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+          "displayName": "奶味大宇宙",
+          "avatarKey": "badge:F10"
+        },
+        {
+          "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+          "displayName": "直井怜张元英",
+          "avatarKey": null
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL"
+        },
+        {
+          "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+          "displayName": "静安赫尔特",
+          "avatarKey": null
+        },
+        {
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "avatarKey": "SAS"
+        },
+        {
+          "userId": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+          "displayName": "Kimi",
+          "avatarKey": "LAL"
+        },
+        {
+          "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
+          "displayName": "好堡",
+          "avatarKey": "PHX"
+        },
+        {
+          "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+          "displayName": "nbw",
+          "avatarKey": null
+        },
+        {
+          "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+          "displayName": "魔法披风",
+          "avatarKey": "HOU"
+        },
+        {
+          "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+          "displayName": "桑滴二大妈",
+          "avatarKey": "badge:T09_S"
+        }
+      ],
+      "seasons": [],
+      "started": true,
+      "schedulesLocked": false,
+      "rounds": [
+        {
+          "round": 1,
+          "weekStart": "2026-10-05",
+          "weekEnd": "2026-10-05",
+          "period": "day",
+          "started": true,
+          "settled": true,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "__AVG__",
+              "homeScore": 52.1,
+              "awayScore": 90,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": 30,
+              "awayScore": 116.3,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": 116.3,
+              "awayScore": 90.3,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": 73.8,
+              "awayScore": 107.6,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": 107.4,
+              "awayScore": 116.3,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": 71.6,
+              "awayScore": 107.9,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": 84,
+              "awayScore": 96.5,
+              "result": "L",
+              "settled": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "weekStart": "2026-10-06",
+          "weekEnd": "2026-10-06",
+          "period": "day",
+          "started": true,
+          "settled": true,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": 102,
+              "awayScore": 108.4,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "__AVG__",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": 105.4,
+              "awayScore": 140.7,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": 76.7,
+              "awayScore": 119.7,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": 116.6,
+              "awayScore": 93.2,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": 113.6,
+              "awayScore": 75.9,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": 100.1,
+              "awayScore": 122,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": 95.6,
+              "awayScore": 0,
+              "result": "W",
+              "settled": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "weekStart": "2026-10-07",
+          "weekEnd": "2026-10-07",
+          "period": "day",
+          "started": true,
+          "settled": true,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": 88.1,
+              "awayScore": 73.2,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": 78.9,
+              "awayScore": 80.1,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "__AVG__",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": 85,
+              "awayScore": 89.5,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": 108.7,
+              "awayScore": 0,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": 81.5,
+              "awayScore": 70,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": 101,
+              "awayScore": 93.2,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": 83.6,
+              "awayScore": 72.5,
+              "result": "W",
+              "settled": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "weekStart": "2026-10-08",
+          "weekEnd": "2026-10-08",
+          "period": "day",
+          "started": true,
+          "settled": true,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": 107.1,
+              "awayScore": 93.1,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": 113.6,
+              "awayScore": 109.9,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": 130.6,
+              "awayScore": 87.5,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "__AVG__",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": 112.3,
+              "awayScore": 116.8,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": 108.4,
+              "awayScore": 87.8,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": 132.2,
+              "awayScore": 112.8,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": 142.7,
+              "awayScore": 117.9,
+              "result": "W",
+              "settled": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "weekStart": "2026-10-09",
+          "weekEnd": "2026-10-09",
+          "period": "day",
+          "started": true,
+          "settled": true,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": 114.2,
+              "awayScore": 82.4,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": 62.7,
+              "awayScore": 110.4,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": 113.6,
+              "awayScore": 99.7,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": 104.4,
+              "awayScore": 82.9,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "__AVG__",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": 97.2,
+              "awayScore": 91.4,
+              "result": "W",
+              "settled": true
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": 92.4,
+              "awayScore": 104.2,
+              "result": "L",
+              "settled": true
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": 107.2,
+              "awayScore": 98,
+              "result": "W",
+              "settled": true
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "weekStart": "2026-10-10",
+          "weekEnd": "2026-10-10",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "__AVG__",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "weekStart": "2026-10-11",
+          "weekEnd": "2026-10-11",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "__AVG__",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "weekStart": "2026-10-12",
+          "weekEnd": "2026-10-12",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "weekStart": "2026-10-13",
+          "weekEnd": "2026-10-13",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 10,
+          "weekStart": "2026-10-14",
+          "weekEnd": "2026-10-14",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 11,
+          "weekStart": "2026-10-15",
+          "weekEnd": "2026-10-15",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 12,
+          "weekStart": "2026-10-16",
+          "weekEnd": "2026-10-16",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        },
+        {
+          "round": 13,
+          "weekStart": "2026-10-17",
+          "weekEnd": "2026-10-17",
+          "period": "day",
+          "started": false,
+          "settled": false,
+          "live": false,
+          "pairs": [
+            {
+              "home": "00a5610a-08c9-4a02-b394-df3266cbf588",
+              "away": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+              "away": "__AVG__",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+              "away": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+              "away": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+              "away": "eb393da1-f231-46d4-857a-ede49d806f85",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+              "away": "dfe112d5-8193-405b-aa18-9605aa34883f",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            },
+            {
+              "home": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+              "away": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+              "homeScore": null,
+              "awayScore": null,
+              "result": "-",
+              "settled": false
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "badge:T09_S",
+          "w": 5,
+          "d": 0,
+          "l": 0,
+          "points": 15,
+          "rank": 1
+        },
+        {
+          "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+          "displayName": "桑滴二大妈",
+          "avatarKey": "badge:T09_S",
+          "w": 4,
+          "d": 0,
+          "l": 1,
+          "points": 12,
+          "rank": 2
+        },
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07",
+          "w": 3,
+          "d": 0,
+          "l": 2,
+          "points": 9,
+          "rank": 3
+        },
+        {
+          "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+          "displayName": "奶味大宇宙",
+          "avatarKey": "badge:F10",
+          "w": 3,
+          "d": 0,
+          "l": 2,
+          "points": 9,
+          "rank": 4
+        },
+        {
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "avatarKey": "SAS",
+          "w": 3,
+          "d": 0,
+          "l": 2,
+          "points": 9,
+          "rank": 5
+        },
+        {
+          "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
+          "displayName": "nbw",
+          "avatarKey": null,
+          "w": 3,
+          "d": 0,
+          "l": 2,
+          "points": 9,
+          "rank": 6
+        },
+        {
+          "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+          "displayName": "魔法披风",
+          "avatarKey": "HOU",
+          "w": 3,
+          "d": 0,
+          "l": 2,
+          "points": 9,
+          "rank": 7
+        },
+        {
+          "userId": "13cda036-85e9-43a8-a61d-0176f0f57b26",
+          "displayName": "小猴堡棒棒的",
+          "avatarKey": "badge:F07",
+          "w": 2,
+          "d": 0,
+          "l": 3,
+          "points": 6,
+          "rank": 8
+        },
+        {
+          "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
+          "displayName": "直井怜张元英",
+          "avatarKey": null,
+          "w": 2,
+          "d": 0,
+          "l": 3,
+          "points": 6,
+          "rank": 9
+        },
+        {
+          "userId": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+          "displayName": "Kimi",
+          "avatarKey": "LAL",
+          "w": 2,
+          "d": 0,
+          "l": 3,
+          "points": 6,
+          "rank": 10
+        },
+        {
+          "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
+          "displayName": "好堡",
+          "avatarKey": "PHX",
+          "w": 2,
+          "d": 0,
+          "l": 3,
+          "points": 6,
+          "rank": 11
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL",
+          "w": 1,
+          "d": 0,
+          "l": 4,
+          "points": 3,
+          "rank": 12
+        },
+        {
+          "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+          "displayName": "静安赫尔特",
+          "avatarKey": null,
+          "w": 0,
+          "d": 0,
+          "l": 5,
+          "points": 0,
+          "rank": 13
+        }
+      ]
+    },
+    "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5": {
+      "ok": true,
+      "league": {
+        "id": "f2d1fee0-f6da-4311-824d-b3fe63dbb6e5",
+        "name": "AI Bao5 league",
+        "inviteCode": "SBALRB",
+        "isOwner": true,
+        "mode": "classic",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "week",
+        "locked": false,
+        "startedAt": null,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": true,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07"
+        }
+      ],
+      "seasons": [],
+      "period": "season",
+      "date": "2026-10-10",
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "rows": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07",
+          "score": 511.5,
+          "rank": 1
+        }
+      ]
+    },
+    "c598a342-46e3-48b7-b553-7ab4c7d07ec9": {
+      "ok": true,
+      "league": {
+        "id": "c598a342-46e3-48b7-b553-7ab4c7d07ec9",
+        "name": "李堡是笨蛋",
+        "inviteCode": "ZXVVYA",
+        "isOwner": false,
+        "mode": "classic",
+        "leaderboardConfig": {
+          "daily": true,
+          "weekly": true,
+          "season": true
+        },
+        "startDate": null,
+        "h2hPeriod": "week",
+        "locked": false,
+        "startedAt": null,
+        "archivedAt": null,
+        "seasonKey": "2026-27",
+        "joinOpen": true,
+        "memberLimit": 20
+      },
+      "members": [
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07"
+        },
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "badge:T09_S"
+        },
+        {
+          "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
+          "displayName": "CoFlagg",
+          "avatarKey": "DAL"
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL"
+        }
+      ],
+      "seasons": [],
+      "period": "season",
+      "date": "2026-10-10",
+      "range": {
+        "start": "2026-10-04",
+        "end": "9999-12-31"
+      },
+      "rows": [
+        {
+          "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+          "displayName": "Benben",
+          "avatarKey": "badge:T09_S",
+          "score": 643.5,
+          "rank": 1
+        },
+        {
+          "userId": "3412ad5a-fc27-473e-86fc-c6830f6f17dc",
+          "displayName": "CoFlagg",
+          "avatarKey": "DAL",
+          "score": 546.2,
+          "rank": 2
+        },
+        {
+          "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+          "displayName": "ZCJenius",
+          "avatarKey": "badge:F07",
+          "score": 511.5,
+          "rank": 3
+        },
+        {
+          "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+          "displayName": "宁波爆胎王",
+          "avatarKey": "ATL",
+          "score": 443.9,
+          "rank": 4
+        }
+      ]
+    }
+  }
+}

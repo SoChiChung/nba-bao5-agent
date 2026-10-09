@@ -1,19 +1,11 @@
 {
-  "updatedAt": "2026-10-09T17:24:24.141Z",
+  "generatedAt": "2026-10-09T17:24:08.729Z",
   "date": "2026-10-10",
   "requestedDate": null,
-  "period": "season",
+  "period": "daily",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "leagueCount": 4,
-  "snapshotFile": "snapshots/leagues_2026-10-10_season.json",
-  "changeFile": "changes/rank_2026-10-10_season.json",
-  "delta": {
-    "baseline": true,
-    "previousDate": "2026-10-10",
-    "reason": "上一份为 weekly 榜，周期不同不比较",
-    "changes": []
-  },
   "leagues": [
     {
       "id": "de74e71d-ca6a-45d8-bd9b-9459b3ff69be",
@@ -320,5 +312,11 @@
         }
       ]
     }
-  ]
+  ],
+  "delta": {
+    "baseline": true,
+    "previousDate": "2026-10-07",
+    "reason": "上一份为 season 榜，周期不同不比较",
+    "changes": []
+  }
 }
