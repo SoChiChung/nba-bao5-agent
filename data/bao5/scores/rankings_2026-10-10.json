@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-10-10T04:10:27.100Z",
-  "date": "2026-10-06",
+  "fetchedAt": "2026-10-10T04:10:36.921Z",
+  "date": "2026-10-10",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "mine": {
     "day": {
-      "rank": 11,
-      "score": 102,
-      "total": 19
+      "rank": 19,
+      "score": 75.1,
+      "total": 22
     },
     "week": {
       "rank": 11,
@@ -424,7 +424,7 @@
     }
   ],
   "source": {
-    "mine": "/api/rankings?mine=1&date=2026-10-06",
-    "board": "/api/rankings?period=daily&date=2026-10-06"
+    "mine": "/api/rankings?mine=1&date=2026-10-10",
+    "board": "/api/rankings?period=daily&date=2026-10-10"
   }
 }
