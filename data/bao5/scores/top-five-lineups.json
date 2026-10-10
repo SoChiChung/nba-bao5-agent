@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-10T10:37:56.022Z",
+  "updatedAt": "2026-10-10T23:20:25.164Z",
   "dates": {
     "2026-10-04": {
       "date": "2026-10-04",
-      "fetchedAt": "2026-10-10T10:37:44.332Z",
+      "fetchedAt": "2026-10-10T23:20:11.885Z",
       "lineups": [
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 149,
           "playerIds": [
             "1630567",
@@ -62,10 +62,10 @@
           }
         },
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 150,
           "playerIds": [
             "1630567",
@@ -93,7 +93,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 138,
           "playerIds": [
             "1642867",
@@ -149,7 +149,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 149,
           "playerIds": [
             "1629628",
@@ -202,10 +202,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
           "displayName": "NJZisen",
-          "score": 315.9,
+          "score": 720.8,
           "salaryUsed": 142,
           "playerIds": [
             "1642867",
@@ -317,13 +317,13 @@
     },
     "2026-10-05": {
       "date": "2026-10-05",
-      "fetchedAt": "2026-10-10T10:37:46.242Z",
+      "fetchedAt": "2026-10-10T23:20:14.062Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 149,
           "playerIds": [
             "1643413",
@@ -351,7 +351,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 134,
           "playerIds": [
             "1642865",
@@ -404,10 +404,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 150,
           "playerIds": [
             "1642846",
@@ -435,7 +435,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -488,10 +488,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
           "displayName": "NJZisen",
-          "score": 315.9,
+          "score": 720.8,
           "salaryUsed": 128,
           "playerIds": [
             "203994",
@@ -603,13 +603,13 @@
     },
     "2026-10-06": {
       "date": "2026-10-06",
-      "fetchedAt": "2026-10-10T10:37:48.078Z",
+      "fetchedAt": "2026-10-10T23:20:16.323Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 149,
           "playerIds": [
             "1626164",
@@ -634,10 +634,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 147,
           "playerIds": [
             "1643409",
@@ -665,7 +665,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 126,
           "playerIds": [
             "1643409",
@@ -718,10 +718,10 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
           "displayName": "NJZisen",
-          "score": 315.9,
+          "score": 720.8,
           "salaryUsed": 108,
           "playerIds": [
             "1643411",
@@ -805,7 +805,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 144,
           "playerIds": [
             "1642845",
@@ -889,13 +889,13 @@
     },
     "2026-10-07": {
       "date": "2026-10-07",
-      "fetchedAt": "2026-10-10T10:37:49.980Z",
+      "fetchedAt": "2026-10-10T23:20:18.440Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 149,
           "playerIds": [
             "1642349",
@@ -948,10 +948,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 142,
           "playerIds": [
             "1629646",
@@ -979,7 +979,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 149,
           "playerIds": [
             "203999",
@@ -1035,7 +1035,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 133,
           "playerIds": [
             "1643408",
@@ -1114,18 +1114,46 @@
             "1642847": "杰里迈亚·费尔斯",
             "1642852": "德里克·奎因"
           }
+        },
+        {
+          "rank": 4,
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "score": 720.8,
+          "salaryUsed": 121,
+          "playerIds": [
+            "1642349",
+            "1626145",
+            "1642268",
+            "1642846",
+            "1641706"
+          ],
+          "playerScores": {
+            "1626145": 18.4,
+            "1641706": 0,
+            "1642268": 8.5,
+            "1642349": 16.2,
+            "1642846": 26.9
+          },
+          "playerNames": {
+            "1626145": "泰厄斯·琼斯",
+            "1641706": "布兰登·米勒",
+            "1642268": "以赛亚·科利尔",
+            "1642349": "阿杰·米切尔",
+            "1642846": "埃斯·贝利"
+          }
         }
       ]
     },
     "2026-10-08": {
       "date": "2026-10-08",
-      "fetchedAt": "2026-10-10T10:37:52.016Z",
+      "fetchedAt": "2026-10-10T23:20:20.818Z",
       "lineups": [
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 144,
           "playerIds": [
             "1642276",
@@ -1150,10 +1178,10 @@
           }
         },
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 102,
           "playerIds": [
             "1643409",
@@ -1181,7 +1209,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 150,
           "playerIds": [
             "1643410",
@@ -1237,7 +1265,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 130,
           "playerIds": [
             "1643409",
@@ -1316,18 +1344,46 @@
             "1643409": "卡梅隆·布泽尔",
             "1643410": "凯莱布·威尔逊"
           }
+        },
+        {
+          "rank": 4,
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "score": 720.8,
+          "salaryUsed": 116,
+          "playerIds": [
+            "1630581",
+            "1643410",
+            "1630169",
+            "203081",
+            "1643409"
+          ],
+          "playerScores": {
+            "203081": 22.7,
+            "1630169": 24,
+            "1630581": 22.1,
+            "1643409": 24.2,
+            "1643410": 23.8
+          },
+          "playerNames": {
+            "203081": "达米安·利拉德",
+            "1630169": "泰瑞斯·哈利伯顿",
+            "1630581": "约什·吉迪",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊"
+          }
         }
       ]
     },
     "2026-10-09": {
       "date": "2026-10-09",
-      "fetchedAt": "2026-10-10T10:37:53.923Z",
+      "fetchedAt": "2026-10-10T23:20:22.981Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 147,
           "playerIds": [
             "1643407",
@@ -1352,10 +1408,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 149,
           "playerIds": [
             "1643407",
@@ -1383,7 +1439,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 138,
           "playerIds": [
             "1643411",
@@ -1439,7 +1495,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 150,
           "playerIds": [
             "1629029",
@@ -1518,18 +1574,46 @@
             "1643407": "AJ·迪班萨",
             "1643542": "小塔里斯·里德"
           }
+        },
+        {
+          "rank": 4,
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "score": 720.8,
+          "salaryUsed": 139,
+          "playerIds": [
+            "1643407",
+            "1627759",
+            "1643412",
+            "1643544",
+            "1630202"
+          ],
+          "playerScores": {
+            "1627759": 23.4,
+            "1630202": 0,
+            "1643407": 28.4,
+            "1643412": 34.1,
+            "1643544": 13.8
+          },
+          "playerNames": {
+            "1627759": "杰伦·布朗",
+            "1630202": "佩顿·普里查德",
+            "1643407": "AJ·迪班萨",
+            "1643412": "金斯顿·弗莱明斯",
+            "1643544": "祖比·埃乔弗"
+          }
         }
       ]
     },
     "2026-10-10": {
       "date": "2026-10-10",
-      "fetchedAt": "2026-10-10T10:37:56.021Z",
+      "fetchedAt": "2026-10-10T23:20:25.149Z",
       "lineups": [
         {
-          "rank": 1,
+          "rank": 2,
           "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
           "displayName": "桑滴二大妈",
-          "score": 730.6,
+          "score": 732.6,
           "salaryUsed": 145,
           "playerIds": [
             "1643410",
@@ -1554,10 +1638,10 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
           "displayName": "阿道",
-          "score": 729.6,
+          "score": 734.6,
           "salaryUsed": 144,
           "playerIds": [
             "1643409",
@@ -1585,7 +1669,7 @@
           "rank": 3,
           "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
           "displayName": "Benben",
-          "score": 723.2,
+          "score": 732.3,
           "salaryUsed": 145,
           "playerIds": [
             "1641824",
@@ -1641,7 +1725,7 @@
           "rank": 5,
           "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
           "displayName": "直井怜张元英",
-          "score": 701.8,
+          "score": 720.7,
           "salaryUsed": 142,
           "playerIds": [
             "1643410",
@@ -1663,6 +1747,34 @@
             "1641824": "马塔斯·布泽利斯",
             "1643409": "卡梅隆·布泽尔",
             "1643410": "凯莱布·威尔逊"
+          }
+        },
+        {
+          "rank": 4,
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "score": 720.8,
+          "salaryUsed": 140,
+          "playerIds": [
+            "1630581",
+            "1643409",
+            "1643410",
+            "1629660",
+            "1643591"
+          ],
+          "playerScores": {
+            "1629660": 23.2,
+            "1630581": 22.1,
+            "1643409": 19.3,
+            "1643410": 24.8,
+            "1643591": 9.4
+          },
+          "playerNames": {
+            "1629660": "泰·杰罗姆",
+            "1630581": "约什·吉迪",
+            "1643409": "卡梅隆·布泽尔",
+            "1643410": "凯莱布·威尔逊",
+            "1643591": "托比·阿瓦卡"
           }
         }
       ]
