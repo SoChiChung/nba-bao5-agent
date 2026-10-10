@@ -5,6 +5,7 @@ import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
 import { buildDashboardData, ROOT, RUNTIME_ROOT, writePicks } from './model.mjs';
+import { attachPreseasonStats, isPreseasonGame } from './preseason-stats.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
 const historyPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
@@ -25,7 +26,16 @@ async function getDashboard({ refresh = false } = {}) {
     const cfg = loadConfig();
     const api = new Bao5({ baseUrl: cfg.baseUrl });
     await api.login(cfg.email, cfg.password);
-    const [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
+    let [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
+    const firstSlateDate = games.filter(g => g.status !== 3 && Date.parse(g.utc) > Date.now()).map(g => g.date).sort()[0];
+    const firstSlateGames = games.filter(g => g.date === firstSlateDate);
+    let preseasonMeta = { fetched: 0, covered: 0, staleFailures: 0 };
+    if (firstSlateGames.some(isPreseasonGame)) {
+      const teamCodes = new Set(firstSlateGames.flatMap(game => [game.home, game.away]));
+      const enriched = await attachPreseasonStats(api, players, { teamCodes, cachePath: path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json') });
+      players = enriched.players;
+      preseasonMeta = enriched;
+    }
     const injuries = readJson('data/bao5/injury/latest.json');
     const latestOdds = readJson('data/odds/latest.json');
     // usage-log.json is intentionally gitignored because it is local runtime state.
@@ -47,7 +57,7 @@ async function getDashboard({ refresh = false } = {}) {
     const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
-    data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, };
+    data.sources = { injuries:{serverDate:injuries.serverDate,available:injuries.available,updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, preseason:preseasonMeta };
     const league=readJson('data/bao5/league/latest.json');
     const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
     data.account={displayName:league.displayName??api.user?.displayName??'BAO5',avatar:accountAvatar};

@@ -1,10 +1,10 @@
 {
   "mode": "custom",
   "customWeights": {
-    "recent": 0.1,
-    "history": 0.25,
+    "recent": 0.15,
+    "history": 0.15,
     "matchup": 0.3,
-    "odds": 0.2,
-    "crowd": 0.15
+    "odds": 0.15,
+    "crowd": 0.25
   }
 }

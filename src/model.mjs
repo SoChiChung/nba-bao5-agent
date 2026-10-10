@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isPreseasonGame } from './preseason-stats.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Vercel bundles the project under /var/task, which is read-only at runtime.
@@ -25,8 +26,8 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
   const games = Array.isArray(schedule) ? schedule : schedule.games ?? [];
   const now=Date.now();
   const upcoming=games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>now);
-  const usePreseason=upcoming.some(g=>/preseason/i.test(g.label??''));
-  const phaseGames=upcoming.filter(g=>/preseason/i.test(g.label??'')===usePreseason);
+  const usePreseason=upcoming.some(isPreseasonGame);
+  const phaseGames=upcoming.filter(g=>isPreseasonGame(g)===usePreseason);
   const slateKeys = [...new Set(phaseGames.map(g => g.date))].sort().slice(0, 7);
   const allOdds = Array.isArray(odds) ? odds : odds.fixtures ?? odds;
   const defenseRows = Array.isArray(defense)
@@ -35,8 +36,8 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
   const slates = slateKeys.map(dateKey => {
     // Keep the full date's slate so the lock cutoff remains the first tip-off,
     // even if a frequent polling run occurs after an early game has begun.
-    const dayGames = games.filter(g => g.date === dateKey && /preseason/i.test(g.label??'')===usePreseason);
-    const preseason=dayGames.some(g=>/preseason/i.test(g.label??''));
+    const dayGames = games.filter(g => g.date === dateKey && isPreseasonGame(g)===usePreseason);
+    const preseason=dayGames.some(isPreseasonGame);
     const teams = new Set(dayGames.flatMap(g => [g.home, g.away]));
     const gameOdds = dayGames.map(g => findOdds(allOdds, g)).filter(Boolean);
     const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
@@ -77,14 +78,17 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defens
   const replacementBoost=injury?replacementOpportunity(p,players,injuries,weights.replacement):1;
   const historySignal=historyMatchupScore(p.id,opponent);
   const crowdPick=playerPopularity(p.id,lineupFeedback);
-  const recentSignal=Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null;
-  const activeSignals=[{value:recentSignal,weight:weights.recent,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
+  const preseasonStats=p.preseasonStats;
+  const hasPreseasonSample=preseason && Number(preseasonStats?.games)>0 && preseasonStats?.averageFantasy!=null && Number.isFinite(Number(preseasonStats.averageFantasy));
+  const recentSignal=hasPreseasonSample?Number(preseasonStats.averageFantasy):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
+  const recentWeight=hasPreseasonSample?weights.recent*Math.min(1,Number(preseasonStats.games)/2):weights.recent;
+  const activeSignals=[{value:recentSignal,weight:recentWeight,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
   const baselineWeight=Math.max(0,1-activeSignals.reduce((sum,s)=>sum+s.weight,0));
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor;
   const reasons = [
-    `球员基准 ${round(statBase)} 分；${recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(weights.recent*100)}%`}；${historySignal==null?'无该球员对阵历史文件，历史权重回落到中性值':`历史对阵相对强度 ${Math.round(historySignal*100)}%，按 ${Math.round(weights.history*100)}% 权重轻调（非 BAO5 同口径分数）`}`,
+    `球员基准 ${round(statBase)} 分；${hasPreseasonSample?`季前赛近期 ${preseasonStats.games} 场场均 ${round(recentSignal)} 分${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historySignal==null?'无该球员对阵历史文件，历史权重回落到中性值':`历史对阵相对强度 ${Math.round(historySignal*100)}%，按 ${Math.round(weights.history*100)}% 权重轻调（非 BAO5 同口径分数）`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
     injury ? `${injury.label ?? injury.key}：${officialInjuries?'官方':'聚合来源'}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : officialInjuries ? '官方伤病报告未限制该球员' : '没有该比赛日的官方伤病报告；名单缺失按大概率可出战处理',
