@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T08:42:09.268Z",
+  "generatedAt": "2026-10-11T23:30:01.733Z",
   "serverDate": "2026-10-11",
   "requestedDate": null,
   "available": false,
@@ -9,20 +9,20 @@
   "updatedAt": null,
   "counts": {
     "total": 692,
-    "questionable": 105,
-    "available": 568,
-    "out": 19
+    "questionable": 107,
+    "available": 565,
+    "out": 20
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 568,
-    "filledCount": 124,
+    "projectedCount": 565,
+    "filledCount": 127,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出124人，其余568人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出127人，其余565人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-10",
-  "changeCount": 55,
+  "changeCount": 68,
   "changes": [
     {
       "kind": "newInjury",
@@ -71,6 +71,21 @@
     },
     {
       "kind": "newInjury",
+      "id": "1627832",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
       "id": "1627936",
       "from": "available",
       "to": "questionable",
@@ -87,6 +102,21 @@
     {
       "kind": "newInjury",
       "id": "1628389",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1628960",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
@@ -206,6 +236,21 @@
     },
     {
       "kind": "newInjury",
+      "id": "1630217",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
       "id": "1630228",
       "from": "available",
       "to": "questionable",
@@ -267,6 +312,21 @@
     {
       "kind": "newInjury",
       "id": "1630568",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630578",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
@@ -371,11 +431,26 @@
     },
     {
       "kind": "newInjury",
-      "id": "1642875",
+      "id": "1642857",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
       "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1642875",
+      "from": "available",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -431,6 +506,36 @@
     },
     {
       "kind": "newInjury",
+      "id": "1643415",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1643516",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
       "id": "202691",
       "from": "available",
       "to": "questionable",
@@ -462,6 +567,21 @@
     {
       "kind": "newInjury",
       "id": "203497",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "203500",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
@@ -596,6 +716,21 @@
     },
     {
       "kind": "cleared",
+      "id": "1628997",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
       "id": "1629001",
       "from": "questionable",
       "to": "available",
@@ -612,6 +747,21 @@
     {
       "kind": "cleared",
       "id": "1629011",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1629023",
       "from": "questionable",
       "to": "available",
       "probability": "100%",
@@ -731,6 +881,21 @@
     },
     {
       "kind": "cleared",
+      "id": "1641706",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
       "id": "1641764",
       "from": "questionable",
       "to": "available",
@@ -791,7 +956,37 @@
     },
     {
       "kind": "cleared",
+      "id": "1642869",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
       "id": "1643576",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "201935",
       "from": "questionable",
       "to": "available",
       "probability": "100%",
@@ -854,12 +1049,12 @@
     {
       "field": "projectedCount",
       "from": 581,
-      "to": 568
+      "to": 565
     },
     {
       "field": "filledCount",
       "from": 111,
-      "to": 124
+      "to": 127
     }
   ]
 }
