@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-12T02:37:29.789Z",
-  "serverDate": "2026-10-11",
+  "updatedAt": "2026-10-12T04:23:44.093Z",
+  "serverDate": "2026-10-12",
   "requestedDate": null,
   "available": false,
   "season": "2026-27",
@@ -18,10 +18,10 @@
     "filledCount": 125,
     "fallbackSource": "mixed"
   },
-  "snapshotFile": "snapshots/injuries_2026-10-11.json",
-  "changesFile": "changes/changes_2026-10-11.json",
-  "previousDate": "2026-10-10",
-  "changeCount": 70,
+  "snapshotFile": "snapshots/injuries_2026-10-12.json",
+  "changesFile": "changes/changes_2026-10-12.json",
+  "previousDate": "2026-10-11",
+  "changeCount": 17,
   "restrictedCount": 125,
   "restricted": [
     {

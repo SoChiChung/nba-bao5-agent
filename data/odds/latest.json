@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-10-11T23:30:36.025Z",
-  "fetchedAtShanghai": "2026-10-12 07:30:36",
+  "fetchedAt": "2026-10-12T04:24:35.600Z",
+  "fetchedAtShanghai": "2026-10-12 12:24:35",
   "endpoint": "https://api.oddspapi.io/v4/odds-by-tournaments",
   "bookmaker": "pinnacle",
   "verbosity": 3,
@@ -10,7 +10,7 @@
     "nbaPreseason": 2382
   },
   "rawFile": "raw/odds_2026-10-12.json",
-  "totalFixtures": 13,
+  "totalFixtures": 12,
   "tournaments": {
     "nba": {
       "tournamentId": 132,
@@ -174,33 +174,11 @@
     "nbaPreseason": {
       "tournamentId": 2382,
       "file": "nba-preseason/odds_2026-10-12.json",
-      "fixtures": 1,
-      "withOdds": 1,
-      "marketIds": [
-        "111",
-        "11268",
-        "11270",
-        "11272",
-        "11274",
-        "11276",
-        "11278",
-        "113142",
-        "113144",
-        "113146",
-        "113148",
-        "113150",
-        "113152",
-        "11416",
-        "11418",
-        "11420",
-        "11422",
-        "11424",
-        "11426",
-        "11428",
-        "11430"
-      ],
-      "earliestStart": "2026-10-12T01:00:00.000Z",
-      "latestStart": "2026-10-12T01:00:00.000Z"
+      "fixtures": 0,
+      "withOdds": 0,
+      "marketIds": [],
+      "earliestStart": null,
+      "latestStart": null
     }
   }
 }

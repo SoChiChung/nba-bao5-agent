@@ -15,7 +15,7 @@ const sourceScoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
 const lineupHistoryPath = path.join(scoreDir, 'top-five-lineups.json');
 const sourceLineupHistoryPath = path.join(sourceScoreDir, 'top-five-lineups.json');
 const avatarPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'account-avatar.json');
-const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml' };
+const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.webp':'image/webp' };
 let cache = null;
 let refreshing = null;
 
