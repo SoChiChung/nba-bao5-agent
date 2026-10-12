@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T04:23:44.093Z",
+  "updatedAt": "2026-10-12T09:45:45.559Z",
   "serverDate": "2026-10-12",
   "requestedDate": null,
   "available": false,
@@ -7,21 +7,21 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "counts": {
-    "total": 692,
+    "total": 693,
     "questionable": 105,
-    "available": 567,
+    "available": 568,
     "out": 20
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 567,
+    "projectedCount": 568,
     "filledCount": 125,
     "fallbackSource": "mixed"
   },
   "snapshotFile": "snapshots/injuries_2026-10-12.json",
   "changesFile": "changes/changes_2026-10-12.json",
   "previousDate": "2026-10-11",
-  "changeCount": 17,
+  "changeCount": 16,
   "restrictedCount": 125,
   "restricted": [
     {
@@ -1775,5 +1775,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出125人，其余567人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（季前赛不发布），当前以ESPN、RotoWire、Sleeper名单为准：列出125人，其余568人未被列入（视为可出战）。"
 }
