@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isPreseasonGame } from './preseason-stats.mjs';
+import { matchupSignal } from '../data/history-player/matchup.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Vercel bundles the project under /var/task, which is read-only at runtime.
@@ -10,6 +11,19 @@ export const RUNTIME_ROOT = process.env.VERCEL ? path.join('/tmp', 'nba-agent') 
 const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 const round = x => Math.round((x + Number.EPSILON) * 10) / 10;
+
+function siteInjuryReportUsable(injuries,dateKey){
+  const reportDate=injuries?.serverDate??injuries?.date;
+  const reportDay=Date.parse(`${reportDate}T00:00:00Z`);
+  const slateDay=Date.parse(`${dateKey}T00:00:00Z`);
+  const ageDays=(slateDay-reportDay)/86_400_000;
+  return Number.isFinite(ageDays)&&ageDays>=0&&ageDays<=1&&(Object.keys(injuries?.statuses??{}).length>0||(injuries?.restricted??[]).length>0);
+}
+
+function injuryForPlayer(injuries, playerId) {
+  const id=String(playerId);
+  return injuries?.statuses?.[id] ?? injuries?.restricted?.find(item=>String(item.id)===id) ?? null;
+}
 
 const TEAM_CN = { ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才' };
 
@@ -41,9 +55,9 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const teams = new Set(dayGames.flatMap(g => [g.home, g.away]));
     const gameOdds = dayGames.map(g => findOdds(allOdds, g)).filter(Boolean);
     const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
-    const officialInjuries = injuries.available && injuries.serverDate >= dateKey;
+    const siteInjuries = siteInjuryReportUsable(injuries,dateKey);
     const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
-      scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback })
+      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback })
     );
     const eligible = candidates.filter(p => !p.injury?.hardExclude);
     const lineup = optimize(eligible);
@@ -52,7 +66,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     return {
       dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season',
       players: [...candidates].sort((a,b)=>b.projected-a.projected),
-      injuryMeta: { date: injuries.serverDate, available: Boolean(officialInjuries), note: officialInjuries ? '官方报告可用' : '季前赛暂无官方伤病报告；聚合伤病只作低置信度软惩罚' },
+      injuryMeta: { date: injuries.serverDate??injuries.date, available: siteInjuries, note: siteInjuries ? '健康状态采用 BAO5 网站伤病报告' : '没有比赛日前 1 天内的 BAO5 网站伤病报告；未应用伤病修正' },
       oddsMeta: gameOdds.length ? { updatedAt: gameOdds[0].updatedAt, count: gameOdds.length } : null,
       lineup, efficientLineup, startMs, lockedAt: startMs - 15 * 60_000,
     };
@@ -60,7 +74,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
   return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES };
 }
 
-function scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback }) {
+function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback }) {
   const statBase = statScore(p);
   const opponentGame = dayGames.find(g => g.home === p.team || g.away === p.team);
   const opponent = opponentGame ? (opponentGame.home === p.team ? opponentGame.away : opponentGame.home) : null;
@@ -70,13 +84,16 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defens
   const odds = gameOdds.find(x => x.participant1Abbr === p.team || x.participant2Abbr === p.team);
   const totalLine = mainTotal(odds);
   const totalFactor = totalLine ? clamp(1 + (totalLine - 220) / 220 * weights.odds*2, 1-weights.odds, 1+weights.odds) : 1;
-  const injury = injuries?.statuses?.[String(p.id)] ?? injuries?.restricted?.find(x=>String(x.id)===String(p.id)) ?? null;
+  const injury = siteInjuries ? injuryForPlayer(injuries,p.id) : null;
   if(injury){const injuredPlayer=(players??[]).find(x=>String(x.id)===String(p.id));injury.team??=injuredPlayer?.team;injury.position??=injuredPlayer?.positionRaw;}
   const reportedChance = injury ? probability(injury) : 0.97;
-  const chance = injury && !officialInjuries ? 1 - (1 - reportedChance) * 0.55 : reportedChance;
+  const chance = reportedChance;
   const injuryFactor=injury?Math.max(0,1-(1-chance)*weights.injury):1;
   const replacementBoost=injury?replacementOpportunity(p,players,injuries,weights.replacement):1;
-  const historySignal=historyMatchupScore(p.id,opponent);
+  const historyMatchup=opponent?matchupSignal(p.name??p.nameCn,TEAM_CN[opponent],{nameEn:p.englishName,bao5Id:p.id,playerTeamCn:TEAM_CN[p.team]}):{available:false,reason:'无法识别对手球队'};
+  // Convert the bounded relative-strength percentage to the same point scale
+  // as the baseline before blending it with the other signals.
+  const historySignal=historyMatchup.available?statBase*(1+historyMatchup.signal):null;
   const crowdPick=playerPopularity(p.id,lineupFeedback);
   const preseasonStats=p.preseasonStats;
   const hasPreseasonSample=preseason && Number(preseasonStats?.games)>0 && preseasonStats?.averageFantasy!=null && Number.isFinite(Number(preseasonStats.averageFantasy));
@@ -88,15 +105,15 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, officialInjuries, defens
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor;
   const reasons = [
-    `球员基准 ${round(statBase)} 分；${hasPreseasonSample?`季前赛近期 ${preseasonStats.games} 场场均 ${round(recentSignal)} 分${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historySignal==null?'无该球员对阵历史文件，历史权重回落到中性值':`历史对阵相对强度 ${Math.round(historySignal*100)}%，按 ${Math.round(weights.history*100)}% 权重轻调（非 BAO5 同口径分数）`}`,
+`球员基准 ${round(statBase)} 分；${hasPreseasonSample?`季前赛近期 ${preseasonStats.games} 场场均 ${round(recentSignal)} 分${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
-    injury ? `${injury.label ?? injury.key}：${officialInjuries?'官方':'聚合来源'}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : officialInjuries ? '官方伤病报告未限制该球员' : '没有该比赛日的官方伤病报告；名单缺失按大概率可出战处理',
+    injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',
     replacementBoost>1?`队友伤病后预计角色提升，替补机会修正 +${Math.round((replacementBoost-1)*100)}%`:'队友伤病替补机会未产生额外修正',
     crowdPick.selections?`总榜前五历史选人偏好：${crowdPick.selections} 次入选，平均贡献 ${crowdPick.averagePoints} 分；轻量修正 ${Math.round(crowdPick.signal*weights.crowd*100)}%`:'暂无已揭晓前五阵容样本，不应用选人偏好修正',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
-  return { ...p, opponent, baseScore:round(statBase), projected:round(projected), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? injury?.key ?? '无伤病报告', reasons };
+  return { ...p, opponent, baseScore:round(statBase), projected:round(projected), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
 }
 
 function playerPopularity(playerId, feedback) {
@@ -107,14 +124,8 @@ function playerPopularity(playerId, feedback) {
   return {selections:item.selections,averagePoints:item.averagePoints,signal:clamp((Number(item.selectionRate??0)-.2)*2+performance*.35,-1,1)};
 }
 
-function historyMatchupScore(playerId, opponent) {
-  if(!opponent)return null;
-  const file=path.join(ROOT,'data','history-player','output',`fantasynba_p${playerId}_vs_teams.json`);
-  try{const doc=JSON.parse(fs.readFileSync(file,'utf8'));const all=(doc.games??[]).filter(g=>Number.isFinite(Number(g.points)));const target=all.filter(g=>g.team===TEAM_CN[opponent]);if(!target.length||!all.length)return null;const overall=all.reduce((s,g)=>s+Number(g.points),0)/all.length;const matchup=target.reduce((s,g)=>s+Number(g.points),0)/target.length;return clamp((matchup-overall)/Math.max(1,overall),-.2,.2);}catch{return null;}
-}
-
 function replacementOpportunity(player, players, injuries, weight) {
-  const hurtTeammates=(injuries?.restricted??[]).filter(x=>x.key==='out'||x.key==='doubtful'||x.key==='questionable').filter(x=>String(x.team??'')===String(player.team));
+  const hurtTeammates=(injuries?.restricted??[]).filter(x=>['out','doubtful','questionable'].includes(String(x.key??'').toLowerCase())).filter(x=>String(x.team??'')===String(player.team));
   if(!hurtTeammates.length)return 1;
   const sameRole=hurtTeammates.some(x=>x.position&&player.positionRaw&&x.position===player.positionRaw);
   if(!sameRole)return 1;

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T09:45:45.559Z",
+  "updatedAt": "2026-10-12T14:05:40.535Z",
   "serverDate": "2026-10-12",
   "requestedDate": null,
   "available": false,
@@ -21,7 +21,7 @@
   "snapshotFile": "snapshots/injuries_2026-10-12.json",
   "changesFile": "changes/changes_2026-10-12.json",
   "previousDate": "2026-10-11",
-  "changeCount": 16,
+  "changeCount": 17,
   "restrictedCount": 125,
   "restricted": [
     {
@@ -939,8 +939,8 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
       "name": null,
       "englishName": null,
       "team": null,

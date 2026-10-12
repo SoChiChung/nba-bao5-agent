@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────
+# fantasynba 历史对阵数据集的忽略规则
+# ─────────────────────────────────────────────────────────────
+
+# ✅ 必须入库（模型运行时依赖）—— 切勿加进忽略列表
+#   matchup-stats.json  src/model.mjs → matchupSignal() → matchup.mjs
+#                       运行时**只读这一个文件**（已 grep 确认唯一 readFileSync）
+#                       30MB，1,492 名球员 × 38,592 组「球员×对手」聚合
+#   matchup.mjs / name-map.mjs   模型直接 import
+# 若误加忽略，远端 /api/dashboard 会退化成「历史对阵数据暂不可用」
+
+# ❌ 采集期原始产物（可用脚本重建，合计 >295MB）
+raw/
+_probe/
+_sb.html
+probe-*.mjs
+verify.mjs
+run-*.log
+
+# ❌ 超大派生产物
+player-games.jsonl
+# ↑ 需要逐场数据时本地跑 node build-dataset.mjs 重建，
+#   或改读 player-games.csv（28MB）
+
+# 📌 以下为构建期产物，matchup.mjs 运行时不读，默认不入库：
+#   players.json / player-id-map.json / *.csv / dataset-summary.md
+#   如需入库，删除本行注释即可。
+#
+# ⚠️ 本文件若丢失，git 会把 raw/ 等 295MB 产物一起吞进提交。
