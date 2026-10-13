@@ -35,8 +35,6 @@ function saveRunReport(status,error=null){
 }
 
 try {
-  say('刷新伤病名单');
-  run('../injury/fetch-injuries.mjs',['--no-names']);
   const cfg=loadConfig();
   const api=new Bao5({baseUrl:cfg.baseUrl});
   await api.login(cfg.email,cfg.password);
@@ -56,21 +54,33 @@ try {
   const history=readHistory();
   const playerNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
   const settledDates=[...new Set(games.filter(g=>g.status===3&&g.date).map(g=>g.date))].sort();
-  const datesToBackfill=[...new Set([...settledDates,...history.filter(x=>!Number.isFinite(x.actualTotal)).map(x=>x.dateKey)])];
+  const datesToBackfill=[...new Set([...settledDates,...history.map(x=>x.dateKey).filter(Boolean)])];
   const lineupFile=path.join(ROOT,'data','bao5','scores','top-five-lineups.json');
   let topFiveStore={dates:{}};try{topFiveStore=JSON.parse(fs.readFileSync(lineupFile,'utf8'));}catch{}topFiveStore.dates??={};
   for(const dateKey of datesToBackfill){
-    const boardResult=await api.get(`/api/rankings?period=daily&date=${encodeURIComponent(dateKey)}`);
-    const dailyRankings=boardResult.json?.rows??[];
+    const boardResult=await api.get(`/api/rankings?period=day&date=${encodeURIComponent(dateKey)}`);
+    // 口径校验（2026-10-13 修）：只认响应体 date，不信回显的 period。
+    //   旧实现 `dailyRankings.length?dailyRankings:oldSnapshot.board` 会把上一份
+    //   已被污染的 board 继承下来，日榜前五因此取到赛季总榜的人。
+    let dailyRankings=[];let boardError=null;
+    if(!boardResult.ok)boardError=`HTTP ${boardResult.status}`;
+    else if(!Array.isArray(boardResult.json?.rows))boardError='响应无 rows 数组';
+    else if(boardResult.json.date!==dateKey)boardError=`日期回落：请求 ${dateKey} 实返 ${boardResult.json.date}`;
+    else if(boardResult.json.rows.length&&boardResult.json.rows.every(x=>Number(x.score)===0))boardError=`${dateKey} 尚未结算（全 0 分）`;
+    else dailyRankings=boardResult.json.rows;
+    if(boardError)console.warn(`[日榜] ${dateKey} ${boardError}，board 置空且不继承旧快照`);
     const myResult=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(dateKey)}`);
     const mine=myResult.json?.mine?.day;
+    const ownLineupResult=await api.get(`/api/lineups?date=${encodeURIComponent(dateKey)}`);
+    const ownIds=ownLineupResult.ok?(ownLineupResult.json?.lineup?.playerIds??[]).map(String):[];
     const lineupNames=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
     const scoreFile=path.join(ROOT,'data','bao5','scores',`rankings_${dateKey}.json`);
     fs.mkdirSync(path.dirname(scoreFile),{recursive:true});
     const oldSnapshot=(()=>{try{return JSON.parse(fs.readFileSync(scoreFile,'utf8'));}catch{return {};}})();
-    fs.writeFileSync(scoreFile,JSON.stringify({ ...oldSnapshot,fetchedAt:new Date().toISOString(),date:dateKey,userId:api.user?.id,displayName:api.user?.displayName,mine:myResult.json?.mine??oldSnapshot.mine,boardCount:dailyRankings.length||oldSnapshot.boardCount,board:dailyRankings.length?dailyRankings:oldSnapshot.board??[],source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=daily&date=${dateKey}`}},null,2)+'\n','utf8');
+    fs.writeFileSync(scoreFile,JSON.stringify({ ...oldSnapshot,fetchedAt:new Date().toISOString(),date:dateKey,userId:api.user?.id,displayName:api.user?.displayName,mine:myResult.json?.mine??oldSnapshot.mine,boardCount:dailyRankings.length,board:dailyRankings,boardError,boardSource:`/api/rankings?period=day&date=${dateKey}`,source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=day&date=${dateKey}`}},null,2)+'\n','utf8');
     let currentHistory=history.find(x=>x.dateKey===dateKey);
     if(currentHistory?.players?.length)currentHistory.playerNames=currentHistory.players.map(id=>lineupNames.get(String(id))??`球员 ${id}`);
+    if(currentHistory&&ownLineupResult.ok&&ownIds.length){currentHistory.bao5Players=ownIds;currentHistory.bao5PlayerNames=ownIds.map(id=>lineupNames.get(id)??`球员 ${id}`);currentHistory.bao5LineupSource=`/api/lineups?date=${dateKey}`;}
     const historyRow=history.find(x=>x.dateKey===dateKey);
     if(myResult.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&settledDates.includes(dateKey)){
       const row=historyRow??{dateKey,updatedAt:new Date().toISOString(),players:[],playerNames:[],expected:null,formation:'—',source:'settled-score-only'};
@@ -78,19 +88,24 @@ try {
       currentHistory=row;
     }
     if(dailyRankings.length){
-      const old=topFiveStore.dates[dateKey]?.lineups??[];const lineups=[...old];
-      for(const member of dailyRankings.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank)){
-        const existing=lineups.findIndex(x=>String(x.userId)===String(member.userId));
+      const dailyTopFive=dailyRankings.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
+      const lineups=[];
+      for(const member of dailyTopFive){
         const response=await api.get(`/api/lineups?date=${encodeURIComponent(dateKey)}&userId=${encodeURIComponent(member.userId)}`);const lineup=response.json?.lineup;
-        if(!response.ok||response.json?.revealed!==true||!Array.isArray(lineup?.playerIds))continue;
-        const entry={rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))};
+        // 404 = 该用户当天未提交，属正常情况，不算失败；不再静默跳过而无任何记录
+        if(!Array.isArray(lineup?.playerIds)){say(`${dateKey} 第 ${member.rank} 名 ${member.displayName} 无阵容返回 (HTTP ${response.status})`);continue;}
+        const entry={rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),remainingSalary:member.remainingSalary??null,salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))};
+        const existing=lineups.findIndex(x=>String(x.userId)===String(member.userId));
         if(existing>=0)lineups[existing]=entry;else lineups.push(entry);
       }
-      if(lineups.length)topFiveStore.dates[dateKey]={date:dateKey,fetchedAt:new Date().toISOString(),lineups};
+      // 本次一份都没取到时沿用上次成功数据，绝不清空已有阵容
+      const previousTopFive=topFiveStore.dates[dateKey];
+      if(lineups.length)topFiveStore.dates[dateKey]={date:dateKey,fetchedAt:new Date().toISOString(),source:`/api/rankings?period=day&date=${dateKey}`,lineups};
+      else if(previousTopFive)console.warn(`${dateKey} 日榜前五本次 0 份，沿用上次成功数据`);
       for(const lineup of topFiveStore.dates[dateKey]?.lineups??[])lineup.playerNames=Object.fromEntries((lineup.playerIds??[]).map(id=>[String(id),lineupNames.get(String(id))??lineup.playerNames?.[String(id)]??`球员 ${id}`]));
-      say(`${dateKey} 已记录 ${topFiveStore.dates[dateKey]?.lineups?.length??0}/5 份总榜前五阵容`);
+      say(`${dateKey} 已记录 ${topFiveStore.dates[dateKey]?.lineups?.length??0}/5 份日榜前五阵容`);
     }
-    if(currentHistory&&settledDates.includes(dateKey))currentHistory.topFive={date:dateKey,lineups:topFiveStore.dates[dateKey]?.lineups??[],commonPicks:[]};
+    if(currentHistory&&settledDates.includes(dateKey)){const day=topFiveStore.dates[dateKey];const common=new Map();for(const lineup of day?.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);currentHistory.topFive={date:dateKey,lineups:day?.lineups??[],commonPicks:[...common].map(([id,selections])=>({id,name:lineupNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day?.lineups?.length??0)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
   }
   saveHistory(history);
   if(Object.keys(topFiveStore.dates).length){
@@ -109,7 +124,13 @@ try {
   const gamesToWatch=games.filter(g=>g.status!==3&&Number.isFinite(Date.parse(g.utc))&&Date.parse(g.utc)>Date.now()&&Date.parse(g.utc)-Date.now()<=7*86400_000);
   const schedulerState=readState();
   schedulerState.oddsAttemptedGameIds??=[];
+  say('拉取每日一阵网站最新伤病报告');
+  const injuryRequestDate=gamesToWatch.map(g=>g.date).sort()[0]??new Date().toISOString().slice(0,10);
+  run('../injury/fetch-injuries.mjs',[`--date=${injuryRequestDate}`,'--no-names','--force']);
   const injuries=readJson('data/bao5/injury/latest.json');
+  injuries.updatedAt=new Date().toISOString();
+  const injuryChanges=await fetch('https://nbabao5.cn/api/nba/injury-changes',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15_000)});
+  if(injuryChanges.ok){const feed=await injuryChanges.json();const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());const current=(feed.changes??[]).filter(change=>Number(change.detectedAt)>=Date.parse(`${today}T00:00:00-04:00`)).sort((a,b)=>Number(a.detectedAt??0)-Number(b.detectedAt??0));for(const change of current){const id=String(change.playerId??'');if(!id)continue;const status=change.to??{};const old=injuries.statuses?.[id]??{};const merged={...old,key:status.key??old.key,label:status.label??old.label,probability:status.probability??old.probability,detail:change.detail??old.detail,source:'injury-changes'};injuries.statuses??={};injuries.statuses[id]=merged;const restricted=(injuries.restricted??[]).filter(item=>String(item.id)!==id);if(!['available','probable'].includes(merged.key))restricted.push({id,...merged});injuries.restricted=restricted;}}
   let oddsMeta=readJson('data/odds/latest.json');
   const oddsRefreshInterval=8*60*60*1000;
   const priorOddsAt=Date.parse(oddsMeta.fetchedAt??'');
@@ -124,7 +145,7 @@ try {
   const freshnessLimit=8*60*60*1000;
   if(!Number.isFinite(Date.parse(oddsMeta.fetchedAt)))throw new Error('没有有效赔率快照，停止自动提交');
   if(Date.now()-Date.parse(oddsMeta.fetchedAt)>freshnessLimit)throw new Error('赔率数据超过 8 小时或时间无效，停止自动提交');
-  if(!Number.isFinite(Date.parse(injuries.updatedAt))||Date.now()-Date.parse(injuries.updatedAt)>freshnessLimit)throw new Error('伤病数据超过 8 小时或时间无效，停止自动提交');
+  if(!Number.isFinite(Date.parse(injuries.updatedAt))||Date.now()-Date.parse(injuries.updatedAt)>30*60*1000)throw new Error('伤病数据超过 30 分钟或时间无效，停止自动提交');
   const preseasonOddsFile=oddsMeta?.tournaments?.nbaPreseason?.file??'nba-preseason/odds_2026-10-02.json';
   const nbaOddsFile=oddsMeta?.tournaments?.nba?.file??'nba/odds_2026-10-02.json';
   const odds=[...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
@@ -136,7 +157,7 @@ try {
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'lowRisk'};}})();
   const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:preferences.mode==='highRisk'?'highRisk':'lowRisk',customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);
-  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1),value:Number(p.average??0)/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','doubtful','questionable'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
+  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1),value:Number(p.average??0)/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
   const lastBaseline=Date.parse(schedulerState.lastBaselineAt??'');
   const shanghaiHour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',hourCycle:'h23'}).format(new Date()));
@@ -184,7 +205,7 @@ try {
         const needsSwap=lineup.players.some(p=>p.starterConfirmed===false);
         if(needsSwap){
           const { optimizeLineup }=await import('../../../src/model.mjs');
-          const optimized=optimizeLineup(slate.players.filter(p=>p.starterConfirmed!==false));
+          const optimized=optimizeLineup(slate.players.filter(p=>p.starterConfirmed!==false&&!['out','questionable','doubtful'].includes(p.injury?.key)));
           if(!optimized)throw new Error('已确认首发不足以组成合法阵容；为避免空缺，不自动提交');
           lineup=optimized;
           say(`首发过滤后新阵容：${lineup.players.map(p=>p.name).join('、')}；预期 ${lineup.expected} 分`);
@@ -226,7 +247,7 @@ try {
     } catch(error) { say(`${settledDate} BAO5 日榜暂不可用：${error.message}`); }
   }
   for(const row of runHistory){
-    if(Number.isFinite(row.actualTotal)||!row.players?.length)continue;
+    if(!settledDates.includes(row.dateKey)||Number.isFinite(row.actualTotal)||!row.players?.length)continue;
     try {
       const result=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(row.dateKey)}`);
       const mine=result.json?.mine?.day;

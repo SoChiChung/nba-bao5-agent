@@ -329,6 +329,7 @@ async function main() {
   }
 
   const serverDate = raw.date;
+  raw.requestedDate = OPT.date || null;
   const st = raw.statuses || {};
   const dist = {};
   for (const k of Object.keys(st)) dist[st[k].key] = (dist[st[k].key] || 0) + 1;

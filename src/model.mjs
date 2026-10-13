@@ -17,7 +17,8 @@ function siteInjuryReportUsable(injuries,dateKey){
   const reportDay=Date.parse(`${reportDate}T00:00:00Z`);
   const slateDay=Date.parse(`${dateKey}T00:00:00Z`);
   const ageDays=(slateDay-reportDay)/86_400_000;
-  return Number.isFinite(ageDays)&&ageDays>=0&&ageDays<=1&&(Object.keys(injuries?.statuses??{}).length>0||(injuries?.restricted??[]).length>0);
+  const hasReport=Object.keys(injuries?.statuses??{}).length>0||(injuries?.restricted??[]).length>0;
+  return hasReport&&Number.isFinite(ageDays)&&ageDays>=0;
 }
 
 function injuryForPlayer(injuries, playerId) {
@@ -66,7 +67,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     return {
       dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season',
       players: [...candidates].sort((a,b)=>b.projected-a.projected),
-      injuryMeta: { date: injuries.serverDate??injuries.date, available: siteInjuries, note: siteInjuries ? '健康状态采用 BAO5 网站伤病报告' : '没有比赛日前 1 天内的 BAO5 网站伤病报告；未应用伤病修正' },
+      injuryMeta: { date: injuries.serverDate??injuries.date, available: siteInjuries, note: siteInjuries ? '健康状态采用每日一阵网站伤病报告' : '没有可用的每日一阵伤病报告；未应用伤病限制' },
       oddsMeta: gameOdds.length ? { updatedAt: gameOdds[0].updatedAt, count: gameOdds.length } : null,
       lineup, efficientLineup, startMs, lockedAt: startMs - 15 * 60_000,
     };
@@ -138,7 +139,7 @@ function replacementOpportunity(player, players, injuries, weight) {
 function injuryHardExclude(item) {
   const key=String(item?.key??'').toLowerCase();
   const label=String(item?.label??'');
-  return ['out','doubtful','questionable'].includes(key) || /缺阵|出战成疑|存疑|赛前决定/.test(label);
+  return ['out','questionable','doubtful'].includes(key) || /缺阵|出战成疑|存疑|大概率缺阵/.test(label);
 }
 
 function statScore(p) {

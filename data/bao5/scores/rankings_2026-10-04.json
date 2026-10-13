@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-13T08:56:45.086Z",
+  "fetchedAt": "2026-10-13T09:12:00.630Z",
   "date": "2026-10-04",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -28,13 +28,13 @@
       "avatarKey": "badge:T08_S",
       "score": 116.3,
       "remainingSalary": 1,
-      "submittedAt": null,
+      "submittedAt": 1791067025103,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 1
     },
@@ -44,13 +44,13 @@
       "avatarKey": "badge:T09_S",
       "score": 113.4,
       "remainingSalary": 27,
-      "submittedAt": null,
+      "submittedAt": 1789981937969,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 2
     },
@@ -60,13 +60,13 @@
       "avatarKey": "badge:T08_S",
       "score": 112.3,
       "remainingSalary": 0,
-      "submittedAt": null,
+      "submittedAt": 1791036159672,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 3
     },
@@ -76,13 +76,13 @@
       "avatarKey": null,
       "score": 105,
       "remainingSalary": 12,
-      "submittedAt": null,
+      "submittedAt": 1790140197266,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 4
     },
@@ -92,13 +92,13 @@
       "avatarKey": "badge:T05_G",
       "score": 103.7,
       "remainingSalary": 2,
-      "submittedAt": null,
+      "submittedAt": 1789904518994,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 5
     },
@@ -108,13 +108,13 @@
       "avatarKey": "SAS",
       "score": 97.4,
       "remainingSalary": 8,
-      "submittedAt": null,
+      "submittedAt": 1790754538667,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 6
     },
@@ -124,13 +124,13 @@
       "avatarKey": "badge:T04_S",
       "score": 95.3,
       "remainingSalary": 0,
-      "submittedAt": null,
+      "submittedAt": 1790670405211,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 7
     },
@@ -140,31 +140,15 @@
       "avatarKey": "DAL",
       "score": 95.1,
       "remainingSalary": 3,
-      "submittedAt": null,
+      "submittedAt": 1789393677733,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 8
-    },
-    {
-      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
-      "displayName": "RR",
-      "avatarKey": "UTA",
-      "score": 94.6,
-      "remainingSalary": 4,
-      "submittedAt": null,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
-      ],
-      "rank": 9
     },
     {
       "userId": "7d593c13-6e15-4ccf-9d7a-03cd6a4454fc",
@@ -172,15 +156,31 @@
       "avatarKey": "TOR",
       "score": 94.6,
       "remainingSalary": 23,
-      "submittedAt": null,
+      "submittedAt": 1789004618697,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 9
+    },
+    {
+      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
+      "displayName": "RR",
+      "avatarKey": "UTA",
+      "score": 94.6,
+      "remainingSalary": 4,
+      "submittedAt": 1790607893556,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 10
     },
     {
       "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
@@ -188,13 +188,13 @@
       "avatarKey": null,
       "score": 93.6,
       "remainingSalary": 18,
-      "submittedAt": null,
+      "submittedAt": 1790130518709,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 11
     },
@@ -204,13 +204,13 @@
       "avatarKey": "badge:T05_S",
       "score": 89.7,
       "remainingSalary": 1,
-      "submittedAt": null,
+      "submittedAt": 1790936245986,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 12
     },
@@ -220,13 +220,13 @@
       "avatarKey": "badge:T08_S",
       "score": 87.8,
       "remainingSalary": 1,
-      "submittedAt": null,
+      "submittedAt": 1789395138508,
       "statuses": [
         "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 13
     },
@@ -236,13 +236,13 @@
       "avatarKey": "badge:T08_S",
       "score": 82.7,
       "remainingSalary": 0,
-      "submittedAt": null,
+      "submittedAt": 1791026054207,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 14
     },
@@ -252,13 +252,13 @@
       "avatarKey": "badge:T06_S",
       "score": 77.8,
       "remainingSalary": 0,
-      "submittedAt": null,
+      "submittedAt": 1790785062046,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 15
     },
@@ -268,13 +268,13 @@
       "avatarKey": null,
       "score": 63.3,
       "remainingSalary": 1,
-      "submittedAt": null,
+      "submittedAt": 1789732511038,
       "statuses": [
         "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 16
     },
@@ -284,13 +284,13 @@
       "avatarKey": "badge:F07",
       "score": 48,
       "remainingSalary": 0,
-      "submittedAt": null,
+      "submittedAt": 1790958756677,
       "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "todo"
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
       ],
       "rank": 17
     }
@@ -298,5 +298,7 @@
   "source": {
     "mine": "/api/rankings?mine=1&date=2026-10-04",
     "board": "/api/rankings?period=daily&date=2026-10-04"
-  }
+  },
+  "boardError": null,
+  "boardSource": "/api/rankings?period=day&date=2026-10-04"
 }

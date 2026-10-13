@@ -4,7 +4,7 @@
  *
  * 数据来源（实测确认，2026-10-04）：
  *   GET /api/rankings?mine=1[&date=YYYY-MM-DD]   → 我的名次与得分（day / week / season）
- *   GET /api/rankings?period=daily[&date=]       → 全站当日排行榜（用于看前排与我的位置）
+ *   GET /api/rankings?period=day[&date=]         → 全站当日日榜（用于当日前五与我的位置）
  *
  * 用法：
  *   node fetch-my-scores.mjs                      # 今日战绩 + 全站榜
@@ -75,10 +75,30 @@ async function collect(api, dateArg) {
   const dateKey = mineRes.json.date;
 
   // 2) 全站当日榜（用同一 dateKey，避免跨日错配）
-  const boardRes = await api.get(`/api/rankings?period=daily&date=${encodeURIComponent(dateKey)}`);
-  const board = boardRes.ok ? (boardRes.json?.rows ?? []) : [];
+  //
+  // ⚠️ 口径校验（2026-10-13 实测确认）：
+  //   该站的 period 参数曾「回显但不生效」——传 period=day 却返回赛季累计榜，
+  //   导致落盘快照的 board 被污染，日榜前五取到的是总榜前五的人。
+  //   判定只认响应体 date，不信回显的 period：
+  //     · date 与请求不一致 → 服务端静默回落，丢弃
+  //     · rows 存在但 score 全 0 → 该日尚未结算，丢弃
+  const boardRes = await api.get(`/api/rankings?period=day&date=${encodeURIComponent(dateKey)}`);
+  let board = [];
+  let boardError = null;
+  if (!boardRes.ok) {
+    boardError = `HTTP ${boardRes.status}`;
+  } else if (!Array.isArray(boardRes.json?.rows)) {
+    boardError = '响应无 rows 数组';
+  } else if (boardRes.json.date !== dateKey) {
+    boardError = `日期回落：请求 ${dateKey} 实返 ${boardRes.json.date}`;
+  } else if (boardRes.json.rows.length && boardRes.json.rows.every((x) => Number(x.score) === 0)) {
+    boardError = `${dateKey} 尚未结算（全 0 分）`;
+  } else {
+    board = boardRes.json.rows;
+  }
+  if (boardError) console.warn(`[日榜] ${boardError}，本次 board 置空`);
 
-  return { dateKey, mine: mineRes.json.mine ?? {}, board };
+  return { dateKey, mine: mineRes.json.mine ?? {}, board, boardError };
 }
 
 /** 把 mine.day 转成人类可读 */
@@ -160,7 +180,7 @@ async function main() {
         board: r.board,
         source: {
           mine: `/api/rankings?mine=1&date=${r.dateKey}`,
-          board: `/api/rankings?period=daily&date=${r.dateKey}`,
+          board: `/api/rankings?period=day&date=${r.dateKey}`,
         },
       };
       const f = path.join(SCORE_DIR, `rankings_${r.dateKey}.json`);
