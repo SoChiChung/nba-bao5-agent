@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-13T09:12:08.105Z",
+  "fetchedAt": "2026-10-13T23:39:35.607Z",
   "date": "2026-10-12",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -137,7 +137,7 @@
     {
       "userId": "cc8b8f44-974f-41f2-9b7f-3032069649d2",
       "displayName": "卡卡罗特",
-      "avatarKey": null,
+      "avatarKey": "badge:F08",
       "score": 111,
       "remainingSalary": 20,
       "submittedAt": 1791683551126,
@@ -393,7 +393,7 @@
   ],
   "source": {
     "mine": "/api/rankings?mine=1&date=2026-10-12",
-    "board": "/api/rankings?period=daily&date=2026-10-12"
+    "board": "/api/rankings?period=day&date=2026-10-12"
   },
   "boardError": null,
   "boardSource": "/api/rankings?period=day&date=2026-10-12"
