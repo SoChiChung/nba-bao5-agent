@@ -48,7 +48,7 @@
     "rankTotal": 17,
     "scoreDelta": -78.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:41.580Z",
+    "resultUpdatedAt": "2026-10-14T23:03:44.349Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 48,
@@ -650,7 +650,7 @@
     "rankTotal": 20,
     "scoreDelta": -61.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:44.839Z",
+    "resultUpdatedAt": "2026-10-14T23:03:48.066Z",
     "playerNames": [
       "贾马尔·穆雷",
       "斯蒂芬·库里",
@@ -991,7 +991,7 @@
     "rankTotal": 19,
     "scoreDelta": -13.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:47.792Z",
+    "resultUpdatedAt": "2026-10-14T23:03:51.765Z",
     "playerNames": [
       "安东尼·爱德华兹",
       "拉梅洛·鲍尔",
@@ -1431,7 +1431,7 @@
     "rank": 7,
     "rankTotal": 21,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:50.891Z",
+    "resultUpdatedAt": "2026-10-14T23:03:55.668Z",
     "topFive": {
       "date": "2026-10-07",
       "lineups": [
@@ -1854,7 +1854,7 @@
     "rank": 15,
     "rankTotal": 22,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:54.330Z",
+    "resultUpdatedAt": "2026-10-14T23:03:59.329Z",
     "topFive": {
       "date": "2026-10-08",
       "lineups": [
@@ -2144,7 +2144,7 @@
     "rankTotal": 19,
     "scoreDelta": -0.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:40:57.188Z",
+    "resultUpdatedAt": "2026-10-14T23:04:03.014Z",
     "playerNames": [
       "杰伦·布伦森",
       "约什·哈特",
@@ -2481,7 +2481,7 @@
     "rankTotal": 22,
     "scoreDelta": 75.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:41:00.000Z",
+    "resultUpdatedAt": "2026-10-14T23:04:05.805Z",
     "topFive": {
       "date": "2026-10-10",
       "lineups": [
@@ -2741,14 +2741,14 @@
     "rankTotal": 22,
     "scoreDelta": 72.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:41:02.927Z",
+    "resultUpdatedAt": "2026-10-14T23:04:08.583Z",
     "topFive": {
       "date": "2026-10-11",
       "lineups": [
         {
           "rank": 1,
           "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
-          "displayName": "红葱酱",
+          "displayName": "刘堡",
           "score": 141.6,
           "remainingSalary": 59,
           "salaryUsed": 91,
@@ -3019,7 +3019,7 @@
     "rankTotal": 23,
     "scoreDelta": 96.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:41:05.851Z",
+    "resultUpdatedAt": "2026-10-14T23:04:11.271Z",
     "topFive": {
       "date": "2026-10-12",
       "lineups": [
@@ -3285,7 +3285,7 @@
     "rankTotal": 73,
     "scoreDelta": 25.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:41:08.911Z",
+    "resultUpdatedAt": "2026-10-14T23:04:15.404Z",
     "topFive": {
       "date": "2026-10-13",
       "lineups": [
@@ -3595,7 +3595,7 @@
     "rankTotal": 76,
     "scoreDelta": -45.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T07:41:12.700Z",
+    "resultUpdatedAt": "2026-10-14T23:04:16.770Z",
     "playerNames": [
       "詹姆斯·哈登",
       "多诺万·米切尔",
@@ -3881,7 +3881,7 @@
   },
   {
     "dateKey": "2026-10-15",
-    "updatedAt": "2026-10-14T07:41:21.374Z",
+    "updatedAt": "2026-10-14T23:04:20.696Z",
     "players": [
       "1630581",
       "1626181",
@@ -3893,12 +3893,12 @@
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-14T07:41:20.459Z",
+    "oddsFetchedAt": "2026-10-14T23:04:19.588Z",
     "injuryDate": "2026-10-14",
-    "injuryUpdatedAt": "2026-10-14T07:41:19.385Z",
+    "injuryUpdatedAt": "2026-10-14T23:04:18.769Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-14T07:41:21.374Z",
+      "verifiedAt": "2026-10-14T23:04:20.696Z",
       "playerIds": [
         "1630581",
         "1626181",
@@ -3926,6 +3926,27 @@
         "at": "2026-10-14T07:41:21.374Z",
         "reason": "schedule-window",
         "games": [],
+        "players": [
+          "1630581",
+          "1626181",
+          "1641709",
+          "1642276",
+          "1642274"
+        ],
+        "expected": 129.1,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-14T23:04:20.696Z",
+        "reason": "pre-tip-starters",
+        "games": [
+          "0012600003",
+          "0012600017",
+          "0012600051",
+          "0012600052",
+          "0012600053",
+          "0012600054"
+        ],
         "players": [
           "1630581",
           "1626181",
