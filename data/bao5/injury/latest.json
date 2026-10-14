@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-10-13T23:39:46.365Z",
+  "updatedAt": "2026-10-14T02:11:33.565Z",
   "serverDate": "2026-10-13",
-  "requestedDate": "2026-10-14",
+  "requestedDate": "2026-10-15",
   "available": false,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "RotoWire、Sleeper伤病名单",
   "counts": {
     "total": 703,
-    "questionable": 101,
-    "available": 583,
+    "questionable": 107,
+    "available": 577,
     "out": 19
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 583,
-    "filledCount": 120,
+    "projectedCount": 577,
+    "filledCount": 126,
     "fallbackSource": "mixed"
   },
   "snapshotFile": "snapshots/injuries_2026-10-13.json",
   "changesFile": "changes/changes_2026-10-13.json",
   "previousDate": "2026-10-12",
-  "changeCount": 151,
-  "restrictedCount": 120,
+  "changeCount": 159,
+  "restrictedCount": 126,
   "restricted": [
     {
       "id": "203994",
@@ -403,6 +403,20 @@
       "energy": null
     },
     {
+      "id": "203110",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "203114",
       "key": "questionable",
       "label": "出战成疑",
@@ -460,6 +474,20 @@
     },
     {
       "id": "203507",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203897",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -795,6 +823,48 @@
       "energy": null
     },
     {
+      "id": "1629029",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629614",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629631",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629632",
       "key": "questionable",
       "label": "出战成疑",
@@ -865,20 +935,6 @@
       "energy": null
     },
     {
-      "id": "1630169",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630170",
       "key": "questionable",
       "label": "出战成疑",
@@ -894,6 +950,20 @@
     },
     {
       "id": "1630171",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630174",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1103,20 +1173,6 @@
       "energy": null
     },
     {
-      "id": "1631117",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1631119",
       "key": "questionable",
       "label": "出战成疑",
@@ -1188,6 +1244,20 @@
     },
     {
       "id": "1641710",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641716",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1467,6 +1537,20 @@
       "energy": null
     },
     {
+      "id": "1642876",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642877",
       "key": "questionable",
       "label": "出战成疑",
@@ -1583,8 +1667,8 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "RotoWire伤病名单：出战成疑（脚踝）",
-      "source": "RotoWire",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1705,5 +1789,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出120人，其余583人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出126人，其余577人未被列入（视为可出战）。"
 }
