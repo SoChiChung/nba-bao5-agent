@@ -48,7 +48,7 @@
     "rankTotal": 17,
     "scoreDelta": -78.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:03:44.349Z",
+    "resultUpdatedAt": "2026-10-15T01:26:23.287Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 48,
@@ -650,7 +650,7 @@
     "rankTotal": 20,
     "scoreDelta": -61.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:03:48.066Z",
+    "resultUpdatedAt": "2026-10-15T01:26:27.302Z",
     "playerNames": [
       "贾马尔·穆雷",
       "斯蒂芬·库里",
@@ -991,7 +991,7 @@
     "rankTotal": 19,
     "scoreDelta": -13.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:03:51.765Z",
+    "resultUpdatedAt": "2026-10-15T01:26:30.493Z",
     "playerNames": [
       "安东尼·爱德华兹",
       "拉梅洛·鲍尔",
@@ -1431,7 +1431,7 @@
     "rank": 7,
     "rankTotal": 21,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:03:55.668Z",
+    "resultUpdatedAt": "2026-10-15T01:26:33.766Z",
     "topFive": {
       "date": "2026-10-07",
       "lineups": [
@@ -1854,7 +1854,7 @@
     "rank": 15,
     "rankTotal": 22,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:03:59.329Z",
+    "resultUpdatedAt": "2026-10-15T01:26:37.086Z",
     "topFive": {
       "date": "2026-10-08",
       "lineups": [
@@ -2144,7 +2144,7 @@
     "rankTotal": 19,
     "scoreDelta": -0.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:03.014Z",
+    "resultUpdatedAt": "2026-10-15T01:26:40.375Z",
     "playerNames": [
       "杰伦·布伦森",
       "约什·哈特",
@@ -2481,7 +2481,7 @@
     "rankTotal": 22,
     "scoreDelta": 75.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:05.805Z",
+    "resultUpdatedAt": "2026-10-15T01:26:43.766Z",
     "topFive": {
       "date": "2026-10-10",
       "lineups": [
@@ -2741,7 +2741,7 @@
     "rankTotal": 22,
     "scoreDelta": 72.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:08.583Z",
+    "resultUpdatedAt": "2026-10-15T01:26:46.855Z",
     "topFive": {
       "date": "2026-10-11",
       "lineups": [
@@ -3019,7 +3019,7 @@
     "rankTotal": 23,
     "scoreDelta": 96.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:11.271Z",
+    "resultUpdatedAt": "2026-10-15T01:26:49.978Z",
     "topFive": {
       "date": "2026-10-12",
       "lineups": [
@@ -3285,7 +3285,7 @@
     "rankTotal": 73,
     "scoreDelta": 25.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:15.404Z",
+    "resultUpdatedAt": "2026-10-15T01:26:57.808Z",
     "topFive": {
       "date": "2026-10-13",
       "lineups": [
@@ -3595,7 +3595,7 @@
     "rankTotal": 76,
     "scoreDelta": -45.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-14T23:04:16.770Z",
+    "resultUpdatedAt": "2026-10-15T01:27:01.816Z",
     "playerNames": [
       "詹姆斯·哈登",
       "多诺万·米切尔",
@@ -3957,6 +3957,28 @@
         "expected": 129.1,
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "约什·吉迪",
+      "诺曼·鲍威尔",
+      "奥萨尔·汤普森",
+      "凯莱尔·韦尔",
+      "伊夫·米西"
+    ],
+    "bao5Players": [
+      "1630581",
+      "1626181",
+      "1641709",
+      "1642276",
+      "1642274"
+    ],
+    "bao5PlayerNames": [
+      "约什·吉迪",
+      "诺曼·鲍威尔",
+      "奥萨尔·汤普森",
+      "凯莱尔·韦尔",
+      "伊夫·米西"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-15"
   }
 ]
