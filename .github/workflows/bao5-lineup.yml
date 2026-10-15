@@ -31,7 +31,7 @@ jobs:
         run: |
           test -n "$BAO5_EMAIL" || (echo "Missing BAO5_EMAIL secret" && exit 1)
           test -n "$BAO5_PASSWORD" || (echo "Missing BAO5_PASSWORD secret" && exit 1)
-          node -e "const fs=require('fs'); fs.writeFileSync('data/bao5/bao1/config.json', JSON.stringify({email:process.env.BAO5_EMAIL,password:process.env.BAO5_PASSWORD,baseUrl:'https://nbabao5.cn'})); if(process.env.ODDSPAPI_API_KEY) fs.writeFileSync('data/odds/config.json', JSON.stringify({apiKey:process.env.ODDSPAPI_API_KEY,baseUrl:'https://api.oddspapi.io',bookmaker:'pinnacle',language:'en',verbosity:3,tournamentIds:{nba:132,nbaPreseason:2382},monthlyQuota:200}));"
+          node -e "const fs=require('fs'); fs.writeFileSync('data/bao5/bao1/config.json', JSON.stringify({email:process.env.BAO5_EMAIL,password:process.env.BAO5_PASSWORD,baseUrl:'https://nbabao5.top'})); if(process.env.ODDSPAPI_API_KEY) fs.writeFileSync('data/odds/config.json', JSON.stringify({apiKey:process.env.ODDSPAPI_API_KEY,baseUrl:'https://api.oddspapi.io',bookmaker:'pinnacle',language:'en',verbosity:3,tournamentIds:{nba:132,nbaPreseason:2382},monthlyQuota:200}));"
       - name: Restore non-secret odds usage counter
         run: |
           if [ ! -f data/odds/usage-log.json ]; then echo '{"monthlyQuota":200,"calls":[]}' > data/odds/usage-log.json; fi

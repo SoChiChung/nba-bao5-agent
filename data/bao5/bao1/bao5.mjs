@@ -1,11 +1,11 @@
-// BAO5 (nbabao5.cn) 接口封装库
+// BAO5 (nbabao5.top) 接口封装库
 // 认证：POST /api/auth/password-login {email,password} -> { user, sessionToken }
 // 请求：携带 Authorization: Bearer <sessionToken>（同时保留 cookie）
 import fs from 'node:fs';
 import path from 'node:path';
 
 const DIR = import.meta.dirname;
-export const BASE = 'https://nbabao5.cn';
+export const BASE = 'https://nbabao5.top';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 /** 开赛前锁定窗口：15 分钟 */

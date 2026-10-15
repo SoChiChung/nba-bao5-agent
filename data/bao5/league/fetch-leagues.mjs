@@ -227,7 +227,7 @@ async function main() {
   }
 
   /* ---- 登录 ---- */
-  say('[登录] 读取 data/bao5/bao1/config.json，登入 nbabao5.cn …');
+  say('[登录] 读取 data/bao5/bao1/config.json，登入 nbabao5.top …');
   const cfg = loadConfig();
   const api = new Bao5(cfg);
   const user = await api.login(cfg.email, cfg.password);

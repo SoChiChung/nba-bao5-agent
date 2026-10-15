@@ -129,7 +129,7 @@ try {
   run('../injury/fetch-injuries.mjs',[`--date=${injuryRequestDate}`,'--no-names','--force']);
   const injuries=readJson('data/bao5/injury/latest.json');
   injuries.updatedAt=new Date().toISOString();
-  const injuryChanges=await fetch('https://nbabao5.cn/api/nba/injury-changes',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15_000)});
+  const injuryChanges=await fetch('https://nbabao5.top/api/nba/injury-changes',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15_000)});
   if(injuryChanges.ok){const feed=await injuryChanges.json();const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());const current=(feed.changes??[]).filter(change=>Number(change.detectedAt)>=Date.parse(`${today}T00:00:00-04:00`)).sort((a,b)=>Number(a.detectedAt??0)-Number(b.detectedAt??0));for(const change of current){const id=String(change.playerId??'');if(!id)continue;const status=change.to??{};const old=injuries.statuses?.[id]??{};const merged={...old,key:status.key??old.key,label:status.label??old.label,probability:status.probability??old.probability,detail:change.detail??old.detail,source:'injury-changes'};injuries.statuses??={};injuries.statuses[id]=merged;const restricted=(injuries.restricted??[]).filter(item=>String(item.id)!==id);if(!['available','probable'].includes(merged.key))restricted.push({id,...merged});injuries.restricted=restricted;}}
   let oddsMeta=readJson('data/odds/latest.json');
   const oddsRefreshInterval=8*60*60*1000;

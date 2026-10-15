@@ -35,13 +35,13 @@ async function refreshInjuryReport(schedule = null) {
     })();
     const targetDate = games.filter(g => g.status !== 3 && Date.parse(g.utc) > now).map(g => g.date).sort()[0];
     const requestedDate = targetDate ?? new Date().toISOString().slice(0, 10);
-    const response = await fetch(`https://nbabao5.cn/api/nba/injuries?date=${requestedDate}`, {
+    const response = await fetch(`https://nbabao5.top/api/nba/injuries?date=${requestedDate}`, {
       headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15_000),
     });
     if (!response.ok) throw new Error(`伤病报告 HTTP ${response.status}`);
     const report = await response.json();
     if (!report || typeof report !== 'object' || !/^\d{4}-\d\d-\d\d$/.test(report.date ?? '')) throw new Error('伤病报告格式无效');
-    const changesResponse = await fetch('https://nbabao5.cn/api/nba/injury-changes', {
+    const changesResponse = await fetch('https://nbabao5.top/api/nba/injury-changes', {
       headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15_000),
     });
     if (changesResponse.ok) {

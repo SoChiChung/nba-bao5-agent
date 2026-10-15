@@ -1,4 +1,4 @@
-# BAO5 站点 API 文档（nbabao5.cn）
+# BAO5 站点 API 文档（nbabao5.top）
 
 > 本站**没有公开 API 文档**。以下端点全部由**前端 bundle 逆向 + 逐条实测**得出（初版 2026-10-04，季前赛专项复核 2026-10-11）。
 > 复现方式：`node probe-api.mjs`（枚举端点）→ `node probe-endpoints.mjs`（实测响应）
@@ -9,9 +9,9 @@
 
 | 项 | 值 |
 | --- | --- |
-| Base URL | `https://nbabao5.cn` |
+| Base URL | `https://nbabao5.top` |
 | 认证方式 | `POST /api/auth/password-login` 换取 `sessionToken` → 后续请求带 `Authorization: Bearer <token>`，**并同时携带登录返回的 `bao5_session` cookie** |
-| 请求头 | `Content-Type: application/json`（POST）、`Accept: application/json, text/plain, */*`、`Referer: https://nbabao5.cn/` |
+| 请求头 | `Content-Type: application/json`（POST）、`Accept: application/json, text/plain, */*`、`Referer: https://nbabao5.top/` |
 | 日期口径 | `dateKey` 为**美东日期** `YYYY-MM-DD`（站点「今天」按上海时区判断） |
 | 未开赛返回 | 大量接口在无数据时**不报错**，返回零值或空对象 |
 

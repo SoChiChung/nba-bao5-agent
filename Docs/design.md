@@ -14,7 +14,7 @@
 
 | 维度 | 逻辑一：BAO5「每日一阵」 | 逻辑二：NBA Fantasy |
 | --- | --- | --- |
-| 站点 | `https://nbabao5.cn/`（好堡出品） | `https://nbafantasy.nba.com/` |
+| 站点 | `https://nbabao5.top/`（好堡出品） | `https://nbafantasy.nba.com/` |
 | 阵容规模 | 恰好 **5 人** | 一个 Gameweek 一套阵容，含替补与队长等机制 |
 | 位置口径 | `front` / `back`（前场 / 后场），原始位 `G` / `F` / `C` | `Back Court` / `Front Court`（`element_type` 1 / 2） |
 | 薪资 / 限制 | 单一 `energy` 值，5 人合计 **≤ 150** | `now_cost` 工资帽体系 |
@@ -52,8 +52,8 @@ BAO5 侧的一切球员信息与赛程信息，**均以本站这两个接口为�
 
 | 用途 | 端点 | 返回 |
 | --- | --- | --- |
-| 球员库 | `GET https://nbabao5.cn/api/nba/players` | `{ "players": [ ... ] }` |
-| 赛程 | `GET https://nbabao5.cn/api/nba/schedule` | `{ "games": [ ... ] }` |
+| 球员库 | `GET https://nbabao5.top/api/nba/players` | `{ "players": [ ... ] }` |
+| 赛程 | `GET https://nbabao5.top/api/nba/schedule` | `{ "games": [ ... ] }` |
 
 两者都需要 `Authorization: Bearer <sessionToken>`（先登录换取）。
 
@@ -378,7 +378,7 @@ node data/history-player/aggregate.js  <球员ID> [--out=<dir>]       # 聚合�
 
 ### 2.5 数据源 G —— 伤兵名单（`data/bao5/injury/`）
 
-**端点**：`GET https://nbabao5.cn/api/nba/injuries?date=YYYY-MM-DD`
+**端点**：`GET https://nbabao5.top/api/nba/injuries?date=YYYY-MM-DD`
 **鉴权**：**无需登录**（公开接口，实测带 / 不带 token 结果完全一致）
 **用途**：拿到每个球员的**出战状态**（可出战 / 出战成疑 / 大概率缺阵 / 缺阵）与出战概率 —— 既是候选池的**前置过滤器**，也是阵容的**风险特征**。
 
