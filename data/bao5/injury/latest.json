@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-10-15T01:27:08.226Z",
-  "serverDate": "2026-10-14",
-  "requestedDate": "2026-10-15",
+  "updatedAt": "2026-10-15T06:17:45.966Z",
+  "serverDate": "2026-10-15",
+  "requestedDate": "2026-10-16",
   "available": false,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "RotoWire、Sleeper伤病名单",
   "counts": {
     "total": 706,
-    "questionable": 104,
-    "available": 583,
-    "out": 19
+    "questionable": 105,
+    "available": 581,
+    "out": 20
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 583,
-    "filledCount": 123,
+    "projectedCount": 581,
+    "filledCount": 125,
     "fallbackSource": "mixed"
   },
-  "snapshotFile": "snapshots/injuries_2026-10-14.json",
-  "changesFile": "changes/changes_2026-10-14.json",
-  "previousDate": "2026-10-13",
-  "changeCount": 42,
-  "restrictedCount": 123,
+  "snapshotFile": "snapshots/injuries_2026-10-15.json",
+  "changesFile": "changes/changes_2026-10-15.json",
+  "previousDate": "2026-10-14",
+  "changeCount": 5,
+  "restrictedCount": 125,
   "restricted": [
     {
       "id": "203078",
@@ -222,6 +222,20 @@
     },
     {
       "id": "1642875",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "Sleeper伤病名单：缺阵",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642923",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -558,6 +572,20 @@
     },
     {
       "id": "1627734",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1627739",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1075,20 +1103,6 @@
       "energy": null
     },
     {
-      "id": "1630568",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630577",
       "key": "questionable",
       "label": "出战成疑",
@@ -1145,6 +1159,20 @@
       "energy": null
     },
     {
+      "id": "1630619",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630696",
       "key": "questionable",
       "label": "出战成疑",
@@ -1188,6 +1216,20 @@
     },
     {
       "id": "1631119",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631124",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1579,20 +1621,6 @@
       "energy": null
     },
     {
-      "id": "1642923",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642927",
       "key": "questionable",
       "label": "出战成疑",
@@ -1747,5 +1775,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出123人，其余583人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出125人，其余581人未被列入（视为可出战）。"
 }
