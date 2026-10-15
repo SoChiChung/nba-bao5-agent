@@ -1,26 +1,26 @@
 {
-  "fetchedAt": "2026-10-15T06:17:10.114Z",
+  "fetchedAt": "2026-10-15T22:57:23.720Z",
   "date": "2026-10-04",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "mine": {
     "day": {
-      "rank": 17,
+      "rank": 16,
       "score": 48,
-      "total": 17
+      "total": 16
     },
     "week": {
-      "rank": 17,
+      "rank": 16,
       "score": 48,
-      "total": 17
+      "total": 16
     },
     "season": {
-      "rank": 17,
+      "rank": 16,
       "score": 48,
-      "total": 17
+      "total": 16
     }
   },
-  "boardCount": 17,
+  "boardCount": 16,
   "board": [
     {
       "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
@@ -41,7 +41,7 @@
     {
       "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
       "displayName": "蒂兰基尔尼",
-      "avatarKey": "badge:T09_S",
+      "avatarKey": "badge:T09_G",
       "score": 113.4,
       "remainingSalary": 27,
       "submittedAt": 1789981937969,
@@ -151,22 +151,6 @@
       "rank": 8
     },
     {
-      "userId": "7d593c13-6e15-4ccf-9d7a-03cd6a4454fc",
-      "displayName": "Levine",
-      "avatarKey": "TOR",
-      "score": 94.6,
-      "remainingSalary": 23,
-      "submittedAt": 1789004618697,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 9
-    },
-    {
       "userId": "64db369e-66e1-45b3-80be-0364495572c3",
       "displayName": "RR",
       "avatarKey": "UTA",
@@ -180,7 +164,7 @@
         "done",
         "done"
       ],
-      "rank": 10
+      "rank": 9
     },
     {
       "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
@@ -196,7 +180,7 @@
         "done",
         "done"
       ],
-      "rank": 11
+      "rank": 10
     },
     {
       "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
@@ -212,7 +196,7 @@
         "done",
         "done"
       ],
-      "rank": 12
+      "rank": 11
     },
     {
       "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
@@ -228,7 +212,7 @@
         "done",
         "done"
       ],
-      "rank": 13
+      "rank": 12
     },
     {
       "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
@@ -244,12 +228,12 @@
         "done",
         "done"
       ],
-      "rank": 14
+      "rank": 13
     },
     {
       "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
       "displayName": "nbw",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T06_S",
       "score": 77.8,
       "remainingSalary": 0,
       "submittedAt": 1790785062046,
@@ -260,7 +244,7 @@
         "done",
         "done"
       ],
-      "rank": 15
+      "rank": 14
     },
     {
       "userId": "6bdca8a5-8259-4aa6-8c00-26c725a37ee9",
@@ -276,7 +260,7 @@
         "done",
         "done"
       ],
-      "rank": 16
+      "rank": 15
     },
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
@@ -292,7 +276,7 @@
         "done",
         "done"
       ],
-      "rank": 17
+      "rank": 16
     }
   ],
   "source": {
