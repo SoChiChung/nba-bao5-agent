@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-10-16T05:53:53.723Z",
+  "serverDate": "2026-10-16",
+  "requestedDate": "2026-10-17",
+  "available": false,
+  "season": "2026-27",
+  "source": "ak-static.cms.nba.com",
+  "sourceLabel": "RotoWire、Sleeper伤病名单",
+  "updatedAt": null,
+  "counts": {
+    "total": 715,
+    "questionable": 99,
+    "available": 595,
+    "out": 21
+  },
+  "provenance": {
+    "officialCount": 0,
+    "projectedCount": 595,
+    "filledCount": 120,
+    "fallbackSource": "mixed"
+  },
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出120人，其余595人未被列入（视为可出战）。",
+  "baseline": false,
+  "previousDate": "2026-10-15",
+  "changeCount": 0,
+  "changes": [],
+  "meta": []
+}
