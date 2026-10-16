@@ -48,7 +48,7 @@
     "rankTotal": 16,
     "scoreDelta": -78.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:21.037Z",
+    "resultUpdatedAt": "2026-10-16T22:40:37.743Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 48,
@@ -650,7 +650,7 @@
     "rankTotal": 20,
     "scoreDelta": -61.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:24.159Z",
+    "resultUpdatedAt": "2026-10-16T22:40:40.908Z",
     "playerNames": [
       "贾马尔·穆雷",
       "斯蒂芬·库里",
@@ -991,7 +991,7 @@
     "rankTotal": 19,
     "scoreDelta": -13.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:27.415Z",
+    "resultUpdatedAt": "2026-10-16T22:40:43.896Z",
     "playerNames": [
       "安东尼·爱德华兹",
       "拉梅洛·鲍尔",
@@ -1431,7 +1431,7 @@
     "rank": 7,
     "rankTotal": 21,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:30.553Z",
+    "resultUpdatedAt": "2026-10-16T22:40:47.361Z",
     "topFive": {
       "date": "2026-10-07",
       "lineups": [
@@ -1854,7 +1854,7 @@
     "rank": 15,
     "rankTotal": 22,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:33.662Z",
+    "resultUpdatedAt": "2026-10-16T22:40:50.685Z",
     "topFive": {
       "date": "2026-10-08",
       "lineups": [
@@ -2144,7 +2144,7 @@
     "rankTotal": 19,
     "scoreDelta": -0.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:36.617Z",
+    "resultUpdatedAt": "2026-10-16T22:40:53.938Z",
     "playerNames": [
       "杰伦·布伦森",
       "约什·哈特",
@@ -2481,7 +2481,7 @@
     "rankTotal": 22,
     "scoreDelta": 75.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:39.464Z",
+    "resultUpdatedAt": "2026-10-16T22:40:57.498Z",
     "topFive": {
       "date": "2026-10-10",
       "lineups": [
@@ -2741,7 +2741,7 @@
     "rankTotal": 22,
     "scoreDelta": 72.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:42.495Z",
+    "resultUpdatedAt": "2026-10-16T22:41:00.490Z",
     "topFive": {
       "date": "2026-10-11",
       "lineups": [
@@ -3019,7 +3019,7 @@
     "rankTotal": 23,
     "scoreDelta": 96.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:45.617Z",
+    "resultUpdatedAt": "2026-10-16T22:41:03.642Z",
     "topFive": {
       "date": "2026-10-12",
       "lineups": [
@@ -3285,7 +3285,7 @@
     "rankTotal": 73,
     "scoreDelta": 25.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:48.838Z",
+    "resultUpdatedAt": "2026-10-16T22:41:07.591Z",
     "topFive": {
       "date": "2026-10-13",
       "lineups": [
@@ -3595,7 +3595,7 @@
     "rankTotal": 76,
     "scoreDelta": -45.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:52.678Z",
+    "resultUpdatedAt": "2026-10-16T22:41:10.921Z",
     "playerNames": [
       "詹姆斯·哈登",
       "多诺万·米切尔",
@@ -3985,7 +3985,7 @@
     "rankTotal": 73,
     "scoreDelta": -16.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:55.737Z",
+    "resultUpdatedAt": "2026-10-16T22:41:14.358Z",
     "topFive": {
       "date": "2026-10-15",
       "lineups": [
@@ -4346,7 +4346,7 @@
     "rankTotal": 69,
     "scoreDelta": -32.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T10:33:58.988Z",
+    "resultUpdatedAt": "2026-10-16T22:41:18.147Z",
     "topFive": {
       "date": "2026-10-16",
       "lineups": [
@@ -4574,7 +4574,7 @@
   },
   {
     "dateKey": "2026-10-17",
-    "updatedAt": "2026-10-16T10:34:09.842Z",
+    "updatedAt": "2026-10-16T22:41:24.577Z",
     "players": [
       "1629645",
       "1630530",
@@ -4582,16 +4582,16 @@
       "1630170",
       "1642274"
     ],
-    "expected": 136.8,
+    "expected": 135.6,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-16T10:34:06.500Z",
+    "oddsFetchedAt": "2026-10-16T22:41:23.251Z",
     "injuryDate": "2026-10-16",
-    "injuryUpdatedAt": "2026-10-16T10:34:05.665Z",
+    "injuryUpdatedAt": "2026-10-16T22:41:22.064Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-16T10:34:09.842Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-16T22:41:24.577Z",
       "playerIds": [
         "1629645",
         "1630530",
@@ -4642,6 +4642,26 @@
         ],
         "expected": 136.8,
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-16T22:41:24.577Z",
+        "reason": "daily-refresh",
+        "games": [
+          "0012600008",
+          "0012600058",
+          "0012600059",
+          "0012600060",
+          "0012600061"
+        ],
+        "players": [
+          "1629645",
+          "1630530",
+          "1631097",
+          "1630170",
+          "1642274"
+        ],
+        "expected": 135.6,
+        "submission": "unchanged-verified"
       }
     ]
   }

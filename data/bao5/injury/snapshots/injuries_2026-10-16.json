@@ -4,12 +4,11 @@
   "date": "2026-10-16",
   "statuses": {
     "2544": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "勒布朗·詹姆斯",
       "t": "76人",
       "st": "e:2026-10-17:rw"
@@ -131,25 +130,24 @@
       "source": "公开名单",
       "n": "克莱·汤普森",
       "t": "热火",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "202695": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
-      "n": "科怀·伦纳德",
-      "t": "猛龙",
-      "st": "e:2026-10-17:rw"
-    },
-    "202696": {
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
       "detail": "Sleeper伤病名单：出战成疑",
       "source": "Sleeper",
       "others": [],
+      "n": "科怀·伦纳德",
+      "t": "猛龙"
+    },
+    "202696": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "尼古拉·武切维奇",
       "t": "魔术"
     },
@@ -279,8 +277,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "鲁迪·戈贝尔",
-      "t": "森林狼",
-      "st": "e:2026-10-17:rw"
+      "t": "森林狼"
     },
     "203500": {
       "key": "questionable",
@@ -308,14 +305,14 @@
       "t": "热火"
     },
     "203507": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "扬尼斯·阿德托昆博",
-      "t": "热火",
-      "st": "e:2026-10-17:rw"
+      "t": "热火"
     },
     "203897": {
       "key": "questionable",
@@ -416,15 +413,14 @@
       "source": "公开名单",
       "n": "安德鲁·威金斯",
       "t": "热火",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "203954": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "乔尔·恩比德",
       "t": "76人",
       "st": "e:2026-10-17:rw"
@@ -521,7 +517,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "小凯利·乌布雷",
-      "t": "步行者"
+      "t": "步行者",
+      "st": "c:2026-10-17:rw"
     },
     "1626164": {
       "key": "questionable",
@@ -561,7 +558,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "小鲍比·波蒂斯",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-10-17:rw"
     },
     "1626172": {
       "key": "available",
@@ -689,8 +687,7 @@
       "source": "Sleeper",
       "others": [],
       "n": "德章泰·穆雷",
-      "t": "鹈鹕",
-      "st": "e:2026-10-17:rw"
+      "t": "鹈鹕"
     },
     "1627750": {
       "key": "available",
@@ -703,14 +700,14 @@
       "st": "e:2026-10-17:rw"
     },
     "1627751": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "雅各布·珀尔特尔",
-      "t": "猛龙",
-      "st": "e:2026-10-17:rw"
+      "t": "猛龙"
     },
     "1627752": {
       "key": "available",
@@ -722,12 +719,11 @@
       "t": "活塞"
     },
     "1627759": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "杰伦·布朗",
       "t": "76人",
       "st": "e:2026-10-17:rw"
@@ -756,7 +752,7 @@
       "source": "公开名单",
       "n": "帕斯卡尔·西亚卡姆",
       "t": "步行者",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1627826": {
       "key": "available",
@@ -766,7 +762,7 @@
       "source": "公开名单",
       "n": "伊维察·祖巴茨",
       "t": "步行者",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1627827": {
       "key": "available",
@@ -812,7 +808,7 @@
       "source": "公开名单",
       "n": "达龙·福克斯",
       "t": "马刺",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1628369": {
       "key": "available",
@@ -932,8 +928,7 @@
         }
       ],
       "n": "巴姆·阿德巴约",
-      "t": "热火",
-      "st": "e:2026-10-17:rw"
+      "t": "热火"
     },
     "1628392": {
       "key": "available",
@@ -985,12 +980,11 @@
       "t": "尼克斯"
     },
     "1628415": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "狄龙·布鲁克斯",
       "t": "太阳",
       "st": "e:2026-10-17:rw"
@@ -1005,12 +999,11 @@
       "t": "骑士"
     },
     "1628436": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "卢克·科内特",
       "t": "马刺"
     },
@@ -1418,15 +1411,14 @@
       "t": "篮网"
     },
     "1629614": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "安德鲁·内姆布哈德",
       "t": "步行者",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1629618": {
       "key": "available",
@@ -1458,14 +1450,14 @@
       "st": "e:2026-10-17:rw"
     },
     "1629628": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "RJ·巴雷特",
-      "t": "猛龙",
-      "st": "e:2026-10-17:rw"
+      "t": "猛龙"
     },
     "1629630": {
       "key": "available",
@@ -1537,12 +1529,11 @@
       "st": "e:2026-10-17:rw"
     },
     "1629640": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "凯尔登·约翰逊",
       "t": "马刺"
     },
@@ -1719,8 +1710,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "安东尼·爱德华兹",
-      "t": "森林狼",
-      "st": "e:2026-10-17:rw"
+      "t": "森林狼"
     },
     "1630163": {
       "key": "available",
@@ -1729,8 +1719,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "拉梅洛·鲍尔",
-      "t": "森林狼",
-      "st": "e:2026-10-17:rw"
+      "t": "森林狼"
     },
     "1630164": {
       "key": "available",
@@ -1777,7 +1766,7 @@
       "source": "公开名单",
       "n": "泰瑞斯·哈利伯顿",
       "t": "步行者",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1630170": {
       "key": "available",
@@ -1787,7 +1776,7 @@
       "source": "公开名单",
       "n": "德文·瓦塞尔",
       "t": "马刺",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1630171": {
       "key": "questionable",
@@ -1908,14 +1897,14 @@
       "t": "掘金"
     },
     "1630193": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "伊曼纽尔·奎克利",
-      "t": "猛龙",
-      "st": "e:2026-10-17:rw"
+      "t": "猛龙"
     },
     "1630194": {
       "key": "available",
@@ -2254,7 +2243,7 @@
       "source": "公开名单",
       "n": "戴维恩·米切尔",
       "t": "热火",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1630559": {
       "key": "available",
@@ -2267,14 +2256,14 @@
       "st": "e:2026-10-17:rw"
     },
     "1630567": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "斯科蒂·巴恩斯",
-      "t": "猛龙",
-      "st": "e:2026-10-17:rw"
+      "t": "猛龙"
     },
     "1630568": {
       "key": "available",
@@ -2323,12 +2312,11 @@
       "t": "76人"
     },
     "1630577": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "朱利安·尚帕尼",
       "t": "马刺"
     },
@@ -2672,7 +2660,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "尼古拉·约维奇",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-10-17:rw"
     },
     "1631108": {
       "key": "available",
@@ -3005,7 +2994,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "特雷斯·杰克逊·戴维斯",
-      "t": "猛龙"
+      "t": "猛龙",
+      "st": "c:2026-10-17:rw"
     },
     "1631219": {
       "key": "available",
@@ -3188,7 +3178,7 @@
       "source": "公开名单",
       "n": "维克托·文班亚马",
       "t": "马刺",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1641706": {
       "key": "available",
@@ -3613,7 +3603,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "乔丹·沃尔什",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "e:2026-10-17:rw"
     },
     "1641778": {
       "key": "available",
@@ -3680,12 +3671,11 @@
       "t": "76人"
     },
     "1641796": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "佩勒·拉尔松",
       "t": "热火"
     },
@@ -3785,11 +3775,12 @@
       "t": "活塞"
     },
     "1641844": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "塔里克·比贝罗维奇",
       "t": "独行侠"
     },
@@ -3826,6 +3817,13 @@
       "t": "猛龙"
     },
     "1641871": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
+    },
+    "1641877": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
@@ -3966,7 +3964,7 @@
       "source": "公开名单",
       "n": "斯蒂芬·卡斯尔",
       "t": "马刺",
-      "st": "e:2026-10-17:rw"
+      "st": "c:2026-10-17:rw"
     },
     "1642265": {
       "key": "available",
@@ -4626,17 +4624,18 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "迪伦·哈珀",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-10-17:rw"
     },
     "1642845": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "VJ·埃奇库姆",
-      "t": "76人",
-      "st": "e:2026-10-17:rw"
+      "t": "76人"
     },
     "1642846": {
       "key": "available",
@@ -5073,7 +5072,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "阿利贾·马丁",
-      "t": "猛龙"
+      "t": "猛龙",
+      "st": "c:2026-10-17:rw"
     },
     "1642920": {
       "key": "questionable",
@@ -5659,7 +5659,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "艾伦·格雷夫斯",
-      "t": "猛龙"
+      "t": "猛龙",
+      "st": "c:2026-10-17:rw"
     },
     "1643515": {
       "key": "available",
@@ -5727,10 +5728,10 @@
       "t": "活塞"
     },
     "1643538": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "Sleeper伤病名单：缺阵",
       "source": "Sleeper",
       "others": [],
       "n": "约书亚·杰斐逊",
@@ -5825,7 +5826,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "杰登·布拉德利",
-      "t": "猛龙"
+      "t": "猛龙",
+      "st": "c:2026-10-17:rw"
     },
     "1643564": {
       "key": "available",
@@ -6074,6 +6076,13 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单"
     },
+    "1643678": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
+    },
     "1643679": {
       "key": "available",
       "label": "可以出战",
@@ -6111,6 +6120,13 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单"
     },
+    "1643719": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
+    },
     "1643721": {
       "key": "available",
       "label": "可以出战",
@@ -6133,6 +6149,13 @@
       "source": "公开名单"
     },
     "1643724": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
+    },
+    "1643726": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
@@ -6304,6 +6327,13 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单"
     },
+    "1643809": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
+    },
     "1643813": {
       "key": "available",
       "label": "可以出战",
@@ -6312,6 +6342,13 @@
       "source": "公开名单",
       "n": "阿尔法·迪亚洛",
       "t": "掘金"
+    },
+    "1643818": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
     },
     "1643849": {
       "key": "available",
@@ -6354,17 +6391,24 @@
       "probability": "100%",
       "detail": "未出现在伤病名单中",
       "source": "公开名单"
+    },
+    "1643985": {
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单"
     }
   },
   "officialCount": 0,
-  "projectedCount": 595,
-  "filledCount": 120,
+  "projectedCount": 604,
+  "filledCount": 118,
   "fallbackSource": "mixed",
   "updatedAt": null,
   "updatedAtLabel": null,
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出120人，其余595人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出118人，其余604人未被列入（视为可出战）。",
   "requestedDate": "2026-10-17"
 }
