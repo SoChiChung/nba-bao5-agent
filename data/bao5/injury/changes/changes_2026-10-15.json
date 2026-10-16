@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T22:58:15.658Z",
+  "generatedAt": "2026-10-16T01:15:26.672Z",
   "serverDate": "2026-10-15",
-  "requestedDate": "2026-10-16",
+  "requestedDate": "2026-10-17",
   "available": false,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
@@ -9,20 +9,20 @@
   "updatedAt": null,
   "counts": {
     "total": 715,
-    "questionable": 101,
-    "available": 593,
+    "questionable": 99,
+    "available": 595,
     "out": 21
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 593,
-    "filledCount": 122,
+    "projectedCount": 595,
+    "filledCount": 120,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出122人，其余593人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出120人，其余595人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-14",
-  "changeCount": 13,
+  "changeCount": 17,
   "changes": [
     {
       "kind": "newInjury",
@@ -100,6 +100,21 @@
       "energy": null
     },
     {
+      "kind": "newInjury",
+      "id": "1641717",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "kind": "worsened",
       "id": "1642923",
       "from": "questionable",
@@ -146,7 +161,7 @@
     },
     {
       "kind": "cleared",
-      "id": "1628384",
+      "id": "1627832",
       "from": "questionable",
       "to": "available",
       "probability": "100%",
@@ -161,7 +176,7 @@
     },
     {
       "kind": "cleared",
-      "id": "1628404",
+      "id": "1628384",
       "from": "questionable",
       "to": "available",
       "probability": "100%",
@@ -218,18 +233,63 @@
       "teamName": null,
       "position": null,
       "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1630578",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1642349",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "201142",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
     }
   ],
   "meta": [
     {
       "field": "projectedCount",
       "from": 583,
-      "to": 593
+      "to": 595
     },
     {
       "field": "filledCount",
       "from": 123,
-      "to": 122
+      "to": 120
     }
   ]
 }
