@@ -48,7 +48,7 @@
     "rankTotal": 16,
     "scoreDelta": -78.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:37.743Z",
+    "resultUpdatedAt": "2026-10-17T00:47:59.034Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 48,
@@ -650,7 +650,7 @@
     "rankTotal": 20,
     "scoreDelta": -61.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:40.908Z",
+    "resultUpdatedAt": "2026-10-17T00:48:03.041Z",
     "playerNames": [
       "贾马尔·穆雷",
       "斯蒂芬·库里",
@@ -991,7 +991,7 @@
     "rankTotal": 19,
     "scoreDelta": -13.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:43.896Z",
+    "resultUpdatedAt": "2026-10-17T00:48:06.763Z",
     "playerNames": [
       "安东尼·爱德华兹",
       "拉梅洛·鲍尔",
@@ -1431,7 +1431,7 @@
     "rank": 7,
     "rankTotal": 21,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:47.361Z",
+    "resultUpdatedAt": "2026-10-17T00:48:10.070Z",
     "topFive": {
       "date": "2026-10-07",
       "lineups": [
@@ -1854,7 +1854,7 @@
     "rank": 15,
     "rankTotal": 22,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:50.685Z",
+    "resultUpdatedAt": "2026-10-17T00:48:13.589Z",
     "topFive": {
       "date": "2026-10-08",
       "lineups": [
@@ -2144,7 +2144,7 @@
     "rankTotal": 19,
     "scoreDelta": -0.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:53.938Z",
+    "resultUpdatedAt": "2026-10-17T00:48:16.697Z",
     "playerNames": [
       "杰伦·布伦森",
       "约什·哈特",
@@ -2481,7 +2481,7 @@
     "rankTotal": 22,
     "scoreDelta": 75.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:40:57.498Z",
+    "resultUpdatedAt": "2026-10-17T00:48:20.106Z",
     "topFive": {
       "date": "2026-10-10",
       "lineups": [
@@ -2741,7 +2741,7 @@
     "rankTotal": 22,
     "scoreDelta": 72.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:00.490Z",
+    "resultUpdatedAt": "2026-10-17T00:48:23.320Z",
     "topFive": {
       "date": "2026-10-11",
       "lineups": [
@@ -3019,7 +3019,7 @@
     "rankTotal": 23,
     "scoreDelta": 96.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:03.642Z",
+    "resultUpdatedAt": "2026-10-17T00:48:26.549Z",
     "topFive": {
       "date": "2026-10-12",
       "lineups": [
@@ -3285,7 +3285,7 @@
     "rankTotal": 73,
     "scoreDelta": 25.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:07.591Z",
+    "resultUpdatedAt": "2026-10-17T00:48:30.706Z",
     "topFive": {
       "date": "2026-10-13",
       "lineups": [
@@ -3595,7 +3595,7 @@
     "rankTotal": 76,
     "scoreDelta": -45.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:10.921Z",
+    "resultUpdatedAt": "2026-10-17T00:48:34.881Z",
     "playerNames": [
       "詹姆斯·哈登",
       "多诺万·米切尔",
@@ -3985,7 +3985,7 @@
     "rankTotal": 73,
     "scoreDelta": -16.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:14.358Z",
+    "resultUpdatedAt": "2026-10-17T00:48:38.981Z",
     "topFive": {
       "date": "2026-10-15",
       "lineups": [
@@ -4346,7 +4346,7 @@
     "rankTotal": 69,
     "scoreDelta": -32.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-16T22:41:18.147Z",
+    "resultUpdatedAt": "2026-10-17T00:48:42.615Z",
     "topFive": {
       "date": "2026-10-16",
       "lineups": [
@@ -4663,6 +4663,28 @@
         "expected": 135.6,
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "小凯文·波特",
+      "特雷·墨菲三世",
+      "本尼迪克特·马瑟林",
+      "德文·瓦塞尔",
+      "伊夫·米西"
+    ],
+    "bao5Players": [
+      "1629645",
+      "1630530",
+      "1631097",
+      "1630170",
+      "1642274"
+    ],
+    "bao5PlayerNames": [
+      "小凯文·波特",
+      "特雷·墨菲三世",
+      "本尼迪克特·马瑟林",
+      "德文·瓦塞尔",
+      "伊夫·米西"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-17"
   }
 ]
