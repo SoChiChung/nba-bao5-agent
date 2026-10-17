@@ -4967,7 +4967,7 @@
   },
   {
     "dateKey": "2026-10-21",
-    "updatedAt": "2026-10-17T09:18:55.214Z",
+    "updatedAt": "2026-10-17T22:01:28.661Z",
     "players": [
       "1626157",
       "2544",
@@ -4979,12 +4979,12 @@
     "energy": 150,
     "formation": "3前2后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-17T09:18:54.196Z",
+    "oddsFetchedAt": "2026-10-17T22:01:27.813Z",
     "injuryDate": "2026-10-17",
-    "injuryUpdatedAt": "2026-10-17T09:18:53.247Z",
+    "injuryUpdatedAt": "2026-10-17T22:01:26.972Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-17T09:18:55.214Z",
+      "verifiedAt": "2026-10-17T22:01:28.661Z",
       "playerIds": [
         "1626157",
         "2544",
@@ -5011,6 +5011,20 @@
       {
         "at": "2026-10-17T09:18:55.214Z",
         "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1626157",
+          "2544",
+          "1628384",
+          "1630540",
+          "1627936"
+        ],
+        "expected": 134.5,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-17T22:01:28.661Z",
+        "reason": "daily-refresh",
         "games": [],
         "players": [
           "1626157",
