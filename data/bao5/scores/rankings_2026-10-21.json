@@ -1,0 +1,31 @@
+{
+  "fetchedAt": "2026-10-17T09:18:50.432Z",
+  "date": "2026-10-21",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "displayName": "ZCJenius",
+  "mine": {
+    "day": {
+      "rank": 20,
+      "score": 0,
+      "total": 26
+    },
+    "week": {
+      "rank": 1,
+      "score": 0,
+      "total": 26
+    },
+    "season": {
+      "rank": 11,
+      "score": 1174.6,
+      "total": 113
+    }
+  },
+  "boardCount": 0,
+  "board": [],
+  "boardError": "2026-10-21 尚未结算（全 0 分）",
+  "boardSource": "/api/rankings?period=day&date=2026-10-21",
+  "source": {
+    "mine": "/api/rankings?mine=1&date=2026-10-21",
+    "board": "/api/rankings?period=day&date=2026-10-21"
+  }
+}
