@@ -3848,7 +3848,7 @@
         },
         {
           "id": "1641803",
-          "name": "特里斯滕·牛顿",
+          "name": "球员 1641803",
           "selections": 1,
           "rate": 0.2
         },
@@ -4203,12 +4203,6 @@
           "rate": 0.2
         },
         {
-          "id": "1631113",
-          "name": "肯尼迪·钱德勒",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
           "id": "1641824",
           "name": "马塔斯·布泽利斯",
           "selections": 1,
@@ -4217,6 +4211,12 @@
         {
           "id": "1626181",
           "name": "诺曼·鲍威尔",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1631113",
+          "name": "球员 1631113",
           "selections": 1,
           "rate": 0.2
         },
@@ -4967,7 +4967,7 @@
   },
   {
     "dateKey": "2026-10-21",
-    "updatedAt": "2026-10-17T22:01:28.661Z",
+    "updatedAt": "2026-10-17T23:58:48.592Z",
     "players": [
       "1626157",
       "2544",
@@ -4981,10 +4981,10 @@
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-17T22:01:27.813Z",
     "injuryDate": "2026-10-17",
-    "injuryUpdatedAt": "2026-10-17T22:01:26.972Z",
+    "injuryUpdatedAt": "2026-10-17T23:58:47.403Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-17T22:01:28.661Z",
+      "verifiedAt": "2026-10-17T23:58:48.592Z",
       "playerIds": [
         "1626157",
         "2544",
@@ -5025,6 +5025,20 @@
       {
         "at": "2026-10-17T22:01:28.661Z",
         "reason": "daily-refresh",
+        "games": [],
+        "players": [
+          "1626157",
+          "2544",
+          "1628384",
+          "1630540",
+          "1627936"
+        ],
+        "expected": 134.5,
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-17T23:58:48.592Z",
+        "reason": "schedule-window",
         "games": [],
         "players": [
           "1626157",

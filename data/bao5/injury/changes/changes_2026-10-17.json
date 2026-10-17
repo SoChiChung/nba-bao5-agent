@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T22:01:26.961Z",
+  "generatedAt": "2026-10-17T23:58:47.391Z",
   "serverDate": "2026-10-17",
   "requestedDate": "2026-10-21",
   "available": false,
@@ -10,8 +10,8 @@
   "counts": {
     "total": 731,
     "available": 644,
-    "questionable": 64,
-    "out": 23
+    "questionable": 63,
+    "out": 24
   },
   "provenance": {
     "officialCount": 0,
@@ -22,7 +22,7 @@
   "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出87人，其余644人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-16",
-  "changeCount": 44,
+  "changeCount": 45,
   "changes": [
     {
       "kind": "newInjury",
@@ -132,6 +132,21 @@
     {
       "kind": "worsened",
       "id": "1631124",
+      "from": "questionable",
+      "to": "out",
+      "probability": "0%",
+      "detail": "Sleeper伤病名单：缺阵",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "worsened",
+      "id": "1642869",
       "from": "questionable",
       "to": "out",
       "probability": "0%",
