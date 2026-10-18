@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T08:56:53.572Z",
+  "updatedAt": "2026-10-18T22:17:51.348Z",
   "serverDate": "2026-10-18",
   "requestedDate": "2026-10-21",
   "available": false,
@@ -9,8 +9,8 @@
   "counts": {
     "total": 731,
     "available": 643,
-    "questionable": 64,
-    "out": 24
+    "questionable": 63,
+    "out": 25
   },
   "provenance": {
     "officialCount": 0,
@@ -208,6 +208,20 @@
     },
     {
       "id": "1641774",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "Sleeper伤病名单：缺阵",
+      "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642269",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -950,20 +964,6 @@
     },
     {
       "id": "1642260",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642269",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",

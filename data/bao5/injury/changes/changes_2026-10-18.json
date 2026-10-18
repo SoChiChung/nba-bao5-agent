@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T08:56:53.572Z",
+  "generatedAt": "2026-10-18T22:17:51.348Z",
   "serverDate": "2026-10-18",
   "requestedDate": "2026-10-21",
   "available": false,
@@ -10,8 +10,8 @@
   "counts": {
     "total": 731,
     "available": 643,
-    "questionable": 64,
-    "out": 24
+    "questionable": 63,
+    "out": 25
   },
   "provenance": {
     "officialCount": 0,
@@ -28,9 +28,9 @@
       "kind": "newInjury",
       "id": "1642269",
       "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
+      "to": "out",
+      "probability": "0%",
+      "detail": "Sleeper伤病名单：缺阵",
       "source": "Sleeper",
       "name": null,
       "englishName": null,
