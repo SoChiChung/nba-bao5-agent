@@ -67,11 +67,12 @@
       "t": "骑士"
     },
     "201939": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "斯蒂芬·库里",
       "t": "勇士"
     },
@@ -6336,14 +6337,14 @@
     }
   },
   "officialCount": 0,
-  "projectedCount": 643,
-  "filledCount": 88,
+  "projectedCount": 642,
+  "filledCount": 89,
   "fallbackSource": "mixed",
   "updatedAt": null,
   "updatedAtLabel": null,
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出88人，其余643人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（季前赛不发布），当前以RotoWire、Sleeper名单为准：列出89人，其余642人未被列入（视为可出战）。",
   "requestedDate": "2026-10-21"
 }
