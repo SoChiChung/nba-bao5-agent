@@ -1,13 +1,17 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync, execFile } from 'node:child_process';
 import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
 import { buildDashboardData, ROOT, RUNTIME_ROOT, writePicks } from './model.mjs';
 import { attachPreseasonStats, isPreseasonGame } from './preseason-stats.mjs';
+import { matchupSignal } from '../data/history-player/matchup.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
+const execFileAsync = promisify(execFile);
 const historyPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
 const sourceHistoryPath = path.join(ROOT, 'data', 'bao5', 'bao1', 'model-history.json');
 const scoreDir = path.join(RUNTIME_ROOT, 'data', 'bao5', 'scores');
@@ -18,6 +22,9 @@ const avatarPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'account-avat
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.webp':'image/webp' };
 let cache = null;
 let refreshing = null;
+let fantasyCache = null;
+let fantasyRefreshing = null;
+let systemHttpsProxy;
 let injuryRefresh = null;
 let injuriesRuntimeCache = null;
 let injuriesRuntimeFetchedAt = 0;
@@ -87,18 +94,33 @@ async function getDashboard({ refresh = false } = {}) {
     const api = new Bao5({ baseUrl: cfg.baseUrl });
     await api.login(cfg.email, cfg.password);
     let [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
-    const firstSlateDate = games.filter(g => g.status !== 3 && Date.parse(g.utc) > Date.now()).map(g => g.date).sort()[0];
-    const firstSlateGames = games.filter(g => g.date === firstSlateDate);
-    let preseasonMeta = { fetched: 0, covered: 0, staleFailures: 0 };
-    if (firstSlateGames.some(isPreseasonGame)) {
-      const teamCodes = new Set(firstSlateGames.flatMap(game => [game.home, game.away]));
-      const enriched = await attachPreseasonStats(api, players, { teamCodes, cachePath: path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json') });
-      players = enriched.players;
-      preseasonMeta = enriched;
-    }
+    const upcomingGames = games.filter(game => game.status !== 3 && Date.parse(game.utc) > Date.now());
+    const statsPhaseIsPreseason = upcomingGames.some(isPreseasonGame);
+    const statsDates = [...new Set(upcomingGames.filter(game => isPreseasonGame(game) === statsPhaseIsPreseason).map(game => game.date))].sort().slice(0,7);
+    let playerStatsMeta = { fetched: 0, preseasonCovered: 0, historicalCovered: 0, staleFailures: 0, failures: [] };
+    const backendWarnings = [];
+    const teamCodes = new Set(games.filter(game => statsDates.includes(game.date) && isPreseasonGame(game) === statsPhaseIsPreseason).flatMap(game => [game.home, game.away]));
+    const enriched = await attachPreseasonStats(api, players, {
+      teamCodes,
+      refresh: true,
+      cachePath: path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
+      fallbackCachePath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
+      vettedFallbackPath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-fallbacks.json'),
+    });
+    players = enriched.players;
+    playerStatsMeta = {
+      fetched: enriched.fetched,
+      preseasonCovered: enriched.covered,
+      historicalCovered: enriched.historicalCovered,
+      staleFailures: enriched.staleFailures,
+      failures: (enriched.failures ?? []).map(item => ({
+        player: players.find(player => String(player.id) === String(item.id))?.name ?? String(item.id),
+        error: item.error,
+      })),
+    };
     let injuries = readJson('data/bao5/injury/latest.json', null);
     try { injuries = await refreshInjuryReport(games); }
-    catch (error) { console.warn(`伤病报告刷新失败，沿用本地报告：${error.message}`); }
+    catch (error) { backendWarnings.push(`伤病报告刷新失败，沿用本地报告：${error.message}`); console.warn(backendWarnings.at(-1)); }
     if (!injuries) throw new Error('伤病报告不可用，且没有本地快照');
     const latestOdds = readJson('data/odds/latest.json');
     // usage-log.json is intentionally gitignored because it is local runtime state.
@@ -120,7 +142,7 @@ async function getDashboard({ refresh = false } = {}) {
     const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
-data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, preseason:preseasonMeta };
+data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, playerStats:playerStatsMeta };
     const league=readJson('data/bao5/league/latest.json');
     const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
     data.account={displayName:league.displayName??api.user?.displayName??'BAO5',avatar:accountAvatar};
@@ -149,6 +171,22 @@ data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,request
     for(const row of data.history){if(row.topFive)continue;const day=persistedLineups.dates?.[row.dateKey];if(day)row.topFive=buildTopFiveSummary(day,players);}
     if(scoreData?.mine?.day?.rank>0){const row=data.history.find(x=>x.dateKey===scoreData.date);if(row&&scoreDayPicks.length){row.bao5Players=scoreDayPicks;row.bao5PlayerNames=scoreDayNames;row.bao5LineupSource=`/api/lineups?date=${scoreData.date}`;}saveHistory(data.history.filter(x=>x.dateKey));}
     data.calibrationFactor=Number(calibrationFactor.toFixed(3));
+    data.diagnostics = {
+      warnings:[...backendWarnings,...playerStatsMeta.failures.map(item => `球员日志读取失败 · ${item.player}：${item.error}`)],
+      backendErrors:[...(scoreData?.boardError?[`今日联赛日榜读取失败：${scoreData.boardError}`]:[]),...(lineupFeedback.errors??[])],
+    };
+    for (const slate of data.slates) {
+      const noBaseline = slate.players.filter(player => player.baseScore <= 0);
+      const zeroProjection = slate.players.filter(player => player.projected <= 0);
+      slate.diagnostics = {
+        noBaselineCount:noBaseline.length,
+        zeroProjectionCount:zeroProjection.length,
+        noBaselinePlayers:noBaseline.slice(0,8).map(player => player.name ?? player.englishName ?? String(player.id)),
+        noBaselineDetails:noBaseline.slice(0,8).map(player => ({name:player.name ?? player.englishName ?? String(player.id),injury:player.injury?.hardExclude?player.injury.detail??player.injury.label:null})),
+      };
+      if (noBaseline.length) data.diagnostics.warnings.push(`${slate.dateKey} 有 ${noBaseline.length} 名候选球员缺少得分基准${noBaseline.length <= 8 ? `：${noBaseline.map(player => player.name ?? player.englishName ?? player.id).join('、')}` : `，例如 ${noBaseline.slice(0,8).map(player => player.name ?? player.englishName ?? player.id).join('、')}`}`);
+      if (zeroProjection.length === slate.players.length && slate.players.length) data.diagnostics.warnings.push(`${slate.dateKey} 全部候选球员预计分为 0，请检查 BAO5 赛季数据和球员日志接口`);
+    }
     data.live = { fetchedAt:new Date().toISOString(), players:players.length, games:games.length };
     cache = data;
     return cache;
@@ -240,11 +278,12 @@ async function getDailyScoreSnapshot(api){
 }
 async function refreshTopFiveLineups(api,score,players){
   const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};
+  const errors=[];
   // 日榜前五的统一入口：当日与历史回填都走这里，彻底摆脱 score.board
   // （落盘快照的 board 曾长期混装赛季累计值，导致「日榜前五」取到总榜的人）。
   const fetchDayLineups=async(dateKey,label)=>{
     const board=await fetchDailyBoard(api,dateKey);
-    if(!board.ok){console.warn(`${label} 日榜读取失败 (${dateKey})：${board.reason}`);return null;}
+    if(!board.ok){if(!String(board.reason).includes('尚未结算'))errors.push(`${label} 日榜读取失败 (${dateKey})：${board.reason}`);console.warn(`${label} 日榜读取失败 (${dateKey})：${board.reason}`);return null;}
     const top=board.rows.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
     const lineups=[];
     for(const member of top){
@@ -252,9 +291,9 @@ async function refreshTopFiveLineups(api,score,players){
         const response=await api.get(`/api/lineups?date=${encodeURIComponent(dateKey)}&userId=${encodeURIComponent(member.userId)}`);
         const lineup=response.json?.lineup;
         // 404 = 该用户当天没有提交阵容，属正常情况，不算失败
-        if(!Array.isArray(lineup?.playerIds)){console.warn(`${label} ${dateKey} 第 ${member.rank} 名 ${member.displayName} 无阵容返回 (HTTP ${response.status})`);continue;}
+        if(!Array.isArray(lineup?.playerIds)){if(response.status!==404)errors.push(`${label} ${dateKey} 第 ${member.rank} 名阵容读取失败 (HTTP ${response.status})`);console.warn(`${label} ${dateKey} 第 ${member.rank} 名 ${member.displayName} 无阵容返回 (HTTP ${response.status})`);continue;}
         lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),remainingSalary:member.remainingSalary??null,salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerNames:Object.fromEntries(lineup.playerIds.map(id=>[String(id),namesForPlayer(players,id)])),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))});
-      }catch(error){console.warn(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName}):`,error.message);}
+      }catch(error){errors.push(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName})：${error.message}`);console.warn(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName}):`,error.message);}
     }
     return lineups;
   };
@@ -284,7 +323,7 @@ async function refreshTopFiveLineups(api,score,players){
   }
   const names=new Map(players.map(p=>[String(p.id),p.name??p.englishName??String(p.id)]));
   const preferences=[...accumulated.values()].map(x=>({...x,name:names.get(x.playerId)??x.playerId,selectionRate:Number((x.selections/Math.max(1,Object.values(store.dates).reduce((n,d)=>n+(d.lineups?.length??0),0))).toFixed(3)),averagePoints:Number((x.totalPoints/Math.max(1,x.appearances)).toFixed(1))})).sort((a,b)=>b.selections-a.selections||b.averagePoints-a.averagePoints);
-  return {daily:store.dates[score?.date]??null,preferences,store};
+  return {daily:store.dates[score?.date]??null,preferences,store,errors};
 }
 function namesForPlayer(players,id){const p=players.find(x=>String(x.id)===String(id));return p?.name??p?.englishName??`球员 ${String(id)}`;}
 function readTopFiveStore(){for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};}
@@ -319,6 +358,34 @@ function aggregateTopFivePicks(lineups,playerNames=new Map()){const byPlayer=new
 function saveHistory(rows) { fs.mkdirSync(path.dirname(historyPath),{recursive:true});fs.writeFileSync(historyPath, JSON.stringify(rows,null,2)+'\n','utf8'); }
 function calibration(rows){const done=rows.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));const predicted=done.reduce((s,x)=>s+x.expected,0),actual=done.reduce((s,x)=>s+x.actualTotal,0);return predicted?Number(Math.max(.85,Math.min(1.15,actual/predicted)).toFixed(3)):1;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
+
+function getSystemHttpsProxy() {
+  if (systemHttpsProxy !== undefined) return systemHttpsProxy;
+  systemHttpsProxy = process.env.HTTPS_PROXY ?? process.env.https_proxy ?? process.env.ALL_PROXY ?? process.env.all_proxy ?? null;
+  if (!systemHttpsProxy && process.platform === 'win32') {
+    try {
+      const result = execFileSync('reg.exe', ['query', 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings', '/v', 'ProxyServer'], { encoding:'utf8', stdio:['ignore','pipe','ignore'] });
+      const value = result.match(/ProxyServer\s+REG_SZ\s+(.+)/i)?.[1]?.trim();
+      if (value) {
+        const httpsEntry = value.split(';').map(item => item.trim()).find(item => /^https?=/i.test(item));
+        systemHttpsProxy = (httpsEntry ? httpsEntry.slice(httpsEntry.indexOf('=') + 1) : value).replace(/^http=/i, '');
+        if (systemHttpsProxy && !/^https?:\/\//i.test(systemHttpsProxy)) systemHttpsProxy = `http://${systemHttpsProxy}`;
+      }
+    } catch { /* Windows may have no configured system proxy. */ }
+  }
+  return systemHttpsProxy;
+}
+
+async function fetchFantasyJson(url) {
+  const proxy = getSystemHttpsProxy();
+  if (proxy && process.platform === 'win32') {
+    const { stdout } = await execFileAsync('curl.exe', ['--proxy', proxy, '--max-time', '20', '--fail-with-body', '--silent', '--show-error', url], { encoding:'utf8', maxBuffer:15 * 1024 * 1024 });
+    return JSON.parse(stdout);
+  }
+  const response = await fetch(url, { signal:AbortSignal.timeout(20_000) });
+  if (!response.ok) throw new Error(`NBA Fantasy 上游请求失败（HTTP ${response.status}）`);
+  return response.json();
+}
 async function body(req) { let data=''; for await (const chunk of req) data+=chunk; return data ? JSON.parse(data) : {}; }
 function submitAuthError(req) {
   const expected=process.env.BAO5_WEB_SUBMIT_TOKEN??'';
@@ -361,6 +428,110 @@ async function syncSlate(api,slate,playerIds) {
 const server = http.createServer(async (req,res) => {
   const url = new URL(req.url, 'http://localhost');
   try {
+    if (url.pathname === '/api/nba-fantasy' && req.method === 'GET') {
+      const force = url.searchParams.get('refresh') === '1';
+      if (!force && fantasyCache && Date.now() - fantasyCache.fetchedAt < 3 * 60 * 60_000) return send(res,200,fantasyCache.data);
+      if (fantasyRefreshing) return send(res,200,await fantasyRefreshing);
+      fantasyRefreshing = (async () => {
+        const base = 'https://nba-fantasy-service.allaboutfantasy.workers.dev/api';
+        const [bootstrap,fixturePayload,currentPayload] = await Promise.all([
+          fetchFantasyJson(`${base}/bootstrap`),
+          fetchFantasyJson(`${base}/fixtures`),
+          fetchFantasyJson(`${base}/current_event`),
+        ]);
+        const source = bootstrap.data;
+        if (!source?.elements?.length || !Array.isArray(fixturePayload.data)) throw new Error('NBA Fantasy 数据格式不完整');
+        const currentEvent = Number(currentPayload.event ?? source.events?.find(event => event.is_current)?.id ?? 1);
+        const allEvents = (source.events ?? []).filter(event => Number(event.id) >= currentEvent).slice(0,21);
+        const futureEventIds = new Set(allEvents.map(event => Number(event.id)));
+        const fixtures = fixturePayload.data;
+        const teams = (source.teams ?? []).map(team => ({id:String(team.id),name:team.name,shortName:team.short_name}));
+        const teamById = new Map(teams.map(team => [team.id, team]));
+        const opponentsByTeam = new Map();
+        for (const fixture of fixtures) {
+          if (!futureEventIds.has(Number(fixture.event))) continue;
+          const home = String(fixture.team_h), away = String(fixture.team_a);
+          if (!opponentsByTeam.has(home)) opponentsByTeam.set(home, new Set());
+          if (!opponentsByTeam.has(away)) opponentsByTeam.set(away, new Set());
+          opponentsByTeam.get(home).add(away);
+          opponentsByTeam.get(away).add(home);
+        }
+        const defenseRows = readJson('data/position/defense_vs_position.json').season_2025_26 ?? [];
+        const defenseRanks = new Map();
+        for (const row of defenseRows) {
+          const group = ['PG','SG'].includes(row.Position) ? 1 : 2;
+          const key = `${row.Team}:${group}`;
+          const item = defenseRanks.get(key) ?? { sum:0, count:0 };
+          item.sum += Number(row.PTS_Rank ?? 75);
+          item.count++;
+          defenseRanks.set(key, item);
+        }
+        const players = source.elements.map(player => {
+          const fullName = [player.first_name,player.second_name].filter(Boolean).join(' ');
+          const position = Number(player.element_type);
+          const historyByOpponent = {};
+          const defenseByOpponent = {};
+          for (const opponentId of opponentsByTeam.get(String(player.team)) ?? []) {
+            const opponent = teamById.get(opponentId);
+            if (!opponent) continue;
+            const history = matchupSignal(fullName, opponent.shortName, { nameEn:fullName });
+            if (history.available) historyByOpponent[opponentId] = history.signal;
+            const defense = defenseRanks.get(`${opponent.shortName}:${position}`);
+            if (defense?.count) defenseByOpponent[opponentId] = Math.max(-1, Math.min(1, ((defense.sum / defense.count) - 75) / 75));
+          }
+          return {
+            id:String(player.id),name:player.web_name,fullName,
+            photoUrl:player.code?`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.code}.png`:null,
+            team:String(player.team),position,cost:Number(player.now_cost),
+            ppg:Number(player.points_per_game)/10,form:Number(player.form),status:player.status??'a',
+            chance_of_playing_next_round:player.chance_of_playing_next_round,news:player.news??'',
+            selectedBy:Number(player.selected_by_percent),minutes:Number(player.minutes),removed:player.removed===true,
+            historyByOpponent,defenseByOpponent,
+          };
+        });
+        const events = allEvents.map(event => ({
+          id:Number(event.id),name:event.name,gameweek:event.name?.match(/Gameweek\s+(\d+)/i)?.[1]??String(event.id),
+          deadline: event.deadline_time,
+          games: fixtures.filter(game => Number(game.event) === Number(event.id)).map(game => ({
+            id:String(game.id),home:String(game.team_h),away:String(game.team_a),kickoff:game.kickoff_time,
+            finished:game.finished===true,
+          })),
+        }));
+        const positionRules = Object.fromEntries((source.element_types??[]).map(type => [String(type.id),{
+          name:type.singular_name,squadSelect:Number(type.squad_select),maxPlay:Number(type.squad_max_play),minPlay:Number(type.squad_min_play),
+        }]));
+        const data = {
+          currentEvent,events,players,teams,
+          rules:{budget:Number(source.game_config?.rules?.squad_total_spend??1000),squadSize:Number(source.game_config?.rules?.squad_squadsize??10),
+            teamLimit:Number(source.game_config?.rules?.squad_team_limit??2),
+            squadByPosition:Object.fromEntries(Object.entries(positionRules).map(([id,rule])=>[id,rule.squadSelect])),
+            maxPlay:Object.fromEntries(Object.entries(positionRules).map(([id,rule])=>[id,rule.maxPlay])),positionRules},
+          updatedAt:fixturePayload.savetime??source.events?.find(event=>event.id===currentEvent)?.deadline_time??new Date().toISOString(),
+        };
+        fantasyCache={data,fetchedAt:Date.now()};
+        return data;
+      })();
+      try { return send(res,200,await fantasyRefreshing); }
+      finally { fantasyRefreshing=null; }
+    }
+    if (url.pathname === '/api/nba-fantasy/team' && req.method === 'GET') {
+      const teamId=String(url.searchParams.get('teamId')??'').trim();
+      if(!/^\d+$/.test(teamId))return send(res,400,{error:'NBA Fantasy ID 必须是数字。'});
+      const base='https://nba-fantasy-service.allaboutfantasy.workers.dev/api';
+      const appApi='https://nba-fantasy-app.allaboutfantasy.workers.dev/api';
+      const current=await fetchFantasyJson(`${base}/current_event`);
+      const eventId=Number(current.event);
+      if(!Number.isFinite(eventId))return send(res,502,{error:'NBA Fantasy 当前比赛周读取失败。'});
+      const [picksPayload,transfersPayload]=await Promise.all([
+        fetchFantasyJson(`${appApi}/team-picks?teamid=${encodeURIComponent(teamId)}&eventid=${eventId}`),
+        fetchFantasyJson(`${appApi}/team-transfers?teamid=${encodeURIComponent(teamId)}&eventid=${eventId}`).catch(()=>null),
+      ]);
+      if(picksPayload?.success===false||!picksPayload?.data)return send(res,404,{error:picksPayload?.error??'未找到该 NBA Fantasy 队伍，请检查 ID。'});
+      const payload=picksPayload.data;
+      const picks=Array.isArray(payload)?payload:payload?.picks;
+      if(!Array.isArray(picks))return send(res,502,{error:'账号阵容数据格式无法识别。'});
+      return send(res,200,{teamId,eventId,picks,bank:Number(payload?.entry_history?.bank??payload?.bank??0),transfers:Array.isArray(transfersPayload?.data)?transfersPayload.data:[],transfersAvailable:Array.isArray(transfersPayload?.data)});
+    }
     if (url.pathname === '/api/dashboard' && req.method === 'GET') {
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');

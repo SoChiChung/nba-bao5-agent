@@ -16,7 +16,11 @@
       <a class="brand" href="/"><span id="account-avatar" class="brand-mark">B</span><span><b id="account-name">BAO5</b><small>BAO5 LINEUP LAB</small></span></a>
       <div class="top-actions"><span id="phase-badge" class="season-pill"><i></i> 2026–27 季前赛测试</span><label class="theme-picker" for="theme-mode"><span>显示模式</span><select id="theme-mode" aria-label="显示模式"><option value="auto">自动</option><option value="light">日间</option><option value="dark">夜间</option></select></label><button id="refresh" class="icon-button" aria-label="刷新数据" title="刷新数据">↻</button></div>
     </header>
-    <main>
+    <nav class="app-tabs" aria-label="游戏工具">
+      <button class="app-tab active" data-view="bao5-panel">BAO5 每日一阵</button>
+      <button class="app-tab" data-view="fantasy-panel">NBA Fantasy 长线规划</button>
+    </nav>
+    <main id="bao5-panel" class="app-view">
       <section class="hero">
         <div><p class="eyebrow">AI DAILY LINEUP · PRESEASON</p><h1>每日一阵，<em>从数据开始。</em></h1><p class="hero-copy">逐日预测、动态更新，用真实赛果校准每一次选择。</p></div>
         <div class="hero-note"><span class="pulse"></span><div><b id="live-state">正在连接数据</b><small id="live-detail">读取 BAO5 球员库与赛程</small></div></div>
@@ -42,6 +46,11 @@
         <aside class="side-column">
           <article class="side-card game-card"><div class="side-title"><span class="mini-icon">◉</span><div><p class="eyebrow">TODAY'S SLATE</p><h3>比赛与数据</h3></div></div><div id="games-list" class="games-list"></div><div class="source-list" id="source-list"></div><div id="league-list" class="league-list"></div></article>
           <article class="side-card rank-card"><div class="side-title"><span class="mini-icon">↑</span><div><p class="eyebrow">MY RANKING</p><h3>我的排名曲线</h3></div><select id="rank-metric" class="rank-metric-select"><option value="dayRank" selected>近七天 · 日排名</option><option value="seasonRank">近七天 · 总榜排名</option><option value="dayScore">近七天 · 日分数</option></select></div><div class="rank-summary" id="rank-summary"></div><div id="my-rank-chart" class="my-rank-chart"></div><p class="rank-note" id="rank-note"></p></article>
+          <article class="top20-card">
+            <div class="card-heading"><div><p class="eyebrow">TOP 20 · MODEL SCORES</p><h2>每日候选前 20</h2></div><span id="top20-date" class="muted"></span></div>
+            <p class="top20-intro">按当日模型预计分排序；点击球员可查看判断依据。</p>
+            <div class="top20-table-wrap"><table class="top20-table"><thead><tr><th>排名</th><th>球员</th><th>预计分</th></tr></thead><tbody id="top20-rows"></tbody></table></div>
+          </article>
           <article class="side-card"><div class="side-title"><span class="mini-icon lilac">✳</span><div><p class="eyebrow">WHY THESE FIVE</p><h3>模型怎么判断</h3></div></div><div id="thinking" class="thinking-list"></div></article>
           <article class="side-card rules-card"><div class="side-title"><span class="mini-icon gold">⌘</span><div><p class="eyebrow">GAME RULES</p><h3>阵容硬约束</h3></div></div><div class="rule-row"><span>阵容人数</span><b>5 人</b></div><div class="rule-row"><span>能量上限</span><b>150</b></div><div class="rule-row"><span>允许阵型</span><b>3前2后 / 2前3后</b></div><div class="rule-row"><span>开赛锁定</span><b>提前 15 分钟</b></div><div class="formula">得分 + 1.2×篮板 + 1.5×助攻<br>+ 3×抢断 + 3×盖帽 − 失误</div></article>
         </aside>
@@ -49,6 +58,45 @@
       <section class="bottom-grid"><article class="history-card"><div class="card-heading"><div><p class="eyebrow">MODEL LEARNING LOOP</p><h2>逐日回测记录</h2></div><span class="muted">自动同步 BAO5 结算分与总榜排名</span></div><div class="history-filters"><label>月份 <select id="history-month"></select></label><label>日期 <select id="history-date"></select></label></div><div id="history-list" class="history-list"><div class="empty-state">比赛结算后自动回填 BAO5 实际分，并展示总榜前五对比。</div></div><div class="card-heading automation-heading"><div><p class="eyebrow">GITHUB ACTIONS</p><h2>自动更新日志</h2></div><span class="muted">最近运行与处理结果</span></div><div id="automation-log" class="history-list"><div class="empty-state">暂无自动运行记录。</div></div></article><article class="method-card"><p class="eyebrow">SCORING MODEL · V0.1</p><h2>先透明，再学习。</h2><p>把球员当季场均技术统计按游戏公式换算成基础分；出场样本较少时向联盟平均收缩。对位和盘口只作小幅修正，伤病数据按来源可信度处理。季前赛另扣 16% 轮换不确定性，常规赛启用后自动撤掉这项折扣。</p><div class="weight-bars"><div><span>基础技术统计</span><i><b style="width:74%"></b></i><strong>主信号</strong></div><div><span>对手位置对位</span><i><b style="width:34%"></b></i><strong>±6%</strong></div><div><span>盘口总分</span><i><b style="width:24%"></b></i><strong>±4%</strong></div><div><span>伤病与轮换</span><i><b style="width:48%"></b></i><strong>风险折算</strong></div></div><p id="calibration-label" class="calibration-label">当前模型校准系数：1.000（还没有实战回测样本）</p></article></section>
       <footer><span>BAO5 LINEUP LAB · LOCAL MODEL PREVIEW</span><span>数据刷新 <b id="updated-at">—</b></span></footer>
     </main>
+    <section id="fantasy-panel" class="app-view fantasy-panel" hidden>
+      <div class="fantasy-hero">
+        <div><p class="eyebrow">NBA FANTASY · SEASON PLANNER</p><h1>把赛程优势，<em>留给整支队伍。</em></h1><p>锁定想留下的球员，按官方预算和每队人数限制补齐阵容，再比较未来最多 21 个比赛日，并规划每周 FT 的具体使用时机。</p></div>
+        <div class="fantasy-live"><span class="pulse"></span><div><b id="fantasy-status">等待载入赛程</b><small id="fantasy-updated">使用 NBA Fantasy 官方公开球员与赛程</small></div></div>
+      </div>
+      <div class="fantasy-layout">
+        <aside class="fantasy-controls">
+          <article class="fantasy-card fantasy-account-card">
+            <div class="fantasy-card-title"><div><p class="eyebrow">MY NBA FANTASY TEAM</p><h2>绑定账号阵容</h2></div></div>
+            <label class="fantasy-field">NBA Fantasy ID<input id="fantasy-account-id" inputmode="numeric" autocomplete="off" placeholder="输入你的队伍 ID"></label>
+            <button id="fantasy-account-load" class="button button-dark fantasy-account-load" type="button">读取我的阵容</button>
+            <p id="fantasy-account-summary" class="fantasy-account-summary">绑定后会使用账号球员、官方售价和剩余资金规划。</p>
+          </article>
+          <article class="fantasy-card">
+            <div class="fantasy-card-title"><div><p class="eyebrow">YOUR CORE</p><h2>锁定保留球员</h2></div><span id="fantasy-lock-count" class="fantasy-count">0 人</span></div>
+            <p class="fantasy-help">加入的球员会固定在每个方案里；其余名额由优化器按赛程和身价补齐。</p>
+            <label class="fantasy-field">搜索球员<input id="fantasy-player-search" autocomplete="off" placeholder="姓名、球队"></label>
+            <div id="fantasy-player-results" class="fantasy-search-results hidden"></div>
+            <div id="fantasy-locked-list" class="fantasy-locked-list"><div class="fantasy-empty">还没有锁定球员</div></div>
+          </article>
+          <article class="fantasy-card">
+            <div class="fantasy-card-title"><div><p class="eyebrow">PLANNING RULES</p><h2>规划条件</h2></div></div>
+            <div class="fantasy-input-grid">
+              <label class="fantasy-field">总预算（$）<input id="fantasy-budget" type="number" min="0" max="100" step="0.1" value="100"></label>
+              <label class="fantasy-field">规划比赛日<select id="fantasy-event-count"><option value="21" selected>未来 21 个比赛日（三周）</option><option value="14">未来 14 个比赛日（两周）</option><option value="7">未来 7 个比赛日（一周）</option></select></label>
+              <label class="fantasy-field">每周免费转会<input id="fantasy-free-transfers" type="number" min="0" max="2" step="1" value="2"></label>
+            </div>
+            <p id="fantasy-rules-note" class="fantasy-help">官方规则：10 人阵容、每队最多 2 人、前后场各 5 人、每天首发 5 人。</p>
+            <button id="fantasy-generate" class="button button-blue fantasy-generate">计算 4 个阵容方案 <span>↗</span></button>
+            <button id="fantasy-refresh" class="fantasy-refresh">刷新球员和赛程数据</button>
+          </article>
+          <article class="fantasy-card fantasy-method"><p class="eyebrow">HOW IT CHOOSES</p><p>默认推荐结合近期状态、球员对未来对手的历史表现、对手位置防守数据和球队赛程；伤病或出战存疑球员不会作为默认候选。赔率与前五选人比例不参与默认模型。优先让每天尽量凑满 5 人，再按比赛日安排每周最多 2 个 FT；预算、位置和每队人数始终遵守官方规则，未带来更多首发席位的 FT 会结转，最多存 2 个。</p></article>
+        </aside>
+        <div class="fantasy-results-column">
+          <div id="fantasy-results" class="fantasy-results"><div class="fantasy-empty fantasy-start"><b>先锁定你想保留的球员</b><span>模型会根据官方逐日赛程、球员身价和未来每队比赛场次补齐阵容。</span></div></div>
+        </div>
+      </div>
+      <footer class="fantasy-footer"><span>NBA FANTASY SEASON PLANNER</span><span>赛程与价格来自 <a href="https://nba-fantasy-app.allaboutfantasy.workers.dev/" target="_blank" rel="noreferrer">NBA Fantasy Planner</a> 的官方数据接口</span></footer>
+    </section>
   </div>
   <dialog id="reason-dialog"><div class="dialog-head"><div><p class="eyebrow">PLAYER MODEL NOTES</p><h3 id="reason-name">球员判断</h3></div><button id="close-dialog" class="icon-button">×</button></div><div id="reason-body" class="reason-body"></div></dialog>
   <dialog id="submit-confirm-dialog" aria-labelledby="submit-confirm-title"><div class="dialog-head"><div><p class="eyebrow">SYNC LINEUP</p><h3 id="submit-confirm-title">确认同步到每日一阵</h3></div><button id="cancel-submit-lineup" class="icon-button" type="button" aria-label="关闭">×</button></div><p id="submit-confirm-summary" class="submit-confirm-summary"></p><label id="submit-token-label" class="submit-token-label" for="submit-token">网页提交口令</label><input id="submit-token" class="submit-token-input" type="password" autocomplete="off" placeholder="输入 BAO5_WEB_SUBMIT_TOKEN"><div id="submit-token-error" class="submit-token-error" role="alert"></div><div class="submit-dialog-actions"><button id="cancel-submit-lineup-bottom" class="button" type="button">取消</button><button id="confirm-submit-lineup" class="button button-blue" type="button">确认并提交</button></div></dialog>

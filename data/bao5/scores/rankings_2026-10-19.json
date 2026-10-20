@@ -1,0 +1,29 @@
+{
+  "fetchedAt": "2026-10-19T20:27:22.095Z",
+  "date": "2026-10-19",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "displayName": "ZCJenius",
+  "mine": {
+    "day": {
+      "rank": 0,
+      "score": 0,
+      "total": 0
+    },
+    "week": {
+      "rank": 0,
+      "score": 0,
+      "total": 0
+    },
+    "season": {
+      "rank": 0,
+      "score": 0,
+      "total": 0
+    }
+  },
+  "boardCount": 0,
+  "board": [],
+  "source": {
+    "mine": "/api/rankings?mine=1&date=2026-10-19",
+    "board": "/api/rankings?period=day&date=2026-10-19"
+  }
+}

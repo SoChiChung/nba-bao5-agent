@@ -3,8 +3,14 @@ name: BAO5 lineup assistant
 on:
   workflow_dispatch:
   schedule:
-    # Poll every five minutes, starting early enough to cover first-tip locks.
-    - cron: '*/5 4-13 * * *'
+    # Poll around game-day locks; the dedicated 06:00 run handles odds refresh.
+    - cron: '*/5 4-5,7-13 * * *'
+      timezone: Asia/Shanghai
+    - cron: '0 19 * * *'
+      timezone: Asia/Shanghai
+    - cron: '0 0 * * *'
+      timezone: Asia/Shanghai
+    - cron: '0 6 * * *'
       timezone: Asia/Shanghai
 
 permissions:
@@ -40,6 +46,7 @@ jobs:
           BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
           BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}
           ODDSPAPI_API_KEY: ${{ secrets.ODDSPAPI_API_KEY }}
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: node data/bao5/bao1/run-model.mjs
       - name: Refresh league rankings daily
         if: always() && (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *')
