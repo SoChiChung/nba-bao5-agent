@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-19T23:26:37.956Z",
+  "generatedAt": "2026-10-20T02:01:19.583Z",
   "serverDate": "2026-10-19",
   "requestedDate": "2026-10-21",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-19T19:15:00",
+  "updatedAt": "2026-10-19T22:00:00",
   "counts": {
     "total": 731,
     "available": 641,
@@ -452,7 +452,7 @@
     {
       "field": "updatedAt",
       "from": null,
-      "to": "2026-10-19T19:15:00"
+      "to": "2026-10-19T22:00:00"
     },
     {
       "field": "officialCount",

@@ -4665,7 +4665,7 @@
       }
     ],
     "playerNames": [
-      "小凯文·波特",
+      "球员 1629645",
       "特雷·墨菲三世",
       "本尼迪克特·马瑟林",
       "德文·瓦塞尔",
@@ -4967,30 +4967,30 @@
   },
   {
     "dateKey": "2026-10-21",
-    "updatedAt": "2026-10-19T23:26:42.966Z",
+    "updatedAt": "2026-10-20T02:01:25.284Z",
     "players": [
-      "1626157",
-      "2544",
-      "1628384",
-      "1641717",
-      "1629013"
+      "1643022",
+      "1642964",
+      "1643576",
+      "1643717",
+      "1631199"
     ],
-    "expected": 135.1,
-    "energy": 150,
-    "formation": "3前2后",
+    "expected": 0,
+    "energy": 50,
+    "formation": "2前3后",
     "source": "scheduled-model",
     "oddsFetchedAt": "2026-10-19T23:26:39.098Z",
     "injuryDate": "2026-10-19",
-    "injuryUpdatedAt": "2026-10-19T23:26:37.966Z",
+    "injuryUpdatedAt": "2026-10-20T02:01:19.596Z",
     "submission": {
       "status": "submitted-verified",
-      "verifiedAt": "2026-10-19T23:26:42.966Z",
+      "verifiedAt": "2026-10-20T02:01:25.284Z",
       "playerIds": [
-        "1626157",
-        "2544",
-        "1628384",
-        "1641717",
-        "1629013"
+        "1643022",
+        "1642964",
+        "1643576",
+        "1643717",
+        "1631199"
       ]
     },
     "updates": [
@@ -5146,6 +5146,20 @@
           "1629013"
         ],
         "expected": 135.1,
+        "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-20T02:01:25.284Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1643022",
+          "1642964",
+          "1643576",
+          "1643717",
+          "1631199"
+        ],
+        "expected": 0,
         "submission": "submitted-verified"
       }
     ]
