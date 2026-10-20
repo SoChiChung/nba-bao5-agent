@@ -178,3 +178,4 @@
 @media(max-width:780px){.player-card{grid-template-columns:20px minmax(100px,1fr) .48fr .5fr .36fr .52fr 12px;gap:6px}.player-chips .constraint-player-row{grid-template-columns:24px minmax(110px,1fr) .48fr .5fr .36fr .52fr 22px;gap:5px}}
 @media(max-width:650px){.player-chips .constraint-player-row{grid-template-columns:24px minmax(95px,1fr) .4fr .45fr .34fr .48fr 22px;gap:4px;padding:8px 4px}.player-chips .constraint-player-row .mini-stat small{font-size:11px}.player-chips .constraint-player-row .mini-stat b{font-size:13px}}
 @media(max-width:430px){.player-card{grid-template-columns:16px minmax(78px,1fr) .4fr .43fr .35fr .5fr 10px;gap:4px}.player-card .mini-stat small{font-size:11px}.player-card .mini-stat b{font-size:13px}.player-card .mini-stat.highlight b{font-size:15px}}
+.upside-tag{display:block;margin-top:2px;color:#d47716;font-size:10px;font-weight:700;white-space:nowrap}

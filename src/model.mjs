@@ -130,6 +130,15 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor;
+  // Low-cost selections can use proven recent upside, but only when current
+  // preseason output clears the regular-season/position baseline. Keep this
+  // separate from the displayed projection so the lineup objective is explicit.
+  const energy=Number(p.energy);
+  const upsideRatio=hasPreseasonSample&&statBase>0?Number(preseasonStats.averageFantasy)/statBase:1;
+  const upsideStrength=clamp((upsideRatio-1)/0.35,0,1);
+  const upsideEnergyFactor=Number.isFinite(energy)&&energy<=20?clamp((20-energy)/10,0,1):0;
+  const upsideBoost=upsideStrength*upsideEnergyFactor*0.2;
+  const selectionScore=projected*(1+upsideBoost);
   const reasons = [
 `球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，作为开季近期参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
@@ -137,9 +146,10 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
     injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',
     replacementBoost>1?`队友伤病后预计角色提升，替补机会修正 +${Math.round((replacementBoost-1)*100)}%`:'队友伤病替补机会未产生额外修正',
     crowdPick.selections?`总榜前五历史选人偏好：${crowdPick.selections} 次入选，平均贡献 ${crowdPick.averagePoints} 分；轻量修正 ${Math.round(crowdPick.signal*weights.crowd*100)}%`:'暂无已揭晓前五阵容样本，不应用选人偏好修正',
+    upsideBoost>0?`低能量上限倾斜：能量 ${energy}（阈值 20），季前赛场均 ${round(preseasonStats.averageFantasy)} / 基准 ${round(statBase)}，选阵评分加成 +${round(upsideBoost*100)}%（预计分仍按 ${round(projected)} 展示）`:'低能量上限倾斜未触发：需能量不高于 20 且季前赛样本高于常规赛/位置基准',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
-  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, projected:round(projected), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
 }
 
 function playerPopularity(playerId, feedback) {
@@ -232,11 +242,11 @@ export function optimizeLineup(pool, energyLimit = 150) {
         const prevF=f-(isFront?1:0),prevB=b-(isFront?0:1);
         if(prevF<0||prevB<0)continue;
         const prior=dp[prevF][prevB][e]; if(!prior)continue;
-        const next={score:prior.score+p.projected,players:[...prior.players,p]};
+        const next={score:prior.score+Number(p.selectionScore??p.projected),players:[...prior.players,p]};
         if(!dp[f][b][e+cost]||next.score>dp[f][b][e+cost].score)dp[f][b][e+cost]=next;
       }
     }
-    for(let e=0;e<=cap;e++){const item=dp[frontCount][backCount][e];if(item&&(!best||item.score>best.expected))best={players:item.players.sort((a,b)=>b.projected-a.projected),expected:round(item.score),energy:e,energyCap:cap,formation:`${frontCount}前${backCount}后`};}
+    for(let e=0;e<=cap;e++){const item=dp[frontCount][backCount][e];if(item&&(!best||item.score>best.selectionExpected))best={players:item.players.sort((a,b)=>b.projected-a.projected),expected:round(item.players.reduce((sum,p)=>sum+p.projected,0)),selectionExpected:round(item.score),energy:e,energyCap:cap,formation:`${frontCount}前${backCount}后`};}
   }
   return best;
 }
