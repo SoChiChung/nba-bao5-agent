@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T19:40:57.719Z",
+  "updatedAt": "2026-10-20T22:51:29.485Z",
   "serverDate": "2026-10-20",
   "requestedDate": "2026-10-21",
   "available": true,
@@ -8,9 +8,8 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 540,
-    "available": 525,
-    "out": 12,
-    "questionable": 3
+    "available": 527,
+    "out": 13
   },
   "provenance": {
     "officialCount": 15,
@@ -22,7 +21,7 @@
   "changesFile": "changes/changes_2026-10-20.json",
   "previousDate": "2026-10-19",
   "changeCount": 90,
-  "restrictedCount": 15,
+  "restrictedCount": 13,
   "restricted": [
     {
       "id": "202699",
@@ -44,6 +43,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵 · 个人原因",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629731",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -191,49 +204,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "1629014",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左腿筋紧张/酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629731",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641737",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左足部扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月20日 15:30 发布）：列出15人，今日出战的另外93人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月20日 18:45 发布）：列出15人，今日出战的另外93人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
