@@ -5227,12 +5227,12 @@
       "拉扬·吕佩尔"
     ],
     "bao5LineupSource": "/api/lineups?date=2026-10-21",
-    "actualTotal": 44.1,
-    "rank": 92,
+    "actualTotal": 58.2,
+    "rank": 68,
     "rankTotal": 159,
-    "scoreDelta": -96.5,
+    "scoreDelta": -82.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-21T00:25:43.812Z",
+    "resultUpdatedAt": "2026-10-21T01:09:54.613Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5240,7 +5240,7 @@
           "rank": 1,
           "userId": "6fc91b2c-9e8c-4349-b61d-ea3f014edd66",
           "displayName": "NJSMinji",
-          "score": 139,
+          "score": 140,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -5251,7 +5251,7 @@
             "1642450"
           ],
           "playerScores": {
-            "203083": 36.9,
+            "203083": 37.9,
             "1628369": 32.3,
             "1628401": 29.2,
             "1641709": 31.7,
@@ -5298,7 +5298,7 @@
           "rank": 3,
           "userId": "92c74e77-e071-48f4-9a10-c8112919edfb",
           "displayName": "相信过程",
-          "score": 123.9,
+          "score": 132.6,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -5310,7 +5310,7 @@
           ],
           "playerScores": {
             "202331": 60.5,
-            "1628973": 9.4,
+            "1628973": 18.1,
             "1631105": 39.3,
             "1641775": 14.7,
             "1642844": 0
@@ -5325,38 +5325,9 @@
         },
         {
           "rank": 4,
-          "userId": "a13c59ae-9bed-47e4-aa50-df890e6ba49c",
-          "displayName": "隆多就是最屌的",
-          "score": 118.2,
-          "remainingSalary": 0,
-          "salaryUsed": 150,
-          "playerIds": [
-            "1628369",
-            "1629011",
-            "1630573",
-            "1630202",
-            "1628401"
-          ],
-          "playerScores": {
-            "1628369": 32.3,
-            "1628401": 29.2,
-            "1629011": 16.1,
-            "1630202": 23.3,
-            "1630573": 17.3
-          },
-          "playerNames": [
-            "杰森·塔图姆",
-            "米切尔·罗宾逊",
-            "萨姆·豪瑟",
-            "佩顿·普里查德",
-            "德里克·怀特"
-          ]
-        },
-        {
-          "rank": 5,
           "userId": "187f999a-2120-4ee5-9087-75f9eac83182",
           "displayName": "喝呀",
-          "score": 112.5,
+          "score": 122.2,
           "remainingSalary": 1,
           "salaryUsed": 149,
           "playerIds": [
@@ -5367,9 +5338,9 @@
             "1629130"
           ],
           "playerScores": {
-            "203083": 36.9,
+            "203083": 37.9,
             "1627936": 0,
-            "1628973": 9.4,
+            "1628973": 18.1,
             "1629130": 26.4,
             "1630595": 39.8
           },
@@ -5380,12 +5351,47 @@
             "安德烈·德拉蒙德",
             "邓肯·罗宾逊"
           ]
+        },
+        {
+          "rank": 5,
+          "userId": "529f0d2b-0edb-4b7e-954b-7185b2bad8dd",
+          "displayName": "lawchen",
+          "score": 119.8,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "202331",
+            "1628369",
+            "1628973",
+            "1641712",
+            "1642450"
+          ],
+          "playerScores": {
+            "202331": 60.5,
+            "1628369": 32.3,
+            "1628973": 18.1,
+            "1641712": 0,
+            "1642450": 8.9
+          },
+          "playerNames": [
+            "保罗·乔治",
+            "杰森·塔图姆",
+            "杰伦·布伦森",
+            "拉扬·吕佩尔",
+            "丹尼斯·詹金斯"
+          ]
         }
       ],
       "commonPicks": [
         {
-          "id": "1628401",
-          "name": "德里克·怀特",
+          "id": "202331",
+          "name": "保罗·乔治",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1628973",
+          "name": "杰伦·布伦森",
           "selections": 3,
           "rate": 0.6
         },
@@ -5396,20 +5402,20 @@
           "rate": 0.4
         },
         {
-          "id": "202331",
-          "name": "保罗·乔治",
+          "id": "1642450",
+          "name": "丹尼斯·詹金斯",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1628401",
+          "name": "德里克·怀特",
           "selections": 2,
           "rate": 0.4
         },
         {
           "id": "1642844",
           "name": "迪伦·哈珀",
-          "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "1628973",
-          "name": "杰伦·布伦森",
           "selections": 2,
           "rate": 0.4
         },
@@ -5432,12 +5438,6 @@
           "rate": 0.2
         },
         {
-          "id": "1642450",
-          "name": "丹尼斯·詹金斯",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
           "id": "1629130",
           "name": "邓肯·罗宾逊",
           "selections": 1,
@@ -5450,32 +5450,20 @@
           "rate": 0.2
         },
         {
+          "id": "1641712",
+          "name": "拉扬·吕佩尔",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
           "id": "1641842",
           "name": "罗纳德·霍兰二世",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1629011",
-          "name": "米切尔·罗宾逊",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1630202",
-          "name": "佩顿·普里查德",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
           "id": "1641775",
           "name": "乔丹·沃尔什",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1630573",
-          "name": "萨姆·豪瑟",
           "selections": 1,
           "rate": 0.2
         },
