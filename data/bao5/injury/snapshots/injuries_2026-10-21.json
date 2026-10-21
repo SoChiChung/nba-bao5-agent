@@ -1548,10 +1548,10 @@
       "t": "雄鹿"
     },
     "1629646": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "n": "查尔斯·巴锡",
       "t": "勇士"
@@ -2555,7 +2555,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "detail": "NBA官方伤病报告：缺阵（右手术）",
       "source": "NBA官方",
       "n": "谢登·夏普",
       "t": "开拓者"
@@ -3190,10 +3190,10 @@
       "t": "爵士"
     },
     "1641722": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（疾病）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（疾病）",
       "source": "NBA官方",
       "n": "乔丹·霍金斯",
       "t": "灰熊"
@@ -3209,10 +3209,10 @@
       "t": "鹈鹕"
     },
     "1641724": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张）",
+      "key": "doubtful",
+      "label": "小概率出战",
+      "probability": "25%",
+      "detail": "NBA官方伤病报告：小概率出战（右小腿肚紧张/酸痛）",
       "source": "NBA官方",
       "n": "杰特·霍华德",
       "t": "独行侠"
@@ -4104,13 +4104,11 @@
       "t": "火箭"
     },
     "1642389": {
-      "key": "pending",
-      "label": "待官方更新",
-      "probability": "—",
-      "detail": "上次官方报告 10月20日：球队本赛季还没打过比赛，官方尚未评估",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-20",
-      "carry": true,
       "n": "锡恩·普林",
       "t": "森林狼"
     },
@@ -4756,13 +4754,11 @@
       "t": "开拓者"
     },
     "1642911": {
-      "key": "pending",
-      "label": "待官方更新",
-      "probability": "—",
-      "detail": "上次官方报告 10月20日：球队本赛季还没打过比赛，官方尚未评估",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-20",
-      "carry": true,
       "n": "罗科·齐卡尔斯基",
       "t": "森林狼"
     },
@@ -5242,10 +5238,10 @@
       "t": "独行侠"
     },
     "1643517": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（疾病）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（疾病）",
       "source": "NBA官方",
       "n": "戴林·斯温",
       "t": "公牛"
@@ -5624,17 +5620,17 @@
       "t": "掘金"
     }
   },
-  "officialCount": 74,
+  "officialCount": 76,
   "projectedCount": 172,
   "filledCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
-  "carriedCount": 294,
-  "updatedAt": "2026-10-21T11:30:00",
-  "updatedAtLabel": "10月21日 11:30",
+  "carriedCount": 292,
+  "updatedAt": "2026-10-21T15:30:00",
+  "updatedAtLabel": "10月21日 15:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_11_30AM.pdf",
-  "message": "已读取官方伤病报告（10月21日 11:30 发布）：列出74人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_03_30PM.pdf",
+  "message": "已读取官方伤病报告（10月21日 15:30 发布）：列出76人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-22"
 }
