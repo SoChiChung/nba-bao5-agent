@@ -289,7 +289,7 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张/酸痛）",
+      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张）",
       "source": "NBA官方",
       "n": "史蒂文·亚当斯",
       "t": "火箭"
@@ -866,10 +866,10 @@
       "t": "太阳"
     },
     "1628380": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右股四头肌拉伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "扎克·科林斯",
       "t": "公牛"
@@ -1205,10 +1205,10 @@
       "t": "凯尔特人"
     },
     "1629012": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右拉伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右拉伤）",
       "source": "NBA官方",
       "n": "科林·塞克斯顿",
       "t": "湖人"
@@ -1762,10 +1762,10 @@
       "t": "马刺"
     },
     "1630171": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战 · 左",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "艾萨克·奥科罗",
       "t": "公牛"
@@ -2349,10 +2349,10 @@
       "t": "魔术"
     },
     "1630592": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "杰伦·威尔逊",
       "t": "老鹰"
@@ -2452,10 +2452,10 @@
       "t": "太阳"
     },
     "1630695": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战 · 疾病",
       "source": "NBA官方",
       "n": "米卡·波特",
       "t": "开拓者"
@@ -2771,10 +2771,10 @@
       "t": "雄鹿"
     },
     "1631159": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右拉伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "伦纳德·米勒",
       "t": "公牛"
@@ -4242,10 +4242,10 @@
       "t": "掘金"
     },
     "1642484": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "雷伊·丹尼斯",
       "t": "老鹰"
@@ -4668,10 +4668,10 @@
       "t": "黄蜂"
     },
     "1642884": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右脚踝扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "弗拉季斯拉夫·戈尔金",
       "t": "热火"
@@ -4846,10 +4846,10 @@
       "t": "国王"
     },
     "1642933": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "凯雄·吉尔伯特",
       "t": "老鹰"
@@ -5157,10 +5157,10 @@
       "t": "凯尔特人"
     },
     "1643417": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左脚踝扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "内特·阿门特",
       "t": "雄鹿"
@@ -5495,10 +5495,10 @@
       "t": "奇才"
     },
     "1643591": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "托比·阿瓦卡",
       "t": "公牛"
@@ -5626,11 +5626,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 292,
-  "updatedAt": "2026-10-21T15:30:00",
-  "updatedAtLabel": "10月21日 15:30",
+  "updatedAt": "2026-10-21T18:45:00",
+  "updatedAtLabel": "10月21日 18:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_03_30PM.pdf",
-  "message": "已读取官方伤病报告（10月21日 15:30 发布）：列出76人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_06_45PM.pdf",
+  "message": "已读取官方伤病报告（10月21日 18:45 发布）：列出76人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-22"
 }

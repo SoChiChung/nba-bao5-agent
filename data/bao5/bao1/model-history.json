@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-21T19:42:19.372Z",
+    "resultUpdatedAt": "2026-10-21T22:55:34.482Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5605,6 +5605,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "安东尼·戴维斯",
+      "泰瑞斯·哈利伯顿",
+      "凯里·欧文",
+      "以赛亚·科利尔",
+      "亚克塞尔·伦德博格"
+    ],
+    "bao5Players": [
+      "1629029",
+      "1630169",
+      "1642847",
+      "1630611",
+      "1642865"
+    ],
+    "bao5PlayerNames": [
+      "卢卡·东契奇",
+      "泰瑞斯·哈利伯顿",
+      "杰里迈亚·费尔斯",
+      "桂·桑托斯",
+      "亚克塞尔·伦德博格"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-22",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-21T22:45:00.000Z",
+      "sourceUpdateAt": "2026-10-21T19:42:48.129Z",
+      "reason": "schedule-window",
+      "players": [
+        "203076",
+        "1630169",
+        "202681",
+        "1642268",
+        "1642865"
+      ],
+      "expected": 158,
+      "energy": 149,
+      "formation": "2前3后",
+      "mode": "lowRisk"
+    }
   }
 ]
