@@ -215,7 +215,18 @@ function probability(item) {
 
 function marketLine(fixture, marketSuffix, preferredMarketId = null) {
   const markets = fixture?.bookmakerOdds?.pinnacle?.markets ?? {};
-  const candidates=Object.values(markets).filter(m=>{const path=String(m.bookmakerMarketId??'');return path.endsWith(`/${marketSuffix}`)&&!path.startsWith('altLine/');});
+  const candidates=Object.values(markets).filter(m=>{
+    const path=String(m.bookmakerMarketId??'');
+    if(!path.endsWith(`/${marketSuffix}`)||path.startsWith('altLine/'))return false;
+    if(marketSuffix!=='totals')return true;
+    // Pinnacle exposes full-game, team and period totals under the same
+    // suffix. The full-game market has period 0 and plain "line/over" IDs;
+    // team totals include a home/away prefix and must not be used here.
+    const parts=path.split('/');
+    return parts.at(-2)==='0'&&Object.values(m.outcomes??{}).some(outcome=>
+      Object.values(outcome.players??{}).some(p=>/^\d+(?:\.\d+)?\/(?:over|under)$/.test(String(p.bookmakerOutcomeId??'')))
+    );
+  });
   const preferred=candidates.find(m=>preferredMarketId&&m.bookmakerMarketId===preferredMarketId);
   const ordered=[...(preferred?[preferred]:[]),...candidates.filter(m=>m!==preferred)];
   for(const market of ordered){
