@@ -11,8 +11,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "勒布朗·詹姆斯",
-      "t": "76人",
-      "st": "c:2026-10-21:nba"
+      "t": "76人"
     },
     "201142": {
       "key": "available",
@@ -432,8 +431,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "乔尔·恩比德",
-      "t": "76人",
-      "st": "c:2026-10-21:nba"
+      "t": "76人"
     },
     "203991": {
       "key": "available",
@@ -520,8 +518,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "卡尔-安东尼·唐斯",
-      "t": "尼克斯",
-      "st": "c:2026-10-21:nba"
+      "t": "尼克斯"
     },
     "1626162": {
       "key": "available",
@@ -749,8 +746,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "杰伦·布朗",
-      "t": "76人",
-      "st": "c:2026-10-21:nba"
+      "t": "76人"
     },
     "1627780": {
       "key": "available",
@@ -932,8 +928,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "OG·阿奴诺比",
-      "t": "尼克斯",
-      "st": "c:2026-10-21:nba"
+      "t": "尼克斯"
     },
     "1628386": {
       "key": "available",
@@ -1006,8 +1001,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "约什·哈特",
-      "t": "尼克斯",
-      "st": "c:2026-10-21:nba"
+      "t": "尼克斯"
     },
     "1628415": {
       "key": "available",
@@ -1082,8 +1076,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "米卡尔·布里奇斯",
-      "t": "尼克斯",
-      "st": "c:2026-10-21:nba"
+      "t": "尼克斯"
     },
     "1628970": {
       "key": "available",
@@ -1114,8 +1107,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "杰伦·布伦森",
-      "t": "尼克斯",
-      "st": "c:2026-10-21:nba"
+      "t": "尼克斯"
     },
     "1628975": {
       "key": "available",
@@ -1268,10 +1260,10 @@
       "t": "尼克斯"
     },
     "1629014": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "NBA官方伤病报告：可以出战",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左腿筋紧张/酸痛）",
       "source": "NBA官方",
       "n": "安芬尼·西蒙斯",
       "t": "76人"
@@ -1734,10 +1726,10 @@
       "t": "黄蜂"
     },
     "1629731": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
       "source": "NBA官方",
       "n": "迪恩·韦德",
       "t": "76人"
@@ -1880,8 +1872,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "泰瑞斯·马克西",
-      "t": "76人",
-      "st": "c:2026-10-21:nba"
+      "t": "76人"
     },
     "1630180": {
       "key": "available",
@@ -3399,10 +3390,10 @@
       "t": "奇才"
     },
     "1641737": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "NBA官方伤病报告：可以出战",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左足部扭伤）",
       "source": "NBA官方",
       "n": "阿德姆·博纳",
       "t": "76人"
@@ -3755,10 +3746,10 @@
       "t": "猛龙"
     },
     "1641989": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "伊莱贾·哈克利斯",
       "t": "活塞"
@@ -4467,8 +4458,7 @@
       "source": "NBA官方",
       "asOf": "2026-10-20",
       "n": "VJ·埃奇库姆",
-      "t": "76人",
-      "st": "c:2026-10-21:nba"
+      "t": "76人"
     },
     "1642846": {
       "key": "available",
@@ -5837,11 +5827,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 432,
-  "updatedAt": "2026-10-20T20:45:00",
-  "updatedAtLabel": "10月20日 20:45",
+  "updatedAt": "2026-10-20T09:45:00",
+  "updatedAtLabel": "10月20日 09:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-20_08_45PM.pdf",
-  "message": "已读取官方伤病报告（10月20日 20:45 发布）：列出15人，今日出战的另外93人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-20_09_45AM.pdf",
+  "message": "已读取官方伤病报告（10月20日 09:45 发布）：列出15人，今日出战的另外93人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-21"
 }

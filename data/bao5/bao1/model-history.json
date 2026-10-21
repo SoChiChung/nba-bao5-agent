@@ -4967,7 +4967,7 @@
   },
   {
     "dateKey": "2026-10-21",
-    "updatedAt": "2026-10-20T15:36:09.565Z",
+    "updatedAt": "2026-10-20T14:01:35.707Z",
     "players": [
       "203954",
       "1626157",
@@ -4975,16 +4975,16 @@
       "1641712",
       "1643542"
     ],
-    "expected": 140.6,
+    "expected": 141.2,
     "energy": 150,
     "formation": "3前2后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-20T15:36:08.692Z",
+    "oddsFetchedAt": "2026-10-20T10:05:04.929Z",
     "injuryDate": "2026-10-20",
-    "injuryUpdatedAt": "2026-10-20T15:36:07.407Z",
+    "injuryUpdatedAt": "2026-10-20T14:01:26.303Z",
     "submission": {
-      "status": "unchanged-verified",
-      "verifiedAt": "2026-10-20T15:36:09.565Z",
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-20T14:01:35.707Z",
       "playerIds": [
         "203954",
         "1626157",
@@ -5191,7 +5191,7 @@
         "submission": "submitted-verified"
       },
       {
-        "at": "2026-10-20T15:36:09.565Z",
+        "at": "2026-10-20T14:01:35.707Z",
         "reason": "schedule-window",
         "games": [],
         "players": [
@@ -5201,8 +5201,8 @@
           "1641712",
           "1643542"
         ],
-        "expected": 140.6,
-        "submission": "unchanged-verified"
+        "expected": 141.2,
+        "submission": "submitted-verified"
       }
     ],
     "playerNames": [
@@ -5230,9 +5230,9 @@
     "actualTotal": 116.3,
     "rank": 144,
     "rankTotal": 159,
-    "scoreDelta": -24.3,
+    "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-21T05:59:53.669Z",
+    "resultUpdatedAt": "2026-10-21T06:04:46.714Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5478,7 +5478,7 @@
   },
   {
     "dateKey": "2026-10-22",
-    "updatedAt": "2026-10-21T06:00:11.716Z",
+    "updatedAt": "2026-10-21T06:05:19.762Z",
     "players": [
       "1629029",
       "1630169",
@@ -5490,12 +5490,23 @@
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
-    "oddsFetchedAt": "2026-10-21T00:26:02.302Z",
+    "selectedMode": "lowRisk",
+    "weights": {
+      "label": "稳健优先",
+      "recent": 0.18,
+      "history": 0.08,
+      "matchup": 0.08,
+      "odds": 0.04,
+      "injury": 1.25,
+      "replacement": 0.14,
+      "crowd": 0.08
+    },
+    "oddsFetchedAt": "2026-10-21T04:10:06.576Z",
     "injuryDate": "2026-10-21",
-    "injuryUpdatedAt": "2026-10-21T06:00:10.568Z",
+    "injuryUpdatedAt": "2026-10-21T06:05:16.900Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-21T06:00:11.716Z",
+      "verifiedAt": "2026-10-21T06:05:19.762Z",
       "playerIds": [
         "1629029",
         "1630169",
@@ -5506,7 +5517,21 @@
     },
     "updates": [
       {
-        "at": "2026-10-21T06:00:11.716Z",
+        "at": "2026-10-21T04:10:14.062Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1629029",
+          "1630169",
+          "1642268",
+          "1642865",
+          "1630611"
+        ],
+        "expected": 162.1,
+        "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-21T06:05:19.762Z",
         "reason": "schedule-window",
         "games": [],
         "players": [
@@ -5517,6 +5542,17 @@
           "1630611"
         ],
         "expected": 161.8,
+        "mode": "lowRisk",
+        "weights": {
+          "label": "稳健优先",
+          "recent": 0.18,
+          "history": 0.08,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.25,
+          "replacement": 0.14,
+          "crowd": 0.08
+        },
         "submission": "unchanged-verified"
       }
     ]
