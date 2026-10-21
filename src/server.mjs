@@ -6,7 +6,7 @@ import { timingSafeEqual } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
-import { buildDashboardData, ROOT, RUNTIME_ROOT, writePicks } from './model.mjs';
+import { buildDashboardData, ROOT, RUNTIME_ROOT, writePicks, selectAutoMode } from './model.mjs';
 import { attachPreseasonStats, isPreseasonGame } from './preseason-stats.mjs';
 import { matchupSignal } from '../data/history-player/matchup.mjs';
 
@@ -138,8 +138,9 @@ async function getDashboard({ refresh = false } = {}) {
     const predictedSum=complete.reduce((sum,x)=>sum+x.expected,0), actualSum=complete.reduce((sum,x)=>sum+x.actualTotal,0);
     const calibrationFactor=predictedSum>0?Math.max(.85,Math.min(1.15,actualSum/predictedSum)):1;
     const prefs=readPreferences();
-    const effectiveMode=prefs.mode==='custom'?'lowRisk':prefs.mode;
+    const effectiveMode=prefs.mode==='auto'?selectAutoMode(histories):prefs.mode==='custom'?'lowRisk':prefs.mode;
     const data = buildDashboardData({ players, schedule:games, injuries, odds, defense: combineDefense(defense), calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
+    if(prefs.mode==='auto'){data.mode='auto';data.selectedMode=effectiveMode;data.modeLabel=`自动学习 · 当前策略：${data.modeLabel}`;}
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
 data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:'2025-26'}, playerStats:playerStatsMeta };
@@ -240,7 +241,7 @@ function readJson(relative, fallback) { try { return JSON.parse(fs.readFileSync(
 function readHistory() { for(const file of [historyPath,sourceHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}} return []; }
 const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
 const sourcePreferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
-function readPreferences(){for(const file of [preferencesPath,sourcePreferencesPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {mode:'lowRisk',customWeights:null};}
+function readPreferences(){for(const file of [preferencesPath,sourcePreferencesPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {mode:'auto',customWeights:null};}
 function savePreferences(value){fs.mkdirSync(path.dirname(preferencesPath),{recursive:true});fs.writeFileSync(preferencesPath,JSON.stringify(value,null,2)+'\n','utf8');}
 // 日榜统一入口：显式带 date 请求，并校验响应回显的 date 与请求一致。
 // 实测（2026-10-13）该站 /api/rankings 的 period 参数在早期版本会「回显但不生效」
@@ -538,7 +539,7 @@ const server = http.createServer(async (req,res) => {
       return send(res,200,data);
     }
     if (url.pathname === '/api/preferences' && req.method === 'POST') {
-      const input=await body(req);const modeKeys=['lowRisk','highRisk','crowdFocus','matchupFocus','balanced','custom'];if(!modeKeys.includes(input.mode))return send(res,400,{error:'未知的决策模式'});
+      const input=await body(req);const modeKeys=['auto','lowRisk','highRisk','crowdFocus','matchupFocus','balanced','custom'];if(!modeKeys.includes(input.mode))return send(res,400,{error:'未知的决策模式'});
       let customWeights=input.customWeights??null;
       if(input.mode==='custom'){
         const keys=['recent','history','matchup','odds','crowd'];

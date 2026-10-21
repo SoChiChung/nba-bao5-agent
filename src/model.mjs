@@ -36,6 +36,27 @@ export const MODEL_MODES = {
   balanced: { label:'均衡探索', recent:0.28, history:0.16, matchup:0.12, odds:0.08, injury:1.1, replacement:0.2, crowd:0.18 },
 };
 
+// 自动模式只使用有明确策略标签且已结算的赛果；旧历史没有策略归属，不能用于训练。
+export function selectAutoMode(history = []) {
+  const keys=Object.keys(MODEL_MODES);
+  const samples=history.filter(row=>row.selectedMode&&keys.includes(row.selectedMode)&&Number.isFinite(Number(row.actualTotal)));
+  const total=samples.length;
+  const stats=Object.fromEntries(keys.map(key=>{
+    const rows=samples.filter(row=>row.selectedMode===key).slice(-20);
+    const rewards=rows.map(row=>{
+      const rank=Number(row.rank),rankTotal=Number(row.rankTotal);
+      if(rank>0&&rankTotal>1)return Math.max(0,1-(rank-1)/(rankTotal-1));
+      const expected=Number(row.expected);
+      return expected>0?Math.max(0,Math.min(1.5,Number(row.actualTotal)/expected))/1.5:0.5;
+    });
+    return [key,{count:rows.length,mean:rewards.length?rewards.reduce((sum,value)=>sum+value,0)/rewards.length:0}];
+  }));
+  const leastSamples=Math.min(...keys.map(key=>stats[key].count));
+  if(leastSamples<2){const underused=keys.filter(key=>stats[key].count===leastSamples);return underused[total%underused.length];}
+  const log=Math.log(total+1);
+  return keys.map(key=>({key,ucb:stats[key].mean+0.22*Math.sqrt(log/stats[key].count)})).sort((a,b)=>b.ucb-a.ucb)[0]?.key??'balanced';
+}
+
 export function buildDashboardData({ players, schedule, injuries, odds, defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
   const weights={...(MODEL_MODES[mode]??MODEL_MODES.lowRisk),...(customWeights??{})};
   const games = Array.isArray(schedule) ? schedule : schedule.games ?? [];
