@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-21T01:10:05.509Z",
+  "fetchedAt": "2026-10-21T06:00:02.724Z",
   "date": "2026-10-10",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -7,17 +7,20 @@
     "day": {
       "rank": 0,
       "score": 0,
-      "total": 0
+      "total": 0,
+      "settled": false
     },
     "week": {
       "rank": 0,
       "score": 0,
-      "total": 0
+      "total": 0,
+      "settled": false
     },
     "season": {
       "rank": 0,
       "score": 0,
-      "total": 0
+      "total": 0,
+      "settled": false
     }
   },
   "boardCount": 0,
