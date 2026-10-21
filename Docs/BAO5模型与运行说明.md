@@ -15,6 +15,8 @@ BAO5 按赛程日锁阵：当天最早比赛开赛前 15 分钟锁定当天阵�
 
 Vercel 网页端如需直接提交阵容，在 Project Settings → Environment Variables 为 Production 设置 `BAO5_EMAIL`、`BAO5_PASSWORD` 和独立的 `BAO5_WEB_SUBMIT_TOKEN`，保存后重新部署。网页支持单日提交，也支持“一键同步未来 7 天”；会逐日校验锁定时间与阵容规则，提交后回读确认。口令不要放进前端源代码或 GitHub。
 
+每日 15:00（北京时间）的赛果回填由 Vercel Cron 触发 GitHub Actions 完成。需要在 Vercel Production 环境变量中配置 `CRON_SECRET`（供 Vercel Cron 请求鉴权）和 `GITHUB_ACTIONS_TOKEN`（仅授予 `SoChiChung/nba-bao5-agent` 的 Actions 写入权限）；保存后重新部署。Vercel 负责定时触发，GitHub Actions 负责从 BAO5 拉取已结算日榜、更新历史与前五阵容数据并提交回仓库。该任务使用 `backfill_only` 模式，不重新计算、覆盖或提交任何比赛阵容。若仓库迁移，可额外设置 `GITHUB_REPOSITORY`，格式为 `owner/repo`。
+
 当前拆分为 GitHub Actions 定时跑模型与提交、Vercel 承载交互页面；网页提交由 Vercel 服务端执行。GitHub Actions 在比赛日时段每 5 分钟检查首发和阵容变更。
 
 ## 启动页面

@@ -2,6 +2,12 @@ name: BAO5 lineup assistant
 
 on:
   workflow_dispatch:
+    inputs:
+      backfill_only:
+        description: Only backfill settled scores and refresh calibration data
+        required: false
+        default: false
+        type: boolean
   schedule:
     # Poll around game-day locks; the dedicated 06:00 run handles odds refresh.
     - cron: '*/5 4-5,7-13 * * *'
@@ -41,15 +47,16 @@ jobs:
       - name: Restore non-secret odds usage counter
         run: |
           if [ ! -f data/odds/usage-log.json ]; then echo '{"monthlyQuota":200,"calls":[]}' > data/odds/usage-log.json; fi
-      - name: Refresh data, optimize and submit if changed
+      - name: Refresh model data and update lineup when enabled
         env:
           BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
           BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}
           ODDSPAPI_API_KEY: ${{ secrets.ODDSPAPI_API_KEY }}
           GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+          BAO5_BACKFILL_ONLY: ${{ inputs.backfill_only || false }}
         run: node data/bao5/bao1/run-model.mjs
       - name: Refresh league rankings daily
-        if: always() && (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *')
+        if: always() && inputs.backfill_only != true && (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *')
         env:
           BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
           BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}

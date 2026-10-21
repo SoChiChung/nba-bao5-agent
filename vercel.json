@@ -7,5 +7,11 @@
     "api/**/*.mjs": {
       "includeFiles": "data/**"
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/daily-calibration",
+      "schedule": "0 7 * * *"
+    }
+  ]
 }
