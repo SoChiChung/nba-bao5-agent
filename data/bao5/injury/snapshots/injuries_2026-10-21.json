@@ -164,7 +164,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右修复手术）",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "n": "吉米·巴特勒三世",
       "t": "勇士"
@@ -2555,7 +2555,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右手术）",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "n": "谢登·夏普",
       "t": "开拓者"
@@ -3599,13 +3599,11 @@
       "t": "骑士"
     },
     "1641869": {
-      "key": "pending",
-      "label": "待官方更新",
-      "probability": "—",
-      "detail": "上次官方报告 10月20日：球队本赛季还没打过比赛，官方尚未评估",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-20",
-      "carry": true,
       "n": "马拉奇·史密斯",
       "t": "猛龙"
     },
@@ -3837,7 +3835,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "detail": "NBA官方伤病报告：缺阵（右修复手术）",
       "source": "NBA官方",
       "n": "约翰尼·弗菲",
       "t": "步行者"
@@ -5626,17 +5624,17 @@
       "t": "掘金"
     }
   },
-  "officialCount": 73,
+  "officialCount": 74,
   "projectedCount": 172,
   "filledCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
-  "carriedCount": 295,
-  "updatedAt": "2026-10-21T01:45:00",
-  "updatedAtLabel": "10月21日 01:45",
+  "carriedCount": 294,
+  "updatedAt": "2026-10-21T11:30:00",
+  "updatedAtLabel": "10月21日 11:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_01_45AM.pdf",
-  "message": "已读取官方伤病报告（10月21日 01:45 发布）：列出73人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-21_11_30AM.pdf",
+  "message": "已读取官方伤病报告（10月21日 11:30 发布）：列出74人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-22"
 }

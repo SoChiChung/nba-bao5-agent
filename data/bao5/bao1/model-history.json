@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-21T06:04:46.714Z",
+    "resultUpdatedAt": "2026-10-21T15:53:20.320Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5478,16 +5478,16 @@
   },
   {
     "dateKey": "2026-10-22",
-    "updatedAt": "2026-10-21T06:05:19.762Z",
+    "updatedAt": "2026-10-21T15:54:04.301Z",
     "players": [
-      "1629029",
+      "203076",
       "1630169",
+      "202681",
       "1642268",
-      "1642865",
-      "1630611"
+      "1642865"
     ],
-    "expected": 161.8,
-    "energy": 150,
+    "expected": 156.6,
+    "energy": 149,
     "formation": "2前3后",
     "source": "scheduled-model",
     "selectedMode": "lowRisk",
@@ -5501,18 +5501,18 @@
       "replacement": 0.14,
       "crowd": 0.08
     },
-    "oddsFetchedAt": "2026-10-21T04:10:06.576Z",
+    "oddsFetchedAt": "2026-10-21T15:54:03.165Z",
     "injuryDate": "2026-10-21",
-    "injuryUpdatedAt": "2026-10-21T06:05:16.900Z",
+    "injuryUpdatedAt": "2026-10-21T15:54:01.622Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-10-21T06:05:19.762Z",
+      "verifiedAt": "2026-10-21T15:54:04.301Z",
       "playerIds": [
-        "1629029",
+        "203076",
         "1630169",
+        "202681",
         "1642268",
-        "1642865",
-        "1630611"
+        "1642865"
       ]
     },
     "updates": [
@@ -5542,6 +5542,31 @@
           "1630611"
         ],
         "expected": 161.8,
+        "mode": "lowRisk",
+        "weights": {
+          "label": "稳健优先",
+          "recent": 0.18,
+          "history": 0.08,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.25,
+          "replacement": 0.14,
+          "crowd": 0.08
+        },
+        "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-21T15:54:04.301Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "203076",
+          "1630169",
+          "202681",
+          "1642268",
+          "1642865"
+        ],
+        "expected": 156.6,
         "mode": "lowRisk",
         "weights": {
           "label": "稳健优先",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T06:05:16.880Z",
+  "updatedAt": "2026-10-21T15:54:01.608Z",
   "serverDate": "2026-10-21",
   "requestedDate": "2026-10-22",
   "available": true,
@@ -9,14 +9,14 @@
   "counts": {
     "total": 540,
     "available": 269,
-    "pending": 188,
+    "pending": 187,
     "probable": 8,
-    "out": 58,
+    "out": 59,
     "questionable": 13,
     "doubtful": 4
   },
   "provenance": {
-    "officialCount": 73,
+    "officialCount": 74,
     "projectedCount": 172,
     "filledCount": 0,
     "fallbackSource": "none"
@@ -25,7 +25,7 @@
   "changesFile": "changes/changes_2026-10-21.json",
   "previousDate": "2026-10-20",
   "changeCount": 273,
-  "restrictedCount": 83,
+  "restrictedCount": 84,
   "restricted": [
     {
       "id": "202699",
@@ -46,7 +46,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右修复手术）",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -326,7 +326,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右手术）",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -476,6 +476,20 @@
       "energy": null
     },
     {
+      "id": "1641869",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641989",
       "key": "out",
       "label": "缺阵",
@@ -522,7 +536,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "detail": "NBA官方伤病报告：缺阵（右修复手术）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1190,5 +1204,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月21日 01:45 发布）：列出73人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月21日 11:30 发布）：列出74人，今日出战的另外172人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
