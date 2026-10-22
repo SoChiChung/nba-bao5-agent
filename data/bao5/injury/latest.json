@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T19:35:50.969Z",
+  "updatedAt": "2026-10-22T22:53:58.672Z",
   "serverDate": "2026-10-22",
   "requestedDate": "2026-10-23",
   "available": true,
@@ -8,10 +8,10 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 540,
-    "available": 138,
+    "available": 139,
     "pending": 323,
-    "out": 76,
-    "questionable": 3
+    "out": 77,
+    "questionable": 1
   },
   "provenance": {
     "officialCount": 10,
@@ -23,7 +23,7 @@
   "changesFile": "changes/changes_2026-10-22.json",
   "previousDate": "2026-10-21",
   "changeCount": 276,
-  "restrictedCount": 79,
+  "restrictedCount": 78,
   "restricted": [
     {
       "id": "202699",
@@ -311,6 +311,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 10月21日：缺阵（右腿筋拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629731",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1090,34 +1104,6 @@
       "energy": null
     },
     {
-      "id": "1628386",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629731",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642461",
       "key": "questionable",
       "label": "出战成疑",
@@ -1132,5 +1118,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月22日 15:15 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月22日 18:45 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

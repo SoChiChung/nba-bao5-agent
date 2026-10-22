@@ -11,7 +11,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "勒布朗·詹姆斯",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-10-23:rw"
     },
     "201142": {
       "key": "pending",
@@ -76,7 +77,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "詹姆斯·哈登",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-23:rw"
     },
     "201939": {
       "key": "available",
@@ -436,7 +438,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "乔尔·恩比德",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-10-23:rw"
     },
     "203991": {
       "key": "pending",
@@ -750,7 +753,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "杰伦·布朗",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-10-23:rw"
     },
     "1627780": {
       "key": "pending",
@@ -891,7 +895,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "多诺万·米切尔",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-23:rw"
     },
     "1628379": {
       "key": "out",
@@ -938,13 +943,14 @@
       "t": "尼克斯"
     },
     "1628386": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 右",
       "source": "NBA官方",
       "n": "贾勒特·阿伦",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-23:rw"
     },
     "1628389": {
       "key": "pending",
@@ -1743,10 +1749,10 @@
       "t": "黄蜂"
     },
     "1629731": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "n": "迪恩·韦德",
       "t": "76人"
@@ -1891,7 +1897,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "泰瑞斯·马克西",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-10-23:rw"
     },
     "1630180": {
       "key": "pending",
@@ -2480,7 +2487,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "埃文·莫布利",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-23:rw"
     },
     "1630598": {
       "key": "pending",
@@ -2999,7 +3007,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "佩顿·沃特森",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-23:rw"
     },
     "1631216": {
       "key": "pending",
@@ -4494,7 +4503,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-22",
       "n": "VJ·埃奇库姆",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-10-23:rw"
     },
     "1642846": {
       "key": "pending",
@@ -5872,11 +5882,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 472,
-  "updatedAt": "2026-10-22T15:15:00",
-  "updatedAtLabel": "10月22日 15:15",
+  "updatedAt": "2026-10-22T18:45:00",
+  "updatedAtLabel": "10月22日 18:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-22_03_15PM.pdf",
-  "message": "已读取官方伤病报告（10月22日 15:15 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-22_06_45PM.pdf",
+  "message": "已读取官方伤病报告（10月22日 18:45 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-23"
 }

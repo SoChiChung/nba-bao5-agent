@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-22T19:35:28.554Z",
+    "resultUpdatedAt": "2026-10-22T22:53:38.533Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-22T19:35:31.881Z",
+    "resultUpdatedAt": "2026-10-22T22:53:42.287Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6002,6 +6002,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "多诺万·米切尔",
+      "埃文·莫布利",
+      "佩顿·沃特森",
+      "卡梅伦·约翰逊",
+      "托马斯·布莱恩特"
+    ],
+    "bao5Players": [
+      "1628983",
+      "1628378",
+      "1631212",
+      "1628418",
+      "1642350"
+    ],
+    "bao5PlayerNames": [
+      "谢伊·吉尔杰斯-亚历山大",
+      "多诺万·米切尔",
+      "佩顿·沃特森",
+      "托马斯·布莱恩特",
+      "特雷冯·布拉齐尔"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-23",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-22T22:45:00.000Z",
+      "sourceUpdateAt": "2026-10-22T19:35:55.376Z",
+      "reason": "schedule-window",
+      "players": [
+        "1628378",
+        "1630596",
+        "1631212",
+        "1629661",
+        "1628418"
+      ],
+      "expected": 118.8,
+      "energy": 148,
+      "formation": "3前2后",
+      "mode": "crowdFocus"
+    }
   }
 ]
