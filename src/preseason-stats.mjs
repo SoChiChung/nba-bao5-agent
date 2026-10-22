@@ -5,6 +5,10 @@ const CACHE_TTL_MS = 8 * 60 * 60 * 1000;
 const mean = values => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
 export const isPreseasonGame = game => game?.phase === 'preseason' || game?.label === '季前赛' || /preseason/i.test(game?.label ?? '');
 const seasonType = game => String(game?.seasonType ?? game?.season_type ?? '').toLowerCase().replace(/[\s_-]/g, '');
+export function currentNBASeasonLabel(now = new Date()) {
+  const year = now.getUTCFullYear() - (now.getUTCMonth() < 7 ? 1 : 0);
+  return `${year}-${String((year + 1) % 100).padStart(2, '0')}`;
+}
 
 /** Load/cache BAO5's current-season player logs and attach preseason-only features. */
 export async function attachPreseasonStats(api, players, { teamCodes, cachePath, fallbackCachePath, vettedFallbackPath, refresh = true, now = Date.now() }) {
@@ -40,6 +44,9 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
         const latestRegular = regularSeason.filter(game => !latestSeason || game.seasonLabel === latestSeason).slice(0, 20);
         const regularFantasy = latestRegular.map(game => Number(game.fantasy)).filter(Number.isFinite);
         const regularMinutes = latestRegular.map(game => Number(game.min)).filter(Number.isFinite);
+        const latestThree = latestRegular.slice(0, 3);
+        const latestThreeFantasy = latestThree.map(game => Number(game.fantasy)).filter(Number.isFinite);
+        const latestThreeMinutes = latestThree.map(game => Number(game.min)).filter(Number.isFinite);
         const previous = cache.players[String(player.id)] ?? {};
         cache.players[String(player.id)] = {
           ...previous,
@@ -52,6 +59,10 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           regularSeasonLabel: latestSeason ?? null,
           averageRegularFantasy: mean(regularFantasy),
           averageRegularMinutes: mean(regularMinutes),
+          recentRegularGames: latestThreeFantasy.length,
+          recentRegularAverageFantasy: mean(latestThreeFantasy),
+          recentRegularAverageMinutes: mean(latestThreeMinutes),
+          recentRegularLastDate: latestRegular[0]?.date ?? null,
           lastDate: games[0]?.date ?? null,
         };
         fetched++;
@@ -73,6 +84,18 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
     return {
       ...player,
       ...(stats.games ? { preseasonStats:stats } : {}),
+      ...(stats.regularSeasonGames && stats.regularSeasonLabel === currentNBASeasonLabel(new Date(now)) ? {
+        currentSeasonStats: {
+          games:stats.regularSeasonGames,
+          averageFantasy:stats.averageRegularFantasy,
+          averageMinutes:stats.averageRegularMinutes,
+          recentGames:stats.recentRegularGames,
+          recentAverageFantasy:stats.recentRegularAverageFantasy,
+          recentAverageMinutes:stats.recentRegularAverageMinutes,
+          lastDate:stats.recentRegularLastDate,
+          season:stats.regularSeasonLabel,
+        },
+      } : {}),
       ...(stats.regularSeasonGames ? { historicalStats:{games:stats.regularSeasonGames,season:stats.regularSeasonLabel,averageFantasy:stats.averageRegularFantasy,averageMinutes:stats.averageRegularMinutes,source:stats.regularSeasonSource??stats.source??null} } : {}),
     };
   });

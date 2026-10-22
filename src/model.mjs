@@ -87,15 +87,21 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const dayGames = games.filter(g => g.date === dateKey && isPreseasonGame(g)===usePreseason);
     const preseason=dayGames.some(isPreseasonGame);
     const teams = new Set(dayGames.flatMap(g => [g.home, g.away]));
+    const priorGameByTeam = new Map();
+    for (const game of games.filter(g => g.status === 3 && !isPreseasonGame(g) && g.date < dateKey)) {
+      for (const team of [game.home, game.away]) {
+        if (!priorGameByTeam.has(team) || priorGameByTeam.get(team) < game.date) priorGameByTeam.set(team, game.date);
+      }
+    }
     const gameOdds = dayGames.map(g => findOdds(allOdds, g)).filter(Boolean);
     const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
     const siteInjuries = siteInjuryReportUsable(injuries,dateKey);
     const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
-      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback, positionBaselines })
+      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines })
     );
     // Keep unknown-baseline players visible for diagnosis, but do not let their
     // zero score win a lineup slot through energy/tie-break behavior.
-    const eligible = candidates.filter(p => !p.injury?.hardExclude && p.baseScore > 0);
+    const eligible = candidates.filter(p => !p.injury?.hardExclude && !p.noCurrentSeasonMinutes && p.baseScore > 0);
     const lineup = optimize(eligible);
     const efficientLineup = preseason ? optimize(eligible, 0.9) : null;
     const startMs = Math.min(...dayGames.map(g => new Date(g.utc).getTime()));
@@ -110,7 +116,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
   return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES };
 }
 
-function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, weights, players, lineupFeedback, positionBaselines }) {
+function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines }) {
   const currentStatBase = statScore(p);
   const historicalAverage = Number(p.historicalStats?.averageFantasy);
   const preseasonAverage = Number(p.preseasonStats?.averageFantasy);
@@ -142,19 +148,24 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const historySignal=historyMatchup.available?statBase*(1+historyMatchup.signal):null;
   const crowdPick=playerPopularity(p.id,lineupFeedback);
   const preseasonStats=p.preseasonStats;
-  const hasCurrentSeasonSample=currentStatBase>0;
-  const recentSignal=hasCurrentSeasonSample?(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null):hasPreseasonSample?(
+  const currentSeasonStats=p.currentSeasonStats;
+  const hasCurrentSeasonLog=Number(currentSeasonStats?.games)>0;
+  const hasCurrentSeasonSample=currentStatBase>0||Number(p.gamesPlayed??0)>0||hasCurrentSeasonLog;
+  const loggedRecentAverage=currentSeasonStats?.recentAverageFantasy;
+  const recentSignal=hasCurrentSeasonLog&&loggedRecentAverage!=null&&Number.isFinite(Number(loggedRecentAverage))?Number(loggedRecentAverage):hasCurrentSeasonSample?(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null):hasPreseasonSample?(
     preseasonStats.recentAverageFantasy != null && Number.isFinite(Number(preseasonStats.recentAverageFantasy))
       ? 0.65*Number(preseasonStats.recentAverageFantasy)+0.35*Number(preseasonStats.averageFantasy)
       : Number(preseasonStats.averageFantasy)
   ):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
   const preseasonGames=Number(preseasonStats?.games??0);
-  const recentWeight=hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
+  const recentWeight=hasCurrentSeasonLog?(Number(currentSeasonStats.recentGames)<=5?0.45:0.3):hasCurrentSeasonSample?Math.max(0.3,weights.recent):hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
   const activeSignals=[{value:recentSignal,weight:recentWeight,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
   const baselineWeight=Math.max(0,1-activeSignals.reduce((sum,s)=>sum+s.weight,0));
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
   const popularityFactor=1+crowdPick.signal*weights.crowd;
-  const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor;
+  const currentSeasonMinutes=Number(currentSeasonStats?.recentAverageMinutes??currentSeasonStats?.averageMinutes??0);
+  const noCurrentSeasonMinutes=!preseason&&Boolean(priorTeamGameDate)&&Number(p.gamesPlayed??0)===0&&!(hasCurrentSeasonLog&&currentSeasonMinutes>0);
+  const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor * (noCurrentSeasonMinutes?0:1);
   // Low-cost selections can use proven recent upside, but only when current
   // preseason output clears the regular-season/position baseline. Keep this
   // separate from the displayed projection so the lineup objective is explicit.
@@ -167,6 +178,7 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const reasons = [
 `球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.recentAverageFantasy!=null?`，最近 3 场均值 ${round(preseasonStats.recentAverageFantasy)} 分`:''}${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，近期表现加权参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
+    hasCurrentSeasonLog?`本赛季 ${currentSeasonStats.season} 已有 ${currentSeasonStats.games} 场日志；最近 ${currentSeasonStats.recentGames} 场均分 ${round(currentSeasonStats.recentAverageFantasy)}、均分钟 ${round(currentSeasonStats.recentAverageMinutes)}，日志日期 ${currentSeasonStats.lastDate??'未知'}，近期权重 ${Math.round(recentWeight*100)}%`:noCurrentSeasonMinutes?`球队已于 ${priorTeamGameDate} 打过本赛季比赛，但球员本赛季累计出场仍为 0；上赛季均分不再用于推荐，待出现本赛季上场记录后恢复`:'本赛季还没有可用的近期逐场日志',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
     injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',
     replacementBoost>1?`队友伤病后预计角色提升，替补机会修正 +${Math.round((replacementBoost-1)*100)}%`:'队友伤病替补机会未产生额外修正',
@@ -174,7 +186,7 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
     upsideBoost>0?`低能量上限倾斜：能量 ${energy}（阈值 20），季前赛场均 ${round(preseasonStats.averageFantasy)} / 基准 ${round(statBase)}，选阵评分加成 +${round(upsideBoost*100)}%（预计分仍按 ${round(projected)} 展示）`:'低能量上限倾斜未触发：需能量不高于 20 且季前赛样本高于常规赛/位置基准',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
-  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
 }
 
 function playerPopularity(playerId, feedback) {
