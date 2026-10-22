@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-22T15:49:45.051Z",
+    "resultUpdatedAt": "2026-10-22T19:35:28.554Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-22T15:49:47.901Z",
+    "resultUpdatedAt": "2026-10-22T19:35:31.881Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -5889,17 +5889,17 @@
   },
   {
     "dateKey": "2026-10-23",
-    "updatedAt": "2026-10-22T15:50:08.153Z",
+    "updatedAt": "2026-10-22T19:35:55.376Z",
     "players": [
       "1628378",
       "1630596",
       "1631212",
       "1629661",
-      "1641712"
+      "1628418"
     ],
-    "expected": 122.9,
-    "energy": 147,
-    "formation": "2前3后",
+    "expected": 118.8,
+    "energy": 148,
+    "formation": "3前2后",
     "source": "scheduled-model",
     "selectedMode": "crowdFocus",
     "weights": {
@@ -5912,18 +5912,18 @@
       "replacement": 0.18,
       "crowd": 0.3
     },
-    "oddsFetchedAt": "2026-10-22T15:50:07.303Z",
+    "oddsFetchedAt": "2026-10-22T19:35:51.779Z",
     "injuryDate": "2026-10-22",
-    "injuryUpdatedAt": "2026-10-22T15:50:05.985Z",
+    "injuryUpdatedAt": "2026-10-22T19:35:50.985Z",
     "submission": {
-      "status": "unchanged-verified",
-      "verifiedAt": "2026-10-22T15:50:08.153Z",
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-22T19:35:55.376Z",
       "playerIds": [
         "1628378",
         "1630596",
         "1631212",
         "1629661",
-        "1641712"
+        "1628418"
       ]
     },
     "updates": [
@@ -5976,6 +5976,31 @@
           "crowd": 0.3
         },
         "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-22T19:35:55.376Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1628378",
+          "1630596",
+          "1631212",
+          "1629661",
+          "1628418"
+        ],
+        "expected": 118.8,
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "submitted-verified"
       }
     ]
   }
