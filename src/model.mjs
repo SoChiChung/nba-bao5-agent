@@ -143,9 +143,13 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const crowdPick=playerPopularity(p.id,lineupFeedback);
   const preseasonStats=p.preseasonStats;
   const hasCurrentSeasonSample=currentStatBase>0;
-  const recentSignal=hasCurrentSeasonSample?(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null):hasPreseasonSample?Number(preseasonStats.averageFantasy):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
+  const recentSignal=hasCurrentSeasonSample?(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null):hasPreseasonSample?(
+    preseasonStats.recentAverageFantasy != null && Number.isFinite(Number(preseasonStats.recentAverageFantasy))
+      ? 0.65*Number(preseasonStats.recentAverageFantasy)+0.35*Number(preseasonStats.averageFantasy)
+      : Number(preseasonStats.averageFantasy)
+  ):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
   const preseasonGames=Number(preseasonStats?.games??0);
-  const recentWeight=hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):weights.recent*Math.min(1,preseasonGames/2)):weights.recent;
+  const recentWeight=hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
   const activeSignals=[{value:recentSignal,weight:recentWeight,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
   const baselineWeight=Math.max(0,1-activeSignals.reduce((sum,s)=>sum+s.weight,0));
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
@@ -161,7 +165,7 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const upsideBoost=upsideStrength*upsideEnergyFactor*0.2;
   const selectionScore=projected*(1+upsideBoost);
   const reasons = [
-`球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，作为开季近期参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
+`球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.recentAverageFantasy!=null?`，最近 3 场均值 ${round(preseasonStats.recentAverageFantasy)} 分`:''}${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，近期表现加权参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
     injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',

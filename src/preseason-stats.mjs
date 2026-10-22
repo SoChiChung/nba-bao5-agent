@@ -4,6 +4,7 @@ import path from 'node:path';
 const CACHE_TTL_MS = 8 * 60 * 60 * 1000;
 const mean = values => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
 export const isPreseasonGame = game => game?.phase === 'preseason' || game?.label === '季前赛' || /preseason/i.test(game?.label ?? '');
+const seasonType = game => String(game?.seasonType ?? game?.season_type ?? '').toLowerCase().replace(/[\s_-]/g, '');
 
 /** Load/cache BAO5's current-season player logs and attach preseason-only features. */
 export async function attachPreseasonStats(api, players, { teamCodes, cachePath, fallbackCachePath, vettedFallbackPath, refresh = true, now = Date.now() }) {
@@ -30,10 +31,11 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
         const response = await api.get(`/api/nba/player-log?id=${encodeURIComponent(player.id)}&recent=120`);
         if (!response.ok || !response.json) { failures.push({id:String(player.id),error:`球员日志 HTTP ${response.status}`}); continue; }
         const rows = response.json.recent ?? [];
-        const games = rows.filter(game => game.seasonType === 'preseason');
+        const games = rows.filter(game => seasonType(game) === 'preseason' || /preseason|季前赛/i.test(String(game?.seasonLabel ?? game?.label ?? '')));
         const fantasies = games.map(game => Number(game.fantasy)).filter(Number.isFinite);
+        const recentFantasy = games.slice(0, 3).map(game => Number(game.fantasy)).filter(Number.isFinite);
         const minutes = games.map(game => Number(game.min)).filter(Number.isFinite);
-        const regularSeason = rows.filter(game => game.seasonType === 'regular');
+        const regularSeason = rows.filter(game => seasonType(game) === 'regular' || seasonType(game) === 'regularseason');
         const latestSeason = regularSeason[0]?.seasonLabel;
         const latestRegular = regularSeason.filter(game => !latestSeason || game.seasonLabel === latestSeason).slice(0, 20);
         const regularFantasy = latestRegular.map(game => Number(game.fantasy)).filter(Number.isFinite);
@@ -44,6 +46,7 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           fetchedAt: new Date(now).toISOString(),
           games: fantasies.length ? fantasies.length : Number(previous.games ?? 0),
           averageFantasy: fantasies.length ? mean(fantasies) : previous.averageFantasy ?? null,
+          recentAverageFantasy: recentFantasy.length ? mean(recentFantasy) : previous.recentAverageFantasy ?? null,
           averageMinutes: minutes.length ? mean(minutes) : previous.averageMinutes ?? null,
           regularSeasonGames: regularFantasy.length,
           regularSeasonLabel: latestSeason ?? null,

@@ -177,7 +177,7 @@ data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,request
       backendErrors:[...(scoreData?.boardError?[`今日联赛日榜读取失败：${scoreData.boardError}`]:[]),...(lineupFeedback.errors??[])],
     };
     for (const slate of data.slates) {
-      const noBaseline = slate.players.filter(player => player.baseScore <= 0);
+      const noBaseline = slate.players.filter(player => player.baseScore <= 0 && !isOfficialOut(player.injury));
       const zeroProjection = slate.players.filter(player => player.projected <= 0);
       slate.diagnostics = {
         noBaselineCount:noBaseline.length,
@@ -193,6 +193,10 @@ data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,request
     return cache;
   })().finally(() => { refreshing = null; });
   return refreshing;
+}
+
+function isOfficialOut(injury){
+  return String(injury?.key??'').toLowerCase()==='out' && /NBA官方|NBA\.com|ak-static\.cms\.nba\.com/i.test(String(injury?.source??''));
 }
 
 // 排名曲线：读data/bao5/scores/rankings_*.json（每天一份 /api/rankings?mine=1 快照），
@@ -278,7 +282,7 @@ async function getDailyScoreSnapshot(api){
   try{return await withLiveBoard(JSON.parse(fs.readFileSync(target,'utf8')));}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
 }
 async function refreshTopFiveLineups(api,score,players){
-  const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};
+  const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};store.checkedDates??={};
   const errors=[];
   // 日榜前五的统一入口：当日与历史回填都走这里，彻底摆脱 score.board
   // （落盘快照的 board 曾长期混装赛季累计值，导致「日榜前五」取到总榜的人）。
@@ -306,17 +310,19 @@ async function refreshTopFiveLineups(api,score,players){
     else if(previous)store.dates[score.date]={...previous,fetchedAt:previous.fetchedAt??new Date().toISOString(),stale:true};
   }
   const history=readHistory();
-  const settledDates=[...new Set(history.filter(row=>row.dateKey&&Number.isFinite(row.actualTotal)).map(row=>row.dateKey))];
-  for(const dateKey of settledDates){
-    if(score?.date===dateKey&&store.dates[dateKey]?.lineups?.length)continue;
+  const settledDates=[...new Set(history.filter(row=>row.dateKey&&Number.isFinite(row.actualTotal)).map(row=>row.dateKey))].sort().slice(-7);
+  const datesToCheck=settledDates.filter(dateKey=>dateKey!==score?.date&&!store.checkedDates[dateKey]&&!store.dates[dateKey]?.lineups?.length);
+  await Promise.all(datesToCheck.map(async dateKey=>{
     try{
       const lineups=await fetchDayLineups(dateKey,'历史');
       const previous=store.dates[dateKey];
-      if(lineups?.length)store.dates[dateKey]={date:dateKey,fetchedAt:new Date().toISOString(),source:`/api/rankings?period=day&date=${dateKey}`,lineups};
-      else if(previous)console.warn(`历史日榜前五 (${dateKey}) 本次未取到，沿用上次成功数据`);
-      else console.warn(`历史日榜前五 (${dateKey}) 无任何可用数据`);
+      if(lineups!==null){
+        store.checkedDates[dateKey]=new Date().toISOString();
+        if(lineups.length)store.dates[dateKey]={date:dateKey,fetchedAt:store.checkedDates[dateKey],source:`/api/rankings?period=day&date=${dateKey}`,lineups};
+        else if(previous)console.warn(`历史日榜前五 (${dateKey}) 本次未取到，沿用上次成功数据`);
+      }
     }catch(error){console.warn(`历史日榜前五回填失败 (${dateKey}):`,error.message);}
-  }
+  }));
   store.updatedAt=new Date().toISOString();fs.mkdirSync(scoreDir,{recursive:true});fs.writeFileSync(lineupHistoryPath,JSON.stringify(store,null,2)+'\n','utf8');
   const accumulated=new Map();
   for(const date of Object.values(store.dates))for(const lineup of date.lineups??[])for(const id of lineup.playerIds??[]){
