@@ -292,7 +292,7 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张）",
+      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张/酸痛）",
       "source": "NBA官方",
       "n": "史蒂文·亚当斯",
       "t": "火箭"
@@ -704,10 +704,10 @@
       "t": "猛龙"
     },
     "1627752": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "托里恩·普林斯",
       "t": "活塞"
@@ -869,10 +869,10 @@
       "t": "太阳"
     },
     "1628380": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右股四头肌拉伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "扎克·科林斯",
       "t": "公牛"
@@ -931,10 +931,10 @@
       "t": "雷霆"
     },
     "1628396": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左股四头肌拉伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战（左股四头肌拉伤）",
       "source": "NBA官方",
       "n": "托尼·布拉德利",
       "t": "尼克斯"
@@ -1431,7 +1431,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右撕裂）",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "n": "马克斯·斯特鲁斯",
       "t": "快船"
@@ -2317,10 +2317,10 @@
       "t": "雄鹿"
     },
     "1630581": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左手腕扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "约什·吉迪",
       "t": "公牛"
@@ -3209,10 +3209,10 @@
       "t": "爵士"
     },
     "1641722": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（疾病）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "乔丹·霍金斯",
       "t": "灰熊"
@@ -3649,8 +3649,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "NBA官方伤病报告：可以出战（右脚踝扭伤）",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
+      "asOf": "2026-10-23",
       "n": "迈伦·加德纳",
       "t": "热火"
     },
@@ -5257,10 +5258,10 @@
       "t": "独行侠"
     },
     "1643517": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（疾病）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "戴林·斯温",
       "t": "公牛"
@@ -5508,10 +5509,10 @@
       "t": "奇才"
     },
     "1643591": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "托比·阿瓦卡",
       "t": "公牛"
@@ -5630,17 +5631,17 @@
       "t": "掘金"
     }
   },
-  "officialCount": 84,
-  "projectedCount": 146,
+  "officialCount": 83,
+  "projectedCount": 147,
   "filledCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 310,
-  "updatedAt": "2026-10-23T11:30:00",
-  "updatedAtLabel": "10月23日 11:30",
+  "updatedAt": "2026-10-23T15:15:00",
+  "updatedAtLabel": "10月23日 15:15",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-23_11_30AM.pdf",
-  "message": "已读取官方伤病报告（10月23日 11:30 发布）：列出84人，今日出战的另外146人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-23_03_15PM.pdf",
+  "message": "已读取官方伤病报告（10月23日 15:15 发布）：列出83人，今日出战的另外147人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-24"
 }

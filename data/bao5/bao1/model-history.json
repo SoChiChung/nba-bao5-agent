@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T15:40:49.909Z",
+    "resultUpdatedAt": "2026-10-23T19:35:16.267Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T15:40:53.327Z",
+    "resultUpdatedAt": "2026-10-23T19:35:19.131Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T15:40:58.008Z",
+    "resultUpdatedAt": "2026-10-23T19:35:21.940Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6286,7 +6286,7 @@
   },
   {
     "dateKey": "2026-10-24",
-    "updatedAt": "2026-10-23T15:41:28.295Z",
+    "updatedAt": "2026-10-23T19:35:44.722Z",
     "players": [
       "1630162",
       "1629660",
@@ -6309,12 +6309,12 @@
       "replacement": 0.2,
       "crowd": 0.18
     },
-    "oddsFetchedAt": "2026-10-23T15:41:22.777Z",
+    "oddsFetchedAt": "2026-10-23T19:35:41.221Z",
     "injuryDate": "2026-10-23",
-    "injuryUpdatedAt": "2026-10-23T15:41:19.482Z",
+    "injuryUpdatedAt": "2026-10-23T19:35:39.887Z",
     "submission": {
       "status": "submitted-verified",
-      "verifiedAt": "2026-10-23T15:41:28.295Z",
+      "verifiedAt": "2026-10-23T19:35:44.722Z",
       "playerIds": [
         "1630162",
         "1629660",
@@ -6353,6 +6353,33 @@
         "at": "2026-10-23T15:41:28.295Z",
         "reason": "schedule-window",
         "games": [],
+        "players": [
+          "1630162",
+          "1629660",
+          "202331",
+          "1642262",
+          "1642274"
+        ],
+        "expected": 132.7,
+        "mode": "balanced",
+        "weights": {
+          "label": "均衡探索",
+          "recent": 0.28,
+          "history": 0.16,
+          "matchup": 0.12,
+          "odds": 0.08,
+          "injury": 1.1,
+          "replacement": 0.2,
+          "crowd": 0.18
+        },
+        "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-23T19:35:44.722Z",
+        "reason": "pre-tip-25m-final",
+        "games": [
+          "0022600099"
+        ],
         "players": [
           "1630162",
           "1629660",
