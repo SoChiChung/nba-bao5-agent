@@ -4421,10 +4421,10 @@
       "t": "活塞"
     },
     "1642461": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（腿筋）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（腿筋）",
       "source": "NBA官方",
       "n": "斯宾塞·琼斯",
       "t": "掘金"
@@ -5882,11 +5882,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 472,
-  "updatedAt": "2026-10-22T20:15:00",
-  "updatedAtLabel": "10月22日 20:15",
+  "updatedAt": "2026-10-22T20:45:00",
+  "updatedAtLabel": "10月22日 20:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-22_08_15PM.pdf",
-  "message": "已读取官方伤病报告（10月22日 20:15 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-22_08_45PM.pdf",
+  "message": "已读取官方伤病报告（10月22日 20:45 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-23"
 }

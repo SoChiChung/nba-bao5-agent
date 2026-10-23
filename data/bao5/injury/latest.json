@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T00:35:02.818Z",
+  "updatedAt": "2026-10-23T01:07:37.038Z",
   "serverDate": "2026-10-22",
   "requestedDate": "2026-10-23",
   "available": true,
@@ -10,8 +10,7 @@
     "total": 540,
     "available": 139,
     "pending": 323,
-    "out": 77,
-    "questionable": 1
+    "out": 78
   },
   "provenance": {
     "officialCount": 10,
@@ -782,6 +781,20 @@
       "energy": null
     },
     {
+      "id": "1642461",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（腿筋）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642484",
       "key": "out",
       "label": "缺阵",
@@ -1102,21 +1115,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "1642461",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（腿筋）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月22日 20:15 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月22日 20:45 发布）：列出10人，今日出战的另外58人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
