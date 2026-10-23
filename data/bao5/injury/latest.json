@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T06:00:13.662Z",
+  "updatedAt": "2026-10-23T15:41:19.469Z",
   "serverDate": "2026-10-23",
   "requestedDate": "2026-10-24",
   "available": true,
@@ -11,13 +11,13 @@
     "available": 217,
     "pending": 228,
     "out": 66,
-    "questionable": 19,
-    "probable": 7,
+    "questionable": 17,
+    "probable": 9,
     "doubtful": 3
   },
   "provenance": {
-    "officialCount": 83,
-    "projectedCount": 147,
+    "officialCount": 84,
+    "projectedCount": 146,
     "filledCount": 0,
     "fallbackSource": "none"
   },
@@ -998,7 +998,7 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张/酸痛）",
+      "detail": "NBA官方伤病报告：出战成疑（右小腿肚紧张）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1120,25 +1120,11 @@
       "energy": null
     },
     {
-      "id": "1641722",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（疾病）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1641755",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：出战成疑",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1209,20 +1195,6 @@
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643517",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（疾病）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1316,6 +1288,20 @@
       "energy": null
     },
     {
+      "id": "1641722",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战（疾病）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641738",
       "key": "probable",
       "label": "大概率出战",
@@ -1344,6 +1330,20 @@
       "energy": null
     },
     {
+      "id": "1643517",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战（疾病）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643591",
       "key": "probable",
       "label": "大概率出战",
@@ -1358,5 +1358,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月23日 01:30 发布）：列出83人，今日出战的另外147人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月23日 11:30 发布）：列出84人，今日出战的另外146人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
