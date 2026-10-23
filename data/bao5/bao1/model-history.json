@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T01:07:12.692Z",
+    "resultUpdatedAt": "2026-10-23T05:59:50.574Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T01:07:15.567Z",
+    "resultUpdatedAt": "2026-10-23T05:59:53.580Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6040,6 +6040,315 @@
       "energy": 148,
       "formation": "3前2后",
       "mode": "crowdFocus"
+    },
+    "actualTotal": 113,
+    "rank": 79,
+    "rankTotal": 176,
+    "scoreDelta": -5.8,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-23T05:59:56.702Z",
+    "topFive": {
+      "date": "2026-10-23",
+      "lineups": [
+        {
+          "rank": 1,
+          "userId": "e61395b4-9dc5-4980-9548-20ae6925f2ec",
+          "displayName": "syaniki",
+          "score": 179.1,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1628378",
+            "1630178",
+            "1631096",
+            "1626209",
+            "1626145"
+          ],
+          "playerScores": {
+            "1626145": 5,
+            "1626209": 25.6,
+            "1628378": 52.5,
+            "1630178": 48.6,
+            "1631096": 47.4
+          },
+          "playerNames": [
+            "多诺万·米切尔",
+            "泰瑞斯·马克西",
+            "切特·霍姆格伦",
+            "马里奥·海佐尼亚",
+            "泰厄斯·琼斯"
+          ]
+        },
+        {
+          "rank": 2,
+          "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+          "displayName": "奶味大宇宙",
+          "score": 168.6,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1630178",
+            "1626209",
+            "1642272",
+            "2544",
+            "1631096"
+          ],
+          "playerScores": {
+            "2544": 43.5,
+            "1626209": 25.6,
+            "1630178": 48.6,
+            "1631096": 47.4,
+            "1642272": 3.5
+          },
+          "playerNames": [
+            "泰瑞斯·马克西",
+            "马里奥·海佐尼亚",
+            "贾里德·麦凯恩",
+            "勒布朗·詹姆斯",
+            "切特·霍姆格伦"
+          ]
+        },
+        {
+          "rank": 3,
+          "userId": "24827626-7d2d-442b-b950-4f3b342e24d0",
+          "displayName": "蓝心黑血",
+          "score": 161.9,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "203954",
+            "1631096",
+            "1642272",
+            "1626209",
+            "1628378"
+          ],
+          "playerScores": {
+            "203954": 32.9,
+            "1626209": 25.6,
+            "1628378": 52.5,
+            "1631096": 47.4,
+            "1642272": 3.5
+          },
+          "playerNames": [
+            "乔尔·恩比德",
+            "切特·霍姆格伦",
+            "贾里德·麦凯恩",
+            "马里奥·海佐尼亚",
+            "多诺万·米切尔"
+          ]
+        },
+        {
+          "rank": 4,
+          "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+          "displayName": "NJZisen",
+          "score": 157.8,
+          "remainingSalary": 4,
+          "salaryUsed": 146,
+          "playerIds": [
+            "1631114",
+            "1642845",
+            "1630596",
+            "203932",
+            "1626209"
+          ],
+          "playerScores": {
+            "203932": 35.7,
+            "1626209": 25.6,
+            "1630596": 29.6,
+            "1631114": 30.5,
+            "1642845": 36.4
+          },
+          "playerNames": [
+            "杰伦·威廉姆斯",
+            "VJ·埃奇库姆",
+            "埃文·莫布利",
+            "阿隆·戈登",
+            "马里奥·海佐尼亚"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "92c74e77-e071-48f4-9a10-c8112919edfb",
+          "displayName": "相信过程",
+          "score": 157,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
+          "playerIds": [
+            "1628983",
+            "2544",
+            "203932",
+            "1626209",
+            "1627936"
+          ],
+          "playerScores": {
+            "2544": 43.5,
+            "203932": 35.7,
+            "1626209": 25.6,
+            "1627936": 25.3,
+            "1628983": 26.9
+          },
+          "playerNames": [
+            "谢伊·吉尔杰斯-亚历山大",
+            "勒布朗·詹姆斯",
+            "阿隆·戈登",
+            "马里奥·海佐尼亚",
+            "亚历克斯·卡鲁索"
+          ]
+        }
+      ],
+      "commonPicks": [
+        {
+          "id": "1626209",
+          "name": "马里奥·海佐尼亚",
+          "selections": 5,
+          "rate": 1
+        },
+        {
+          "id": "1631096",
+          "name": "切特·霍姆格伦",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "203932",
+          "name": "阿隆·戈登",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1628378",
+          "name": "多诺万·米切尔",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1642272",
+          "name": "贾里德·麦凯恩",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "2544",
+          "name": "勒布朗·詹姆斯",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1630178",
+          "name": "泰瑞斯·马克西",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1630596",
+          "name": "埃文·莫布利",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1631114",
+          "name": "杰伦·威廉姆斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "203954",
+          "name": "乔尔·恩比德",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1626145",
+          "name": "泰厄斯·琼斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1628983",
+          "name": "谢伊·吉尔杰斯-亚历山大",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1627936",
+          "name": "亚历克斯·卡鲁索",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1642845",
+          "name": "VJ·埃奇库姆",
+          "selections": 1,
+          "rate": 0.2
+        }
+      ]
     }
+  },
+  {
+    "dateKey": "2026-10-24",
+    "updatedAt": "2026-10-23T06:00:18.447Z",
+    "players": [
+      "1630162",
+      "1629660",
+      "202331",
+      "1642262",
+      "1642274"
+    ],
+    "expected": 132.8,
+    "energy": 149,
+    "formation": "3前2后",
+    "source": "scheduled-model",
+    "selectedMode": "balanced",
+    "weights": {
+      "label": "均衡探索",
+      "recent": 0.28,
+      "history": 0.16,
+      "matchup": 0.12,
+      "odds": 0.08,
+      "injury": 1.1,
+      "replacement": 0.2,
+      "crowd": 0.18
+    },
+    "oddsFetchedAt": "2026-10-23T00:27:53.255Z",
+    "injuryDate": "2026-10-23",
+    "injuryUpdatedAt": "2026-10-23T06:00:13.673Z",
+    "submission": {
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-23T06:00:18.447Z",
+      "playerIds": [
+        "1630162",
+        "1629660",
+        "202331",
+        "1642262",
+        "1642274"
+      ]
+    },
+    "updates": [
+      {
+        "at": "2026-10-23T06:00:18.447Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630162",
+          "1629660",
+          "202331",
+          "1642262",
+          "1642274"
+        ],
+        "expected": 132.8,
+        "mode": "balanced",
+        "weights": {
+          "label": "均衡探索",
+          "recent": 0.28,
+          "history": 0.16,
+          "matchup": 0.12,
+          "odds": 0.08,
+          "injury": 1.1,
+          "replacement": 0.2,
+          "crowd": 0.18
+        },
+        "submission": "submitted-verified"
+      }
+    ]
   }
 ]
