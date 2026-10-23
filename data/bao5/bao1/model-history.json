@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T19:35:16.267Z",
+    "resultUpdatedAt": "2026-10-23T22:46:43.663Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T19:35:19.131Z",
+    "resultUpdatedAt": "2026-10-23T22:46:46.692Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T19:35:21.940Z",
+    "resultUpdatedAt": "2026-10-23T22:46:50.040Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6401,6 +6401,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "安东尼·爱德华兹",
+      "泰·杰罗姆",
+      "保罗·乔治",
+      "科迪·威廉姆斯",
+      "伊夫·米西"
+    ],
+    "bao5Players": [
+      "202331",
+      "1629660",
+      "1629638",
+      "1631217",
+      "1627739"
+    ],
+    "bao5PlayerNames": [
+      "保罗·乔治",
+      "泰·杰罗姆",
+      "尼基尔·亚历山大·沃克",
+      "穆萨·迪亚巴特",
+      "克里斯·邓恩"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-24",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-23T19:45:00.000Z",
+      "sourceUpdateAt": "2026-10-23T19:35:44.722Z",
+      "reason": "pre-tip-25m-final",
+      "players": [
+        "1630162",
+        "1629660",
+        "202331",
+        "1642262",
+        "1642274"
+      ],
+      "expected": 132.7,
+      "energy": 149,
+      "formation": "3前2后",
+      "mode": "balanced"
+    }
   }
 ]

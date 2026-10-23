@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T19:35:39.876Z",
+  "updatedAt": "2026-10-23T22:47:07.867Z",
   "serverDate": "2026-10-23",
   "requestedDate": "2026-10-24",
   "available": true,
@@ -8,12 +8,12 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 540,
-    "available": 224,
+    "available": 229,
     "pending": 228,
-    "out": 66,
-    "questionable": 16,
-    "probable": 3,
-    "doubtful": 3
+    "out": 74,
+    "questionable": 7,
+    "probable": 1,
+    "doubtful": 1
   },
   "provenance": {
     "officialCount": 83,
@@ -24,8 +24,8 @@
   "snapshotFile": "snapshots/injuries_2026-10-23.json",
   "changesFile": "changes/changes_2026-10-23.json",
   "previousDate": "2026-10-22",
-  "changeCount": 230,
-  "restrictedCount": 88,
+  "changeCount": 228,
+  "restrictedCount": 83,
   "restricted": [
     {
       "id": "202699",
@@ -210,6 +210,20 @@
       "energy": null
     },
     {
+      "id": "1629646",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629651",
       "key": "out",
       "label": "缺阵",
@@ -294,6 +308,20 @@
       "energy": null
     },
     {
+      "id": "1630592",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631101",
       "key": "out",
       "label": "缺阵",
@@ -350,6 +378,20 @@
       "energy": null
     },
     {
+      "id": "1631222",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631230",
       "key": "out",
       "label": "缺阵",
@@ -392,6 +434,20 @@
       "energy": null
     },
     {
+      "id": "1641724",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右小腿肚紧张/酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641725",
       "key": "out",
       "label": "缺阵",
@@ -425,6 +481,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左手术）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641767",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左撕裂）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -644,6 +714,20 @@
       "energy": null
     },
     {
+      "id": "1642484",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642850",
       "key": "out",
       "label": "缺阵",
@@ -798,6 +882,20 @@
       "energy": null
     },
     {
+      "id": "1642933",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642949",
       "key": "out",
       "label": "缺阵",
@@ -896,6 +994,20 @@
       "energy": null
     },
     {
+      "id": "1643552",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643555",
       "key": "out",
       "label": "缺阵",
@@ -952,39 +1064,11 @@
       "energy": null
     },
     {
-      "id": "1641724",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右小腿肚紧张/酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642907",
       "key": "doubtful",
       "label": "小概率出战",
       "probability": "25%",
       "detail": "NBA官方伤病报告：小概率出战（左手腕扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643552",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1036,67 +1120,11 @@
       "energy": null
     },
     {
-      "id": "1629646",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630174",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左腿筋拉伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630191",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630592",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1631222",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1120,67 +1148,11 @@
       "energy": null
     },
     {
-      "id": "1641764",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（下背酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641767",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左膝盖酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642263",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（左膝盖挫伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642484",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642933",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1204,53 +1176,11 @@
       "energy": null
     },
     {
-      "id": "1643590",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1628370",
+      "id": "1641764",
       "key": "probable",
       "label": "大概率出战",
       "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左脚踝酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641738",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641771",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：大概率出战（下背酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1260,5 +1190,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月23日 15:15 发布）：列出83人，今日出战的另外147人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月23日 18:30 发布）：列出83人，今日出战的另外147人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
