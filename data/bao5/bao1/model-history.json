@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T00:32:06.105Z",
+    "resultUpdatedAt": "2026-10-24T01:16:28.941Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T00:32:08.658Z",
+    "resultUpdatedAt": "2026-10-24T01:16:31.639Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T00:32:11.264Z",
+    "resultUpdatedAt": "2026-10-24T01:16:34.402Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6440,12 +6440,12 @@
       "formation": "3前2后",
       "mode": "balanced"
     },
-    "actualTotal": 52.9,
-    "rank": 74,
+    "actualTotal": 75.4,
+    "rank": 68,
     "rankTotal": 174,
-    "scoreDelta": -79.8,
+    "scoreDelta": -57.3,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T00:32:14.079Z",
+    "resultUpdatedAt": "2026-10-24T01:16:37.249Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6453,7 +6453,7 @@
           "rank": 1,
           "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
           "displayName": "老四238",
-          "score": 129.4,
+          "score": 171.7,
           "remainingSalary": 3,
           "salaryUsed": 147,
           "playerIds": [
@@ -6464,9 +6464,9 @@
             "1642865"
           ],
           "playerScores": {
-            "1628369": 23.7,
+            "1628369": 50.8,
             "1629639": 48,
-            "1630169": 18.6,
+            "1630169": 33.8,
             "1630188": 39.1,
             "1642865": 0
           },
@@ -6482,7 +6482,7 @@
           "rank": 2,
           "userId": "deb2027f-b971-491b-a19a-1158ecd21726",
           "displayName": "Kimi1024",
-          "score": 115.9,
+          "score": 161.1,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -6493,11 +6493,11 @@
             "1630183"
           ],
           "playerScores": {
-            "1629675": 17.5,
-            "1630169": 18.6,
-            "1630183": 22,
-            "1630700": 38.1,
-            "1631217": 19.7
+            "1629675": 23.2,
+            "1630169": 33.8,
+            "1630183": 31.2,
+            "1630700": 51.8,
+            "1631217": 21.1
           },
           "playerNames": [
             "戴森·丹尼尔斯",
@@ -6509,67 +6509,67 @@
         },
         {
           "rank": 3,
-          "userId": "256dde47-378d-4c46-b46b-f83a1170b3d7",
-          "displayName": "Feifei",
-          "score": 113,
-          "remainingSalary": 1,
-          "salaryUsed": 149,
+          "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
+          "displayName": "Paddy",
+          "score": 157.9,
+          "remainingSalary": 4,
+          "salaryUsed": 146,
           "playerIds": [
-            "1642843",
+            "1628369",
+            "1642865",
             "1630169",
-            "1629639",
-            "203471",
-            "1629060"
+            "1629027",
+            "1630188"
           ],
           "playerScores": {
-            "203471": 8.4,
-            "1629060": 0,
-            "1629639": 48,
-            "1630169": 18.6,
-            "1642843": 38
+            "1628369": 50.8,
+            "1629027": 34.2,
+            "1630169": 33.8,
+            "1630188": 39.1,
+            "1642865": 0
           },
           "playerNames": [
-            "库珀·弗拉格",
+            "杰森·塔图姆",
+            "亚克塞尔·伦德博格",
             "泰瑞斯·哈利伯顿",
-            "泰勒·希罗",
-            "丹尼斯·施罗德",
-            "八村垒"
+            "特雷·杨",
+            "杰伦·史密斯"
           ]
         },
         {
           "rank": 4,
-          "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
-          "displayName": "Santiago",
-          "score": 109.3,
-          "remainingSalary": 4,
-          "salaryUsed": 146,
+          "userId": "8f52bcf8-3c17-46e3-bd32-b289acbd6a46",
+          "displayName": "诚少",
+          "score": 138,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
           "playerIds": [
             "1642865",
-            "1642843",
-            "1629637",
-            "1629639",
-            "1630581"
+            "1630567",
+            "1630162",
+            "1630598",
+            "1630169"
           ],
           "playerScores": {
-            "1629637": 0,
-            "1629639": 48,
-            "1630581": 23.3,
-            "1642843": 38,
+            "1630162": 29.8,
+            "1630169": 33.8,
+            "1630567": 47.7,
+            "1630598": 26.7,
             "1642865": 0
           },
           "playerNames": [
             "亚克塞尔·伦德博格",
-            "库珀·弗拉格",
-            "贾克森·海斯",
-            "泰勒·希罗",
-            "约什·吉迪"
+            "斯科蒂·巴恩斯",
+            "安东尼·爱德华兹",
+            "阿隆·威金斯",
+            "泰瑞斯·哈利伯顿"
           ]
         },
         {
           "rank": 5,
           "userId": "edf99707-c73f-47e4-bfe0-cbec725dda31",
           "displayName": "内德维德",
-          "score": 106.6,
+          "score": 137.1,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -6580,10 +6580,10 @@
             "1631159"
           ],
           "playerScores": {
-            "203507": 11.4,
+            "203507": 26.7,
             "1629060": 0,
             "1629639": 48,
-            "1630169": 18.6,
+            "1630169": 33.8,
             "1631159": 28.6
           },
           "playerNames": [
@@ -6597,34 +6597,52 @@
       ],
       "commonPicks": [
         {
-          "id": "1629639",
-          "name": "泰勒·希罗",
-          "selections": 4,
-          "rate": 0.8
-        },
-        {
           "id": "1630169",
           "name": "泰瑞斯·哈利伯顿",
-          "selections": 4,
-          "rate": 0.8
-        },
-        {
-          "id": "1629060",
-          "name": "八村垒",
-          "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "1642843",
-          "name": "库珀·弗拉格",
-          "selections": 2,
-          "rate": 0.4
+          "selections": 5,
+          "rate": 1
         },
         {
           "id": "1642865",
           "name": "亚克塞尔·伦德博格",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1630188",
+          "name": "杰伦·史密斯",
           "selections": 2,
           "rate": 0.4
+        },
+        {
+          "id": "1628369",
+          "name": "杰森·塔图姆",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1629639",
+          "name": "泰勒·希罗",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1630598",
+          "name": "阿隆·威金斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630162",
+          "name": "安东尼·爱德华兹",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629060",
+          "name": "八村垒",
+          "selections": 1,
+          "rate": 0.2
         },
         {
           "id": "1630700",
@@ -6633,32 +6651,8 @@
           "rate": 0.2
         },
         {
-          "id": "203471",
-          "name": "丹尼斯·施罗德",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1629637",
-          "name": "贾克森·海斯",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
           "id": "1630183",
           "name": "杰登·麦克丹尼尔斯",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1630188",
-          "name": "杰伦·史密斯",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1628369",
-          "name": "杰森·塔图姆",
           "selections": 1,
           "rate": 0.2
         },
@@ -6681,14 +6675,20 @@
           "rate": 0.2
         },
         {
-          "id": "203507",
-          "name": "扬尼斯·阿德托昆博",
+          "id": "1630567",
+          "name": "斯科蒂·巴恩斯",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1630581",
-          "name": "约什·吉迪",
+          "id": "1629027",
+          "name": "特雷·杨",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "203507",
+          "name": "扬尼斯·阿德托昆博",
           "selections": 1,
           "rate": 0.2
         }
