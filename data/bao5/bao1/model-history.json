@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T22:46:43.663Z",
+    "resultUpdatedAt": "2026-10-24T00:22:17.546Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T22:46:46.692Z",
+    "resultUpdatedAt": "2026-10-24T00:22:20.306Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-23T22:46:50.040Z",
+    "resultUpdatedAt": "2026-10-24T00:22:23.138Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6439,6 +6439,266 @@
       "energy": 149,
       "formation": "3前2后",
       "mode": "balanced"
+    },
+    "actualTotal": 52.9,
+    "rank": 69,
+    "rankTotal": 174,
+    "scoreDelta": -79.8,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-24T00:22:26.359Z",
+    "topFive": {
+      "date": "2026-10-24",
+      "lineups": [
+        {
+          "rank": 1,
+          "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
+          "displayName": "老四238",
+          "score": 129.4,
+          "remainingSalary": 3,
+          "salaryUsed": 147,
+          "playerIds": [
+            "1628369",
+            "1629639",
+            "1630169",
+            "1630188",
+            "1642865"
+          ],
+          "playerScores": {
+            "1628369": 23.7,
+            "1629639": 48,
+            "1630169": 18.6,
+            "1630188": 39.1,
+            "1642865": 0
+          },
+          "playerNames": [
+            "杰森·塔图姆",
+            "泰勒·希罗",
+            "泰瑞斯·哈利伯顿",
+            "杰伦·史密斯",
+            "亚克塞尔·伦德博格"
+          ]
+        },
+        {
+          "rank": 2,
+          "userId": "256dde47-378d-4c46-b46b-f83a1170b3d7",
+          "displayName": "Feifei",
+          "score": 111,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1642843",
+            "1630169",
+            "1629639",
+            "203471",
+            "1629060"
+          ],
+          "playerScores": {
+            "203471": 8.4,
+            "1629060": 0,
+            "1629639": 48,
+            "1630169": 18.6,
+            "1642843": 36
+          },
+          "playerNames": [
+            "库珀·弗拉格",
+            "泰瑞斯·哈利伯顿",
+            "泰勒·希罗",
+            "丹尼斯·施罗德",
+            "八村垒"
+          ]
+        },
+        {
+          "rank": 3,
+          "userId": "deb2027f-b971-491b-a19a-1158ecd21726",
+          "displayName": "Kimi1024",
+          "score": 107.9,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1630700",
+            "1630169",
+            "1631217",
+            "1629675",
+            "1630183"
+          ],
+          "playerScores": {
+            "1629675": 18.5,
+            "1630169": 18.6,
+            "1630183": 19,
+            "1630700": 32.1,
+            "1631217": 19.7
+          },
+          "playerNames": [
+            "戴森·丹尼尔斯",
+            "泰瑞斯·哈利伯顿",
+            "穆萨·迪亚巴特",
+            "纳兹·里德",
+            "杰登·麦克丹尼尔斯"
+          ]
+        },
+        {
+          "rank": 4,
+          "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
+          "displayName": "Santiago",
+          "score": 107.3,
+          "remainingSalary": 4,
+          "salaryUsed": 146,
+          "playerIds": [
+            "1642865",
+            "1642843",
+            "1629637",
+            "1629639",
+            "1630581"
+          ],
+          "playerScores": {
+            "1629637": 0,
+            "1629639": 48,
+            "1630581": 23.3,
+            "1642843": 36,
+            "1642865": 0
+          },
+          "playerNames": [
+            "亚克塞尔·伦德博格",
+            "库珀·弗拉格",
+            "贾克森·海斯",
+            "泰勒·希罗",
+            "约什·吉迪"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "4fe5bdea-cd7d-47b0-aaee-ff87210f2889",
+          "displayName": "org",
+          "score": 103.5,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1642843",
+            "1629639",
+            "1642274",
+            "1641718",
+            "1630598"
+          ],
+          "playerScores": {
+            "1629639": 48,
+            "1630598": 19.5,
+            "1641718": 0,
+            "1642274": 0,
+            "1642843": 36
+          },
+          "playerNames": [
+            "库珀·弗拉格",
+            "泰勒·希罗",
+            "伊夫·米西",
+            "基扬特·乔治",
+            "阿隆·威金斯"
+          ]
+        }
+      ],
+      "commonPicks": [
+        {
+          "id": "1629639",
+          "name": "泰勒·希罗",
+          "selections": 4,
+          "rate": 0.8
+        },
+        {
+          "id": "1642843",
+          "name": "库珀·弗拉格",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1630169",
+          "name": "泰瑞斯·哈利伯顿",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1642865",
+          "name": "亚克塞尔·伦德博格",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1630598",
+          "name": "阿隆·威金斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629060",
+          "name": "八村垒",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630700",
+          "name": "戴森·丹尼尔斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "203471",
+          "name": "丹尼斯·施罗德",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1641718",
+          "name": "基扬特·乔治",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629637",
+          "name": "贾克森·海斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630183",
+          "name": "杰登·麦克丹尼尔斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630188",
+          "name": "杰伦·史密斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1628369",
+          "name": "杰森·塔图姆",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1631217",
+          "name": "穆萨·迪亚巴特",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629675",
+          "name": "纳兹·里德",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1642274",
+          "name": "伊夫·米西",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630581",
+          "name": "约什·吉迪",
+          "selections": 1,
+          "rate": 0.2
+        }
+      ]
     }
   }
 ]
