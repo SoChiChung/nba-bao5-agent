@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T18:24:14.781Z",
+    "resultUpdatedAt": "2026-10-24T22:09:07.552Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T18:24:18.078Z",
+    "resultUpdatedAt": "2026-10-24T22:09:10.766Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T18:24:21.469Z",
+    "resultUpdatedAt": "2026-10-24T22:09:14.235Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-24T18:24:24.761Z",
+    "resultUpdatedAt": "2026-10-24T22:09:17.420Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6792,6 +6792,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "泰瑞斯·马克西",
+      "威尔·莱利",
+      "德章泰·穆雷",
+      "戴森·丹尼尔斯",
+      "安东尼·吉尔"
+    ],
+    "bao5Players": [
+      "1630178",
+      "203944",
+      "1627749",
+      "1642275",
+      "1642865"
+    ],
+    "bao5PlayerNames": [
+      "泰瑞斯·马克西",
+      "朱利叶斯·兰德尔",
+      "德章泰·穆雷",
+      "提贾尼·萨隆",
+      "亚克塞尔·伦德博格"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-25",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-24T21:45:00.000Z",
+      "sourceUpdateAt": "2026-10-24T18:24:48.993Z",
+      "reason": "schedule-window",
+      "players": [
+        "1630178",
+        "1642860",
+        "1627749",
+        "1630700",
+        "1630264"
+      ],
+      "expected": 117.9,
+      "energy": 150,
+      "formation": "2前3后",
+      "mode": "matchupFocus"
+    }
   }
 ]
