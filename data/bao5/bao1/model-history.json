@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T22:11:33.716Z",
+    "resultUpdatedAt": "2026-10-25T23:56:25.418Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T22:11:36.945Z",
+    "resultUpdatedAt": "2026-10-25T23:56:28.366Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T22:11:40.231Z",
+    "resultUpdatedAt": "2026-10-25T23:56:31.377Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T22:11:43.384Z",
+    "resultUpdatedAt": "2026-10-25T23:56:34.421Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T22:11:46.506Z",
+    "resultUpdatedAt": "2026-10-25T23:56:37.343Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7240,6 +7240,266 @@
       "energy": 147,
       "formation": "3前2后",
       "mode": "highRisk"
+    },
+    "actualTotal": 12.4,
+    "rank": 189,
+    "rankTotal": 191,
+    "scoreDelta": -106.2,
+    "resultSource": "bao5-rankings-api",
+    "resultUpdatedAt": "2026-10-25T23:56:40.603Z",
+    "topFive": {
+      "date": "2026-10-26",
+      "lineups": [
+        {
+          "rank": 1,
+          "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
+          "displayName": "鲁迪费尔南德斯",
+          "score": 140.6,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1630194",
+            "1641718",
+            "1629029",
+            "1641737",
+            "1630173"
+          ],
+          "playerScores": {
+            "1629029": 78.6,
+            "1630173": 0,
+            "1630194": 12.8,
+            "1641718": 46.8,
+            "1641737": 2.4
+          },
+          "playerNames": [
+            "保罗·里德",
+            "基扬特·乔治",
+            "卢卡·东契奇",
+            "阿德姆·博纳",
+            "普雷舍斯·阿丘瓦"
+          ]
+        },
+        {
+          "rank": 2,
+          "userId": "876ab568-1752-4209-b102-75af8ee0c0ad",
+          "displayName": "芋头粽",
+          "score": 139.6,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1629029",
+            "1630169",
+            "1630194",
+            "1630228",
+            "1642266"
+          ],
+          "playerScores": {
+            "1629029": 78.6,
+            "1630169": 33.3,
+            "1630194": 12.8,
+            "1630228": 6,
+            "1642266": 8.9
+          },
+          "playerNames": [
+            "卢卡·东契奇",
+            "泰瑞斯·哈利伯顿",
+            "保罗·里德",
+            "乔纳森·库明加",
+            "贾科比·沃尔特"
+          ]
+        },
+        {
+          "rank": 3,
+          "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
+          "displayName": "FG是冠军",
+          "score": 119.1,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1630194",
+            "1630169",
+            "1627734",
+            "1630559",
+            "1627739"
+          ],
+          "playerScores": {
+            "1627734": 0,
+            "1627739": 30.8,
+            "1630169": 33.3,
+            "1630194": 12.8,
+            "1630559": 42.2
+          },
+          "playerNames": [
+            "保罗·里德",
+            "泰瑞斯·哈利伯顿",
+            "多曼塔斯·萨博尼斯",
+            "奥斯汀·里夫斯",
+            "克里斯·邓恩"
+          ]
+        },
+        {
+          "rank": 4,
+          "userId": "187f999a-2120-4ee5-9087-75f9eac83182",
+          "displayName": "喝呀",
+          "score": 115.4,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1629660",
+            "1629029",
+            "1642867",
+            "1629637",
+            "201572"
+          ],
+          "playerScores": {
+            "201572": 11,
+            "1629029": 78.6,
+            "1629637": 19.5,
+            "1629660": 0,
+            "1642867": 6.3
+          },
+          "playerNames": [
+            "泰·杰罗姆",
+            "卢卡·东契奇",
+            "科林·穆雷·博伊尔斯",
+            "贾克森·海斯",
+            "布鲁克·洛佩斯"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
+          "displayName": "yyyyyj45",
+          "score": 111.6,
+          "remainingSalary": 3,
+          "salaryUsed": 147,
+          "playerIds": [
+            "1630194",
+            "1627783",
+            "1630559",
+            "1629614",
+            "1642266"
+          ],
+          "playerScores": {
+            "1627783": 33.5,
+            "1629614": 14.2,
+            "1630194": 12.8,
+            "1630559": 42.2,
+            "1642266": 8.9
+          },
+          "playerNames": [
+            "保罗·里德",
+            "帕斯卡尔·西亚卡姆",
+            "奥斯汀·里夫斯",
+            "安德鲁·内姆布哈德",
+            "贾科比·沃尔特"
+          ]
+        }
+      ],
+      "commonPicks": [
+        {
+          "id": "1630194",
+          "name": "保罗·里德",
+          "selections": 4,
+          "rate": 0.8
+        },
+        {
+          "id": "1629029",
+          "name": "卢卡·东契奇",
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1630559",
+          "name": "奥斯汀·里夫斯",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1642266",
+          "name": "贾科比·沃尔特",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1630169",
+          "name": "泰瑞斯·哈利伯顿",
+          "selections": 2,
+          "rate": 0.4
+        },
+        {
+          "id": "1641737",
+          "name": "阿德姆·博纳",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629614",
+          "name": "安德鲁·内姆布哈德",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "201572",
+          "name": "布鲁克·洛佩斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1627734",
+          "name": "多曼塔斯·萨博尼斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1641718",
+          "name": "基扬特·乔治",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629637",
+          "name": "贾克森·海斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1642867",
+          "name": "科林·穆雷·博伊尔斯",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1627739",
+          "name": "克里斯·邓恩",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1627783",
+          "name": "帕斯卡尔·西亚卡姆",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630173",
+          "name": "普雷舍斯·阿丘瓦",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1630228",
+          "name": "乔纳森·库明加",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629660",
+          "name": "泰·杰罗姆",
+          "selections": 1,
+          "rate": 0.2
+        }
+      ]
     }
   }
 ]

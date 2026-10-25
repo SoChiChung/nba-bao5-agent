@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T22:12:07.373Z",
+  "updatedAt": "2026-10-25T23:56:56.760Z",
   "serverDate": "2026-10-25",
   "requestedDate": "2026-10-26",
   "available": true,
@@ -10,9 +10,8 @@
     "total": 540,
     "available": 222,
     "pending": 223,
-    "out": 91,
-    "doubtful": 1,
-    "questionable": 3
+    "out": 93,
+    "questionable": 2
   },
   "provenance": {
     "officialCount": 50,
@@ -452,6 +451,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631099",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -937,6 +950,20 @@
       "energy": null
     },
     {
+      "id": "1642845",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（挫伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642850",
       "key": "out",
       "label": "缺阵",
@@ -1301,34 +1328,6 @@
       "energy": null
     },
     {
-      "id": "1631099",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左脚踝）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642845",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（挫伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642907",
       "key": "questionable",
       "label": "出战成疑",
@@ -1357,5 +1356,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月25日 18:00 发布）：列出50人，今日出战的另外142人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月25日 19:30 发布）：列出50人，今日出战的另外142人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
