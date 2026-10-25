@@ -1,18 +1,17 @@
 {
-  "generatedAt": "2026-10-25T00:15:27.228Z",
+  "generatedAt": "2026-10-25T00:43:09.804Z",
   "serverDate": "2026-10-24",
   "requestedDate": "2026-10-25",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-24T20:00:00",
+  "updatedAt": "2026-10-24T20:30:00",
   "counts": {
     "total": 540,
-    "out": 88,
+    "out": 89,
     "available": 269,
     "pending": 180,
-    "doubtful": 1,
     "questionable": 2
   },
   "provenance": {
@@ -21,7 +20,7 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月24日 20:00 发布）：列出57人，今日出战的另外167人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月24日 20:30 发布）：列出57人，今日出战的另外167人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-23",
   "changeCount": 216,
@@ -210,9 +209,9 @@
       "kind": "newInjury",
       "id": "203110",
       "from": "pending",
-      "to": "doubtful",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（下背酸痛）",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（下背酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -3189,7 +3188,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-23T20:45:00",
-      "to": "2026-10-24T20:00:00"
+      "to": "2026-10-24T20:30:00"
     },
     {
       "field": "officialCount",
