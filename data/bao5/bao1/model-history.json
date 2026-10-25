@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T18:35:02.366Z",
+    "resultUpdatedAt": "2026-10-25T22:11:33.716Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T18:35:05.085Z",
+    "resultUpdatedAt": "2026-10-25T22:11:36.945Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T18:35:07.779Z",
+    "resultUpdatedAt": "2026-10-25T22:11:40.231Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T18:35:10.677Z",
+    "resultUpdatedAt": "2026-10-25T22:11:43.384Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-25T18:35:13.668Z",
+    "resultUpdatedAt": "2026-10-25T22:11:46.506Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7202,6 +7202,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "泰·杰罗姆",
+      "小迈克尔·波特",
+      "多曼塔斯·萨博尼斯",
+      "科迪·威廉姆斯",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5Players": [
+      "1629660",
+      "1627734",
+      "1631117",
+      "1643409",
+      "1643411"
+    ],
+    "bao5PlayerNames": [
+      "泰·杰罗姆",
+      "多曼塔斯·萨博尼斯",
+      "沃克·凯斯勒",
+      "卡梅隆·布泽尔",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-26",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-25T20:45:00.000Z",
+      "sourceUpdateAt": "2026-10-25T18:35:35.324Z",
+      "reason": "schedule-window",
+      "players": [
+        "1629660",
+        "1629008",
+        "1627734",
+        "1642262",
+        "1643411"
+      ],
+      "expected": 118.6,
+      "energy": 147,
+      "formation": "3前2后",
+      "mode": "highRisk"
+    }
   }
 ]
