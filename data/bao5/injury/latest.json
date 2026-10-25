@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T14:55:11.712Z",
+  "updatedAt": "2026-10-25T18:35:30.812Z",
   "serverDate": "2026-10-25",
   "requestedDate": "2026-10-26",
   "available": true,
@@ -8,39 +8,25 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 540,
-    "out": 83,
-    "pending": 242,
-    "available": 204,
+    "available": 219,
+    "pending": 225,
+    "out": 85,
     "probable": 3,
     "questionable": 7,
     "doubtful": 1
   },
   "provenance": {
-    "officialCount": 40,
-    "projectedCount": 114,
+    "officialCount": 46,
+    "projectedCount": 144,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-10-25.json",
   "changesFile": "changes/changes_2026-10-25.json",
   "previousDate": "2026-10-24",
-  "changeCount": 317,
-  "restrictedCount": 94,
+  "changeCount": 301,
+  "restrictedCount": 96,
   "restricted": [
-    {
-      "id": "2544",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 10月24日：缺阵（下背）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
     {
       "id": "201143",
       "key": "out",
@@ -159,6 +145,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 10月24日：缺阵（左拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203954",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -382,7 +382,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月24日：缺阵（右跟腱断裂/撕裂）",
+      "detail": "NBA官方伤病报告：缺阵（右跟腱断裂/撕裂）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -504,11 +504,25 @@
       "energy": null
     },
     {
+      "id": "1631133",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左膝盖酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631230",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月24日：缺阵（下背应力反应）",
+      "detail": "NBA官方伤病报告：缺阵（下背应力反应）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -523,6 +537,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 10月24日：缺阵（左足部骨折）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641723",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -952,25 +980,11 @@
       "energy": null
     },
     {
-      "id": "1642923",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 未随队",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642927",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右足部骨折）",
+      "detail": "NBA官方伤病报告：缺阵（右足部）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1050,6 +1064,20 @@
       "energy": null
     },
     {
+      "id": "1643414",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643418",
       "key": "out",
       "label": "缺阵",
@@ -1096,7 +1124,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月24日：缺阵（右肩部扭伤）",
+      "detail": "NBA官方伤病报告：缺阵（右肩部扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1344,5 +1372,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月25日 10:45 发布）：列出40人，今日出战的另外114人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月25日 14:15 发布）：列出46人，今日出战的另外144人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
