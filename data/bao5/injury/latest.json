@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T11:29:27.119Z",
+  "updatedAt": "2026-10-26T17:12:39.059Z",
   "serverDate": "2026-10-26",
   "requestedDate": "2026-10-27",
   "available": true,
@@ -7,25 +7,24 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
-    "total": 540,
-    "out": 86,
-    "available": 209,
-    "pending": 231,
-    "questionable": 5,
-    "doubtful": 7,
-    "probable": 2
+    "total": 542,
+    "out": 89,
+    "available": 434,
+    "questionable": 9,
+    "probable": 4,
+    "doubtful": 6
   },
   "provenance": {
-    "officialCount": 40,
-    "projectedCount": 116,
+    "officialCount": 43,
+    "projectedCount": 133,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-10-26.json",
   "changesFile": "changes/changes_2026-10-26.json",
   "previousDate": "2026-10-25",
-  "changeCount": 268,
-  "restrictedCount": 100,
+  "changeCount": 319,
+  "restrictedCount": 108,
   "restricted": [
     {
       "id": "2544",
@@ -126,6 +125,20 @@
       "energy": null
     },
     {
+      "id": "203935",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "203954",
       "key": "out",
       "label": "缺阵",
@@ -214,7 +227,21 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月25日：缺阵（右跟腱修复手术）",
+      "detail": "NBA官方伤病报告：缺阵（右跟腱修复手术）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1628997",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右拇指扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -426,6 +453,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左肩部手术）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631114",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Williams was stretchered off the floor during Sunday's game against the Clippers due to an apparent left ankle injury, NBA writer Justin Russo reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -798,20 +839,6 @@
       "energy": null
     },
     {
-      "id": "1642389",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 10月21日：缺阵 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642391",
       "key": "out",
       "label": "缺阵",
@@ -929,20 +956,6 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 10月25日：缺阵（左膝盖）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642911",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 10月21日：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1232,12 +1245,26 @@
       "energy": null
     },
     {
-      "id": "1628997",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右拇指扭伤）",
-      "source": "NBA官方",
+      "id": "3904625",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Fall (quadriceps) has been ruled out for Sunday's game against Detroit.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "3907387",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Simmons underwent successful surgery Tuesday to repair a torn right Achilles tendon, James Ham of ESPN 1320 Sacramento reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1330,11 +1357,25 @@
       "energy": null
     },
     {
-      "id": "203935",
+      "id": "1627826",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Head coach Rick Carlisle said that X-rays on Zubac's sprained left ankle came back negative, but he's got some swelling and is unlikely to play Monday in Milwaukee, Scott Agness of FieldhouseFiles.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630162",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左拉伤）",
+      "detail": "NBA官方伤病报告：出战成疑（右膝盖）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1358,6 +1399,34 @@
       "energy": null
     },
     {
+      "id": "1630198",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Joe (hip) will not return to Sunday's game against the 76ers, Hunter Patterson of The Athletic reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630591",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Suggs (knee) did not return to Sunday's game against the Knicks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630611",
       "key": "questionable",
       "label": "出战成疑",
@@ -1372,12 +1441,26 @@
       "energy": null
     },
     {
-      "id": "1642843",
+      "id": "1631119",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左肩部扭伤）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Williams won't return to Sunday's game against the Clippers due to right wrist soreness, Nick Crain of SLAM reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641717",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Wallace (shoulder) will not return to Sunday's game against the Clippers, Rylan Stiles of SI.com  reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1414,6 +1497,20 @@
       "energy": null
     },
     {
+      "id": "1629675",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战 · 疾病",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630314",
       "key": "probable",
       "label": "大概率出战",
@@ -1426,7 +1523,21 @@
       "teamName": null,
       "position": null,
       "energy": null
+    },
+    {
+      "id": "1642843",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战（左肩部扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月26日 07:15 发布）：列出40人，今日出战的另外116人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月26日 13:00 发布）：列出43人，今日出战的另外133人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
