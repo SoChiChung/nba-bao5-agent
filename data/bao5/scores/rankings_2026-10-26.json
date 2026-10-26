@@ -1,23 +1,23 @@
 {
-  "fetchedAt": "2026-10-26T00:10:00.896Z",
+  "fetchedAt": "2026-10-26T00:54:11.699Z",
   "date": "2026-10-26",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "mine": {
     "day": {
-      "rank": 189,
+      "rank": 191,
       "score": 12.4,
       "total": 191,
       "settled": false
     },
     "week": {
-      "rank": 189,
+      "rank": 191,
       "score": 12.4,
       "total": 191,
       "settled": false
     },
     "season": {
-      "rank": 128,
+      "rank": 133,
       "score": 697.3,
       "total": 217,
       "settled": true
@@ -26,10 +26,26 @@
   "boardCount": 191,
   "board": [
     {
+      "userId": "876ab568-1752-4209-b102-75af8ee0c0ad",
+      "displayName": "芋头粽",
+      "avatarKey": "LAL",
+      "score": 188.1,
+      "remainingSalary": 0,
+      "submittedAt": 1792919581879,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 1
+    },
+    {
       "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
       "displayName": "鲁迪费尔南德斯",
       "avatarKey": null,
-      "score": 150.6,
+      "score": 156,
       "remainingSalary": 0,
       "submittedAt": 1792956249829,
       "statuses": [
@@ -39,61 +55,109 @@
         "done",
         "done"
       ],
-      "rank": 1
-    },
-    {
-      "userId": "876ab568-1752-4209-b102-75af8ee0c0ad",
-      "displayName": "芋头粽",
-      "avatarKey": "LAL",
-      "score": 147,
-      "remainingSalary": 0,
-      "submittedAt": 1792919581879,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
       "rank": 2
-    },
-    {
-      "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
-      "displayName": "yyyyyj45",
-      "avatarKey": null,
-      "score": 122.5,
-      "remainingSalary": 3,
-      "submittedAt": 1792892476800,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 3
     },
     {
       "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
       "displayName": "FG是冠军",
       "avatarKey": null,
-      "score": 122.3,
+      "score": 151.3,
       "remainingSalary": 1,
       "submittedAt": 1792938831068,
       "statuses": [
         "todo",
         "live",
         "live",
+        "done",
+        "done"
+      ],
+      "rank": 3
+    },
+    {
+      "userId": "c33bbef3-70d2-4326-be9f-43518f246ed8",
+      "displayName": "Leon",
+      "avatarKey": "GSW",
+      "score": 150.9,
+      "remainingSalary": 2,
+      "submittedAt": 1792931637384,
+      "statuses": [
         "live",
+        "live",
+        "live",
+        "done",
         "done"
       ],
       "rank": 4
     },
     {
+      "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
+      "displayName": "yyyyyj45",
+      "avatarKey": null,
+      "score": 144.9,
+      "remainingSalary": 3,
+      "submittedAt": 1792892476800,
+      "statuses": [
+        "live",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 5
+    },
+    {
+      "userId": "c20fc58d-c5cd-4871-ad06-45c92f85e482",
+      "displayName": "Cathay",
+      "avatarKey": "CHI",
+      "score": 142,
+      "remainingSalary": 0,
+      "submittedAt": 1792903861607,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 6
+    },
+    {
+      "userId": "5fa79037-5dcf-4fb9-b4c3-fda4bc29bb4a",
+      "displayName": "最佳新秀迪哈珀",
+      "avatarKey": "DEN",
+      "score": 135.3,
+      "remainingSalary": 3,
+      "submittedAt": 1792918762555,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "live",
+        "live"
+      ],
+      "rank": 7
+    },
+    {
+      "userId": "031498de-93df-430b-961d-0b367a826f46",
+      "displayName": "Hou",
+      "avatarKey": null,
+      "score": 132.7,
+      "remainingSalary": 1,
+      "submittedAt": 1792933498404,
+      "statuses": [
+        "todo",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 8
+    },
+    {
       "userId": "187f999a-2120-4ee5-9087-75f9eac83182",
       "displayName": "喝呀",
       "avatarKey": "badge:F02",
-      "score": 118.6,
+      "score": 132.7,
       "remainingSalary": 0,
       "submittedAt": 1792930399221,
       "statuses": [
@@ -103,127 +167,63 @@
         "done",
         "done"
       ],
-      "rank": 5
+      "rank": 9
     },
     {
       "userId": "61430ae3-2534-44b7-abbc-8643c4f50584",
       "displayName": "bzxj",
       "avatarKey": "POR",
-      "score": 104.1,
+      "score": 132.2,
       "remainingSalary": 0,
       "submittedAt": 1792814525526,
       "statuses": [
         "todo",
         "live",
         "live",
-        "live",
-        "done"
-      ],
-      "rank": 6
-    },
-    {
-      "userId": "c26c5ba3-b3d7-4ab2-bdec-ac23cdf1767e",
-      "displayName": "篮球不赖皮",
-      "avatarKey": null,
-      "score": 103.8,
-      "remainingSalary": 1,
-      "submittedAt": 1792939034067,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 7
-    },
-    {
-      "userId": "031498de-93df-430b-961d-0b367a826f46",
-      "displayName": "Hou",
-      "avatarKey": null,
-      "score": 103.7,
-      "remainingSalary": 1,
-      "submittedAt": 1792933498404,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 8
-    },
-    {
-      "userId": "c33bbef3-70d2-4326-be9f-43518f246ed8",
-      "displayName": "Leon",
-      "avatarKey": "GSW",
-      "score": 101.4,
-      "remainingSalary": 2,
-      "submittedAt": 1792931637384,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 9
-    },
-    {
-      "userId": "2121407d-4b88-4f27-a3ff-36858a4d9b12",
-      "displayName": "大毛",
-      "avatarKey": null,
-      "score": 99.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792916940763,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
+        "done",
         "done"
       ],
       "rank": 10
     },
     {
-      "userId": "f1a88c2f-f729-4c7c-a115-591403db2724",
-      "displayName": "卟疯",
+      "userId": "683be8a1-2d92-4d20-a8f2-08b549a6044a",
+      "displayName": "华南虎勇士30",
       "avatarKey": null,
-      "score": 97.3,
+      "score": 120.9,
       "remainingSalary": 0,
-      "submittedAt": 1792940838409,
+      "submittedAt": 1792941258940,
       "statuses": [
         "todo",
-        "todo",
         "live",
         "live",
+        "done",
         "done"
       ],
       "rank": 11
     },
     {
-      "userId": "2e772a68-ed3f-427b-9258-a34553b45b51",
-      "displayName": "一发",
-      "avatarKey": null,
-      "score": 95,
-      "remainingSalary": 1,
-      "submittedAt": 1792921010453,
+      "userId": "35ea34bd-f0ca-4294-923a-99418320551a",
+      "displayName": "HindERS",
+      "avatarKey": "CLE",
+      "score": 120.7,
+      "remainingSalary": 3,
+      "submittedAt": 1792922501989,
       "statuses": [
         "todo",
-        "todo",
         "live",
-        "done",
-        "done"
+        "live",
+        "live",
+        "live"
       ],
       "rank": 12
     },
     {
-      "userId": "5dc6d24b-f007-4df0-805a-4309288c78c2",
-      "displayName": "二十年老詹密",
-      "avatarKey": "PHI",
-      "score": 95,
-      "remainingSalary": 1,
-      "submittedAt": 1792926797796,
+      "userId": "fa7764ef-c985-42fa-bc8d-5e905af31076",
+      "displayName": "阁下何不随风起",
+      "avatarKey": null,
+      "score": 118.6,
+      "remainingSalary": 0,
+      "submittedAt": 1792934959427,
       "statuses": [
         "todo",
         "todo",
@@ -234,76 +234,76 @@
       "rank": 13
     },
     {
-      "userId": "d6c830f7-a28a-4038-b322-7298df49752b",
-      "displayName": "不醉子弹",
+      "userId": "2121407d-4b88-4f27-a3ff-36858a4d9b12",
+      "displayName": "大毛",
       "avatarKey": null,
-      "score": 91.7,
+      "score": 117.4,
       "remainingSalary": 0,
-      "submittedAt": 1792939409092,
+      "submittedAt": 1792916940763,
       "statuses": [
         "todo",
         "todo",
-        "todo",
         "live",
+        "done",
         "done"
       ],
       "rank": 14
     },
     {
-      "userId": "31cfb7b3-9353-4b02-b2a6-70d64bfcb006",
-      "displayName": "波特兰伐木工",
+      "userId": "3825a38b-2bdc-45bc-9372-d5d87edf8382",
+      "displayName": "xm",
       "avatarKey": null,
-      "score": 91.1,
-      "remainingSalary": 8,
-      "submittedAt": 1792828887257,
+      "score": 117.1,
+      "remainingSalary": 2,
+      "submittedAt": 1792743604254,
       "statuses": [
-        "todo",
         "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 15
-    },
-    {
-      "userId": "6040da42-67d2-459e-8d29-0a454d8cda2a",
-      "displayName": "暮归云",
-      "avatarKey": null,
-      "score": 90.8,
-      "remainingSalary": 1,
-      "submittedAt": 1792943517370,
-      "statuses": [
-        "todo",
         "live",
         "live",
         "done",
         "done"
       ],
-      "rank": 16
+      "rank": 15
     },
     {
-      "userId": "683be8a1-2d92-4d20-a8f2-08b549a6044a",
-      "displayName": "华南虎勇士30",
+      "userId": "e2fed511-4109-4139-9954-cbcfb19d981a",
+      "displayName": "老北京666",
       "avatarKey": null,
-      "score": 90.4,
+      "score": 112.9,
       "remainingSalary": 0,
-      "submittedAt": 1792941258940,
+      "submittedAt": 1792907532790,
       "statuses": [
         "todo",
         "live",
         "live",
         "live",
-        "live"
+        "done"
+      ],
+      "rank": 16
+    },
+    {
+      "userId": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
+      "displayName": "Kimi",
+      "avatarKey": "LAL",
+      "score": 110.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792806942723,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
       ],
       "rank": 17
     },
     {
-      "userId": "4fcfe7b5-197d-4591-8e9e-cf8caf766fee",
-      "displayName": "FRANCIS",
+      "userId": "de0d3cae-1d48-4539-9300-a3ba75d2515c",
+      "displayName": "哈七搭八",
       "avatarKey": null,
-      "score": 89.5,
-      "remainingSalary": 6,
-      "submittedAt": 1792950289053,
+      "score": 110.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792912642013,
       "statuses": [
         "todo",
         "todo",
@@ -314,44 +314,44 @@
       "rank": 18
     },
     {
-      "userId": "a00e0bf5-bcd7-4a1f-9334-12e38eea7de7",
-      "displayName": "Hayoung",
+      "userId": "2e772a68-ed3f-427b-9258-a34553b45b51",
+      "displayName": "一发",
       "avatarKey": null,
-      "score": 87.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792892652769,
+      "score": 109.5,
+      "remainingSalary": 1,
+      "submittedAt": 1792921010453,
       "statuses": [
         "todo",
         "todo",
-        "live",
-        "live",
+        "done",
+        "done",
         "done"
       ],
       "rank": 19
     },
     {
-      "userId": "6da0eee4-449d-4332-9c4e-2fdd47067b04",
-      "displayName": "杜伦铁粉",
-      "avatarKey": null,
-      "score": 87.5,
-      "remainingSalary": 0,
-      "submittedAt": 1792851793082,
+      "userId": "5dc6d24b-f007-4df0-805a-4309288c78c2",
+      "displayName": "二十年老詹密",
+      "avatarKey": "PHI",
+      "score": 109.5,
+      "remainingSalary": 1,
+      "submittedAt": 1792926797796,
       "statuses": [
         "todo",
         "todo",
-        "live",
-        "live",
+        "done",
+        "done",
         "done"
       ],
       "rank": 20
     },
     {
-      "userId": "fa7764ef-c985-42fa-bc8d-5e905af31076",
-      "displayName": "阁下何不随风起",
+      "userId": "c26c5ba3-b3d7-4ab2-bdec-ac23cdf1767e",
+      "displayName": "篮球不赖皮",
       "avatarKey": null,
-      "score": 87.4,
-      "remainingSalary": 0,
-      "submittedAt": 1792934959427,
+      "score": 109.2,
+      "remainingSalary": 1,
+      "submittedAt": 1792939034067,
       "statuses": [
         "todo",
         "todo",
@@ -360,6 +360,582 @@
         "done"
       ],
       "rank": 21
+    },
+    {
+      "userId": "c9fd6cdb-ba0f-4536-b19e-419370f91b2d",
+      "displayName": "雪山",
+      "avatarKey": null,
+      "score": 108.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792835226507,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 22
+    },
+    {
+      "userId": "6da0eee4-449d-4332-9c4e-2fdd47067b04",
+      "displayName": "杜伦铁粉",
+      "avatarKey": null,
+      "score": 107.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792851793082,
+      "statuses": [
+        "todo",
+        "todo",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 23
+    },
+    {
+      "userId": "28b18ff8-bc1b-4cca-8590-1452e8bde4df",
+      "displayName": "阿森纳勇夺六冠王",
+      "avatarKey": null,
+      "score": 107.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792906694691,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 24
+    },
+    {
+      "userId": "5d6cb41c-137a-4ee4-8399-94d1382a526e",
+      "displayName": "火鸡味锅巴",
+      "avatarKey": "SAS",
+      "score": 107.5,
+      "remainingSalary": 2,
+      "submittedAt": 1792907959619,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 25
+    },
+    {
+      "userId": "f1a88c2f-f729-4c7c-a115-591403db2724",
+      "displayName": "卟疯",
+      "avatarKey": null,
+      "score": 106.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792940838409,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 26
+    },
+    {
+      "userId": "77a8017b-3a80-4095-8a10-97e7bc7fe684",
+      "displayName": "jw1216",
+      "avatarKey": "GSW",
+      "score": 105.2,
+      "remainingSalary": 0,
+      "submittedAt": 1792923112048,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "live"
+      ],
+      "rank": 27
+    },
+    {
+      "userId": "548db864-50d5-4924-8b16-d66879ec4523",
+      "displayName": "yipkan",
+      "avatarKey": null,
+      "score": 104.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792932866650,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 28
+    },
+    {
+      "userId": "a00e0bf5-bcd7-4a1f-9334-12e38eea7de7",
+      "displayName": "Hayoung",
+      "avatarKey": null,
+      "score": 104.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792892652769,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 29
+    },
+    {
+      "userId": "3eb604cb-e8ff-41c3-914a-1078ec8d6eff",
+      "displayName": "Oah2",
+      "avatarKey": "CLE",
+      "score": 103.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792937364731,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 30
+    },
+    {
+      "userId": "6040da42-67d2-459e-8d29-0a454d8cda2a",
+      "displayName": "暮归云",
+      "avatarKey": null,
+      "score": 102.5,
+      "remainingSalary": 1,
+      "submittedAt": 1792943517370,
+      "statuses": [
+        "todo",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 31
+    },
+    {
+      "userId": "6534000d-7396-4ce5-b4d4-a2ea494a8514",
+      "displayName": "WhitePig",
+      "avatarKey": null,
+      "score": 101.1,
+      "remainingSalary": 2,
+      "submittedAt": 1792941276611,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 32
+    },
+    {
+      "userId": "e7ca6e1a-d430-4ff6-ae16-a2aaeafb9d6a",
+      "displayName": "Louis",
+      "avatarKey": null,
+      "score": 100.4,
+      "remainingSalary": 2,
+      "submittedAt": 1792904732706,
+      "statuses": [
+        "todo",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 33
+    },
+    {
+      "userId": "d6c830f7-a28a-4038-b322-7298df49752b",
+      "displayName": "不醉子弹",
+      "avatarKey": null,
+      "score": 99.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792939409092,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 34
+    },
+    {
+      "userId": "4fcfe7b5-197d-4591-8e9e-cf8caf766fee",
+      "displayName": "FRANCIS",
+      "avatarKey": null,
+      "score": 99.1,
+      "remainingSalary": 6,
+      "submittedAt": 1792950289053,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 35
+    },
+    {
+      "userId": "dbd6fd0d-262a-4e36-b9eb-764c94e031a9",
+      "displayName": "fei",
+      "avatarKey": "HOU",
+      "score": 98.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792944347312,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 36
+    },
+    {
+      "userId": "e90e764d-d463-462e-8a6c-74898885d0b6",
+      "displayName": "zyzuoo",
+      "avatarKey": "HOU",
+      "score": 97.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792817600641,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 37
+    },
+    {
+      "userId": "3948982b-0a78-41db-9679-6037bab7920e",
+      "displayName": "shay02",
+      "avatarKey": "OKC",
+      "score": 97.8,
+      "remainingSalary": 0,
+      "submittedAt": 1792944791088,
+      "statuses": [
+        "todo",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 38
+    },
+    {
+      "userId": "b3eb724f-d508-43c6-a0ae-dcb2fca7c836",
+      "displayName": "acidboy",
+      "avatarKey": "NYK",
+      "score": 97.8,
+      "remainingSalary": 0,
+      "submittedAt": 1792946086091,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 39
+    },
+    {
+      "userId": "ae4914b1-4ff4-43b9-bd03-3b5b6090334c",
+      "displayName": "指导员炸成两截",
+      "avatarKey": null,
+      "score": 97.4,
+      "remainingSalary": 0,
+      "submittedAt": 1792945909735,
+      "statuses": [
+        "live",
+        "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 40
+    },
+    {
+      "userId": "4485742f-c0a0-4b99-b59d-60b79f7caea1",
+      "displayName": "小翟",
+      "avatarKey": null,
+      "score": 97.1,
+      "remainingSalary": 6,
+      "submittedAt": 1792936418473,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 41
+    },
+    {
+      "userId": "d0d10ca3-50f1-4a5e-a111-d1da2de92a50",
+      "displayName": "奔跑的黏豆包",
+      "avatarKey": null,
+      "score": 96.7,
+      "remainingSalary": 2,
+      "submittedAt": 1792861732093,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 42
+    },
+    {
+      "userId": "5d0832db-09bf-4228-840e-eddd26ec7f57",
+      "displayName": "Purple",
+      "avatarKey": null,
+      "score": 96.5,
+      "remainingSalary": 0,
+      "submittedAt": 1792919717042,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 43
+    },
+    {
+      "userId": "2ecedf67-7590-4444-80f5-a3c7e68b0346",
+      "displayName": "千人羽",
+      "avatarKey": null,
+      "score": 95.4,
+      "remainingSalary": 2,
+      "submittedAt": 1792928677194,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 44
+    },
+    {
+      "userId": "31cfb7b3-9353-4b02-b2a6-70d64bfcb006",
+      "displayName": "波特兰伐木工",
+      "avatarKey": null,
+      "score": 95.3,
+      "remainingSalary": 8,
+      "submittedAt": 1792828887257,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 45
+    },
+    {
+      "userId": "bfa6ad37-8f5a-43eb-b49a-60fc45ad2bb0",
+      "displayName": "不能开矿的菜地",
+      "avatarKey": "CHA",
+      "score": 95,
+      "remainingSalary": 2,
+      "submittedAt": 1792925502191,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "live"
+      ],
+      "rank": 46
+    },
+    {
+      "userId": "23b59afa-2583-4764-b29c-bc595d00f508",
+      "displayName": "qingary",
+      "avatarKey": null,
+      "score": 95,
+      "remainingSalary": 0,
+      "submittedAt": 1792898552005,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 47
+    },
+    {
+      "userId": "127cdea4-8b1e-4acc-b76b-81442df21a11",
+      "displayName": "YChiha",
+      "avatarKey": null,
+      "score": 94.3,
+      "remainingSalary": 3,
+      "submittedAt": 1792930828884,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 48
+    },
+    {
+      "userId": "f0949b0c-0ce9-48e6-875f-d0d8937d373e",
+      "displayName": "Perfecto",
+      "avatarKey": "HOU",
+      "score": 93.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792930326689,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 49
+    },
+    {
+      "userId": "6fc91b2c-9e8c-4349-b61d-ea3f014edd66",
+      "displayName": "NJSMinji",
+      "avatarKey": "badge:T07_S",
+      "score": 90,
+      "remainingSalary": 0,
+      "submittedAt": 1792894505213,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 50
+    },
+    {
+      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+      "displayName": "静安赫尔特",
+      "avatarKey": "WAS",
+      "score": 89.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792938927879,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 51
+    },
+    {
+      "userId": "5478918e-20a4-446a-a466-6cdd887d1f3f",
+      "displayName": "zhangsan",
+      "avatarKey": null,
+      "score": 88.9,
+      "remainingSalary": 3,
+      "submittedAt": 1792936855085,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 52
+    },
+    {
+      "userId": "53e3a139-342c-43c6-9d01-20085e109d8c",
+      "displayName": "Sherry",
+      "avatarKey": null,
+      "score": 88.8,
+      "remainingSalary": 2,
+      "submittedAt": 1792889694456,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 53
+    },
+    {
+      "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
+      "displayName": "Paddy",
+      "avatarKey": null,
+      "score": 88.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792927330560,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 54
+    },
+    {
+      "userId": "c1bb13d3-8412-4cc8-a1fa-6eb211fc6b01",
+      "displayName": "日日是好日",
+      "avatarKey": null,
+      "score": 88.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792940117012,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 55
+    },
+    {
+      "userId": "7bba48fb-d818-4b32-bedd-6181375c606d",
+      "displayName": "Irving11",
+      "avatarKey": "MIN",
+      "score": 88,
+      "remainingSalary": 4,
+      "submittedAt": 1792895229821,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 56
+    },
+    {
+      "userId": "e058df5e-dcdd-4982-bf19-4fc29103d19f",
+      "displayName": "Arasaka",
+      "avatarKey": "CLE",
+      "score": 87.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792954944779,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 57
     },
     {
       "userId": "36a2eb57-c5c5-49f5-8c31-c24f64211bae",
@@ -375,31 +951,95 @@
         "done",
         "done"
       ],
-      "rank": 22
+      "rank": 58
     },
     {
-      "userId": "c20fc58d-c5cd-4871-ad06-45c92f85e482",
-      "displayName": "Cathay",
-      "avatarKey": "CHI",
-      "score": 86.1,
+      "userId": "8b6485a9-0629-44f8-bd54-1d57180050e1",
+      "displayName": "芥末",
+      "avatarKey": "OKC",
+      "score": 85.9,
       "remainingSalary": 0,
-      "submittedAt": 1792903861607,
+      "submittedAt": 1792958548286,
       "statuses": [
         "todo",
         "live",
         "live",
         "live",
-        "live"
+        "done"
       ],
-      "rank": 23
+      "rank": 59
     },
     {
-      "userId": "28b18ff8-bc1b-4cca-8590-1452e8bde4df",
-      "displayName": "阿森纳勇夺六冠王",
+      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
+      "displayName": "老四238",
       "avatarKey": null,
-      "score": 81,
+      "score": 85.5,
       "remainingSalary": 0,
-      "submittedAt": 1792906694691,
+      "submittedAt": 1792937468458,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 60
+    },
+    {
+      "userId": "f1d2dc19-cfd5-45b0-a163-98750092c668",
+      "displayName": "Amono1og",
+      "avatarKey": null,
+      "score": 84.7,
+      "remainingSalary": 2,
+      "submittedAt": 1792905899559,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 61
+    },
+    {
+      "userId": "3718ebfc-cf04-48f2-82c7-81b98a24838e",
+      "displayName": "curry30",
+      "avatarKey": "GSW",
+      "score": 84.4,
+      "remainingSalary": 1,
+      "submittedAt": 1792906380368,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 62
+    },
+    {
+      "userId": "cc8b8f44-974f-41f2-9b7f-3032069649d2",
+      "displayName": "卡卡罗特",
+      "avatarKey": null,
+      "score": 82,
+      "remainingSalary": 2,
+      "submittedAt": 1792899089923,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 63
+    },
+    {
+      "userId": "542ec9f6-2ff2-4acf-9ad7-1aec7a8f39f8",
+      "displayName": "faith619",
+      "avatarKey": null,
+      "score": 81.8,
+      "remainingSalary": 11,
+      "submittedAt": 1792904903971,
       "statuses": [
         "todo",
         "live",
@@ -407,47 +1047,143 @@
         "done",
         "done"
       ],
-      "rank": 24
+      "rank": 64
     },
     {
-      "userId": "f0949b0c-0ce9-48e6-875f-d0d8937d373e",
-      "displayName": "Perfecto",
+      "userId": "c469f8c3-59bc-445a-aee3-314ecc29d4ec",
+      "displayName": "DDDD",
       "avatarKey": "HOU",
-      "score": 78.8,
+      "score": 81.5,
       "remainingSalary": 0,
-      "submittedAt": 1792930326689,
+      "submittedAt": 1792941053758,
       "statuses": [
         "todo",
-        "live",
-        "live",
-        "done",
-        "done"
-      ],
-      "rank": 25
-    },
-    {
-      "userId": "ae4914b1-4ff4-43b9-bd03-3b5b6090334c",
-      "displayName": "指导员炸成两截",
-      "avatarKey": null,
-      "score": 78.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792945909735,
-      "statuses": [
-        "live",
         "live",
         "live",
         "live",
         "live"
       ],
-      "rank": 26
+      "rank": 65
     },
     {
-      "userId": "dbd6fd0d-262a-4e36-b9eb-764c94e031a9",
-      "displayName": "fei",
+      "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
+      "displayName": "奶味大宇宙",
+      "avatarKey": "badge:T05_G",
+      "score": 81.1,
+      "remainingSalary": 0,
+      "submittedAt": 1792889484250,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 66
+    },
+    {
+      "userId": "a13cd3dd-6d22-4aa7-a4c9-22d79470d417",
+      "displayName": "海乌乌",
+      "avatarKey": "SAS",
+      "score": 80.5,
+      "remainingSalary": 2,
+      "submittedAt": 1792937737500,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 67
+    },
+    {
+      "userId": "58861a58-7bf4-4401-9ee3-a35bb611b448",
+      "displayName": "zbo",
+      "avatarKey": null,
+      "score": 79.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792949133685,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 68
+    },
+    {
+      "userId": "6d8696a4-6bf4-42b5-9864-3b4e43f53f13",
+      "displayName": "红黑卡卡",
+      "avatarKey": null,
+      "score": 79.4,
+      "remainingSalary": 1,
+      "submittedAt": 1792906829613,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 69
+    },
+    {
+      "userId": "5af062e8-7ffe-4062-a360-98165342778c",
+      "displayName": "kloop",
+      "avatarKey": null,
+      "score": 79.4,
+      "remainingSalary": 0,
+      "submittedAt": 1792930180923,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 70
+    },
+    {
+      "userId": "4e712a5d-0e2b-4225-8641-315fff9ec7e3",
+      "displayName": "雕堡",
+      "avatarKey": "HOU",
+      "score": 79.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792926361168,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 71
+    },
+    {
+      "userId": "ad82bf1a-434d-4f07-92d0-3ff986e33a7a",
+      "displayName": "休斯敦国米",
       "avatarKey": "HOU",
       "score": 78.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792944347312,
+      "remainingSalary": 2,
+      "submittedAt": 1792681873096,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 72
+    },
+    {
+      "userId": "4fe5bdea-cd7d-47b0-aaee-ff87210f2889",
+      "displayName": "org",
+      "avatarKey": null,
+      "score": 78.1,
+      "remainingSalary": 1,
+      "submittedAt": 1792906904900,
       "statuses": [
         "todo",
         "live",
@@ -455,55 +1191,55 @@
         "done",
         "done"
       ],
-      "rank": 27
+      "rank": 73
     },
     {
-      "userId": "5d6cb41c-137a-4ee4-8399-94d1382a526e",
-      "displayName": "火鸡味锅巴",
-      "avatarKey": "SAS",
-      "score": 78.5,
-      "remainingSalary": 2,
-      "submittedAt": 1792907959619,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 28
-    },
-    {
-      "userId": "548db864-50d5-4924-8b16-d66879ec4523",
-      "displayName": "yipkan",
+      "userId": "5a4620cc-3f0e-493e-9936-ad04d208d1ef",
+      "displayName": "大D",
       "avatarKey": null,
-      "score": 77.1,
+      "score": 77,
       "remainingSalary": 0,
-      "submittedAt": 1792932866650,
+      "submittedAt": 1792936500148,
       "statuses": [
-        "live",
+        "todo",
         "live",
         "live",
         "live",
         "done"
       ],
-      "rank": 29
+      "rank": 74
     },
     {
-      "userId": "e7ca6e1a-d430-4ff6-ae16-a2aaeafb9d6a",
-      "displayName": "Louis",
+      "userId": "89528890-096c-4d95-8282-9076d40bd271",
+      "displayName": "小白羊",
       "avatarKey": null,
-      "score": 76.4,
-      "remainingSalary": 2,
-      "submittedAt": 1792904732706,
+      "score": 76.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792912866654,
       "statuses": [
         "todo",
-        "live",
+        "todo",
         "live",
         "done",
         "done"
       ],
-      "rank": 30
+      "rank": 75
+    },
+    {
+      "userId": "d3ac9e8c-5378-4225-878f-c1e45284f01e",
+      "displayName": "三十",
+      "avatarKey": null,
+      "score": 76.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792951557123,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 76
     },
     {
       "userId": "13cda036-85e9-43a8-a61d-0176f0f57b26",
@@ -515,43 +1251,155 @@
       "statuses": [
         "todo",
         "live",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 77
+    },
+    {
+      "userId": "6a33496e-0fb3-4398-ab9b-e3bfd8d2f81c",
+      "displayName": "鲁西南孙哥",
+      "avatarKey": "IND",
+      "score": 75.2,
+      "remainingSalary": 1,
+      "submittedAt": 1792906606543,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 78
+    },
+    {
+      "userId": "ae199675-314c-4b12-8b3b-1972a7c4388c",
+      "displayName": "郭老师",
+      "avatarKey": "HOU",
+      "score": 74.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792955886479,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 79
+    },
+    {
+      "userId": "92562191-b47d-489b-9d60-ee76a9f8378f",
+      "displayName": "最后冇事",
+      "avatarKey": "NYK",
+      "score": 74.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792960335750,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 80
+    },
+    {
+      "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+      "displayName": "桑滴二大妈",
+      "avatarKey": "badge:T05_S",
+      "score": 74.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792894751447,
+      "statuses": [
+        "todo",
+        "todo",
         "live",
         "done",
         "done"
       ],
-      "rank": 31
+      "rank": 81
     },
     {
-      "userId": "5fa79037-5dcf-4fb9-b4c3-fda4bc29bb4a",
-      "displayName": "最佳新秀迪哈珀",
-      "avatarKey": "DEN",
-      "score": 74.6,
+      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
+      "displayName": "笨CHINA",
+      "avatarKey": "CLE",
+      "score": 74.2,
       "remainingSalary": 3,
-      "submittedAt": 1792918762555,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 32
-    },
-    {
-      "userId": "d3ac9e8c-5378-4225-878f-c1e45284f01e",
-      "displayName": "三十",
-      "avatarKey": null,
-      "score": 74.4,
-      "remainingSalary": 1,
-      "submittedAt": 1792951557123,
+      "submittedAt": 1792897442330,
       "statuses": [
         "todo",
         "todo",
         "live",
-        "live",
+        "done",
         "done"
       ],
-      "rank": 33
+      "rank": 82
+    },
+    {
+      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+      "displayName": "宁波爆胎王",
+      "avatarKey": "ATL",
+      "score": 74.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792907792881,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 83
+    },
+    {
+      "userId": "c3fe99b9-72f8-4d17-a87b-76fff91b12f2",
+      "displayName": "BBW",
+      "avatarKey": null,
+      "score": 74.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792926064636,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 84
+    },
+    {
+      "userId": "ecba148f-5373-44f2-af2d-37dce6b8ac7f",
+      "displayName": "Happy阳阳",
+      "avatarKey": "SAS",
+      "score": 74.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792943237407,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 85
+    },
+    {
+      "userId": "bdb146f6-abd7-4515-bc4d-d51b066c0dfc",
+      "displayName": "Linjm",
+      "avatarKey": null,
+      "score": 74.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792954637670,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 86
     },
     {
       "userId": "22189f27-2a55-477a-8f51-0eaf5f55083f",
@@ -563,11 +1411,27 @@
       "statuses": [
         "todo",
         "live",
-        "live",
+        "done",
         "done",
         "done"
       ],
-      "rank": 34
+      "rank": 87
+    },
+    {
+      "userId": "518dbd0d-d56a-43eb-9c89-0b44c22b83d5",
+      "displayName": "热心网友",
+      "avatarKey": null,
+      "score": 73.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792890813538,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 88
     },
     {
       "userId": "afac0657-7013-44a5-8ac9-3cb419891b12",
@@ -583,47 +1447,31 @@
         "done",
         "done"
       ],
-      "rank": 35
+      "rank": 89
     },
     {
-      "userId": "4485742f-c0a0-4b99-b59d-60b79f7caea1",
-      "displayName": "小翟",
-      "avatarKey": null,
-      "score": 71.9,
-      "remainingSalary": 6,
-      "submittedAt": 1792936418473,
+      "userId": "529f0d2b-0edb-4b7e-954b-7185b2bad8dd",
+      "displayName": "lawchen",
+      "avatarKey": "PHI",
+      "score": 72.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792893672511,
       "statuses": [
         "todo",
         "live",
-        "live",
-        "live",
+        "done",
+        "done",
         "done"
       ],
-      "rank": 36
+      "rank": 90
     },
     {
-      "userId": "3825a38b-2bdc-45bc-9372-d5d87edf8382",
-      "displayName": "xm",
-      "avatarKey": null,
-      "score": 71.7,
-      "remainingSalary": 2,
-      "submittedAt": 1792743604254,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 37
-    },
-    {
-      "userId": "c9fd6cdb-ba0f-4536-b19e-419370f91b2d",
-      "displayName": "雪山",
-      "avatarKey": null,
+      "userId": "3c7c0430-cbe6-4e2f-8264-7b3a35f0b9c7",
+      "displayName": "Lansh",
+      "avatarKey": "OKC",
       "score": 71.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792835226507,
+      "remainingSalary": 0,
+      "submittedAt": 1792915619787,
       "statuses": [
         "todo",
         "live",
@@ -631,207 +1479,207 @@
         "live",
         "done"
       ],
-      "rank": 38
+      "rank": 91
     },
     {
-      "userId": "542ec9f6-2ff2-4acf-9ad7-1aec7a8f39f8",
-      "displayName": "faith619",
+      "userId": "c6e6cddf-427a-44b8-bcea-d24c2873f0d4",
+      "displayName": "咋又喝不动了",
       "avatarKey": null,
       "score": 71,
-      "remainingSalary": 11,
-      "submittedAt": 1792904903971,
+      "remainingSalary": 2,
+      "submittedAt": 1792929944555,
       "statuses": [
-        "todo",
+        "live",
         "live",
         "live",
         "done",
         "done"
       ],
-      "rank": 39
+      "rank": 92
     },
     {
-      "userId": "127cdea4-8b1e-4acc-b76b-81442df21a11",
-      "displayName": "YChiha",
+      "userId": "a5e1f26c-86b3-4c88-92a0-ba639c1b6f54",
+      "displayName": "rookiew",
       "avatarKey": null,
-      "score": 70.9,
+      "score": 70.8,
       "remainingSalary": 3,
-      "submittedAt": 1792930828884,
+      "submittedAt": 1792902680728,
       "statuses": [
+        "todo",
         "todo",
         "live",
         "live",
-        "live",
-        "live"
+        "done"
       ],
-      "rank": 40
+      "rank": 93
     },
     {
-      "userId": "6534000d-7396-4ce5-b4d4-a2ea494a8514",
-      "displayName": "WhitePig",
+      "userId": "c5e77b41-8318-48fe-900d-fc51f6fdc9fd",
+      "displayName": "Devilsea",
       "avatarKey": null,
-      "score": 70.7,
+      "score": 69.4,
       "remainingSalary": 2,
-      "submittedAt": 1792941276611,
+      "submittedAt": 1792679346815,
+      "statuses": [
+        "live",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 94
+    },
+    {
+      "userId": "a13c59ae-9bed-47e4-aa50-df890e6ba49c",
+      "displayName": "隆多就是最屌的",
+      "avatarKey": "badge:F08",
+      "score": 68.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792919308267,
       "statuses": [
         "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 95
+    },
+    {
+      "userId": "04a10fcf-d5ce-45ac-b147-4eea17494f5d",
+      "displayName": "MK42",
+      "avatarKey": null,
+      "score": 68.6,
+      "remainingSalary": 0,
+      "submittedAt": 1792558788675,
+      "statuses": [
+        "live",
         "live",
         "live",
         "live",
         "live"
       ],
-      "rank": 41
+      "rank": 96
     },
     {
-      "userId": "3948982b-0a78-41db-9679-6037bab7920e",
-      "displayName": "shay02",
-      "avatarKey": "OKC",
-      "score": 69.9,
+      "userId": "5d9a5e00-b682-4dd8-ad08-3f4e2dd99d53",
+      "displayName": "88威",
+      "avatarKey": null,
+      "score": 68.4,
+      "remainingSalary": 1,
+      "submittedAt": 1792904906373,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 97
+    },
+    {
+      "userId": "3a4d77c7-6174-430b-bdca-7cfdb9ac5f89",
+      "displayName": "矜傲浮华王十七",
+      "avatarKey": null,
+      "score": 68.4,
+      "remainingSalary": 1,
+      "submittedAt": 1792937137200,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 98
+    },
+    {
+      "userId": "89928a76-1d58-49a5-88e0-2cbe60b9f068",
+      "displayName": "筐筐",
+      "avatarKey": "MIN",
+      "score": 68.2,
       "remainingSalary": 0,
-      "submittedAt": 1792944791088,
+      "submittedAt": 1792950658609,
       "statuses": [
         "todo",
         "live",
         "live",
+        "live",
+        "done"
+      ],
+      "rank": 99
+    },
+    {
+      "userId": "19562a3b-5d9e-4284-a75a-784e7420d39f",
+      "displayName": "RussWest",
+      "avatarKey": "badge:T05_S",
+      "score": 67.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792928426527,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
         "done",
         "done"
       ],
-      "rank": 42
+      "rank": 100
     },
     {
-      "userId": "d0d10ca3-50f1-4a5e-a111-d1da2de92a50",
-      "displayName": "奔跑的黏豆包",
+      "userId": "39dd388c-7930-4a05-b7c9-32b4a91f43c2",
+      "displayName": "lychee",
       "avatarKey": null,
-      "score": 69.7,
-      "remainingSalary": 2,
-      "submittedAt": 1792861732093,
+      "score": 67.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792944519242,
       "statuses": [
         "todo",
         "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 43
-    },
-    {
-      "userId": "53e3a139-342c-43c6-9d01-20085e109d8c",
-      "displayName": "Sherry",
-      "avatarKey": null,
-      "score": 68.2,
-      "remainingSalary": 2,
-      "submittedAt": 1792889694456,
-      "statuses": [
         "todo",
-        "todo",
-        "live",
-        "live",
+        "done",
         "done"
       ],
-      "rank": 44
+      "rank": 101
     },
     {
-      "userId": "4fe5bdea-cd7d-47b0-aaee-ff87210f2889",
-      "displayName": "org",
-      "avatarKey": null,
-      "score": 68.2,
-      "remainingSalary": 1,
-      "submittedAt": 1792906904900,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 45
-    },
-    {
-      "userId": "a613c2e3-6920-4d2f-8e9b-504e445424b0",
-      "displayName": "Kimi",
+      "userId": "6697a9bd-dba2-4916-8ba0-f6bb2de06a48",
+      "displayName": "北纬三十度",
       "avatarKey": "LAL",
-      "score": 66.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792806942723,
+      "score": 67.3,
+      "remainingSalary": 20,
+      "submittedAt": 1792926995185,
       "statuses": [
         "todo",
         "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 46
-    },
-    {
-      "userId": "de0d3cae-1d48-4539-9300-a3ba75d2515c",
-      "displayName": "哈七搭八",
-      "avatarKey": null,
-      "score": 66.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792912642013,
-      "statuses": [
         "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 47
-    },
-    {
-      "userId": "89528890-096c-4d95-8282-9076d40bd271",
-      "displayName": "小白羊",
-      "avatarKey": null,
-      "score": 66.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792912866654,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 48
-    },
-    {
-      "userId": "6fc91b2c-9e8c-4349-b61d-ea3f014edd66",
-      "displayName": "NJSMinji",
-      "avatarKey": "badge:T07_S",
-      "score": 65,
-      "remainingSalary": 0,
-      "submittedAt": 1792894505213,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
+        "done",
         "done"
       ],
-      "rank": 49
+      "rank": 102
     },
     {
-      "userId": "e90e764d-d463-462e-8a6c-74898885d0b6",
-      "displayName": "zyzuoo",
-      "avatarKey": "HOU",
-      "score": 64.1,
+      "userId": "8c642aec-2c13-4baa-9a04-09cd3ca557bd",
+      "displayName": "SevenLiu",
+      "avatarKey": null,
+      "score": 67.3,
       "remainingSalary": 0,
-      "submittedAt": 1792817600641,
+      "submittedAt": 1792949533544,
       "statuses": [
+        "todo",
         "todo",
         "live",
         "live",
-        "live",
-        "done"
+        "live"
       ],
-      "rank": 50
+      "rank": 103
     },
     {
-      "userId": "7bba48fb-d818-4b32-bedd-6181375c606d",
-      "displayName": "Irving11",
+      "userId": "9bf5a1e2-1d94-4601-8500-468f69a86943",
+      "displayName": "划水大将",
       "avatarKey": "MIN",
-      "score": 64,
-      "remainingSalary": 4,
-      "submittedAt": 1792895229821,
+      "score": 67.1,
+      "remainingSalary": 1,
+      "submittedAt": 1792899955550,
       "statuses": [
         "todo",
         "todo",
@@ -839,39 +1687,103 @@
         "live",
         "done"
       ],
-      "rank": 51
+      "rank": 104
     },
     {
-      "userId": "5d0832db-09bf-4228-840e-eddd26ec7f57",
-      "displayName": "Purple",
+      "userId": "2d2fe586-5407-4de7-b3fb-1f95c5acccdf",
+      "displayName": "kimkk",
       "avatarKey": null,
-      "score": 63.8,
-      "remainingSalary": 0,
-      "submittedAt": 1792919717042,
+      "score": 67.1,
+      "remainingSalary": 1,
+      "submittedAt": 1792934861409,
       "statuses": [
         "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 105
+    },
+    {
+      "userId": "8c386225-dee4-4baf-b3e2-fe4ccd672df3",
+      "displayName": "OldMike",
+      "avatarKey": "POR",
+      "score": 67,
+      "remainingSalary": 9,
+      "submittedAt": 1792929613026,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 106
+    },
+    {
+      "userId": "5a76fc9b-8d20-44df-8b8d-dd5050fb168d",
+      "displayName": "thehan",
+      "avatarKey": null,
+      "score": 67,
+      "remainingSalary": 2,
+      "submittedAt": 1792930483252,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 107
+    },
+    {
+      "userId": "e61395b4-9dc5-4980-9548-20ae6925f2ec",
+      "displayName": "syaniki",
+      "avatarKey": null,
+      "score": 67,
+      "remainingSalary": 2,
+      "submittedAt": 1792940086689,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 108
+    },
+    {
+      "userId": "a96e4c80-eb69-48ec-a714-b3f25023ee1e",
+      "displayName": "达拉斯超人",
+      "avatarKey": null,
+      "score": 66.9,
+      "remainingSalary": 4,
+      "submittedAt": 1792929012071,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 109
+    },
+    {
+      "userId": "44329ca0-b6bf-4931-a62b-1c48c2ef9d88",
+      "displayName": "Ruruz",
+      "avatarKey": "LAL",
+      "score": 66.3,
+      "remainingSalary": 7,
+      "submittedAt": 1792912951920,
+      "statuses": [
+        "live",
         "live",
         "live",
         "live",
         "done"
       ],
-      "rank": 52
-    },
-    {
-      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
-      "displayName": "静安赫尔特",
-      "avatarKey": "WAS",
-      "score": 63.8,
-      "remainingSalary": 0,
-      "submittedAt": 1792938927879,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 53
+      "rank": 110
     },
     {
       "userId": "8bc8006d-587e-46a5-8299-60eb63c0e4a3",
@@ -887,15 +1799,31 @@
         "done",
         "done"
       ],
-      "rank": 54
+      "rank": 111
     },
     {
-      "userId": "e2fed511-4109-4139-9954-cbcfb19d981a",
-      "displayName": "老北京666",
+      "userId": "6b89ca68-205d-40b9-8f3a-de46e5737eed",
+      "displayName": "义色",
       "avatarKey": null,
       "score": 62.6,
+      "remainingSalary": 1,
+      "submittedAt": 1792932806739,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "live"
+      ],
+      "rank": 112
+    },
+    {
+      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
+      "displayName": "RR",
+      "avatarKey": "UTA",
+      "score": 62.5,
       "remainingSalary": 0,
-      "submittedAt": 1792907532790,
+      "submittedAt": 1792156116109,
       "statuses": [
         "todo",
         "live",
@@ -903,191 +1831,431 @@
         "live",
         "live"
       ],
-      "rank": 55
+      "rank": 113
     },
     {
-      "userId": "529f0d2b-0edb-4b7e-954b-7185b2bad8dd",
-      "displayName": "lawchen",
-      "avatarKey": "PHI",
-      "score": 62,
+      "userId": "c25d4395-e7bb-4b2a-9dd6-31b5cc3af0bc",
+      "displayName": "alfred",
+      "avatarKey": null,
+      "score": 62.3,
       "remainingSalary": 0,
-      "submittedAt": 1792893672511,
+      "submittedAt": 1792835282394,
       "statuses": [
         "todo",
+        "todo",
+        "todo",
         "live",
+        "done"
+      ],
+      "rank": 114
+    },
+    {
+      "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
+      "displayName": "SsSylar",
+      "avatarKey": "WAS",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792905141417,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 115
+    },
+    {
+      "userId": "203882ac-8e10-4eb1-9ffe-060f8967c60d",
+      "displayName": "Fitz",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792905454337,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 116
+    },
+    {
+      "userId": "f78aa3fb-aa19-4974-81ca-943ef231f645",
+      "displayName": "wo是眼神666",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792909943679,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 117
+    },
+    {
+      "userId": "6f9c9a16-b5d9-4e89-a04b-f9628cfaf76c",
+      "displayName": "金黄色的松饵",
+      "avatarKey": "NOP",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792910124109,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 118
+    },
+    {
+      "userId": "d62f853a-cfc1-4701-88b5-5d3967d3f797",
+      "displayName": "阿杜归来",
+      "avatarKey": "WAS",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792920764091,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 119
+    },
+    {
+      "userId": "17e59b39-8e6b-42ea-a1e4-bdae0cd8b1dd",
+      "displayName": "bobo62",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792922829186,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 120
+    },
+    {
+      "userId": "860697cd-b212-49e4-8e23-f67f4d21bb09",
+      "displayName": "zysh1234",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792923216402,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 121
+    },
+    {
+      "userId": "22cf2d5c-9026-48a3-bc72-c119a01c2e03",
+      "displayName": "银之魂",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792924058793,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 122
+    },
+    {
+      "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
+      "displayName": "好堡",
+      "avatarKey": "BOS",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792926995294,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 123
+    },
+    {
+      "userId": "196d8fdb-eb4f-40d9-bd2e-a063d91c74fc",
+      "displayName": "LymGod",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792928350440,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 124
+    },
+    {
+      "userId": "9075f065-747f-4dce-926a-993dd6a032b3",
+      "displayName": "烟花易冷",
+      "avatarKey": "HOU",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792930972960,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 125
+    },
+    {
+      "userId": "1c60e323-1b28-46e8-8f11-11910417b8e0",
+      "displayName": "Jordanlq",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792935148845,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 126
+    },
+    {
+      "userId": "edf99707-c73f-47e4-bfe0-cbec725dda31",
+      "displayName": "内德维德",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792937682295,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 127
+    },
+    {
+      "userId": "4c6686bd-0b72-4d70-84e7-6410132c0791",
+      "displayName": "kenny",
+      "avatarKey": "SAS",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792937842885,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 128
+    },
+    {
+      "userId": "aae74b9b-0ee0-43e6-a086-73e35802aabc",
+      "displayName": "我叫杨参谋",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792939274242,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 129
+    },
+    {
+      "userId": "af01046f-b1a0-4ddd-bfc2-38ebfe6d26ce",
+      "displayName": "江逐流",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792940066246,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 130
+    },
+    {
+      "userId": "2b38de9d-f461-4be3-bba8-ad177af7b72f",
+      "displayName": "ROOKIED",
+      "avatarKey": null,
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792941042224,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 131
+    },
+    {
+      "userId": "6af7af2f-834c-4080-89db-59825e4e92b0",
+      "displayName": "Conan",
+      "avatarKey": "OKC",
+      "score": 61.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792942319965,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 132
+    },
+    {
+      "userId": "38c11ed7-c980-4a48-9965-8bbb3b0cebd0",
+      "displayName": "iLbanHua",
+      "avatarKey": null,
+      "score": 61.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792934633787,
+      "statuses": [
+        "todo",
+        "todo",
         "live",
         "live",
         "done"
       ],
-      "rank": 56
+      "rank": 133
     },
     {
-      "userId": "e058df5e-dcdd-4982-bf19-4fc29103d19f",
-      "displayName": "Arasaka",
-      "avatarKey": "CLE",
-      "score": 61.4,
-      "remainingSalary": 1,
-      "submittedAt": 1792954944779,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 57
-    },
-    {
-      "userId": "23b59afa-2583-4764-b29c-bc595d00f508",
-      "displayName": "qingary",
-      "avatarKey": null,
-      "score": 60.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792898552005,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 58
-    },
-    {
-      "userId": "3eb604cb-e8ff-41c3-914a-1078ec8d6eff",
-      "displayName": "Oah2",
-      "avatarKey": "CLE",
-      "score": 60.8,
-      "remainingSalary": 1,
-      "submittedAt": 1792937364731,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 59
-    },
-    {
-      "userId": "5478918e-20a4-446a-a466-6cdd887d1f3f",
-      "displayName": "zhangsan",
-      "avatarKey": null,
-      "score": 60.4,
+      "userId": "a8868e2d-44fb-41da-a5d2-509258b6ed96",
+      "displayName": "愿许秋风知我意",
+      "avatarKey": "BOS",
+      "score": 60.2,
       "remainingSalary": 3,
-      "submittedAt": 1792936855085,
+      "submittedAt": 1792947902756,
       "statuses": [
         "todo",
+        "todo",
+        "todo",
+        "done",
+        "done"
+      ],
+      "rank": 134
+    },
+    {
+      "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
+      "displayName": "魔法披风",
+      "avatarKey": "ORL",
+      "score": 60.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792949368255,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "done",
+        "done"
+      ],
+      "rank": 135
+    },
+    {
+      "userId": "26bcb68b-f555-463a-b60d-14a29f1e9f14",
+      "displayName": "一条大天狗",
+      "avatarKey": "SAS",
+      "score": 60.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792950159557,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "done",
+        "done"
+      ],
+      "rank": 136
+    },
+    {
+      "userId": "6278ab05-85bb-45db-836d-f4506eb884e3",
+      "displayName": "Paul",
+      "avatarKey": "IND",
+      "score": 60.2,
+      "remainingSalary": 3,
+      "submittedAt": 1792951272527,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "done",
+        "done"
+      ],
+      "rank": 137
+    },
+    {
+      "userId": "c136eafe-a864-4982-960d-c88dc2a15d3b",
+      "displayName": "敌羞吾去脱他衣",
+      "avatarKey": "BOS",
+      "score": 59.7,
+      "remainingSalary": 1,
+      "submittedAt": 1792904450945,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
         "live",
+        "done"
+      ],
+      "rank": 138
+    },
+    {
+      "userId": "e36817b5-8f23-414c-91c4-d7fff8313c75",
+      "displayName": "Xyxxx",
+      "avatarKey": "LAL",
+      "score": 59.2,
+      "remainingSalary": 1,
+      "submittedAt": 1792905046561,
+      "statuses": [
+        "todo",
+        "todo",
         "live",
         "done",
         "done"
       ],
-      "rank": 60
+      "rank": 139
     },
     {
-      "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
-      "displayName": "桑滴二大妈",
-      "avatarKey": "badge:T05_S",
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792894751447,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 61
-    },
-    {
-      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
-      "displayName": "笨CHINA",
-      "avatarKey": "CLE",
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792897442330,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 62
-    },
-    {
-      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
-      "displayName": "宁波爆胎王",
-      "avatarKey": "ATL",
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792907792881,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 63
-    },
-    {
-      "userId": "c3fe99b9-72f8-4d17-a87b-76fff91b12f2",
-      "displayName": "BBW",
+      "userId": "b82a47d6-96a3-400f-a010-5b0a15c8d640",
+      "displayName": "小小翟",
       "avatarKey": null,
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792926064636,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 64
-    },
-    {
-      "userId": "ecba148f-5373-44f2-af2d-37dce6b8ac7f",
-      "displayName": "Happy阳阳",
-      "avatarKey": "SAS",
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792943237407,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 65
-    },
-    {
-      "userId": "bdb146f6-abd7-4515-bc4d-d51b066c0dfc",
-      "displayName": "Linjm",
-      "avatarKey": null,
-      "score": 59.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792954637670,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 66
-    },
-    {
-      "userId": "8b6485a9-0629-44f8-bd54-1d57180050e1",
-      "displayName": "芥末",
-      "avatarKey": "OKC",
-      "score": 59.5,
-      "remainingSalary": 0,
-      "submittedAt": 1792958548286,
+      "score": 59,
+      "remainingSalary": 2,
+      "submittedAt": 1792936579161,
       "statuses": [
         "todo",
         "live",
@@ -1095,151 +2263,23 @@
         "live",
         "live"
       ],
-      "rank": 67
+      "rank": 140
     },
     {
-      "userId": "77a8017b-3a80-4095-8a10-97e7bc7fe684",
-      "displayName": "jw1216",
-      "avatarKey": "GSW",
+      "userId": "440ac1c6-e968-48bf-96cd-0b418966d90d",
+      "displayName": "Kyujin",
+      "avatarKey": null,
       "score": 58.7,
       "remainingSalary": 0,
-      "submittedAt": 1792923112048,
+      "submittedAt": 1792942120363,
       "statuses": [
         "todo",
         "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 68
-    },
-    {
-      "userId": "6a33496e-0fb3-4398-ab9b-e3bfd8d2f81c",
-      "displayName": "鲁西南孙哥",
-      "avatarKey": "IND",
-      "score": 58.5,
-      "remainingSalary": 1,
-      "submittedAt": 1792906606543,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 69
-    },
-    {
-      "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
-      "displayName": "奶味大宇宙",
-      "avatarKey": "badge:T05_G",
-      "score": 58.1,
-      "remainingSalary": 0,
-      "submittedAt": 1792889484250,
-      "statuses": [
-        "todo",
-        "todo",
         "live",
         "live",
         "done"
       ],
-      "rank": 70
-    },
-    {
-      "userId": "b3eb724f-d508-43c6-a0ae-dcb2fca7c836",
-      "displayName": "acidboy",
-      "avatarKey": "NYK",
-      "score": 57.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792946086091,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 71
-    },
-    {
-      "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
-      "displayName": "Paddy",
-      "avatarKey": null,
-      "score": 57.6,
-      "remainingSalary": 1,
-      "submittedAt": 1792927330560,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 72
-    },
-    {
-      "userId": "c1bb13d3-8412-4cc8-a1fa-6eb211fc6b01",
-      "displayName": "日日是好日",
-      "avatarKey": null,
-      "score": 57.6,
-      "remainingSalary": 1,
-      "submittedAt": 1792940117012,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 73
-    },
-    {
-      "userId": "35ea34bd-f0ca-4294-923a-99418320551a",
-      "displayName": "HindERS",
-      "avatarKey": "CLE",
-      "score": 57.1,
-      "remainingSalary": 3,
-      "submittedAt": 1792922501989,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 74
-    },
-    {
-      "userId": "5af062e8-7ffe-4062-a360-98165342778c",
-      "displayName": "kloop",
-      "avatarKey": null,
-      "score": 56.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792930180923,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 75
-    },
-    {
-      "userId": "c6e6cddf-427a-44b8-bcea-d24c2873f0d4",
-      "displayName": "咋又喝不动了",
-      "avatarKey": null,
-      "score": 56.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792929944555,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "done",
-        "done"
-      ],
-      "rank": 76
+      "rank": 141
     },
     {
       "userId": "24827626-7d2d-442b-b950-4f3b342e24d0",
@@ -1255,973 +2295,13 @@
         "live",
         "done"
       ],
-      "rank": 77
-    },
-    {
-      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
-      "displayName": "老四238",
-      "avatarKey": null,
-      "score": 55.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792937468458,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 78
-    },
-    {
-      "userId": "f1d2dc19-cfd5-45b0-a163-98750092c668",
-      "displayName": "Amono1og",
-      "avatarKey": null,
-      "score": 55.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792905899559,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 79
-    },
-    {
-      "userId": "6d8696a4-6bf4-42b5-9864-3b4e43f53f13",
-      "displayName": "红黑卡卡",
-      "avatarKey": null,
-      "score": 55.5,
-      "remainingSalary": 1,
-      "submittedAt": 1792906829613,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 80
-    },
-    {
-      "userId": "4e712a5d-0e2b-4225-8641-315fff9ec7e3",
-      "displayName": "雕堡",
-      "avatarKey": "HOU",
-      "score": 54.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792926361168,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 81
-    },
-    {
-      "userId": "518dbd0d-d56a-43eb-9c89-0b44c22b83d5",
-      "displayName": "热心网友",
-      "avatarKey": null,
-      "score": 54.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792890813538,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 82
-    },
-    {
-      "userId": "2ecedf67-7590-4444-80f5-a3c7e68b0346",
-      "displayName": "千人羽",
-      "avatarKey": null,
-      "score": 54,
-      "remainingSalary": 2,
-      "submittedAt": 1792928677194,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 83
-    },
-    {
-      "userId": "19562a3b-5d9e-4284-a75a-784e7420d39f",
-      "displayName": "RussWest",
-      "avatarKey": "badge:T05_S",
-      "score": 53.2,
-      "remainingSalary": 0,
-      "submittedAt": 1792928426527,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 84
-    },
-    {
-      "userId": "39dd388c-7930-4a05-b7c9-32b4a91f43c2",
-      "displayName": "lychee",
-      "avatarKey": null,
-      "score": 53.2,
-      "remainingSalary": 0,
-      "submittedAt": 1792944519242,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 85
-    },
-    {
-      "userId": "cc8b8f44-974f-41f2-9b7f-3032069649d2",
-      "displayName": "卡卡罗特",
-      "avatarKey": null,
-      "score": 53.1,
-      "remainingSalary": 2,
-      "submittedAt": 1792899089923,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 86
-    },
-    {
-      "userId": "6697a9bd-dba2-4916-8ba0-f6bb2de06a48",
-      "displayName": "北纬三十度",
-      "avatarKey": "LAL",
-      "score": 52.8,
-      "remainingSalary": 20,
-      "submittedAt": 1792926995185,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 87
-    },
-    {
-      "userId": "ad82bf1a-434d-4f07-92d0-3ff986e33a7a",
-      "displayName": "休斯敦国米",
-      "avatarKey": "HOU",
-      "score": 52.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792681873096,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 88
-    },
-    {
-      "userId": "a5e1f26c-86b3-4c88-92a0-ba639c1b6f54",
-      "displayName": "rookiew",
-      "avatarKey": null,
-      "score": 52.1,
-      "remainingSalary": 3,
-      "submittedAt": 1792902680728,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 89
-    },
-    {
-      "userId": "58861a58-7bf4-4401-9ee3-a35bb611b448",
-      "displayName": "zbo",
-      "avatarKey": null,
-      "score": 52,
-      "remainingSalary": 1,
-      "submittedAt": 1792949133685,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 90
-    },
-    {
-      "userId": "3c7c0430-cbe6-4e2f-8264-7b3a35f0b9c7",
-      "displayName": "Lansh",
-      "avatarKey": "OKC",
-      "score": 51.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792915619787,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 91
-    },
-    {
-      "userId": "c5e77b41-8318-48fe-900d-fc51f6fdc9fd",
-      "displayName": "Devilsea",
-      "avatarKey": null,
-      "score": 51.5,
-      "remainingSalary": 2,
-      "submittedAt": 1792679346815,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 92
-    },
-    {
-      "userId": "5d9a5e00-b682-4dd8-ad08-3f4e2dd99d53",
-      "displayName": "88威",
-      "avatarKey": null,
-      "score": 51.5,
-      "remainingSalary": 1,
-      "submittedAt": 1792904906373,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 93
-    },
-    {
-      "userId": "3a4d77c7-6174-430b-bdca-7cfdb9ac5f89",
-      "displayName": "矜傲浮华王十七",
-      "avatarKey": null,
-      "score": 51.5,
-      "remainingSalary": 1,
-      "submittedAt": 1792937137200,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 94
-    },
-    {
-      "userId": "23c455e5-6914-473c-b441-5e25441b6407",
-      "displayName": "坦克委员",
-      "avatarKey": null,
-      "score": 50.4,
-      "remainingSalary": 0,
-      "submittedAt": 1792913748328,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 95
-    },
-    {
-      "userId": "8f84a771-1646-4502-aad0-ddf874b19cf1",
-      "displayName": "特雷泽盖",
-      "avatarKey": null,
-      "score": 48.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792937817741,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 96
-    },
-    {
-      "userId": "a13cd3dd-6d22-4aa7-a4c9-22d79470d417",
-      "displayName": "海乌乌",
-      "avatarKey": "SAS",
-      "score": 48.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792937737500,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 97
-    },
-    {
-      "userId": "a13c59ae-9bed-47e4-aa50-df890e6ba49c",
-      "displayName": "隆多就是最屌的",
-      "avatarKey": "badge:F08",
-      "score": 48.3,
-      "remainingSalary": 0,
-      "submittedAt": 1792919308267,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 98
-    },
-    {
-      "userId": "6b89ca68-205d-40b9-8f3a-de46e5737eed",
-      "displayName": "义色",
-      "avatarKey": null,
-      "score": 47.4,
-      "remainingSalary": 1,
-      "submittedAt": 1792932806739,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 99
-    },
-    {
-      "userId": "c469f8c3-59bc-445a-aee3-314ecc29d4ec",
-      "displayName": "DDDD",
-      "avatarKey": "HOU",
-      "score": 47.4,
-      "remainingSalary": 0,
-      "submittedAt": 1792941053758,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 100
-    },
-    {
-      "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
-      "displayName": "SsSylar",
-      "avatarKey": "WAS",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792905141417,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 101
-    },
-    {
-      "userId": "203882ac-8e10-4eb1-9ffe-060f8967c60d",
-      "displayName": "Fitz",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792905454337,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 102
-    },
-    {
-      "userId": "f78aa3fb-aa19-4974-81ca-943ef231f645",
-      "displayName": "wo是眼神666",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792909943679,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 103
-    },
-    {
-      "userId": "6f9c9a16-b5d9-4e89-a04b-f9628cfaf76c",
-      "displayName": "金黄色的松饵",
-      "avatarKey": "NOP",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792910124109,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 104
-    },
-    {
-      "userId": "d62f853a-cfc1-4701-88b5-5d3967d3f797",
-      "displayName": "阿杜归来",
-      "avatarKey": "WAS",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792920764091,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 105
-    },
-    {
-      "userId": "17e59b39-8e6b-42ea-a1e4-bdae0cd8b1dd",
-      "displayName": "bobo62",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792922829186,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 106
-    },
-    {
-      "userId": "860697cd-b212-49e4-8e23-f67f4d21bb09",
-      "displayName": "zysh1234",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792923216402,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 107
-    },
-    {
-      "userId": "22cf2d5c-9026-48a3-bc72-c119a01c2e03",
-      "displayName": "银之魂",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792924058793,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 108
-    },
-    {
-      "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
-      "displayName": "好堡",
-      "avatarKey": "BOS",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792926995294,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 109
-    },
-    {
-      "userId": "196d8fdb-eb4f-40d9-bd2e-a063d91c74fc",
-      "displayName": "LymGod",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792928350440,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 110
-    },
-    {
-      "userId": "9075f065-747f-4dce-926a-993dd6a032b3",
-      "displayName": "烟花易冷",
-      "avatarKey": "HOU",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792930972960,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 111
-    },
-    {
-      "userId": "1c60e323-1b28-46e8-8f11-11910417b8e0",
-      "displayName": "Jordanlq",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792935148845,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 112
-    },
-    {
-      "userId": "edf99707-c73f-47e4-bfe0-cbec725dda31",
-      "displayName": "内德维德",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792937682295,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 113
-    },
-    {
-      "userId": "4c6686bd-0b72-4d70-84e7-6410132c0791",
-      "displayName": "kenny",
-      "avatarKey": "SAS",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792937842885,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 114
-    },
-    {
-      "userId": "aae74b9b-0ee0-43e6-a086-73e35802aabc",
-      "displayName": "我叫杨参谋",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792939274242,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 115
-    },
-    {
-      "userId": "af01046f-b1a0-4ddd-bfc2-38ebfe6d26ce",
-      "displayName": "江逐流",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792940066246,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 116
-    },
-    {
-      "userId": "2b38de9d-f461-4be3-bba8-ad177af7b72f",
-      "displayName": "ROOKIED",
-      "avatarKey": null,
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792941042224,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 117
-    },
-    {
-      "userId": "6af7af2f-834c-4080-89db-59825e4e92b0",
-      "displayName": "Conan",
-      "avatarKey": "OKC",
-      "score": 47.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792942319965,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 118
-    },
-    {
-      "userId": "ae199675-314c-4b12-8b3b-1972a7c4388c",
-      "displayName": "郭老师",
-      "avatarKey": "HOU",
-      "score": 46,
-      "remainingSalary": 1,
-      "submittedAt": 1792955886479,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 119
-    },
-    {
-      "userId": "92562191-b47d-489b-9d60-ee76a9f8378f",
-      "displayName": "最后冇事",
-      "avatarKey": "NYK",
-      "score": 46,
-      "remainingSalary": 1,
-      "submittedAt": 1792960335750,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 120
-    },
-    {
-      "userId": "5a4620cc-3f0e-493e-9936-ad04d208d1ef",
-      "displayName": "大D",
-      "avatarKey": null,
-      "score": 46,
-      "remainingSalary": 0,
-      "submittedAt": 1792936500148,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 121
-    },
-    {
-      "userId": "a8868e2d-44fb-41da-a5d2-509258b6ed96",
-      "displayName": "愿许秋风知我意",
-      "avatarKey": "BOS",
-      "score": 45.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792947902756,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 122
-    },
-    {
-      "userId": "f0f7863b-f772-4bb5-b966-d23d43f88cb9",
-      "displayName": "魔法披风",
-      "avatarKey": "ORL",
-      "score": 45.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792949368255,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 123
-    },
-    {
-      "userId": "26bcb68b-f555-463a-b60d-14a29f1e9f14",
-      "displayName": "一条大天狗",
-      "avatarKey": "SAS",
-      "score": 45.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792950159557,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 124
-    },
-    {
-      "userId": "6278ab05-85bb-45db-836d-f4506eb884e3",
-      "displayName": "Paul",
-      "avatarKey": "IND",
-      "score": 45.7,
-      "remainingSalary": 3,
-      "submittedAt": 1792951272527,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 125
-    },
-    {
-      "userId": "c136eafe-a864-4982-960d-c88dc2a15d3b",
-      "displayName": "敌羞吾去脱他衣",
-      "avatarKey": "BOS",
-      "score": 45.2,
-      "remainingSalary": 1,
-      "submittedAt": 1792904450945,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 126
-    },
-    {
-      "userId": "e36817b5-8f23-414c-91c4-d7fff8313c75",
-      "displayName": "Xyxxx",
-      "avatarKey": "LAL",
-      "score": 44.7,
-      "remainingSalary": 1,
-      "submittedAt": 1792905046561,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 127
-    },
-    {
-      "userId": "8c386225-dee4-4baf-b3e2-fe4ccd672df3",
-      "displayName": "OldMike",
-      "avatarKey": "POR",
-      "score": 44.3,
-      "remainingSalary": 9,
-      "submittedAt": 1792929613026,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 128
-    },
-    {
-      "userId": "5a76fc9b-8d20-44df-8b8d-dd5050fb168d",
-      "displayName": "thehan",
-      "avatarKey": null,
-      "score": 44.3,
-      "remainingSalary": 2,
-      "submittedAt": 1792930483252,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 129
-    },
-    {
-      "userId": "e61395b4-9dc5-4980-9548-20ae6925f2ec",
-      "displayName": "syaniki",
-      "avatarKey": null,
-      "score": 44.3,
-      "remainingSalary": 2,
-      "submittedAt": 1792940086689,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 130
-    },
-    {
-      "userId": "a454a815-57f0-445e-9f76-837a8f638c75",
-      "displayName": "cc12065",
-      "avatarKey": null,
-      "score": 43.7,
-      "remainingSalary": 0,
-      "submittedAt": 1792903751293,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 131
-    },
-    {
-      "userId": "8c642aec-2c13-4baa-9a04-09cd3ca557bd",
-      "displayName": "SevenLiu",
-      "avatarKey": null,
-      "score": 42.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792949533544,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 132
-    },
-    {
-      "userId": "a96e4c80-eb69-48ec-a714-b3f25023ee1e",
-      "displayName": "达拉斯超人",
-      "avatarKey": null,
-      "score": 42.5,
-      "remainingSalary": 4,
-      "submittedAt": 1792929012071,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 133
-    },
-    {
-      "userId": "c25d4395-e7bb-4b2a-9dd6-31b5cc3af0bc",
-      "displayName": "alfred",
-      "avatarKey": null,
-      "score": 42.4,
-      "remainingSalary": 0,
-      "submittedAt": 1792835282394,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 134
-    },
-    {
-      "userId": "b480e5e5-da09-441c-a020-e658249f0638",
-      "displayName": "比亚迪海豹",
-      "avatarKey": null,
-      "score": 42.1,
-      "remainingSalary": 3,
-      "submittedAt": 1792564687092,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 135
-    },
-    {
-      "userId": "bfa6ad37-8f5a-43eb-b49a-60fc45ad2bb0",
-      "displayName": "不能开矿的菜地",
-      "avatarKey": "CHA",
-      "score": 41.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792925502191,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 136
-    },
-    {
-      "userId": "3718ebfc-cf04-48f2-82c7-81b98a24838e",
-      "displayName": "curry30",
-      "avatarKey": "GSW",
-      "score": 39.2,
-      "remainingSalary": 1,
-      "submittedAt": 1792906380368,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 137
+      "rank": 142
     },
     {
       "userId": "92c74e77-e071-48f4-9a10-c8112919edfb",
       "displayName": "相信过程",
       "avatarKey": "PHI",
-      "score": 39,
+      "score": 55,
       "remainingSalary": 2,
       "submittedAt": 1792930077366,
       "statuses": [
@@ -2231,111 +2311,31 @@
         "live",
         "done"
       ],
-      "rank": 138
-    },
-    {
-      "userId": "5f31973f-2b8b-449b-8487-944ed3c62949",
-      "displayName": "mmmmmm",
-      "avatarKey": null,
-      "score": 38.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792931180140,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 139
-    },
-    {
-      "userId": "3a0c66f2-bf32-4ad4-9ff0-6fc26999c983",
-      "displayName": "威少666",
-      "avatarKey": null,
-      "score": 38.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792926799182,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 140
-    },
-    {
-      "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
-      "displayName": "NJZisen",
-      "avatarKey": "SAS",
-      "score": 38.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792934799746,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 141
-    },
-    {
-      "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
-      "displayName": "蒂兰基尔尼",
-      "avatarKey": "MIL",
-      "score": 38.4,
-      "remainingSalary": 0,
-      "submittedAt": 1792940388607,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 142
-    },
-    {
-      "userId": "9bf5a1e2-1d94-4601-8500-468f69a86943",
-      "displayName": "划水大将",
-      "avatarKey": "MIN",
-      "score": 38.2,
-      "remainingSalary": 1,
-      "submittedAt": 1792899955550,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
       "rank": 143
     },
     {
-      "userId": "2d2fe586-5407-4de7-b3fb-1f95c5acccdf",
-      "displayName": "kimkk",
+      "userId": "f9307568-a6d4-4976-9f26-729ddb2de743",
+      "displayName": "积极搞",
       "avatarKey": null,
-      "score": 38.2,
-      "remainingSalary": 1,
-      "submittedAt": 1792934861409,
+      "score": 54.9,
+      "remainingSalary": 3,
+      "submittedAt": 1792923852892,
       "statuses": [
         "todo",
         "todo",
+        "todo",
         "live",
-        "live",
-        "done"
+        "live"
       ],
       "rank": 144
     },
     {
-      "userId": "03658a35-4446-445e-b8e0-a81028f62af1",
-      "displayName": "青冥",
-      "avatarKey": "LAL",
-      "score": 38.1,
-      "remainingSalary": 1,
-      "submittedAt": 1792933539127,
+      "userId": "23c455e5-6914-473c-b441-5e25441b6407",
+      "displayName": "坦克委员",
+      "avatarKey": null,
+      "score": 54.6,
+      "remainingSalary": 0,
+      "submittedAt": 1792913748328,
       "statuses": [
         "todo",
         "todo",
@@ -2346,31 +2346,31 @@
       "rank": 145
     },
     {
-      "userId": "b82a47d6-96a3-400f-a010-5b0a15c8d640",
-      "displayName": "小小翟",
+      "userId": "8f84a771-1646-4502-aad0-ddf874b19cf1",
+      "displayName": "特雷泽盖",
       "avatarKey": null,
-      "score": 36.9,
-      "remainingSalary": 2,
-      "submittedAt": 1792936579161,
+      "score": 54.4,
+      "remainingSalary": 0,
+      "submittedAt": 1792937817741,
       "statuses": [
         "todo",
+        "todo",
+        "todo",
         "live",
-        "live",
-        "live",
-        "live"
+        "done"
       ],
       "rank": 146
     },
     {
-      "userId": "5dd87c17-4000-4220-8de2-c49b61a24606",
-      "displayName": "法国长人阿尔塞纳",
-      "avatarKey": null,
-      "score": 36.8,
+      "userId": "03658a35-4446-445e-b8e0-a81028f62af1",
+      "displayName": "青冥",
+      "avatarKey": "LAL",
+      "score": 54.1,
       "remainingSalary": 1,
-      "submittedAt": 1792924989242,
+      "submittedAt": 1792933539127,
       "statuses": [
         "todo",
-        "live",
+        "todo",
         "live",
         "live",
         "done"
@@ -2378,12 +2378,12 @@
       "rank": 147
     },
     {
-      "userId": "440ac1c6-e968-48bf-96cd-0b418966d90d",
-      "displayName": "Kyujin",
-      "avatarKey": null,
-      "score": 35.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792942120363,
+      "userId": "fecdb959-7e70-4a8e-a96f-c127ced88a21",
+      "displayName": "葱小谬",
+      "avatarKey": "badge:T06_S",
+      "score": 53.9,
+      "remainingSalary": 15,
+      "submittedAt": 1792944497881,
       "statuses": [
         "todo",
         "live",
@@ -2394,15 +2394,15 @@
       "rank": 148
     },
     {
-      "userId": "340861b8-5f58-4e50-89cf-9a164cbce420",
-      "displayName": "zzh910",
+      "userId": "b480e5e5-da09-441c-a020-e658249f0638",
+      "displayName": "比亚迪海豹",
       "avatarKey": null,
-      "score": 35.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792902537792,
+      "score": 52.6,
+      "remainingSalary": 3,
+      "submittedAt": 1792564687092,
       "statuses": [
-        "todo",
-        "todo",
+        "live",
+        "live",
         "live",
         "live",
         "live"
@@ -2410,12 +2410,12 @@
       "rank": 149
     },
     {
-      "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
-      "displayName": "窗外的麻雀",
+      "userId": "9a05194d-2c9c-40e5-a2dd-0d6e271f532f",
+      "displayName": "StarK",
       "avatarKey": null,
-      "score": 35.2,
+      "score": 51.9,
       "remainingSalary": 0,
-      "submittedAt": 1792900910198,
+      "submittedAt": 1792901812214,
       "statuses": [
         "todo",
         "todo",
@@ -2426,15 +2426,15 @@
       "rank": 150
     },
     {
-      "userId": "fecdb959-7e70-4a8e-a96f-c127ced88a21",
-      "displayName": "葱小谬",
-      "avatarKey": "badge:T06_S",
-      "score": 35,
-      "remainingSalary": 15,
-      "submittedAt": 1792944497881,
+      "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
+      "displayName": "蒂兰基尔尼",
+      "avatarKey": "MIL",
+      "score": 51.8,
+      "remainingSalary": 0,
+      "submittedAt": 1792940388607,
       "statuses": [
         "todo",
-        "live",
+        "todo",
         "live",
         "live",
         "done"
@@ -2442,170 +2442,42 @@
       "rank": 151
     },
     {
-      "userId": "f9307568-a6d4-4976-9f26-729ddb2de743",
-      "displayName": "积极搞",
+      "userId": "74b21482-becb-42df-84df-1bfc4179ce4e",
+      "displayName": "sunnder",
       "avatarKey": null,
-      "score": 34.4,
-      "remainingSalary": 3,
-      "submittedAt": 1792923852892,
+      "score": 50.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792893834221,
       "statuses": [
         "todo",
         "todo",
-        "todo",
         "live",
-        "live"
+        "live",
+        "done"
       ],
       "rank": 152
     },
     {
-      "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
-      "displayName": "刘堡",
-      "avatarKey": "MIN",
-      "score": 33.3,
-      "remainingSalary": 7,
-      "submittedAt": 1792958751533,
+      "userId": "0565c7d0-e2d0-4293-91e6-2dbf89cf73e1",
+      "displayName": "古镇口鞭妇侠",
+      "avatarKey": "PHX",
+      "score": 50.9,
+      "remainingSalary": 0,
+      "submittedAt": 1792922383380,
       "statuses": [
         "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
+        "live",
+        "live",
+        "live",
+        "done"
       ],
       "rank": 153
-    },
-    {
-      "userId": "cd4c88dd-5150-4fbd-86a6-7e8960ba8da6",
-      "displayName": "逃避",
-      "avatarKey": null,
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792900607828,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 154
-    },
-    {
-      "userId": "3071511e-93c2-40b0-a0c4-0a6bb85132a9",
-      "displayName": "逃离太空舱",
-      "avatarKey": null,
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792901822356,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 155
-    },
-    {
-      "userId": "ab2eedcd-07f1-4365-a639-19688c92de01",
-      "displayName": "888",
-      "avatarKey": null,
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792915995530,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 156
-    },
-    {
-      "userId": "342d21e2-1c6b-4e67-80d3-d3c1a8ec877e",
-      "displayName": "进藤光",
-      "avatarKey": "HOU",
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792917711038,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 157
-    },
-    {
-      "userId": "18be32d7-d616-43e7-8b1e-1113c1c7de6b",
-      "displayName": "吉尔邦硬",
-      "avatarKey": "TOR",
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792926725962,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 158
-    },
-    {
-      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
-      "displayName": "AG",
-      "avatarKey": "LAL",
-      "score": 33.3,
-      "remainingSalary": 1,
-      "submittedAt": 1792938530880,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 159
-    },
-    {
-      "userId": "38c11ed7-c980-4a48-9965-8bbb3b0cebd0",
-      "displayName": "iLbanHua",
-      "avatarKey": null,
-      "score": 32.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792934633787,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 160
-    },
-    {
-      "userId": "89928a76-1d58-49a5-88e0-2cbe60b9f068",
-      "displayName": "筐筐",
-      "avatarKey": "MIN",
-      "score": 32.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792950658609,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 161
     },
     {
       "userId": "31ee1ab8-c3ec-415c-a5dc-db5dda3421d4",
       "displayName": "fffy",
       "avatarKey": null,
-      "score": 32.5,
+      "score": 50.2,
       "remainingSalary": 2,
       "submittedAt": 1792897367344,
       "statuses": [
@@ -2613,17 +2485,209 @@
         "todo",
         "todo",
         "live",
-        "live"
+        "done"
+      ],
+      "rank": 154
+    },
+    {
+      "userId": "3a0c66f2-bf32-4ad4-9ff0-6fc26999c983",
+      "displayName": "威少666",
+      "avatarKey": null,
+      "score": 50.2,
+      "remainingSalary": 0,
+      "submittedAt": 1792926799182,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 155
+    },
+    {
+      "userId": "73a28bf7-692f-4f32-a4fe-9d079c497367",
+      "displayName": "NJZisen",
+      "avatarKey": "SAS",
+      "score": 50.2,
+      "remainingSalary": 0,
+      "submittedAt": 1792934799746,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 156
+    },
+    {
+      "userId": "340861b8-5f58-4e50-89cf-9a164cbce420",
+      "displayName": "zzh910",
+      "avatarKey": null,
+      "score": 49.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792902537792,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 157
+    },
+    {
+      "userId": "5f31973f-2b8b-449b-8487-944ed3c62949",
+      "displayName": "mmmmmm",
+      "avatarKey": null,
+      "score": 49.1,
+      "remainingSalary": 2,
+      "submittedAt": 1792931180140,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 158
+    },
+    {
+      "userId": "5dd87c17-4000-4220-8de2-c49b61a24606",
+      "displayName": "法国长人阿尔塞纳",
+      "avatarKey": null,
+      "score": 48.2,
+      "remainingSalary": 1,
+      "submittedAt": 1792924989242,
+      "statuses": [
+        "todo",
+        "live",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 159
+    },
+    {
+      "userId": "e2c13f3c-54b5-4076-a499-4499007c5948",
+      "displayName": "刘堡",
+      "avatarKey": "MIN",
+      "score": 47.8,
+      "remainingSalary": 7,
+      "submittedAt": 1792958751533,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 160
+    },
+    {
+      "userId": "cd4c88dd-5150-4fbd-86a6-7e8960ba8da6",
+      "displayName": "逃避",
+      "avatarKey": null,
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792900607828,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 161
+    },
+    {
+      "userId": "3071511e-93c2-40b0-a0c4-0a6bb85132a9",
+      "displayName": "逃离太空舱",
+      "avatarKey": null,
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792901822356,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
       ],
       "rank": 162
     },
     {
-      "userId": "05d18496-3ef3-4cda-8132-3011baa37e11",
-      "displayName": "夏晚星",
-      "avatarKey": "SAS",
-      "score": 32.2,
-      "remainingSalary": 6,
-      "submittedAt": 1792905946962,
+      "userId": "ab2eedcd-07f1-4365-a639-19688c92de01",
+      "displayName": "888",
+      "avatarKey": null,
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792915995530,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 163
+    },
+    {
+      "userId": "342d21e2-1c6b-4e67-80d3-d3c1a8ec877e",
+      "displayName": "进藤光",
+      "avatarKey": "HOU",
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792917711038,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 164
+    },
+    {
+      "userId": "18be32d7-d616-43e7-8b1e-1113c1c7de6b",
+      "displayName": "吉尔邦硬",
+      "avatarKey": "TOR",
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792926725962,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 165
+    },
+    {
+      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
+      "displayName": "AG",
+      "avatarKey": "LAL",
+      "score": 47.8,
+      "remainingSalary": 1,
+      "submittedAt": 1792938530880,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "done"
+      ],
+      "rank": 166
+    },
+    {
+      "userId": "10706d4e-62c4-46e8-b15a-45b676c5bd1e",
+      "displayName": "范门贾杜申",
+      "avatarKey": "HOU",
+      "score": 46.7,
+      "remainingSalary": 2,
+      "submittedAt": 1792947578489,
       "statuses": [
         "todo",
         "todo",
@@ -2631,13 +2695,45 @@
         "live",
         "live"
       ],
-      "rank": 163
+      "rank": 167
+    },
+    {
+      "userId": "a454a815-57f0-445e-9f76-837a8f638c75",
+      "displayName": "cc12065",
+      "avatarKey": null,
+      "score": 46.1,
+      "remainingSalary": 0,
+      "submittedAt": 1792903751293,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 168
+    },
+    {
+      "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
+      "displayName": "窗外的麻雀",
+      "avatarKey": null,
+      "score": 45.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792900910198,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 169
     },
     {
       "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
       "displayName": "Santiago",
       "avatarKey": "SAS",
-      "score": 32.1,
+      "score": 44.4,
       "remainingSalary": 0,
       "submittedAt": 1792909142654,
       "statuses": [
@@ -2647,13 +2743,13 @@
         "live",
         "live"
       ],
-      "rank": 164
+      "rank": 170
     },
     {
       "userId": "5156111b-a55a-4c3f-bff8-0a3c3d63d819",
       "displayName": "围观戒哥夺冠",
       "avatarKey": "HOU",
-      "score": 32.1,
+      "score": 44.4,
       "remainingSalary": 0,
       "submittedAt": 1792920060052,
       "statuses": [
@@ -2663,13 +2759,13 @@
         "live",
         "live"
       ],
-      "rank": 165
+      "rank": 171
     },
     {
       "userId": "4a791b18-eb10-4d35-b1a7-971aaea6a649",
       "displayName": "再说把你煮啦",
       "avatarKey": "WAS",
-      "score": 32.1,
+      "score": 44.4,
       "remainingSalary": 0,
       "submittedAt": 1792931299012,
       "statuses": [
@@ -2679,31 +2775,15 @@
         "live",
         "live"
       ],
-      "rank": 166
+      "rank": 172
     },
     {
-      "userId": "44329ca0-b6bf-4931-a62b-1c48c2ef9d88",
-      "displayName": "Ruruz",
-      "avatarKey": "LAL",
-      "score": 32,
-      "remainingSalary": 7,
-      "submittedAt": 1792912951920,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 167
-    },
-    {
-      "userId": "9a05194d-2c9c-40e5-a2dd-0d6e271f532f",
-      "displayName": "StarK",
+      "userId": "dbccb4ab-3659-4fe1-92d4-d9e1eb1cee6f",
+      "displayName": "GeorgeQ",
       "avatarKey": null,
-      "score": 31,
-      "remainingSalary": 0,
-      "submittedAt": 1792901812214,
+      "score": 42.2,
+      "remainingSalary": 2,
+      "submittedAt": 1792901689598,
       "statuses": [
         "todo",
         "todo",
@@ -2711,7 +2791,119 @@
         "live",
         "done"
       ],
-      "rank": 168
+      "rank": 173
+    },
+    {
+      "userId": "786753aa-98fc-4229-a151-b937a73780d9",
+      "displayName": "下快攻了",
+      "avatarKey": "PHI",
+      "score": 38.3,
+      "remainingSalary": 0,
+      "submittedAt": 1792903948254,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "done",
+        "done"
+      ],
+      "rank": 174
+    },
+    {
+      "userId": "deb2027f-b971-491b-a19a-1158ecd21726",
+      "displayName": "Kimi1024",
+      "avatarKey": null,
+      "score": 36.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792928518240,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 175
+    },
+    {
+      "userId": "9a565eb0-ce07-4d2a-9678-658fbb3b8af8",
+      "displayName": "KyleGao",
+      "avatarKey": null,
+      "score": 34.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792934583973,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "live"
+      ],
+      "rank": 176
+    },
+    {
+      "userId": "05d18496-3ef3-4cda-8132-3011baa37e11",
+      "displayName": "夏晚星",
+      "avatarKey": "SAS",
+      "score": 34.6,
+      "remainingSalary": 6,
+      "submittedAt": 1792905946962,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "live"
+      ],
+      "rank": 177
+    },
+    {
+      "userId": "ab482302-16ee-45fe-a158-568059673bde",
+      "displayName": "Ree3",
+      "avatarKey": "MIN",
+      "score": 32.7,
+      "remainingSalary": 0,
+      "submittedAt": 1792914432897,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "live"
+      ],
+      "rank": 178
+    },
+    {
+      "userId": "f94feada-fdd3-4c58-ae54-60a85fc195f3",
+      "displayName": "asuna",
+      "avatarKey": null,
+      "score": 31.6,
+      "remainingSalary": 3,
+      "submittedAt": 1792954193740,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "done"
+      ],
+      "rank": 179
+    },
+    {
+      "userId": "460dc900-15eb-46c1-b200-3ca1e3898b6e",
+      "displayName": "古德温救我",
+      "avatarKey": "PHX",
+      "score": 31.6,
+      "remainingSalary": 1,
+      "submittedAt": 1792896609616,
+      "statuses": [
+        "todo",
+        "todo",
+        "live",
+        "live",
+        "done"
+      ],
+      "rank": 180
     },
     {
       "userId": "dd0c2c3d-99eb-4c31-b085-1064d39823da",
@@ -2727,71 +2919,39 @@
         "done",
         "done"
       ],
-      "rank": 169
+      "rank": 181
     },
     {
-      "userId": "04a10fcf-d5ce-45ac-b147-4eea17494f5d",
-      "displayName": "MK42",
+      "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
+      "displayName": "benben",
+      "avatarKey": "SAC",
+      "score": 28.4,
+      "remainingSalary": 0,
+      "submittedAt": 1792955209245,
+      "statuses": [
+        "todo",
+        "todo",
+        "todo",
+        "live",
+        "live"
+      ],
+      "rank": 182
+    },
+    {
+      "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
+      "displayName": "阿道",
       "avatarKey": null,
-      "score": 29.5,
-      "remainingSalary": 0,
-      "submittedAt": 1792558788675,
-      "statuses": [
-        "live",
-        "live",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 170
-    },
-    {
-      "userId": "0565c7d0-e2d0-4293-91e6-2dbf89cf73e1",
-      "displayName": "古镇口鞭妇侠",
-      "avatarKey": "PHX",
-      "score": 27.8,
-      "remainingSalary": 0,
-      "submittedAt": 1792922383380,
-      "statuses": [
-        "todo",
-        "live",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 171
-    },
-    {
-      "userId": "460dc900-15eb-46c1-b200-3ca1e3898b6e",
-      "displayName": "古德温救我",
-      "avatarKey": "PHX",
-      "score": 27.4,
+      "score": 27.2,
       "remainingSalary": 1,
-      "submittedAt": 1792896609616,
+      "submittedAt": 1792935455814,
       "statuses": [
         "todo",
         "todo",
-        "live",
-        "live",
-        "live"
-      ],
-      "rank": 172
-    },
-    {
-      "userId": "64db369e-66e1-45b3-80be-0364495572c3",
-      "displayName": "RR",
-      "avatarKey": "UTA",
-      "score": 26.9,
-      "remainingSalary": 0,
-      "submittedAt": 1792156116109,
-      "statuses": [
         "todo",
         "live",
-        "live",
-        "live",
         "live"
       ],
-      "rank": 173
+      "rank": 183
     },
     {
       "userId": "c1963483-27f7-442f-acbc-347a51702b0d",
@@ -2807,7 +2967,7 @@
         "live",
         "done"
       ],
-      "rank": 174
+      "rank": 184
     },
     {
       "userId": "eb393da1-f231-46d4-857a-ede49d806f85",
@@ -2823,7 +2983,7 @@
         "live",
         "done"
       ],
-      "rank": 175
+      "rank": 185
     },
     {
       "userId": "5b582050-2cf3-4cc7-8b76-edcb0a80d772",
@@ -2839,109 +2999,13 @@
         "live",
         "done"
       ],
-      "rank": 176
-    },
-    {
-      "userId": "9a565eb0-ce07-4d2a-9678-658fbb3b8af8",
-      "displayName": "KyleGao",
-      "avatarKey": null,
-      "score": 25.2,
-      "remainingSalary": 0,
-      "submittedAt": 1792934583973,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 177
-    },
-    {
-      "userId": "786753aa-98fc-4229-a151-b937a73780d9",
-      "displayName": "下快攻了",
-      "avatarKey": "PHI",
-      "score": 25.1,
-      "remainingSalary": 0,
-      "submittedAt": 1792903948254,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 178
-    },
-    {
-      "userId": "dbccb4ab-3659-4fe1-92d4-d9e1eb1cee6f",
-      "displayName": "GeorgeQ",
-      "avatarKey": null,
-      "score": 23.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792901689598,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 179
-    },
-    {
-      "userId": "f94feada-fdd3-4c58-ae54-60a85fc195f3",
-      "displayName": "asuna",
-      "avatarKey": null,
-      "score": 23.4,
-      "remainingSalary": 3,
-      "submittedAt": 1792954193740,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "done"
-      ],
-      "rank": 180
-    },
-    {
-      "userId": "deb2027f-b971-491b-a19a-1158ecd21726",
-      "displayName": "Kimi1024",
-      "avatarKey": null,
-      "score": 23.3,
-      "remainingSalary": 0,
-      "submittedAt": 1792928518240,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 181
-    },
-    {
-      "userId": "74b21482-becb-42df-84df-1bfc4179ce4e",
-      "displayName": "sunnder",
-      "avatarKey": null,
-      "score": 22.6,
-      "remainingSalary": 0,
-      "submittedAt": 1792893834221,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "done"
-      ],
-      "rank": 182
+      "rank": 186
     },
     {
       "userId": "00b7ea05-e657-49f5-9aad-8e04edc61c25",
       "displayName": "him4real",
       "avatarKey": null,
-      "score": 21.8,
+      "score": 26,
       "remainingSalary": 0,
       "submittedAt": 1792948433532,
       "statuses": [
@@ -2951,23 +3015,23 @@
         "live",
         "done"
       ],
-      "rank": 183
+      "rank": 187
     },
     {
-      "userId": "17ca1f53-37ee-4b05-8c79-59dcb0582db0",
-      "displayName": "benben",
-      "avatarKey": "SAC",
-      "score": 18.2,
-      "remainingSalary": 0,
-      "submittedAt": 1792955209245,
+      "userId": "462332dd-144b-4e33-b8e3-df0bba917115",
+      "displayName": "ooooo",
+      "avatarKey": "GSW",
+      "score": 18.1,
+      "remainingSalary": 1,
+      "submittedAt": 1792940261518,
       "statuses": [
         "todo",
         "todo",
         "todo",
-        "live",
+        "todo",
         "live"
       ],
-      "rank": 184
+      "rank": 188
     },
     {
       "userId": "77ac5f52-9ef4-47c6-b00a-01e616ca4e47",
@@ -2980,42 +3044,10 @@
         "todo",
         "todo",
         "todo",
-        "live",
+        "done",
         "done"
       ],
-      "rank": 185
-    },
-    {
-      "userId": "10706d4e-62c4-46e8-b15a-45b676c5bd1e",
-      "displayName": "范门贾杜申",
-      "avatarKey": "HOU",
-      "score": 16.6,
-      "remainingSalary": 2,
-      "submittedAt": 1792947578489,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 186
-    },
-    {
-      "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
-      "displayName": "阿道",
-      "avatarKey": null,
-      "score": 14,
-      "remainingSalary": 1,
-      "submittedAt": 1792935455814,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "live",
-        "live"
-      ],
-      "rank": 187
+      "rank": 189
     },
     {
       "userId": "a1b85ee2-18c4-4f5d-865c-7b6569e075a0",
@@ -3031,7 +3063,7 @@
         "todo",
         "done"
       ],
-      "rank": 188
+      "rank": 190
     },
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
@@ -3046,38 +3078,6 @@
         "todo",
         "todo",
         "done"
-      ],
-      "rank": 189
-    },
-    {
-      "userId": "462332dd-144b-4e33-b8e3-df0bba917115",
-      "displayName": "ooooo",
-      "avatarKey": "GSW",
-      "score": 4.7,
-      "remainingSalary": 1,
-      "submittedAt": 1792940261518,
-      "statuses": [
-        "todo",
-        "todo",
-        "todo",
-        "todo",
-        "live"
-      ],
-      "rank": 190
-    },
-    {
-      "userId": "ab482302-16ee-45fe-a158-568059673bde",
-      "displayName": "Ree3",
-      "avatarKey": "MIN",
-      "score": 2.2,
-      "remainingSalary": 0,
-      "submittedAt": 1792914432897,
-      "statuses": [
-        "todo",
-        "todo",
-        "live",
-        "live",
-        "live"
       ],
       "rank": 191
     }

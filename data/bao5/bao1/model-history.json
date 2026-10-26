@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:09:42.806Z",
+    "resultUpdatedAt": "2026-10-26T00:53:55.639Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:09:48.000Z",
+    "resultUpdatedAt": "2026-10-26T00:53:59.706Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:09:51.142Z",
+    "resultUpdatedAt": "2026-10-26T00:54:02.697Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:09:54.363Z",
+    "resultUpdatedAt": "2026-10-26T00:54:05.716Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:09:57.612Z",
+    "resultUpdatedAt": "2026-10-26T00:54:08.606Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7242,19 +7242,48 @@
       "mode": "highRisk"
     },
     "actualTotal": 12.4,
-    "rank": 189,
+    "rank": 191,
     "rankTotal": 191,
     "scoreDelta": -106.2,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T00:10:00.897Z",
+    "resultUpdatedAt": "2026-10-26T00:54:11.700Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
         {
           "rank": 1,
+          "userId": "876ab568-1752-4209-b102-75af8ee0c0ad",
+          "displayName": "芋头粽",
+          "score": 188.1,
+          "remainingSalary": 0,
+          "salaryUsed": 150,
+          "playerIds": [
+            "1629029",
+            "1630169",
+            "1630194",
+            "1630228",
+            "1642266"
+          ],
+          "playerScores": {
+            "1629029": 78.6,
+            "1630169": 47.8,
+            "1630194": 14,
+            "1630228": 19.1,
+            "1642266": 28.6
+          },
+          "playerNames": [
+            "卢卡·东契奇",
+            "泰瑞斯·哈利伯顿",
+            "保罗·里德",
+            "乔纳森·库明加",
+            "贾科比·沃尔特"
+          ]
+        },
+        {
+          "rank": 2,
           "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
           "displayName": "鲁迪费尔南德斯",
-          "score": 150.6,
+          "score": 156,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7269,7 +7298,7 @@
             "1630173": 0,
             "1630194": 14,
             "1641718": 46.8,
-            "1641737": 11.2
+            "1641737": 16.6
           },
           "playerNames": [
             "保罗·里德",
@@ -7280,68 +7309,10 @@
           ]
         },
         {
-          "rank": 2,
-          "userId": "876ab568-1752-4209-b102-75af8ee0c0ad",
-          "displayName": "芋头粽",
-          "score": 147,
-          "remainingSalary": 0,
-          "salaryUsed": 150,
-          "playerIds": [
-            "1629029",
-            "1630169",
-            "1630194",
-            "1630228",
-            "1642266"
-          ],
-          "playerScores": {
-            "1629029": 78.6,
-            "1630169": 33.3,
-            "1630194": 14,
-            "1630228": 9.2,
-            "1642266": 11.9
-          },
-          "playerNames": [
-            "卢卡·东契奇",
-            "泰瑞斯·哈利伯顿",
-            "保罗·里德",
-            "乔纳森·库明加",
-            "贾科比·沃尔特"
-          ]
-        },
-        {
           "rank": 3,
-          "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
-          "displayName": "yyyyyj45",
-          "score": 122.5,
-          "remainingSalary": 3,
-          "salaryUsed": 147,
-          "playerIds": [
-            "1630194",
-            "1627783",
-            "1630559",
-            "1629614",
-            "1642266"
-          ],
-          "playerScores": {
-            "1627783": 34.7,
-            "1629614": 19.7,
-            "1630194": 14,
-            "1630559": 42.2,
-            "1642266": 11.9
-          },
-          "playerNames": [
-            "保罗·里德",
-            "帕斯卡尔·西亚卡姆",
-            "奥斯汀·里夫斯",
-            "安德鲁·内姆布哈德",
-            "贾科比·沃尔特"
-          ]
-        },
-        {
-          "rank": 4,
           "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
           "displayName": "FG是冠军",
-          "score": 122.3,
+          "score": 151.3,
           "remainingSalary": 1,
           "salaryUsed": 149,
           "playerIds": [
@@ -7353,8 +7324,8 @@
           ],
           "playerScores": {
             "1627734": 0,
-            "1627739": 32.8,
-            "1630169": 33.3,
+            "1627739": 47.3,
+            "1630169": 47.8,
             "1630194": 14,
             "1630559": 42.2
           },
@@ -7367,32 +7338,61 @@
           ]
         },
         {
-          "rank": 5,
-          "userId": "187f999a-2120-4ee5-9087-75f9eac83182",
-          "displayName": "喝呀",
-          "score": 118.6,
-          "remainingSalary": 0,
-          "salaryUsed": 150,
+          "rank": 4,
+          "userId": "c33bbef3-70d2-4326-be9f-43518f246ed8",
+          "displayName": "Leon",
+          "score": 150.9,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
           "playerIds": [
-            "1629660",
-            "1629029",
-            "1642867",
             "1629637",
-            "201572"
+            "1628976",
+            "1630169",
+            "1630194",
+            "1628983"
           ],
           "playerScores": {
-            "201572": 11,
-            "1629029": 78.6,
+            "1628976": 21.1,
+            "1628983": 48.5,
             "1629637": 19.5,
-            "1629660": 0,
-            "1642867": 9.5
+            "1630169": 47.8,
+            "1630194": 14
           },
           "playerNames": [
-            "泰·杰罗姆",
-            "卢卡·东契奇",
-            "科林·穆雷·博伊尔斯",
             "贾克森·海斯",
-            "布鲁克·洛佩斯"
+            "小温德尔·卡特",
+            "泰瑞斯·哈利伯顿",
+            "保罗·里德",
+            "谢伊·吉尔杰斯-亚历山大"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
+          "displayName": "yyyyyj45",
+          "score": 144.9,
+          "remainingSalary": 3,
+          "salaryUsed": 147,
+          "playerIds": [
+            "1630194",
+            "1627783",
+            "1630559",
+            "1629614",
+            "1642266"
+          ],
+          "playerScores": {
+            "1627783": 40.4,
+            "1629614": 19.7,
+            "1630194": 14,
+            "1630559": 42.2,
+            "1642266": 28.6
+          },
+          "playerNames": [
+            "保罗·里德",
+            "帕斯卡尔·西亚卡姆",
+            "奥斯汀·里夫斯",
+            "安德鲁·内姆布哈德",
+            "贾科比·沃尔特"
           ]
         }
       ],
@@ -7400,12 +7400,12 @@
         {
           "id": "1630194",
           "name": "保罗·里德",
-          "selections": 4,
-          "rate": 0.8
+          "selections": 5,
+          "rate": 1
         },
         {
-          "id": "1629029",
-          "name": "卢卡·东契奇",
+          "id": "1630169",
+          "name": "泰瑞斯·哈利伯顿",
           "selections": 3,
           "rate": 0.6
         },
@@ -7422,8 +7422,8 @@
           "rate": 0.4
         },
         {
-          "id": "1630169",
-          "name": "泰瑞斯·哈利伯顿",
+          "id": "1629029",
+          "name": "卢卡·东契奇",
           "selections": 2,
           "rate": 0.4
         },
@@ -7436,12 +7436,6 @@
         {
           "id": "1629614",
           "name": "安德鲁·内姆布哈德",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "201572",
-          "name": "布鲁克·洛佩斯",
           "selections": 1,
           "rate": 0.2
         },
@@ -7460,12 +7454,6 @@
         {
           "id": "1629637",
           "name": "贾克森·海斯",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "1642867",
-          "name": "科林·穆雷·博伊尔斯",
           "selections": 1,
           "rate": 0.2
         },
@@ -7494,8 +7482,14 @@
           "rate": 0.2
         },
         {
-          "id": "1629660",
-          "name": "泰·杰罗姆",
+          "id": "1628976",
+          "name": "小温德尔·卡特",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1628983",
+          "name": "谢伊·吉尔杰斯-亚历山大",
           "selections": 1,
           "rate": 0.2
         }

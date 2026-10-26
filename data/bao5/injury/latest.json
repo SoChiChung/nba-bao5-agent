@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T00:10:17.986Z",
+  "updatedAt": "2026-10-26T00:54:27.608Z",
   "serverDate": "2026-10-25",
   "requestedDate": "2026-10-26",
   "available": true,
@@ -10,12 +10,11 @@
     "total": 540,
     "available": 222,
     "pending": 223,
-    "out": 93,
-    "questionable": 2
+    "out": 95
   },
   "provenance": {
-    "officialCount": 50,
-    "projectedCount": 142,
+    "officialCount": 51,
+    "projectedCount": 141,
     "filledCount": 0,
     "fallbackSource": "none"
   },
@@ -1062,6 +1061,20 @@
       "energy": null
     },
     {
+      "id": "1642914",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642927",
       "key": "out",
       "label": "缺阵",
@@ -1179,6 +1192,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1643510",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1326,35 +1353,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "1642907",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左手腕扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643510",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月25日 20:00 发布）：列出50人，今日出战的另外142人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月25日 20:30 发布）：列出51人，今日出战的另外141人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

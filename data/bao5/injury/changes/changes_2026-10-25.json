@@ -1,26 +1,25 @@
 {
-  "generatedAt": "2026-10-26T00:10:17.986Z",
+  "generatedAt": "2026-10-26T00:54:27.608Z",
   "serverDate": "2026-10-25",
   "requestedDate": "2026-10-26",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-25T20:00:00",
+  "updatedAt": "2026-10-25T20:30:00",
   "counts": {
     "total": 540,
     "available": 222,
     "pending": 223,
-    "out": 93,
-    "questionable": 2
+    "out": 95
   },
   "provenance": {
-    "officialCount": 50,
-    "projectedCount": 142,
+    "officialCount": 51,
+    "projectedCount": 141,
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月25日 20:00 发布）：列出50人，今日出战的另外142人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月25日 20:30 发布）：列出51人，今日出战的另外141人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-24",
   "changeCount": 301,
@@ -209,9 +208,9 @@
       "kind": "newInjury",
       "id": "1643510",
       "from": "pending",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -372,11 +371,11 @@
     },
     {
       "kind": "cleared",
-      "id": "1642914",
+      "id": "1642907",
       "from": "out",
       "to": "available",
       "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "detail": "NBA官方伤病报告：可以出战（左手腕扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2772,21 +2771,6 @@
     },
     {
       "kind": "improved",
-      "id": "1642907",
-      "from": "out",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左手腕扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "improved",
       "id": "1642920",
       "from": "pending",
       "to": "available",
@@ -4068,6 +4052,19 @@
     },
     {
       "kind": "detailChanged",
+      "id": "1642914",
+      "from": "out",
+      "to": "out",
+      "note": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "detailChanged",
       "id": "1642927",
       "from": "out",
       "to": "out",
@@ -4409,17 +4406,17 @@
     {
       "field": "updatedAt",
       "from": "2026-10-24T20:30:00",
-      "to": "2026-10-25T20:00:00"
+      "to": "2026-10-25T20:30:00"
     },
     {
       "field": "officialCount",
       "from": 57,
-      "to": 50
+      "to": 51
     },
     {
       "field": "projectedCount",
       "from": 167,
-      "to": 142
+      "to": 141
     }
   ]
 }
