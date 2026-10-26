@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:46:57.366Z",
+    "resultUpdatedAt": "2026-10-26T23:29:24.235Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:47:00.651Z",
+    "resultUpdatedAt": "2026-10-26T23:29:27.423Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:47:04.175Z",
+    "resultUpdatedAt": "2026-10-26T23:29:30.690Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:47:07.676Z",
+    "resultUpdatedAt": "2026-10-26T23:29:33.896Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:47:11.214Z",
+    "resultUpdatedAt": "2026-10-26T23:29:37.086Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7246,7 +7246,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-26T20:47:14.716Z",
+    "resultUpdatedAt": "2026-10-26T23:29:40.312Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7618,6 +7618,44 @@
         },
         "submission": "submitted-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "泰·杰罗姆",
+      "科迪·威廉姆斯",
+      "杰森·塔图姆",
+      "泰瑞斯·哈利伯顿",
+      "亚克塞尔·伦德博格"
+    ],
+    "bao5Players": [
+      "1629660",
+      "1628369",
+      "1630169",
+      "1642865",
+      "1643409"
+    ],
+    "bao5PlayerNames": [
+      "泰·杰罗姆",
+      "杰森·塔图姆",
+      "泰瑞斯·哈利伯顿",
+      "亚克塞尔·伦德博格",
+      "卡梅隆·布泽尔"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-27",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-26T22:45:00.000Z",
+      "sourceUpdateAt": "2026-10-26T20:47:41.384Z",
+      "reason": "schedule-window",
+      "players": [
+        "1629660",
+        "1642262",
+        "1628369",
+        "1630169",
+        "1642865"
+      ],
+      "expected": 123.6,
+      "energy": 142,
+      "formation": "3前2后",
+      "mode": "lowRisk"
+    }
   }
 ]
