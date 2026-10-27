@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:30.331Z",
+    "resultUpdatedAt": "2026-10-27T08:01:59.007Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:33.217Z",
+    "resultUpdatedAt": "2026-10-27T08:02:01.788Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:36.108Z",
+    "resultUpdatedAt": "2026-10-27T08:02:04.614Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:39.446Z",
+    "resultUpdatedAt": "2026-10-27T08:02:07.530Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:42.402Z",
+    "resultUpdatedAt": "2026-10-27T08:02:10.392Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7246,7 +7246,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:45.345Z",
+    "resultUpdatedAt": "2026-10-27T08:02:13.200Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7657,136 +7657,49 @@
       "formation": "3前2后",
       "mode": "lowRisk"
     },
-    "actualTotal": 126.3,
-    "rank": 88,
+    "actualTotal": 202.1,
+    "rank": 55,
     "rankTotal": 220,
-    "scoreDelta": 2.7,
+    "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T02:20:49.028Z",
+    "resultUpdatedAt": "2026-10-27T08:02:16.038Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
         {
           "rank": 1,
-          "userId": "f1a88c2f-f729-4c7c-a115-591403db2724",
-          "displayName": "卟疯",
-          "score": 207,
-          "remainingSalary": 1,
-          "salaryUsed": 149,
+          "userId": "d0d10ca3-50f1-4a5e-a111-d1da2de92a50",
+          "displayName": "奔跑的黏豆包",
+          "score": 238.5,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
           "playerIds": [
-            "203507",
-            "1641706",
-            "1642272",
-            "1629639",
-            "202691"
+            "1642865",
+            "1630169",
+            "1628369",
+            "1642843",
+            "1630598"
           ],
           "playerScores": {
-            "202691": 8.7,
-            "203507": 61.5,
-            "1629639": 44.5,
-            "1641706": 60.7,
-            "1642272": 31.6
+            "1628369": 40.4,
+            "1630169": 47.7,
+            "1630598": 24.3,
+            "1642843": 71.7,
+            "1642865": 54.4
           },
           "playerNames": [
-            "扬尼斯·阿德托昆博",
-            "布兰登·米勒",
-            "贾里德·麦凯恩",
-            "泰勒·希罗",
-            "克莱·汤普森"
+            "亚克塞尔·伦德博格",
+            "泰瑞斯·哈利伯顿",
+            "杰森·塔图姆",
+            "库珀·弗拉格",
+            "阿隆·威金斯"
           ]
         },
         {
           "rank": 2,
-          "userId": "256dde47-378d-4c46-b46b-f83a1170b3d7",
-          "displayName": "Feifei",
-          "score": 188.7,
-          "remainingSalary": 2,
-          "salaryUsed": 148,
-          "playerIds": [
-            "1641706",
-            "1629660",
-            "1629027",
-            "1642349",
-            "1630167"
-          ],
-          "playerScores": {
-            "1629027": 42.2,
-            "1629660": 16.7,
-            "1630167": 27.2,
-            "1641706": 60.7,
-            "1642349": 41.9
-          },
-          "playerNames": [
-            "布兰登·米勒",
-            "泰·杰罗姆",
-            "特雷·杨",
-            "阿杰·米切尔",
-            "奥比·托平"
-          ]
-        },
-        {
-          "rank": 3,
-          "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
-          "displayName": "Santiago",
-          "score": 187.5,
-          "remainingSalary": 2,
-          "salaryUsed": 148,
-          "playerIds": [
-            "1642349",
-            "1628369",
-            "1641706",
-            "1629639",
-            "1642350"
-          ],
-          "playerScores": {
-            "1628369": 40.4,
-            "1629639": 44.5,
-            "1641706": 60.7,
-            "1642349": 41.9,
-            "1642350": 0
-          },
-          "playerNames": [
-            "阿杰·米切尔",
-            "杰森·塔图姆",
-            "布兰登·米勒",
-            "泰勒·希罗",
-            "特雷冯·布拉齐尔"
-          ]
-        },
-        {
-          "rank": 4,
-          "userId": "be84dca8-d866-4b57-bef4-fd413e2e4959",
-          "displayName": "yyyyyj45",
-          "score": 182.9,
-          "remainingSalary": 0,
-          "salaryUsed": 150,
-          "playerIds": [
-            "1630162",
-            "1630245",
-            "1643410",
-            "1630545",
-            "201142"
-          ],
-          "playerScores": {
-            "201142": 45.1,
-            "1630162": 62.8,
-            "1630245": 13.2,
-            "1630545": 28.3,
-            "1643410": 33.5
-          },
-          "playerNames": [
-            "安东尼·爱德华兹",
-            "阿约·多森姆",
-            "凯莱布·威尔逊",
-            "小特伦斯·香农",
-            "凯文·杜兰特"
-          ]
-        },
-        {
-          "rank": 5,
           "userId": "8f84a771-1646-4502-aad0-ddf874b19cf1",
           "displayName": "特雷泽盖",
-          "score": 180.9,
+          "score": 231.7,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7797,11 +7710,11 @@
             "1629675"
           ],
           "playerScores": {
-            "203507": 61.5,
+            "203507": 60.3,
             "1629027": 42.2,
             "1629675": 32.9,
             "1642349": 41.9,
-            "1642865": 2.4
+            "1642865": 54.4
           },
           "playerNames": [
             "扬尼斯·阿德托昆博",
@@ -7810,9 +7723,102 @@
             "阿杰·米切尔",
             "纳兹·里德"
           ]
+        },
+        {
+          "rank": 3,
+          "userId": "c26c5ba3-b3d7-4ab2-bdec-ac23cdf1767e",
+          "displayName": "篮球不赖皮",
+          "score": 225,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
+          "playerIds": [
+            "1642865",
+            "1629027",
+            "1642349",
+            "203999",
+            "1642272"
+          ],
+          "playerScores": {
+            "203999": 54.9,
+            "1629027": 42.2,
+            "1642272": 31.6,
+            "1642349": 41.9,
+            "1642865": 54.4
+          },
+          "playerNames": [
+            "亚克塞尔·伦德博格",
+            "特雷·杨",
+            "阿杰·米切尔",
+            "尼古拉·约基奇",
+            "贾里德·麦凯恩"
+          ]
+        },
+        {
+          "rank": 4,
+          "userId": "6697a9bd-dba2-4916-8ba0-f6bb2de06a48",
+          "displayName": "北纬三十度",
+          "score": 224.1,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
+          "playerIds": [
+            "1642865",
+            "1629660",
+            "1629027",
+            "1630558",
+            "1630578"
+          ],
+          "playerScores": {
+            "1629027": 42.2,
+            "1629660": 30.2,
+            "1630558": 29,
+            "1630578": 68.3,
+            "1642865": 54.4
+          },
+          "playerNames": [
+            "亚克塞尔·伦德博格",
+            "泰·杰罗姆",
+            "特雷·杨",
+            "戴维恩·米切尔",
+            "阿尔佩伦·申京"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "9075f065-747f-4dce-926a-993dd6a032b3",
+          "displayName": "烟花易冷",
+          "score": 222.9,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1642865",
+            "1642276",
+            "1642349",
+            "1630552",
+            "1629639"
+          ],
+          "playerScores": {
+            "1629639": 49.5,
+            "1630552": 41.3,
+            "1642276": 35.8,
+            "1642349": 41.9,
+            "1642865": 54.4
+          },
+          "playerNames": [
+            "亚克塞尔·伦德博格",
+            "凯莱尔·韦尔",
+            "阿杰·米切尔",
+            "杰伦·约翰逊",
+            "泰勒·希罗"
+          ]
         }
       ],
       "commonPicks": [
+        {
+          "id": "1642865",
+          "name": "亚克塞尔·伦德博格",
+          "selections": 5,
+          "rate": 1
+        },
         {
           "id": "1642349",
           "name": "阿杰·米切尔",
@@ -7820,44 +7826,26 @@
           "rate": 0.6
         },
         {
-          "id": "1641706",
-          "name": "布兰登·米勒",
+          "id": "1629027",
+          "name": "特雷·杨",
           "selections": 3,
           "rate": 0.6
         },
         {
-          "id": "1629639",
-          "name": "泰勒·希罗",
-          "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "1629027",
-          "name": "特雷·杨",
-          "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "203507",
-          "name": "扬尼斯·阿德托昆博",
-          "selections": 2,
-          "rate": 0.4
-        },
-        {
-          "id": "1630245",
-          "name": "阿约·多森姆",
+          "id": "1630578",
+          "name": "阿尔佩伦·申京",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1630162",
-          "name": "安东尼·爱德华兹",
+          "id": "1630598",
+          "name": "阿隆·威金斯",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1630167",
-          "name": "奥比·托平",
+          "id": "1630558",
+          "name": "戴维恩·米切尔",
           "selections": 1,
           "rate": 0.2
         },
@@ -7868,26 +7856,26 @@
           "rate": 0.2
         },
         {
+          "id": "1630552",
+          "name": "杰伦·约翰逊",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
           "id": "1628369",
           "name": "杰森·塔图姆",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1643410",
-          "name": "凯莱布·威尔逊",
+          "id": "1642276",
+          "name": "凯莱尔·韦尔",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "201142",
-          "name": "凯文·杜兰特",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
-          "id": "202691",
-          "name": "克莱·汤普森",
+          "id": "1642843",
+          "name": "库珀·弗拉格",
           "selections": 1,
           "rate": 0.2
         },
@@ -7898,26 +7886,32 @@
           "rate": 0.2
         },
         {
+          "id": "203999",
+          "name": "尼古拉·约基奇",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
           "id": "1629660",
           "name": "泰·杰罗姆",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1642350",
-          "name": "特雷冯·布拉齐尔",
+          "id": "1629639",
+          "name": "泰勒·希罗",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1630545",
-          "name": "小特伦斯·香农",
+          "id": "1630169",
+          "name": "泰瑞斯·哈利伯顿",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1642865",
-          "name": "亚克塞尔·伦德博格",
+          "id": "203507",
+          "name": "扬尼斯·阿德托昆博",
           "selections": 1,
           "rate": 0.2
         }
@@ -7926,16 +7920,16 @@
   },
   {
     "dateKey": "2026-10-28",
-    "updatedAt": "2026-10-27T02:21:09.751Z",
+    "updatedAt": "2026-10-27T08:02:33.704Z",
     "players": [
       "1627734",
-      "1628368",
-      "202331",
+      "1630166",
+      "203897",
       "1642844",
       "1643411"
     ],
-    "expected": 108.1,
-    "energy": 149,
+    "expected": 146.6,
+    "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
     "selectedMode": "matchupFocus",
@@ -7951,14 +7945,14 @@
     },
     "oddsFetchedAt": "2026-10-27T01:17:08.121Z",
     "injuryDate": "2026-10-27",
-    "injuryUpdatedAt": "2026-10-27T02:21:05.767Z",
+    "injuryUpdatedAt": "2026-10-27T08:02:32.705Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-27T02:21:09.751Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-27T08:02:33.704Z",
       "playerIds": [
         "1627734",
-        "1628368",
-        "202331",
+        "1630166",
+        "203897",
         "1642844",
         "1643411"
       ]
@@ -7988,6 +7982,31 @@
           "crowd": 0.12
         },
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-27T08:02:33.704Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1627734",
+          "1630166",
+          "203897",
+          "1642844",
+          "1643411"
+        ],
+        "expected": 146.6,
+        "mode": "matchupFocus",
+        "weights": {
+          "label": "对位优先",
+          "recent": 0.2,
+          "history": 0.1,
+          "matchup": 0.2,
+          "odds": 0.08,
+          "injury": 1.15,
+          "replacement": 0.18,
+          "crowd": 0.12
+        },
+        "submission": "unchanged-verified"
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T02:21:05.757Z",
+  "updatedAt": "2026-10-27T08:02:32.694Z",
   "serverDate": "2026-10-27",
   "requestedDate": "2026-10-28",
   "available": true,
@@ -21,7 +21,7 @@
   "snapshotFile": "snapshots/injuries_2026-10-27.json",
   "changesFile": "changes/changes_2026-10-27.json",
   "previousDate": "2026-10-26",
-  "changeCount": 93,
+  "changeCount": 94,
   "restrictedCount": 117,
   "restricted": [
     {
@@ -1527,7 +1527,21 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Markkanen went to the locker room during the first quarter of Monday's game against the Grizzlies due to an apparent hand injury, Shreyas Laddha of The Salt Lake Tribune reports.",
+      "detail": "ESPN伤病名单：Markkanen (wrist) won't return to Monday's game against Memphis.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1628991",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Jackson has been ruled out for the rest of Monday's game against the Grizzlies due to a right knee injury.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1635,20 +1649,6 @@
       "energy": null
     },
     {
-      "id": "1643414",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Head coach Jordi Fernandez said Brown (rest) will be held out of Sunday's game against the Pacers, Brian Lewis of the New York Post reports.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1643547",
       "key": "questionable",
       "label": "每日观察",
@@ -1663,5 +1663,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月26日 22:00 发布）：列出26人，今日出战的另外69人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月27日 03:45 发布）：列出26人，今日出战的另外69人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
