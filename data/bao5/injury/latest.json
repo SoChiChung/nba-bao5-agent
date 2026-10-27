@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T23:30:02.076Z",
+  "updatedAt": "2026-10-27T01:17:07.350Z",
   "serverDate": "2026-10-26",
   "requestedDate": "2026-10-27",
   "available": true,
@@ -8,22 +8,21 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "out": 94,
+    "out": 97,
     "available": 440,
-    "questionable": 5,
-    "probable": 2,
-    "doubtful": 1
+    "doubtful": 1,
+    "questionable": 4
   },
   "provenance": {
-    "officialCount": 64,
-    "projectedCount": 173,
+    "officialCount": 66,
+    "projectedCount": 171,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-10-26.json",
   "changesFile": "changes/changes_2026-10-26.json",
   "previousDate": "2026-10-25",
-  "changeCount": 313,
+  "changeCount": 311,
   "restrictedCount": 102,
   "restricted": [
     {
@@ -312,6 +311,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左小腿肚拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629637",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右肩部酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1049,6 +1062,20 @@
       "energy": null
     },
     {
+      "id": "1642914",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642923",
       "key": "out",
       "label": "缺阵",
@@ -1092,6 +1119,20 @@
     },
     {
       "id": "1642933",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642942",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -1305,7 +1346,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右手腕）",
+      "detail": "NBA官方伤病报告：缺阵（右手腕扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1357,34 +1398,6 @@
       "energy": null
     },
     {
-      "id": "1629637",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右肩部酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630191",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630198",
       "key": "questionable",
       "label": "每日观察",
@@ -1399,12 +1412,12 @@
       "energy": null
     },
     {
-      "id": "1630611",
+      "id": "1630551",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左膝盖肌腱炎）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Champagnie has been ruled out for the remainder of Monday's game against Charlotte due to a right foot injury, Josh Robbins of The Athletic reports. He'll finish with two points (1-1 FG) and two rebounds in four minutes.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1413,12 +1426,12 @@
       "energy": null
     },
     {
-      "id": "1643510",
+      "id": "1630703",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右膝盖挫伤）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Henderson is questionable for Tuesday's game against the Lakers due to left ankle soreness.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1427,26 +1440,12 @@
       "energy": null
     },
     {
-      "id": "1629646",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战 · 右",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630314",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左下背酸痛）",
-      "source": "NBA官方",
+      "id": "1643547",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：De Larrea went to the locker room during the second quarter of Monday's game against the Heat with an apparent right injury, Grant Afseth of DallasHoopsJournal.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1455,5 +1454,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月26日 19:15 发布）：列出64人，今日出战的另外173人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月26日 21:00 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
