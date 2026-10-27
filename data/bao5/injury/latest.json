@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T01:17:07.350Z",
+  "updatedAt": "2026-10-27T01:25:42.380Z",
   "serverDate": "2026-10-26",
   "requestedDate": "2026-10-27",
   "available": true,
@@ -8,10 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "out": 97,
-    "available": 440,
-    "doubtful": 1,
-    "questionable": 4
+    "out": 98,
+    "available": 439,
+    "questionable": 5
   },
   "provenance": {
     "officialCount": 66,
@@ -22,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-10-26.json",
   "changesFile": "changes/changes_2026-10-26.json",
   "previousDate": "2026-10-25",
-  "changeCount": 311,
-  "restrictedCount": 102,
+  "changeCount": 312,
+  "restrictedCount": 103,
   "restricted": [
     {
       "id": "2544",
@@ -339,6 +338,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左腿筋拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629661",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1384,12 +1397,12 @@
       "energy": null
     },
     {
-      "id": "1629661",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右脚踝扭伤）",
-      "source": "NBA官方",
+      "id": "1627936",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Caruso exited to the locker room in the second quarter of Monday's game against the Suns due to an apparent right ankle injury, Rylan Stiles of SI.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1444,7 +1457,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：De Larrea went to the locker room during the second quarter of Monday's game against the Heat with an apparent right injury, Grant Afseth of DallasHoopsJournal.com reports.",
+      "detail": "ESPN伤病名单：De Larrea is doubtful to return to Monday's game against the Heat due to a right knee strain.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1454,5 +1467,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月26日 21:00 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月26日 21:15 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

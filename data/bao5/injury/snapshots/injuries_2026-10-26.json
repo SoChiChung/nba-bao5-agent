@@ -804,13 +804,13 @@
       "t": "快船"
     },
     "1627936": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在官方伤病报告中",
-      "source": "NBA官方",
-      "asOf": "2026-10-26",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Caruso exited to the locker room in the second quarter of Monday's game against the Suns due to an apparent right ankle injury, Rylan Stiles of SI.com reports.",
+      "source": "ESPN",
+      "asOf": "2026-10-27",
+      "carry": false,
       "n": "亚历克斯·卡鲁索",
       "t": "雷霆"
     },
@@ -867,7 +867,7 @@
       "asOf": "2026-10-26",
       "n": "劳里·马尔卡宁",
       "t": "爵士",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1628378": {
       "key": "available",
@@ -1174,7 +1174,7 @@
       "asOf": "2026-10-26",
       "n": "小贾伦·杰克逊",
       "t": "爵士",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1628997": {
       "key": "out",
@@ -1653,13 +1653,13 @@
       "asOf": "2026-10-26",
       "n": "泰·杰罗姆",
       "t": "灰熊",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1629661": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右脚踝扭伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
       "source": "NBA官方",
       "n": "卡梅伦·约翰逊",
       "t": "掘金"
@@ -3260,7 +3260,7 @@
       "asOf": "2026-10-26",
       "n": "基扬特·乔治",
       "t": "爵士",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1641722": {
       "key": "available",
@@ -3393,7 +3393,7 @@
       "asOf": "2026-10-26",
       "n": "扎克·埃迪",
       "t": "灰熊",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1641745": {
       "key": "available",
@@ -4148,7 +4148,7 @@
       "asOf": "2026-10-26",
       "n": "杰伦·威尔斯",
       "t": "灰熊",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1642382": {
       "key": "out",
@@ -4398,7 +4398,7 @@
       "asOf": "2026-10-26",
       "n": "埃斯·贝利",
       "t": "爵士",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1642847": {
       "key": "available",
@@ -4823,7 +4823,7 @@
       "asOf": "2026-10-26",
       "n": "塞德里克·考沃德",
       "t": "灰熊",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1642910": {
       "key": "available",
@@ -5158,7 +5158,7 @@
       "asOf": "2026-10-26",
       "n": "达林·彼得森",
       "t": "爵士",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1643409": {
       "key": "available",
@@ -5169,7 +5169,7 @@
       "asOf": "2026-10-26",
       "n": "卡梅隆·布泽尔",
       "t": "灰熊",
-      "st": "c:2026-10-27:rw"
+      "st": "c:2026-10-27:nba"
     },
     "1643410": {
       "key": "available",
@@ -5428,7 +5428,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：De Larrea went to the locker room during the second quarter of Monday's game against the Heat with an apparent right injury, Grant Afseth of DallasHoopsJournal.com reports.",
+      "detail": "ESPN伤病名单：De Larrea is doubtful to return to Monday's game against the Heat due to a right knee strain.",
       "source": "ESPN",
       "asOf": "2026-10-27",
       "carry": false,
@@ -5746,16 +5746,16 @@
   "officialCount": 66,
   "projectedCount": 171,
   "filledCount": 0,
-  "espnCount": 7,
+  "espnCount": 8,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 303,
-  "updatedAt": "2026-10-26T21:00:00",
-  "updatedAtLabel": "10月26日 21:00",
+  "updatedAt": "2026-10-26T21:15:00",
+  "updatedAtLabel": "10月26日 21:15",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-26_09_00PM.pdf",
-  "message": "已读取官方伤病报告（10月26日 21:00 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-26_09_15PM.pdf",
+  "message": "已读取官方伤病报告（10月26日 21:15 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-27"
 }

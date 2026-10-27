@@ -1,18 +1,17 @@
 {
-  "generatedAt": "2026-10-27T01:17:07.350Z",
+  "generatedAt": "2026-10-27T01:25:42.380Z",
   "serverDate": "2026-10-26",
   "requestedDate": "2026-10-27",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-26T21:00:00",
+  "updatedAt": "2026-10-26T21:15:00",
   "counts": {
     "total": 542,
-    "out": 97,
-    "available": 440,
-    "doubtful": 1,
-    "questionable": 4
+    "out": 98,
+    "available": 439,
+    "questionable": 5
   },
   "provenance": {
     "officialCount": 66,
@@ -20,10 +19,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月26日 21:00 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月26日 21:15 发布）：列出66人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-25",
-  "changeCount": 311,
+  "changeCount": 312,
   "changes": [
     {
       "kind": "newInjury",
@@ -33,6 +32,21 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1627936",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Caruso exited to the locker room in the second quarter of Monday's game against the Suns due to an apparent right ankle injury, Rylan Stiles of SI.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -271,7 +285,7 @@
       "from": "pending",
       "to": "questionable",
       "probability": "50%",
-      "detail": "ESPN伤病名单：De Larrea went to the locker room during the second quarter of Monday's game against the Heat with an apparent right injury, Grant Afseth of DallasHoopsJournal.com reports.",
+      "detail": "ESPN伤病名单：De Larrea is doubtful to return to Monday's game against the Heat due to a right knee strain.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1172,21 +1186,6 @@
       "to": "available",
       "probability": "100%",
       "detail": "未出现在官方伤病报告中",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "improved",
-      "id": "1629661",
-      "from": "out",
-      "to": "doubtful",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -3900,6 +3899,19 @@
     },
     {
       "kind": "detailChanged",
+      "id": "1629661",
+      "from": "out",
+      "to": "out",
+      "note": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "detailChanged",
       "id": "1629684",
       "from": "out",
       "to": "out",
@@ -4579,7 +4591,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-25T20:30:00",
-      "to": "2026-10-26T21:00:00"
+      "to": "2026-10-26T21:15:00"
     },
     {
       "field": "officialCount",
