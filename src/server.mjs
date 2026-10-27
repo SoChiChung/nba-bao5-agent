@@ -544,6 +544,21 @@ const server = http.createServer(async (req,res) => {
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
       return send(res,200,data);
     }
+    if (url.pathname === '/api/lineup-status' && req.method === 'GET') {
+      res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
+      const dateKey=url.searchParams.get('date');
+      if(!/^\d{4}-\d\d-\d\d$/.test(dateKey??''))return send(res,400,{error:'请提供有效的比赛日期'});
+      const cfg=loadConfig();
+      const api=new Bao5({baseUrl:cfg.baseUrl});
+      await api.login(cfg.email,cfg.password);
+      const current=await api.getLineup(dateKey);
+      if(current.status===404)return send(res,200,{dateKey,exists:false,playerIds:[]});
+      if(!current.ok)return send(res,502,{error:`每日一阵阵容读取失败（HTTP ${current.status}）`});
+      if(current.json?.submitted===false||current.json?.lineup==null)return send(res,200,{dateKey,exists:false,playerIds:[]});
+      const playerIds=current.json?.lineup?.playerIds;
+      if(!Array.isArray(playerIds))return send(res,502,{error:'每日一阵返回的阵容格式无法识别'});
+      return send(res,200,{dateKey,exists:playerIds.length>0,playerIds:playerIds.map(String)});
+    }
     if (url.pathname === '/api/preferences' && req.method === 'POST') {
       const input=await body(req);const modeKeys=['auto','lowRisk','highRisk','crowdFocus','matchupFocus','balanced','custom'];if(!modeKeys.includes(input.mode))return send(res,400,{error:'未知的决策模式'});
       let customWeights=input.customWeights??null;

@@ -73,6 +73,27 @@
 .top20-table th,.top20-table td{text-align:left}
 .top20-table .top20-player{justify-content:flex-start;min-width:0}
 .top20-intro{margin-left:0;margin-right:0}
+
+.lineup-footer{height:auto;min-height:60px;padding:10px 0}
+.lineup-sync-actions{display:flex;flex-direction:column;align-items:flex-end;gap:5px;min-width:250px}
+.lineup-view-tabs{display:flex;gap:6px;margin:18px 0 0;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.lineup-view-tab{border:1px solid transparent;border-radius:7px;padding:8px 12px;background:transparent;color:var(--muted);font:inherit;font-size:14px;cursor:pointer}
+.lineup-view-tab:hover{background:var(--blue-soft);color:var(--blue)}
+.lineup-view-tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.lineup-view-tab.active{background:var(--blue-soft);color:var(--blue);font-weight:700}
+.lineup-sync-status{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-height:18px;color:var(--muted);font-size:13px;line-height:1.45;text-align:right}
+.lineup-sync-status.is-synced{color:var(--green);font-weight:600}
+.lineup-sync-status.is-mismatch{color:var(--orange)}
+.lineup-sync-status.is-error{color:#b54735}
+#retry-lineup-status{border:0;padding:0;background:none;color:var(--blue);font:inherit;font-size:12px;cursor:pointer}
+#retry-lineup-status[hidden]{display:none}
+#submit-lineup:disabled{opacity:.65;cursor:not-allowed}
+@media(max-width:780px){.lineup-footer{flex-wrap:wrap;align-items:flex-start}.lineup-sync-actions{width:100%;min-width:0;align-items:flex-end}}
+:root[data-theme="dark"] .lineup-sync-status.is-synced{color:#58c896}
+:root[data-theme="dark"] .lineup-sync-status.is-mismatch{color:#e0aa5a}
+:root[data-theme="dark"] .lineup-sync-status.is-error{color:#e58a7d}
+:root[data-theme="dark"] .lineup-view-tabs{border-color:var(--line)}
+:root[data-theme="dark"] .lineup-view-tab.active,:root[data-theme="dark"] .lineup-view-tab:hover{background:#253453;color:#89a4ff}
 .top20-card>.card-heading{max-width:none;margin:0}
 .top20-intro{margin-left:0;margin-right:0}
 

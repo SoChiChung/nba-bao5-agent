@@ -99,6 +99,16 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
       scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines })
     );
+    // Compare <=20-energy players with this slate's own low-energy pool. This
+    // bounded adjustment affects lineup choices, not displayed projections.
+    const lowEnergyValues=candidates.filter(p=>Number(p.energy)>0&&Number(p.energy)<=20&&p.projected>0).map(p=>p.projected/Number(p.energy)).sort((a,b)=>a-b);
+    const valueBenchmark=lowEnergyValues.length?lowEnergyValues[Math.floor(lowEnergyValues.length/2)]:0;
+    for(const p of candidates){
+      const energy=Number(p.energy),efficiency=energy>0?p.projected/energy:0;
+      p.valueBoost=energy>0&&energy<=20&&valueBenchmark>0?clamp((efficiency/valueBenchmark-1)*0.06,0,0.08):0;
+      p.selectionScore=round(p.projected*(1+p.valueBoost));
+      if(p.valueBoost>0)p.reasons.push(`低能量性价比修正：能量 ${energy}，预计分/能量 ${round(efficiency)}，高于当日 20 能量以内候选中位数 ${round(valueBenchmark)}；选阵评分 +${round(p.valueBoost*100)}%（封顶 8%，预计分不变）`);
+    }
     // Keep unknown-baseline players visible for diagnosis, but do not let their
     // zero score win a lineup slot through energy/tie-break behavior.
     const eligible = candidates.filter(p => !p.injury?.hardExclude && !p.noCurrentSeasonMinutes && p.baseScore > 0);
@@ -165,28 +175,28 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const currentSeasonMinutes=Number(currentSeasonStats?.recentAverageMinutes??currentSeasonStats?.averageMinutes??0);
   const noCurrentSeasonMinutes=!preseason&&Boolean(priorTeamGameDate)&&Number(p.gamesPlayed??0)===0&&!(hasCurrentSeasonLog&&currentSeasonMinutes>0);
-  const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * (preseason?0.84:1) * calibrationFactor * (noCurrentSeasonMinutes?0:1);
-  // Low-cost selections can use proven recent upside, but only when current
-  // preseason output clears the regular-season/position baseline. Keep this
-  // separate from the displayed projection so the lineup objective is explicit.
+  // A tiny current-season role is a real availability signal. Shrink the
+  // projection when recent logged minutes are low, with the adjustment growing
+  // as more games confirm the role; one short appearance should not dominate.
+  const lowMinutesRatio=hasCurrentSeasonLog?clamp((10-currentSeasonMinutes)/10,0,0.5)*Math.min(1,Number(currentSeasonStats.recentGames??currentSeasonStats.games)/3):0;
+  const rotationFactor=1-lowMinutesRatio;
+  const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * rotationFactor * (preseason?0.84:1) * calibrationFactor * (noCurrentSeasonMinutes?0:1);
   const energy=Number(p.energy);
-  const upsideRatio=hasPreseasonSample&&statBase>0?Number(preseasonStats.averageFantasy)/statBase:1;
-  const upsideStrength=clamp((upsideRatio-1)/0.35,0,1);
-  const upsideEnergyFactor=Number.isFinite(energy)&&energy<=20?clamp((20-energy)/10,0,1):0;
-  const upsideBoost=upsideStrength*upsideEnergyFactor*0.2;
-  const selectionScore=projected*(1+upsideBoost);
+  const upsideBoost=0;
+  const selectionScore=projected;
   const reasons = [
 `球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.recentAverageFantasy!=null?`，最近 3 场均值 ${round(preseasonStats.recentAverageFantasy)} 分`:''}${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，近期表现加权参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
     d ? `${opponent} 对 ${pos} 的防守数据按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
     hasCurrentSeasonLog?`本赛季 ${currentSeasonStats.season} 已有 ${currentSeasonStats.games} 场日志；最近 ${currentSeasonStats.recentGames} 场均分 ${round(currentSeasonStats.recentAverageFantasy)}、均分钟 ${round(currentSeasonStats.recentAverageMinutes)}，日志日期 ${currentSeasonStats.lastDate??'未知'}，近期权重 ${Math.round(recentWeight*100)}%`:noCurrentSeasonMinutes?`球队已于 ${priorTeamGameDate} 打过本赛季比赛，但球员本赛季累计出场仍为 0；上赛季均分不再用于推荐，待出现本赛季上场记录后恢复`:'本赛季还没有可用的近期逐场日志',
+    lowMinutesRatio>0?`近期上场时间偏少（约 ${round(currentSeasonMinutes)} 分钟/场，${currentSeasonStats.recentGames??currentSeasonStats.games} 场样本），预计分按轮换风险下调 ${Math.round(lowMinutesRatio*100)}%`:'近期上场时间未触发轮换风险下调',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
     injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',
     replacementBoost>1?`队友伤病后预计角色提升，替补机会修正 +${Math.round((replacementBoost-1)*100)}%`:'队友伤病替补机会未产生额外修正',
     crowdPick.selections?`总榜前五历史选人偏好：${crowdPick.selections} 次入选，平均贡献 ${crowdPick.averagePoints} 分；轻量修正 ${Math.round(crowdPick.signal*weights.crowd*100)}%`:'暂无已揭晓前五阵容样本，不应用选人偏好修正',
-    upsideBoost>0?`低能量上限倾斜：能量 ${energy}（阈值 20），季前赛场均 ${round(preseasonStats.averageFantasy)} / 基准 ${round(statBase)}，选阵评分加成 +${round(upsideBoost*100)}%（预计分仍按 ${round(projected)} 展示）`:'低能量上限倾斜未触发：需能量不高于 20 且季前赛样本高于常规赛/位置基准',
+    '低能量性价比修正按当日候选池计算；预计得分仍独立展示',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
-  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
 }
 
 function playerPopularity(playerId, feedback) {
