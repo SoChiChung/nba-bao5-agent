@@ -35,6 +35,20 @@ const writeJsonWithRetry=(file,data)=>{
 };
 const readHistory=()=>{try{return JSON.parse(fs.readFileSync(historyFile,'utf8'));}catch{return[];}};
 const saveHistory=rows=>writeJsonWithRetry(historyFile,JSON.stringify(rows,null,2)+'\n');
+function deriveCalibration(rows){
+  const complete=rows.filter(row=>Number.isFinite(Number(row.actualTotal))&&Number.isFinite(Number(row.expected))&&Number(row.expected)>0).sort((a,b)=>String(a.dateKey??'').localeCompare(String(b.dateKey??'')));
+  const ratioFor=items=>{
+    const predicted=items.reduce((sum,row)=>sum+Number(row.expected),0);
+    const actual=items.reduce((sum,row)=>sum+Number(row.actualTotal),0);
+    return predicted>0?actual/predicted:null;
+  };
+  const allTimeRatio=ratioFor(complete);
+  const recent=complete.slice(-7);
+  const recentRatio=ratioFor(recent);
+  const recentWeight=Math.min(0.5,recent.length/14);
+  const blended=allTimeRatio==null?1:recentRatio==null?allTimeRatio:allTimeRatio*(1-recentWeight)+recentRatio*recentWeight;
+  return {factor:Math.max(0.85,Math.min(1.15,blended)),count:complete.length,recentCount:recent.length,allTimeRatio,recentRatio,recentWeight};
+}
 const readState=()=>{try{return JSON.parse(fs.readFileSync(stateFile,'utf8'));}catch{return{};}};
 const saveState=state=>writeJsonWithRetry(stateFile,JSON.stringify(state,null,2)+'\n');
 function saveRunReport(status,error=null){
@@ -134,9 +148,8 @@ try {
   for(const row of history.filter(x=>settledDates.includes(x.dateKey))){const day=topFiveStore.dates[row.dateKey];if(!day)continue;const common=new Map();for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);row.playerNames=(row.players??[]).map(id=>playerNames.get(String(id))??`球员 ${id}`);row.topFive={date:row.dateKey,lineups:(day.lineups??[]).map(lineup=>({...lineup,playerNames:(lineup.playerIds??[]).map(id=>lineup.playerNames?.[String(id)]??playerNames.get(String(id))??`球员 ${id}`)})),commonPicks:[...common].map(([id,selections])=>({id,name:playerNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day.lineups.length)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
   if(backfillOnly){
     const complete=history.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
-    const expectedSum=complete.reduce((sum,x)=>sum+x.expected,0),actualSum=complete.reduce((sum,x)=>sum+x.actualTotal,0);
-    const calibrationFactor=expectedSum?Math.max(.85,Math.min(1.15,actualSum/expectedSum)):1;
-    say(`15:00 赛果回填校准完成：${complete.length} 个有效赛果样本，当前校准系数 ${calibrationFactor.toFixed(3)}；跳过阵容计算与提交`);
+    const calibration=deriveCalibration(complete);
+    say(`15:00 赛果回填校准完成：${calibration.count} 个有效赛果样本，最近 ${calibration.recentCount} 个样本占近期权重 ${(calibration.recentWeight*100).toFixed(0)}%，当前校准系数 ${calibration.factor.toFixed(3)}；跳过阵容计算与提交`);
     saveRunReport('success');
     process.exit(0);
   }
@@ -173,8 +186,9 @@ try {
   const defense=readJson('data/position/defense_vs_position.json').season_2025_26??[];
   const previous=history;
   const trained=previous.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
-  const predicted=trained.reduce((s,x)=>s+x.expected,0),actual=trained.reduce((s,x)=>s+x.actualTotal,0);
-  const factor=predicted?Math.max(.85,Math.min(1.15,actual/predicted)):1;
+  const calibration=deriveCalibration(trained);
+  const factor=calibration.factor;
+  say(`预测总分校准：${calibration.count} 个赛果，全量比率 ${calibration.allTimeRatio?.toFixed(3)??'暂无'}；最近 ${calibration.recentCount} 个样本比率 ${calibration.recentRatio?.toFixed(3)??'暂无'}，当前系数 ${factor.toFixed(3)}`);
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'auto'};}})();
   const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);
