@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:21.346Z",
+    "resultUpdatedAt": "2026-10-28T20:37:19.888Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:23.378Z",
+    "resultUpdatedAt": "2026-10-28T20:37:21.869Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:25.392Z",
+    "resultUpdatedAt": "2026-10-28T20:37:23.594Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:27.860Z",
+    "resultUpdatedAt": "2026-10-28T20:37:25.320Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:30.320Z",
+    "resultUpdatedAt": "2026-10-28T20:37:27.045Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:32.327Z",
+    "resultUpdatedAt": "2026-10-28T20:37:28.769Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:34.339Z",
+    "resultUpdatedAt": "2026-10-28T20:37:30.495Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T17:03:36.350Z",
+    "resultUpdatedAt": "2026-10-28T20:37:32.228Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8296,15 +8296,15 @@
     "dateKey": "2026-10-29",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-10-28T17:03:56.927Z",
+    "updatedAt": "2026-10-28T20:37:46.508Z",
     "players": [
-      "1629029",
+      "1641705",
       "1642843",
       "1627739",
-      "1628964",
-      "201572"
+      "1642844",
+      "1628964"
     ],
-    "expected": 190.9,
+    "expected": 187.7,
     "energy": 149,
     "formation": "3前2后",
     "source": "scheduled-model",
@@ -8319,18 +8319,18 @@
       "replacement": 0.18,
       "crowd": 0.3
     },
-    "oddsFetchedAt": "2026-10-28T17:03:53.456Z",
+    "oddsFetchedAt": "2026-10-28T20:37:45.581Z",
     "injuryDate": "2026-10-28",
-    "injuryUpdatedAt": "2026-10-28T17:03:52.259Z",
+    "injuryUpdatedAt": "2026-10-28T20:37:44.218Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-28T17:03:56.927Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-28T20:37:46.508Z",
       "playerIds": [
-        "1629029",
+        "1641705",
         "1642843",
         "1627739",
-        "1628964",
-        "201572"
+        "1642844",
+        "1628964"
       ]
     },
     "updates": [
@@ -8383,6 +8383,31 @@
           "crowd": 0.3
         },
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-28T20:37:46.508Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641705",
+          "1642843",
+          "1627739",
+          "1642844",
+          "1628964"
+        ],
+        "expected": 187.7,
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "unchanged-verified"
       }
     ]
   }
