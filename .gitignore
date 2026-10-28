@@ -22,3 +22,7 @@ Thumbs.db
 
 # 赛前分析资料（B 站字幕抓取产物，含大量原始 JSON，与主逻辑无关）
 data/赛前分析/
+
+# Python 编译缓存（fetch_hb.py 运行产生，不入仓库）
+__pycache__/
+*.pyc
