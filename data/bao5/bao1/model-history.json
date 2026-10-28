@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:19.888Z",
+    "resultUpdatedAt": "2026-10-28T23:45:16.780Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:21.869Z",
+    "resultUpdatedAt": "2026-10-28T23:45:18.597Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:23.594Z",
+    "resultUpdatedAt": "2026-10-28T23:45:20.489Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:25.320Z",
+    "resultUpdatedAt": "2026-10-28T23:45:23.394Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:27.045Z",
+    "resultUpdatedAt": "2026-10-28T23:45:25.200Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:28.769Z",
+    "resultUpdatedAt": "2026-10-28T23:45:27.003Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:30.495Z",
+    "resultUpdatedAt": "2026-10-28T23:45:28.806Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-28T20:37:32.228Z",
+    "resultUpdatedAt": "2026-10-28T23:45:30.612Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8409,6 +8409,44 @@
         },
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "维克托·文班亚马",
+      "库珀·弗拉格",
+      "克里斯·邓恩",
+      "迪伦·哈珀",
+      "穆罕默德·班巴"
+    ],
+    "bao5Players": [
+      "1641705",
+      "1642843",
+      "1627739",
+      "1642844",
+      "1628964"
+    ],
+    "bao5PlayerNames": [
+      "维克托·文班亚马",
+      "库珀·弗拉格",
+      "克里斯·邓恩",
+      "迪伦·哈珀",
+      "穆罕默德·班巴"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-29",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-28T22:45:00.000Z",
+      "sourceUpdateAt": "2026-10-28T20:37:46.508Z",
+      "reason": "schedule-window",
+      "players": [
+        "1641705",
+        "1642843",
+        "1627739",
+        "1642844",
+        "1628964"
+      ],
+      "expected": 187.7,
+      "energy": 149,
+      "formation": "3前2后",
+      "mode": "crowdFocus"
+    }
   }
 ]
