@@ -15,7 +15,7 @@ const DIR = import.meta.dirname;
 const OUT = path.join(DIR, '_probe');
 fs.mkdirSync(OUT, { recursive: true });
 
-const BASE = 'https://nbabao5.top';
+const BASE = 'https://nbabao5.cn';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 const say = (...a) => console.log(...a);

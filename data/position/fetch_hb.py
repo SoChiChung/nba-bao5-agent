@@ -11,6 +11,10 @@ hashtagbasketball.com / nba-defense-vs-position 数据抓取与解析
 import re
 import json
 import csv
+import argparse
+import html
+from datetime import datetime, timezone, timedelta, time
+from pathlib import Path
 import urllib.parse
 import urllib.request
 
@@ -110,33 +114,107 @@ def to_csv(rows, path):
     print("WROTE", path, len(rows), "rows")
 
 
-def main():
-    root = "C:/Users/ddead/WorkBuddy/2026-10-02-16-03-48/"
+def season_options(page):
+    match = re.search(r'<select[^>]*id="ContentPlaceHolder1_DDDURATION"[\s\S]*?</select>', page)
+    if not match:
+        raise RuntimeError("页面没有找到赛季筛选控件")
+    options = []
+    for tag, label in re.findall(r'(<option\b[^>]*>)([\s\S]*?)</option>', match.group(0)):
+        value = re.search(r'\bvalue="([^"]*)"', tag)
+        season = re.search(r'(\d{4}-\d{2})\s+NBA Season', html.unescape(label))
+        if value and season:
+            options.append({
+                "value": html.unescape(value.group(1)),
+                "season": season.group(1),
+                "selected": "selected" in tag,
+                "label": re.sub(r"\s+", " ", html.unescape(label)).strip(),
+            })
+    return options
 
-    # 1) 默认页 = 2025-26 整个赛季（DDDURATION=1）
-    page = get(BASE)
-    cur = parse_grid(page)
-    print("2025-26 rows:", len(cur))
-    to_csv(cur, root + "defense_vs_position_2025-26.csv")
 
-    # 2) 切到 2024-25 整个赛季（DDDURATION=0）
+def freshness_due(meta, now=None):
+    """刷新源按北京时间每日 18:00 定期更新，过期模型调用也可补跑。"""
+    now = now or datetime.now(timezone.utc)
+    updated = meta.get("updatedAt")
+    if not updated:
+        return True
     try:
-        pb = postback(page, "ctl00$ContentPlaceHolder1$DDDURATION", {
-            "ctl00$ContentPlaceHolder1$DDDURATION": "0",
+        updated_at = datetime.fromisoformat(updated.replace("Z", "+00:00")).astimezone(timezone.utc)
+    except (TypeError, ValueError):
+        return True
+    china = timezone(timedelta(hours=8))
+    local_now = now.astimezone(china)
+    target_local = datetime.combine(local_now.date(), time(18, 0), tzinfo=china)
+    target_utc = target_local.astimezone(timezone.utc)
+    return (now >= target_utc and updated_at < target_utc) or (now - updated_at >= timedelta(hours=24))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--if-stale", action="store_true", help="仅在北京时间每日 18:00 刷新点已过或数据超过一天时抓取")
+    mode.add_argument("--force", action="store_true", help="无条件抓取")
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parent
+    output = root / "defense_vs_position.json"
+    previous_data = {}
+    try:
+        previous_data = json.loads(output.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        pass
+    if args.if_stale and not freshness_due(previous_data.get("_meta", {})):
+        print("SKIP: 位置防守数据今天已更新且未过期")
+        return
+
+    # 默认页选择当前赛季，站点会显示最近一次更新时间。
+    page = get(BASE)
+    options = season_options(page)
+    current_option = next((item for item in options if item["selected"]), None)
+    if not current_option:
+        raise RuntimeError("无法从页面识别当前赛季")
+    current_season = current_option["season"]
+    cur = parse_grid(page)
+    print(f"{current_season} rows:", len(cur))
+    if len(cur) < 100:
+        raise RuntimeError(f"当前赛季对位数据只有 {len(cur)} 行，拒绝覆盖有效快照")
+    to_csv(cur, root / f"defense_vs_position_{current_season}.csv")
+
+    # 同步抓取站点提供的上一完整赛季；失败时保留旧快照。
+    older = sorted((item for item in options if item["season"] < current_season), key=lambda item: item["season"], reverse=True)
+    prior_season = older[0]["season"] if older else None
+    prev = previous_data.get(f"season_{prior_season.replace('-', '_')}", []) if prior_season else []
+    if older:
+        try:
+            prior_option = older[0]
+            pb = postback(page, "ctl00$ContentPlaceHolder1$DDDURATION", {
+            "ctl00$ContentPlaceHolder1$DDDURATION": prior_option["value"],
             "ctl00$ContentPlaceHolder1$DropDownList1": "All positions",
             "ctl00$ContentPlaceHolder1$DropDownList2": "All Teams",
-        })
-        prev = parse_grid(pb)
-        print("2024-25 rows:", len(prev))
-        if prev:
-            to_csv(prev, root + "defense_vs_position_2024-25.csv")
-    except Exception as e:
-        print("postback failed:", e)
-        prev = []
+            })
+            fetched_prior = parse_grid(pb)
+            print(f"{prior_season} rows:", len(fetched_prior))
+            if len(fetched_prior) >= 100:
+                prev = fetched_prior
+                to_csv(prev, root / f"defense_vs_position_{prior_season}.csv")
+            else:
+                print(f"WARNING: 上一赛季只有 {len(fetched_prior)} 行，沿用已保存数据")
+        except Exception as e:
+            print("previous-season postback failed; retaining existing snapshot:", e)
 
-    with open(root + "defense_vs_position.json", "w", encoding="utf-8") as f:
-        json.dump({"season_2025_26": cur, "season_2024_25": prev},
-                  f, ensure_ascii=False, indent=2)
+    data = {key: value for key, value in previous_data.items() if re.fullmatch(r"season_\d{4}_\d{2}", key)}
+    data[f"season_{current_season.replace('-', '_')}"] = cur
+    if prior_season:
+        data[f"season_{prior_season.replace('-', '_')}"] = prev
+    data["_meta"] = {
+        "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "source": BASE,
+        "currentSeason": current_season,
+        "previousSeason": prior_season,
+        "rowCounts": {current_season: len(cur), **({prior_season: len(prev)} if prior_season else {})},
+    }
+    temp = output.with_suffix(".json.tmp")
+    temp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    temp.replace(output)
     print("WROTE json")
 
 

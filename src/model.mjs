@@ -36,18 +36,73 @@ export const MODEL_MODES = {
   balanced: { label:'均衡探索', recent:0.28, history:0.16, matchup:0.12, odds:0.08, injury:1.1, replacement:0.2, crowd:0.18 },
 };
 
-// 自动模式只使用有明确策略标签且已结算的赛果；旧历史没有策略归属，不能用于训练。
+// 为历史预测补上赛季阶段和结算状态。BAO5 日榜的 settled 字段优先，
+// 官方 boxscore 仅在该日全部比赛结束后才视为完整赛果。
+export function prepareHistoryForCalibration(history = [], schedule = [], readSnapshot = () => null) {
+  const gamesByDate = new Map();
+  for (const game of schedule ?? []) {
+    if (!game?.date) continue;
+    if (!gamesByDate.has(game.date)) gamesByDate.set(game.date, []);
+    gamesByDate.get(game.date).push(game);
+  }
+  return history.map(row => {
+    const games = gamesByDate.get(row.dateKey) ?? [];
+    const inferredPhase = games.length ? (games.some(isPreseasonGame) ? 'preseason' : 'regular') : null;
+    let snapshot = null;
+    try { snapshot = readSnapshot?.(row.dateKey) ?? null; } catch { /* missing snapshot */ }
+    const dailySettled = snapshot?.mine?.day?.settled;
+    const officialBoxscoreSettled = row.resultSource === 'nba-official-boxscore' && games.length > 0 && games.every(game => Number(game.status) === 3);
+    const settled = row.resultSource === 'manual-result' ? row.settled === true
+      : officialBoxscoreSettled || (typeof dailySettled === 'boolean' ? dailySettled : row.settled === true);
+    return { ...row, phase: inferredPhase ?? row.phase ?? null, settled };
+  });
+}
+
+// 每个赛季阶段单独校准，防止季前赛低分把常规赛预测压低。
+// 只纳入明确结算的样本；小样本向 1.0 收缩，最终系数限制在 ±15%。
+export function deriveCalibration(history = []) {
+  const complete = history
+    .filter(row => row.settled === true && ['preseason', 'regular'].includes(row.phase)
+      && row.actualTotal != null && Number.isFinite(Number(row.actualTotal))
+      && row.expected != null && Number.isFinite(Number(row.expected)) && Number(row.expected) > 0)
+    .sort((a, b) => String(a.dateKey ?? '').localeCompare(String(b.dateKey ?? '')));
+  const summarize = phase => {
+    const samples = complete.filter(row => row.phase === phase);
+    const ratioFor = rows => {
+      const predicted = rows.reduce((sum, row) => sum + Number(row.expected), 0);
+      const actual = rows.reduce((sum, row) => sum + Number(row.actualTotal), 0);
+      return predicted > 0 ? actual / predicted : null;
+    };
+    const allTimeRatio = ratioFor(samples);
+    const recent = samples.slice(-7);
+    const recentRatio = ratioFor(recent);
+    const recentWeight = Math.min(0.5, recent.length / 14);
+    const blended = allTimeRatio == null ? 1 : recentRatio == null ? allTimeRatio : allTimeRatio * (1 - recentWeight) + recentRatio * recentWeight;
+    const sampleWeight = Math.min(1, samples.length / 5);
+    const factor = samples.length ? clamp(1 + (clamp(blended, 0.85, 1.15) - 1) * sampleWeight, 0.85, 1.15) : 1;
+    const ranked = samples.filter(row => Number(row.rank) > 0 && Number(row.rankTotal) > 0);
+    const top100Hits = ranked.filter(row => Number(row.rank) <= Math.min(100, Number(row.rankTotal))).length;
+    return {
+      factor: Number(factor.toFixed(3)), count: samples.length, allTimeRatio, recentCount: recent.length,
+      recentRatio, recentWeight, rankCount: ranked.length, top100Hits,
+      top100Rate: ranked.length ? Number((top100Hits / ranked.length).toFixed(3)) : null,
+    };
+  };
+  return { preseason: summarize('preseason'), regular: summarize('regular') };
+}
+
+// 自动模式只使用已结算的常规赛排名；同时奖励排名百分位和前 100 命中。
 export function selectAutoMode(history = []) {
   const keys=Object.keys(MODEL_MODES);
-  const samples=history.filter(row=>row.selectedMode&&keys.includes(row.selectedMode)&&Number.isFinite(Number(row.actualTotal)));
+  const samples=history.filter(row=>row.phase==='regular'&&row.settled===true&&row.selectedMode&&keys.includes(row.selectedMode)&&Number(row.rank)>0&&Number(row.rankTotal)>1);
   const total=samples.length;
   const stats=Object.fromEntries(keys.map(key=>{
     const rows=samples.filter(row=>row.selectedMode===key).slice(-20);
     const rewards=rows.map(row=>{
       const rank=Number(row.rank),rankTotal=Number(row.rankTotal);
-      if(rank>0&&rankTotal>1)return Math.max(0,1-(rank-1)/(rankTotal-1));
-      const expected=Number(row.expected);
-      return expected>0?Math.max(0,Math.min(1.5,Number(row.actualTotal)/expected))/1.5:0.5;
+      const percentile=Math.max(0,Math.min(1,1-(rank-1)/(rankTotal-1)));
+      const top100=rank<=Math.min(100,rankTotal)?1:0;
+      return percentile*0.7+top100*0.3;
     });
     return [key,{count:rows.length,mean:rewards.length?rewards.reduce((sum,value)=>sum+value,0)/rewards.length:0}];
   }));
@@ -59,6 +114,9 @@ export function selectAutoMode(history = []) {
 
 export function buildDashboardData({ players, schedule, injuries, odds, defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
   const weights={...(MODEL_MODES[mode]??MODEL_MODES.lowRisk),...(customWeights??{})};
+  const calibrationForPhase = phase => typeof calibrationFactor === 'number'
+    ? calibrationFactor
+    : Number(calibrationFactor?.[phase] ?? 1);
   const games = Array.isArray(schedule) ? schedule : schedule.games ?? [];
   const now=Date.now();
   const upcoming=games.filter(g=>g.status!==3&&new Date(g.utc).getTime()>now);
@@ -97,7 +155,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
     const siteInjuries = siteInjuryReportUsable(injuries,dateKey);
     const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
-      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines })
+      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor:calibrationForPhase(preseason?'preseason':'regular'), preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines })
     );
     // Compare <=20-energy players with this slate's own low-energy pool. This
     // bounded adjustment affects lineup choices, not displayed projections.

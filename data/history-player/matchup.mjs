@@ -20,6 +20,116 @@ const DIR = HERE;
 const round = (x, n = 2) => Math.round((x + Number.EPSILON) * 10 ** n) / 10 ** n;
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
+function seasonLabel(now = new Date()) {
+  const year = now.getUTCFullYear() - (now.getUTCMonth() < 7 ? 1 : 0);
+  return `${year}-${String((year + 1) % 100).padStart(2, '0')}`;
+}
+
+function mergeCurrentSeasonLogs(stats) {
+  let snapshot;
+  try { snapshot = JSON.parse(fs.readFileSync(path.join(DIR, 'current-season-logs.json'), 'utf8')); }
+  catch { return; }
+  if (snapshot.season !== seasonLabel() || !snapshot.players) return;
+
+  const baseThrough = String(stats.generatedAt ?? '').slice(0, 10);
+  const profileByBao5 = new Map(Object.values(stats.players ?? {}).filter(p => p.bao5Id).map(p => [String(p.bao5Id), p]));
+  const statFields = { pts: 'points', reb: 'rebounds', ast: 'assists', stl: 'steals', blk: 'blocks', tov: 'turnovers', min: 'minutes', bao5: 'bao5' };
+
+  for (const [bao5Id, source] of Object.entries(snapshot.players)) {
+    const logs = (source.logs ?? []).filter(game => game.seasonLabel === snapshot.season && game.date > baseThrough && game.bao5 != null && game.oppAbbr);
+    if (!logs.length) continue;
+    let player = profileByBao5.get(String(bao5Id));
+    if (!player) {
+      const key = `bao5-${bao5Id}`;
+      player = {
+        playerId: key,
+        nameCn: source.nameCn ?? source.nameEn ?? String(bao5Id),
+        nameEn: source.nameEn ?? null,
+        bao5Id: String(bao5Id),
+        idConfidence: 'current-season-log',
+        idMethod: 'BAO5 official ID',
+        teamCn: source.team ?? null,
+        teamAbbr: source.team ?? null,
+        pos: null,
+        totalGames: 0,
+        overall: null,
+        overall3y: null,
+        vs: {},
+      };
+      stats.players[key] = player;
+      profileByBao5.set(String(bao5Id), player);
+    }
+
+    const oldCells = Object.values(player.vs ?? {});
+    const oldRecentGames = oldCells.reduce((sum, cell) => sum + Number(cell.games3y ?? 0), 0);
+    const addedBao5 = logs.reduce((sum, game) => sum + Number(game.bao5), 0);
+    const recentCount = oldRecentGames + logs.length;
+    const overall3y = recentCount
+      ? ((Number(player.overall3y ?? 0) * oldRecentGames) + addedBao5) / recentCount
+      : null;
+    const allCount = Number(player.totalGames ?? oldCells.reduce((sum, cell) => sum + Number(cell.games ?? 0), 0));
+    const allCountNext = allCount + logs.length;
+    const overall = allCountNext
+      ? ((Number(player.overall ?? 0) * allCount) + addedBao5) / allCountNext
+      : null;
+
+    const byOpponent = new Map();
+    for (const game of logs) {
+      const abbr = String(game.oppAbbr).toUpperCase();
+      if (!byOpponent.has(abbr)) byOpponent.set(abbr, []);
+      byOpponent.get(abbr).push(game);
+    }
+    player.vs ??= {};
+    for (const [abbr, games] of byOpponent) {
+      const existingKey = Object.keys(player.vs).find(key => {
+        const cell = player.vs[key];
+        return String(cell.oppAbbr ?? ABBR[cell.oppCn] ?? '').toUpperCase() === abbr;
+      });
+      const key = existingKey ?? `current_${abbr}`;
+      const old = player.vs[key] ?? { oppId: null, oppCn: games[0].oppCn || abbr, oppAbbr: abbr, games: 0, games3y: 0, playoff: 0, avg: {} };
+      const oldRecent = Number(old.games3y ?? 0);
+      const oldAll = Number(old.games ?? 0);
+      const recentN = oldRecent + games.length;
+      const allN = oldAll + games.length;
+      const recentSum = games.reduce((sum, game) => sum + Number(game.bao5), 0);
+      const avg = { ...(old.avg ?? {}) };
+      for (const [field, sourceField] of Object.entries(statFields)) {
+        const samples = games.map(game => Number(game[sourceField])).filter(Number.isFinite);
+        if (!samples.length) continue;
+        const oldValue = Number(old.avg?.[field]);
+        const oldContribution = Number.isFinite(oldValue) ? oldValue * oldAll : 0;
+        avg[field] = round((oldContribution + samples.reduce((sum, value) => sum + value, 0)) / (oldAll + samples.length), 2);
+      }
+      const winsAdded = games.filter(game => /^(W|WIN|胜)$/i.test(String(game.result))).length;
+      const lossesAdded = games.filter(game => /^(L|LOSS|负)$/i.test(String(game.result))).length;
+      const dates = games.map(game => game.date).sort();
+      player.vs[key] = {
+        ...old,
+        oppCn: old.oppCn || games[0].oppCn || abbr,
+        oppAbbr: abbr,
+        games: allN,
+        games3y: recentN,
+        playoff: Number(old.playoff ?? 0),
+        firstDate: old.firstDate ? (old.firstDate < dates[0] ? old.firstDate : dates[0]) : dates[0],
+        lastDate: old.lastDate ? (old.lastDate > dates.at(-1) ? old.lastDate : dates.at(-1)) : dates.at(-1),
+        avg,
+        avg3y: round(((Number(old.avg3y ?? 0) * oldRecent) + recentSum) / Math.max(1, recentN), 2),
+        overall3y: overall3y == null ? null : round(overall3y, 2),
+        overall: overall == null ? null : round(overall, 2),
+        relStrength: overall3y > 0 ? round(clamp((((Number(old.avg3y ?? 0) * oldRecent) + recentSum) / Math.max(1, recentN) - overall3y) / overall3y, -0.5, 0.5), 2) : 0,
+        wins: Number(old.wins ?? 0) + winsAdded,
+        losses: Number(old.losses ?? 0) + lossesAdded,
+        best: Math.max(Number(old.best ?? -Infinity), ...games.map(game => Number(game.bao5))),
+        worst: Math.min(Number(old.worst ?? Infinity), ...games.map(game => Number(game.bao5))),
+        currentSeasonGames: Number(old.currentSeasonGames ?? 0) + games.length,
+      };
+    }
+    player.totalGames = allCountNext;
+    player.overall = overall == null ? null : round(overall, 2);
+    player.overall3y = overall3y == null ? null : round(overall3y, 2);
+  }
+}
+
 /** 站点中文队名 → BAO5 侧三字母 */
 const ABBR = {
   老鹰: 'ATL', 凯尔特人: 'BOS', 鹈鹕: 'NOP', 公牛: 'CHI', 骑士: 'CLE', 独行侠: 'DAL',
@@ -47,6 +157,7 @@ function loadStats() {
   const statsPath = path.join(DIR, 'matchup-stats.json');
   try {
     const stats = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
+    mergeCurrentSeasonLogs(stats);
     // ⚠️ 索引必须从 matchup-stats（1,492 人，scorebox 反向发现，含已退役）建，
     // **不能**从 players.json（仅 388 人当前在册）—— 否则「凯文-杜兰特」这类
     // 源站名单页未列出的球员会查不到。

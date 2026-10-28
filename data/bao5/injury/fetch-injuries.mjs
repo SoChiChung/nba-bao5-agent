@@ -2,7 +2,7 @@
 /**
  * BAO5 伤兵名单 —— 采集 + 每日变更检测
  *
- * 端点（**公开，无需鉴权**）：GET https://nbabao5.top/api/nba/injuries?date=YYYY-MM-DD
+ * 端点（**公开，无需鉴权**）：GET https://nbabao5.cn/api/nba/injuries?date=YYYY-MM-DD
  *
  * 用法：
  *   node fetch-injuries.mjs                     # 抓服务器当日（不传 date），落盘快照 + 算变更
@@ -29,7 +29,7 @@ const SNAPSHOT_DIR = path.join(DIR, 'snapshots');
 const CHANGE_DIR = path.join(DIR, 'changes');
 const LATEST_FILE = path.join(DIR, 'latest.json');
 
-const BASE = 'https://nbabao5.top';
+const BASE = 'https://nbabao5.cn';
 const ENDPOINT = '/api/nba/injuries';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 

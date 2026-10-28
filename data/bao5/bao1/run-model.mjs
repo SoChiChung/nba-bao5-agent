@@ -4,8 +4,9 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from './bao5.mjs';
-import { buildDashboardData, optimizeLineup, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
-import { attachPreseasonStats, isPreseasonGame } from '../../../src/preseason-stats.mjs';
+import { buildDashboardData, deriveCalibration, optimizeLineup, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
+import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from '../../../src/preseason-stats.mjs';
+import { refreshCurrentSeasonLogs } from '../../history-player/refresh-current-season.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const historyFile=path.join(here,'model-history.json');
@@ -22,6 +23,13 @@ const run=(file,args)=>{
   if(result.stderr)process.stderr.write(result.stderr);
   if(result.status!==0)throw new Error(`${file} 失败（退出码 ${result.status}）`);
 };
+const runPython=(file,args)=>{
+  const python=process.env.PYTHON??(process.platform==='win32'?'python':'python3');
+  const result=spawnSync(python,[path.resolve(ROOT,file),...args],{cwd:ROOT,encoding:'utf8',timeout:120_000});
+  if(result.stdout)process.stdout.write(result.stdout);
+  if(result.stderr)process.stderr.write(result.stderr);
+  if(result.status!==0)throw new Error(`${file} 失败（退出码 ${result.status??'未知'}）${result.error?`: ${result.error.message}`:''}`);
+};
 const readJson=rel=>JSON.parse(fs.readFileSync(path.join(ROOT,rel),'utf8'));
 const writeJsonWithRetry=(file,data)=>{
   for(let attempt=0;;attempt++){
@@ -35,20 +43,6 @@ const writeJsonWithRetry=(file,data)=>{
 };
 const readHistory=()=>{try{return JSON.parse(fs.readFileSync(historyFile,'utf8'));}catch{return[];}};
 const saveHistory=rows=>writeJsonWithRetry(historyFile,JSON.stringify(rows,null,2)+'\n');
-function deriveCalibration(rows){
-  const complete=rows.filter(row=>Number.isFinite(Number(row.actualTotal))&&Number.isFinite(Number(row.expected))&&Number(row.expected)>0).sort((a,b)=>String(a.dateKey??'').localeCompare(String(b.dateKey??'')));
-  const ratioFor=items=>{
-    const predicted=items.reduce((sum,row)=>sum+Number(row.expected),0);
-    const actual=items.reduce((sum,row)=>sum+Number(row.actualTotal),0);
-    return predicted>0?actual/predicted:null;
-  };
-  const allTimeRatio=ratioFor(complete);
-  const recent=complete.slice(-7);
-  const recentRatio=ratioFor(recent);
-  const recentWeight=Math.min(0.5,recent.length/14);
-  const blended=allTimeRatio==null?1:recentRatio==null?allTimeRatio:allTimeRatio*(1-recentWeight)+recentRatio*recentWeight;
-  return {factor:Math.max(0.85,Math.min(1.15,blended)),count:complete.length,recentCount:recent.length,allTimeRatio,recentRatio,recentWeight};
-}
 const readState=()=>{try{return JSON.parse(fs.readFileSync(stateFile,'utf8'));}catch{return{};}};
 const saveState=state=>writeJsonWithRetry(stateFile,JSON.stringify(state,null,2)+'\n');
 function saveRunReport(status,error=null){
@@ -59,11 +53,21 @@ function saveRunReport(status,error=null){
 }
 
 try {
+  if(process.env.BAO5_BACKFILL_ONLY!=='true'){
+    try{runPython('data/position/fetch_hb.py',['--if-stale']);}
+    catch(error){say(`位置防守数据刷新失败，继续沿用现有快照：${error.message}`);}
+  }
   const cfg=loadConfig();
   const api=new Bao5({baseUrl:cfg.baseUrl});
   await api.login(cfg.email,cfg.password);
   let [players,games]=await Promise.all([api.getPlayers(),api.getSchedule()]);
   const backfillOnly=process.env.BAO5_BACKFILL_ONLY==='true';
+  if(!backfillOnly){
+    try{
+      const updated=await refreshCurrentSeasonLogs(api,players,{log:say});
+      if(updated.skipped)say(`球员历史对位仍在每周刷新周期内（${updated.updatedAt??'无更新时间'}），本次跳过拉取`);
+    }catch(error){say(`球员历史对位刷新失败，继续沿用现有快照：${error.message}`);}
+  }
   if(backfillOnly){
     say('赛果回填模式：跳过球员统计刷新，仅读取名单和赛程');
   }else{
@@ -108,9 +112,12 @@ try {
     if(currentHistory?.players?.length)currentHistory.playerNames=currentHistory.players.map(id=>lineupNames.get(String(id))??`球员 ${id}`);
     if(currentHistory&&ownLineupResult.ok&&ownIds.length){currentHistory.bao5Players=ownIds;currentHistory.bao5PlayerNames=ownIds.map(id=>lineupNames.get(id)??`球员 ${id}`);currentHistory.bao5LineupSource=`/api/lineups?date=${dateKey}`;}
     const historyRow=history.find(x=>x.dateKey===dateKey);
-    if(myResult.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&settledDates.includes(dateKey)){
+    const dateGames=games.filter(game=>game.date===dateKey);
+    const phase=dateGames.length?(dateGames.some(isPreseasonGame)?'preseason':'regular'):historyRow?.phase;
+    if(historyRow){if(phase)historyRow.phase=phase;if(typeof mine?.settled==='boolean')historyRow.settled=mine.settled;}
+    if(myResult.ok&&mine?.settled===true&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&settledDates.includes(dateKey)){
       const row=historyRow??{dateKey,updatedAt:new Date().toISOString(),players:[],playerNames:[],expected:null,formation:'—',source:'settled-score-only'};
-      row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number.isFinite(Number(row.expected))?Number((row.actualTotal-row.expected).toFixed(1)):null;row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();if(!row.players?.length){row.players=[];row.playerNames=[];}if(!historyRow)history.push(row);
+      row.phase=phase??row.phase??null;row.settled=true;row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number.isFinite(Number(row.expected))?Number((row.actualTotal-row.expected).toFixed(1)):null;row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();if(!row.players?.length){row.players=[];row.playerNames=[];}if(!historyRow)history.push(row);
       currentHistory=row;
     }
     if(dailyRankings.length){
@@ -147,9 +154,9 @@ try {
   const learnedCounts=new Map();for(const day of Object.values(topFiveStore.dates))for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])learnedCounts.set(String(id),(learnedCounts.get(String(id))??0)+1);
   for(const row of history.filter(x=>settledDates.includes(x.dateKey))){const day=topFiveStore.dates[row.dateKey];if(!day)continue;const common=new Map();for(const lineup of day.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);row.playerNames=(row.players??[]).map(id=>playerNames.get(String(id))??`球员 ${id}`);row.topFive={date:row.dateKey,lineups:(day.lineups??[]).map(lineup=>({...lineup,playerNames:(lineup.playerIds??[]).map(id=>lineup.playerNames?.[String(id)]??playerNames.get(String(id))??`球员 ${id}`)})),commonPicks:[...common].map(([id,selections])=>({id,name:playerNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day.lineups.length)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
   if(backfillOnly){
-    const complete=history.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
-    const calibration=deriveCalibration(complete);
-    say(`15:00 赛果回填校准完成：${calibration.count} 个有效赛果样本，最近 ${calibration.recentCount} 个样本占近期权重 ${(calibration.recentWeight*100).toFixed(0)}%，当前校准系数 ${calibration.factor.toFixed(3)}；跳过阵容计算与提交`);
+    const training=prepareHistoryForCalibration(history,games,dateKey=>{try{return readJson(`data/bao5/scores/rankings_${dateKey}.json`);}catch{return null;}});
+    const calibration=deriveCalibration(training);
+    say(`15:00 赛果回填校准完成：常规赛 ${calibration.regular.count} 个已结算样本、系数 ${calibration.regular.factor.toFixed(3)}、前100命中 ${calibration.regular.top100Hits}/${calibration.regular.rankCount||0}；季前赛 ${calibration.preseason.count} 个样本、系数 ${calibration.preseason.factor.toFixed(3)}；跳过阵容计算与提交`);
     saveRunReport('success');
     process.exit(0);
   }
@@ -162,7 +169,7 @@ try {
   run('../injury/fetch-injuries.mjs',[`--date=${injuryRequestDate}`,'--no-names','--force']);
   const injuries=readJson('data/bao5/injury/latest.json');
   injuries.updatedAt=new Date().toISOString();
-  const injuryChanges=await fetch('https://nbabao5.top/api/nba/injury-changes',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15_000)});
+  const injuryChanges=await fetch('https://nbabao5.cn/api/nba/injury-changes',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15_000)});
   if(injuryChanges.ok){const feed=await injuryChanges.json();const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());const current=(feed.changes??[]).filter(change=>Number(change.detectedAt)>=Date.parse(`${today}T00:00:00-04:00`)).sort((a,b)=>Number(a.detectedAt??0)-Number(b.detectedAt??0));for(const change of current){const id=String(change.playerId??'');if(!id)continue;const status=change.to??{};const old=injuries.statuses?.[id]??{};const merged={...old,key:status.key??old.key,label:status.label??old.label,probability:status.probability??old.probability,detail:change.detail??old.detail,source:'injury-changes'};injuries.statuses??={};injuries.statuses[id]=merged;const restricted=(injuries.restricted??[]).filter(item=>String(item.id)!==id);if(!['available','probable'].includes(merged.key))restricted.push({id,...merged});injuries.restricted=restricted;}}
   let oddsMeta=readJson('data/odds/latest.json');
   const oddsRefreshInterval=8*60*60*1000;
@@ -183,16 +190,22 @@ try {
   const preseasonOddsFile=oddsMeta?.tournaments?.nbaPreseason?.file??'nba-preseason/odds_2026-10-02.json';
   const nbaOddsFile=oddsMeta?.tournaments?.nba?.file??'nba/odds_2026-10-02.json';
   const odds=[...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
-  const defense=readJson('data/position/defense_vs_position.json').season_2025_26??[];
-  const previous=history;
-  const trained=previous.filter(x=>Number.isFinite(x.actualTotal)&&Number.isFinite(x.expected));
-  const calibration=deriveCalibration(trained);
-  const factor=calibration.factor;
-  say(`预测总分校准：${calibration.count} 个赛果，全量比率 ${calibration.allTimeRatio?.toFixed(3)??'暂无'}；最近 ${calibration.recentCount} 个样本比率 ${calibration.recentRatio?.toFixed(3)??'暂无'}，当前系数 ${factor.toFixed(3)}`);
+  const defenseData=readJson('data/position/defense_vs_position.json');
+  const defenseSeason=Object.keys(defenseData).filter(key=>/^season_\d{4}_\d{2}$/.test(key)).sort().at(-1);
+  const currentDefenseSeason=`season_${currentNBASeasonLabel()}`;
+  const selectedDefenseSeason=defenseData[currentDefenseSeason]?currentDefenseSeason:defenseSeason;
+  const defense=selectedDefenseSeason?defenseData[selectedDefenseSeason]??[]:[];
+  say(`位置防守对位：使用 ${selectedDefenseSeason?.replace('season_','')??'无数据'}；当前赛季 ${currentNBASeasonLabel()}${selectedDefenseSeason===currentDefenseSeason?'':' 暂无数据，沿用最近已有赛季'}`);
+  const readScoreSnapshot=dateKey=>{try{return readJson(`data/bao5/scores/rankings_${dateKey}.json`);}catch{return null;}};
+  const previous=prepareHistoryForCalibration(history,fullSchedule,readScoreSnapshot);
+  const calibration=deriveCalibration(previous);
+  const factors={preseason:calibration.preseason.factor,regular:calibration.regular.factor};
+  const regular=calibration.regular,preseason=calibration.preseason;
+  say(`常规赛校准：${regular.count} 个已结算样本，近期比率 ${regular.recentRatio?.toFixed(3)??'暂无'}，系数 ${regular.factor.toFixed(3)}；前100命中 ${regular.top100Hits}/${regular.rankCount||0}。季前赛：${preseason.count} 个已结算样本，系数 ${preseason.factor.toFixed(3)}`);
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'auto'};}})();
-  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
+  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);
-  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1),value:Number(p.average??0)/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
+  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const phaseFactor=factors[preseason?'preseason':'regular']??1;const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1)*phaseFactor,value:Number(p.average??0)*(preseason?0.84:1)*phaseFactor/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
   const lastBaseline=Date.parse(schedulerState.lastBaselineAt??'');
   const shanghaiHour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',hourCycle:'h23'}).format(new Date()));
@@ -210,7 +223,7 @@ try {
       const prior=runHistory.find(x=>x.dateKey===slate.dateKey);
       if(!slate.lineup){say(`${slate.dateKey} 无符合健康和规则约束的阵容，跳过提交`);continue;}
       const selectedMode=prior?.selectedMode??(preferences.mode==='auto'?selectAutoMode(previous):preferences.mode);
-      const modeResult=selectedMode===result.mode?result:buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factor,mode:selectedMode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
+      const modeResult=selectedMode===result.mode?result:buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:selectedMode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
       let lineup=modeResult.slates.find(item=>item.dateKey===slate.dateKey)?.lineup??slate.lineup;
       const lineupIds=()=>lineup.players.map(p=>String(p.id));
       // Probe NBA boxscores in either requested per-game decision window.
@@ -273,7 +286,7 @@ try {
       const submitted=verification.json?.lineup?.playerIds??[];
       if(lineup.players.length!==submitted.length||!lineup.players.every(p=>submitted.map(String).includes(String(p.id))))throw new Error('提交后回读阵容与模型结果不一致');
       const verifiedAt=new Date().toISOString();
-      const row={dateKey:slate.dateKey,updatedAt:verifiedAt,players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',selectedMode,weights:modeResult.weights,oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,injuryUpdatedAt:injuries.updatedAt,submission:{status:same?'unchanged-verified':'submitted-verified',verifiedAt,playerIds:submitted.map(String)},updates:[...(prior?.updates??[]),{at:verifiedAt,reason:dailyRefresh?'daily-refresh':windowGames.length&&windowGames.every(g=>Date.parse(g.utc)-Date.now()<=25*60_000)?'pre-tip-25m-final':windowGames.length?'pre-tip-starters':'schedule-window',games:windowGames.map(g=>g.gameId??g.id??g.game_id),players:lineup.players.map(p=>p.id),expected:lineup.expected,mode:selectedMode,weights:modeResult.weights,submission:same?'unchanged-verified':'submitted-verified'}],...(prior?.actualTotal!=null&&settledDates.includes(slate.dateKey)?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1))}:{})};
+      const row={dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt:verifiedAt,players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',selectedMode,weights:modeResult.weights,oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,injuryUpdatedAt:injuries.updatedAt,submission:{status:same?'unchanged-verified':'submitted-verified',verifiedAt,playerIds:submitted.map(String)},updates:[...(prior?.updates??[]),{at:verifiedAt,reason:dailyRefresh?'daily-refresh':windowGames.length&&windowGames.every(g=>Date.parse(g.utc)-Date.now()<=25*60_000)?'pre-tip-25m-final':windowGames.length?'pre-tip-starters':'schedule-window',games:windowGames.map(g=>g.gameId??g.id??g.game_id),players:lineup.players.map(p=>p.id),expected:lineup.expected,mode:selectedMode,weights:modeResult.weights,submission:same?'unchanged-verified':'submitted-verified'}],...(prior?.settled===true&&prior.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1)),resultSource:prior.resultSource}:{})};
       runHistory=[...runHistory.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
       saveHistory(runHistory);
       say(`${slate.dateKey} 已确认 BAO5 阵容：${lineup.players.map(p=>p.name).join('、')}`);
@@ -284,9 +297,9 @@ try {
     try {
       const settled=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(settledDate)}`);
       const mine=settled.json?.mine?.day;
-      if(settled.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))){
+      if(settled.ok&&mine?.settled===true&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))){
         const row=runHistory.find(x=>x.dateKey===settledDate);
-        if(row&&!Number.isFinite(row.actualTotal)){row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();say(`${settledDate} 从 BAO5 日榜回填实际得分 ${row.actualTotal}（第 ${row.rank} 名）`);}
+        if(row&&!Number.isFinite(row.actualTotal)){row.settled=true;row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();say(`${settledDate} 从 BAO5 已结算日榜回填实际得分 ${row.actualTotal}（第 ${row.rank} 名）`);}
       }
     } catch(error) { say(`${settledDate} BAO5 日榜暂不可用：${error.message}`); }
   }
@@ -295,8 +308,8 @@ try {
     try {
       const result=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(row.dateKey)}`);
       const mine=result.json?.mine?.day;
-      if(result.ok&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))){
-        row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();
+      if(result.ok&&mine?.settled===true&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))){
+        row.settled=true;row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();
         say(`${row.dateKey} 从 BAO5 日榜回填实际得分 ${row.actualTotal}（第 ${row.rank} 名）`);continue;
       }
     } catch(error) { say(`${row.dateKey} BAO5 日榜暂不可用：${error.message}`); }
@@ -304,7 +317,7 @@ try {
     try{
       const chosen=new Set(row.players.map(String)); let total=0,matched=0;
       for(const game of rowSlate){const id=game.gameId??game.id??game.game_id;if(!id)continue;const box=await api.getGameBoxscore(id);for(const side of [box.game?.homeTeam,box.game?.awayTeam])for(const p of side?.players??[]){if(!chosen.has(String(p.personId)))continue;const s=p.statistics??{};const points=Number(s.points),rebounds=Number(s.reboundsTotal??s.rebounds),assists=Number(s.assists),steals=Number(s.steals),blocks=Number(s.blocks),turnovers=Number(s.turnovers);if(![points,rebounds,assists,steals,blocks,turnovers].every(Number.isFinite))throw new Error(`官方 box score 缺少 ${p.personId} 的完整 Fantasy 统计字段`);total+=points+1.2*rebounds+1.5*assists+3*steals+3*blocks-turnovers;matched++;}}
-      if(matched===row.players.length){row.actualTotal=Number(total.toFixed(1));row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='nba-official-boxscore';row.resultUpdatedAt=new Date().toISOString();say(`${row.dateKey} 自动回填实际得分 ${row.actualTotal}`);}
+      if(matched===row.players.length){row.settled=true;row.phase??=rowSlate.some(isPreseasonGame)?'preseason':'regular';row.actualTotal=Number(total.toFixed(1));row.scoreDelta=Number((row.actualTotal-row.expected).toFixed(1));row.resultSource='nba-official-boxscore';row.resultUpdatedAt=new Date().toISOString();say(`${row.dateKey} 自动回填实际得分 ${row.actualTotal}`);}
     }catch(e){say(`${row.dateKey} 官方赛果暂不可用：${e.message}`);}
   }
   saveHistory(runHistory);
