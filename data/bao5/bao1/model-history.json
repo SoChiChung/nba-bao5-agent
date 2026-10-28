@@ -5232,7 +5232,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:01:59.007Z",
+    "resultUpdatedAt": "2026-10-28T02:27:20.335Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5649,7 +5649,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:01.788Z",
+    "resultUpdatedAt": "2026-10-28T02:27:22.123Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6046,7 +6046,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:04.614Z",
+    "resultUpdatedAt": "2026-10-28T02:27:24.064Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6445,7 +6445,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:07.530Z",
+    "resultUpdatedAt": "2026-10-28T02:27:26.085Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6539,7 +6539,7 @@
         {
           "rank": 4,
           "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
-          "displayName": "布伦森你马司了",
+          "displayName": "篮球之神布伦森",
           "score": 230.9,
           "remainingSalary": 4,
           "salaryUsed": 146,
@@ -6836,7 +6836,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:10.392Z",
+    "resultUpdatedAt": "2026-10-28T02:27:28.020Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7246,7 +7246,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:13.200Z",
+    "resultUpdatedAt": "2026-10-28T02:27:30.544Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7662,7 +7662,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-27T08:02:16.038Z",
+    "resultUpdatedAt": "2026-10-28T02:27:32.640Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8008,6 +8008,44 @@
         },
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "多曼塔斯·萨博尼斯",
+      "德尼·阿夫迪亚",
+      "扎克·拉文",
+      "迪伦·哈珀",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5Players": [
+      "1627734",
+      "1630166",
+      "203897",
+      "1642844",
+      "1643411"
+    ],
+    "bao5PlayerNames": [
+      "多曼塔斯·萨博尼斯",
+      "德尼·阿夫迪亚",
+      "扎克·拉文",
+      "迪伦·哈珀",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-28",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-27T23:15:00.000Z",
+      "sourceUpdateAt": "2026-10-27T08:02:33.704Z",
+      "reason": "schedule-window",
+      "players": [
+        "1627734",
+        "1630166",
+        "203897",
+        "1642844",
+        "1643411"
+      ],
+      "expected": 146.6,
+      "energy": 150,
+      "formation": "2前3后",
+      "mode": "matchupFocus"
+    }
   }
 ]
