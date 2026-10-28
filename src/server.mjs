@@ -132,7 +132,7 @@ async function getDashboard({ refresh = false } = {}) {
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
     const defense = combineDefense(readJson('data/position/defense_vs_position.json'));
     const histories = readHistory();
-    const scoreData=await getDailyScoreSnapshot(api);
+    const [scoreData,officialCompetition]=await Promise.all([getDailyScoreSnapshot(api),getOfficialCompetition(api)]);
     const lineupFeedback=await refreshTopFiveLineups(api,scoreData,players);
     const calibrationHistory=prepareHistoryForCalibration(histories,games,dateKey=>{
       if(dateKey===scoreData?.date&&typeof scoreData?.mine?.day?.settled==='boolean')return {mine:{day:scoreData.mine.day}};
@@ -161,6 +161,7 @@ async function getDashboard({ refresh = false } = {}) {
     const persistedLineups=lineupFeedback.store??readTopFiveStore();
     data.history=histories.map(row=>({...row,playerNames:(row.players??[]).map(id=>namesForPlayer(players,id)),rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score})),...(persistedLineups.dates?.[row.dateKey]?{topFive:buildTopFiveSummary(persistedLineups.dates[row.dateKey],players)}:{})}));
     data.dailyScore=scoreData;
+    data.officialCompetition=officialCompetition;
     data.topFiveLineups=lineupFeedback.daily?.lineups??[];
     const topFiveHistory=readHistory().find(x=>x.dateKey===scoreData.date);
     const ownLineup=await api.getLineup(scoreData.date);
@@ -215,7 +216,8 @@ function isOfficialOut(injury){
 function buildMyRankTrend(days=7,freshScore=null){
   const dir=sourceScoreDir;
   if(!fs.existsSync(dir))return {days:[],latest:null,availableDates:0};
-  const files=fs.readdirSync(dir).filter(f=>/^rankings_\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().slice(-days);
+  const currentDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const files=fs.readdirSync(dir).filter(f=>/^rankings_\d{4}-\d{2}-\d{2}\.json$/.test(f)&&f.slice(9,19)<=currentDate).sort().slice(-days);
   const points=[];
   for(const file of files){
     try{
@@ -280,16 +282,27 @@ async function getDailyScoreSnapshot(api){
   // 落盘快照里的 board 曾长期混装赛季累计榜（run-model 的旧 board fallback 所致），
   // 若直接返回缓存，前五分析就会把赛季总榜当日榜用。缓存只用于兜底 mine。
   const withLiveBoard=async(cached)=>{
-    const board=await fetchDailyBoard(api,dateKey);
-    return {...cached,board:board.ok?board.rows:[],boardSource:board.ok?board.source:null,boardError:board.ok?null:board.reason};
+    const resolvedDate=cached.date??cached.dateKey??dateKey;
+    const board=await fetchDailyBoard(api,resolvedDate);
+    return {...cached,date:resolvedDate,board:board.ok?board.rows:[],boardSource:board.ok?board.source:null,boardError:board.ok?null:board.reason};
   };
-  try{const cached=JSON.parse(fs.readFileSync(target,'utf8'));if(cached.mine?.day?.rank>0)return withLiveBoard(cached); if(cached.fetchedAt&&Date.now()-Date.parse(cached.fetchedAt)<10*60*1000)return withLiveBoard(cached);}catch{}
+  try{const cached=JSON.parse(fs.readFileSync(target,'utf8'));if(cached.mine?.day?.settled===true)return withLiveBoard(cached);}catch{}
   const proc=await import('node:child_process');
   try{
     const result=proc.spawnSync(process.execPath,[path.join(ROOT,'data','bao5','fetch-my-scores.mjs'),`--date=${dateKey}`,'--json'],{cwd:ROOT,encoding:'utf8',timeout:30_000,env:process.env});
-    if(result.status===0){const parsed=JSON.parse(result.stdout);return await withLiveBoard({...parsed,userId:api.user?.id,displayName:api.user?.displayName});}
+    if(result.status===0){const parsed=JSON.parse(result.stdout);return await withLiveBoard({...parsed,date:parsed.date??parsed.dateKey,userId:api.user?.id,displayName:api.user?.displayName});}
   }catch(error){console.warn('BAO5 当日得分刷新失败:',error.message);}
-  try{return await withLiveBoard(JSON.parse(fs.readFileSync(target,'utf8')));}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
+  try{return await withLiveBoard({...JSON.parse(fs.readFileSync(target,'utf8')),stale:true});}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
+}
+async function getOfficialCompetition(api){
+  try{
+    const response=await api.get('/api/official/leagues');
+    if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const payload=response.json?.data??response.json??{},league=(payload.leagues??[]).find(item=>item.kind==='h2h'&&item.mine)??(payload.leagues??[]).find(item=>item.mine);
+    if(!league)return {available:true,league:null,enrollReason:payload.enrollReason??null};
+    const mine=league.mine??{},points=Number(mine.points),rank=Number(mine.rank),memberCount=Number(league.member_count??league.memberCount);
+    return {available:true,name:league.name??'官方头碰头联赛',seasonKey:league.season_key??null,phase:league.phase??null,status:mine.status??league.status??null,points:Number.isFinite(points)?points:null,rank:Number.isFinite(rank)&&rank>0?rank:null,memberCount:Number.isFinite(memberCount)&&memberCount>0?memberCount:null,startDate:league.start_date??null,endDate:league.end_date??null};
+  }catch(error){return {available:false,error:error.message};}
 }
 async function refreshTopFiveLineups(api,score,players){
   const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};store.checkedDates??={};
@@ -402,6 +415,18 @@ async function fetchFantasyJson(url) {
   const response = await fetch(url, { signal:AbortSignal.timeout(20_000) });
   if (!response.ok) throw new Error(`NBA Fantasy 上游请求失败（HTTP ${response.status}）`);
   return response.json();
+}
+async function fetchPlayerHeadshot(source) {
+  const proxy=getSystemHttpsProxy();
+  if(proxy&&process.platform==='win32'){
+    const {stdout}=await execFileAsync('curl.exe',['--proxy',proxy,'--max-time','12','--fail','--silent','--show-error',source],{encoding:null,maxBuffer:5_000_000});
+    return {bytes:Buffer.from(stdout),contentType:'image/png'};
+  }
+  const response=await fetch(source,{headers:{Accept:'image/png'},signal:AbortSignal.timeout(12_000)});
+  if(!response.ok)return null;
+  const contentType=response.headers.get('content-type')??'image/png';
+  if(!contentType.startsWith('image/'))return null;
+  return {bytes:Buffer.from(await response.arrayBuffer()),contentType};
 }
 async function body(req) { let data=''; for await (const chunk of req) data+=chunk; return data ? JSON.parse(data) : {}; }
 function submitAuthError(req) {
@@ -548,6 +573,23 @@ const server = http.createServer(async (req,res) => {
       const picks=Array.isArray(payload)?payload:payload?.picks;
       if(!Array.isArray(picks))return send(res,502,{error:'账号阵容数据格式无法识别。'});
       return send(res,200,{teamId,eventId,picks,bank:Number(payload?.entry_history?.bank??payload?.bank??0),transfers:Array.isArray(transfersPayload?.data)?transfersPayload.data:[],transfersAvailable:Array.isArray(transfersPayload?.data)});
+    }
+    if (url.pathname === '/api/player-headshot' && req.method === 'GET') {
+      const playerIds=[...new Set(String(url.searchParams.get('ids')??url.searchParams.get('id')??'').split(',').filter(id=>/^\d+$/.test(id)))].slice(0,4);
+      if(!playerIds.length)return send(res,400,{error:'球员 ID 无效'});
+      for(const playerId of playerIds){
+        const sourceSets=[
+          [`https://cdn.nba.com/headshots/nba/latest/1040x760/${playerId}.png`,`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/1040x760/${playerId}.png`],
+          [`https://cdn.nba.com/headshots/nba/latest/260x190/${playerId}.png`,`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${playerId}.png`],
+        ];
+        for(const sources of sourceSets){
+          const images=await Promise.all(sources.map(async source=>{try{return await fetchPlayerHeadshot(source);}catch{return null;}}));
+          const image=images.find(candidate=>candidate&&candidate.bytes.length>8&&candidate.bytes.length<=3_000_000&&candidate.bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])));if(!image)continue;
+          res.writeHead(200,{'Content-Type':image.contentType,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff'});
+          return res.end(image.bytes);
+        }
+      }
+      return send(res,404,{error:'球员头像暂不可用'});
     }
     if (url.pathname === '/api/dashboard' && req.method === 'GET') {
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
