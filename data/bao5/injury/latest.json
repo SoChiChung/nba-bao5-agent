@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T01:39:12.198Z",
+  "updatedAt": "2026-10-29T01:44:42.066Z",
   "serverDate": "2026-10-28",
   "requestedDate": "2026-10-29",
   "available": true,
@@ -1555,7 +1555,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Poole (illness) is available for Wednesday's game against Denver.",
+      "detail": "ESPN伤病名单：Poole (ankle) won't return to Wednesday's game against the Nuggets. He finished with two points (1-3 FG, 0-1 3Pt), one rebound and one steal over seven minutes.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1593,5 +1593,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月28日 21:30 发布）：列出107人，今日出战的另外160人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月28日 20:45 发布）：列出107人，今日出战的另外160人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

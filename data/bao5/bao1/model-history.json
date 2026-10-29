@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:34.884Z",
+    "resultUpdatedAt": "2026-10-29T01:44:11.602Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:36.940Z",
+    "resultUpdatedAt": "2026-10-29T01:44:13.288Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:40.347Z",
+    "resultUpdatedAt": "2026-10-29T01:44:14.962Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:42.837Z",
+    "resultUpdatedAt": "2026-10-29T01:44:16.634Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:44.876Z",
+    "resultUpdatedAt": "2026-10-29T01:44:18.298Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:47.366Z",
+    "resultUpdatedAt": "2026-10-29T01:44:19.964Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:49.868Z",
+    "resultUpdatedAt": "2026-10-29T01:44:22.459Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T01:38:52.372Z",
+    "resultUpdatedAt": "2026-10-29T01:44:24.968Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8453,9 +8453,38 @@
       "lineups": [
         {
           "rank": 1,
+          "userId": "aea1c31a-211e-43e2-b055-91376a76e884",
+          "displayName": "雨天霸王",
+          "score": 173.9,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1630545",
+            "1627749",
+            "1643410",
+            "1641706",
+            "1630567"
+          ],
+          "playerScores": {
+            "1627749": 21.2,
+            "1630545": 12.4,
+            "1630567": 57.2,
+            "1641706": 52.9,
+            "1643410": 30.2
+          },
+          "playerNames": [
+            "小特伦斯·香农",
+            "德章泰·穆雷",
+            "凯莱布·威尔逊",
+            "布兰登·米勒",
+            "斯科蒂·巴恩斯"
+          ]
+        },
+        {
+          "rank": 2,
           "userId": "bfa6ad37-8f5a-43eb-b49a-60fc45ad2bb0",
           "displayName": "不能开矿的菜地",
-          "score": 169.2,
+          "score": 170.6,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -8469,8 +8498,8 @@
             "203507": 54.1,
             "1630552": 42.3,
             "1630558": 30.2,
-            "1642266": 19.1,
-            "1642865": 23.5
+            "1642266": 21.5,
+            "1642865": 22.5
           },
           "playerNames": [
             "亚克塞尔·伦德博格",
@@ -8481,39 +8510,10 @@
           ]
         },
         {
-          "rank": 2,
-          "userId": "aea1c31a-211e-43e2-b055-91376a76e884",
-          "displayName": "雨天霸王",
-          "score": 158.5,
-          "remainingSalary": 1,
-          "salaryUsed": 149,
-          "playerIds": [
-            "1630545",
-            "1627749",
-            "1643410",
-            "1641706",
-            "1630567"
-          ],
-          "playerScores": {
-            "1627749": 16.8,
-            "1630545": 9.4,
-            "1630567": 49.2,
-            "1641706": 52.9,
-            "1643410": 30.2
-          },
-          "playerNames": [
-            "小特伦斯·香农",
-            "德章泰·穆雷",
-            "凯莱布·威尔逊",
-            "布兰登·米勒",
-            "斯科蒂·巴恩斯"
-          ]
-        },
-        {
           "rank": 3,
           "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
           "displayName": "蒂兰基尔尼",
-          "score": 153,
+          "score": 167.4,
           "remainingSalary": 1,
           "salaryUsed": 149,
           "playerIds": [
@@ -8525,10 +8525,10 @@
           ],
           "playerScores": {
             "203507": 54.1,
-            "1627749": 16.8,
-            "1630545": 9.4,
-            "1630567": 49.2,
-            "1642865": 23.5
+            "1627749": 21.2,
+            "1630545": 12.4,
+            "1630567": 57.2,
+            "1642865": 22.5
           },
           "playerNames": [
             "扬尼斯·阿德托昆博",
@@ -8540,59 +8540,59 @@
         },
         {
           "rank": 4,
-          "userId": "3e5a152f-6b1e-4c09-98f8-df255fcc4273",
-          "displayName": "Kkyrie23",
-          "score": 152.2,
-          "remainingSalary": 0,
-          "salaryUsed": 150,
+          "userId": "4e712a5d-0e2b-4225-8641-315fff9ec7e3",
+          "displayName": "雕堡",
+          "score": 159.5,
+          "remainingSalary": 2,
+          "salaryUsed": 148,
           "playerIds": [
             "1630194",
-            "1642865",
-            "203507",
-            "1629027",
-            "1627749"
+            "1630567",
+            "1642272",
+            "1630552",
+            "1630558"
           ],
           "playerScores": {
-            "203507": 54.1,
-            "1627749": 16.8,
-            "1629027": 28,
             "1630194": 29.8,
-            "1642865": 23.5
+            "1630552": 42.3,
+            "1630558": 30.2,
+            "1630567": 57.2,
+            "1642272": 0
           },
           "playerNames": [
             "保罗·里德",
-            "亚克塞尔·伦德博格",
-            "扬尼斯·阿德托昆博",
-            "特雷·杨",
-            "德章泰·穆雷"
+            "斯科蒂·巴恩斯",
+            "贾里德·麦凯恩",
+            "杰伦·约翰逊",
+            "戴维恩·米切尔"
           ]
         },
         {
           "rank": 5,
-          "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
-          "displayName": "笨CHINA",
-          "score": 152.2,
+          "userId": "3e5a152f-6b1e-4c09-98f8-df255fcc4273",
+          "displayName": "Kkyrie23",
+          "score": 155.6,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
-            "1629027",
             "1630194",
             "1642865",
             "203507",
+            "1629027",
             "1627749"
           ],
           "playerScores": {
             "203507": 54.1,
-            "1627749": 16.8,
+            "1627749": 21.2,
             "1629027": 28,
             "1630194": 29.8,
-            "1642865": 23.5
+            "1642865": 22.5
           },
           "playerNames": [
-            "特雷·杨",
             "保罗·里德",
             "亚克塞尔·伦德博格",
             "扬尼斯·阿德托昆博",
+            "特雷·杨",
             "德章泰·穆雷"
           ]
         }
@@ -8601,20 +8601,26 @@
         {
           "id": "1627749",
           "name": "德章泰·穆雷",
-          "selections": 4,
-          "rate": 0.8
+          "selections": 3,
+          "rate": 0.6
+        },
+        {
+          "id": "1630567",
+          "name": "斯科蒂·巴恩斯",
+          "selections": 3,
+          "rate": 0.6
         },
         {
           "id": "1642865",
           "name": "亚克塞尔·伦德博格",
-          "selections": 4,
-          "rate": 0.8
+          "selections": 3,
+          "rate": 0.6
         },
         {
           "id": "203507",
           "name": "扬尼斯·阿德托昆博",
-          "selections": 4,
-          "rate": 0.8
+          "selections": 3,
+          "rate": 0.6
         },
         {
           "id": "1630194",
@@ -8623,14 +8629,14 @@
           "rate": 0.4
         },
         {
-          "id": "1630567",
-          "name": "斯科蒂·巴恩斯",
+          "id": "1630558",
+          "name": "戴维恩·米切尔",
           "selections": 2,
           "rate": 0.4
         },
         {
-          "id": "1629027",
-          "name": "特雷·杨",
+          "id": "1630552",
+          "name": "杰伦·约翰逊",
           "selections": 2,
           "rate": 0.4
         },
@@ -8647,26 +8653,26 @@
           "rate": 0.2
         },
         {
-          "id": "1630558",
-          "name": "戴维恩·米切尔",
-          "selections": 1,
-          "rate": 0.2
-        },
-        {
           "id": "1642266",
           "name": "贾科比·沃尔特",
           "selections": 1,
           "rate": 0.2
         },
         {
-          "id": "1630552",
-          "name": "杰伦·约翰逊",
+          "id": "1642272",
+          "name": "贾里德·麦凯恩",
           "selections": 1,
           "rate": 0.2
         },
         {
           "id": "1643410",
           "name": "凯莱布·威尔逊",
+          "selections": 1,
+          "rate": 0.2
+        },
+        {
+          "id": "1629027",
+          "name": "特雷·杨",
           "selections": 1,
           "rate": 0.2
         }
