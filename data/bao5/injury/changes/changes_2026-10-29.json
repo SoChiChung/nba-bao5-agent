@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-29T02:55:39.911Z",
+  "generatedAt": "2026-10-29T09:10:05.402Z",
   "serverDate": "2026-10-29",
   "requestedDate": "2026-10-30",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-28T21:45:00",
+  "updatedAt": "2026-10-29T05:00:00",
   "counts": {
     "total": 542,
-    "available": 433,
-    "out": 104,
-    "questionable": 5
+    "available": 434,
+    "out": 102,
+    "questionable": 6
   },
   "provenance": {
     "officialCount": 8,
@@ -19,10 +19,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月28日 21:45 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月29日 05:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-28",
-  "changeCount": 97,
+  "changeCount": 99,
   "changes": [
     {
       "kind": "cleared",
@@ -31,6 +31,21 @@
       "to": "available",
       "probability": "100%",
       "detail": "未出现在NBA官方伤病报告中",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1642923",
+      "from": "out",
+      "to": "available",
+      "probability": "100%",
+      "detail": "上次官方报告 10月25日：名单里没有他，视为可以出战",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -107,6 +122,21 @@
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "improved",
+      "id": "1643547",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1302,7 +1332,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-28T20:45:00",
-      "to": "2026-10-28T21:45:00"
+      "to": "2026-10-29T05:00:00"
     },
     {
       "field": "officialCount",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T02:55:39.911Z",
+  "updatedAt": "2026-10-29T09:10:05.402Z",
   "serverDate": "2026-10-29",
   "requestedDate": "2026-10-30",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "available": 433,
-    "out": 104,
-    "questionable": 5
+    "available": 434,
+    "out": 102,
+    "questionable": 6
   },
   "provenance": {
     "officialCount": 8,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-10-29.json",
   "changesFile": "changes/changes_2026-10-29.json",
   "previousDate": "2026-10-28",
-  "changeCount": 97,
-  "restrictedCount": 109,
+  "changeCount": 99,
+  "restrictedCount": 108,
   "restricted": [
     {
       "id": "202695",
@@ -1159,20 +1159,6 @@
       "energy": null
     },
     {
-      "id": "1642923",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：The Thunder plan to waive Oweh (Achilles) on Friday.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642927",
       "key": "out",
       "label": "缺阵",
@@ -1305,20 +1291,6 @@
       "probability": "0%",
       "detail": "上次官方报告 10月28日：缺阵（右撕裂）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643547",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1549,7 +1521,21 @@
       "teamName": null,
       "position": null,
       "energy": null
+    },
+    {
+      "id": "1643547",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月28日 21:45 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月29日 05:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
