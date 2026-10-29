@@ -78,7 +78,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "詹姆斯·哈登",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-30:rw"
     },
     "201939": {
       "key": "available",
@@ -263,16 +264,17 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "CJ·麦科勒姆",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-10-30:rw"
     },
     "203471": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月28日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Schroder (foot) is questionable for Friday's game against the Wizards.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "丹尼斯·施罗德",
       "t": "黄蜂"
     },
@@ -340,7 +342,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "扎克·拉文",
-      "t": "国王"
+      "t": "国王",
+      "st": "c:2026-10-30:rw"
     },
     "203903": {
       "key": "available",
@@ -658,7 +661,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "多曼塔斯·萨博尼斯",
-      "t": "国王"
+      "t": "国王",
+      "st": "c:2026-10-30:rw"
     },
     "1627739": {
       "key": "available",
@@ -705,13 +709,13 @@
       "t": "雄鹿"
     },
     "1627749": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月28日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Murray (personal) is out for Thursday's game against the Kings, Jim Eichenhofer of the Pelicans' official site reports.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "德章泰·穆雷",
       "t": "鹈鹕"
     },
@@ -749,13 +753,13 @@
       "t": "活塞"
     },
     "1627759": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Brown (knee) is questionable for Friday's game against the Knicks.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "杰伦·布朗",
       "t": "76人"
     },
@@ -900,7 +904,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "多诺万·米切尔",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-30:rw"
     },
     "1628379": {
       "key": "available",
@@ -955,7 +960,8 @@
       "asOf": "2026-10-26",
       "carry": true,
       "n": "贾勒特·阿伦",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-30:rw"
     },
     "1628389": {
       "key": "available",
@@ -1475,13 +1481,13 @@
       "t": "篮网"
     },
     "1629614": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战（颈部酸痛）",
-      "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Nembhard (neck) is listed as probable for Friday's game against Miami.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "安德鲁·内姆布哈德",
       "t": "步行者"
     },
@@ -1516,7 +1522,8 @@
       "asOf": "2026-10-28",
       "carry": true,
       "n": "锡安·威廉森",
-      "t": "鹈鹕"
+      "t": "鹈鹕",
+      "st": "c:2026-10-30:rw"
     },
     "1629628": {
       "key": "available",
@@ -1548,7 +1555,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "德安德烈·亨特",
-      "t": "国王"
+      "t": "国王",
+      "st": "c:2026-10-30:rw"
     },
     "1629632": {
       "key": "out",
@@ -1592,7 +1600,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "尼基尔·亚历山大·沃克",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-10-30:rw"
     },
     "1629639": {
       "key": "available",
@@ -1704,10 +1713,10 @@
       "t": "掘金"
     },
     "1629673": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Poole (ankle) is now doubtful for Thursday against the Kings.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Poole (ankle) has been ruled out for Thursday's game against the Kings.",
       "source": "ESPN",
       "asOf": "2026-10-29",
       "carry": false,
@@ -1832,7 +1841,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "奥涅卡·奥孔古",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-10-30:rw"
     },
     "1630169": {
       "key": "out",
@@ -1887,16 +1897,17 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "普雷舍斯·阿丘瓦",
-      "t": "国王"
+      "t": "国王",
+      "st": "c:2026-10-30:rw"
     },
     "1630174": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战（左腿筋拉伤）",
-      "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Nesmith (hamstring) is probable for Friday's game against the Heat.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "阿隆·内史密斯",
       "t": "步行者"
     },
@@ -2160,7 +2171,8 @@
       "asOf": "2026-10-28",
       "carry": true,
       "n": "赫伯特·琼斯",
-      "t": "鹈鹕"
+      "t": "鹈鹕",
+      "st": "c:2026-10-30:rw"
     },
     "1630530": {
       "key": "available",
@@ -2171,7 +2183,8 @@
       "asOf": "2026-10-28",
       "carry": true,
       "n": "特雷·墨菲三世",
-      "t": "鹈鹕"
+      "t": "鹈鹕",
+      "st": "c:2026-10-30:rw"
     },
     "1630532": {
       "key": "available",
@@ -2292,7 +2305,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "杰伦·约翰逊",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-10-30:rw"
     },
     "1630557": {
       "key": "available",
@@ -2500,7 +2514,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "埃文·莫布利",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-30:rw"
     },
     "1630598": {
       "key": "available",
@@ -2609,7 +2624,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "戴森·丹尼尔斯",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-10-30:rw"
     },
     "1630702": {
       "key": "available",
@@ -3020,7 +3036,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "佩顿·沃特森",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-10-30:rw"
     },
     "1631216": {
       "key": "available",
@@ -3141,7 +3158,8 @@
       "asOf": "2026-10-28",
       "carry": true,
       "n": "卡洛·马特科维奇",
-      "t": "鹈鹕"
+      "t": "鹈鹕",
+      "st": "c:2026-10-30:rw"
     },
     "1631260": {
       "key": "available",
@@ -3885,13 +3903,13 @@
       "t": "森林狼"
     },
     "1642263": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月26日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-10-26",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Sheppard (back) is out for Friday's game against the Mavericks.",
+      "source": "ESPN",
+      "asOf": "2026-10-29",
+      "carry": false,
       "n": "里德·谢泼德",
       "t": "火箭"
     },
@@ -4049,13 +4067,13 @@
       "t": "尼克斯"
     },
     "1642281": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Tyson (neck) is questionable for Thursday's game against the Hawks.",
-      "source": "ESPN",
-      "asOf": "2026-10-29",
-      "carry": false,
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "source": "NBA官方",
+      "asOf": "2026-10-27",
+      "carry": true,
       "n": "杰隆·泰森",
       "t": "骑士"
     },
@@ -4547,7 +4565,8 @@
       "asOf": "2026-10-28",
       "carry": true,
       "n": "杰里迈亚·费尔斯",
-      "t": "鹈鹕"
+      "t": "鹈鹕",
+      "st": "c:2026-10-30:rw"
     },
     "1642848": {
       "key": "out",
@@ -5343,7 +5362,8 @@
       "asOf": "2026-10-27",
       "carry": true,
       "n": "小达里厄斯·埃卡夫",
-      "t": "国王"
+      "t": "国王",
+      "st": "c:2026-10-30:rw"
     },
     "1643412": {
       "key": "available",
@@ -5434,10 +5454,10 @@
       "t": "黄蜂"
     },
     "1643509": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Thomas (foot) is questionable for Thursday's game in Atlanta.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Thomas (foot) has been ruled out for Thursday's game against the Hawks, Serena Winters of FanDuel Sports Network Ohio reports.",
       "source": "ESPN",
       "asOf": "2026-10-29",
       "carry": false,
@@ -5587,10 +5607,10 @@
       "t": "老鹰"
     },
     "1643547": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：De Larrea (knee) is out for Friday's game against the Rockets.",
       "source": "ESPN",
       "asOf": "2026-10-29",
       "carry": false,
@@ -5920,16 +5940,16 @@
   "officialCount": 8,
   "projectedCount": 34,
   "filledCount": 0,
-  "espnCount": 9,
+  "espnCount": 14,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 498,
-  "updatedAt": "2026-10-29T06:30:00",
-  "updatedAtLabel": "10月29日 06:30",
+  "updatedAt": "2026-10-29T04:30:00",
+  "updatedAtLabel": "10月29日 04:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_06_30AM.pdf",
-  "message": "已读取官方伤病报告（10月29日 06:30 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_04_30AM.pdf",
+  "message": "已读取官方伤病报告（10月29日 04:30 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-30"
 }

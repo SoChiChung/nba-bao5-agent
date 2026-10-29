@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:25.956Z",
+    "resultUpdatedAt": "2026-10-29T23:43:22.469Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:27.635Z",
+    "resultUpdatedAt": "2026-10-29T23:43:24.112Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:29.283Z",
+    "resultUpdatedAt": "2026-10-29T23:43:25.740Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:30.931Z",
+    "resultUpdatedAt": "2026-10-29T23:43:27.374Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:32.577Z",
+    "resultUpdatedAt": "2026-10-29T23:43:29.003Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:34.222Z",
+    "resultUpdatedAt": "2026-10-29T23:43:30.632Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:35.869Z",
+    "resultUpdatedAt": "2026-10-29T23:43:32.260Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:37.516Z",
+    "resultUpdatedAt": "2026-10-29T23:43:33.895Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8665,22 +8665,22 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T20:42:39.173Z"
+    "resultUpdatedAt": "2026-10-29T23:43:35.523Z"
   },
   {
     "dateKey": "2026-10-30",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-10-29T20:42:54.420Z",
+    "updatedAt": "2026-10-29T23:43:49.292Z",
     "players": [
       "1627734",
-      "1627749",
+      "1629660",
       "203897",
       "1628386",
       "1643411"
     ],
-    "expected": 178.5,
-    "energy": 150,
+    "expected": 177.7,
+    "energy": 149,
     "formation": "2前3后",
     "source": "scheduled-model",
     "selectedMode": "crowdFocus",
@@ -8696,13 +8696,13 @@
     },
     "oddsFetchedAt": "2026-10-29T20:42:51.315Z",
     "injuryDate": "2026-10-29",
-    "injuryUpdatedAt": "2026-10-29T20:42:50.538Z",
+    "injuryUpdatedAt": "2026-10-29T23:43:48.093Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-29T20:42:54.420Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-29T23:43:49.292Z",
       "playerIds": [
         "1627734",
-        "1627749",
+        "1629660",
         "203897",
         "1628386",
         "1643411"
@@ -8808,6 +8808,31 @@
           "crowd": 0.3
         },
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-29T23:43:49.292Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1627734",
+          "1629660",
+          "203897",
+          "1628386",
+          "1643411"
+        ],
+        "expected": 177.7,
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "unchanged-verified"
       }
     ]
   }
