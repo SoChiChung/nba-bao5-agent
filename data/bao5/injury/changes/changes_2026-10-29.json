@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-29T17:22:17.688Z",
+  "generatedAt": "2026-10-29T20:42:50.525Z",
   "serverDate": "2026-10-29",
   "requestedDate": "2026-10-30",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-29T08:00:00",
+  "updatedAt": "2026-10-29T06:30:00",
   "counts": {
     "total": 542,
-    "available": 434,
+    "available": 430,
     "out": 103,
-    "questionable": 5
+    "questionable": 9
   },
   "provenance": {
     "officialCount": 8,
@@ -19,18 +19,78 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月29日 08:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月29日 06:30 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-28",
-  "changeCount": 101,
+  "changeCount": 105,
   "changes": [
+    {
+      "kind": "newInjury",
+      "id": "1629057",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Williams (knee) is doubtful for Thursday's game against Memphis due to left knee injury management, according to the Trail Blazers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630188",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Smith is questionable for Friday's game against Boston with a left finger sprain.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1642281",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Tyson (neck) is questionable for Thursday's game against the Hawks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1643509",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Thomas (foot) is questionable for Thursday's game in Atlanta.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
     {
       "kind": "worsened",
       "id": "1642856",
       "from": "questionable",
       "to": "out",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Demin has been diagnosed with a right leg bone bruise and will be reevaluated in one week, Ian Begley of SportsNet New York reports Thursday. The injury occurred during Tuesday's game against Boston.",
+      "detail": "ESPN伤病名单：The Nets exercised Demin's third-year team option for the 2027-28 season, Sharif Phillips-Keaton of USA Today reports Thursday.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1360,7 +1420,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-28T20:45:00",
-      "to": "2026-10-29T08:00:00"
+      "to": "2026-10-29T06:30:00"
     },
     {
       "field": "officialCount",
