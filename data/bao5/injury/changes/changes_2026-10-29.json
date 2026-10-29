@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-29T09:10:05.402Z",
+  "generatedAt": "2026-10-29T17:22:17.688Z",
   "serverDate": "2026-10-29",
   "requestedDate": "2026-10-30",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-10-29T05:00:00",
+  "updatedAt": "2026-10-29T08:00:00",
   "counts": {
     "total": 542,
     "available": 434,
-    "out": 102,
-    "questionable": 6
+    "out": 103,
+    "questionable": 5
   },
   "provenance": {
     "officialCount": 8,
@@ -19,11 +19,26 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（10月29日 05:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（10月29日 08:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-28",
-  "changeCount": 99,
+  "changeCount": 101,
   "changes": [
+    {
+      "kind": "worsened",
+      "id": "1642856",
+      "from": "questionable",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Demin has been diagnosed with a right leg bone bruise and will be reevaluated in one week, Ian Begley of SportsNet New York reports Thursday. The injury occurred during Tuesday's game against Boston.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
     {
       "kind": "cleared",
       "id": "1642914",
@@ -306,6 +321,19 @@
       "from": "out",
       "to": "out",
       "note": "上次官方报告 10月28日：缺阵（右脚踝扭伤）",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "detailChanged",
+      "id": "1629673",
+      "from": "questionable",
+      "to": "questionable",
+      "note": "ESPN伤病名单：Poole (ankle) is now doubtful for Thursday against the Kings.",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1332,7 +1360,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-28T20:45:00",
-      "to": "2026-10-29T05:00:00"
+      "to": "2026-10-29T08:00:00"
     },
     {
       "field": "officialCount",

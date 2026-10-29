@@ -1706,7 +1706,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Poole (ankle) won't return to Wednesday's game against the Nuggets. He finished with two points (1-3 FG, 0-1 3Pt), one rebound and one steal over seven minutes.",
+      "detail": "ESPN伤病名单：Poole (ankle) is now doubtful for Thursday against the Kings.",
       "source": "ESPN",
       "asOf": "2026-10-29",
       "carry": false,
@@ -4637,12 +4637,12 @@
       "t": "公牛"
     },
     "1642856": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Demin (leg) stated he isn't sure if he will be able to play in Friday's game against Detroit, Erik Slater of ClutchPoints.com reports.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Demin has been diagnosed with a right leg bone bruise and will be reevaluated in one week, Ian Begley of SportsNet New York reports Thursday. The injury occurred during Tuesday's game against Boston.",
       "source": "ESPN",
-      "asOf": "2026-10-28",
+      "asOf": "2026-10-29",
       "carry": false,
       "n": "叶戈尔·杰明",
       "t": "篮网"
@@ -5924,11 +5924,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 498,
-  "updatedAt": "2026-10-29T05:00:00",
-  "updatedAtLabel": "10月29日 05:00",
+  "updatedAt": "2026-10-29T08:00:00",
+  "updatedAtLabel": "10月29日 08:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_05_00AM.pdf",
-  "message": "已读取官方伤病报告（10月29日 05:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_08_00AM.pdf",
+  "message": "已读取官方伤病报告（10月29日 08:00 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-30"
 }
