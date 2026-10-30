@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:15.283Z",
+    "resultUpdatedAt": "2026-10-30T16:58:24.299Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:18.049Z",
+    "resultUpdatedAt": "2026-10-30T16:58:26.446Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:20.767Z",
+    "resultUpdatedAt": "2026-10-30T16:58:28.131Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:23.021Z",
+    "resultUpdatedAt": "2026-10-30T16:58:30.231Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:25.735Z",
+    "resultUpdatedAt": "2026-10-30T16:58:32.744Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:27.966Z",
+    "resultUpdatedAt": "2026-10-30T16:58:35.690Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:30.201Z",
+    "resultUpdatedAt": "2026-10-30T16:58:37.381Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:32.912Z",
+    "resultUpdatedAt": "2026-10-30T16:58:40.320Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8665,7 +8665,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:35.152Z"
+    "resultUpdatedAt": "2026-10-30T16:58:42.011Z"
   },
   {
     "dateKey": "2026-10-30",
@@ -8880,7 +8880,7 @@
           "rank": 1,
           "userId": "8f6451ef-7739-4be3-a426-6bfcc8981c89",
           "displayName": "鲁迪费尔南德斯",
-          "score": 247.1,
+          "score": 248.3,
           "remainingSalary": 7,
           "salaryUsed": 143,
           "playerIds": [
@@ -8894,7 +8894,7 @@
             "1627734": 39.5,
             "1642270": 38.1,
             "1642847": 66.1,
-            "1643409": 47.2,
+            "1643409": 48.4,
             "1643411": 56.2
           },
           "playerNames": [
@@ -8909,7 +8909,7 @@
           "rank": 2,
           "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
           "displayName": "宁波爆胎王",
-          "score": 241.1,
+          "score": 242.3,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -8924,7 +8924,7 @@
             "1627734": 39.5,
             "1629627": 47.2,
             "1642847": 66.1,
-            "1643409": 47.2
+            "1643409": 48.4
           },
           "playerNames": [
             "多曼塔斯·萨博尼斯",
@@ -8938,7 +8938,7 @@
           "rank": 3,
           "userId": "9a565eb0-ce07-4d2a-9678-658fbb3b8af8",
           "displayName": "KyleGao",
-          "score": 237.3,
+          "score": 238.5,
           "remainingSalary": 2,
           "salaryUsed": 148,
           "playerIds": [
@@ -8952,7 +8952,7 @@
             "1627734": 39.5,
             "1630596": 28.3,
             "1642847": 66.1,
-            "1643409": 47.2,
+            "1643409": 48.4,
             "1643411": 56.2
           },
           "playerNames": [
@@ -8965,38 +8965,9 @@
         },
         {
           "rank": 4,
-          "userId": "fec490e9-55a9-46ec-95a8-8b0b8f06babf",
-          "displayName": "wx",
-          "score": 232.4,
-          "remainingSalary": 1,
-          "salaryUsed": 149,
-          "playerIds": [
-            "1643411",
-            "1642907",
-            "1630173",
-            "1627734",
-            "1630166"
-          ],
-          "playerScores": {
-            "1627734": 39.5,
-            "1630166": 48.3,
-            "1630173": 48.8,
-            "1642907": 39.6,
-            "1643411": 56.2
-          },
-          "playerNames": [
-            "小达里厄斯·埃卡夫",
-            "塞德里克·考沃德",
-            "普雷舍斯·阿丘瓦",
-            "多曼塔斯·萨博尼斯",
-            "德尼·阿夫迪亚"
-          ]
-        },
-        {
-          "rank": 5,
           "userId": "0838b3ac-d00d-4dc1-b7aa-8166028fcb04",
           "displayName": "范特西之王",
-          "score": 231.2,
+          "score": 232.4,
           "remainingSalary": 6,
           "salaryUsed": 144,
           "playerIds": [
@@ -9010,7 +8981,7 @@
             "203897": 41.1,
             "1627734": 39.5,
             "1629627": 47.2,
-            "1643409": 47.2,
+            "1643409": 48.4,
             "1643411": 56.2
           },
           "playerNames": [
@@ -9019,6 +8990,35 @@
             "小达里厄斯·埃卡夫",
             "扎克·拉文",
             "锡安·威廉森"
+          ]
+        },
+        {
+          "rank": 5,
+          "userId": "fec490e9-55a9-46ec-95a8-8b0b8f06babf",
+          "displayName": "wx",
+          "score": 231.2,
+          "remainingSalary": 1,
+          "salaryUsed": 149,
+          "playerIds": [
+            "1643411",
+            "1642907",
+            "1630173",
+            "1627734",
+            "1630166"
+          ],
+          "playerScores": {
+            "1627734": 39.5,
+            "1630166": 48.3,
+            "1630173": 48.8,
+            "1642907": 38.4,
+            "1643411": 56.2
+          },
+          "playerNames": [
+            "小达里厄斯·埃卡夫",
+            "塞德里克·考沃德",
+            "普雷舍斯·阿丘瓦",
+            "多曼塔斯·萨博尼斯",
+            "德尼·阿夫迪亚"
           ]
         }
       ],
@@ -9092,17 +9092,17 @@
       ]
     },
     "actualTotal": 186.8,
-    "rank": 77,
+    "rank": 79,
     "rankTotal": 229,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-30T09:42:38.356Z"
+    "resultUpdatedAt": "2026-10-30T16:58:44.124Z"
   },
   {
     "dateKey": "2026-10-31",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-10-30T09:42:56.823Z",
+    "updatedAt": "2026-10-30T16:59:07.177Z",
     "players": [
       "1628369",
       "1642865",
@@ -9110,7 +9110,7 @@
       "1629027",
       "1627739"
     ],
-    "expected": 204.5,
+    "expected": 204.4,
     "energy": 145,
     "formation": "3前2后",
     "source": "scheduled-model",
@@ -9125,12 +9125,12 @@
       "replacement": 0.28,
       "crowd": 0.12
     },
-    "oddsFetchedAt": "2026-10-30T09:42:55.508Z",
+    "oddsFetchedAt": "2026-10-30T16:59:02.289Z",
     "injuryDate": "2026-10-30",
-    "injuryUpdatedAt": "2026-10-30T09:42:54.630Z",
+    "injuryUpdatedAt": "2026-10-30T16:59:01.568Z",
     "submission": {
-      "status": "unchanged-verified",
-      "verifiedAt": "2026-10-30T09:42:56.823Z",
+      "status": "submitted-verified",
+      "verifiedAt": "2026-10-30T16:59:07.177Z",
       "playerIds": [
         "1628369",
         "1642865",
@@ -9189,6 +9189,31 @@
           "crowd": 0.12
         },
         "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-10-30T16:59:07.177Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1628369",
+          "1642865",
+          "1641706",
+          "1629027",
+          "1627739"
+        ],
+        "expected": 204.4,
+        "mode": "highRisk",
+        "weights": {
+          "label": "近期冲刺",
+          "recent": 0.42,
+          "history": 0.24,
+          "matchup": 0.12,
+          "odds": 0.08,
+          "injury": 1,
+          "replacement": 0.28,
+          "crowd": 0.12
+        },
+        "submission": "submitted-verified"
       }
     ]
   }
