@@ -73,13 +73,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "詹姆斯·哈登",
       "t": "骑士",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "201939": {
       "key": "available",
@@ -259,13 +258,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "CJ·麦科勒姆",
       "t": "老鹰",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "203471": {
       "key": "questionable",
@@ -343,7 +341,7 @@
       "carry": true,
       "n": "扎克·拉文",
       "t": "国王",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "203903": {
       "key": "available",
@@ -634,10 +632,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "马里奥·海佐尼亚",
       "t": "骑士"
     },
@@ -662,7 +659,7 @@
       "carry": true,
       "n": "多曼塔斯·萨博尼斯",
       "t": "国王",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1627739": {
       "key": "available",
@@ -712,10 +709,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Murray (personal) is out for Thursday's game against the Kings, Jim Eichenhofer of the Pelicans' official site reports.",
-      "source": "ESPN",
-      "asOf": "2026-10-29",
-      "carry": false,
+      "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
       "n": "德章泰·穆雷",
       "t": "鹈鹕"
     },
@@ -800,10 +795,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "多里安·芬尼·史密斯",
       "t": "老鹰"
     },
@@ -899,13 +893,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "多诺万·米切尔",
       "t": "骑士",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1628379": {
       "key": "available",
@@ -955,13 +948,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月26日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-26",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "贾勒特·阿伦",
       "t": "骑士",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1628389": {
       "key": "available",
@@ -1044,10 +1036,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "托马斯·布莱恩特",
       "t": "骑士"
     },
@@ -1404,13 +1395,11 @@
       "t": "魔术"
     },
     "1629057": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Williams (knee) is doubtful for Thursday's game against Memphis due to left knee injury management, according to the Trail Blazers.",
-      "source": "ESPN",
-      "asOf": "2026-10-29",
-      "carry": false,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
       "n": "罗伯特·威廉姆斯三世",
       "t": "开拓者"
     },
@@ -1429,10 +1418,8 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战（骨折）",
+      "detail": "NBA官方伤病报告：可以出战（骨折）",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "乔克·兰代尔",
       "t": "老鹰"
     },
@@ -1523,7 +1510,7 @@
       "carry": true,
       "n": "锡安·威廉森",
       "t": "鹈鹕",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1629628": {
       "key": "available",
@@ -1556,7 +1543,7 @@
       "carry": true,
       "n": "德安德烈·亨特",
       "t": "国王",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1629632": {
       "key": "out",
@@ -1595,13 +1582,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "尼基尔·亚历山大·沃克",
       "t": "老鹰",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1629639": {
       "key": "available",
@@ -1662,10 +1648,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "吕冈茨·多尔特",
       "t": "老鹰"
     },
@@ -1692,14 +1677,14 @@
       "t": "湖人"
     },
     "1629660": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（背部紧张）",
       "source": "NBA官方",
-      "asOf": "2026-10-29",
       "n": "泰·杰罗姆",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-10-30:rw"
     },
     "1629661": {
       "key": "out",
@@ -1716,10 +1701,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Poole (ankle) has been ruled out for Thursday's game against the Kings.",
-      "source": "ESPN",
-      "asOf": "2026-10-29",
-      "carry": false,
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
+      "source": "NBA官方",
       "n": "乔丹·普尔",
       "t": "鹈鹕"
     },
@@ -1836,13 +1819,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "奥涅卡·奥孔古",
       "t": "老鹰",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630169": {
       "key": "out",
@@ -1898,7 +1880,7 @@
       "carry": true,
       "n": "普雷舍斯·阿丘瓦",
       "t": "国王",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630174": {
       "key": "questionable",
@@ -2090,10 +2072,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "萨姆·梅里尔",
       "t": "骑士"
     },
@@ -2172,7 +2153,7 @@
       "carry": true,
       "n": "赫伯特·琼斯",
       "t": "鹈鹕",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630530": {
       "key": "available",
@@ -2184,7 +2165,7 @@
       "carry": true,
       "n": "特雷·墨菲三世",
       "t": "鹈鹕",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630532": {
       "key": "available",
@@ -2300,22 +2281,20 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "杰伦·约翰逊",
       "t": "老鹰",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630557": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "科里·基斯珀特",
       "t": "老鹰"
     },
@@ -2487,10 +2466,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "杰伦·威尔逊",
       "t": "老鹰"
     },
@@ -2509,22 +2486,20 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "埃文·莫布利",
       "t": "骑士",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630598": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战（左膝盖挫伤）",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "阿隆·威金斯",
       "t": "老鹰"
     },
@@ -2619,13 +2594,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "戴森·丹尼尔斯",
       "t": "老鹰",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1630702": {
       "key": "available",
@@ -3031,13 +3005,12 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "佩顿·沃特森",
       "t": "骑士",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1631216": {
       "key": "available",
@@ -3109,10 +3082,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵（左足部骨折）",
+      "detail": "NBA官方伤病报告：缺阵（左足部骨折）",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "穆罕穆德·盖伊",
       "t": "老鹰"
     },
@@ -3159,7 +3130,7 @@
       "carry": true,
       "n": "卡洛·马特科维奇",
       "t": "鹈鹕",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1631260": {
       "key": "available",
@@ -3505,7 +3476,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-29",
       "n": "扎克·埃迪",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-10-30:rw"
     },
     "1641745": {
       "key": "available",
@@ -3642,10 +3614,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵（下背应力反应）",
+      "detail": "NBA官方伤病报告：缺阵（下背应力反应）",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "内匡·汤姆林",
       "t": "骑士"
     },
@@ -3796,10 +3766,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "小克雷格·波特",
       "t": "骑士"
     },
@@ -4015,10 +3984,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵（左膝盖挫伤）",
+      "detail": "NBA官方伤病报告：缺阵（左膝盖挫伤）",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "伊夫·米西",
       "t": "鹈鹕"
     },
@@ -4070,10 +4037,8 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "NBA官方伤病报告：可以出战（拉伤）",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
       "n": "杰隆·泰森",
       "t": "骑士"
     },
@@ -4292,7 +4257,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-29",
       "n": "杰伦·威尔斯",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-10-30:rw"
     },
     "1642382": {
       "key": "available",
@@ -4370,13 +4336,11 @@
       "t": "爵士"
     },
     "1642400": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
       "n": "特里斯坦·埃纳鲁纳",
       "t": "骑士"
     },
@@ -4428,10 +4392,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "莱利·米尼克斯",
       "t": "骑士"
     },
@@ -4472,10 +4435,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "雷伊·丹尼斯",
       "t": "老鹰"
     },
@@ -4566,7 +4527,7 @@
       "carry": true,
       "n": "杰里迈亚·费尔斯",
       "t": "鹈鹕",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1642848": {
       "key": "out",
@@ -4638,10 +4599,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "阿萨·纽厄尔",
       "t": "老鹰"
     },
@@ -4855,10 +4815,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "泰瑞斯·普洛克特",
       "t": "骑士"
     },
@@ -4899,10 +4858,8 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "朱利安·里斯",
       "t": "鹈鹕"
     },
@@ -4990,13 +4947,14 @@
       "source": "NBA官方",
       "asOf": "2026-10-29",
       "n": "塞德里克·考沃德",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-10-30:rw"
     },
     "1642910": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "约翰·汤杰",
       "t": "开拓者"
@@ -5024,12 +4982,11 @@
       "t": "森林狼"
     },
     "1642914": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-29",
       "n": "贾文·斯莫尔",
       "t": "灰熊"
     },
@@ -5101,10 +5058,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "凯雄·吉尔伯特",
       "t": "老鹰"
     },
@@ -5123,20 +5078,18 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "柯蒂斯·琼斯",
       "t": "骑士"
     },
     "1642942": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-29",
       "n": "贾迈·马沙克",
       "t": "灰熊"
     },
@@ -5183,10 +5136,10 @@
       "t": "勇士"
     },
     "1642959": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "克里斯·扬布拉德",
       "t": "开拓者"
@@ -5302,10 +5255,10 @@
       "t": "凯尔特人"
     },
     "1643257": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "杰森·肯特",
       "t": "开拓者"
@@ -5340,7 +5293,8 @@
       "source": "NBA官方",
       "asOf": "2026-10-29",
       "n": "卡梅隆·布泽尔",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-10-30:rw"
     },
     "1643410": {
       "key": "available",
@@ -5363,16 +5317,15 @@
       "carry": true,
       "n": "小达里厄斯·埃卡夫",
       "t": "国王",
-      "st": "c:2026-10-30:rw"
+      "st": "c:2026-10-30:nba"
     },
     "1643412": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "金斯顿·弗莱明斯",
       "t": "老鹰"
     },
@@ -5457,10 +5410,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Thomas (foot) has been ruled out for Thursday's game against the Hawks, Serena Winters of FanDuel Sports Network Ohio reports.",
-      "source": "ESPN",
-      "asOf": "2026-10-29",
-      "carry": false,
+      "detail": "NBA官方伤病报告：缺阵（右足部酸痛/炎症）",
+      "source": "NBA官方",
       "n": "米利克·托马斯",
       "t": "骑士"
     },
@@ -5577,10 +5528,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵（右撕裂）",
+      "detail": "NBA官方伤病报告：缺阵（右撕裂）",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "亨利·维萨尔",
       "t": "老鹰"
     },
@@ -5599,10 +5548,8 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月28日：可以出战",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "祖比·埃乔弗",
       "t": "老鹰"
     },
@@ -5665,10 +5612,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "小贾隆·皮埃尔",
       "t": "鹈鹕"
     },
@@ -5863,10 +5808,9 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "detail": "未出现在NBA官方伤病报告中",
       "source": "NBA官方",
-      "asOf": "2026-10-27",
-      "carry": true,
+      "asOf": "2026-10-29",
       "n": "小欧内斯特·乌德",
       "t": "骑士"
     },
@@ -5885,10 +5829,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 10月28日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
-      "asOf": "2026-10-28",
-      "carry": true,
       "n": "马利克·迪亚",
       "t": "鹈鹕"
     },
@@ -5937,19 +5879,19 @@
       "t": "国王"
     }
   },
-  "officialCount": 8,
-  "projectedCount": 34,
+  "officialCount": 29,
+  "projectedCount": 54,
   "filledCount": 0,
-  "espnCount": 14,
+  "espnCount": 10,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
-  "carriedCount": 498,
-  "updatedAt": "2026-10-29T04:30:00",
-  "updatedAtLabel": "10月29日 04:30",
+  "carriedCount": 457,
+  "updatedAt": "2026-10-29T21:30:00",
+  "updatedAtLabel": "10月29日 21:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_04_30AM.pdf",
-  "message": "已读取官方伤病报告（10月29日 04:30 发布）：列出8人，今日出战的另外34人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-29_09_30PM.pdf",
+  "message": "已读取官方伤病报告（10月29日 21:30 发布）：列出29人，今日出战的另外54人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-10-30"
 }

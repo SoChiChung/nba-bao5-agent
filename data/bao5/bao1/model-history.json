@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:22.469Z",
+    "resultUpdatedAt": "2026-10-30T01:41:03.734Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:24.112Z",
+    "resultUpdatedAt": "2026-10-30T01:41:05.406Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:25.740Z",
+    "resultUpdatedAt": "2026-10-30T01:41:07.071Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:27.374Z",
+    "resultUpdatedAt": "2026-10-30T01:41:08.735Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:29.003Z",
+    "resultUpdatedAt": "2026-10-30T01:41:10.400Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:30.632Z",
+    "resultUpdatedAt": "2026-10-30T01:41:12.064Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:32.260Z",
+    "resultUpdatedAt": "2026-10-30T01:41:13.725Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:33.895Z",
+    "resultUpdatedAt": "2026-10-30T01:41:15.394Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8665,7 +8665,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-29T23:43:35.523Z"
+    "resultUpdatedAt": "2026-10-30T01:41:17.059Z"
   },
   {
     "dateKey": "2026-10-30",
@@ -8834,6 +8834,44 @@
         },
         "submission": "unchanged-verified"
       }
-    ]
+    ],
+    "playerNames": [
+      "多曼塔斯·萨博尼斯",
+      "泰·杰罗姆",
+      "扎克·拉文",
+      "贾勒特·阿伦",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5Players": [
+      "1627734",
+      "1629660",
+      "203897",
+      "1628386",
+      "1643411"
+    ],
+    "bao5PlayerNames": [
+      "多曼塔斯·萨博尼斯",
+      "泰·杰罗姆",
+      "扎克·拉文",
+      "贾勒特·阿伦",
+      "小达里厄斯·埃卡夫"
+    ],
+    "bao5LineupSource": "/api/lineups?date=2026-10-30",
+    "lockedRecommendation": {
+      "lockedAt": "2026-10-29T23:45:00.000Z",
+      "sourceUpdateAt": "2026-10-29T23:43:49.292Z",
+      "reason": "schedule-window",
+      "players": [
+        "1627734",
+        "1629660",
+        "203897",
+        "1628386",
+        "1643411"
+      ],
+      "expected": 177.7,
+      "energy": 149,
+      "formation": "2前3后",
+      "mode": "crowdFocus"
+    }
   }
 ]
