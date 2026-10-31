@@ -5260,7 +5260,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:24.502Z",
+    "resultUpdatedAt": "2026-10-31T15:59:24.777Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5679,7 +5679,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:27.715Z",
+    "resultUpdatedAt": "2026-10-31T15:59:27.909Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6078,7 +6078,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:30.782Z",
+    "resultUpdatedAt": "2026-10-31T15:59:29.963Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6479,7 +6479,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:33.836Z",
+    "resultUpdatedAt": "2026-10-31T15:59:32.015Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -6872,7 +6872,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:36.418Z",
+    "resultUpdatedAt": "2026-10-31T15:59:34.532Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7284,7 +7284,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:39.482Z",
+    "resultUpdatedAt": "2026-10-31T15:59:37.043Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -7702,7 +7702,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:42.544Z",
+    "resultUpdatedAt": "2026-10-31T15:59:41.420Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8096,7 +8096,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:45.138Z",
+    "resultUpdatedAt": "2026-10-31T15:59:43.476Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -8665,7 +8665,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:47.730Z"
+    "resultUpdatedAt": "2026-10-31T15:59:46.919Z"
   },
   {
     "dateKey": "2026-10-30",
@@ -9096,7 +9096,7 @@
     "rankTotal": 229,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:50.330Z"
+    "resultUpdatedAt": "2026-10-31T15:59:49.438Z"
   },
   {
     "dateKey": "2026-10-31",
@@ -9514,13 +9514,13 @@
     "rankTotal": 223,
     "scoreDelta": -61,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-10-31T08:47:54.335Z"
+    "resultUpdatedAt": "2026-10-31T15:59:52.044Z"
   },
   {
     "dateKey": "2026-11-01",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-10-31T08:48:23.368Z",
+    "updatedAt": "2026-10-31T16:00:18.977Z",
     "players": [
       "1630552",
       "1628378",
@@ -9528,7 +9528,7 @@
       "1643411",
       "1628964"
     ],
-    "expected": 182.9,
+    "expected": 184.9,
     "energy": 149,
     "formation": "3前2后",
     "source": "scheduled-model",
@@ -9543,12 +9543,12 @@
       "replacement": 0.2,
       "crowd": 0.18
     },
-    "oddsFetchedAt": "2026-10-31T01:27:42.146Z",
+    "oddsFetchedAt": "2026-10-31T16:00:17.997Z",
     "injuryDate": "2026-10-31",
-    "injuryUpdatedAt": "2026-10-31T08:48:18.287Z",
+    "injuryUpdatedAt": "2026-10-31T16:00:16.346Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-10-31T08:48:23.368Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-10-31T16:00:18.977Z",
       "playerIds": [
         "1630552",
         "1628378",
@@ -9607,6 +9607,31 @@
           "crowd": 0.18
         },
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-10-31T16:00:18.977Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1630552",
+          "1628378",
+          "1643409",
+          "1643411",
+          "1628964"
+        ],
+        "expected": 184.9,
+        "mode": "balanced",
+        "weights": {
+          "label": "均衡探索",
+          "recent": 0.28,
+          "history": 0.16,
+          "matchup": 0.12,
+          "odds": 0.08,
+          "injury": 1.1,
+          "replacement": 0.2,
+          "crowd": 0.18
+        },
+        "submission": "unchanged-verified"
       }
     ]
   }

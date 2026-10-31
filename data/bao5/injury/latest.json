@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T08:48:18.273Z",
+  "updatedAt": "2026-10-31T16:00:16.334Z",
   "serverDate": "2026-10-31",
   "requestedDate": "2026-11-01",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "available": 431,
+    "questionable": 9,
+    "available": 430,
     "out": 98,
-    "questionable": 8,
     "doubtful": 5
   },
   "provenance": {
@@ -22,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-10-31.json",
   "changesFile": "changes/changes_2026-10-31.json",
   "previousDate": "2026-10-30",
-  "changeCount": 113,
-  "restrictedCount": 111,
+  "changeCount": 114,
+  "restrictedCount": 112,
   "restricted": [
     {
       "id": "202695",
@@ -1468,6 +1468,20 @@
       "energy": null
     },
     {
+      "id": "2544",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：James (rest) closed with 20 points (8-15 FG, 2-6 3Pt, 2-3 FT), nine rebounds, eight assists, one block and one steal across 34 minutes during Friday's 98-93 win over the Knicks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628374",
       "key": "questionable",
       "label": "出战成疑",
@@ -1580,5 +1594,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（10月31日 04:30 发布）：列出41人，今日出战的另外97人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（10月31日 12:00 发布）：列出41人，今日出战的另外97人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
