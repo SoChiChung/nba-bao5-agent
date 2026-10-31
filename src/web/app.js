@@ -10,6 +10,7 @@ const $=id=>document.getElementById(id);
 function applyTheme(){const mode=$('theme-mode')?.value??'auto';const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Shanghai',hour:'numeric',hour12:false}).formatToParts(new Date());const hour=Number(parts.find(part=>part.type==='hour')?.value??12);const dark=mode==='dark'||(mode==='auto'&&(hour>=19||hour<7));document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#111722':'#f5f7fb');}
 const savedTheme=localStorage.getItem('bao5-theme-mode');$('theme-mode').value=['auto','light','dark'].includes(savedTheme)?savedTheme:'auto';$('theme-mode').onchange=()=>{localStorage.setItem('bao5-theme-mode',$('theme-mode').value);applyTheme();};applyTheme();setInterval(applyTheme,60000);
 const fmtDate=d=>{const x=new Date(`${d}T12:00:00Z`);return `${x.getUTCMonth()+1}/${x.getUTCDate()}`;};
+function formatTimestamp(value){const date=new Date(value??'');return Number.isNaN(date.getTime())?'暂无':date.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});}
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 initFantasy();
 const teamNames={ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才'};
@@ -240,8 +241,13 @@ function applyPlayerConstraints(slate){
   const details=backendErrors.slice(0,5).join('；');
   notices.push(`<div class="data-notice"><b>后台有 ${backendErrors.length} 条联赛数据错误</b><span>${escapeHtml(details)}${backendErrors.length>5?`；另有 ${backendErrors.length-5} 条` : ''}</span></div>`);
  }
- $('data-notices').innerHTML=notices.join('');
+  $('data-notices').innerHTML=notices.join('');
  $('data-notices').classList.toggle('hidden',notices.length===0);
+  renderDataFreshness();
+}
+function renderDataFreshness(){
+ const history=state?.sources?.historyMatchup??{},defense=state?.sources?.defense??{};
+ $('source-freshness').innerHTML=`<div class="source-row"><span>历史对阵更新时间</span><b>${formatTimestamp(history.updatedAt)}</b></div><div class="source-row"><span>位置对位更新时间</span><b>${formatTimestamp(defense.updatedAt)}</b></div>`;
 }
 function roundedRect(ctx,x,y,width,height,radius,fill){ctx.beginPath();ctx.moveTo(x+radius,y);ctx.arcTo(x+width,y,x+width,y+height,radius);ctx.arcTo(x+width,y+height,x,y+height,radius);ctx.arcTo(x,y+height,x,y,radius);ctx.arcTo(x,y,x+width,y,radius);ctx.closePath();ctx.fillStyle=fill;ctx.fill();}
 function fitCanvasText(ctx,value,maxWidth){const text=String(value??'—');if(ctx.measureText(text).width<=maxWidth)return text;let clipped=text;while(clipped.length>1&&ctx.measureText(clipped+'…').width>maxWidth)clipped=clipped.slice(0,-1);return clipped+'…';}

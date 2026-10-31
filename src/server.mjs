@@ -131,6 +131,7 @@ async function getDashboard({ refresh = false } = {}) {
     const nbaOddsFile = latestOdds?.tournaments?.nba?.file ?? 'nba/odds_2026-10-02.json';
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
     const defense = combineDefense(readJson('data/position/defense_vs_position.json'));
+    const matchupStats = readJson('data/history-player/matchup-stats.json', {});
     const histories = readHistory();
     const [scoreData,officialCompetition]=await Promise.all([getDailyScoreSnapshot(api),getOfficialCompetition(api)]);
     const lineupFeedback=await refreshTopFiveLineups(api,scoreData,players);
@@ -147,6 +148,8 @@ async function getDashboard({ refresh = false } = {}) {
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:defense.season??'缺失',currentSeason:currentNBASeasonLabel()}, playerStats:playerStatsMeta };
+    data.sources.historyMatchup = { updatedAt: matchupStats.generatedAt ?? null };
+    data.sources.defense.updatedAt = defense.updatedAt;
     const league=readJson('data/bao5/league/latest.json');
     const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
     data.account={displayName:league.displayName??api.user?.displayName??'BAO5',avatar:accountAvatar};
@@ -246,7 +249,7 @@ function combineDefense(json) {
   const currentKey=`season_${currentNBASeasonLabel()}`;
   const latestKey=Object.keys(json??{}).filter(key=>/^season_\d{4}_\d{2}$/.test(key)).sort().at(-1);
   const seasonKey=json?.[currentKey]?currentKey:latestKey;
-  return {season:seasonKey?.slice('season_'.length)??null,rows:seasonKey?json[seasonKey]??[]:[]};
+  return {season:seasonKey?.slice('season_'.length)??null,rows:seasonKey?json[seasonKey]??[]:[],updatedAt:json?._meta?.updatedAt??null};
 }
 async function getAccountAvatar(avatarKey){
   try{const cached=JSON.parse(fs.readFileSync(avatarPath,'utf8'));if(cached.avatarKey===avatarKey&&cached.dataUrl)return cached.dataUrl;}catch{}
