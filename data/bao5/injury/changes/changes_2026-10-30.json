@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T01:27:40.926Z",
+  "generatedAt": "2026-10-31T01:31:21.758Z",
   "serverDate": "2026-10-30",
   "requestedDate": "2026-10-31",
   "available": false,
@@ -9,17 +9,17 @@
   "updatedAt": null,
   "counts": {
     "total": 733,
-    "available": 642,
-    "out": 83,
+    "available": 643,
+    "out": 82,
     "questionable": 8
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 642,
-    "filledCount": 89,
+    "projectedCount": 643,
+    "filledCount": 88,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出89人，其余642人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出88人，其余643人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-10-29",
   "changeCount": 125,
@@ -431,6 +431,21 @@
     },
     {
       "kind": "cleared",
+      "id": "1642345",
+      "from": "out",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
       "id": "1642369",
       "from": "out",
       "to": "available",
@@ -776,12 +791,12 @@
     },
     {
       "kind": "improved",
-      "id": "1642345",
+      "id": "1629661",
       "from": "out",
       "to": "questionable",
       "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
       "name": null,
       "englishName": null,
       "team": null,
@@ -911,19 +926,6 @@
     {
       "kind": "detailChanged",
       "id": "1629651",
-      "from": "out",
-      "to": "out",
-      "note": "ESPN伤病名单：缺阵",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1629661",
       "from": "out",
       "to": "out",
       "note": "ESPN伤病名单：缺阵",
@@ -1778,12 +1780,12 @@
     {
       "field": "projectedCount",
       "from": 34,
-      "to": 642
+      "to": 643
     },
     {
       "field": "filledCount",
       "from": 0,
-      "to": 89
+      "to": 88
     }
   ]
 }

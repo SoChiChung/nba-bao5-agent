@@ -1705,18 +1705,12 @@
       "t": "灰熊"
     },
     "1629661": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "Sleeper伤病名单：出战成疑",
+      "source": "Sleeper",
+      "others": [],
       "n": "卡梅伦·约翰逊",
       "t": "掘金"
     },
@@ -4505,18 +4499,11 @@
       "t": "灰熊"
     },
     "1642345": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "奥索·伊戈达罗",
       "t": "太阳"
     },
@@ -6944,8 +6931,8 @@
     }
   },
   "officialCount": 0,
-  "projectedCount": 642,
-  "filledCount": 89,
+  "projectedCount": 643,
+  "filledCount": 88,
   "espnCount": 2,
   "manualCount": 0,
   "fallbackSource": "mixed",
@@ -6956,6 +6943,6 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出89人，其余642人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出88人，其余643人未被列入（视为可出战）。",
   "requestedDate": "2026-10-31"
 }
