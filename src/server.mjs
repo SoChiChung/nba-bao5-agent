@@ -148,7 +148,11 @@ async function getDashboard({ refresh = false } = {}) {
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:defense.season??'缺失',currentSeason:currentNBASeasonLabel()}, playerStats:playerStatsMeta };
-    data.sources.historyMatchup = { updatedAt: matchupStats.generatedAt ?? null };
+    const currentSeasonLogs = readJson('data/history-player/current-season-logs.json', {});
+    const seasonLogsAt = currentSeasonLogs.updatedAt ?? currentSeasonLogs.lastAttemptAt ?? null;
+    const matchupBaseAt = matchupStats.generatedAt ?? null;
+    const matchupLatestAt = [matchupBaseAt, seasonLogsAt].filter(Boolean).sort().at(-1) ?? null;
+    data.sources.historyMatchup = { updatedAt: matchupLatestAt, baseUpdatedAt: matchupBaseAt, currentSeasonUpdatedAt: seasonLogsAt, currentSeason: currentSeasonLogs.season ?? null, currentSeasonGames: currentSeasonLogs.gameCount ?? null, currentSeasonPlayers: currentSeasonLogs.playerCount ?? null };
     data.sources.defense.updatedAt = defense.updatedAt;
     const league=readJson('data/bao5/league/latest.json');
     const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
@@ -162,7 +166,10 @@ async function getDashboard({ refresh = false } = {}) {
     data.rankTrend=rankTrend;
     data.myRankTrend=buildMyRankTrend(7,scoreData);
     const persistedLineups=lineupFeedback.store??readTopFiveStore();
-    data.history=histories.map(row=>({...row,playerNames:(row.players??[]).map(id=>namesForPlayer(players,id)),rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score})),...(persistedLineups.dates?.[row.dateKey]?{topFive:buildTopFiveSummary(persistedLineups.dates[row.dateKey],players)}:{})}));
+    data.history=histories.map(row=>{
+      const lockedRecommendation=resolveLockedRecommendation(row,games,players);
+      return {...row,...(lockedRecommendation?{lockedRecommendation}:{}),playerNames:(row.players??[]).map(id=>namesForPlayer(players,id)),rankSnapshot:data.leagues.map(l=>({leagueName:l.name,rank:l.myStanding?.rank,score:l.myStanding?.score,weeklyRank:l.weeklyStanding?.rank,weeklyScore:l.weeklyStanding?.score})),...(persistedLineups.dates?.[row.dateKey]?{topFive:buildTopFiveSummary(persistedLineups.dates[row.dateKey],players)}:{})};
+    });
     data.dailyScore=scoreData;
     data.officialCompetition=officialCompetition;
     data.topFiveLineups=lineupFeedback.daily?.lineups??[];
@@ -258,6 +265,52 @@ async function getAccountAvatar(avatarKey){
 }
 function readJson(relative, fallback) { try { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); } catch { return fallback; } }
 function readHistory() { for(const file of [historyPath,sourceHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}} return []; }
+function recordDashboardRecommendations(data){
+  const history=readHistory();
+  const now=Date.now();
+  const at=new Date(now).toISOString();
+  const changed=[];
+  for(const slate of data.slates??[]){
+    const lineup=slate.lineup;
+    if(!lineup?.players?.length||!Number.isFinite(Number(slate.lockedAt))||now>=Number(slate.lockedAt)||slate.games?.some(game=>[2,3].includes(Number(game.status))))continue;
+    const players=lineup.players.map(player=>String(player.id));
+    const expected=Number(lineup.expected);
+    const energy=Number(lineup.energy);
+    const formation=lineup.formation??`${lineup.players.filter(player=>player.position==='front').length}前${lineup.players.filter(player=>player.position==='back').length}后`;
+    const mode=data.selectedMode??data.mode??null;
+    const prior=history.find(row=>row.dateKey===slate.dateKey);
+    const last=prior?.updates?.at(-1);
+    const alreadyCaptured=last?.reason==='dashboard-display'
+      &&last.players?.map(String).join(',')===players.join(',')
+      &&Number(last.expected)===expected&&Number(last.energy)===energy
+      &&last.formation===formation&&last.mode===mode;
+    if(alreadyCaptured)continue;
+    const update={at,reason:'dashboard-display',games:(slate.games??[]).map(game=>game.gameId??game.id??game.game_id).filter(Boolean),players,expected,energy,formation,mode,weights:data.weights??null};
+    const row={...prior,dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',updatedAt:at,players,expected,energy,formation,source:'dashboard-model',selectedMode:mode,updates:[...(prior?.updates??[]),update]};
+    const index=history.findIndex(item=>item.dateKey===slate.dateKey);
+    if(index<0)history.push(row);else history[index]=row;
+    changed.push({row,slate});
+  }
+  if(!changed.length)return;
+  history.sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
+  saveHistory(history);
+  for(const {row,slate} of changed){
+    const view=data.history?.find(item=>item.dateKey===row.dateKey);
+    const lockedRecommendation=resolveLockedRecommendation(row,slate.games,slate.players??[]);
+    if(view)Object.assign(view,{updatedAt:row.updatedAt,players:row.players,playerNames:row.players.map(id=>namesForPlayer(slate.players??[],id)),expected:row.expected,energy:row.energy,formation:row.formation,source:row.source,selectedMode:row.selectedMode,updates:row.updates,...(lockedRecommendation?{lockedRecommendation}:{})});
+  }
+}
+function resolveLockedRecommendation(row,schedule,players=[]){
+  const existing=row.lockedRecommendation;
+  if(existing?.players?.length)return {...existing,playerNames:existing.playerNames??existing.players.map(id=>namesForPlayer(players,id))};
+  const tips=(schedule??[]).filter(game=>game.date===row.dateKey).map(game=>Date.parse(game.utc)).filter(Number.isFinite);
+  if(!tips.length)return null;
+  const lockedAt=Math.min(...tips)-15*60_000;
+  const lastUpdate=[...(row.updates??[])].filter(update=>Date.parse(update.at)<lockedAt).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
+  const source=lastUpdate??(Date.parse(row.updatedAt)<lockedAt?row:null);
+  if(!source?.players?.length)return null;
+  return {lockedAt:new Date(lockedAt).toISOString(),sourceUpdateAt:source.at??source.updatedAt??row.updatedAt,source:source.reason==='dashboard-display'?'dashboard-display':'model-update',reason:source.reason??'last-pre-lock-update',players:source.players.map(String),playerNames:source.players.map(id=>namesForPlayer(players,id)),expected:source.expected??null,energy:source.energy??row.energy??null,formation:source.formation??row.formation??null,mode:source.mode??row.selectedMode??null};
+}
 const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
 const sourcePreferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
 function readPreferences(){for(const file of [preferencesPath,sourcePreferencesPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {mode:'auto',customWeights:null};}
@@ -596,6 +649,7 @@ const server = http.createServer(async (req,res) => {
     }
     if (url.pathname === '/api/dashboard' && req.method === 'GET') {
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
+      recordDashboardRecommendations(data);
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
       return send(res,200,data);
     }
@@ -634,8 +688,10 @@ const server = http.createServer(async (req,res) => {
       const input = await body(req);
       const slate = data.slates.find(s=>s.dateKey===input.dateKey);
       if (!slate?.lineup) return send(res,422,{error:'该比赛日没有符合规则的可行阵容'});
+      if(Date.now()>=slate.lockedAt||slate.games.some(game=>game.status===2||game.status===3))return send(res,409,{error:'该比赛日已过 DDL，回测模型推荐已冻结，不会用锁定后的阵容覆盖。'});
       const prior=readHistory().find(x=>x.dateKey===slate.dateKey);
-      const row={...prior,dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt:new Date().toISOString(),players:slate.lineup.players.map(p=>p.id),expected:slate.lineup.expected,energy:slate.lineup.energy,formation:slate.lineup.formation,source:'model',...(prior?.settled===true&&prior.actualTotal!=null?{scoreDelta:Number((prior.actualTotal-slate.lineup.expected).toFixed(1))}:{})};
+      const updatedAt=new Date().toISOString(),players=slate.lineup.players.map(p=>p.id),expected=slate.lineup.expected,energy=slate.lineup.energy,formation=slate.lineup.formation;
+      const row={...prior,dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt,players,expected,energy,formation,source:'model',updates:[...(prior?.updates??[]),{at:updatedAt,reason:'manual-recalculate',games:slate.games.map(game=>game.gameId??game.id??game.game_id),players,expected,energy,formation,mode:data.selectedMode??data.mode}],...(prior?.settled===true&&prior.actualTotal!=null?{scoreDelta:Number((prior.actualTotal-expected).toFixed(1))}:{})};
       const history=readHistory().filter(x=>x.dateKey!==row.dateKey); history.push(row); history.sort((a,b)=>a.dateKey.localeCompare(b.dateKey)); saveHistory(history);
       const merged=mergeDailyResult(history,data.dailyScore,data.slates.flatMap(s=>s.players));
       saveHistory(merged);
