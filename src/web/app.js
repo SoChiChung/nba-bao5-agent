@@ -16,7 +16,54 @@ initFantasy();
 const teamNames={ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才'};
 function team(t){return teamNames[t]??t;}
 function toast(s){const el=$('toast');el.textContent=s;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600);}
-async function load(refresh=false){$('loading').classList.remove('hidden');$('dashboard').classList.add('hidden');$('live-state').textContent='正在同步比赛数据';$('live-detail').textContent='安全读取球员库、赛程和本地统计';try{const r=await fetch(`/api/dashboard${refresh?'?refresh=1':''}`);const d=await r.json();if(!r.ok)throw new Error(d.error);state=d;selectedDate=selectedDate??d.slates[0]?.dateKey;render();$('live-state').textContent='数据已同步';$('live-detail').textContent=`${d.live.players} 名球员 · ${d.live.games} 场赛程`;loadAutomationLog();}catch(e){$('live-state').textContent='数据读取失败';$('live-detail').textContent=e.message;toast(e.message);}finally{$('loading').classList.add('hidden');$('dashboard').classList.remove('hidden');scheduleDashboardFlow();scheduleLineupNameMarquees();}}
+async function load(refresh=false){$('loading').classList.remove('hidden');$('dashboard').classList.add('hidden');$('live-state').textContent='正在同步比赛数据';$('live-detail').textContent='安全读取球员库、赛程和本地统计';try{const r=await fetch(`/api/dashboard${refresh?'?refresh=1':''}`);const d=await r.json();if(!r.ok)throw new Error(d.error);state=d;selectedDate=selectedDate??d.slates[0]?.dateKey;render();$('live-state').textContent='数据已同步';$('live-detail').textContent=`${d.live.players} 名球员 · ${d.live.games} 场赛程`;loadAutomationLog();applyRefreshBanner(d);}catch(e){$('live-state').textContent='数据读取失败';$('live-detail').textContent=e.message;toast(e.message);}finally{$('loading').classList.add('hidden');$('dashboard').classList.remove('hidden');scheduleDashboardFlow();scheduleLineupNameMarquees();}}
+
+// 后台刷新提示条：后端返回 refreshing=true 时说明全量计算仍在跑，
+// 当前展示的是缓存快照，完成后自动换上新数据。
+// 预计时间按「上一轮全量计算耗时」估算，随轮询递增逼近真实剩余时间。
+const REFRESH_ESTIMATE_MS = 5200;
+let refreshPollTimer = null;
+let refreshPollAttempts = 0;
+function applyRefreshBanner(d){
+  const banner=$('refresh-banner');
+  if(!banner)return;
+  if(!d?.refreshing){banner.classList.add('hidden');clearTimeout(refreshPollTimer);refreshPollTimer=null;refreshPollAttempts=0;return;}
+  banner.classList.remove('hidden');
+  const ageMs=Number(d.snapshotAgeMs??0);
+  // 快照超过 30 分钟要明确警示，避免用户误以为看到的是实时数据
+  const ageMinutes=ageMs>0?Math.round(ageMs/60000):0;
+  const ageText=ageMs>0
+    ?(ageMinutes>=30?`快照已过期（${ageMinutes} 分钟前）`:ageMinutes>=1?`快照生成于 ${ageMinutes} 分钟前`:'快照刚刚生成')
+    :'快照正在同步';
+  const stale=ageMinutes>=30;
+  $('refresh-banner-title').textContent=stale?'数据较旧，正在重新计算':'正在后台刷新数据';
+  $('refresh-banner-detail').textContent=stale
+    ?`当前展示的是 ${ageMinutes} 分钟前的缓存数据，全量计算完成后会立即更新`
+    :`当前展示缓存快照（${ageText}），全量计算完成后自动更新`;
+  const elapsed=Number(d.estimatedRefreshMs??0);
+  const estimate=Math.max(1000,REFRESH_ESTIMATE_MS-elapsed);
+  $('refresh-banner-eta').textContent=`预计还需 ${estimate>=1000?`${Math.ceil(estimate/1000)} 秒`:'不到 1 秒'}`;
+  scheduleRefreshPoll();
+}
+function scheduleRefreshPoll(){
+  if(refreshPollTimer)return;
+  refreshPollAttempts+=1;
+  if(refreshPollAttempts>40){clearTimeout(refreshPollTimer);refreshPollTimer=null;return;}
+  refreshPollTimer=setTimeout(async()=>{
+    refreshPollTimer=null;
+    try{
+      const r=await fetch('/api/dashboard');
+      if(!r.ok)return;
+      const d=await r.json();
+      if(d.refreshing){applyRefreshBanner(d);return;}
+      // 后台计算完成：换上新数据
+      state=d;selectedDate=selectedDate??d.slates[0]?.dateKey;render();
+      $('live-state').textContent='数据已同步';
+      $('live-detail').textContent=`${d.live.players} 名球员 · ${d.live.games} 场赛程`;
+      applyRefreshBanner(d);
+    }catch{/* 轮询失败静默重试 */}
+  },1500);
+}
 async function loadAutomationLog(){const el=$('automation-log');if(!el)return;try{const r=await fetch('/api/automation-log');const d=await r.json();el.innerHTML=(d.runs??[]).slice(0,5).map(run=>`<details class="history-day"><summary><span><b>${new Date(run.startedAt).toLocaleString('zh-CN',{hour12:false})}</b> · ${run.event==='schedule'?'定时运行':run.event==='workflow_dispatch'?'手动运行':'本地运行'}</span><small>${run.status==='success'?'完成':'失败'} · ${run.processedDates?.length??0} 个日期 <i>⌄</i></small></summary><div class="history-day-body"><p>${run.summary}</p><p>${run.learning?`前五选人学习：${run.learning}`:'本次无新增学习样本'}</p><p>赛果回填：${run.settledDates?.join('、')||'无'} · 前五阵容：${(run.topFiveDates??[]).map(x=>`${x.dateKey} ${x.lineups}/5`).join('、')||'无'}</p>${run.messages?.map(x=>`<p>${x}</p>`).join('')??''}</div></details>`).join('')||'<div class="empty-state">暂无自动运行记录。</div>';}catch{el.innerHTML='<div class="empty-state">自动更新日志暂时不可用。</div>';}}
 
 function submittedPlayerCard(id,index,player){

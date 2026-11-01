@@ -314,3 +314,15 @@
 @media(max-width:780px){.history-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.history-lineup-grid{grid-template-columns:1fr}.history-top-five-list{grid-template-columns:1fr}}
 
 .source-row small{font-size:12px;opacity:.72;margin-left:2px}
+
+/* 后台刷新提示条：快照先行时展示 loading 动画与预计时间 */
+.refresh-banner{display:flex;align-items:center;gap:12px;background:#fffdf7;border:1px solid #f0e4ce;border-radius:12px;padding:12px 16px;margin-bottom:16px}
+.refresh-banner .loader{width:16px;height:16px;border-width:2px;flex:none}
+.refresh-banner-body{flex:1;min-width:0}
+.refresh-banner-body b{display:block;font-size:14px;color:#735626;font-weight:600}
+.refresh-banner-body small{display:block;margin-top:3px;font-size:13px;color:#8b7650;line-height:1.5}
+.refresh-banner-eta{flex:none;font-size:13px;color:#856634;background:#fffaf1;border:1px solid #f0e4ce;border-radius:20px;padding:5px 11px;white-space:nowrap}
+:root[data-theme="dark"] .refresh-banner{background:#2a2519;border-color:#4a3f28}
+:root[data-theme="dark"] .refresh-banner-body b{color:#edc988}
+:root[data-theme="dark"] .refresh-banner-body small{color:#b3a284}
+:root[data-theme="dark"] .refresh-banner-eta{background:#332b1d;border-color:#4a3f28;color:#edc988}

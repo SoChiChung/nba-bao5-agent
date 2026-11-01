@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, execFile } from 'node:child_process';
 import { timingSafeEqual } from 'node:crypto';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
@@ -19,9 +20,72 @@ const sourceScoreDir = path.join(ROOT, 'data', 'bao5', 'scores');
 const lineupHistoryPath = path.join(scoreDir, 'top-five-lineups.json');
 const sourceLineupHistoryPath = path.join(sourceScoreDir, 'top-five-lineups.json');
 const avatarPath = path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'account-avatar.json');
+// dashboard 全量结果快照：冷启动时先返回它，前端立即可渲染，全量计算在后台继续。
+const snapshotDir = path.join(RUNTIME_ROOT, 'data', 'bao5', 'snapshots');
+const dashboardSnapshotPath = path.join(snapshotDir, 'dashboard-latest.json');
+const sourceDashboardSnapshotPath = path.join(ROOT, 'data', 'bao5', 'snapshots', 'dashboard-latest.json');
+
+// 数据源指纹：用来判断「上游数据是否真的变了」。
+// 只取各数据文件的 mtime+size，不读内容，代价约 1ms。
+// CI 每次提交数据 → 文件 mtime 变 → 指纹变 → 下次请求重算；
+// 数据没变 → 指纹不变 → 直接复用缓存，不做无谓的全量计算。
+const FINGERPRINT_FILES = [
+  'data/bao5/injury/latest.json',
+  'data/odds/latest.json',
+  'data/bao5/scores/top-five-lineups.json',
+  'data/position/defense_vs_position.json',
+  'data/history-player/current-season-logs.json',
+  'data/bao5/league/latest.json',
+];
+function computeDataFingerprint() {
+  const parts = [];
+  // 当日日榜快照：文件名带日期，需单独定位
+  const todayKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+  const dated = `data/bao5/scores/rankings_${todayKey}.json`;
+  for (const relative of [...FINGERPRINT_FILES, dated]) {
+    for (const base of [ROOT, RUNTIME_ROOT]) {
+      const file = path.join(base, relative);
+      try {
+        const stat = fs.statSync(file);
+        parts.push(`${relative}@${base === ROOT ? 'r' : 't'}:${stat.mtimeMs}:${stat.size}`);
+        break;
+      } catch { /* 该来源不存在则跳过 */ }
+    }
+  }
+  return parts.join('|');
+}
+
+// 实时数据探针：日榜是实时接口，一天内会随赛果结算多次变动。
+// 只取「自己的名次/分数」+「榜首分数」两个轻量字段做指纹，
+// 一次 GET 约 50ms；探测失败时返回空串（此时按「无法确认变化」处理，倾向重算）。
+let liveProbeCache = { key: null, value: null, at: 0 };
+async function probeLiveData() {
+  const now = Date.now();
+  // 30 秒内复用上次探测结果，避免高频轮询把接口打爆
+  if (liveProbeCache.value && now - liveProbeCache.at < 30_000) return liveProbeCache.value;
+  try {
+    const cfg = loadConfig();
+    const api = new Bao5({ baseUrl: cfg.baseUrl });
+    await api.login(cfg.email, cfg.password);
+    const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+    const response = await api.get(`/api/rankings?period=day&date=${encodeURIComponent(dateKey)}`);
+    const payload = response.json ?? {};
+    const rows = payload.board ?? payload.rows ?? [];
+    const mine = payload.mine?.day ?? {};
+    const top = rows[0] ?? {};
+    const value = `${dateKey}|${mine.rank ?? ''}|${mine.score ?? ''}|${top.score ?? ''}|${rows.length}`;
+    liveProbeCache = { key: dateKey, value, at: now };
+    return value;
+  } catch (error) {
+    // 探测失败：返回 null 表示「无法确认」，此时不复用缓存，强制重算以保证数据正确
+    return null;
+  }
+}
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.webp':'image/webp' };
 let cache = null;
+let cacheFingerprint = null;
 let refreshing = null;
+let refreshingStartedAt = 0;
 let fantasyCache = null;
 let fantasyRefreshing = null;
 let systemHttpsProxy;
@@ -87,8 +151,43 @@ async function refreshInjuryReport(schedule = null) {
 }
 
 async function getDashboard({ refresh = false } = {}) {
-  if (cache && !refresh) return cache;
+  if (cache && !refresh) {
+    // 缓存有效性判定 = 本地文件指纹 + 实时数据探针。
+    // ① 文件指纹：CI 提交了新数据（伤病/赔率/位置对位/联赛/日榜快照）→ 指纹变 → 重算。
+    // ② 实时探针：日榜与前五阵容是实时接口，一天内会变多次，必须探测。
+    //    只取日榜首行的分数与名次做轻量比对（一次 GET，约 50ms），不拉全量阵容。
+    // 两者都没变 ⇒ 上游数据没动 ⇒ 直接复用缓存，不做无谓的全量计算。
+    const currentFingerprint = computeDataFingerprint();
+    const probe = await probeLiveData();
+    // probe 为 null = 探测失败，无法确认上游是否变化 ⇒ 不复用缓存，强制重算。
+    if (probe !== null && `${currentFingerprint}#${probe}` === cacheFingerprint) return cache;
+    // 数据变了：先把旧缓存交出去（前端立即可渲染），后台重算。
+    cache.refreshing = true;
+    cache.staleData = true;
+    getDashboard({ refresh: true }).catch(error => console.error('数据变更后重算失败:', error));
+    return cache;
+  }
   if (refreshing) return refreshing;
+  // 冷启动（进程刚重启、内存无缓存）：若磁盘上有上次的完整快照，先把它交出去，
+  // 让前端立刻渲染，同时在后台继续全量计算。前端据此提示「正在后台刷新」。
+  //
+  // ⚠️ Vercel 上 RUNTIME_ROOT=/tmp/nba-agent 并不持久，且每次部署都是全新实例，
+  // 所以「缓存」只能是随部署打包进仓库的 data/ 快照（由 CI 提交）。
+  // refresh=1（用户手动点刷新）时不做快照先行，必须等真实新数据。
+  if (!refresh) {
+    const snapshot=readDashboardSnapshot();
+    if (snapshot) {
+      // 标记快照来源与年龄，供前端显示提示和预计时间
+      snapshot.isSnapshot=true;
+      snapshot.snapshotAt=snapshot.live?.fetchedAt??null;
+      snapshot.snapshotAgeMs=Number.isFinite(Date.parse(snapshot.snapshotAt))?Math.max(0,Date.now()-Date.parse(snapshot.snapshotAt)):null;
+      snapshot.refreshing=true;
+      // 后台继续全量计算（不 await），完成后 cache 就绪
+      getDashboard({refresh:true}).catch(error=>console.error('后台全量刷新失败:',error));
+      return snapshot;
+    }
+  }
+  refreshingStartedAt = Date.now();
   refreshing = (async () => {
     const cfg = loadConfig();
     const api = new Bao5({ baseUrl: cfg.baseUrl });
@@ -206,9 +305,40 @@ async function getDashboard({ refresh = false } = {}) {
     }
     data.live = { fetchedAt:new Date().toISOString(), players:players.length, games:games.length };
     cache = data;
+    // 记录本次计算所依据的数据指纹：下次请求比对，指纹变了就重算。
+    // ⚠️ 必须强制重探一次（忽略 30 秒探针缓存）：全量计算内部会更新探针缓存，
+    // 若直接沿用旧值，下次请求探测出的值会与此处记录的不一致 ⇒ 误判「数据变了」
+    // ⇒ 每次请求都触发重算（实测第 2、3 次请求 refreshing=true）。
+    liveProbeCache.at = 0;
+    const probeValue = await probeLiveData();
+    cacheFingerprint = `${computeDataFingerprint()}#${probeValue ?? ''}`;
+    // 落盘快照：冷启动时先返回它，前端立刻有内容可渲染，全量计算在后台继续。
+    // 压缩后体积从 5.5MB 降到约 190KB（brotli，29 倍压缩率），
+    // 这样快照可以随 CI 提交进仓库，进而被 Vercel 打进部署包（Vercel 上 /tmp 不持久）。
+    try{
+      fs.mkdirSync(snapshotDir,{recursive:true});
+      const payload=Buffer.from(JSON.stringify(data),'utf8');
+      fs.writeFileSync(dashboardSnapshotPath,zlib.brotliCompressSync(payload,{params:{[zlib.constants.BROTLI_PARAM_QUALITY]:9}}));
+    }catch{}
     return cache;
   })().finally(() => { refreshing = null; });
   return refreshing;
+}
+
+// 冷启动快照：进程重启后先给前端一份上次的完整结果，避免干等全量计算。
+// 快照以 brotli 存储（体积约为原始的 1/30），读取时自动识别压缩与明文两种格式。
+function readDashboardSnapshot(){
+  for(const file of [dashboardSnapshotPath,sourceDashboardSnapshotPath]){
+    try{
+      const buffer=fs.readFileSync(file);
+      // brotli 无固定魔数，用「解压能否成功」来判断；明文直接按 UTF-8 解析
+      let text=null;
+      try{text=zlib.brotliDecompressSync(buffer).toString('utf8');}catch{text=buffer.toString('utf8');}
+      const parsed=JSON.parse(text);
+      if(parsed&&Array.isArray(parsed.slates)&&parsed.slates.length)return parsed;
+    }catch{}
+  }
+  return null;
 }
 
 function isOfficialOut(injury){
@@ -361,7 +491,21 @@ async function getOfficialCompetition(api){
   }catch(error){return {available:false,error:error.message};}
 }
 async function refreshTopFiveLineups(api,score,players){
-  const store=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{return JSON.parse(fs.readFileSync(file,'utf8'));}catch{}}return {dates:{}};})();store.dates??={};store.checkedDates??={};
+  // ⚠️ 运行时缓存(.runtime)与仓库快照(data/)是两套文件，回填判定必须同时看两边。
+  // 旧实现只读第一个存在的文件：.runtime 缺失时落到仓库快照，而仓库快照里
+  // dates 有数据但 checkedDates 恒为空 ⇒ 每个冷启动都把最近 7 天判成「待回填」，
+  // 白跑 7×5=35 次串行请求（约 2 秒），这正是首屏卡顿的主因。
+  const readStores=()=>{
+    const stores=[];
+    for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){
+      try{const parsed=JSON.parse(fs.readFileSync(file,'utf8'));if(parsed&&typeof parsed==='object')stores.push(parsed);}catch{}
+    }
+    return stores;
+  };
+  const stores=readStores();
+  const store=stores[0]??{dates:{}};store.dates??={};store.checkedDates??={};
+  // 判定「该日是否已抓过」：任一来源的 dates 里有阵容、或 checkedDates 记录过，都算已抓。
+  const hasFetched=dateKey=>stores.some(s=>(s.dates?.[dateKey]?.lineups?.length>0)||s.checkedDates?.[dateKey]);
   const errors=[];
   // 日榜前五的统一入口：当日与历史回填都走这里，彻底摆脱 score.board
   // （落盘快照的 board 曾长期混装赛季累计值，导致「日榜前五」取到总榜的人）。
@@ -370,15 +514,18 @@ async function refreshTopFiveLineups(api,score,players){
     if(!board.ok){if(!String(board.reason).includes('尚未结算'))errors.push(`${label} 日榜读取失败 (${dateKey})：${board.reason}`);console.warn(`${label} 日榜读取失败 (${dateKey})：${board.reason}`);return null;}
     const top=board.rows.filter(x=>Number(x.rank)<=5).sort((a,b)=>a.rank-b.rank);
     const lineups=[];
-    for(const member of top){
+    // 前五名阵容并发读取：串行时 5 次请求各约 55ms 累加，并发实测 236ms → 145ms。
+    // map + Promise.all 保持原始 rank 顺序，结果与串行完全一致。
+    const fetched=await Promise.all(top.map(async member=>{
       try{
         const response=await api.get(`/api/lineups?date=${encodeURIComponent(dateKey)}&userId=${encodeURIComponent(member.userId)}`);
         const lineup=response.json?.lineup;
         // 404 = 该用户当天没有提交阵容，属正常情况，不算失败
-        if(!Array.isArray(lineup?.playerIds)){if(response.status!==404)errors.push(`${label} ${dateKey} 第 ${member.rank} 名阵容读取失败 (HTTP ${response.status})`);console.warn(`${label} ${dateKey} 第 ${member.rank} 名 ${member.displayName} 无阵容返回 (HTTP ${response.status})`);continue;}
-        lineups.push({rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),remainingSalary:member.remainingSalary??null,salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerNames:Object.fromEntries(lineup.playerIds.map(id=>[String(id),namesForPlayer(players,id)])),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))});
-      }catch(error){errors.push(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName})：${error.message}`);console.warn(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName}):`,error.message);}
-    }
+        if(!Array.isArray(lineup?.playerIds)){if(response.status!==404)errors.push(`${label} ${dateKey} 第 ${member.rank} 名阵容读取失败 (HTTP ${response.status})`);console.warn(`${label} ${dateKey} 第 ${member.rank} 名 ${member.displayName} 无阵容返回 (HTTP ${response.status})`);return null;}
+        return {rank:Number(member.rank),userId:String(member.userId),displayName:member.displayName,score:Number(member.score),remainingSalary:member.remainingSalary??null,salaryUsed:lineup.salaryUsed??null,playerIds:lineup.playerIds.map(String),playerNames:Object.fromEntries(lineup.playerIds.map(id=>[String(id),namesForPlayer(players,id)])),playerScores:Object.fromEntries(lineup.playerIds.map(id=>[String(id),Number(lineup.scores?.[String(id)]??0)]))};
+      }catch(error){errors.push(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName})：${error.message}`);console.warn(`${label} ${dateKey} 前五阵容读取失败 (${member.displayName}):`,error.message);return null;}
+    }));
+    for(const item of fetched)if(item)lineups.push(item);
     return lineups;
   };
   if(score?.date){
@@ -390,7 +537,7 @@ async function refreshTopFiveLineups(api,score,players){
   }
   const history=readHistory();
   const settledDates=[...new Set(history.filter(row=>row.dateKey&&Number.isFinite(row.actualTotal)).map(row=>row.dateKey))].sort().slice(-7);
-  const datesToCheck=settledDates.filter(dateKey=>dateKey!==score?.date&&!store.checkedDates[dateKey]&&!store.dates[dateKey]?.lineups?.length);
+  const datesToCheck=settledDates.filter(dateKey=>dateKey!==score?.date&&!hasFetched(dateKey));
   await Promise.all(datesToCheck.map(async dateKey=>{
     try{
       const lineups=await fetchDayLineups(dateKey,'历史');
@@ -427,7 +574,10 @@ function analyzeTopFive(row,score,players=[]){
   // 前五名单与阵容必须同源：都取 store.dates[date].lineups。
   // 旧实现从 score.board（曾混入赛季累计榜）取名单、再按 userId 去日榜阵容里 find，
   // 跨榜匹配必然错配，表现为「有几个没拿到返回」。lineups 里已自带 rank/score/名单，无需二次匹配。
-  const dailyLineups=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{const rows=JSON.parse(fs.readFileSync(file,'utf8')).dates?.[score.date]?.lineups;if(Array.isArray(rows))return rows;}catch{}}return[];})().slice().sort((a,b)=>Number(a.rank)-Number(b.rank));
+  // ⚠️ 两套来源都要查：运行时缓存可能缺某一天，但仓库快照里有。
+  // 旧实现命中第一个「能解析出对象」的文件就返回，即使那天的 lineups 是空数组，
+  // 也不会再回落源文件 ⇒ 日榜前五分析静默变空。
+  const dailyLineups=(()=>{for(const file of [lineupHistoryPath,sourceLineupHistoryPath]){try{const rows=JSON.parse(fs.readFileSync(file,'utf8')).dates?.[score.date]?.lineups;if(Array.isArray(rows)&&rows.length)return rows;}catch{}}return[];})().slice().sort((a,b)=>Number(a.rank)-Number(b.rank));
   const topFive=dailyLineups.map(lineup=>({name:lineup.displayName,score:Number(lineup.score??0),rank:Number(lineup.rank),remainingSalary:lineup.remainingSalary??null,userId:String(lineup.userId??''),players:(lineup.playerIds??[]).map(id=>({id:String(id),name:playerNames.get(String(id))??lineup.playerNames?.[String(id)]??lineup.names?.[String(id)]??`球员 ${String(id)}`,score:Number(lineup.playerScores?.[String(id)]??lineup.scores?.[String(id)]??0)}))}));
   // 我的名次以 /api/rankings?mine=1 的 day 口径为准（日榜），不再从总榜反查
   const mine={score:score?.mine?.day?.score??null,rank:score?.mine?.day?.rank??null};
@@ -651,7 +801,10 @@ const server = http.createServer(async (req,res) => {
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
       recordDashboardRecommendations(data);
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
-      return send(res,200,data);
+      // 前端据此显示「正在后台刷新」与预计剩余时间。
+      // refreshing=true 表示后台仍有全量计算在跑，数据可能即将更新。
+      const stillRefreshing=Boolean(refreshing);
+      return send(res,200,{...data,refreshing:stillRefreshing,isSnapshot:Boolean(data.isSnapshot),snapshotAgeMs:data.snapshotAgeMs??null,estimatedRefreshMs:stillRefreshing?Math.max(0,Math.round((refreshingStartedAt?Date.now()-refreshingStartedAt:0))):0});
     }
     if (url.pathname === '/api/lineup-status' && req.method === 'GET') {
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
@@ -763,4 +916,15 @@ let rawPlayers=[];
 async function getRawPlayers() { if (!rawPlayers.length) { const cfg=loadConfig(); const api=new Bao5({baseUrl:cfg.baseUrl}); await api.login(cfg.email,cfg.password); rawPlayers=await api.getPlayers(); } return rawPlayers; }
 
 const port=Number(process.env.PORT??4173);
-server.listen(port,'127.0.0.1',()=>console.log(`BAO5 Lineup Lab: http://127.0.0.1:${port}`));
+// CI 专用模式：生成一次 dashboard 快照后退出（供 GitHub Actions 提交快照进仓库，
+// 使 Vercel 每次部署都自带快照，冷启动即可秒开）。用 BAO5_SNAPSHOT_ONLY=1 触发。
+if(process.env.BAO5_SNAPSHOT_ONLY==='1'){
+  getDashboard({refresh:true})
+    .then(async data=>{
+      console.log(`快照已生成：slate ${data.slates?.length??0} 个，候选 ${data.slates?.map(s=>s.candidates).join(',')??''}`);
+      process.exit(0);
+    })
+    .catch(error=>{console.error('快照生成失败:',error.message);process.exit(1);});
+}else{
+  server.listen(port,'127.0.0.1',()=>console.log(`BAO5 Lineup Lab: http://127.0.0.1:${port}`));
+}

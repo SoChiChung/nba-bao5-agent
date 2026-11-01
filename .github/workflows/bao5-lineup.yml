@@ -76,6 +76,18 @@ jobs:
           node data/bao5/league/fetch-leagues.mjs --period=daily
           node data/bao5/league/fetch-leagues.mjs --period=weekly
           node data/bao5/league/fetch-leagues.mjs --period=season
+      - name: Generate dashboard snapshot for cold start
+        # 生成 brotli 快照（约 190KB）并提交进仓库，供 Vercel 部署包携带。
+        # Vercel 上 /tmp 不持久、每次部署都是新实例，没有仓库内快照就会干等全量计算。
+        # 必须排在「Remove runtime secrets」之前：快照需要账号密码访问 BAO5。
+        if: always() && github.event.schedule != '0 18 * * *'
+        env:
+          BAO5_EMAIL: ${{ secrets.BAO5_EMAIL }}
+          BAO5_PASSWORD: ${{ secrets.BAO5_PASSWORD }}
+          BAO5_SNAPSHOT_ONLY: '1'
+        run: |
+          node -e "const fs=require('fs'); fs.writeFileSync('data/bao5/bao1/config.json', JSON.stringify({email:process.env.BAO5_EMAIL,password:process.env.BAO5_PASSWORD,baseUrl:'https://nbabao5.cn'}));"
+          node src/server.mjs || echo "快照生成失败，本轮不提交快照（不影响其他数据更新）"
       - name: Remove runtime secrets
         if: always()
         run: rm -f data/bao5/bao1/config.json data/odds/config.json
@@ -90,6 +102,9 @@ jobs:
             if [ -e "$file" ]; then git add "$file"; fi
           done
           if [ -f data/history-player/current-season-logs.json ]; then git add data/history-player/current-season-logs.json; fi
+          # dashboard 全量快照（brotli，约 190KB）：Vercel 上 /tmp 不持久，
+          # 冷启动必须靠随部署打包的仓库内快照才能秒开。
+          if [ -f data/bao5/snapshots/dashboard-latest.json ]; then git add data/bao5/snapshots/dashboard-latest.json; fi
           git add -f data/bao5/bao1/hourly-operations.jsonl
           if ! git diff --cached --quiet; then
             git commit -m "chore: update NBA model data"
