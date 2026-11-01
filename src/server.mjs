@@ -55,9 +55,19 @@ function computeDataFingerprint() {
   return parts.join('|');
 }
 
-// 实时数据探针：日榜是实时接口，一天内会随赛果结算多次变动。
-// 只取「自己的名次/分数」+「榜首分数」两个轻量字段做指纹，
-// 一次 GET 约 50ms；探测失败时返回空串（此时按「无法确认变化」处理，倾向重算）。
+// 实时数据探针：探「站上实时数据」是否变化，决定要不要重算模型。
+//
+// 为什么必须探实时接口（而不是只看落盘文件）：
+//   伤病报告走站上 /api/nba/injuries + /api/nba/injury-changes，一天内会变多次
+//   （赛前尤其频繁），而 data/bao5/injury/latest.json 要等 CI 提交才更新。
+//   ⇒ 若只盯文件指纹，站上伤病变了但文件没变 ⇒ 不会重算 ⇒ 范特西推荐用旧伤病算错。
+//   日榜同理：结算后分数会变。
+//
+// 两个源都探，但**分开记录**，因为主的策略不同：
+//   ① 日榜：结算后分数会变 → 任何时候变了都要重算
+//   ② 伤病：一天内变多次，但平时用 30 分钟缓存即可；
+//      **只有临近 DDL（开赛前 15 分钟）才「有变化就改」** —— 临近开赛伤病状态才真正影响选人。
+// 探针失败 ⇒ 返回 null ⇒ 不复用缓存，强制重算（宁可慢不可错）。
 let liveProbeCache = { key: null, value: null, at: 0 };
 async function probeLiveData() {
   const now = Date.now();
@@ -68,18 +78,66 @@ async function probeLiveData() {
     const api = new Bao5({ baseUrl: cfg.baseUrl });
     await api.login(cfg.email, cfg.password);
     const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+
+    // ① 日榜
     const response = await api.get(`/api/rankings?period=day&date=${encodeURIComponent(dateKey)}`);
     const payload = response.json ?? {};
     const rows = payload.board ?? payload.rows ?? [];
     const mine = payload.mine?.day ?? {};
     const top = rows[0] ?? {};
-    const value = `${dateKey}|${mine.rank ?? ''}|${mine.score ?? ''}|${top.score ?? ''}|${rows.length}`;
+    const rankPart = `${dateKey}|${mine.rank ?? ''}|${mine.score ?? ''}|${top.score ?? ''}|${rows.length}`;
+
+    // ② 伤病变更（实时增量接口）
+    let injuryPart = 'na';
+    try {
+      const injuryResponse = await fetch('https://nbabao5.cn/api/nba/injury-changes', {
+        headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15_000),
+      });
+      if (injuryResponse.ok) {
+        const feed = await injuryResponse.json();
+        const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+        const todayET = Date.parse(`${today}T00:00:00-04:00`);
+        const changes = (feed.changes ?? []).filter(change => Number(change.detectedAt) >= todayET);
+        // 摘要：条数 + 最新变更时间 + 各球员最终状态（乱序无关，按球员 id 排序保证稳定）
+        const latestAt = changes.reduce((max, change) => Math.max(max, Number(change.detectedAt ?? 0)), 0);
+        const summary = changes
+          .map(change => `${change.playerId}:${change.to?.key ?? change.to?.label ?? ''}`)
+          .sort()
+          .join(',');
+        injuryPart = `${changes.length}|${latestAt}|${hashString(summary)}`;
+      }
+    } catch { /* 伤病探测失败时保留 'na'，日榜仍可判定 */ }
+
+    const value = { rank: rankPart, injury: injuryPart };
     liveProbeCache = { key: dateKey, value, at: now };
     return value;
   } catch (error) {
     // 探测失败：返回 null 表示「无法确认」，此时不复用缓存，强制重算以保证数据正确
     return null;
   }
+}
+
+// 是否临近 DDL：最近一场未开赛比赛的开赛时间 - 15 分钟。
+// 窗口取 DDL 前 90 分钟：这段时间内伤病状态变化会直接影响最终选人，必须「有变化就改」。
+function isNearDeadline(now = Date.now(), windowMs = 90 * 60_000) {
+  const slates = cache?.slates ?? [];
+  for (const slate of slates) {
+    const lockedAt = Number(slate?.lockedAt);
+    if (!Number.isFinite(lockedAt)) continue;
+    const delta = lockedAt - now;
+    // delta > 0：还没锁定；delta <= windowMs：进入敏感窗口
+    if (delta > 0 && delta <= windowMs) return true;
+  }
+  return false;
+}
+// 轻量字符串哈希（FNV-1a 32 位）：只用于比较变化，不需要密码学强度
+function hashString(text) {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash.toString(36);
 }
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.webp':'image/webp' };
 let cache = null;
@@ -93,11 +151,13 @@ let injuryRefresh = null;
 let injuriesRuntimeCache = null;
 let injuriesRuntimeFetchedAt = 0;
 
-async function refreshInjuryReport(schedule = null) {
+async function refreshInjuryReport(schedule = null, { force = false } = {}) {
   if (injuryRefresh) return injuryRefresh;
   injuryRefresh = (async () => {
     const now = Date.now();
-    if (now - injuriesRuntimeFetchedAt < 30 * 60_000 && injuriesRuntimeCache) return injuriesRuntimeCache;
+    // force=true：用于「探针已确认站上伤病变了」的重算 —— 必须绕过 30 分钟缓存，
+    // 否则重算仍会用旧伤病算，探针白探、模型照错。
+    if (!force && now - injuriesRuntimeFetchedAt < 30 * 60_000 && injuriesRuntimeCache) return injuriesRuntimeCache;
     const games = schedule ?? await (async () => {
       const cfg = loadConfig();
       const api = new Bao5({ baseUrl: cfg.baseUrl });
@@ -150,21 +210,40 @@ async function refreshInjuryReport(schedule = null) {
   return injuryRefresh;
 }
 
-async function getDashboard({ refresh = false } = {}) {
+async function getDashboard({ refresh = false, forceInjury = false } = {}) {
   if (cache && !refresh) {
-    // 缓存有效性判定 = 本地文件指纹 + 实时数据探针。
+    // 缓存有效性判定 = 文件指纹 + 实时探针（日榜 / 伤病分开处理）。
+    //
     // ① 文件指纹：CI 提交了新数据（伤病/赔率/位置对位/联赛/日榜快照）→ 指纹变 → 重算。
-    // ② 实时探针：日榜与前五阵容是实时接口，一天内会变多次，必须探测。
-    //    只取日榜首行的分数与名次做轻量比对（一次 GET，约 50ms），不拉全量阵容。
-    // 两者都没变 ⇒ 上游数据没动 ⇒ 直接复用缓存，不做无谓的全量计算。
+    // ② 日榜探针：结算后分数会变 → 任何时候变了都重算。
+    // ③ 伤病探针：一天内变多次，但平时用 30 分钟缓存即可；
+    //    **只有临近 DDL 才「有变化就改」**（见 isNearDeadline）。
+    //
+    // 三者都没变 ⇒ 上游数据没动 ⇒ 直接复用缓存，不做无谓的全量计算。
     const currentFingerprint = computeDataFingerprint();
     const probe = await probeLiveData();
     // probe 为 null = 探测失败，无法确认上游是否变化 ⇒ 不复用缓存，强制重算。
-    if (probe !== null && `${currentFingerprint}#${probe}` === cacheFingerprint) return cache;
+    if (probe === null) {
+      cache.refreshing = true;
+      cache.staleData = true;
+      getDashboard({ refresh: true, forceInjury: true }).catch(error => console.error('探测失败后重算出错:', error));
+      return cache;
+    }
+    const fileChanged = currentFingerprint !== cacheFingerprint?.files;
+    const rankChanged = probe.rank !== cacheFingerprint?.rank;
+    const injuryChanged = probe.injury !== cacheFingerprint?.injury;
+    // 伤病变化：只有临近 DDL 才立即重算；平时交给 30 分钟缓存处理
+    const nearDdl = isNearDeadline();
+    const injuryTriggers = injuryChanged && nearDdl;
+    if (!fileChanged && !rankChanged && !injuryTriggers) return cache;
+
     // 数据变了：先把旧缓存交出去（前端立即可渲染），后台重算。
     cache.refreshing = true;
     cache.staleData = true;
-    getDashboard({ refresh: true }).catch(error => console.error('数据变更后重算失败:', error));
+    // 临近 DDL 时强制绕过伤病缓存，确保重算用站上最新伤病；
+    // 平时不强制，保持 30 分钟缓存语义
+    getDashboard({ refresh: true, forceInjury: injuryTriggers || nearDdl })
+      .catch(error => console.error('数据变更后重算失败:', error));
     return cache;
   }
   if (refreshing) return refreshing;
@@ -183,7 +262,8 @@ async function getDashboard({ refresh = false } = {}) {
       snapshot.snapshotAgeMs=Number.isFinite(Date.parse(snapshot.snapshotAt))?Math.max(0,Date.now()-Date.parse(snapshot.snapshotAt)):null;
       snapshot.refreshing=true;
       // 后台继续全量计算（不 await），完成后 cache 就绪
-      getDashboard({refresh:true}).catch(error=>console.error('后台全量刷新失败:',error));
+      // 冷启动的快照可能带着旧伤病 ⇒ 强制取站上最新伤病重算
+      getDashboard({refresh:true,forceInjury:true}).catch(error=>console.error('后台全量刷新失败:',error));
       return snapshot;
     }
   }
@@ -218,7 +298,7 @@ async function getDashboard({ refresh = false } = {}) {
       })),
     };
     let injuries = readJson('data/bao5/injury/latest.json', null);
-    try { injuries = await refreshInjuryReport(games); }
+    try { injuries = await refreshInjuryReport(games, { force: forceInjury }); }
     catch (error) { backendWarnings.push(`伤病报告刷新失败，沿用本地报告：${error.message}`); console.warn(backendWarnings.at(-1)); }
     if (!injuries) throw new Error('伤病报告不可用，且没有本地快照');
     const latestOdds = readJson('data/odds/latest.json');
@@ -311,7 +391,12 @@ async function getDashboard({ refresh = false } = {}) {
     // ⇒ 每次请求都触发重算（实测第 2、3 次请求 refreshing=true）。
     liveProbeCache.at = 0;
     const probeValue = await probeLiveData();
-    cacheFingerprint = `${computeDataFingerprint()}#${probeValue ?? ''}`;
+    // 结构化保存：文件 / 日榜 / 伤病三者分开，便于按不同策略判定
+    cacheFingerprint = {
+      files: computeDataFingerprint(),
+      rank: probeValue?.rank ?? '',
+      injury: probeValue?.injury ?? '',
+    };
     // 落盘快照：冷启动时先返回它，前端立刻有内容可渲染，全量计算在后台继续。
     // 压缩后体积从 5.5MB 降到约 190KB（brotli，29 倍压缩率），
     // 这样快照可以随 CI 提交进仓库，进而被 Vercel 打进部署包（Vercel 上 /tmp 不持久）。
@@ -926,5 +1011,8 @@ if(process.env.BAO5_SNAPSHOT_ONLY==='1'){
     })
     .catch(error=>{console.error('快照生成失败:',error.message);process.exit(1);});
 }else{
-  server.listen(port,'127.0.0.1',()=>console.log(`BAO5 Lineup Lab: http://127.0.0.1:${port}`));
+  // 默认只监听本机回环（Vercel 部署需要）；
+  // 设 BIND_HOST=0.0.0.0 可监听所有网卡，便于局域网/容器环境访问。
+  const bindHost=process.env.BIND_HOST||'127.0.0.1';
+  server.listen(port,bindHost,()=>console.log(`BAO5 Lineup Lab: http://${bindHost}:${port}`));
 }

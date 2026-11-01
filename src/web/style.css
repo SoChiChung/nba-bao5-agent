@@ -326,3 +326,10 @@
 :root[data-theme="dark"] .refresh-banner-body b{color:#edc988}
 :root[data-theme="dark"] .refresh-banner-body small{color:#b3a284}
 :root[data-theme="dark"] .refresh-banner-eta{background:#332b1d;border-color:#4a3f28;color:#edc988}
+
+/* 数据同步栏里的两行更新时间（历史对阵 / 位置防守） */
+.hero-note .live-freshness{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.hero-note .live-freshness-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:13px;color:var(--muted);line-height:1.7}
+.hero-note .live-freshness-row b{display:block;font-size:13px;font-weight:500;color:#626b7e;white-space:nowrap}
+:root[data-theme="dark"] .hero-note .live-freshness{border-top-color:#2a3344}
+:root[data-theme="dark"] .hero-note .live-freshness-row b{color:#aeb8c9}
