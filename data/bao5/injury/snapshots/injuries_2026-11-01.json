@@ -1217,10 +1217,10 @@
       "t": "篮网"
     },
     "1629011": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "n": "米切尔·罗宾逊",
       "t": "凯尔特人"
@@ -5783,11 +5783,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 396,
-  "updatedAt": "2026-11-01T03:00:00",
-  "updatedAtLabel": "11月1日 03:00",
+  "updatedAt": "2026-11-01T12:00:00",
+  "updatedAtLabel": "11月1日 12:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-01_03_00AM.pdf",
-  "message": "已读取官方伤病报告（11月1日 03:00 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-01_12_00PM.pdf",
+  "message": "已读取官方伤病报告（11月1日 12:00 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-02"
 }
