@@ -105,7 +105,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-01",
       "n": "保罗·乔治",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-02:rw"
     },
     "202681": {
       "key": "available",
@@ -825,7 +826,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-01",
       "n": "杰森·塔图姆",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-02:rw"
     },
     "1628370": {
       "key": "available",
@@ -976,7 +978,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-01",
       "n": "德里克·怀特",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-02:rw"
     },
     "1628404": {
       "key": "available",
@@ -1669,7 +1672,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-01",
       "n": "内米亚斯·克塔",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-02:rw"
     },
     "1629675": {
       "key": "available",
@@ -3558,7 +3562,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-01",
       "n": "乔丹·沃尔什",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-02:rw"
     },
     "1641780": {
       "key": "available",
@@ -5783,11 +5788,11 @@
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 396,
-  "updatedAt": "2026-11-01T12:00:00",
-  "updatedAtLabel": "11月1日 12:00",
+  "updatedAt": "2026-11-01T14:45:00",
+  "updatedAtLabel": "11月1日 14:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-01_12_00PM.pdf",
-  "message": "已读取官方伤病报告（11月1日 12:00 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-01_02_45PM.pdf",
+  "message": "已读取官方伤病报告（11月1日 14:45 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-02"
 }
