@@ -12399,5 +12399,154 @@
       }
     ],
     "settled": false
+  },
+  {
+    "dateKey": "2026-11-10",
+    "phase": "regular",
+    "updatedAt": "2026-11-02T10:00:43.972Z",
+    "players": [
+      "1641705",
+      "1642847",
+      "1642285",
+      "1629001",
+      "1631222"
+    ],
+    "expected": 162,
+    "energy": 149,
+    "formation": "2前3后",
+    "source": "dashboard-model",
+    "selectedMode": "crowdFocus",
+    "updates": [
+      {
+        "at": "2026-11-02T09:56:34.201Z",
+        "reason": "dashboard-display",
+        "games": [
+          "0022600203",
+          "0022600204",
+          "0022600205",
+          "0022600206",
+          "0022600207",
+          "0022600208",
+          "0022600209",
+          "0022600210"
+        ],
+        "players": [
+          "1641705",
+          "1642847",
+          "1629655",
+          "1642285",
+          "1630529"
+        ],
+        "expected": 161.2,
+        "energy": 150,
+        "formation": "3前2后",
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        }
+      },
+      {
+        "at": "2026-11-02T10:00:43.972Z",
+        "reason": "dashboard-display",
+        "games": [
+          "0022600203",
+          "0022600204",
+          "0022600205",
+          "0022600206",
+          "0022600207",
+          "0022600208",
+          "0022600209",
+          "0022600210"
+        ],
+        "players": [
+          "1641705",
+          "1642847",
+          "1642285",
+          "1629001",
+          "1631222"
+        ],
+        "expected": 162,
+        "energy": 149,
+        "formation": "2前3后",
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        }
+      }
+    ],
+    "playerNames": [
+      "维克托·文班亚马",
+      "杰里迈亚·费尔斯",
+      "丹尼尔·加福德",
+      "卡梅隆·斯宾塞",
+      "赫伯特·琼斯"
+    ],
+    "settled": false,
+    "lockedRecommendation": {
+      "lockedAt": "2026-11-09T23:45:00.000Z",
+      "sourceUpdateAt": "2026-11-02T09:56:34.201Z",
+      "source": "dashboard-display",
+      "reason": "dashboard-display",
+      "players": [
+        "1641705",
+        "1642847",
+        "1629655",
+        "1642285",
+        "1630529"
+      ],
+      "playerNames": [
+        "维克托·文班亚马",
+        "杰里迈亚·费尔斯",
+        "丹尼尔·加福德",
+        "卡梅隆·斯宾塞",
+        "赫伯特·琼斯"
+      ],
+      "expected": 161.2,
+      "energy": 150,
+      "formation": "3前2后",
+      "mode": "crowdFocus"
+    },
+    "rankSnapshot": [
+      {
+        "leagueName": "锁定test",
+        "rank": 1,
+        "score": 463.5,
+        "weeklyRank": 1,
+        "weeklyScore": 463.5
+      },
+      {
+        "leagueName": "笨蛋头碰头",
+        "rank": null,
+        "score": null
+      },
+      {
+        "leagueName": "AI Bao5 league",
+        "rank": 1,
+        "score": 511.5,
+        "weeklyRank": 1,
+        "weeklyScore": 511.5
+      },
+      {
+        "leagueName": "李堡是笨蛋",
+        "rank": 3,
+        "score": 511.5,
+        "weeklyRank": 3,
+        "weeklyScore": 511.5
+      }
+    ]
   }
 ]

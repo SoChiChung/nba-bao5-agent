@@ -1,13 +1,13 @@
 {
-  "fetchedAt": "2026-11-02T09:54:40.459Z",
+  "fetchedAt": "2026-10-17T09:18:37.928Z",
   "date": "2026-10-14",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "mine": {
     "day": {
-      "rank": 0,
-      "score": 0,
-      "total": 0,
+      "rank": 58,
+      "score": 81.9,
+      "total": 76,
       "settled": false
     },
     "week": {
@@ -30,5 +30,18 @@
   "source": {
     "mine": "/api/rankings?mine=1&date=2026-10-14",
     "board": "/api/rankings?period=day&date=2026-10-14"
-  }
+  },
+  "updatedAt": "2026-11-02T10:00:16.255Z",
+  "reconstructed": {
+    "at": "2026-11-02T10:00:02.358Z",
+    "from": "data/bao5/bao1/model-history.json",
+    "reason": "run-model 逐日回填把 mine/board 覆写为全 0（2026-11-01 ~ 11-02），按 model-history 留存值还原",
+    "fields": [
+      "mine.day.rank",
+      "mine.day.score",
+      "mine.day.total"
+    ],
+    "boardRecoverable": false
+  },
+  "stale": true
 }

@@ -107,14 +107,40 @@ try {
     const scoreFile=path.join(ROOT,'data','bao5','scores',`rankings_${dateKey}.json`);
     fs.mkdirSync(path.dirname(scoreFile),{recursive:true});
     const oldSnapshot=(()=>{try{return JSON.parse(fs.readFileSync(scoreFile,'utf8'));}catch{return {};}})();
-    writeJsonWithRetry(scoreFile,JSON.stringify({ ...oldSnapshot,fetchedAt:new Date().toISOString(),date:dateKey,userId:api.user?.id,displayName:api.user?.displayName,mine:myResult.json?.mine??oldSnapshot.mine,boardCount:dailyRankings.length,board:dailyRankings,boardError,boardSource:`/api/rankings?period=day&date=${dateKey}`,source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=day&date=${dateKey}`}},null,2)+'\n');
+    // 有效数据判定（2026-11-02 修）：
+    //   `rank === 0` 是站上「该日无数据」的哨兵值（季前赛日榜已被清理、或比赛日未开赛）。
+    //   旧实现写 `mine: myResult.json?.mine ?? oldSnapshot.mine`，但此时 mine 是个
+    //   `{rank:0,score:0,total:0,settled:false}` 的**非空对象**，不会走 ?? 兜底，
+    //   于是把历史快照整份覆写成 0 —— 实测 rankings_2026-10-04 ~ 10-17 共 14 份被毁。
+    //   同一原则也适用于 board：抓到空数组时保留上次成功数据，绝不清空。
+    const mineValid=Number(mine?.rank)>0;
+    const keptMine=mineValid?myResult.json.mine:oldSnapshot.mine;
+    const keptBoard=dailyRankings.length?dailyRankings:(Array.isArray(oldSnapshot.board)?oldSnapshot.board:[]);
+    const gotFreshData=mineValid||dailyRankings.length>0;
+    writeJsonWithRetry(scoreFile,JSON.stringify({
+      ...oldSnapshot,
+      fetchedAt:gotFreshData?new Date().toISOString():(oldSnapshot.fetchedAt??new Date().toISOString()),
+      updatedAt:new Date().toISOString(),
+      date:dateKey,
+      userId:api.user?.id??oldSnapshot.userId,
+      displayName:api.user?.displayName??oldSnapshot.displayName,
+      mine:keptMine,
+      boardCount:keptBoard.length,
+      board:keptBoard,
+      boardError,
+      boardSource:`/api/rankings?period=day&date=${dateKey}`,
+      source:{mine:`/api/rankings?mine=1&date=${dateKey}`,board:`/api/rankings?period=day&date=${dateKey}`},
+      ...(gotFreshData?{}:{stale:true}),
+    },null,2)+'\n');
     let currentHistory=history.find(x=>x.dateKey===dateKey);
     if(currentHistory?.players?.length)currentHistory.playerNames=currentHistory.players.map(id=>lineupNames.get(String(id))??`球员 ${id}`);
     if(currentHistory&&ownLineupResult.ok&&ownIds.length){currentHistory.bao5Players=ownIds;currentHistory.bao5PlayerNames=ownIds.map(id=>lineupNames.get(id)??`球员 ${id}`);currentHistory.bao5LineupSource=`/api/lineups?date=${dateKey}`;}
     const historyRow=history.find(x=>x.dateKey===dateKey);
     const dateGames=games.filter(game=>game.date===dateKey);
     const phase=dateGames.length?(dateGames.some(isPreseasonGame)?'preseason':'regular'):historyRow?.phase;
-    if(historyRow){if(phase)historyRow.phase=phase;if(typeof mine?.settled==='boolean')historyRow.settled=mine.settled;}
+    // settled 同理：rank===0 时接口回的是 settled:false，不能据此把已结算记录改回未结算，
+    // 否则 deriveCalibration / selectAutoMode 会静默丢掉这些样本。
+    if(historyRow){if(phase)historyRow.phase=phase;if(mineValid&&typeof mine?.settled==='boolean')historyRow.settled=mine.settled;}
     if(myResult.ok&&mine?.settled===true&&Number(mine?.rank)>0&&Number.isFinite(Number(mine.score))&&settledDates.includes(dateKey)){
       const row=historyRow??{dateKey,updatedAt:new Date().toISOString(),players:[],playerNames:[],expected:null,formation:'—',source:'settled-score-only'};
       row.phase=phase??row.phase??null;row.settled=true;row.actualTotal=Number(mine.score);row.rank=Number(mine.rank);row.rankTotal=Number(mine.total??0);row.scoreDelta=Number.isFinite(Number(row.expected))?Number((row.actualTotal-row.expected).toFixed(1)):null;row.resultSource='bao5-rankings-api';row.resultUpdatedAt=new Date().toISOString();if(!row.players?.length){row.players=[];row.playerNames=[];}if(!historyRow)history.push(row);

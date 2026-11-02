@@ -1,0 +1,472 @@
+{
+  "meta": {
+    "account": "ZCJenius",
+    "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+    "scope": "全站日榜（GET /api/rankings?mine=1&date=YYYY-MM-DD → mine.day）",
+    "generatedAt": "2026-11-02T10:00:51.955Z",
+    "todayEt": "2026-11-02",
+    "range": {
+      "from": "2026-10-01",
+      "to": "2026-11-02"
+    },
+    "counts": {
+      "total": 27,
+      "final": 27,
+      "live": 0,
+      "retained": 14
+    },
+    "readPolicy": [
+      "只把 final === true 的日期当最终成绩；final 要求「站上已结算」且「该日赛程全部 status=3」。",
+      "live === true 表示当日比赛尚未全部结束，score 是实时值，会继续变动；必须等该日全部比赛结束后再读。",
+      "站上权威信号：mine.day.settled === true（该比赛日全部比赛已结束并计分）。",
+      "source === \"model-history-retained\" 表示站上日榜快照已被清理，取自已落盘的 model-history 留存值；该类日期无赛程数据，按「日期已过」判定为最终值。",
+      "BAO5 的 dateKey 是「比赛日」：该日比赛集中在北京时间当天上午结束，settled 置 true 即表示该比赛日收工。"
+    ],
+    "fields": {
+      "date": "比赛日（YYYY-MM-DD，站上口径）",
+      "score": "该日范特西得分",
+      "rank": "该日全站日榜名次",
+      "total": "该日全站参与人数",
+      "settled": "站上结算标志",
+      "final": "是否可作为最终成绩读取",
+      "live": "是否为比赛进行中的实时得分",
+      "games": "该日赛程场次 { total, done }，done = status 为 3 的场次",
+      "source": "数据来源",
+      "fetchedAt": "抓取时间（ISO 8601）"
+    }
+  },
+  "days": {
+    "2026-10-04": {
+      "date": "2026-10-04",
+      "score": 48,
+      "rank": 16,
+      "total": 16,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-05": {
+      "date": "2026-10-05",
+      "score": 52.1,
+      "rank": 19,
+      "total": 20,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-06": {
+      "date": "2026-10-06",
+      "score": 102,
+      "rank": 11,
+      "total": 19,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-07": {
+      "date": "2026-10-07",
+      "score": 88.1,
+      "rank": 7,
+      "total": 21,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-08": {
+      "date": "2026-10-08",
+      "score": 107.1,
+      "rank": 15,
+      "total": 22,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-09": {
+      "date": "2026-10-09",
+      "score": 114.2,
+      "rank": 2,
+      "total": 19,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-10": {
+      "date": "2026-10-10",
+      "score": 75.1,
+      "rank": 19,
+      "total": 22,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-11": {
+      "date": "2026-10-11",
+      "score": 72.9,
+      "rank": 19,
+      "total": 22,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-12": {
+      "date": "2026-10-12",
+      "score": 96.2,
+      "rank": 16,
+      "total": 23,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-13": {
+      "date": "2026-10-13",
+      "score": 25.5,
+      "rank": 71,
+      "total": 73,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-14": {
+      "date": "2026-10-14",
+      "score": 81.9,
+      "rank": 58,
+      "total": 76,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-15": {
+      "date": "2026-10-15",
+      "score": 112.3,
+      "rank": 15,
+      "total": 73,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-16": {
+      "date": "2026-10-16",
+      "score": 83.3,
+      "rank": 60,
+      "total": 69,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-17": {
+      "date": "2026-10-17",
+      "score": 115.9,
+      "rank": 26,
+      "total": 68,
+      "settled": false,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 0,
+        "done": 0
+      },
+      "source": "model-history-retained",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上日榜快照已清理，取自已落盘的 model-history 留存值（当次实时抓取所得）；settled 字段为历史遗留未写入，按日期已过判定为最终值"
+    },
+    "2026-10-21": {
+      "date": "2026-10-21",
+      "score": 116.3,
+      "rank": 144,
+      "total": 159,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 3,
+        "done": 3
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-22": {
+      "date": "2026-10-22",
+      "score": 149.2,
+      "rank": 113,
+      "total": 169,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 11,
+        "done": 11
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-23": {
+      "date": "2026-10-23",
+      "score": 113,
+      "rank": 79,
+      "total": 176,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 2,
+        "done": 2
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-24": {
+      "date": "2026-10-24",
+      "score": 141.8,
+      "rank": 136,
+      "total": 174,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 12,
+        "done": 12
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-25": {
+      "date": "2026-10-25",
+      "score": 164.6,
+      "rank": 104,
+      "total": 177,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 8,
+        "done": 8
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-26": {
+      "date": "2026-10-26",
+      "score": 177,
+      "rank": 93,
+      "total": 191,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 7,
+        "done": 7
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-27": {
+      "date": "2026-10-27",
+      "score": 202.1,
+      "rank": 55,
+      "total": 220,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 9,
+        "done": 9
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-28": {
+      "date": "2026-10-28",
+      "score": 177.5,
+      "rank": 92,
+      "total": 225,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 4,
+        "done": 4
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-29": {
+      "date": "2026-10-29",
+      "score": 179.7,
+      "rank": 51,
+      "total": 217,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 12,
+        "done": 12
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-30": {
+      "date": "2026-10-30",
+      "score": 186.8,
+      "rank": 79,
+      "total": 229,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 3,
+        "done": 3
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-10-31": {
+      "date": "2026-10-31",
+      "score": 143.4,
+      "rank": 188,
+      "total": 223,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 10,
+        "done": 10
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-11-01": {
+      "date": "2026-11-01",
+      "score": 216.1,
+      "rank": 38,
+      "total": 218,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 7,
+        "done": 7
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    },
+    "2026-11-02": {
+      "date": "2026-11-02",
+      "score": 224.5,
+      "rank": 80,
+      "total": 226,
+      "settled": true,
+      "final": true,
+      "live": false,
+      "games": {
+        "total": 4,
+        "done": 4
+      },
+      "source": "bao5-rankings-api",
+      "fetchedAt": "2026-11-02T10:00:51.955Z",
+      "note": "站上已结算且该日赛程全部结束，可作为最终成绩"
+    }
+  }
+}
