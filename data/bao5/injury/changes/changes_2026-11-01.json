@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-01T23:16:31.003Z",
+  "generatedAt": "2026-11-02T01:21:47.041Z",
   "serverDate": "2026-11-01",
   "requestedDate": "2026-11-02",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-01T18:00:00",
+  "updatedAt": "2026-11-01T11:15:00",
   "counts": {
     "total": 541,
-    "out": 109,
-    "available": 422,
-    "questionable": 9,
-    "probable": 1
+    "out": 107,
+    "available": 419,
+    "questionable": 13,
+    "probable": 2
   },
   "provenance": {
     "officialCount": 36,
@@ -20,10 +20,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月1日 18:00 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月1日 11:15 发布）：列出36人，今日出战的另外108人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-10-31",
-  "changeCount": 111,
+  "changeCount": 114,
   "changes": [
     {
       "kind": "newInjury",
@@ -93,6 +93,21 @@
       "probability": "0%",
       "detail": "ESPN伤病名单：Landale (hip) has been ruled out for Monday's game against Indiana.",
       "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630174",
+      "from": "available",
+      "to": "probable",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战（左腿筋拉伤）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -256,7 +271,7 @@
       "from": "available",
       "to": "questionable",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Irving closed Friday's 116-111 win over Houston with 35 points (12-19 FG, 5-8 3Pt, 6-6 FT), four rebounds and nine assists across 35 minutes.",
+      "detail": "ESPN伤病名单：Irving (knee) is questionable to play Monday against the Kings.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -288,6 +303,36 @@
       "probability": "0%",
       "detail": "上次官方报告 10月31日：缺阵（下背痉挛）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "203501",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Hardaway (personal) is listed as questionable for Monday's game against the Lakers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "203897",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：LaVine (elbow) is questionable to play in Monday's game against Dallas.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -637,6 +682,36 @@
       "energy": null
     },
     {
+      "kind": "improved",
+      "id": "1630167",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（下背酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "improved",
+      "id": "1630533",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左足部）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "kind": "detailChanged",
       "id": "1627742",
       "from": "out",
@@ -794,36 +869,10 @@
     },
     {
       "kind": "detailChanged",
-      "id": "1630167",
-      "from": "out",
-      "to": "out",
-      "note": "NBA官方伤病报告：缺阵（下背酸痛）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
       "id": "1630169",
       "from": "out",
       "to": "out",
       "note": "NBA官方伤病报告：缺阵（左腿筋拉伤）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1630533",
-      "from": "out",
-      "to": "out",
-      "note": "NBA官方伤病报告：缺阵（左足部）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1551,7 +1600,7 @@
     {
       "field": "updatedAt",
       "from": "2026-10-31T06:00:00",
-      "to": "2026-11-01T18:00:00"
+      "to": "2026-11-01T11:15:00"
     },
     {
       "field": "officialCount",
