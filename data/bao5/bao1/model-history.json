@@ -5484,7 +5484,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:14.623Z",
+    "resultUpdatedAt": "2026-11-02T20:40:30.458Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5961,7 +5961,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:15.989Z",
+    "resultUpdatedAt": "2026-11-02T20:40:32.178Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6395,7 +6395,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:17.335Z",
+    "resultUpdatedAt": "2026-11-02T20:40:33.807Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6831,7 +6831,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:18.672Z",
+    "resultUpdatedAt": "2026-11-02T20:40:35.435Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -7259,7 +7259,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:20.008Z",
+    "resultUpdatedAt": "2026-11-02T20:40:37.062Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7706,7 +7706,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:21.717Z",
+    "resultUpdatedAt": "2026-11-02T20:40:38.693Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -8159,7 +8159,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:23.052Z",
+    "resultUpdatedAt": "2026-11-02T20:40:40.324Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8588,7 +8588,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:24.386Z",
+    "resultUpdatedAt": "2026-11-02T20:40:41.964Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -9192,7 +9192,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:25.724Z",
+    "resultUpdatedAt": "2026-11-02T20:40:43.598Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -9658,7 +9658,7 @@
     "rankTotal": 229,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:27.077Z",
+    "resultUpdatedAt": "2026-11-02T20:40:45.243Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10111,7 +10111,7 @@
     "rankTotal": 223,
     "scoreDelta": -61,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:28.788Z",
+    "resultUpdatedAt": "2026-11-02T20:40:46.880Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10286,7 +10286,7 @@
     "rankTotal": 218,
     "scoreDelta": 216.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:30.124Z",
+    "resultUpdatedAt": "2026-11-02T20:40:48.519Z",
     "topFive": {
       "date": "2026-11-01",
       "lineups": [
@@ -11348,7 +11348,7 @@
     "rankTotal": 226,
     "scoreDelta": 46.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-02T09:54:33.544Z",
+    "resultUpdatedAt": "2026-11-02T20:40:50.836Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 224.5,
@@ -11636,15 +11636,15 @@
     "dateKey": "2026-11-03",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-11-02T09:54:48.562Z",
+    "updatedAt": "2026-11-02T20:41:08.573Z",
     "players": [
       "1641705",
       "1642847",
-      "1630168",
-      "1629014",
-      "1642849"
+      "1629631",
+      "1642285",
+      "1629014"
     ],
-    "expected": 174,
+    "expected": 174.4,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
@@ -11659,18 +11659,18 @@
       "replacement": 0.18,
       "crowd": 0.3
     },
-    "oddsFetchedAt": "2026-11-02T09:54:47.253Z",
+    "oddsFetchedAt": "2026-11-02T20:41:07.768Z",
     "injuryDate": "2026-11-02",
-    "injuryUpdatedAt": "2026-11-02T09:54:46.395Z",
+    "injuryUpdatedAt": "2026-11-02T20:41:06.496Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-11-02T09:54:48.562Z",
+      "verifiedAt": "2026-11-02T20:41:08.573Z",
       "playerIds": [
         "1641705",
         "1642847",
-        "1630168",
-        "1629014",
-        "1642849"
+        "1629631",
+        "1642285",
+        "1629014"
       ]
     },
     "updates": [
@@ -11769,28 +11769,55 @@
           "crowd": 0.3
         },
         "submission": "unchanged-verified"
+      },
+      {
+        "at": "2026-11-02T20:41:08.573Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641705",
+          "1642847",
+          "1629631",
+          "1642285",
+          "1629014"
+        ],
+        "expected": 174.4,
+        "energy": 150,
+        "formation": "2前3后",
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "unchanged-verified"
       }
     ],
     "lockedRecommendation": {
       "lockedAt": "2026-11-02T23:45:00.000Z",
-      "sourceUpdateAt": "2026-11-02T09:54:48.562Z",
+      "sourceUpdateAt": "2026-11-02T20:41:08.573Z",
       "source": "model-update",
       "reason": "schedule-window",
       "players": [
         "1641705",
         "1642847",
-        "1630168",
-        "1629014",
-        "1642849"
+        "1629631",
+        "1642285",
+        "1629014"
       ],
       "playerNames": [
         "维克托·文班亚马",
         "杰里迈亚·费尔斯",
-        "奥涅卡·奥孔古",
-        "安芬尼·西蒙斯",
-        "诺兰·特拉奥雷"
+        "德安德烈·亨特",
+        "卡梅隆·斯宾塞",
+        "安芬尼·西蒙斯"
       ],
-      "expected": 174,
+      "expected": 174.4,
       "energy": 150,
       "formation": "2前3后",
       "mode": "crowdFocus"
@@ -11798,9 +11825,9 @@
     "playerNames": [
       "维克托·文班亚马",
       "杰里迈亚·费尔斯",
-      "奥涅卡·奥孔古",
-      "安芬尼·西蒙斯",
-      "诺兰·特拉奥雷"
+      "德安德烈·亨特",
+      "卡梅隆·斯宾塞",
+      "安芬尼·西蒙斯"
     ],
     "rankSnapshot": [
       {
@@ -12491,9 +12518,9 @@
     "playerNames": [
       "维克托·文班亚马",
       "杰里迈亚·费尔斯",
-      "丹尼尔·加福德",
       "卡梅隆·斯宾塞",
-      "赫伯特·琼斯"
+      "丹东尼·梅尔顿",
+      "杰克·拉拉维亚"
     ],
     "settled": false,
     "lockedRecommendation": {

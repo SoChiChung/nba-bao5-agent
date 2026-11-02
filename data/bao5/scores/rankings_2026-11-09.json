@@ -30,5 +30,7 @@
   "source": {
     "mine": "/api/rankings?mine=1&date=2026-11-09",
     "board": "/api/rankings?period=day&date=2026-11-09"
-  }
+  },
+  "updatedAt": "2026-11-02T20:41:04.970Z",
+  "stale": true
 }
