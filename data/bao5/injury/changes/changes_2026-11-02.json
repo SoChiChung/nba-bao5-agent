@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-03T01:56:51.675Z",
+  "generatedAt": "2026-11-03T03:22:48.851Z",
   "serverDate": "2026-11-02",
-  "requestedDate": "2026-11-03",
+  "requestedDate": "2026-11-05",
   "available": false,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
@@ -10,8 +10,8 @@
   "counts": {
     "total": 731,
     "available": 635,
-    "out": 93,
-    "questionable": 3
+    "out": 94,
+    "questionable": 2
   },
   "provenance": {
     "officialCount": 0,
@@ -58,9 +58,9 @@
       "kind": "newInjury",
       "id": "1627751",
       "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -161,7 +161,7 @@
     },
     {
       "kind": "newInjury",
-      "id": "1630567",
+      "id": "1631108",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
