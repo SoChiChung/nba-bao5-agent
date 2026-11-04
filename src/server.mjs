@@ -144,6 +144,7 @@ let cache = null;
 let cacheFingerprint = null;
 let refreshing = null;
 let refreshingStartedAt = 0;
+let modelRoster = [];
 let fantasyCache = null;
 let fantasyRefreshing = null;
 let systemHttpsProxy;
@@ -287,6 +288,7 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
       vettedFallbackPath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-fallbacks.json'),
     });
     players = enriched.players;
+    modelRoster = players;
     playerStatsMeta = {
       fetched: enriched.fetched,
       preseasonCovered: enriched.covered,
@@ -987,7 +989,7 @@ const server = http.createServer(async (req,res) => {
     }
     if (url.pathname === '/api/dashboard' && req.method === 'GET') {
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
-      recordDashboardRecommendations(data,players);
+      recordDashboardRecommendations(data,modelRoster);
       exposePlayerForecastHistory(data);
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
       // 前端据此显示「正在后台刷新」与预计剩余时间。
@@ -1020,7 +1022,7 @@ const server = http.createServer(async (req,res) => {
       }
       savePreferences({mode:input.mode,...(input.mode==='custom'?{customWeights}:{})});cache=null;return send(res,200,{ok:true});
     }
-    if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; const data=await getDashboard({refresh:true});recordDashboardRecommendations(data,players);exposePlayerForecastHistory(data);return send(res,200,data); }
+    if (url.pathname === '/api/refresh' && req.method === 'POST') { cache=null; const data=await getDashboard({refresh:true});recordDashboardRecommendations(data,modelRoster);exposePlayerForecastHistory(data);return send(res,200,data); }
     if (url.pathname === '/api/automation-log' && req.method === 'GET') {
       const file=path.join(ROOT,'data','bao5','bao1','automation-runs.json');
       try{return send(res,200,JSON.parse(fs.readFileSync(file,'utf8')));}catch{return send(res,200,{runs:[]});}
@@ -1033,7 +1035,7 @@ const server = http.createServer(async (req,res) => {
       if(Date.now()>=slate.lockedAt||slate.games.some(game=>game.status===2||game.status===3))return send(res,409,{error:'该比赛日已过 DDL，回测模型推荐已冻结，不会用锁定后的阵容覆盖。'});
       const prior=readHistory().find(x=>x.dateKey===slate.dateKey);
       const updatedAt=new Date().toISOString(),players=slate.lineup.players.map(p=>p.id),expected=slate.lineup.expected,energy=slate.lineup.energy,formation=slate.lineup.formation;
-      const forecasts=playerForecastSnapshot(slate,players);
+      const forecasts=playerForecastSnapshot(slate,modelRoster);
       const row={...prior,dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt,players,expected,energy,formation,source:'model',weights:data.weights??prior?.weights??null,playerForecasts:forecasts,playerForecastSignature:createHash('sha256').update(JSON.stringify(forecasts)).digest('hex'),playerForecastAt:updatedAt,updates:[...(prior?.updates??[]),{at:updatedAt,reason:'manual-recalculate',games:slate.games.map(game=>game.gameId??game.id??game.game_id),players,expected,energy,formation,mode:data.selectedMode??data.mode}],...(prior?.lockedPlayerForecasts?{lockedPlayerForecasts:prior.lockedPlayerForecasts,lockedPlayerForecastAt:prior.lockedPlayerForecastAt}:{}),...(prior?.settled===true&&prior.actualTotal!=null?{scoreDelta:Number((prior.actualTotal-expected).toFixed(1))}:{})};
       const history=readHistory().filter(x=>x.dateKey!==row.dateKey); history.push(row); history.sort((a,b)=>a.dateKey.localeCompare(b.dateKey)); saveHistory(history);
       const merged=mergeDailyResult(history,data.dailyScore,data.slates.flatMap(s=>s.players));
