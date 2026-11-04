@@ -260,6 +260,10 @@
 .history-summary-result>em{font-size:14px;font-style:normal;color:#8c96a8}
 .history-day[open] summary{background:#f0f4ff;color:#315efb}
 .history-day-body{display:grid;gap:12px;padding:13px;background:#f7f8fb;color:var(--ink);font-size:13px;line-height:1.5}
+.history-benchmark,.history-loss-summary{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:8px 0;padding:12px 13px;border:1px solid #dfe7fb;border-radius:10px;background:#f4f7ff;color:#45536e;font-size:12px;line-height:1.6}
+.history-benchmark>div{display:flex;flex-wrap:wrap;gap:5px 12px;align-items:center}.history-benchmark b,.history-loss-summary b{color:#354b80;font-size:13px}.history-benchmark strong{color:#315efb}.history-benchmark>small{color:#7c879c;text-align:right}
+.history-loss-summary{margin-top:0;border-color:#e7ebf2;background:#fafbfc}.history-loss-summary.is-pending{color:#858da0}.history-loss-summary.is-pending b{color:#667188}
+.history-player-loss{padding:11px;border:1px solid #e1e8f5;border-radius:9px;background:#fff}.history-player-loss>header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.history-player-loss>header>b,.history-player-loss>b{color:#34435e}.history-player-loss>header>span,.history-player-loss>span{color:#748097}.history-player-loss>details{margin-top:7px}.history-player-loss>details>summary{cursor:pointer;color:#4169d8;font-size:12px}.history-loss-table-wrap{max-height:360px;overflow:auto;margin-top:7px}.history-loss-table{font-size:12px}.history-loss-table th,.history-loss-table td{padding:6px 8px}.history-loss-table td{font-size:12px}.history-loss-table small{margin-left:4px;color:#8b95a6}.history-loss-table .is-under{color:#16875d;font-weight:700}.history-loss-table .is-over{color:#b34d54;font-weight:700}.history-player-loss.is-pending{display:flex;flex-direction:column;gap:4px;background:#fafbfc;font-size:12px}
 .history-score-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .history-metric{min-width:0;padding:10px 11px;border:1px solid #e9edf5;border-radius:9px;background:#fff}
 .history-metric>small,.history-metric>b{display:block}
@@ -298,6 +302,7 @@
 :root[data-theme="dark"] .history-day[open] summary{background:#202b40}
 :root[data-theme="dark"] .history-summary-result>b{color:#58c896}
 :root[data-theme="dark"] .history-day-body{background:#151c28}
+:root[data-theme="dark"] .history-benchmark{background:#202c43;border-color:#344663;color:#c5d2eb}:root[data-theme="dark"] .history-benchmark b,:root[data-theme="dark"] .history-loss-summary b,:root[data-theme="dark"] .history-player-loss>header>b,:root[data-theme="dark"] .history-player-loss>b{color:#d4def2}:root[data-theme="dark"] .history-loss-summary,:root[data-theme="dark"] .history-player-loss{background:#1b2230;border-color:#30394a;color:#c5cfdf}:root[data-theme="dark"] .history-loss-table td{border-color:#30394a}:root[data-theme="dark"] .history-loss-table th{background:#232c3c;color:#aebbd1}
 :root[data-theme="dark"] .history-metric,:root[data-theme="dark"] .history-lineup-block,:root[data-theme="dark"] .history-top-five{background:#1b2230;border-color:#30394a}
 :root[data-theme="dark"] .history-metric>small,:root[data-theme="dark"] .history-lineup-block>small,:root[data-theme="dark"] .history-top-five>header>small,:root[data-theme="dark"] .history-common-picks>small{color:#9aa6bb}
 :root[data-theme="dark"] .history-metric>b,:root[data-theme="dark"] .history-top-five>header>b{color:#e2e8f2}

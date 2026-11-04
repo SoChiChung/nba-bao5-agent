@@ -91,18 +91,21 @@ export function deriveCalibration(history = []) {
   return { preseason: summarize('preseason'), regular: summarize('regular') };
 }
 
-// 自动模式只使用已结算的常规赛排名；同时奖励排名百分位和前 100 命中。
+// 自动模式只用已结算且实际提交阵容与模型一致的常规赛成绩；目标直接对齐前 50。
 export function selectAutoMode(history = []) {
   const keys=Object.keys(MODEL_MODES);
-  const samples=history.filter(row=>row.phase==='regular'&&row.settled===true&&row.selectedMode&&keys.includes(row.selectedMode)&&Number(row.rank)>0&&Number(row.rankTotal)>1);
+  const sameLineup=(a,b)=>Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&[...a].map(String).sort().join(',')===[...b].map(String).sort().join(',');
+  const samples=history.filter(row=>row.phase==='regular'&&row.settled===true&&row.selectedMode&&keys.includes(row.selectedMode)
+    &&Number(row.expected)>0&&Number(row.rank)>0&&Number(row.rankTotal)>1
+    &&sameLineup(row.players,row.bao5Players));
   const total=samples.length;
   const stats=Object.fromEntries(keys.map(key=>{
     const rows=samples.filter(row=>row.selectedMode===key).slice(-20);
     const rewards=rows.map(row=>{
       const rank=Number(row.rank),rankTotal=Number(row.rankTotal);
       const percentile=Math.max(0,Math.min(1,1-(rank-1)/(rankTotal-1)));
-      const top100=rank<=Math.min(100,rankTotal)?1:0;
-      return percentile*0.7+top100*0.3;
+      const top50=rank<=Math.min(50,rankTotal)?1:0;
+      return percentile*0.4+top50*0.6;
     });
     return [key,{count:rows.length,mean:rewards.length?rewards.reduce((sum,value)=>sum+value,0)/rewards.length:0}];
   }));
@@ -129,7 +132,8 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     : parseCsv(defense);
   const regularScoresByPosition = new Map();
   for (const player of players) {
-    const score = statScore(player) > 0 ? statScore(player) : Number(player.historicalStats?.averageFantasy);
+    const loggedAverage=Number(player.currentSeasonStats?.averageFantasy);
+    const score=loggedAverage>0?loggedAverage:statScore(player)>0?statScore(player):Number(player.historicalStats?.averageFantasy);
     if (!(Number.isFinite(score) && score > 0)) continue;
     const key = player.position === 'back' ? 'back' : 'front';
     regularScoresByPosition.set(key, [...(regularScoresByPosition.get(key) ?? []), score]);
@@ -191,6 +195,10 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
 
 function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines }) {
   const currentStatBase = statScore(p);
+  const currentSeasonStats=p.currentSeasonStats;
+  const currentSeasonAverage=Number(currentSeasonStats?.averageFantasy);
+  const hasCurrentSeasonLog=Number(currentSeasonStats?.games)>0;
+  const currentSampleCount=hasCurrentSeasonLog?Number(currentSeasonStats.games):Number(p.gamesPlayed??0);
   const historicalAverage = Number(p.historicalStats?.averageFantasy);
   const preseasonAverage = Number(p.preseasonStats?.averageFantasy);
   const hasHistoricalAverage = Number.isFinite(historicalAverage) && historicalAverage > 0;
@@ -199,8 +207,12 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const positionBaseline = positionBaselines?.[p.position === 'back' ? 'back' : 'front'] ?? 0;
   const hasPreseasonSample = Number(p.preseasonStats?.games) > 0 && p.preseasonStats?.averageFantasy != null && Number.isFinite(Number(p.preseasonStats.averageFantasy));
   const useRookiePrior = !hasRegularBaseline && hasPreseasonSample && positionBaseline > 0;
-  const statBase = currentStatBase > 0 ? currentStatBase : hasHistoricalAverage ? historicalAverage : useRookiePrior ? positionBaseline : hasPreseasonAverage ? preseasonAverage : 0;
-  const baselineSource = currentStatBase > 0 ? 'BAO5 本赛季数据' : hasHistoricalAverage ? p.historicalStats.source ?? `${p.historicalStats.season ?? '上赛季'}常规赛近 ${p.historicalStats.games} 场` : useRookiePrior ? `${p.position === 'back' ? '后场' : '前场'}常规赛中位数先验` : hasPreseasonAverage ? '季前赛样本' : '没有可用球员得分样本';
+  const observedCurrentAverage=currentSeasonAverage>0?currentSeasonAverage:currentStatBase;
+  const shrinkPrior=positionBaseline>0?positionBaseline:hasHistoricalAverage?historicalAverage:0;
+  const statBase=observedCurrentAverage>0&&currentSampleCount>0&&shrinkPrior>0
+    ?(observedCurrentAverage*currentSampleCount+shrinkPrior)/(currentSampleCount+1)
+    :observedCurrentAverage>0?observedCurrentAverage:hasHistoricalAverage?historicalAverage:useRookiePrior?positionBaseline:hasPreseasonAverage?preseasonAverage:0;
+  const baselineSource=observedCurrentAverage>0?`本赛季数据${currentSampleCount>0&&shrinkPrior>0?'（向同位置中位数收缩，先验 1 场）':''}`:hasHistoricalAverage?p.historicalStats.source??`${p.historicalStats.season??'上赛季'}常规赛近 ${p.historicalStats.games} 场`:useRookiePrior?`${p.position==='back'?'后场':'前场'}常规赛中位数先验`:hasPreseasonAverage?'季前赛样本':'没有可用球员得分样本';
   const opponentGame = dayGames.find(g => g.home === p.team || g.away === p.team);
   const opponent = opponentGame ? (opponentGame.home === p.team ? opponentGame.away : opponentGame.home) : null;
   const pos = p.positionRaw === 'C' ? 'C' : p.positionRaw === 'G' ? 'PG' : p.positionRaw === 'F' ? 'SF' : (p.position === 'back' ? 'PG' : 'PF');
@@ -221,8 +233,6 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const historySignal=historyMatchup.available?statBase*(1+historyMatchup.signal):null;
   const crowdPick=playerPopularity(p.id,lineupFeedback);
   const preseasonStats=p.preseasonStats;
-  const currentSeasonStats=p.currentSeasonStats;
-  const hasCurrentSeasonLog=Number(currentSeasonStats?.games)>0;
   const hasCurrentSeasonSample=currentStatBase>0||Number(p.gamesPlayed??0)>0||hasCurrentSeasonLog;
   const loggedRecentAverage=currentSeasonStats?.recentAverageFantasy;
   const recentSignal=hasCurrentSeasonLog&&loggedRecentAverage!=null&&Number.isFinite(Number(loggedRecentAverage))?Number(loggedRecentAverage):hasCurrentSeasonSample?(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null):hasPreseasonSample?(
@@ -231,7 +241,11 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
       : Number(preseasonStats.averageFantasy)
   ):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
   const preseasonGames=Number(preseasonStats?.games??0);
-  const recentWeight=hasCurrentSeasonLog?(Number(currentSeasonStats.recentGames)<=5?0.45:0.3):hasCurrentSeasonSample?Math.max(0.3,weights.recent):hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
+  // Chronological player-game validation favors a .45 recent-signal blend.
+  // Current-season logs already contain the exact season average; keep the
+  // same weight throughout the regular season instead of dropping it after
+  // the (always three-game) rolling window.
+  const recentWeight=hasCurrentSeasonLog?0.45:hasCurrentSeasonSample?Math.max(0.3,weights.recent):hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
   const activeSignals=[{value:recentSignal,weight:recentWeight,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
   const baselineWeight=Math.max(0,1-activeSignals.reduce((sum,s)=>sum+s.weight,0));
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
@@ -260,7 +274,42 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
   const gameId=opponentGame?String(opponentGame.gameId??opponentGame.id??`${opponentGame.date}:${opponentGame.home}:${opponentGame.away}`):null;
-  return { ...p, gameId, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  const scoreComponents={
+    observedCurrentAverage:round(observedCurrentAverage),currentSampleCount,shrinkPrior:round(shrinkPrior),
+    recentSignal:recentSignal==null?null:round(recentSignal),recentWeight,
+    historySignal:historySignal==null?null:round(historySignal),historyWeight:weights.history,
+    matchupFactor:round(matchupFactor),totalFactor:round(totalFactor),injuryFactor:round(injuryFactor),
+    replacementBoost:round(replacementBoost),popularityFactor:round(popularityFactor),rotationFactor:round(rotationFactor),
+    calibrationFactor:round(calibrationFactor),phaseFactor:preseason?0.84:1,
+  };
+  return { ...p, gameId, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), scoreComponents, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+}
+
+// Persist the pregame, player-level inputs needed for honest out-of-sample
+// loss analysis after that slate settles.
+export function playerForecastSnapshot(slate, roster=[]) {
+  const scored=new Map((slate?.players??[]).map(player=>[String(player.id),player]));
+  const games=slate?.games??[];
+  const source=roster.length?roster:(slate?.players??[]);
+  return source.map(player=>{
+    const id=String(player.id),prediction=scored.get(id);
+    const game=games.find(item=>item.home===player.team||item.away===player.team);
+    const hasGame=Boolean(game);
+    const opponent=game?(game.home===player.team?game.away:game.home):null;
+    const projected=prediction&&Number.isFinite(Number(prediction.projected))?Number(prediction.projected):0;
+    return {
+      dateKey:slate?.dateKey??null,id,name:prediction?.name??player.name??player.nameCn??player.englishName??id,
+      team:player.team??null,position:prediction?.position??player.position??null,
+      gameId:prediction?.gameId?String(prediction.gameId):game?String(game.gameId??game.id??game.game_id??''):null,
+      opponent:prediction?.opponent??opponent,hasGame,predictionStatus:prediction?(prediction.injury?.label??'模型已评分'):hasGame?'未进入有效候选池':'当日无比赛',
+      predicted:projected,baseScore:Number(prediction?.baseScore??0),selectionScore:Number(prediction?.selectionScore??projected),
+      lineupEligible:Boolean(prediction&&!prediction.injury?.hardExclude&&!prediction.noCurrentSeasonMinutes&&Number(prediction.baseScore)>0),
+      lossEligible:Boolean(hasGame&&prediction&&projected>0&&!prediction.noCurrentSeasonMinutes&&Number(prediction.baseScore)>0),
+      noCurrentSeasonMinutes:prediction?.noCurrentSeasonMinutes===true,chance:Number(prediction?.chance??0),
+      injuryStatus:prediction?.injury?.label??null,energy:Number(prediction?.energy??player.energy??0),
+      scoreComponents:prediction?.scoreComponents??null,
+    };
+  }).sort((a,b)=>a.id.localeCompare(b.id));
 }
 
 function playerPopularity(playerId, feedback) {
@@ -292,10 +341,7 @@ function statScore(p) {
   const s = (mult) => Number(p[mult] ?? 0);
   const current = (s('points') + 1.2*s('rebounds') + 1.5*s('assists') + 3*s('steals') + 3*s('blocks') - s('turnovers'));
   const existingAverage = Number(p.average);
-  const games = Number(p.gamesPlayed ?? 0);
-  const rate = current > 0 ? current : existingAverage;
-  const reliability = clamp(games / 20, 0, 1);
-  return rate * (0.5 + 0.5 * reliability);
+  return current > 0 ? current : existingAverage;
 }
 
 function probability(item) {

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from './bao5.mjs';
-import { buildDashboardData, deriveCalibration, optimizeLineup, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
+import { buildDashboardData, deriveCalibration, optimizeLineup, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from '../../../src/preseason-stats.mjs';
 import { refreshCurrentSeasonLogs } from '../../history-player/refresh-current-season.mjs';
 
@@ -231,7 +231,7 @@ try {
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'auto'};}})();
   const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);
-  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const phaseFactor=factors[preseason?'preseason':'regular']??1;const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;return {...p,injury,projected:Number(p.average??0)*(preseason?0.84:1)*phaseFactor,value:Number(p.average??0)*(preseason?0.84:1)*phaseFactor/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
+  const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const phaseFactor=factors[preseason?'preseason':'regular']??1;const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;const baseScore=Number(p.average??0),projected=baseScore*(preseason?0.84:1)*phaseFactor,game=dayGames.find(g=>g.home===p.team||g.away===p.team);return {...p,injury,gameId:String(game?.gameId??game?.id??game?.game_id??''),opponent:game?(game.home===p.team?game.away:game.home):null,baseScore,projected,selectionScore:projected,value:projected/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
   const lastBaseline=Date.parse(schedulerState.lastBaselineAt??'');
   const shanghaiHour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',hourCycle:'h23'}).format(new Date()));
@@ -289,11 +289,19 @@ try {
       }
       const actionable=windowGames;
       if(Date.now()>=slate.lockedAt){
+        let frozeSnapshot=false;
+        if(prior?.playerForecasts?.length&&!prior.lockedPlayerForecasts){
+          prior.lockedPlayerForecasts=prior.playerForecasts;
+          prior.lockedPlayerForecastAt=prior.playerForecastAt??prior.updatedAt??null;
+          frozeSnapshot=true;
+        }
         if(prior&&!prior.lockedRecommendation){
           const lastUpdate=[...(prior.updates??[])].filter(update=>Date.parse(update.at)<slate.lockedAt).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
           prior.lockedRecommendation={lockedAt:new Date(slate.lockedAt).toISOString(),sourceUpdateAt:lastUpdate?.at??prior.updatedAt,source:lastUpdate?.reason==='dashboard-display'?'dashboard-display':'model-update',reason:lastUpdate?.reason??'last-pre-lock-update',players:lastUpdate?.players??prior.players,expected:lastUpdate?.expected??prior.expected,energy:lastUpdate?.energy??prior.energy,formation:lastUpdate?.formation??prior.formation,mode:lastUpdate?.mode??prior.selectedMode??'legacy'};
-          saveHistory(runHistory);say(`${slate.dateKey} 已冻结 DDL 前最后推荐（${prior.lockedRecommendation.players?.join('、')??'无阵容记录'}）`);
+          frozeSnapshot=true;
+          say(`${slate.dateKey} 已冻结 DDL 前最后推荐（${prior.lockedRecommendation.players?.join('、')??'无阵容记录'}）`);
         }
+        if(frozeSnapshot)saveHistory(runHistory);
         say(`${slate.dateKey} 已超过 BAO5 当日首场锁定线；仅保留首发/赔率检查，不覆盖阵容`);continue;
       }
       const lineupLocksAt=Math.min(...slate.games.filter(g=>g.status!==3).map(g=>Date.parse(g.utc)-15*60_000));
@@ -312,7 +320,8 @@ try {
       const submitted=verification.json?.lineup?.playerIds??[];
       if(lineup.players.length!==submitted.length||!lineup.players.every(p=>submitted.map(String).includes(String(p.id))))throw new Error('提交后回读阵容与模型结果不一致');
       const verifiedAt=new Date().toISOString();
-      const row={dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt:verifiedAt,players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',selectedMode,weights:modeResult.weights,oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,injuryUpdatedAt:injuries.updatedAt,submission:{status:same?'unchanged-verified':'submitted-verified',verifiedAt,playerIds:submitted.map(String)},updates:[...(prior?.updates??[]),{at:verifiedAt,reason:dailyRefresh?'daily-refresh':windowGames.length&&windowGames.every(g=>Date.parse(g.utc)-Date.now()<=25*60_000)?'pre-tip-25m-final':windowGames.length?'pre-tip-starters':'schedule-window',games:windowGames.map(g=>g.gameId??g.id??g.game_id),players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,mode:selectedMode,weights:modeResult.weights,submission:same?'unchanged-verified':'submitted-verified'}],...(prior?.settled===true&&prior.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1)),resultSource:prior.resultSource}:{})};
+      const forecastSlate=modeResult.slates.find(item=>item.dateKey===slate.dateKey)??slate;
+      const row={...prior,dateKey:slate.dateKey,phase:slate.phase==='Preseason'?'preseason':'regular',settled:prior?.settled===true,updatedAt:verifiedAt,players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,source:'scheduled-model',selectedMode,weights:modeResult.weights,playerForecasts:playerForecastSnapshot(forecastSlate,players),playerForecastAt:verifiedAt,oddsFetchedAt:oddsMeta.fetchedAt,injuryDate:injuries.serverDate,injuryUpdatedAt:injuries.updatedAt,submission:{status:same?'unchanged-verified':'submitted-verified',verifiedAt,playerIds:submitted.map(String)},updates:[...(prior?.updates??[]),{at:verifiedAt,reason:dailyRefresh?'daily-refresh':windowGames.length&&windowGames.every(g=>Date.parse(g.utc)-Date.now()<=25*60_000)?'pre-tip-25m-final':windowGames.length?'pre-tip-starters':'schedule-window',games:windowGames.map(g=>g.gameId??g.id??g.game_id),players:lineup.players.map(p=>p.id),expected:lineup.expected,energy:lineup.energy,formation:lineup.formation,mode:selectedMode,weights:modeResult.weights,submission:same?'unchanged-verified':'submitted-verified'}],...(prior?.lockedPlayerForecasts?{lockedPlayerForecasts:prior.lockedPlayerForecasts,lockedPlayerForecastAt:prior.lockedPlayerForecastAt}:{}),...(prior?.settled===true&&prior.actualTotal!=null?{actualTotal:prior.actualTotal,scoreDelta:Number((prior.actualTotal-lineup.expected).toFixed(1)),resultSource:prior.resultSource}:{})};
       runHistory=[...runHistory.filter(x=>x.dateKey!==row.dateKey),row].sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
       saveHistory(runHistory);
       say(`${slate.dateKey} 已确认 BAO5 阵容：${lineup.players.map(p=>p.name).join('、')}`);
