@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-11-04T18:32:23.983Z",
+  "fetchedAt": "2026-11-04T21:36:16.646Z",
   "date": "2026-11-05",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
   "mine": {
     "day": {
-      "rank": 199,
+      "rank": 219,
       "score": 0,
       "total": 221,
       "settled": false
@@ -31,6 +31,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-05",
     "board": "/api/rankings?period=day&date=2026-11-05"
   },
-  "updatedAt": "2026-11-04T18:32:23.983Z",
+  "updatedAt": "2026-11-04T21:36:16.646Z",
   "stale": true
 }
