@@ -170,11 +170,16 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     // Keep unknown-baseline players visible for diagnosis, but do not let their
     // zero score win a lineup slot through energy/tie-break behavior.
     const eligible = candidates.filter(p => !p.injury?.hardExclude && !p.noCurrentSeasonMinutes && p.baseScore > 0);
-    const lineup = optimize(eligible);
+    let diversification = dayGames.length >= 8
+      ? { enabled:true, slateGames:dayGames.length, maxPerGame:2 }
+      : { enabled:false, slateGames:dayGames.length, maxPerGame:null };
+    const diversifiedLineup=diversification.enabled?optimize(eligible,150,{maxPerGame:diversification.maxPerGame}):null;
+    const lineup=diversifiedLineup??optimize(eligible);
+    if(diversification.enabled&&!diversifiedLineup)diversification={enabled:false,slateGames:dayGames.length,maxPerGame:null,fallbackReason:'候选不足以组成分散阵容'};
     const efficientLineup = preseason ? optimize(eligible, 0.9) : null;
     const startMs = Math.min(...dayGames.map(g => new Date(g.utc).getTime()));
     return {
-      dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season',
+      dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season', diversification,
       players: [...candidates].sort((a,b)=>b.projected-a.projected),
       injuryMeta: { date: injuries.serverDate??injuries.date, available: siteInjuries, note: siteInjuries ? '健康状态采用每日一阵网站伤病报告' : '没有可用的每日一阵伤病报告；未应用伤病限制' },
       oddsMeta: gameOdds.length ? { updatedAt: gameOdds[0].updatedAt, count: gameOdds.length } : null,
@@ -254,7 +259,8 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
     '低能量性价比修正按当日候选池计算；预计得分仍独立展示',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
-  return { ...p, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  const gameId=opponentGame?String(opponentGame.gameId??opponentGame.id??`${opponentGame.date}:${opponentGame.home}:${opponentGame.away}`):null;
+  return { ...p, gameId, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
 }
 
 function playerPopularity(playerId, feedback) {
@@ -344,8 +350,10 @@ function parseCsv(text) {
   return lines.slice(1).map(line => Object.fromEntries(line.split(',').map((v,i) => [headers[i], v])));
 }
 
-export function optimizeLineup(pool, energyLimit = 150) {
+export function optimizeLineup(pool, energyLimit = 150, options = null) {
   const cap=Math.max(0,Math.min(150,Math.floor(Number(energyLimit)||150)));
+  const maxPerGame=Number(options?.maxPerGame);
+  if(Number.isInteger(maxPerGame)&&maxPerGame>0&&pool.some(p=>p.gameId))return optimizeDiversifiedLineup(pool,cap,maxPerGame);
   const front=pool.filter(p=>p.position==='front'), back=pool.filter(p=>p.position==='back');
   let best=null;
   for(const frontCount of [2,3]){
@@ -364,6 +372,41 @@ export function optimizeLineup(pool, energyLimit = 150) {
     }
     for(let e=0;e<=cap;e++){const item=dp[frontCount][backCount][e];if(item&&(!best||item.score>best.selectionExpected))best={players:item.players.sort((a,b)=>b.projected-a.projected),expected:round(item.players.reduce((sum,p)=>sum+p.projected,0)),selectionExpected:round(item.score),energy:e,energyCap:cap,formation:`${frontCount}前${backCount}后`};}
   }
+  return best;
+}
+
+function optimizeDiversifiedLineup(pool, cap, maxPerGame) {
+  const groups=new Map();
+  for(const player of pool){
+    const key=player.gameId?String(player.gameId):`player:${player.id}`;
+    if(!groups.has(key))groups.set(key,[]);
+    groups.get(key).push(player);
+  }
+  let states=new Map([['0|0|0',{front:0,back:0,energy:0,score:0,players:[]}]]);
+  for(const group of groups.values()){
+    const choices=[{front:0,back:0,energy:0,score:0,players:[]}];
+    const usable=group.filter(player=>['front','back'].includes(player.position)&&Number(player.energy)>=0);
+    for(let i=0;i<usable.length;i++){
+      const first=usable[i],firstEnergy=Number(first.energy);
+      if(firstEnergy<=cap)choices.push({front:first.position==='front'?1:0,back:first.position==='back'?1:0,energy:firstEnergy,score:Number(first.selectionScore??first.projected),players:[first]});
+      if(maxPerGame<2)continue;
+      for(let j=i+1;j<usable.length;j++){
+        const second=usable[j],energy=firstEnergy+Number(second.energy);
+        if(energy>cap)continue;
+        choices.push({front:Number(first.position==='front')+Number(second.position==='front'),back:Number(first.position==='back')+Number(second.position==='back'),energy,score:Number(first.selectionScore??first.projected)+Number(second.selectionScore??second.projected),players:[first,second]});
+      }
+    }
+    const next=new Map();
+    for(const state of states.values())for(const choice of choices){
+      const front=state.front+choice.front,back=state.back+choice.back,energy=state.energy+choice.energy;
+      if(front>3||back>3||front+back>5||energy>cap)continue;
+      const score=state.score+choice.score,key=`${front}|${back}|${energy}`,prior=next.get(key);
+      if(!prior||score>prior.score)next.set(key,{front,back,energy,score,players:[...state.players,...choice.players]});
+    }
+    states=next;
+  }
+  let best=null;
+  for(const state of states.values())if(state.players.length===5&&[2,3].includes(state.front)&&(!best||state.score>best.selectionExpected))best={players:[...state.players].sort((a,b)=>b.projected-a.projected),expected:round(state.players.reduce((sum,p)=>sum+Number(p.projected),0)),selectionExpected:round(state.score),energy:state.energy,energyCap:cap,formation:`${state.front}前${state.back}后`};
   return best;
 }
 

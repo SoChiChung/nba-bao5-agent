@@ -76,7 +76,7 @@ function renderLineupView(slate){
  const submitted=lineupView==='submitted';
  document.querySelectorAll('[data-lineup-view]').forEach(tab=>{const active=tab.dataset.lineupView===lineupView;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));});
  $('lineup-view-title').textContent=submitted?'每日一阵已提交阵容':'今日推荐阵容';$('lineup-view-mode').textContent=submitted?'DAILY ACCOUNT':'MODEL PICK';$('data-notices').classList.toggle('hidden',submitted);
- $('lineup-score-label').textContent=submitted?'已提交阵容预计分':'模型预期总分';$('lineup-score-description').textContent=submitted?'按当前球员数据估算':'按游戏官方计分公式';
+ $('lineup-score-label').textContent=submitted?'已提交阵容预计分':'模型预期总分';$('lineup-score-description').textContent=submitted?'按当前球员数据估算':`按游戏官方计分公式${slate.diversification?.enabled?` · ${slate.diversification.slateGames} 场比赛，每场最多 ${slate.diversification.maxPerGame} 人`:''}`;
  $('lineup-list').setAttribute('aria-labelledby',submitted?'lineup-tab-submitted':'lineup-tab-recommended');
  const recommendation=slate.recommendationUnavailable?null:slate.lineup;
  const showPlaceholder=message=>{
@@ -257,9 +257,12 @@ function applyPlayerConstraints(slate){
  if(forced.some(p=>excluded.includes(String(p.id)))){$('constraint-message').textContent='同一球员不能同时包含和排除';return false;}
  if(forced.length>5){$('constraint-message').textContent='必须包含球员不能超过阵容人数 5 人';return false;}
  if(forced.reduce((n,p)=>n+Number(p.energy||0),0)>budget){$('constraint-message').textContent=`必须包含球员的总能量已超过预算上限 ${budget}`;return false;}
- let best=null;const pool=players.filter(p=>!excluded.includes(String(p.id))&&!included.includes(String(p.id))),base=forced,baseEnergy=forced.reduce((n,p)=>n+Number(p.energy||0),0),baseFront=forced.filter(p=>p.position==='front').length,baseScore=forced.reduce((n,p)=>n+Number(p.selectionScore??p.projected??0),0);
- let dp=new Map([[`${base.length}|${baseFront}|${baseEnergy}`,{count:base.length,front:baseFront,energy:baseEnergy,score:baseScore,picks:base}]]);
- for(const player of pool){const next=new Map(dp);for(const value of dp.values()){if(value.count>=5)continue;const energy=value.energy+Number(player.energy||0);if(energy>budget)continue;const front=value.front+(player.position==='front'?1:0);if(front>3)continue;const count=value.count+1,key=`${count}|${front}|${energy}`,score=value.score+Number(player.selectionScore??player.projected??0),old=next.get(key);if(!old||score>old.score)next.set(key,{count,front,energy,score,picks:[...value.picks,player]});}dp=next;}
+ let best=null;const pool=players.filter(p=>!excluded.includes(String(p.id))&&!included.includes(String(p.id))),base=forced,baseEnergy=forced.reduce((n,p)=>n+Number(p.energy||0),0),baseFront=forced.filter(p=>p.position==='front').length,baseScore=forced.reduce((n,p)=>n+Number(p.selectionScore??p.projected??0),0),perGameCap=slate.diversification?.enabled?Number(slate.diversification.maxPerGame):0,forcedGameCounts=new Map();
+ if(perGameCap)for(const player of base)if(player.gameId)forcedGameCounts.set(String(player.gameId),(forcedGameCounts.get(String(player.gameId))??0)+1);
+ const gameCountsKey=picks=>{if(!perGameCap)return '';const counts=new Map();for(const pick of picks)if(pick.gameId)counts.set(String(pick.gameId),(counts.get(String(pick.gameId))??0)+1);return JSON.stringify([...counts].sort((a,b)=>a[0].localeCompare(b[0])));};
+ const dpKey=(count,front,energy,picks)=>`${count}|${front}|${energy}|${gameCountsKey(picks)}`;
+ let dp=new Map([[dpKey(base.length,baseFront,baseEnergy,base),{count:base.length,front:baseFront,energy:baseEnergy,score:baseScore,picks:base}]]);
+ for(const player of pool){const next=new Map(dp);for(const value of dp.values()){if(value.count>=5)continue;if(perGameCap&&player.gameId){const gameKey=String(player.gameId),sameGame=value.picks.filter(p=>String(p.gameId??'')===gameKey).length,limit=Math.max(perGameCap,forcedGameCounts.get(gameKey)??0);if(sameGame>=limit)continue;}const energy=value.energy+Number(player.energy||0);if(energy>budget)continue;const front=value.front+(player.position==='front'?1:0);if(front>3)continue;const count=value.count+1,picks=[...value.picks,player],key=dpKey(count,front,energy,picks),score=value.score+Number(player.selectionScore??player.projected??0),old=next.get(key);if(!old||score>old.score)next.set(key,{count,front,energy,score,picks});}dp=next;}
  for(const value of dp.values())if(value.count===5&&[2,3].includes(value.front)&&(!best||value.score>best.selectionExpected))best={...value,players:value.picks,expected:Number(value.picks.reduce((sum,p)=>sum+Number(p.projected||0),0).toFixed(1)),selectionExpected:Number(value.score.toFixed(1)),formation:`${value.front}前${5-value.front}后`};
  if(!best){slate.recommendationUnavailable=true;renderLineupSyncStatus(slate);renderLineupView(slate);$('constraint-message').textContent=`这些约束下没有可行阵容：检查 ${budget} 能量预算和前后场人数`;return false;}
  slate.lineup={...slate.lineup,...best,energyCap:budget};slate.recommendationUnavailable=false;renderLineupView(slate);renderLineupSyncStatus(slate);$('constraint-message').textContent=`已按约束选出阵容 · ${best.formation} · ${best.energy}/${budget} 能量`;
@@ -361,11 +364,12 @@ function findTotal(state,g){return g.oddsTotal??'—';}
 function renderHistory(){
  const rows=[...(state.history??[])].sort((a,b)=>b.dateKey.localeCompare(a.dateKey));
  const score=state.dailyScore, analysis=state.topFiveAnalysis??rows.find(x=>x.dateKey===score?.date)?.topFiveAnalysis;
- const months=[...new Set(rows.map(x=>x.dateKey.slice(0,7)))], monthSelect=$('history-month'), dateSelect=$('history-date'), priorMonth=monthSelect.value;
- monthSelect.innerHTML=months.map(m=>`<option value="${m}">${m}</option>`).join(''); monthSelect.value=months.includes(priorMonth)?priorMonth:(months[0]??'');
+ const hasResult=row=>row.actualTotal!=null&&Number.isFinite(Number(row.actualTotal)), settledRows=rows.filter(hasResult), months=[...new Set(rows.map(x=>x.dateKey.slice(0,7)))], defaultMonth=settledRows[0]?.dateKey.slice(0,7)??months[0]??'', monthSelect=$('history-month'), dateSelect=$('history-date'), priorMonth=monthSelect.value;
+ monthSelect.innerHTML=months.map(m=>`<option value="${m}">${m}</option>`).join(''); monthSelect.value=months.includes(priorMonth)?priorMonth:defaultMonth;
  const monthRows=rows.filter(x=>x.dateKey.startsWith(monthSelect.value)), priorDate=dateSelect.value;
- dateSelect.innerHTML=`<option value="">${monthSelect.value===months[0]?'最近 5 天':'整月记录'}</option>`+monthRows.map(x=>`<option value="${x.dateKey}">${x.dateKey}</option>`).join(''); dateSelect.value=monthRows.some(x=>x.dateKey===priorDate)?priorDate:'';
- const selected=dateSelect.value?monthRows.filter(x=>x.dateKey===dateSelect.value):(monthSelect.value===months[0]?monthRows.slice(0,5):monthRows), showOverview=!dateSelect.value&&monthSelect.value===months[0];
+ const isDefaultMonth=monthSelect.value===defaultMonth;
+ dateSelect.innerHTML=`<option value="">${isDefaultMonth?'最近 5 个已结算比赛日':'整月记录'}</option>`+monthRows.map(x=>`<option value="${x.dateKey}">${x.dateKey}</option>`).join(''); dateSelect.value=monthRows.some(x=>x.dateKey===priorDate)?priorDate:'';
+ const selected=dateSelect.value?monthRows.filter(x=>x.dateKey===dateSelect.value):(isDefaultMonth?monthRows.filter(hasResult).slice(0,5):monthRows), showOverview=!dateSelect.value&&isDefaultMonth&&Boolean(score?.date)&&selected.some(x=>x.dateKey===score.date);
  const overview=(showOverview&&analysis?`<div class="top-five-analysis"><h3>今日联赛日榜前五</h3><p>我的日榜得分 ${Number(analysis.mine.score).toFixed(1)} · 第 ${analysis.mine.rank} 名 · 我的阵容：${analysis.ownLineupAvailable?analysis.selectedPlayers.map(p=>p.name).join('、'):'暂不可用'}</p><div class="top-five-list">${analysis.topFive.map(renderTopFiveLineup).join('')}</div></div>`:'');
   const daily=selected.map(x=>{
    const lockedRecommendation=x.lockedRecommendation?.players?.length?x.lockedRecommendation:null;
