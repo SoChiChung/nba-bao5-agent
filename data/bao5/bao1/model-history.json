@@ -5484,7 +5484,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:40.021Z",
+    "resultUpdatedAt": "2026-11-04T01:58:53.059Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5961,7 +5961,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:41.990Z",
+    "resultUpdatedAt": "2026-11-04T01:58:55.506Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6395,7 +6395,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:43.959Z",
+    "resultUpdatedAt": "2026-11-04T01:58:59.291Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6831,7 +6831,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:46.352Z",
+    "resultUpdatedAt": "2026-11-04T01:59:02.603Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -7259,7 +7259,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:48.295Z",
+    "resultUpdatedAt": "2026-11-04T01:59:04.572Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7706,7 +7706,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:50.254Z",
+    "resultUpdatedAt": "2026-11-04T01:59:06.996Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -8159,7 +8159,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:52.214Z",
+    "resultUpdatedAt": "2026-11-04T01:59:09.414Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8588,7 +8588,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:54.170Z",
+    "resultUpdatedAt": "2026-11-04T01:59:12.290Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -9192,7 +9192,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:56.128Z",
+    "resultUpdatedAt": "2026-11-04T01:59:15.175Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -9658,7 +9658,7 @@
     "rankTotal": 229,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:18:58.088Z",
+    "resultUpdatedAt": "2026-11-04T01:59:17.602Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10111,7 +10111,7 @@
     "rankTotal": 223,
     "scoreDelta": -61,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:19:00.503Z",
+    "resultUpdatedAt": "2026-11-04T01:59:19.579Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10286,7 +10286,7 @@
     "rankTotal": 218,
     "scoreDelta": 216.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:19:02.467Z",
+    "resultUpdatedAt": "2026-11-04T01:59:22.917Z",
     "topFive": {
       "date": "2026-11-01",
       "lineups": [
@@ -11348,7 +11348,7 @@
     "rankTotal": 226,
     "scoreDelta": 46.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:19:04.955Z",
+    "resultUpdatedAt": "2026-11-04T01:59:26.747Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 224.5,
@@ -12158,7 +12158,7 @@
     "rankTotal": 228,
     "scoreDelta": -64.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T00:19:07.037Z",
+    "resultUpdatedAt": "2026-11-04T01:59:28.588Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 110,
@@ -12488,7 +12488,7 @@
     "dateKey": "2026-11-05",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-11-04T00:19:29.766Z",
+    "updatedAt": "2026-11-04T01:59:47.692Z",
     "players": [
       "1641705",
       "202681",
@@ -12496,7 +12496,7 @@
       "1642849",
       "1631255"
     ],
-    "expected": 159.1,
+    "expected": 159.3,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
@@ -12511,12 +12511,12 @@
       "replacement": 0.18,
       "crowd": 0.3
     },
-    "oddsFetchedAt": "2026-11-04T00:19:26.295Z",
+    "oddsFetchedAt": "2026-11-04T01:59:46.693Z",
     "injuryDate": "2026-11-04",
-    "injuryUpdatedAt": "2026-11-04T00:19:25.643Z",
+    "injuryUpdatedAt": "2026-11-04T01:59:45.741Z",
     "submission": {
-      "status": "submitted-verified",
-      "verifiedAt": "2026-11-04T00:19:29.766Z",
+      "status": "unchanged-verified",
+      "verifiedAt": "2026-11-04T01:59:47.692Z",
       "playerIds": [
         "1641705",
         "202681",
@@ -12674,11 +12674,38 @@
           "crowd": 0.3
         },
         "submission": "submitted-verified"
+      },
+      {
+        "at": "2026-11-04T01:59:47.692Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641705",
+          "202681",
+          "1643414",
+          "1642849",
+          "1631255"
+        ],
+        "expected": 159.3,
+        "energy": 150,
+        "formation": "2前3后",
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "unchanged-verified"
       }
     ],
     "lockedRecommendation": {
       "lockedAt": "2026-11-04T23:45:00.000Z",
-      "sourceUpdateAt": "2026-11-04T00:19:29.766Z",
+      "sourceUpdateAt": "2026-11-04T01:59:47.692Z",
       "source": "model-update",
       "reason": "schedule-window",
       "players": [
@@ -12695,7 +12722,7 @@
         "诺兰·特拉奥雷",
         "卡洛·马特科维奇"
       ],
-      "expected": 159.1,
+      "expected": 159.3,
       "energy": 150,
       "formation": "2前3后",
       "mode": "crowdFocus"
