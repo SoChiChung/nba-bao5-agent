@@ -5484,7 +5484,7 @@
     "rankTotal": 159,
     "scoreDelta": -24.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:10:56.662Z",
+    "resultUpdatedAt": "2026-11-04T06:41:04.407Z",
     "topFive": {
       "date": "2026-10-21",
       "lineups": [
@@ -5961,7 +5961,7 @@
     "rankTotal": 169,
     "scoreDelta": -8.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:10:58.791Z",
+    "resultUpdatedAt": "2026-11-04T06:41:07.763Z",
     "topFive": {
       "date": "2026-10-22",
       "lineups": [
@@ -6395,7 +6395,7 @@
     "rankTotal": 176,
     "scoreDelta": -5.8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:00.494Z",
+    "resultUpdatedAt": "2026-11-04T06:41:10.427Z",
     "topFive": {
       "date": "2026-10-23",
       "lineups": [
@@ -6831,7 +6831,7 @@
     "rankTotal": 174,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:02.603Z",
+    "resultUpdatedAt": "2026-11-04T06:41:13.074Z",
     "topFive": {
       "date": "2026-10-24",
       "lineups": [
@@ -7259,7 +7259,7 @@
     "rankTotal": 177,
     "scoreDelta": 46.7,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:04.299Z",
+    "resultUpdatedAt": "2026-11-04T06:41:15.232Z",
     "topFive": {
       "date": "2026-10-25",
       "lineups": [
@@ -7706,7 +7706,7 @@
     "rankTotal": 191,
     "scoreDelta": 58.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:06.406Z",
+    "resultUpdatedAt": "2026-11-04T06:41:20.238Z",
     "topFive": {
       "date": "2026-10-26",
       "lineups": [
@@ -8159,7 +8159,7 @@
     "rankTotal": 220,
     "scoreDelta": 78.5,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:08.104Z",
+    "resultUpdatedAt": "2026-11-04T06:41:23.853Z",
     "topFive": {
       "date": "2026-10-27",
       "lineups": [
@@ -8588,7 +8588,7 @@
     "rankTotal": 225,
     "scoreDelta": 30.9,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:10.216Z",
+    "resultUpdatedAt": "2026-11-04T06:41:26.481Z",
     "topFive": {
       "date": "2026-10-28",
       "lineups": [
@@ -9192,7 +9192,7 @@
     "rankTotal": 217,
     "scoreDelta": -8,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:12.750Z",
+    "resultUpdatedAt": "2026-11-04T06:41:29.119Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -9658,7 +9658,7 @@
     "rankTotal": 229,
     "scoreDelta": 9.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:15.285Z",
+    "resultUpdatedAt": "2026-11-04T06:41:33.174Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10111,7 +10111,7 @@
     "rankTotal": 223,
     "scoreDelta": -61,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:17.402Z",
+    "resultUpdatedAt": "2026-11-04T06:41:36.284Z",
     "rankSnapshot": [
       {
         "leagueName": "锁定test",
@@ -10286,7 +10286,7 @@
     "rankTotal": 218,
     "scoreDelta": 216.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:19.945Z",
+    "resultUpdatedAt": "2026-11-04T06:41:39.880Z",
     "topFive": {
       "date": "2026-11-01",
       "lineups": [
@@ -11348,7 +11348,7 @@
     "rankTotal": 226,
     "scoreDelta": 46.1,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:24.321Z",
+    "resultUpdatedAt": "2026-11-04T06:41:42.581Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 224.5,
@@ -11922,20 +11922,20 @@
             "1643552",
             "203507"
           ],
-          "playerNames": [
-            "尼古拉·约基奇",
-            "科比·布朗",
-            "昆顿·杰克逊",
-            "布雷登·史密斯",
-            "扬尼斯·阿德托昆博"
-          ],
           "playerScores": {
             "203507": 56.9,
             "203999": 61.8,
             "1631245": 45.9,
             "1641738": 26.7,
             "1643552": 45.8
-          }
+          },
+          "playerNames": [
+            "尼古拉·约基奇",
+            "科比·布朗",
+            "昆顿·杰克逊",
+            "布雷登·史密斯",
+            "扬尼斯·阿德托昆博"
+          ]
         },
         {
           "rank": 2,
@@ -11951,20 +11951,20 @@
             "1630245",
             "1641771"
           ],
-          "playerNames": [
-            "尼古拉·约基奇",
-            "昆顿·杰克逊",
-            "弗朗茨·瓦格纳",
-            "阿约·多森姆",
-            "杰伦·斯劳森"
-          ],
           "playerScores": {
             "203999": 61.8,
             "1630245": 49.4,
             "1630532": 36.6,
             "1631245": 45.9,
             "1641771": 40.9
-          }
+          },
+          "playerNames": [
+            "尼古拉·约基奇",
+            "昆顿·杰克逊",
+            "弗朗茨·瓦格纳",
+            "阿约·多森姆",
+            "杰伦·斯劳森"
+          ]
         },
         {
           "rank": 3,
@@ -11980,20 +11980,20 @@
             "1629029",
             "1643410"
           ],
-          "playerNames": [
-            "亚克塞尔·伦德博格",
-            "小达里厄斯·埃卡夫",
-            "卡梅隆·布泽尔",
-            "卢卡·东契奇",
-            "凯莱布·威尔逊"
-          ],
           "playerScores": {
             "1629029": 73.9,
             "1642865": 33.5,
             "1643409": 39.3,
             "1643410": 48.4,
             "1643411": 38
-          }
+          },
+          "playerNames": [
+            "亚克塞尔·伦德博格",
+            "小达里厄斯·埃卡夫",
+            "卡梅隆·布泽尔",
+            "卢卡·东契奇",
+            "凯莱布·威尔逊"
+          ]
         },
         {
           "rank": 4,
@@ -12009,20 +12009,20 @@
             "1630178",
             "203999"
           ],
-          "playerNames": [
-            "贾雷斯·沃克",
-            "杰·胡夫",
-            "昆顿·杰克逊",
-            "泰瑞斯·马克西",
-            "尼古拉·约基奇"
-          ],
           "playerScores": {
             "203999": 61.8,
             "1630178": 55.3,
             "1630643": 36.6,
             "1631245": 45.9,
             "1641716": 32.9
-          }
+          },
+          "playerNames": [
+            "贾雷斯·沃克",
+            "杰·胡夫",
+            "昆顿·杰克逊",
+            "泰瑞斯·马克西",
+            "尼古拉·约基奇"
+          ]
         },
         {
           "rank": 5,
@@ -12038,20 +12038,20 @@
             "1630245",
             "203507"
           ],
-          "playerNames": [
-            "昆顿·杰克逊",
-            "布雷登·史密斯",
-            "亚克塞尔·伦德博格",
-            "阿约·多森姆",
-            "扬尼斯·阿德托昆博"
-          ],
           "playerScores": {
             "203507": 56.9,
             "1630245": 49.4,
             "1631245": 45.9,
             "1642865": 33.5,
             "1643552": 45.8
-          }
+          },
+          "playerNames": [
+            "昆顿·杰克逊",
+            "布雷登·史密斯",
+            "亚克塞尔·伦德博格",
+            "阿约·多森姆",
+            "扬尼斯·阿德托昆博"
+          ]
         }
       ],
       "commonPicks": [
@@ -12158,7 +12158,7 @@
     "rankTotal": 228,
     "scoreDelta": -64.4,
     "resultSource": "bao5-rankings-api",
-    "resultUpdatedAt": "2026-11-04T02:11:25.895Z",
+    "resultUpdatedAt": "2026-11-04T06:41:45.228Z",
     "topFiveAnalysis": {
       "mine": {
         "score": 110,
@@ -12488,15 +12488,15 @@
     "dateKey": "2026-11-05",
     "phase": "regular",
     "settled": false,
-    "updatedAt": "2026-11-04T02:11:43.720Z",
+    "updatedAt": "2026-11-04T06:42:14.490Z",
     "players": [
       "1641705",
-      "202681",
-      "1643414",
+      "1642847",
+      "1630168",
       "1642849",
-      "1631255"
+      "1629014"
     ],
-    "expected": 159.3,
+    "expected": 158.8,
     "energy": 150,
     "formation": "2前3后",
     "source": "scheduled-model",
@@ -12513,16 +12513,16 @@
     },
     "oddsFetchedAt": "2026-11-04T01:59:46.693Z",
     "injuryDate": "2026-11-04",
-    "injuryUpdatedAt": "2026-11-04T02:11:42.383Z",
+    "injuryUpdatedAt": "2026-11-04T06:42:11.999Z",
     "submission": {
       "status": "unchanged-verified",
-      "verifiedAt": "2026-11-04T02:11:43.720Z",
+      "verifiedAt": "2026-11-04T06:42:14.490Z",
       "playerIds": [
         "1641705",
-        "202681",
-        "1643414",
+        "1642847",
+        "1630168",
         "1642849",
-        "1631255"
+        "1629014"
       ]
     },
     "updates": [
@@ -12728,65 +12728,33 @@
           "crowd": 0.3
         },
         "submission": "unchanged-verified"
-      }
-    ],
-    "lockedRecommendation": {
-      "lockedAt": "2026-11-04T23:45:00.000Z",
-      "sourceUpdateAt": "2026-11-04T02:11:43.720Z",
-      "source": "model-update",
-      "reason": "schedule-window",
-      "players": [
-        "1641705",
-        "202681",
-        "1643414",
-        "1642849",
-        "1631255"
-      ],
-      "playerNames": [
-        "维克托·文班亚马",
-        "凯里·欧文",
-        "小迈克尔·布朗",
-        "诺兰·特拉奥雷",
-        "卡洛·马特科维奇"
-      ],
-      "expected": 159.3,
-      "energy": 150,
-      "formation": "2前3后",
-      "mode": "crowdFocus"
-    },
-    "playerNames": [
-      "维克托·文班亚马",
-      "凯里·欧文",
-      "小迈克尔·布朗",
-      "诺兰·特拉奥雷",
-      "卡洛·马特科维奇"
-    ],
-    "rankSnapshot": [
-      {
-        "leagueName": "锁定test",
-        "rank": 1,
-        "score": 463.5,
-        "weeklyRank": 1,
-        "weeklyScore": 463.5
       },
       {
-        "leagueName": "笨蛋头碰头",
-        "rank": null,
-        "score": null
-      },
-      {
-        "leagueName": "AI Bao5 league",
-        "rank": 1,
-        "score": 511.5,
-        "weeklyRank": 1,
-        "weeklyScore": 511.5
-      },
-      {
-        "leagueName": "李堡是笨蛋",
-        "rank": 3,
-        "score": 511.5,
-        "weeklyRank": 3,
-        "weeklyScore": 511.5
+        "at": "2026-11-04T06:42:14.490Z",
+        "reason": "schedule-window",
+        "games": [],
+        "players": [
+          "1641705",
+          "1642847",
+          "1630168",
+          "1642849",
+          "1629014"
+        ],
+        "expected": 158.8,
+        "energy": 150,
+        "formation": "2前3后",
+        "mode": "crowdFocus",
+        "weights": {
+          "label": "前五趋势",
+          "recent": 0.24,
+          "history": 0.12,
+          "matchup": 0.08,
+          "odds": 0.04,
+          "injury": 1.1,
+          "replacement": 0.18,
+          "crowd": 0.3
+        },
+        "submission": "unchanged-verified"
       }
     ]
   },
