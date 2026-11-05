@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T07:25:31.302Z",
+  "updatedAt": "2026-11-05T18:36:57.776Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "out": 113,
+    "out": 111,
     "available": 419,
-    "questionable": 10
+    "questionable": 12
   },
   "provenance": {
     "officialCount": 9,
@@ -21,7 +21,7 @@
   "snapshotFile": "snapshots/injuries_2026-11-05.json",
   "changesFile": "changes/changes_2026-11-05.json",
   "previousDate": "2026-11-04",
-  "changeCount": 113,
+  "changeCount": 115,
   "restrictedCount": 123,
   "restricted": [
     {
@@ -31,20 +31,6 @@
       "probability": "0%",
       "detail": "上次官方报告 10月31日：缺阵（下背）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "201942",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：DeRozan has been ruled out for Wednesday's game against the Raptors due to lower-back spasms.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -521,20 +507,6 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左修复手术）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630545",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Shannon (hip) is out for Wednesday against the Rockets.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1607,6 +1579,20 @@
       "energy": null
     },
     {
+      "id": "201942",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：DeRozan has been ruled out for Wednesday's game against the Raptors due to lower-back spasms.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628380",
       "key": "questionable",
       "label": "每日观察",
@@ -1677,6 +1663,20 @@
       "energy": null
     },
     {
+      "id": "1630545",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Shannon (hip) is out for Wednesday against the Rockets.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630549",
       "key": "questionable",
       "label": "每日观察",
@@ -1695,7 +1695,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Clowney won't return to Wednesday's game against the Hornets due to right knee soreness. He'll finish with seven points (3-6 FG, 1-4 3Pt), one rebound and one assist across 17 minutes.",
+      "detail": "ESPN伤病名单：Clowney (knee) supplied seven points (3-6 FG, 1-4 3Pt), one rebound and one assist over 17 minutes during Wednesday's 114-104 victory over the Hornets.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1747,5 +1747,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月5日 01:45 发布）：列出9人，今日出战的另外24人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月5日 13:30 发布）：列出9人，今日出战的另外24人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
