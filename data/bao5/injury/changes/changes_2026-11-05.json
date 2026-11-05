@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-11-05T18:36:57.776Z",
+  "generatedAt": "2026-11-05T21:37:59.131Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-05T13:30:00",
+  "updatedAt": "2026-11-05T16:30:00",
   "counts": {
     "total": 542,
-    "out": 111,
-    "available": 419,
+    "out": 113,
+    "available": 417,
     "questionable": 12
   },
   "provenance": {
-    "officialCount": 9,
-    "projectedCount": 24,
+    "officialCount": 15,
+    "projectedCount": 53,
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月5日 13:30 发布）：列出9人，今日出战的另外24人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月5日 16:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-04",
-  "changeCount": 115,
+  "changeCount": 114,
   "changes": [
     {
       "kind": "newInjury",
@@ -60,7 +60,7 @@
       "from": "available",
       "to": "questionable",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Pritchard exited Wednesday's 109-102 win over the Bucks and did not return due to a right eye abrasion, finishing with 10 points (4-7 FG, 2-2 FT), five assists and one rebound across 18 minutes.",
+      "detail": "ESPN伤病名单：Pritchard (eye) is questionable for Friday against Charlotte, Taylor Snow of the Celtics' official site reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -122,6 +122,36 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：Proctor exited Wednesday's 124-116 loss to the Thunder in the fourth quarter and did not return due to an apparent ankle injury, finishing with 11 points (4-7 FG, 2-3 3Pt, 1-1 FT), one rebound and one steal across 22 minutes.",
       "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1642884",
+      "from": "available",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1643621",
+      "from": "available",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -576,19 +606,6 @@
     },
     {
       "kind": "detailChanged",
-      "id": "1630692",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月4日：缺阵（右小腿肚酸痛）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
       "id": "1631094",
       "from": "out",
       "to": "out",
@@ -658,19 +675,6 @@
       "from": "out",
       "to": "out",
       "note": "上次官方报告 11月4日：缺阵（右髋部紧张/酸痛）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1631109",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月4日：缺阵（左肩部手术）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1109,19 +1113,6 @@
     },
     {
       "kind": "detailChanged",
-      "id": "1642853",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月4日：缺阵（左脚踝扭伤）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
       "id": "1642856",
       "from": "out",
       "to": "out",
@@ -1463,7 +1454,7 @@
       "id": "202710",
       "from": "out",
       "to": "out",
-      "note": "NBA官方伤病报告：缺阵（右修复手术）",
+      "note": "NBA官方伤病报告：缺阵",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1554,17 +1545,17 @@
     {
       "field": "updatedAt",
       "from": "2026-11-04T21:15:00",
-      "to": "2026-11-05T13:30:00"
+      "to": "2026-11-05T16:30:00"
     },
     {
       "field": "officialCount",
       "from": 115,
-      "to": 9
+      "to": 15
     },
     {
       "field": "projectedCount",
       "from": 221,
-      "to": 24
+      "to": 53
     }
   ]
 }

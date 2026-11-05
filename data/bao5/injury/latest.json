@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T18:36:57.776Z",
+  "updatedAt": "2026-11-05T21:37:59.131Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
@@ -8,21 +8,21 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "out": 111,
-    "available": 419,
+    "out": 113,
+    "available": 417,
     "questionable": 12
   },
   "provenance": {
-    "officialCount": 9,
-    "projectedCount": 24,
+    "officialCount": 15,
+    "projectedCount": 53,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-05.json",
   "changesFile": "changes/changes_2026-11-05.json",
   "previousDate": "2026-11-04",
-  "changeCount": 115,
-  "restrictedCount": 123,
+  "changeCount": 114,
+  "restrictedCount": 125,
   "restricted": [
     {
       "id": "2544",
@@ -85,7 +85,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右修复手术）",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -631,7 +631,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月4日：缺阵（右小腿肚酸痛）",
+      "detail": "NBA官方伤病报告：缺阵（右小腿肚酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -729,7 +729,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月4日：缺阵（左肩部手术）",
+      "detail": "NBA官方伤病报告：缺阵（左肩部手术）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1191,7 +1191,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月4日：缺阵（左脚踝扭伤）",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1290,6 +1290,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月4日：缺阵（右脚踝扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642884",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1565,6 +1579,20 @@
       "energy": null
     },
     {
+      "id": "1643621",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643738",
       "key": "out",
       "label": "缺阵",
@@ -1653,7 +1681,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Pritchard exited Wednesday's 109-102 win over the Bucks and did not return due to a right eye abrasion, finishing with 10 points (4-7 FG, 2-2 FT), five assists and one rebound across 18 minutes.",
+      "detail": "ESPN伤病名单：Pritchard (eye) is questionable for Friday against Charlotte, Taylor Snow of the Celtics' official site reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1747,5 +1775,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月5日 13:30 发布）：列出9人，今日出战的另外24人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月5日 16:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
