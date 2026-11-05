@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T00:41:26.039Z",
+  "updatedAt": "2026-11-05T02:03:22.524Z",
   "serverDate": "2026-11-04",
   "requestedDate": "2026-11-05",
   "available": true,
@@ -8,11 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 541,
-    "out": 115,
-    "available": 419,
-    "probable": 3,
-    "questionable": 3,
-    "doubtful": 1
+    "out": 116,
+    "available": 421,
+    "questionable": 4
   },
   "provenance": {
     "officialCount": 115,
@@ -23,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-04.json",
   "changesFile": "changes/changes_2026-11-04.json",
   "previousDate": "2026-11-02",
-  "changeCount": 78,
-  "restrictedCount": 122,
+  "changeCount": 80,
+  "restrictedCount": 120,
   "restricted": [
     {
       "id": "2544",
@@ -447,20 +445,6 @@
       "energy": null
     },
     {
-      "id": "1629673",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Poole (ankle) is listed as probable for Wednesday's game against Utah.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1629684",
       "key": "out",
       "label": "缺阵",
@@ -481,20 +465,6 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右膝盖）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630167",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Toppin (back) is questionable for Wednesday's game against the Grizzlies.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -643,6 +613,20 @@
       "energy": null
     },
     {
+      "id": "1630583",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右膝盖手术）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630590",
       "key": "out",
       "label": "缺阵",
@@ -690,6 +674,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月2日：缺阵（左膝盖肌腱炎）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630692",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右小腿肚酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1245,6 +1243,20 @@
       "energy": null
     },
     {
+      "id": "1642851",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Knueppel exited Wednesday's game against the Nets after experiencing soreness in his left leg and he will not return, Brett Siegel of ClutchPoints.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642853",
       "key": "out",
       "label": "缺阵",
@@ -1637,12 +1649,12 @@
       "energy": null
     },
     {
-      "id": "1630583",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右膝盖手术）",
-      "source": "NBA官方",
+      "id": "1628386",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Allen (knee) is doubtful to return to Wednesday's game against the Thunder, Brett Siegel of ClutchPoints.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1651,12 +1663,12 @@
       "energy": null
     },
     {
-      "id": "1627751",
+      "id": "1630188",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左肩部）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Smith (hand) won't return to Wednesday's game against the Knicks.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1679,54 +1691,12 @@
       "energy": null
     },
     {
-      "id": "1630692",
+      "id": "1642854",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "203507",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右手腕扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629661",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643813",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右手腕扭伤）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Newell won't return to Wednesday's game against the Wizards due to a left great toe hyperextension, Brad Rowland of the Locked On Podcast Network reports. He'll finish with two points (1-1 FG), three rebounds and three assists across 10 minutes.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1735,5 +1705,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月4日 19:30 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月4日 21:00 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
