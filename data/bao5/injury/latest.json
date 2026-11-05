@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T02:03:22.524Z",
+  "updatedAt": "2026-11-05T02:18:11.001Z",
   "serverDate": "2026-11-04",
   "requestedDate": "2026-11-05",
   "available": true,
@@ -7,10 +7,10 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
-    "total": 541,
-    "out": 116,
-    "available": 421,
-    "questionable": 4
+    "total": 542,
+    "out": 117,
+    "available": 420,
+    "questionable": 5
   },
   "provenance": {
     "officialCount": 115,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-04.json",
   "changesFile": "changes/changes_2026-11-04.json",
   "previousDate": "2026-11-02",
-  "changeCount": 80,
-  "restrictedCount": 120,
+  "changeCount": 82,
+  "restrictedCount": 122,
   "restricted": [
     {
       "id": "2544",
@@ -59,6 +59,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月1日：缺阵（右膝盖）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "201942",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：DeRozan has been ruled out for Wednesday's game against the Raptors due to lower-back spasms.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1691,6 +1705,20 @@
       "energy": null
     },
     {
+      "id": "1641730",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Clowney (illness) is available for Friday's game against Detroit, Brian Lewis of the New York Post reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642854",
       "key": "questionable",
       "label": "每日观察",
@@ -1705,5 +1733,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月4日 21:00 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月4日 21:15 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

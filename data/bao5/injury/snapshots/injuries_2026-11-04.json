@@ -92,6 +92,17 @@
       "n": "斯蒂芬·库里",
       "t": "勇士"
     },
+    "201942": {
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：DeRozan has been ruled out for Wednesday's game against the Raptors due to lower-back spasms.",
+      "source": "ESPN",
+      "asOf": "2026-11-05",
+      "carry": false,
+      "n": "德马尔·德罗赞",
+      "t": "掘金"
+    },
     "201950": {
       "key": "available",
       "label": "可以出战",
@@ -122,7 +133,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "凯里·欧文",
-      "t": "独行侠"
+      "t": "独行侠",
+      "st": "c:2026-11-05:rw"
     },
     "202691": {
       "key": "available",
@@ -203,7 +215,7 @@
       "asOf": "2026-11-04",
       "n": "达米安·利拉德",
       "t": "开拓者",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "203083": {
       "key": "available",
@@ -526,7 +538,7 @@
       "asOf": "2026-11-04",
       "n": "德文·布克",
       "t": "太阳",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1626167": {
       "key": "available",
@@ -825,7 +837,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "达龙·福克斯",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-11-05:rw"
     },
     "1628369": {
       "key": "out",
@@ -1011,7 +1024,7 @@
       "asOf": "2026-11-04",
       "n": "狄龙·布鲁克斯",
       "t": "太阳",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1628418": {
       "key": "available",
@@ -1084,7 +1097,7 @@
       "asOf": "2026-11-04",
       "n": "迈尔斯·布里奇斯",
       "t": "太阳",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1628971": {
       "key": "available",
@@ -1307,7 +1320,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "PJ·华盛顿",
-      "t": "独行侠"
+      "t": "独行侠",
+      "st": "c:2026-11-05:rw"
     },
     "1629026": {
       "key": "available",
@@ -1625,7 +1639,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "丹尼尔·加福德",
-      "t": "独行侠"
+      "t": "独行侠",
+      "st": "c:2026-11-05:rw"
     },
     "1629656": {
       "key": "available",
@@ -1761,7 +1776,7 @@
       "asOf": "2026-11-04",
       "n": "德尼·阿夫迪亚",
       "t": "开拓者",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1630167": {
       "key": "available",
@@ -1800,7 +1815,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "德文·瓦塞尔",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-11-05:rw"
     },
     "1630171": {
       "key": "available",
@@ -1997,7 +2013,7 @@
       "asOf": "2026-11-04",
       "n": "杰伦·格林",
       "t": "太阳",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1630228": {
       "key": "available",
@@ -2547,7 +2563,7 @@
       "asOf": "2026-11-04",
       "n": "斯库特·亨德森",
       "t": "开拓者",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1631094": {
       "key": "out",
@@ -3099,7 +3115,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "维克托·文班亚马",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-11-05:rw"
     },
     "1641706": {
       "key": "available",
@@ -3294,12 +3311,13 @@
       "t": "爵士"
     },
     "1641730": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
-      "source": "NBA官方",
-      "asOf": "2026-11-04",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Clowney (illness) is available for Friday's game against Detroit, Brian Lewis of the New York Post reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-05",
+      "carry": false,
       "n": "诺阿·克洛尼",
       "t": "篮网"
     },
@@ -3341,7 +3359,7 @@
       "asOf": "2026-11-04",
       "n": "图马尼·卡马拉",
       "t": "开拓者",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1641740": {
       "key": "available",
@@ -3683,7 +3701,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "扎卡里·里萨谢",
-      "t": "独行侠"
+      "t": "独行侠",
+      "st": "c:2026-11-05:rw"
     },
     "1642259": {
       "key": "available",
@@ -3742,7 +3761,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "斯蒂芬·卡斯尔",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-11-05:rw"
     },
     "1642266": {
       "key": "available",
@@ -3795,7 +3815,7 @@
       "asOf": "2026-11-04",
       "n": "多诺万·克林根",
       "t": "开拓者",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1642271": {
       "key": "available",
@@ -4306,7 +4326,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "库珀·弗拉格",
-      "t": "独行侠"
+      "t": "独行侠",
+      "st": "c:2026-11-05:rw"
     },
     "1642844": {
       "key": "available",
@@ -4316,7 +4337,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-04",
       "n": "迪伦·哈珀",
-      "t": "马刺"
+      "t": "马刺",
+      "st": "c:2026-11-05:rw"
     },
     "1642845": {
       "key": "available",
@@ -4498,7 +4520,7 @@
       "asOf": "2026-11-04",
       "n": "卡曼·马卢阿奇",
       "t": "太阳",
-      "st": "c:2026-11-05:rw"
+      "st": "c:2026-11-05:nba"
     },
     "1642864": {
       "key": "available",
@@ -5630,16 +5652,16 @@
   "officialCount": 115,
   "projectedCount": 221,
   "filledCount": 0,
-  "espnCount": 7,
+  "espnCount": 9,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 204,
-  "updatedAt": "2026-11-04T21:00:00",
-  "updatedAtLabel": "11月4日 21:00",
+  "updatedAt": "2026-11-04T21:15:00",
+  "updatedAtLabel": "11月4日 21:15",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-04_09_00PM.pdf",
-  "message": "已读取官方伤病报告（11月4日 21:00 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-04_09_15PM.pdf",
+  "message": "已读取官方伤病报告（11月4日 21:15 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-05"
 }

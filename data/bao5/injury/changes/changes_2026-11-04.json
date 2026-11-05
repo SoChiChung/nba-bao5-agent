@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-05T02:03:22.524Z",
+  "generatedAt": "2026-11-05T02:18:11.001Z",
   "serverDate": "2026-11-04",
   "requestedDate": "2026-11-05",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-04T21:00:00",
+  "updatedAt": "2026-11-04T21:15:00",
   "counts": {
-    "total": 541,
-    "out": 116,
-    "available": 421,
-    "questionable": 4
+    "total": 542,
+    "out": 117,
+    "available": 420,
+    "questionable": 5
   },
   "provenance": {
     "officialCount": 115,
@@ -19,10 +19,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月4日 21:00 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月4日 21:15 发布）：列出115人，今日出战的另外221人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-02",
-  "changeCount": 80,
+  "changeCount": 82,
   "changes": [
     {
       "kind": "newInjury",
@@ -131,6 +131,21 @@
     },
     {
       "kind": "newInjury",
+      "id": "1641730",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Clowney (illness) is available for Friday's game against Detroit, Brian Lewis of the New York Post reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
       "id": "1641790",
       "from": "available",
       "to": "out",
@@ -227,6 +242,21 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "201942",
+      "from": "available",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：DeRozan has been ruled out for Wednesday's game against the Raptors due to lower-back spasms.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1183,7 +1213,7 @@
     {
       "field": "updatedAt",
       "from": "2026-11-02T15:45:00",
-      "to": "2026-11-04T21:00:00"
+      "to": "2026-11-04T21:15:00"
     },
     {
       "field": "officialCount",
