@@ -182,7 +182,7 @@ try {
   if(backfillOnly){
     const training=prepareHistoryForCalibration(history,games,dateKey=>{try{return readJson(`data/bao5/scores/rankings_${dateKey}.json`);}catch{return null;}});
     const calibration=deriveCalibration(training);
-    say(`15:00 赛果回填校准完成：常规赛 ${calibration.regular.count} 个已结算样本、系数 ${calibration.regular.factor.toFixed(3)}、前100命中 ${calibration.regular.top100Hits}/${calibration.regular.rankCount||0}；季前赛 ${calibration.preseason.count} 个样本、系数 ${calibration.preseason.factor.toFixed(3)}；跳过阵容计算与提交`);
+    say(`15:00 赛果回填校准完成：常规赛 ${calibration.regular.count} 个已结算样本、近期 MAE ${calibration.regular.recentLoss.mae??'暂无'} 分、MAPE ${calibration.regular.recentLoss.mape??'暂无'}%、偏差 ${calibration.regular.recentLoss.bias??'暂无'} 分、系数 ${calibration.regular.factor.toFixed(3)}；季前赛 ${calibration.preseason.count} 个样本、系数 ${calibration.preseason.factor.toFixed(3)}；跳过阵容计算与提交`);
     saveRunReport('success');
     process.exit(0);
   }
@@ -227,7 +227,7 @@ try {
   const calibration=deriveCalibration(previous);
   const factors={preseason:calibration.preseason.factor,regular:calibration.regular.factor};
   const regular=calibration.regular,preseason=calibration.preseason;
-  say(`常规赛校准：${regular.count} 个已结算样本，近期比率 ${regular.recentRatio?.toFixed(3)??'暂无'}，系数 ${regular.factor.toFixed(3)}；前100命中 ${regular.top100Hits}/${regular.rankCount||0}。季前赛：${preseason.count} 个已结算样本，系数 ${preseason.factor.toFixed(3)}`);
+  say(`常规赛校准：${regular.count} 个已结算样本，近期 MAE ${regular.recentLoss.mae??'暂无'} 分、MAPE ${regular.recentLoss.mape??'暂无'}%、偏差 ${regular.recentLoss.bias??'暂无'} 分、得分比 ${regular.recentRatio?.toFixed(3)??'暂无'}，系数 ${regular.factor.toFixed(3)}。季前赛：${preseason.count} 个已结算样本，近期 MAE ${preseason.recentLoss.mae??'暂无'} 分，系数 ${preseason.factor.toFixed(3)}`);
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'auto'};}})();
   const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);

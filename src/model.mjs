@@ -73,6 +73,16 @@ export function deriveCalibration(history = []) {
       const actual = rows.reduce((sum, row) => sum + Number(row.actualTotal), 0);
       return predicted > 0 ? actual / predicted : null;
     };
+    const lossFor = rows => {
+      if (!rows.length) return { mae:null, rmse:null, mape:null, bias:null };
+      const deltas=rows.map(row=>Number(row.actualTotal)-Number(row.expected));
+      return {
+        mae:Number((deltas.reduce((sum,value)=>sum+Math.abs(value),0)/rows.length).toFixed(1)),
+        rmse:Number(Math.sqrt(deltas.reduce((sum,value)=>sum+value*value,0)/rows.length).toFixed(1)),
+        mape:Number((rows.reduce((sum,row)=>sum+Math.abs(Number(row.actualTotal)-Number(row.expected))/Number(row.expected),0)/rows.length*100).toFixed(1)),
+        bias:Number((deltas.reduce((sum,value)=>sum+value,0)/rows.length).toFixed(1)),
+      };
+    };
     const allTimeRatio = ratioFor(samples);
     const recent = samples.slice(-7);
     const recentRatio = ratioFor(recent);
@@ -80,39 +90,31 @@ export function deriveCalibration(history = []) {
     const blended = allTimeRatio == null ? 1 : recentRatio == null ? allTimeRatio : allTimeRatio * (1 - recentWeight) + recentRatio * recentWeight;
     const sampleWeight = Math.min(1, samples.length / 5);
     const factor = samples.length ? clamp(1 + (clamp(blended, 0.85, 1.15) - 1) * sampleWeight, 0.85, 1.15) : 1;
-    const ranked = samples.filter(row => Number(row.rank) > 0 && Number(row.rankTotal) > 0);
-    const top100Hits = ranked.filter(row => Number(row.rank) <= Math.min(100, Number(row.rankTotal))).length;
     return {
       factor: Number(factor.toFixed(3)), count: samples.length, allTimeRatio, recentCount: recent.length,
-      recentRatio, recentWeight, rankCount: ranked.length, top100Hits,
-      top100Rate: ranked.length ? Number((top100Hits / ranked.length).toFixed(3)) : null,
+      recentRatio, recentWeight, allTimeLoss:lossFor(samples), recentLoss:lossFor(recent),
     };
   };
   return { preseason: summarize('preseason'), regular: summarize('regular') };
 }
 
-// 自动模式只用已结算且实际提交阵容与模型一致的常规赛成绩；目标直接对齐前 50。
+// 自动模式按已结算比赛日的预测总分误差选择策略。
+// 实际得分用于评估预测，不要求它来自模型推荐阵容还是账号提交阵容。
 export function selectAutoMode(history = []) {
   const keys=Object.keys(MODEL_MODES);
-  const sameLineup=(a,b)=>Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&[...a].map(String).sort().join(',')===[...b].map(String).sort().join(',');
   const samples=history.filter(row=>row.phase==='regular'&&row.settled===true&&row.selectedMode&&keys.includes(row.selectedMode)
-    &&Number(row.expected)>0&&Number(row.rank)>0&&Number(row.rankTotal)>1
-    &&sameLineup(row.players,row.bao5Players));
+    &&Number.isFinite(Number(row.expected))&&Number(row.expected)>0
+    &&Number.isFinite(Number(row.actualTotal))&&Number(row.actualTotal)>=0);
   const total=samples.length;
-  const stats=Object.fromEntries(keys.map(key=>{
-    const rows=samples.filter(row=>row.selectedMode===key).slice(-20);
-    const rewards=rows.map(row=>{
-      const rank=Number(row.rank),rankTotal=Number(row.rankTotal);
-      const percentile=Math.max(0,Math.min(1,1-(rank-1)/(rankTotal-1)));
-      const top50=rank<=Math.min(50,rankTotal)?1:0;
-      return percentile*0.4+top50*0.6;
-    });
-    return [key,{count:rows.length,mean:rewards.length?rewards.reduce((sum,value)=>sum+value,0)/rewards.length:0}];
-  }));
-  const leastSamples=Math.min(...keys.map(key=>stats[key].count));
-  if(leastSamples<2){const underused=keys.filter(key=>stats[key].count===leastSamples);return underused[total%underused.length];}
-  const log=Math.log(total+1);
-  return keys.map(key=>({key,ucb:stats[key].mean+0.22*Math.sqrt(log/stats[key].count)})).sort((a,b)=>b.ucb-a.ucb)[0]?.key??'balanced';
+  const rowsByMode=Object.fromEntries(keys.map(key=>[key,samples.filter(row=>row.selectedMode===key).slice(-20)]));
+  const leastSamples=Math.min(...keys.map(key=>rowsByMode[key].length));
+  if(leastSamples<2){const underused=keys.filter(key=>rowsByMode[key].length===leastSamples);return underused[total%underused.length];}
+  const stats=keys.map(key=>{
+    const rows=rowsByMode[key];
+    const meanAbsolutePercentageError=rows.reduce((sum,row)=>sum+Math.abs(Number(row.actualTotal)-Number(row.expected))/Number(row.expected),0)/rows.length;
+    return {key,count:rows.length,loss:meanAbsolutePercentageError};
+  });
+  return stats.sort((a,b)=>a.loss-b.loss||b.count-a.count)[0]?.key??'balanced';
 }
 
 export function buildDashboardData({ players, schedule, injuries, odds, defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
