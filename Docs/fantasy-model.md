@@ -896,3 +896,100 @@ planWildcard(..., pinnedWildcardIndex)   // 候选只有这一个
 | 幂等 | 同输入两次结果一致 | ✅ |
 | 移动端 390px | 无横向溢出 | ✅ `scrollWidth = 390` |
 | 深色主题 | hero 标题对比度恢复 | ✅ |
+
+## 18. FT 每周打光：把名额花在「补人」上（2026-11-08）
+
+### 18.1 问题：不结转的名额会凭空蒸发
+
+官方 `game_config.max_extra_free_transfers = 0` ⇒ 每周恒定 2 个免费转会、**不结转**。
+旧实现只在「单笔净增益 ≥ 1.5 分」时才换人，于是窗口里经常出现：
+
+```
+第 5 周 7 天 · FT 0/2 · 排满 3/7      ← 2 个名额白扔，那周还缺 4 天
+```
+
+名额作废的代价不是 0，而是「下一周某天又只能上 3 个人」——少一个首发就是少一份产出。
+
+### 18.2 三处改动
+
+**① 评估窗口恒为「整段剩余赛程」**
+
+不为某一周单独优化。换人必须让**剩下所有比赛日**的总预测分变好，
+避免「为下周换人、把后面五周搞砸」。
+
+```js
+const before = weekCoverage(roster, remainingEvents, rules, penalty, mode);
+```
+
+**② 买入池放开到「剩余赛程有比赛的球队」**
+
+旧版只从**当天出战**的球队里挑人，等于把「提前为后面几周补人」这条路直接堵死：
+
+```js
+// 旧：if (!teamsPlayingToday.has(player.team)) continue;
+// 新：
+if (!remainingGames.has(String(player.team))) continue;   // 剩余赛程里有比赛即可
+```
+
+卖出侧仍不许动「今天有比赛的人」——那会白扔当日产出。
+
+**③ 「补人」本身算正收益**
+
+```js
+const covers = !isPaid && (coverageGain > 0 || slotsGain > 0);
+const accepted = mode === 'steady'
+  ? coverageGain > 0 || pointsGain - transferCost >= threshold
+  : pointsGain - transferCost >= threshold
+    || (covers && pointsGain - transferCost >= -COVER_LOSS_LIMIT);  // 12 分
+```
+
+- 允许为「多排满一天」牺牲最多 12 分（`COVER_LOSS_LIMIT`），但不能拿核心球员换短工。
+- 排序时 `coverRank`（`coverageGain > 0`）优先于纯分数：多排满一天的产出远大于几分浮动。
+- 转会对象带 `kind:'cover'`，界面用青绿底色单独标注「补人 · FT」。
+
+**④ 门槛随「名额压力」下调**
+
+```js
+const daysLeftInWeek = week.events.length - dayIndex;
+const catchingUp = !isPaid && available >= daysLeftInWeek;   // 名额 ≥ 剩余比赛日 ⇒ 今天不用就作废
+const threshold = isPaid ? paidThreshold : (catchingUp ? PAVING_MIN_GAIN : ftThreshold);  // 0.5
+```
+
+### 18.3 缺人日的球队必须进候选池
+
+只按「预测分 × 剩余场次」取每位置前 10，会清一色是高分手——而**那些球队在缺人的那天恰好都不打**。
+于是「明明有七八个人可以卖，却补不上那一个空位」：
+
+```js
+// 先扫出缺人日涉及的球队，再给每位置额外补 4 个候选
+const extra = ranked.filter(item => item.gap && !picked.includes(item)).slice(0, 4);
+```
+
+### 18.4 剩下的名额为什么不硬花掉
+
+实测 60 天窗口里，单笔最优换人普遍是 `覆盖-1 / −40 分`——补上 A 天，卖掉的球员让 B 天从满员掉到 4 人。
+**这不叫优化，叫拆东墙补西墙**，所以模型选择不花，并在界面写明原因：
+
+> 这周没有可用的换人：剩下的 2 个名额无论怎么花，都会让某个原本能排满 5 人的比赛日变成缺人，
+> 或者直接掉分。官方不结转，下周照样重新给 2 个。
+
+### 18.5 界面
+
+- 每周标题右对齐显示 `已用 X（其中 N 笔为补人）· 已打光 / 剩 X · 剩余赛程已是最优组合`。
+- 「每周转会计划」标题汇总 `免费 FT 共 12 个、已用 6 个（不结转）`。
+- 补人转会行：青绿边框 + `补人 · FT` 标签 + 「这笔换人让后面多排满 N 天（首发人次 +N），剩余赛程预测得分 ±X」。
+
+### 18.6 验收
+
+| 项 | 标准 | 结果 |
+|---|---|---|
+| 建队 30 天 | FT 打光率 / 排满率 | ✅ 6/12 已用 · 补人 4 笔 · 21/30 排满（70%） |
+| 账号（本周 FT 0） | 名额不浪费 | ✅ 8/10 已用 · 补人 3 笔 |
+| 账号（本周 FT 2） | 名额不浪费 | ✅ 9/12 已用 · 补人 5 笔 |
+| 建队 60 天 | 无正收益时不硬换 | ✅ 剩余赛程已最优，界面写明原因 |
+| 补人标记 | `kind='cover'` 且排满日真增加 | ✅ 4/4 笔 `addedFullDays ≥ 1` |
+| 阵型合法（满 5 人日） | 每组 2–3 人 | ✅ 违规 0 天 |
+| 预算守恒 | 阵容成本 ≤ 预算 | ✅ 992 ≤ 1000 |
+| 幂等 | 同输入两次结果一致 | ✅ |
+| 性能 | 60 天窗口 + 野卡 | ✅ 4.8 s |
+| 移动端 390px | 无横向溢出 | ✅ `scrollWidth = 390` |

@@ -347,6 +347,11 @@
 .fantasy-metrics .is-primary{background:#f2f6ff}
 .fantasy-metrics .is-primary b{color:#315efb}
 .fantasy-transfer-meta small.is-paid{color:#c2413f;font-weight:800}
+/* 「补人」转会：目的不是加分，而是让后面原本缺人的比赛日排满，用青绿区别于普通 FT。 */
+.fantasy-transfer-meta small.is-cover{color:#0f766e;font-weight:800}
+.fantasy-transfer-list>div.fantasy-transfer-row.is-cover{background:#f3fbf8;border-color:#c8e9df}
+:root[data-theme="dark"] .fantasy-transfer-list>div.fantasy-transfer-row.is-cover{background:#14261f;border-color:#27564a}
+:root[data-theme="dark"] .fantasy-transfer-meta small.is-cover{color:#5fd3b4}
 .planner-player small{line-height:1.45}
 @media(max-width:900px){.fantasy-metrics{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.fantasy-metrics{grid-template-columns:1fr 1fr}}

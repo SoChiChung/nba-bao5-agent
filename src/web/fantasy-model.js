@@ -22,6 +22,24 @@ const DEFAULT_PAID_THRESHOLD = 110;
  * 官方每周重置 2 个免费转会（game_config.max_extra_free_transfers = 0，不结转），
  * 付费换人同样按周计，所以上限也必须按周，否则窗口越长扣分越失控。
  */
+/**
+ * 「为下周铺垫」的收益门槛（分，按下周窗口算）。
+ * FT 每周重置、用不完不结转，所以到了本周最后一个比赛日还留着名额时，它们的唯一价值
+ * 就是提前改善下一个 Gameweek 的阵容。这时不该再套常规的 1.5 分门槛——窗口末端的
+ * 边际机会本来就少，只要对下周仍有正收益就该花掉，否则名额直接蒸发。
+ */
+/**
+ * 「把名额花掉」的收益门槛（分）。
+ * FT 每周重置、用不完不结转，所以本周名额越多、剩余比赛日越少，就越接近
+ *「今天不用就作废」。这时不该再套常规的 1.5 分门槛，只要能让剩余赛程变好就该花掉。
+ */
+const PAVING_MIN_GAIN = 0.5;
+/**
+ * 为「补满缺人日」可以容忍的失分上限。
+ * 一个首发席位本身就是一二十份产出，「某天只能上 3 个人」比小幅失分更伤；
+ * 但也不能拿核心球员去换短工，所以给一个明确的封顶。
+ */
+const COVER_LOSS_LIMIT = 12;
 const DEFAULT_PAID_LIMIT = 2;
 /** 官方硬约束：每周免费转会固定 2 个（config.max_extra_free_transfers=0 ⇒ 不累积）。 */
 const FREE_TRANSFERS_PER_WEEK = 2;
@@ -542,15 +560,15 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
   // 周末做的转会若只按当天/当周评估，会严重低估买入长期球员的收益。
   let horizonIndex = 0;
 
-  let weekOrdinal = 0;
-  for (const week of byWeek.values()) {
+  const weekList = [...byWeek.values()];
+  for (let weekIndex = 0; weekIndex < weekList.length; weekIndex++) {
+    const week = weekList[weekIndex];
     // 每周重置：第一周用账号读到的剩余 FT，之后每个 Gameweek 重新给满 2 个（不结转）。
-    const availableAtStart = weekOrdinal === 0 ? firstWeekQuota : perWeekQuota;
+    const availableAtStart = weekIndex === 0 ? firstWeekQuota : perWeekQuota;
     let available = availableAtStart;
     let paidThisWeek = 0;
     const transfers = [];
     const acquiredThisWeek = new Set();
-    weekOrdinal++;
     for (let dayIndex = 0; dayIndex < week.events.length; dayIndex++) {
       const remainingEvents = events.slice(horizonIndex);
       horizonIndex++;
@@ -608,12 +626,19 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
           }
         } catch { /* 重建失败就退回常规转会路径，不阻断整个方案 */ }
       }
+      // 🚨 FT 不结转（每周重置）⇒「这周没用完，下周照样缺人」是最常见的浪费：
+      // 名额作废的代价不是 0，而是「下一周某天又只能上 3 个人」。
+      // 所以只要本周还有免费名额，就把「补满缺人日」当成与分数并列的目标；
+      // 越接近周末（名额 ≥ 剩余比赛日），门槛越低——不花掉就真没了。
+      const daysLeftInWeek = week.events.length - dayIndex;
       while (true) {
         const isPaid = available <= 0;
         // 付费上限按**周**计（与 FT 每周重置同口径），不是整段窗口累计。
         if (isPaid && (!allowPaid || paidThisWeek >= paidCap)) break;
+        const catchingUp = !isPaid && available >= daysLeftInWeek;
         const transferCost = isPaid ? paidCost : 0;
-        const threshold = isPaid ? paidThreshold : ftThreshold;
+        const threshold = isPaid ? paidThreshold : (catchingUp ? PAVING_MIN_GAIN : ftThreshold);
+        // 评估窗口始终是「整段剩余赛程」：换人不只为下一周，而是让剩下的每一天都更好。
         const before = weekCoverage(roster, remainingEvents, rules, penalty, mode);
         const teamsPlayingToday = new Set((week.events[dayIndex].games ?? []).flatMap(game => [String(game.home), String(game.away)]));
         // 入池按「预测分 × 剩余场次」裁剪到每位置前 10：既能容纳低身价高密度球员，
@@ -621,14 +646,32 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
         const remainingGames = new Map();
         for (const upcoming of remainingEvents) for (const game of upcoming.games ?? []) for (const id of [game.home, game.away]) remainingGames.set(String(id), (remainingGames.get(String(id)) ?? 0) + 1);
         const incomingByPosition = new Map();
+        // 缺人日的球队必须有人进候选池：只按「预测分 × 剩余场次」取前 10，会清一色是
+        // 高分手——而那些球队在缺人的那天恰好都不打。于是「明明有七八个人可以卖，
+        // 却补不上那一个空位」，FT 只能跟着作废。
+        const starterSlots = number(rules.squadPlay, 5);
+        const gapTeams = new Set();
+        for (const [index, day] of before.days.entries()) {
+          if (day.count >= starterSlots) continue;
+          for (const game of remainingEvents[index]?.games ?? []) { gapTeams.add(String(game.home)); gapTeams.add(String(game.away)); }
+        }
         for (const player of candidates) {
-          if (!teamsPlayingToday.has(String(player.team))) continue;
+          // 只要剩余赛程里还有比赛就能买——不再要求「今天必须上场」。
+          // 旧版只从当天出战的球队里挑，等于把「提前为后面几周补人」这条路直接堵死，
+          // 结果就是本周名额用不完、下周继续缺人。
+          if (!remainingGames.has(String(player.team))) continue;
           const position = String(player.position);
           const bucket = incomingByPosition.get(position) ?? [];
-          bucket.push({ player, value: playerProjection(player) * (remainingGames.get(String(player.team)) ?? 1) });
+          bucket.push({ player, value: playerProjection(player) * (remainingGames.get(String(player.team)) ?? 1), gap:gapTeams.has(String(player.team)) });
           incomingByPosition.set(position, bucket);
         }
-        const incomingToday = [...incomingByPosition.values()].flatMap(bucket => bucket.sort((a, b) => b.value - a.value).slice(0, 10).map(item => item.player));
+        const incomingToday = [...incomingByPosition.values()].flatMap(bucket => {
+          const ranked = [...bucket].sort((a, b) => b.value - a.value);
+          const picked = ranked.slice(0, 10);
+          // 再补 4 个「缺人日出战」的球员，保证空位有解；他们分数未必高，但能让人上场。
+          const extra = ranked.filter(item => item.gap && !picked.includes(item)).slice(0, 4);
+          return [...picked, ...extra].map(item => item.player);
+        });
         // 「指定球员」清算：阵中还留着「不想要」的、或「想要」的还没进来，就必须主动处理。
         // 这层约束优先于收益判断——用户说「我就要他」不该被模型用打分否掉；
         // 但资金、每队人数、每周 FT/付费额度仍是硬规则，做不到就报 unmet，不静默忽略。
@@ -669,6 +712,9 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
             const coverageGain = after.fullDays - before.fullDays;
             const slotsGain = after.slots - before.slots;
             const forced = forcedOut || forcedIn;
+            // 「补人」也算正收益：少一个首发就少一份产出，而本周没用完的名额
+            // 下周直接清零，不会自动替你补上未来的空位。
+            const covers = !isPaid && (coverageGain > 0 || slotsGain > 0);
             if (!forced) {
               // 模式护栏：稳健模式不许把排满天数做少，场次模式不许把首发人次做少。
               if (mode === 'steady' && coverageGain < 0) continue;
@@ -676,15 +722,20 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
               // 稳健模式：只要排满天数有提升就接受；否则按净增益阈值判定。
               const accepted = mode === 'steady'
                 ? coverageGain > 0 || pointsGain - transferCost >= threshold
-                : pointsGain - transferCost >= threshold;
+                : pointsGain - transferCost >= threshold || (covers && pointsGain - transferCost >= -COVER_LOSS_LIMIT);
               if (!accepted) continue;
             }
             const gain = after.score - before.score;
             // 同一轮里可能同时有「卖掉不想要」和「买入想要」两种强制转会：
             // 先清掉不想要的（腾位置也腾钱），再补想要的，最后才比收益。
             const priority = (forcedOut ? 2 : 0) + (forcedIn ? 1 : 0);
-            if (!best || priority > best.priority || (priority === best.priority && gain > best.gain)) {
-              best = { outgoing, incoming, nextRoster, nextMoneyBank, gain, before, after, pointsGain, transferCost, priority };
+            // 有免费名额时，把「多排满一天」排在纯分数前面：
+            // 缺一天的产出远大于一笔转会那几分浮动，这也是「FT 别留着」的初衷。
+            const coverRank = !isPaid && coverageGain > 0 ? 1 : 0;
+            if (!best || priority > best.priority
+              || (priority === best.priority && coverRank > best.coverRank)
+              || (priority === best.priority && coverRank === best.coverRank && gain > best.gain)) {
+              best = { outgoing, incoming, nextRoster, nextMoneyBank, gain, before, after, pointsGain, transferCost, priority, coverRank };
             }
           }
         }
@@ -700,6 +751,8 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
           event, eventLabel:String(event.name ?? '').replace('Gameweek ','GW').replace(' - Day ','.'),
           from:best.outgoing, to:best.incoming, gain:best.pointsGain, order:transfers.length+1,
           paid:best.transferCost > 0, cost:best.transferCost,
+          // 「补人」型转会：这笔换人的主要目的不是加分，而是让后面原本只有 3–4 人的比赛日排满。
+          kind:best.coverRank ? 'cover' : 'normal',
           outgoingEarnedStarts:previouslyEarnedStarts, incomingFutureStarts, outgoingFutureStarts,
           slotStartsBefore:previouslyEarnedStarts + outgoingFutureStarts,
           slotStartsAfter:previouslyEarnedStarts + incomingFutureStarts,
@@ -722,9 +775,12 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
       daily.push({ ...lineupForDay(roster, week.events[dayIndex], rules), transfers:dayTransfers, roster:roster.map(player => ({...player})), penaltySoFar:penalty, moneyBankAfter:moneyBank, wildcard:wildcardInfo && wildcardInfo.dayIndex === horizonIndex - 1 ? trimWildcard(wildcardInfo) : null });
     }
     const used = availableAtStart - available;
+    const coverUsed = transfers.filter(item => item.kind === 'cover').length;
     weekly.push({
       key:week.key,name:week.name,events:week.events,targets:[],transfers,available:availableAtStart,used,remaining:available,
-      paidThisWeek, nextWeekAvailable:perWeekQuota,
+      paidThisWeek, nextWeekAvailable:perWeekQuota, coverUsed,
+      // 只剩「窗口末端没下一周」时才允许名额用不掉；其余情况都应该打光。
+      exhausted:available === 0, hasFuture:horizonIndex < events.length,
       fullDays:daily.slice(-week.events.length).filter(day => day.full).length,
       appearances:daily.slice(-week.events.length).reduce((sum, day) => sum + day.starters.length, 0),
     });

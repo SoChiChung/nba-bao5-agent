@@ -507,8 +507,42 @@ function renderConstraints(plan) {
   return `<div class="fantasy-plan-section fantasy-constraint-section"><div class="fantasy-section-title"><b>指定球员</b><span>你手动点名的强制条件 · 已按最终十人阵容逐条核对</span></div><div class="fantasy-pick-chips">${want}${avoid}</div>${unmet.length ? `<p class="fantasy-week-note is-warn">有 ${unmet.length} 条没兑现。常见原因是：预算不够、该球队已经有 2 人、同位置名额被锁定球员占满、该球员当前伤停无法出场，或本周 FT 与扣分换人额度都用完了。把「想要」减到 2 人以内、放宽每周扣分换人上限，或调高预算再算一次。</p>` : ''}</div>`;
 }
 
+/**
+ * 每周转会计划。
+ * FT 不结转，所以每周都要交代清楚「这 2 个名额去哪了」：
+ * 用掉了就写「已打光」，没用掉必须给出原因（剩余赛程已是最优组合 / 窗口到此结束），
+ * 否则用户会以为模型偷懒——实际上强行换一个只会让后面某天更缺人。
+ */
+function renderWeekPlan(week) {
+  const used = week.used ?? 0;
+  const left = week.remaining ?? 0;
+  const cover = week.coverUsed ?? 0;
+  const state = left === 0
+    ? '已打光'
+    : (week.hasFuture ? `剩 ${left} · 剩余赛程已是最优组合` : `剩 ${left} · 规划窗口到此结束`);
+  const head = `本周初 ${week.available} 个免费转会（每周重置）· 已用 ${used}${cover ? `（其中 ${cover} 笔为补人）` : ''} · ${state}${week.paidThisWeek ? ` · 付费 ${week.paidThisWeek} 次` : ''}`;
+  const rows = week.transfers.map(idea => {
+    const isCover = idea.kind === 'cover';
+    const tag = idea.paid ? `付费 −${idea.cost} 分` : (isCover ? '补人 · FT' : `FT ${idea.order}`);
+    const reason = isCover
+      ? `补人优先：这笔换人让后面多排满 ${Math.max(1, idea.addedFullDays)} 天（首发人次 +${Math.max(1, idea.addedSlots)}），剩余赛程预测得分 ${idea.addedPoints >= 0 ? '+' : ''}${idea.addedPoints}。`
+      : `剩余赛程预测得分 ${idea.paid ? `+${idea.addedPoints} − ${idea.cost}（付费）` : `+${idea.addedPoints}`}；该名额首发场次 ${idea.slotStartsBefore} → ${idea.slotStartsAfter}；全队首发人次 ${idea.weekSlotsBefore} → ${idea.weekSlotsAfter}；排满日 ${idea.weekFullDaysBefore} → ${idea.weekFullDaysAfter}。`;
+    return `<div class="fantasy-transfer-row${isCover ? ' is-cover' : ''}"><div class="fantasy-transfer-meta"><b>${escapeHtml(idea.eventLabel)} 开赛前</b><small class="${idea.paid ? 'is-paid' : (isCover ? 'is-cover' : '')}">${tag}</small></div><div class="fantasy-transfer-pair"><span class="fantasy-transfer-player">${avatarMarkup(idea.from)}<span><b>${escapeHtml(playerLabel(idea.from))}</b><small>${escapeHtml(teamLabel(idea.from.team))} · 卖价 ${price(idea.from.sellingPrice ?? idea.from.cost)}</small></span></span><i>→</i><span class="fantasy-transfer-player">${avatarMarkup(idea.to)}<span><b>${escapeHtml(playerLabel(idea.to))}</b><small>${escapeHtml(teamLabel(idea.to.team))} · 买价 ${price(idea.to.cost)}</small></span></span></div><small class="fantasy-transfer-reason">${reason}</small></div>`;
+  }).join('');
+  const empty = left
+    ? `<p class="fantasy-week-note">这周没有可用的换人：剩下的 ${left} 个名额无论怎么花，都会让某个原本能排满 5 人的比赛日变成缺人，或者直接掉分。<b>官方不结转</b>，下周照样重新给 ${week.nextWeekAvailable ?? 2} 个。</p>`
+    : '<p class="fantasy-week-note">本周名额已全部用在上面这些转会上。</p>';
+  return `<div class="fantasy-week-plan"><div class="fantasy-week-head"><b>${escapeHtml(week.name)} · ${week.events.length} 个比赛日</b><span>${head}</span></div><div class="fantasy-week-outcome"><b>${week.fullDays}/${week.events.length}</b> 天排满 5 人 <span>· ${week.appearances} 个首发席位</span></div><div class="fantasy-team-chips">${week.targets.map(item => `<span><b>${escapeHtml(item.team.shortName)}</b> ${item.games} 场${item.held ? ` · 初始阵容 ${item.held} 人` : ''}</span>`).join('')}</div>${week.transfers.length ? `<div class="fantasy-transfer-list"><b>具体转会安排 · 按比赛日执行</b>${rows}</div>` : empty}</div>`;
+}
+
 function renderPlan(plan, index, rules, windowInfo) {
   const events = plan.daily.map(day => day.event);
+  // FT 不结转，所以「一共发了多少、用掉多少」比单周更该摆到台面上。
+  const ftUsed = plan.weekly.reduce((sum, week) => sum + (week.used ?? 0), 0);
+  const ftQuota = plan.weekly.reduce((sum, week) => sum + (week.available ?? 0), 0);
+  const ftNote = ftQuota
+    ? `免费 FT 共 ${ftQuota} 个、已用 ${ftUsed} 个（不结转）· 名额优先补满缺人的比赛日 · 付费转会需净增益超过 100 分成本`
+    : '免费 FT 每周重置、不结转 · 付费转会需净增益超过 100 分成本';
   const positionNameOf = player => rules.positionRules[String(player.position)]?.name ?? '阵容球员';
   const groups = new Map();
   for (const player of plan.roster) {
@@ -586,12 +620,12 @@ function renderPlan(plan, index, rules, windowInfo) {
   const dailySummary = `<div class="planner-position planner-summary-label" style="grid-column:1">有效出阵人数</div>${timeline.map(step => step.type === 'transfer' ? '<div class="planner-event-cell planner-summary-cell planner-roster-snapshot">阵容快照</div>' : step.type === 'wildcard' ? '<div class="planner-event-cell planner-summary-cell planner-roster-snapshot is-wildcard">野卡重建</div>' : `<div class="planner-event-cell planner-summary-cell"><b>${plan.daily[step.dayIndex].starters.length} 人</b></div>`).join('')}`;
   const columnWidths = timeline.map(step => step.type === 'event' ? '78px' : '160px').join(' ');
   const schedule = `<div class="fantasy-planner-scroll"><div class="fantasy-planner-grid" style="--planner-columns:${columnWidths}"><div class="planner-corner"><b>阵容 / 赛程</b><small>转会列显示换人后的完整阵容</small></div>${scheduleHead}${scheduleRows}${dailySummary}</div></div>`;
-  const weekly = plan.weekly.map(week => `<div class="fantasy-week-plan"><div class="fantasy-week-head"><b>${escapeHtml(week.name)} · ${week.events.length} 个比赛日</b><span>本周初 ${week.available} 个免费转会（每周重置）· 已用 ${week.used}${week.remaining ? ` · 剩 ${week.remaining}` : ''}${week.paidThisWeek ? ` · 付费 ${week.paidThisWeek} 次` : ''}</span></div><div class="fantasy-week-outcome"><b>${week.fullDays}/${week.events.length}</b> 天排满 5 人 <span>· ${week.appearances} 个首发席位</span></div><div class="fantasy-team-chips">${week.targets.map(item => `<span><b>${escapeHtml(item.team.shortName)}</b> ${item.games} 场${item.held ? ` · 初始阵容 ${item.held} 人` : ''}</span>`).join('')}</div>${week.transfers.length ? `<div class="fantasy-transfer-list"><b>具体转会安排 · 按比赛日执行</b>${week.transfers.map(idea => `<div class="fantasy-transfer-row"><div class="fantasy-transfer-meta"><b>${escapeHtml(idea.eventLabel)} 开赛前</b><small class="${idea.paid ? 'is-paid' : ''}">${idea.paid ? `付费 −${idea.cost} 分` : `FT ${idea.order}`}</small></div><div class="fantasy-transfer-pair"><span class="fantasy-transfer-player">${avatarMarkup(idea.from)}<span><b>${escapeHtml(playerLabel(idea.from))}</b><small>${escapeHtml(teamLabel(idea.from.team))} · 卖价 ${price(idea.from.sellingPrice ?? idea.from.cost)}</small></span></span><i>→</i><span class="fantasy-transfer-player">${avatarMarkup(idea.to)}<span><b>${escapeHtml(playerLabel(idea.to))}</b><small>${escapeHtml(teamLabel(idea.to.team))} · 买价 ${price(idea.to.cost)}</small></span></span></div><small class="fantasy-transfer-reason">剩余赛程预测得分 ${idea.paid ? `+${idea.addedPoints} − ${idea.cost}（付费）` : `+${idea.addedPoints}`}；该名额首发场次 ${idea.slotStartsBefore} → ${idea.slotStartsAfter}；全队首发人次 ${idea.weekSlotsBefore} → ${idea.weekSlotsAfter}；排满日 ${idea.weekFullDaysBefore} → ${idea.weekFullDaysAfter}。</small></div>`).join('')}</div>` : `<p class="fantasy-week-note">本周没有找到净增益足够的换人。${week.remaining ? `剩余 ${week.remaining} 个免费转会未用（官方不结转，下周仍是 2 个）。` : ''}</p>`}</div>`).join('');
+  const weekly = plan.weekly.map(renderWeekPlan).join('');
   const daily = plan.daily.map(day => {
     const matchups = day.games.map(game => `${team(game.away)?.shortName ?? '—'} @ ${team(game.home)?.shortName ?? '—'}`).join('、');
     return `<div class="fantasy-day-row"><span><b>${escapeHtml(day.event.name)}</b><small>${shortDate(day.event.deadline)} · ${day.games.length} 场 NBA 比赛</small>${day.transfers?.length ? `<small class="fantasy-day-transfer">${day.transfers.map(item => `${escapeHtml(playerLabel(item.from))} → ${escapeHtml(playerLabel(item.to))}`).join('；')}</small>` : ''}</span><span class="fantasy-day-starters">${day.starters.map(player => `<i class="${player.locked ? 'locked' : ''}">${escapeHtml(player.name)} <small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${player.projection}</small></i>`).join('') || '没有可排球员'}</span><strong class="${day.full ? 'full' : 'short'}">${5 - day.missing}/5</strong><small class="fantasy-matchups">${escapeHtml(matchups || '暂无比赛')}</small></div>`;
   }).join('');
-  return `<article class="fantasy-plan ${index === 0 ? 'recommended' : ''}"><div class="fantasy-plan-head"><div><span class="fantasy-plan-kicker">${index===0?'推荐方案':'阵容方案'}</span><h2>${escapeHtml(plan.title)}</h2><p>${escapeHtml(plan.description)}</p></div><span class="fantasy-plan-budget">预算余量<strong>${price(plan.budgetLeft)}</strong></span></div><div class="fantasy-metrics"><div class="is-primary"><small>预计净得分</small><b>${plan.netPoints.toFixed(1)}</b></div><div><small>预计总分</small><b>${plan.points.toFixed(1)}</b></div><div><small>扣分换人（次）</small><b>${plan.paidTransfers ?? 0} / ${plan.paidLimit ?? 0}</b><small>每周上限${plan.transferCost ? ` · 共扣 ${plan.transferCost} 分` : ''}</small></div><div><small>排满 5 人的比赛日</small><b>${plan.fullDays} / ${plan.possibleDays}</b></div><div><small>日均预估</small><b>${(plan.points / Math.max(1, plan.possibleDays)).toFixed(1)}</b><small>${plan.possibleDays} 个比赛日</small></div><div><small>未来可出场人次</small><b>${plan.appearances}</b></div></div>${renderScoreAnchor(plan)}${renderConstraints(plan)}${renderAllStar(plan)}${renderWildcard(plan)}<div class="fantasy-plan-section planner-section"><div class="fantasy-section-title"><b>阵容赛程表</b><span>${windowInfo ? `规划窗口 ${escapeHtml(windowInfo.startLabel)} → ${escapeHtml(windowInfo.endLabel)} · ${windowInfo.days} 个比赛日` : '比赛日显示对手；转会列显示十人阵容快照'}</span></div>${schedule}</div><div class="fantasy-plan-section"><div class="fantasy-section-title"><b>每周转会计划</b><span>免费 FT 优先 · 付费转会需净增益超过 100 分成本</span></div>${weekly}</div><button class="fantasy-expand" data-expand>查看每天首发安排</button><div class="fantasy-daily hidden">${daily}</div></article>`;
+  return `<article class="fantasy-plan ${index === 0 ? 'recommended' : ''}"><div class="fantasy-plan-head"><div><span class="fantasy-plan-kicker">${index===0?'推荐方案':'阵容方案'}</span><h2>${escapeHtml(plan.title)}</h2><p>${escapeHtml(plan.description)}</p></div><span class="fantasy-plan-budget">预算余量<strong>${price(plan.budgetLeft)}</strong></span></div><div class="fantasy-metrics"><div class="is-primary"><small>预计净得分</small><b>${plan.netPoints.toFixed(1)}</b></div><div><small>预计总分</small><b>${plan.points.toFixed(1)}</b></div><div><small>扣分换人（次）</small><b>${plan.paidTransfers ?? 0} / ${plan.paidLimit ?? 0}</b><small>每周上限${plan.transferCost ? ` · 共扣 ${plan.transferCost} 分` : ''}</small></div><div><small>排满 5 人的比赛日</small><b>${plan.fullDays} / ${plan.possibleDays}</b></div><div><small>日均预估</small><b>${(plan.points / Math.max(1, plan.possibleDays)).toFixed(1)}</b><small>${plan.possibleDays} 个比赛日</small></div><div><small>未来可出场人次</small><b>${plan.appearances}</b></div></div>${renderScoreAnchor(plan)}${renderConstraints(plan)}${renderAllStar(plan)}${renderWildcard(plan)}<div class="fantasy-plan-section planner-section"><div class="fantasy-section-title"><b>阵容赛程表</b><span>${windowInfo ? `规划窗口 ${escapeHtml(windowInfo.startLabel)} → ${escapeHtml(windowInfo.endLabel)} · ${windowInfo.days} 个比赛日` : '比赛日显示对手；转会列显示十人阵容快照'}</span></div>${schedule}</div><div class="fantasy-plan-section"><div class="fantasy-section-title"><b>每周转会计划</b><span>${ftNote}</span></div>${weekly}</div><button class="fantasy-expand" data-expand>查看每天首发安排</button><div class="fantasy-daily hidden">${daily}</div></article>`;
 }
 
 function bindDailyToggle() {
