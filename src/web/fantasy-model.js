@@ -34,6 +34,13 @@ const MAX_ALLSTAR_CANDIDATES = 3;
 /** 候选野卡日最多评估几个（每个候选要跑一次整队重建 + 一次后续规划）。 */
 const MAX_WILDCARD_CANDIDATES = 3;
 const MIN_STARTERS_SAFE_LINE = 3;
+/**
+ * 用户手动指定球员的条数上限（「想要」与「不想要」各自计）。
+ * 不设更大的上限，是因为每多一个强制约束就多切掉一块可行域：
+ * 10 人阵容里塞 4 个「想要」+ 4 个「不要」，剩下 8 个名额要同时满足
+ * 前后场各 5、每队 ≤2、预算 ≤$100 —— 很容易无解，而模型只能报错。
+ */
+const MAX_SPECIFIED_PLAYERS = 3;
 
 /** GW3 - Day 4 → GW3.4，界面与技术文档共用同一套缩写。 */
 function eventLabel(event) {
@@ -485,9 +492,13 @@ function evaluateAllStar(data, roster, event, rules, wallet, starterSlots) {
 function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
   initialMoneyBank, mode='score', ftThreshold=DEFAULT_FT_THRESHOLD, paidThreshold=DEFAULT_PAID_THRESHOLD,
   firstWeekFreeTransfers=null, paidLimit=DEFAULT_PAID_LIMIT, buildDayFree=true,
-  wildcardDay=-1, useAllStar=true,
+  wildcardDay=-1, useAllStar=true, mustIds=[], avoidIds=[],
 } = {}) {
   const locked = new Set(lockedIds.map(String));
+  // mustIds 是 must 里更硬的一层：不仅不许卖，而且必须真的出现在阵容里（账号模式下需要主动买入）。
+  // avoidIds 反过来：阵中一旦有，就必须想办法卖掉。
+  const must = new Set(mustIds.map(String));
+  const avoid = new Set(avoidIds.map(String));
   const paidCost = number(rules.paidTransferCost, 100);
   const allowPaid = mode !== 'steady';
   const perWeekQuota = Math.max(0, Math.min(FREE_TRANSFERS_PER_WEEK, number(rules.freeTransfersPerWeek, FREE_TRANSFERS_PER_WEEK)));
@@ -604,20 +615,37 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
           incomingByPosition.set(position, bucket);
         }
         const incomingToday = [...incomingByPosition.values()].flatMap(bucket => bucket.sort((a, b) => b.value - a.value).slice(0, 10).map(item => item.player));
-        const outgoingResting = roster.filter(player => !locked.has(String(player.id)) && !acquiredThisWeek.has(String(player.id)) && !teamsPlayingToday.has(String(player.team)));
-        if (!incomingToday.length || !outgoingResting.length) break;
+        // 「指定球员」清算：阵中还留着「不想要」的、或「想要」的还没进来，就必须主动处理。
+        // 这层约束优先于收益判断——用户说「我就要他」不该被模型用打分否掉；
+        // 但资金、每队人数、每周 FT/付费额度仍是硬规则，做不到就报 unmet，不静默忽略。
+        const mustMissing = [...must].filter(id => !roster.some(player => String(player.id) === id));
+        const forcedIncoming = mustMissing
+          .map(id => data.players.find(player => String(player.id) === id))
+          .filter(player => player && isAvailable(player) && !roster.some(item => String(item.id) === String(player.id)));
+        const settling = forcedIncoming.length > 0 || roster.some(player => avoid.has(String(player.id)));
+        const incomingPool = [...incomingToday, ...forcedIncoming.filter(player => !incomingToday.some(item => String(item.id) === String(player.id)))];
+        // 常规换人只卖「今天没比赛」的人（否则等于白扔当日产出）。只有清算指定球员时，
+        // 才允许动当天有比赛的球员——这是用户明确要求优先于当日收益的唯一场合。
+        const outgoingPool = settling
+          ? roster.filter(player => !locked.has(String(player.id)) && !acquiredThisWeek.has(String(player.id)))
+          : roster.filter(player => !locked.has(String(player.id)) && !acquiredThisWeek.has(String(player.id)) && !teamsPlayingToday.has(String(player.team)));
+        if (!incomingPool.length || !outgoingPool.length) break;
         let best = null;
         const teamCounts = new Map();
         for (const player of roster) teamCounts.set(String(player.team), (teamCounts.get(String(player.team)) ?? 0) + 1);
-        for (const outgoing of outgoingResting) {
-          for (const incoming of incomingToday) {
+        for (const outgoing of outgoingPool) {
+          const forcedOut = avoid.has(String(outgoing.id));
+          // 没有「不想要」这个理由时，仍然不允许卖掉今天有比赛的人。
+          if (!forcedOut && teamsPlayingToday.has(String(outgoing.team))) continue;
+          for (const incoming of incomingPool) {
+            const forcedIn = must.has(String(incoming.id)) && !roster.some(player => String(player.id) === String(incoming.id));
             if (Number(incoming.position) !== Number(outgoing.position) || roster.some(player => String(player.id) === String(incoming.id))) continue;
             if ((teamCounts.get(String(incoming.team)) ?? 0) >= number(rules.teamLimit, 2)) continue;
             const saleValue = number(outgoing.sellingPrice, number(outgoing.cost));
             const purchaseValue = number(incoming.cost);
             const nextMoneyBank = moneyBank + saleValue - purchaseValue;
             if (nextMoneyBank < 0) continue;
-            const replacement = { ...incoming, sellingPrice:purchaseValue, locked:false };
+            const replacement = { ...incoming, sellingPrice:purchaseValue, locked:locked.has(String(incoming.id)) };
             const nextRoster = roster.map(player => String(player.id) === String(outgoing.id) ? replacement : player);
             const after = weekCoverage(nextRoster, remainingEvents, rules, penalty + transferCost, mode);
             // 安全线：不得让任何比赛日的首发人数跌破 3 人（通常意味着数据异常而非真实机会）。
@@ -626,16 +654,24 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
             const pointsGain = after.points - before.points;
             const coverageGain = after.fullDays - before.fullDays;
             const slotsGain = after.slots - before.slots;
-            // 模式护栏：稳健模式不许把排满天数做少，场次模式不许把首发人次做少。
-            if (mode === 'steady' && coverageGain < 0) continue;
-            if (mode === 'games' && slotsGain < 0) continue;
-            // 稳健模式：只要排满天数有提升就接受；否则按净增益阈值判定。
-            const accepted = mode === 'steady'
-              ? coverageGain > 0 || pointsGain - transferCost >= threshold
-              : pointsGain - transferCost >= threshold;
-            if (!accepted) continue;
+            const forced = forcedOut || forcedIn;
+            if (!forced) {
+              // 模式护栏：稳健模式不许把排满天数做少，场次模式不许把首发人次做少。
+              if (mode === 'steady' && coverageGain < 0) continue;
+              if (mode === 'games' && slotsGain < 0) continue;
+              // 稳健模式：只要排满天数有提升就接受；否则按净增益阈值判定。
+              const accepted = mode === 'steady'
+                ? coverageGain > 0 || pointsGain - transferCost >= threshold
+                : pointsGain - transferCost >= threshold;
+              if (!accepted) continue;
+            }
             const gain = after.score - before.score;
-            if (!best || gain > best.gain) best = { outgoing, incoming, nextRoster, nextMoneyBank, gain, before, after, pointsGain, transferCost };
+            // 同一轮里可能同时有「卖掉不想要」和「买入想要」两种强制转会：
+            // 先清掉不想要的（腾位置也腾钱），再补想要的，最后才比收益。
+            const priority = (forcedOut ? 2 : 0) + (forcedIn ? 1 : 0);
+            if (!best || priority > best.priority || (priority === best.priority && gain > best.gain)) {
+              best = { outgoing, incoming, nextRoster, nextMoneyBank, gain, before, after, pointsGain, transferCost, priority };
+            }
           }
         }
         if (!best) break;
@@ -732,7 +768,13 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
   }
   const targets = summarizeTeams(data, startingRoster, events);
   for (let index=0; index<weekly.length; index++) weekly[index].targets = targets[index]?.targets ?? [];
-  return { daily, weekly, roster, moneyBank, penalty, paidUsed, allStar: allStar ? { ...allStar.day.allStar } : null, wildcard:wildcardInfo ? trimWildcard(wildcardInfo) : null, startMoneyBank: initialMoneyBank == null ? Math.max(0, number(rules.budget, 1000) - startingRoster.reduce((sum, player) => sum + number(player.cost), 0)) : number(initialMoneyBank) };
+  // 清算结果：规划窗口结束时仍然没纳入的「想要」、或仍然留在阵中的「不想要」。
+  // 这两种都是硬约束没兑现，必须回传给界面明示，不能让用户以为已经满足。
+  const unmet = {
+    want: [...must].filter(id => !roster.some(player => String(player.id) === id)),
+    avoid: roster.filter(player => avoid.has(String(player.id))).map(player => String(player.id)),
+  };
+  return { daily, weekly, roster, moneyBank, penalty, paidUsed, allStar: allStar ? { ...allStar.day.allStar } : null, wildcard:wildcardInfo ? trimWildcard(wildcardInfo) : null, unmet, startMoneyBank: initialMoneyBank == null ? Math.max(0, number(rules.budget, 1000) - startingRoster.reduce((sum, player) => sum + number(player.cost), 0)) : number(initialMoneyBank) };
 }
 
 /**
@@ -762,15 +804,34 @@ function wildcardCandidates(data, events) {
  * 放开的付费额度也可能把路径带进更差的局部最优（允许 3 次反而不如允许 2 次）。
  * 所以只要比基准方案，就必须走同一套轨径，否则「开不开野卡」会差出十几分的假差距。
  */
+/**
+ * 方案比较：先看「指定球员」兑现了几条，再看净得分。
+ *
+ * 🚨 顺序不能反。同一份起手阵容跑三条轨径（得分优先 / 稳健排满 / 零付费兜底），
+ * 各自的贪心路径不同，可能出现「稳健轨径净分高出 20 分但没买进用户点名的人」的结果。
+ * 用户已经拍板要谁，方案就不能拿分数把这条否掉——分数只用来在同样满足约束的方案里挑更好的。
+ */
+function unmetCount(plan) {
+  const unmet = plan?.unmet;
+  if (!unmet) return 0;
+  return (unmet.want?.length ?? 0) + (unmet.avoid?.length ?? 0);
+}
+
+function preferPlan(candidate, current) {
+  const left = unmetCount(candidate), right = unmetCount(current);
+  if (left !== right) return left < right;
+  return planNetPoints(candidate) > planNetPoints(current);
+}
+
 function runTransferTracks(data, startingRoster, events, rules, lockedIds, runnerOptions, modeKey) {
   const paidCap = number(runnerOptions.paidLimit, DEFAULT_PAID_LIMIT);
   let plan = planDailyTransfers(data, startingRoster, events, rules, lockedIds, { ...runnerOptions, mode:modeKey });
   if (modeKey !== 'score') return plan;
   const steady = planDailyTransfers(data, startingRoster, events, rules, lockedIds, { ...runnerOptions, mode:'steady' });
-  if (planNetPoints(steady) > planNetPoints(plan)) plan = steady;
+  if (preferPlan(steady, plan)) plan = steady;
   if (paidCap > 0) {
     const freeOnly = planDailyTransfers(data, startingRoster, events, rules, lockedIds, { ...runnerOptions, mode:'score', paidLimit:0 });
-    if (planNetPoints(freeOnly) > planNetPoints(plan)) plan = freeOnly;
+    if (preferPlan(freeOnly, plan)) plan = freeOnly;
   }
   return plan;
 }
@@ -793,8 +854,8 @@ function planWildcard(data, startingRoster, events, rules, lockedIds, runnerOpti
     } catch { continue; }
     if (!plan.wildcard) continue;
     const netPoints = planNetPoints(plan);
-    options.push({ dayIndex, netPoints:Number(netPoints.toFixed(1)), eventLabel:plan.wildcard.eventLabel ?? null });
-    if (!best || netPoints > best.netPoints) best = { dayIndex, netPoints, plan };
+    options.push({ dayIndex, netPoints:Number(netPoints.toFixed(1)), eventLabel:plan.wildcard.eventLabel ?? null, unmet:unmetCount(plan) });
+    if (!best || preferPlan(plan, best.plan)) best = { dayIndex, netPoints, plan };
   }
   return { evaluated:true, candidates:candidates.length, options, best };
 }
@@ -805,14 +866,69 @@ function planNetPoints(plan) {
   return points - number(plan.penalty, 0);
 }
 
+/** 去重 + 条数上限：两个指定列表各自最多 MAX_SPECIFIED_PLAYERS 人。 */
+function uniquePlayers(ids, label) {
+  const list = [...new Set((Array.isArray(ids) ? ids : []).map(String).filter(Boolean))];
+  if (list.length > MAX_SPECIFIED_PLAYERS) throw new Error(`${label}球员最多 ${MAX_SPECIFIED_PLAYERS} 人（当前 ${list.length} 人），请先取消几个。`);
+  return list;
+}
+
+/** 报错文案里的球员名：官方载荷用的是 fullName，部分分支只有 name/web_name。 */
+function playerLabelOf(player) {
+  return player?.fullName || player?.webName || player?.web_name || player?.name || `球员 ${player?.id ?? ''}`;
+}
+
 export function buildFantasyPlans(data, {
   lockedIds = [], budget = data.rules.budget, startEventId = null, eventCount = 21,
   firstWeekFreeTransfers = null, initialRoster = null, moneyBank = null,
   ftThreshold = DEFAULT_FT_THRESHOLD, paidThreshold = DEFAULT_PAID_THRESHOLD,
   paidLimit = DEFAULT_PAID_LIMIT, useWildcard = false, useAllStar = true,
+  wantIds = [], avoidIds = [],
 } = {}) {
   projector = createProjector(data);
   allStarCache.clear();
+  const wanted = uniquePlayers(wantIds, '「想要」');
+  const avoided = uniquePlayers(avoidIds, '「不要」');
+  const playerOf = id => data.players.find(player => String(player.id) === String(id));
+  const missing = [...wanted, ...avoided].filter(id => !playerOf(id));
+  if (missing.length) throw new Error(`指定球员里有 ${missing.length} 人不在当前球员库中，请刷新数据后重新选择。`);
+  const contradiction = wanted.filter(id => avoided.includes(id));
+  if (contradiction.length) throw new Error(`「${playerLabelOf(playerOf(contradiction[0]))}」同时出现在「想要」和「不要」列表里，请先取消其中一个。`);
+  const lockSet = new Set(lockedIds.map(String));
+  const lockedConflict = avoided.filter(id => lockSet.has(String(id)));
+  if (lockedConflict.length) throw new Error(`「${playerLabelOf(playerOf(lockedConflict[0]))}」被列为「不要」，却还在锁定保留列表里，请先取消锁定。`);
+  // 前面几条是逻辑矛盾，这里开始是「约束太紧排不出来」——提前给出可读的原因，
+  // 否则只会抛 optimize 那句「锁定球员违反了每队最多 2 人」，用户看不懂该改哪一项。
+  const wantPlayers = wanted.map(playerOf).filter(Boolean);
+  if (wantPlayers.reduce((sum, player) => sum + number(player.cost), 0) > number(budget, data.rules.budget)) {
+    throw new Error('「想要」的球员身价合计已超过总预算，请减少人数或调高预算。');
+  }
+  const wantTeams = new Map();
+  for (const player of wantPlayers) wantTeams.set(String(player.team), (wantTeams.get(String(player.team)) ?? 0) + 1);
+  const teamOverflow = [...wantTeams].find(([, count]) => count > number(data.rules.teamLimit, 2));
+  if (teamOverflow) {
+    const name = data.teams?.find(item => String(item.id) === teamOverflow[0]);
+    throw new Error(`「想要」的球员里，${name ? `${name.shortName} ${name.name}` : `球队 ${teamOverflow[0]}`} 占了 ${teamOverflow[1]} 人，超过每队最多 ${data.rules.teamLimit} 人的规则。`);
+  }
+  const wantPositions = new Map();
+  for (const player of wantPlayers) wantPositions.set(String(player.position), (wantPositions.get(String(player.position)) ?? 0) + 1);
+  const positionOverflow = Object.entries(data.rules.squadByPosition ?? {})
+    .find(([position, limit]) => (wantPositions.get(String(position)) ?? 0) > number(limit, 5));
+  if (positionOverflow) {
+    const name = data.rules.positionRules?.[String(positionOverflow[0])]?.name ?? '该位置';
+    throw new Error(`「想要」的球员里 ${name} 占了 ${wantPositions.get(String(positionOverflow[0]))} 人，超过阵容上限 ${positionOverflow[1]} 人。`);
+  }
+  // 「不想要」是全局剔除：建队、转会、野卡重建、All-Star 租借都只能在这个池子里选，
+  // 所以直接在入口做一次过滤，后面所有分支天然不会再挑到他。
+  const avoidSet = new Set(avoided.map(String));
+  const scope = avoidSet.size ? { ...data, players: data.players.filter(player => !avoidSet.has(String(player.id))) } : data;
+  if (scope.players.length !== data.players.length) projector = createProjector(scope);
+  // 「想要」并入锁定集合：optimize 的 locks 语义就是「必须包含」，
+  // 在账号模式下 locked 还额外意味着「不许卖」，两层语义正好都是用户想要的。
+  const effectiveLocks = [...new Set([...lockedIds.map(String), ...wanted])];
+  if (effectiveLocks.length > number(data.rules.squadSize, 10)) {
+    throw new Error(`锁定保留 ${lockedIds.length} 人 + 想要 ${wantPlayers.length} 人，去重后共 ${effectiveLocks.length} 人，超过 ${data.rules.squadSize} 人的阵容上限。`);
+  }
   // 从用户选定的 Game Day 起算，而不是固定从当前比赛日起算：
   // 本周 FT 已经用光时，用户常常想「从下一周开始排」。
   const startId = Number.isFinite(Number(startEventId)) ? Number(startEventId) : number(data.currentEvent, 0);
@@ -836,7 +952,7 @@ export function buildFantasyPlans(data, {
   for (const mode of modes) {
     const alternatives = accountRoster
       ? [{ roster:accountRoster.map(player => ({...player, ppg:playerProjection(player)})), metrics:evaluate(accountRoster, events, options) }]
-      : optimize(data.players, lockedIds, events, options, mode.key);
+      : optimize(scope.players, effectiveLocks, events, options, mode.key);
     const result = alternatives.find(option => accountRoster || !seen.has(option.roster.map(player => String(player.id)).sort().join(',')));
     if (!result) continue;
     if (!accountRoster) seen.add(result.roster.map(player => String(player.id)).sort().join(','));
@@ -848,13 +964,17 @@ export function buildFantasyPlans(data, {
       // 未绑定账号 = 还在建队，第一个比赛日转会免费；已绑定账号则从第一个比赛日起就要占用 FT。
       buildDayFree: !accountRoster,
       useAllStar: useAllStar !== false,
+      // 建队模式下 optimize 已经把「想要」的人写进阵容，这两项只用于账号模式下的主动清算；
+      // 但两个模式都要传，「不想要」还需要参与转会候选的排除判断。
+      mustIds: wanted,
+      avoidIds: avoided,
     };
-    let transferPlan = runTransferTracks(data, result.roster, events, options, lockedIds, runnerOptions, mode.key);
+    let transferPlan = runTransferTracks(scope, result.roster, events, options, effectiveLocks, runnerOptions, mode.key);
     // 野卡：用户勾选后才规划。开卡日从「每个 Gameweek 的第一个比赛日」里挑净得分最高的那天；
     // 勾选 = 已经决定要用，所以只要开卡有正收益就采纳，不再套 20 分门槛。
     let wildcard = { evaluated:false, candidates:0, best:null, adopted:false, gain:0, requested:wildcardRequested };
     if (wildcardRequested && (mode.key === 'score' || mode.key === 'steady')) {
-      const evaluation = planWildcard(data, result.roster, events, options, lockedIds, runnerOptions, mode.key);
+      const evaluation = planWildcard(scope, result.roster, events, options, effectiveLocks, runnerOptions, mode.key);
       const baseNet = planNetPoints(transferPlan);
       const bestNet = evaluation.best?.netPoints ?? null;
       wildcard = {
@@ -864,14 +984,29 @@ export function buildFantasyPlans(data, {
         gain:bestNet == null ? 0 : Number((bestNet - baseNet).toFixed(1)),
         adopted:false,
       };
-      if (evaluation.best && wildcard.gain > 0) {
-        wildcard.adopted = true;
-        transferPlan = evaluation.best.plan;
-      }
+      // 采纳门槛：优先保证「指定球员」兑现——若开卡能让 unmet 变少，即使净分略降也要开，
+      // 否则才按「有没有正收益」判断。
+      const adoptByConstraint = Boolean(evaluation.best) && unmetCount(evaluation.best.plan) < unmetCount(transferPlan);
+      wildcard.adopted = Boolean(evaluation.best) && (wildcard.gain > 0 || adoptByConstraint);
+      wildcard.reason = wildcard.adopted ? (adoptByConstraint && wildcard.gain <= 0 ? 'constraint' : 'gain') : null;
+      if (wildcard.adopted) transferPlan = evaluation.best.plan;
     }
     const appearances = transferPlan.daily.reduce((sum, day) => sum + day.starters.length, 0);
     const fullDays = transferPlan.daily.filter(day => day.full).length;
     const points = transferPlan.daily.reduce((sum, day) => sum + day.points, 0);
+    // 指定球员的兑现情况按「这个方案最终的十人阵容」逐条核对，而不是按入口校验通过就当作完成：
+    // 账号模式下要买进/卖出，可能因资金、每队人数或同位置名额没兑现，必须让用户看到。
+    const rosterIds = new Set(transferPlan.roster.map(player => String(player.id)));
+    const briefOf = player => ({
+      id:String(player.id), name:playerLabelOf(player), team:String(player.team), cost:Number(player.cost),
+      position:Number(player.position), photoUrl:player.photoUrl ?? null,
+      projection:Number(playerProjection(player).toFixed(1)),
+    });
+    const constraints = (wanted.length || avoided.length) ? {
+      want: wantPlayers.map(player => ({ ...briefOf(player), included:rosterIds.has(String(player.id)) })),
+      avoid: avoided.map(id => playerOf(id)).filter(Boolean).map(player => ({ ...briefOf(player), excluded:!rosterIds.has(String(player.id)) })),
+      unmet: transferPlan.unmet ?? { want:[], avoid:[] },
+    } : null;
     plans.push({
       id: mode.key, title: mode.title, description: mode.description, modelVersion:MODEL_VERSION,
       cost: result.metrics.cost, budgetLeft: transferPlan.moneyBank,
@@ -887,9 +1022,10 @@ export function buildFantasyPlans(data, {
       firstWeekFreeTransfers: firstWeekQuota,
       freeTransfersPerWeek: number(options.freeTransfersPerWeek, FREE_TRANSFERS_PER_WEEK),
       allStar: transferPlan.allStar ?? null,
+      constraints,
       wildcard: {
         evaluated: wildcard.evaluated, candidates: wildcard.candidates, requested: wildcard.requested,
-        adopted: wildcard.adopted, gain: wildcard.gain,
+        adopted: wildcard.adopted, gain: wildcard.gain, reason: wildcard.reason ?? null,
         options: (wildcard.options ?? []).map(option => ({ ...option, gain:Number((option.netPoints - (wildcard.baseNet ?? option.netPoints)).toFixed(1)) })),
         baseNet: wildcard.baseNet ?? null, bestNet: wildcard.bestNet ?? null,
         suggestion: wildcard.best ? {

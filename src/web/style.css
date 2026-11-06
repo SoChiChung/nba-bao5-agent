@@ -403,3 +403,44 @@
 :root[data-theme="dark"] .fantasy-live{background:#1b2230cc;border-color:var(--line)}
 :root[data-theme="dark"] .fantasy-live b{color:var(--ink)}
 :root[data-theme="dark"] .fantasy-live small{color:var(--muted)}
+
+/* ── 指定球员（想要 / 不要）──────────────────────────────────────── */
+/* 搜索结果行在锁定卡里是 <button>，这里变成 <div>，右侧要放两个动作按钮，
+   所以要把「整行可点」的指针与两端对齐改掉，否则按钮会被挤成两半。 */
+.fantasy-pick-row{cursor:default;align-items:center;justify-content:flex-start}
+.fantasy-pick-row>span:first-child{flex:1;min-width:0}
+.fantasy-pick-row>strong{flex:none}
+.fantasy-pick-actions{display:flex;flex:none;gap:6px}
+.fantasy-pick-actions button{padding:5px 9px;border:1px solid transparent;border-radius:7px;font-size:11px;font-weight:700;line-height:1;cursor:pointer}
+.fantasy-pick-actions button.is-want{background:#e8f7ee;border-color:#cdebd8;color:#1f8a4c}
+.fantasy-pick-actions button.is-avoid{background:#fdecec;border-color:#f6d5d5;color:#c23b3b}
+.fantasy-pick-actions button:hover{filter:brightness(.96)}
+.fantasy-pick-group{margin-top:12px}
+.fantasy-pick-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:5px;border-bottom:1px solid #eef1f7}
+.fantasy-pick-head span{color:#6d7488;font-size:11px;font-weight:700}
+.fantasy-pick-head b{color:#9298a8;font-size:11px}
+.fantasy-pick-group.is-want .fantasy-pick-head span{color:#1f8a4c}
+.fantasy-pick-group.is-avoid .fantasy-pick-head span{color:#c23b3b}
+.fantasy-lock-row.is-want{border-color:#cdebd8;background:#f4fcf7}
+.fantasy-lock-row.is-avoid{border-color:#f6d5d5;background:#fff6f6}
+.fantasy-pick-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.fantasy-pick-chip{display:inline-flex;align-items:baseline;gap:6px;padding:5px 9px;border:1px solid #e9edf6;border-radius:8px;background:#fafbff}
+.fantasy-pick-chip b{color:#252b3b;font-size:12px}
+.fantasy-pick-chip small{color:#9298a8;font-size:10px}
+.fantasy-pick-chip.is-ok{border-color:#cdebd8;background:#f4fcf7}
+.fantasy-pick-chip.is-ok small{color:#1f8a4c}
+.fantasy-pick-chip.is-bad{border-color:#f6d5d5;background:#fff6f6}
+.fantasy-pick-chip.is-bad small{color:#c23b3b}
+.fantasy-week-note.is-warn{color:#a8582e}
+.planner-player.is-want{background:#f4fcf7}
+:root[data-theme="dark"] .fantasy-pick-head{border-color:var(--line)}
+:root[data-theme="dark"] .fantasy-pick-chip{background:var(--paper);border-color:var(--line)}
+:root[data-theme="dark"] .fantasy-pick-chip b{color:var(--ink)}
+:root[data-theme="dark"] .fantasy-lock-row.is-want{background:#16281f;border-color:#2c5440}
+:root[data-theme="dark"] .fantasy-lock-row.is-avoid{background:#2a1a1c;border-color:#5c3236}
+:root[data-theme="dark"] .planner-player.is-want{background:#16281f}
+:root[data-theme="dark"] .fantasy-pick-actions button.is-want{background:#16342a;border-color:#265545;color:#6fd39b}
+:root[data-theme="dark"] .fantasy-pick-actions button.is-avoid{background:#341c1f;border-color:#5c3236;color:#e88b8b}
+:root[data-theme="dark"] .fantasy-week-note.is-warn{color:#e0a172}
+/* 已选中的一侧按钮标 ✓ 并加描边，方便在同一行里直接改判 */
+.fantasy-pick-actions button.is-on{box-shadow:inset 0 0 0 1.5px currentColor}

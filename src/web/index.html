@@ -71,7 +71,7 @@
     </main>
     <section id="fantasy-panel" class="app-view fantasy-panel" hidden>
       <div class="fantasy-hero">
-        <div><p class="eyebrow">NBA FANTASY · SEASON PLANNER</p><h1>把赛程优势，<em>留给整支队伍。</em></h1><p>锁定想留下的球员，按官方预算和每队人数限制补齐阵容；从任意 Game Day 起算，比较未来最多 21 个比赛日，并规划每周 FT、Wildcard 与 All-Star 的具体使用时机。</p></div>
+        <div><p class="eyebrow">NBA FANTASY · SEASON PLANNER</p><h1>把赛程优势，<em>留给整支队伍。</em></h1><p>锁定想留下的球员、点名必须带上或坚决不碰的人，按官方预算和每队人数限制补齐阵容；从任意 Game Day 起算，比较未来最多 21 个比赛日，并规划每周 FT、Wildcard 与 All-Star 的具体使用时机。</p></div>
         <div class="fantasy-live"><span class="pulse"></span><div><b id="fantasy-status">等待载入赛程</b><small id="fantasy-updated">使用 NBA Fantasy 官方公开球员与赛程</small></div></div>
       </div>
       <div class="fantasy-layout">
@@ -84,10 +84,24 @@
           </article>
           <article class="fantasy-card">
             <div class="fantasy-card-title"><div><p class="eyebrow">YOUR CORE</p><h2>锁定保留球员</h2></div><span id="fantasy-lock-count" class="fantasy-count">0 人</span></div>
-            <p class="fantasy-help">加入的球员会固定在每个方案里；其余名额由优化器按赛程和身价补齐。</p>
+            <p class="fantasy-help">加入的球员会固定在每个方案里；其余名额由优化器按赛程和身价补齐。已绑定账号时，锁定代表「这些人不要卖」。</p>
             <label class="fantasy-field">搜索球员<input id="fantasy-player-search" autocomplete="off" placeholder="姓名、球队"></label>
             <div id="fantasy-player-results" class="fantasy-search-results hidden"></div>
             <div id="fantasy-locked-list" class="fantasy-locked-list"><div class="fantasy-empty">还没有锁定球员</div></div>
+          </article>
+          <article class="fantasy-card fantasy-pick-card">
+            <div class="fantasy-card-title"><div><p class="eyebrow">MUST HAVE / AVOID</p><h2>指定球员</h2></div></div>
+            <p class="fantasy-help">点名让模型必须带上谁、或者坚决不碰谁。各最多 3 人：约束越多可行方案越少，超过就容易排不出来。</p>
+            <label class="fantasy-field">搜索球员<input id="fantasy-pick-search" autocomplete="off" placeholder="姓名、球队"></label>
+            <div id="fantasy-pick-results" class="fantasy-search-results hidden"></div>
+            <div class="fantasy-pick-group is-want">
+              <div class="fantasy-pick-head"><span>想要 · 必须在阵容里</span><b id="fantasy-want-count">0 / 3</b></div>
+              <div id="fantasy-want-list" class="fantasy-locked-list"><div class="fantasy-empty">还没有指定</div></div>
+            </div>
+            <div class="fantasy-pick-group is-avoid">
+              <div class="fantasy-pick-head"><span>不要 · 绝不进入阵容</span><b id="fantasy-avoid-count">0 / 3</b></div>
+              <div id="fantasy-avoid-list" class="fantasy-locked-list"><div class="fantasy-empty">还没有指定</div></div>
+            </div>
           </article>
           <article class="fantasy-card">
             <div class="fantasy-card-title"><div><p class="eyebrow">PLANNING RULES</p><h2>规划条件</h2></div></div>
@@ -106,7 +120,7 @@
             <button id="fantasy-generate" class="button button-blue fantasy-generate">计算 4 个阵容方案 <span>↗</span></button>
             <button id="fantasy-refresh" class="fantasy-refresh">刷新球员和赛程数据</button>
           </article>
-          <article class="fantasy-card fantasy-method"><p class="eyebrow">HOW IT CHOOSES</p><p>默认推荐结合近期状态、球员对未来对手的历史表现、对手位置防守数据和球队赛程；伤病或出战存疑球员不会作为默认候选。优先最大化预测净得分（总分减扣分），再按比赛日安排转会。免费转会每个 Gameweek 重置为 2 个、不结转，所以本周用光不影响下周；付费转会的上限按周计。Wildcard 会让开卡那天的所有转会免费且阵容保留，勾选后模型会先在候选比赛日里挑净得分最高的那天，再据此重排后续；All-Star 是单日租借整队，只在「那天怎么排都缺人」时动用，全季 1 次。</p></article>
+          <article class="fantasy-card fantasy-method"><p class="eyebrow">HOW IT CHOOSES</p><p>默认推荐结合近期状态、球员对未来对手的历史表现、对手位置防守数据和球队赛程；伤病或出战存疑球员不会作为默认候选。优先最大化预测净得分（总分减扣分），再按比赛日安排转会。预算、位置和每队人数始终遵守官方规则。免费转会每个 Gameweek 重置为 2 次、不结转，所以本周用光不影响下周；付费转会的上限按周计。Wildcard 会让开卡那天的所有转会免费且阵容保留，勾选后模型会先在候选比赛日里挑净得分最高的那天，再据此重排后续；All-Star 是单日租借整队，只在「那天怎么排都缺人」时动用，全季 1 次。手动指定的球员优先级高于分数：想要的人一定会被排进十人阵容（账号模式下会主动买入），不要的人不会出现在任何候选里，模型也不会为了多拿分而违背这两条——只有在资金、球队人数或转会额度确实不允许时才会放弃，并在方案里标出没兑现的那几条。</p></article>
         </aside>
         <div class="fantasy-results-column">
           <div id="fantasy-results" class="fantasy-results"><div class="fantasy-empty fantasy-start"><b>先锁定你想保留的球员</b><span>模型会根据官方逐日赛程、球员身价和未来每队比赛场次补齐阵容。</span></div></div>
