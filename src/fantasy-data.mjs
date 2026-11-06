@@ -292,8 +292,17 @@ export async function buildFantasyPayload(deps, { fetchJson = fetchFantasyJson }
   }]));
   const rulesConfig = source.game_config?.rules ?? {};
 
+  // chip 窗口：wildcard 是三次独立窗口（2–39 / 40–103 / 104–159），不是同一张卡的三段。
+  // 这里只透传窗口信息，具体「还剩几张」无法从公开接口读取，由用户输入。
+  const chips = (source.chips ?? [])
+    .filter(chip => chip?.name)
+    .map(chip => ({
+      name: String(chip.name), number: Number(chip.number ?? 1), type: chip.chip_type ?? null,
+      startEvent: Number(chip.start_event), stopEvent: Number(chip.stop_event),
+    }));
+
   return {
-    currentEvent, events, eventDirectory, players, teams,
+    currentEvent, events, eventDirectory, players, teams, chips,
     scoring: weights,
     positionPriors: priors,
     calibration: calibration && typeof calibration === 'object' ? calibration : null,

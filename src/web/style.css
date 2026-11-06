@@ -349,3 +349,34 @@
 @media(max-width:620px){.fantasy-metrics{grid-template-columns:1fr 1fr}}
 :root[data-theme="dark"] .fantasy-metrics .is-primary{background:#232c44}
 :root[data-theme="dark"] .fantasy-metrics .is-primary b{color:#9fb4ff}
+
+/* 野卡建议区（§13.8）：已采纳时高亮，并区分「卖出 / 买入」两栏。 */
+.fantasy-wildcard-section .fantasy-wildcard-card{margin-bottom:10px;padding:12px 14px;border:1px solid #e8edf5;border-radius:9px;background:#fff}
+.fantasy-wildcard-card.is-adopted{border-color:#9eb2ff;background:#f7f9ff}
+.fantasy-wildcard-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+.fantasy-wildcard-head b{color:#2d3548;font-size:14px}
+.fantasy-wildcard-head span{color:#16875d;font-size:12px;font-weight:800}
+.fantasy-wildcard-card:not(.is-adopted) .fantasy-wildcard-head span{color:#8b93a4}
+.fantasy-wildcard-pairs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:9px}
+.fantasy-wildcard-col{padding:8px;border:1px solid #eef1f6;border-radius:8px;background:#fbfcfe}
+.fantasy-wildcard-col>b{display:block;margin-bottom:6px;color:#6c7690;font-size:11px}
+.fantasy-wildcard-player{display:flex;align-items:center;gap:6px;padding:4px 0;min-width:0}
+.fantasy-wildcard-player .fantasy-avatar{width:26px;height:26px;flex:none}
+.fantasy-wildcard-player>span{min-width:0}
+.fantasy-wildcard-player b,.fantasy-wildcard-player small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fantasy-wildcard-player b{color:#37425a;font-size:11px}
+.fantasy-wildcard-player small{color:#8d96a8;font-size:9px}
+.fantasy-metrics small.is-paid{color:#c2413f;font-weight:700}
+.planner-event-head.planner-wildcard-head{background:#eef2ff;border-inline:2px solid #315efb}
+.planner-event-cell.planner-roster-snapshot.is-wildcard{background:#f4f7ff;border-inline:1px solid #cfd9ff}
+@media(max-width:620px){.fantasy-wildcard-pairs{grid-template-columns:1fr}}
+:root[data-theme="dark"] .fantasy-wildcard-card{background:#1b2230;border-color:var(--line)}
+:root[data-theme="dark"] .fantasy-wildcard-card.is-adopted{background:#20293d;border-color:#3f5bab}
+:root[data-theme="dark"] .fantasy-wildcard-head b{color:#e2e8f2}
+:root[data-theme="dark"] .fantasy-wildcard-head span{color:#6fd3a4}
+:root[data-theme="dark"] .fantasy-wildcard-col{background:#1e2634;border-color:var(--line)}
+:root[data-theme="dark"] .fantasy-wildcard-col>b{color:#aab4c6}
+:root[data-theme="dark"] .fantasy-wildcard-player b{color:#dbe3ef}
+:root[data-theme="dark"] .fantasy-wildcard-player small{color:#aab4c6}
+:root[data-theme="dark"] .planner-event-head.planner-wildcard-head{background:#242f4a;border-color:#4e6bbd;color:#bdcaff}
+:root[data-theme="dark"] .planner-event-cell.planner-roster-snapshot.is-wildcard{background:#222b3f;border-color:#3a4a72}

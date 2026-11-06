@@ -17,7 +17,14 @@ const MODE_ORDER = {
 /** 换人判据：有免费 FT 时只要求净增益，付费时需覆盖 100 分固定成本 + 安全边际。 */
 const DEFAULT_FT_THRESHOLD = 1.5;
 const DEFAULT_PAID_THRESHOLD = 110;
+/** 付费转会：用户可设总次数上限（语义是「整个规划窗口累计」，不是每周）。 */
+const DEFAULT_PAID_LIMIT = 3;
+/** 单周付费换人的防爆护栏，避免上限设得很大时单周把阵容拆烂。 */
 const MAX_PAID_TRANSFERS_PER_WEEK = 4;
+/** 野卡建议门槛：增益低于此值就留着别用（野卡 3 次/赛季，机会成本高）。 */
+const DEFAULT_WILDCARD_THRESHOLD = 20;
+/** 候选野卡日最多评估几个（每个候选要跑一次整队重建 + 一次后续规划）。 */
+const MAX_WILDCARD_CANDIDATES = 3;
 const MIN_STARTERS_SAFE_LINE = 3;
 
 let projector = null;
@@ -249,11 +256,18 @@ function createEvaluator(events, rules) {
   return { prepare, aggregate };
 }
 
-function optimize(players, lockedIds, events, options, mode) {
+function optimize(players, lockedIds, events, options, mode, lockedCosts = null) {
   const squadSize = number(options.squadSize, 10);
   const budget = number(options.budget, 1000);
   const teamLimit = number(options.teamLimit, 2);
-  const locks = lockedIds.map(id => players.find(player => String(player.id) === String(id))).filter(Boolean);
+  // 野卡重建时，保留球员占用的是「卖价」而不是当前身价（不卖 = 不产生资金变化），
+  // 否则预算会被系统性高估。lockedCosts 只在这个场景传入。
+  const locks = lockedIds.map(id => {
+    const player = players.find(item => String(item.id) === String(id));
+    if (!player) return null;
+    const override = lockedCosts?.get(String(id));
+    return override == null ? player : { ...player, cost: override };
+  }).filter(Boolean);
   if (locks.length !== new Set(lockedIds.map(String)).size) throw new Error('锁定列表中有球员不在当前球员库中，请刷新数据后重新选择。');
   if (locks.length > squadSize) throw new Error(`锁定了 ${locks.length} 人，超过 ${squadSize} 人的球队名额。`);
   if (locks.reduce((sum, player) => sum + number(player.cost), 0) > budget) throw new Error('锁定球员的身价已超过预算，请调高预算或取消部分锁定。');
@@ -396,12 +410,32 @@ function futureStarts(roster, events, rules, playerId) {
   return count;
 }
 
+/**
+ * 野卡明细只需要头像/名字/球队/身价。整份 player 对象带着分项场均与逐场日志，
+ * 直接塞进响应体会让「一天的野卡」撑出几百 KB。
+ */
+function trimWildcard(info) {
+  const brief = player => ({
+    id:player.id, name:player.fullName || player.name, team:player.team,
+    cost:Number(player.cost), position:player.position, photoUrl:player.photoUrl ?? null,
+  });
+  return {
+    eventId:info.event?.id ?? null, eventLabel:info.eventLabel, deadline:info.event?.deadline ?? null,
+    dayIndex:info.dayIndex, wallet:info.wallet, spend:info.spend, bank:info.bank,
+    keep:info.keep.map(brief), sold:info.sold.map(brief), bought:info.bought.map(brief),
+    afterRoster:info.afterRoster.map(brief),
+  };
+}
+
 function planDailyTransfers(data, startingRoster, events, rules, transferQuota, lockedIds, {
   initialMoneyBank, mode='score', ftThreshold=DEFAULT_FT_THRESHOLD, paidThreshold=DEFAULT_PAID_THRESHOLD,
+  paidLimit=DEFAULT_PAID_LIMIT, buildDayFree=true, wildcardDay=-1,
 } = {}) {
   const locked = new Set(lockedIds.map(String));
   const paidCost = number(rules.paidTransferCost, 100);
   const allowPaid = mode !== 'steady';
+  const weeklyQuota = Math.max(0, Math.min(2, number(transferQuota, 2)));
+  const paidCap = Math.max(0, number(paidLimit, DEFAULT_PAID_LIMIT));
   const byWeek = new Map();
   for (const event of events) {
     const key = fantasyWeekKey(event);
@@ -424,9 +458,9 @@ function planDailyTransfers(data, startingRoster, events, rules, transferQuota, 
     .sort((a, b) => playerProjection(b) - playerProjection(a) || number(a.cost) - number(b.cost)).slice(0, 4));
   let roster = startingRoster.map(player => ({ ...player, locked:locked.has(String(player.id)) }));
   let moneyBank = initialMoneyBank == null ? Math.max(0, number(rules.budget, 1000) - roster.reduce((sum, player) => sum + number(player.cost), 0)) : number(initialMoneyBank);
-  let banked = 0;
   let penalty = 0;
   let paidUsed = 0;
+  let wildcardInfo = null;
   const daily = [];
   const weekly = [];
   // 剩余赛程按「整个规划窗口」算，而不是只算本周：
@@ -434,22 +468,60 @@ function planDailyTransfers(data, startingRoster, events, rules, transferQuota, 
   let horizonIndex = 0;
 
   for (const week of byWeek.values()) {
-    const availableAtStart = Math.min(2, banked + Math.max(0, Math.min(2, number(transferQuota, 2))));
+    // 官方规则：未用完的免费转会不结转（unused free transfers do not carry over），每周恒定。
+    const availableAtStart = weeklyQuota;
     let available = availableAtStart;
+    let paidThisWeek = 0;
     const transfers = [];
     const acquiredThisWeek = new Set();
     for (let dayIndex = 0; dayIndex < week.events.length; dayIndex++) {
       const remainingEvents = events.slice(horizonIndex);
       horizonIndex++;
       const dayTransfers = [];
-      // 规划窗口的第一个比赛日是建队截止日，可以自由组队、不消耗 FT。
-      if (daily.length === 0 && dayIndex === 0) {
-        daily.push({ ...lineupForDay(roster, week.events[dayIndex], rules), transfers:dayTransfers, roster:roster.map(player => ({...player})) });
+      // 只有在「真的在建队」（未绑定账号）时，窗口第一个比赛日才免 FT。
+      // 已绑定账号时赛季早已过第一 deadline，任何改动都要占用该周免费名额。
+      if (daily.length === 0 && dayIndex === 0 && buildDayFree) {
+        daily.push({ ...lineupForDay(roster, week.events[dayIndex], rules), transfers:dayTransfers, roster:roster.map(player => ({...player})), penaltySoFar:penalty, moneyBankAfter:moneyBank, wildcard:null });
         continue;
+      }
+      // 野卡日：把当天当作「一次免费的重新建队」——整队按剩余赛程重建，不消耗 FT、也不计入付费额度。
+      // 官方语义是「该 Gameday 所有转会免费，且阵容变更保留」，所以重建后就地继续，无需还原。
+      if (wildcardDay === horizonIndex - 1 && !wildcardInfo) {
+        const remaining = events.slice(horizonIndex - 1);
+        // 可支配资金 = 卖价之和 + 银行（§13.4）。用当前身价会高估：官方卖价含 50% 涨幅分成。
+        const wallet = roster.reduce((sum, player) => sum + number(player.sellingPrice, number(player.cost)), 0) + moneyBank;
+        const lockedCosts = new Map();
+        for (const id of locked) {
+          const player = roster.find(item => String(item.id) === String(id)) ?? data.players.find(item => String(item.id) === String(id));
+          if (player) lockedCosts.set(String(id), number(player.sellingPrice, number(player.cost)));
+        }
+        try {
+          const rebuilt = optimize(data.players, [...locked], remaining, { ...rules, budget:wallet }, mode, lockedCosts);
+          const rebuiltRoster = rebuilt[0]?.roster ?? [];
+          const spend = rebuiltRoster.reduce((sum, player) => sum + number(player.cost), 0);
+          if (rebuiltRoster.length === number(rules.squadSize, 10) && wallet - spend >= 0) {
+            const before = roster.map(player => ({ ...player }));
+            const beforeIds = new Set(before.map(player => String(player.id)));
+            const nextRoster = rebuiltRoster.map(player => ({ ...player, sellingPrice:number(player.cost), locked:locked.has(String(player.id)) }));
+            const afterIds = new Set(nextRoster.map(player => String(player.id)));
+            const event = week.events[dayIndex];
+            wildcardInfo = {
+              event, dayIndex:horizonIndex - 1,
+              eventLabel:String(event.name ?? '').replace('Gameweek ','GW').replace(' - Day ','.'),
+              wallet, spend, bank:wallet - spend,
+              keep:nextRoster.filter(player => beforeIds.has(String(player.id))),
+              sold:before.filter(player => !afterIds.has(String(player.id))),
+              bought:nextRoster.filter(player => !beforeIds.has(String(player.id))),
+              afterRoster:nextRoster.map(player => ({ ...player })),
+            };
+            roster = nextRoster;
+            moneyBank = wallet - spend;
+          }
+        } catch { /* 重建失败就退回常规转会路径，不阻断整个方案 */ }
       }
       while (true) {
         const isPaid = available <= 0;
-        if (isPaid && (!allowPaid || paidUsed >= MAX_PAID_TRANSFERS_PER_WEEK)) break;
+        if (isPaid && (!allowPaid || paidUsed >= paidCap || paidThisWeek >= MAX_PAID_TRANSFERS_PER_WEEK)) break;
         const transferCost = isPaid ? paidCost : 0;
         const threshold = isPaid ? paidThreshold : ftThreshold;
         const before = weekCoverage(roster, remainingEvents, rules, penalty, mode);
@@ -530,21 +602,64 @@ function planDailyTransfers(data, startingRoster, events, rules, transferQuota, 
         moneyBank = best.nextMoneyBank;
         penalty += best.transferCost;
         acquiredThisWeek.add(String(best.incoming.id));
-        if (best.transferCost > 0) paidUsed++; else available--;
+        if (best.transferCost > 0) { paidUsed++; paidThisWeek++; } else available--;
       }
-      daily.push({ ...lineupForDay(roster, week.events[dayIndex], rules), transfers:dayTransfers, roster:roster.map(player => ({...player})) });
+      daily.push({ ...lineupForDay(roster, week.events[dayIndex], rules), transfers:dayTransfers, roster:roster.map(player => ({...player})), penaltySoFar:penalty, moneyBankAfter:moneyBank, wildcard:wildcardInfo && wildcardInfo.dayIndex === horizonIndex - 1 ? trimWildcard(wildcardInfo) : null });
     }
     const used = availableAtStart - available;
     weekly.push({
-      key:week.key,name:week.name,events:week.events,targets:[],transfers,available:availableAtStart,used,remaining:available,banked:available,
+      key:week.key,name:week.name,events:week.events,targets:[],transfers,available:availableAtStart,used,remaining:available,
+      paidThisWeek,
       fullDays:daily.slice(-week.events.length).filter(day => day.full).length,
       appearances:daily.slice(-week.events.length).reduce((sum, day) => sum + day.starters.length, 0),
     });
-    banked = available;
   }
   const targets = summarizeTeams(data, startingRoster, events);
   for (let index=0; index<weekly.length; index++) weekly[index].targets = targets[index]?.targets ?? [];
-  return { daily, weekly, roster, moneyBank, penalty, paidUsed };
+  return { daily, weekly, roster, moneyBank, penalty, paidUsed, wildcard:wildcardInfo ? trimWildcard(wildcardInfo) : null, startMoneyBank: initialMoneyBank == null ? Math.max(0, number(rules.budget, 1000) - startingRoster.reduce((sum, player) => sum + number(player.cost), 0)) : number(initialMoneyBank) };
+}
+
+/**
+ * 野卡候选日（§13.5）：每个 Gameweek 的第一个 Gameday，加上规划窗口的第一个比赛日。
+ * 同一周内越晚开卡覆盖的比赛日越少，收益单调下降，所以不必逐日枚举。
+ */
+function wildcardCandidates(data, events, wildcardCount) {
+  if (!(number(wildcardCount, 0) > 0)) return [];
+  const windows = (data.chips ?? []).filter(chip => chip.name === 'wildcard');
+  if (!windows.length) return [];
+  const inWindow = id => windows.some(window => Number(id) >= Number(window.startEvent) && Number(id) <= Number(window.stopEvent));
+  const candidates = [];
+  const seenWeeks = new Set();
+  events.forEach((event, index) => {
+    const week = fantasyWeekKey(event);
+    const isWeekStart = !seenWeeks.has(week);
+    seenWeeks.add(week);
+    if (!inWindow(event.id)) return;
+    if (isWeekStart || index === 0) candidates.push(index);
+  });
+  return candidates.slice(0, MAX_WILDCARD_CANDIDATES);
+}
+
+/**
+ * 野卡规划（§13.3）：野卡 = 「那个 Gameday 的所有转会免费且阵容保留」，
+ * 等价于把该日当成一次新的免费建队日。所以直接把 wildcardDay 交给 planDailyTransfers，
+ * 由它在当天做一次整队重建——这样 daily / weekly / transfers 天然一致，不必事后拼接。
+ * 对每个候选日各跑一遍完整规划，取净得分最高者。
+ */
+function planWildcard(data, startingRoster, events, rules, transferQuota, lockedIds, runnerOptions, mode) {
+  const candidates = wildcardCandidates(data, events, runnerOptions.wildcardCount);
+  if (!candidates.length) return { evaluated:false, candidates:0, best:null };
+  let best = null;
+  for (const dayIndex of candidates) {
+    let plan;
+    try {
+      plan = planDailyTransfers(data, startingRoster, events, rules, transferQuota, lockedIds, { ...runnerOptions, mode, wildcardDay:dayIndex });
+    } catch { continue; }
+    if (!plan.wildcard) continue;
+    const netPoints = planNetPoints(plan);
+    if (!best || netPoints > best.netPoints) best = { dayIndex, netPoints, plan };
+  }
+  return { evaluated:true, candidates:candidates.length, best };
 }
 
 /** 净得分 = 每日首发预测分之和 − 付费转会扣分。所有方案比较最终都回到这个数。 */
@@ -556,11 +671,15 @@ function planNetPoints(plan) {
 export function buildFantasyPlans(data, {
   lockedIds = [], budget = data.rules.budget, eventCount = 7, freeTransfers = 2, initialRoster = null, moneyBank = null,
   ftThreshold = DEFAULT_FT_THRESHOLD, paidThreshold = DEFAULT_PAID_THRESHOLD,
+  paidLimit = DEFAULT_PAID_LIMIT, wildcardCount = 0, wildcardThreshold = DEFAULT_WILDCARD_THRESHOLD,
 } = {}) {
   projector = createProjector(data);
   const events = data.events.filter(event => event.id >= data.currentEvent).slice(0, clamp(number(eventCount, 21), 7, 21));
   if (!events.length) throw new Error('没有找到可用的未来赛程。');
-  const options = { ...data.rules, budget: number(budget, data.rules.budget) };
+  const paidCap = Math.max(0, number(paidLimit, DEFAULT_PAID_LIMIT));
+  const options = { ...data.rules, budget: number(budget, data.rules.budget), paidLimit:paidCap };
+  // 野卡可用张数无法从公开接口读取（只透出了窗口），由用户输入；0 = 不评估开卡。
+  const wildcardSetting = { count:clamp(Math.round(number(wildcardCount, 0)), 0, 3), threshold:number(wildcardThreshold, DEFAULT_WILDCARD_THRESHOLD) };
   const modes = [
     { key: 'score', title: '得分优先（推荐）', description: `按预测净得分最大化排阵：每日首发按官方口径（得分×1、篮板×1、助攻×2、抢断/盖帽×3）预估，允许为了总分放弃个别比赛日的边缘席位。` },
     { key: 'steady', title: '稳健排满', description: '尽量让每个比赛日都凑满 5 人，同排满率下再比净得分；不使用付费转会，只用免费 FT。' },
@@ -577,13 +696,46 @@ export function buildFantasyPlans(data, {
     const result = alternatives.find(option => accountRoster || !seen.has(option.roster.map(player => String(player.id)).sort().join(',')));
     if (!result) continue;
     if (!accountRoster) seen.add(result.roster.map(player => String(player.id)).sort().join(','));
-    const runnerOptions = { initialMoneyBank:accountRoster ? moneyBank : null, mode:mode.key, ftThreshold, paidThreshold };
-    let transferPlan = planDailyTransfers(data, result.roster, events, options, freeTransfers, accountRoster ? [] : lockedIds, runnerOptions);
+    const runnerOptions = {
+      initialMoneyBank:accountRoster ? moneyBank : null, mode:mode.key, ftThreshold, paidThreshold,
+      paidLimit:paidCap,
+      // 未绑定账号 = 还在建队，第一个比赛日转会免费；已绑定账号则从第一个比赛日起就要占用 FT。
+      buildDayFree: !accountRoster,
+      wildcardCount:wildcardSetting.count,
+    };
+    let transferPlan = planDailyTransfers(data, result.roster, events, options, freeTransfers, lockedIds, runnerOptions);
     if (mode.key === 'score') {
       // 贪心换人容易掉进局部最优：得分优先的轨径有时反而不如「先补排满」的轨径挣得多。
       // 两条轨径各跑一遍，取净得分更高的那条；多花的只是一次换人搜索。
-      const alternative = planDailyTransfers(data, result.roster, events, options, freeTransfers, accountRoster ? [] : lockedIds, { ...runnerOptions, mode:'steady' });
+      const alternative = planDailyTransfers(data, result.roster, events, options, freeTransfers, lockedIds, { ...runnerOptions, mode:'steady' });
       if (planNetPoints(alternative) > planNetPoints(transferPlan)) transferPlan = alternative;
+      // 兜底轨径：完全不付费。放开的付费额度带路径依赖——贪心可能在前面多换两次，
+      // 把路径带进更差的局部最优，出现「允许 3 次反而不如允许 2 次」的反直觉结果。
+      // 多跑一条 paidLimit=0 的轨径，保证「提高上限」永远不会降低净得分。
+      if (paidCap > 0) {
+        const freeOnly = planDailyTransfers(data, result.roster, events, options, freeTransfers, lockedIds, { ...runnerOptions, mode:'score', paidLimit:0 });
+        if (planNetPoints(freeOnly) > planNetPoints(transferPlan)) transferPlan = freeOnly;
+      }
+    }
+    // 野卡：只对「得分优先 / 稳健排满」评估。总场次与留足资金是结构性偏好，
+    // 开卡会让它们为了偏好而牺牲得分，反而失真。
+    let wildcard = { evaluated:false, candidates:0, best:null, adopted:false, gain:0, threshold:wildcardSetting.threshold, configured:wildcardSetting.count };
+    if (wildcardSetting.count > 0 && (mode.key === 'score' || mode.key === 'steady')) {
+      const evaluation = planWildcard(data, result.roster, events, options, freeTransfers, lockedIds, runnerOptions, mode.key);
+      const baseNet = planNetPoints(transferPlan);
+      const bestNet = evaluation.best?.netPoints ?? null;
+      wildcard = {
+        ...evaluation, threshold:wildcardSetting.threshold, configured:wildcardSetting.count,
+        baseNet:Number(baseNet.toFixed(1)),
+        bestNet:bestNet == null ? null : Number(bestNet.toFixed(1)),
+        gain:bestNet == null ? 0 : Number((bestNet - baseNet).toFixed(1)),
+        adopted:false,
+      };
+      // 增益达到门槛才建议开卡：野卡 3 次/赛季，且规划窗口只覆盖三周，机会成本必须计入。
+      if (evaluation.best && wildcard.gain >= wildcardSetting.threshold) {
+        wildcard.adopted = true;
+        transferPlan = evaluation.best.plan;
+      }
     }
     const appearances = transferPlan.daily.reduce((sum, day) => sum + day.starters.length, 0);
     const fullDays = transferPlan.daily.filter(day => day.full).length;
@@ -599,6 +751,22 @@ export function buildFantasyPlans(data, {
       transferCost: transferPlan.penalty,
       netPoints: Number((points - transferPlan.penalty).toFixed(1)),
       paidTransfers: transferPlan.paidUsed,
+      paidLimit: paidCap,
+      wildcard: {
+        evaluated: wildcard.evaluated, candidates: wildcard.candidates, configured: wildcard.configured,
+        threshold: wildcard.threshold, adopted: wildcard.adopted, gain: wildcard.gain,
+        baseNet: wildcard.baseNet ?? null, bestNet: wildcard.bestNet ?? null,
+        suggestion: wildcard.best ? {
+          dayIndex: wildcard.best.dayIndex,
+          eventId: wildcard.best.plan.wildcard?.eventId ?? null,
+          eventLabel: wildcard.best.plan.wildcard?.eventLabel ?? null,
+          deadline: wildcard.best.plan.wildcard?.deadline ?? null,
+          playable: wildcard.best.plan.wildcard
+            ? { keep:wildcard.best.plan.wildcard.keep.length, sold:wildcard.best.plan.wildcard.sold.length, bought:wildcard.best.plan.wildcard.bought.length }
+            : null,
+        } : null,
+      },
+      wildcardDetail: transferPlan.wildcard ?? null,
       emptyDays: transferPlan.daily.filter(day => !day.full).length,
       roster: result.roster.map(player => ({ ...player, projection: Number(playerProjection(player).toFixed(1)) })),
       daily: transferPlan.daily,
