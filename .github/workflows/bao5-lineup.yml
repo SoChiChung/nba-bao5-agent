@@ -88,6 +88,14 @@ jobs:
         run: |
           node -e "const fs=require('fs'); fs.writeFileSync('data/bao5/bao1/config.json', JSON.stringify({email:process.env.BAO5_EMAIL,password:process.env.BAO5_PASSWORD,baseUrl:'https://nbabao5.cn'}));"
           node src/server.mjs || echo "快照生成失败，本轮不提交快照（不影响其他数据更新）"
+      - name: Record NBA Fantasy predictions
+        # 预测落盘：截止前每轮覆盖、截止后冻结、内容无变化不写盘（幂等）。
+        if: always() && inputs.backfill_only != true
+        run: node data/fantasy/record-predictions.mjs || echo "预测落盘失败，本轮跳过（不影响其他数据更新）"
+      - name: Evaluate NBA Fantasy predictions
+        # 用已结算比赛日的真实得分算 loss 并产出校准因子；日志未刷新到的比赛日整场跳过。
+        if: always() && inputs.backfill_only != true
+        run: node data/fantasy/evaluate-predictions.mjs || echo "预测评估失败，本轮跳过（不影响其他数据更新）"
       - name: Remove runtime secrets
         if: always()
         run: rm -f data/bao5/bao1/config.json data/odds/config.json
@@ -97,7 +105,7 @@ jobs:
           rm -f data/bao5/bao1/config.json data/odds/config.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/automation-runs.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes data/bao5/scores/top-five-lineups.json data/bao5/scores/rankings_*.json data/position/defense_vs_position.json
+          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/automation-runs.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes data/bao5/scores/top-five-lineups.json data/bao5/scores/rankings_*.json data/position/defense_vs_position.json data/fantasy
           for file in data/position/defense_vs_position_*.csv; do
             if [ -e "$file" ]; then git add "$file"; fi
           done

@@ -10,6 +10,7 @@ import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
 import { buildDashboardData, deriveCalibration, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, RUNTIME_ROOT, writePicks, selectAutoMode } from './model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from './preseason-stats.mjs';
 import { matchupSignal } from '../data/history-player/matchup.mjs';
+import { buildFantasyPayload, fetchFantasyJson, getSystemHttpsProxy as detectHttpsProxy } from './fantasy-data.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
 const execFileAsync = promisify(execFile);
@@ -785,33 +786,8 @@ function saveHistory(rows) { fs.mkdirSync(path.dirname(historyPath),{recursive:t
 function calibration(rows){const trained=prepareHistoryForCalibration(rows,[],dateKey=>readJson(`data/bao5/scores/rankings_${dateKey}.json`,null));return deriveCalibration(trained).regular.factor;}
 function send(res, status, body, type='application/json; charset=utf-8') { res.writeHead(status, {'Content-Type':type,'Cache-Control':'no-store'}); res.end(type.startsWith('application/json') ? JSON.stringify(body) : body); }
 
-function getSystemHttpsProxy() {
-  if (systemHttpsProxy !== undefined) return systemHttpsProxy;
-  systemHttpsProxy = process.env.HTTPS_PROXY ?? process.env.https_proxy ?? process.env.ALL_PROXY ?? process.env.all_proxy ?? null;
-  if (!systemHttpsProxy && process.platform === 'win32') {
-    try {
-      const result = execFileSync('reg.exe', ['query', 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings', '/v', 'ProxyServer'], { encoding:'utf8', stdio:['ignore','pipe','ignore'] });
-      const value = result.match(/ProxyServer\s+REG_SZ\s+(.+)/i)?.[1]?.trim();
-      if (value) {
-        const httpsEntry = value.split(';').map(item => item.trim()).find(item => /^https?=/i.test(item));
-        systemHttpsProxy = (httpsEntry ? httpsEntry.slice(httpsEntry.indexOf('=') + 1) : value).replace(/^http=/i, '');
-        if (systemHttpsProxy && !/^https?:\/\//i.test(systemHttpsProxy)) systemHttpsProxy = `http://${systemHttpsProxy}`;
-      }
-    } catch { /* Windows may have no configured system proxy. */ }
-  }
-  return systemHttpsProxy;
-}
-
-async function fetchFantasyJson(url) {
-  const proxy = getSystemHttpsProxy();
-  if (proxy && process.platform === 'win32') {
-    const { stdout } = await execFileAsync('curl.exe', ['--proxy', proxy, '--max-time', '20', '--fail-with-body', '--silent', '--show-error', url], { encoding:'utf8', maxBuffer:15 * 1024 * 1024 });
-    return JSON.parse(stdout);
-  }
-  const response = await fetch(url, { signal:AbortSignal.timeout(20_000) });
-  if (!response.ok) throw new Error(`NBA Fantasy 上游请求失败（HTTP ${response.status}）`);
-  return response.json();
-}
+// 代理探测与上游请求已抽到 src/fantasy-data.mjs，与 data/fantasy/record-predictions.mjs 共用。
+function getSystemHttpsProxy() { return detectHttpsProxy(); }
 async function fetchPlayerHeadshot(source) {
   const proxy=getSystemHttpsProxy();
   if(proxy&&process.platform==='win32'){
@@ -871,81 +847,7 @@ const server = http.createServer(async (req,res) => {
       if (!force && fantasyCache && Date.now() - fantasyCache.fetchedAt < 3 * 60 * 60_000) return send(res,200,fantasyCache.data);
       if (fantasyRefreshing) return send(res,200,await fantasyRefreshing);
       fantasyRefreshing = (async () => {
-        const base = 'https://nba-fantasy-service.allaboutfantasy.workers.dev/api';
-        const [bootstrap,fixturePayload,currentPayload] = await Promise.all([
-          fetchFantasyJson(`${base}/bootstrap`),
-          fetchFantasyJson(`${base}/fixtures`),
-          fetchFantasyJson(`${base}/current_event`),
-        ]);
-        const source = bootstrap.data;
-        if (!source?.elements?.length || !Array.isArray(fixturePayload.data)) throw new Error('NBA Fantasy 数据格式不完整');
-        const currentEvent = Number(currentPayload.event ?? source.events?.find(event => event.is_current)?.id ?? 1);
-        const allEvents = (source.events ?? []).filter(event => Number(event.id) >= currentEvent).slice(0,21);
-        const futureEventIds = new Set(allEvents.map(event => Number(event.id)));
-        const fixtures = fixturePayload.data;
-        const teams = (source.teams ?? []).map(team => ({id:String(team.id),name:team.name,shortName:team.short_name}));
-        const teamById = new Map(teams.map(team => [team.id, team]));
-        const opponentsByTeam = new Map();
-        for (const fixture of fixtures) {
-          if (!futureEventIds.has(Number(fixture.event))) continue;
-          const home = String(fixture.team_h), away = String(fixture.team_a);
-          if (!opponentsByTeam.has(home)) opponentsByTeam.set(home, new Set());
-          if (!opponentsByTeam.has(away)) opponentsByTeam.set(away, new Set());
-          opponentsByTeam.get(home).add(away);
-          opponentsByTeam.get(away).add(home);
-        }
-        const defenseRows = combineDefense(readJson('data/position/defense_vs_position.json')).rows;
-        const defenseRanks = new Map();
-        for (const row of defenseRows) {
-          const group = ['PG','SG'].includes(row.Position) ? 1 : 2;
-          const key = `${row.Team}:${group}`;
-          const item = defenseRanks.get(key) ?? { sum:0, count:0 };
-          item.sum += Number(row.PTS_Rank ?? 75);
-          item.count++;
-          defenseRanks.set(key, item);
-        }
-        const players = source.elements.map(player => {
-          const fullName = [player.first_name,player.second_name].filter(Boolean).join(' ');
-          const position = Number(player.element_type);
-          const historyByOpponent = {};
-          const defenseByOpponent = {};
-          for (const opponentId of opponentsByTeam.get(String(player.team)) ?? []) {
-            const opponent = teamById.get(opponentId);
-            if (!opponent) continue;
-            const history = matchupSignal(fullName, opponent.shortName, { nameEn:fullName });
-            if (history.available) historyByOpponent[opponentId] = history.signal;
-            const defense = defenseRanks.get(`${opponent.shortName}:${position}`);
-            if (defense?.count) defenseByOpponent[opponentId] = Math.max(-1, Math.min(1, ((defense.sum / defense.count) - 75) / 75));
-          }
-          return {
-            id:String(player.id),name:player.web_name,fullName,
-            photoUrl:player.code?`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.code}.png`:null,
-            team:String(player.team),position,cost:Number(player.now_cost),
-            ppg:Number(player.points_per_game)/10,form:Number(player.form),status:player.status??'a',
-            chance_of_playing_next_round:player.chance_of_playing_next_round,news:player.news??'',
-            selectedBy:Number(player.selected_by_percent),minutes:Number(player.minutes),removed:player.removed===true,
-            historyByOpponent,defenseByOpponent,
-          };
-        });
-        const events = allEvents.map(event => ({
-          id:Number(event.id),name:event.name,gameweek:event.name?.match(/Gameweek\s+(\d+)/i)?.[1]??String(event.id),
-          deadline: event.deadline_time,
-          games: fixtures.filter(game => Number(game.event) === Number(event.id)).map(game => ({
-            id:String(game.id),home:String(game.team_h),away:String(game.team_a),kickoff:game.kickoff_time,
-            finished:game.finished===true,
-          })),
-        }));
-        const positionRules = Object.fromEntries((source.element_types??[]).map(type => [String(type.id),{
-          name:type.singular_name,squadSelect:Number(type.squad_select),maxPlay:Number(type.squad_max_play),minPlay:Number(type.squad_min_play),
-        }]));
-        const data = {
-          currentEvent,events,players,teams,
-          rules:{budget:Number(source.game_config?.rules?.squad_total_spend??1000),squadSize:Number(source.game_config?.rules?.squad_squadsize??10),
-            teamLimit:Number(source.game_config?.rules?.squad_team_limit??2),
-            squadByPosition:Object.fromEntries(Object.entries(positionRules).map(([id,rule])=>[id,rule.squadSelect])),
-            maxPlay:Object.fromEntries(Object.entries(positionRules).map(([id,rule])=>[id,rule.maxPlay])),positionRules},
-          updatedAt:fixturePayload.savetime??source.events?.find(event=>event.id===currentEvent)?.deadline_time??new Date().toISOString(),
-        };
+        const data = await buildFantasyPayload({ readJson, combineDefense, matchupSignal, seasonLabel:currentNBASeasonLabel });
         fantasyCache={data,fetchedAt:Date.now()};
         return data;
       })();
@@ -958,17 +860,29 @@ const server = http.createServer(async (req,res) => {
       const base='https://nba-fantasy-service.allaboutfantasy.workers.dev/api';
       const appApi='https://nba-fantasy-app.allaboutfantasy.workers.dev/api';
       const current=await fetchFantasyJson(`${base}/current_event`);
-      const eventId=Number(current.event);
-      if(!Number.isFinite(eventId))return send(res,502,{error:'NBA Fantasy 当前比赛周读取失败。'});
-      const [picksPayload,transfersPayload]=await Promise.all([
-        fetchFantasyJson(`${appApi}/team-picks?teamid=${encodeURIComponent(teamId)}&eventid=${eventId}`),
-        fetchFantasyJson(`${appApi}/team-transfers?teamid=${encodeURIComponent(teamId)}&eventid=${eventId}`).catch(()=>null),
-      ]);
-      if(picksPayload?.success===false||!picksPayload?.data)return send(res,404,{error:picksPayload?.error??'未找到该 NBA Fantasy 队伍，请检查 ID。'});
+      const anchorEventId=Number(current.event);
+      if(!Number.isFinite(anchorEventId))return send(res,502,{error:'NBA Fantasy 当前比赛周读取失败。'});
+      // 官方 picks 只在比赛日 deadline 过后才生成，而 current_event 给的是「尚未开赛」的那一天，
+      // 直接拿它取阵容必然 404（2026-11-06 实测：current_event=17，而 17/18 均 404、16 正常）。
+      // 因此从该比赛日往回试探，取最近一个有阵容快照的比赛日。
+      const candidateIds=Array.from({length:5},(_,offset)=>anchorEventId-offset).filter(id=>id>=1);
+      const attempts=await Promise.allSettled(candidateIds.map(id=>fetchFantasyJson(`${appApi}/team-picks?teamid=${encodeURIComponent(teamId)}&eventid=${id}`)));
+      let picksPayload=null,eventId=null;
+      for(const [index,attempt] of attempts.entries()){
+        if(attempt.status!=='fulfilled')continue;
+        const body=attempt.value;
+        if(body?.success===false||!body?.data)continue;
+        const candidatePicks=Array.isArray(body.data)?body.data:body.data?.picks;
+        if(!Array.isArray(candidatePicks)||!candidatePicks.length)continue;
+        picksPayload=body;eventId=candidateIds[index];break;
+      }
+      if(!picksPayload)return send(res,404,{error:`未读到该 ID 的阵容（已检查比赛日 ${candidateIds[candidateIds.length-1]}–${candidateIds[0]}）。请确认 NBA Fantasy ID 是否正确；若该账号本赛季还没提交过阵容，官方暂无阵容快照。`});
       const payload=picksPayload.data;
       const picks=Array.isArray(payload)?payload:payload?.picks;
       if(!Array.isArray(picks))return send(res,502,{error:'账号阵容数据格式无法识别。'});
-      return send(res,200,{teamId,eventId,picks,bank:Number(payload?.entry_history?.bank??payload?.bank??0),transfers:Array.isArray(transfersPayload?.data)?transfersPayload.data:[],transfersAvailable:Array.isArray(transfersPayload?.data)});
+      const transfersPayload=await fetchFantasyJson(`${appApi}/team-transfers?teamid=${encodeURIComponent(teamId)}&eventid=${eventId}`).catch(()=>null);
+      const history=payload?.entry_history??{};
+      return send(res,200,{teamId,eventId,anchorEventId,picks,bank:Number(history.bank??0),teamValue:Number(history.value??0),transfers:Array.isArray(transfersPayload?.data)?transfersPayload.data:[],transfersAvailable:Array.isArray(transfersPayload?.data)});
     }
     if (url.pathname === '/api/player-headshot' && req.method === 'GET') {
       const playerIds=[...new Set(String(url.searchParams.get('ids')??url.searchParams.get('id')??'').split(',').filter(id=>/^\d+$/.test(id)))].slice(0,4);

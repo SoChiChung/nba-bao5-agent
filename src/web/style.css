@@ -338,3 +338,14 @@
 .hero-note .live-freshness-row b{display:block;font-size:13px;font-weight:500;color:#626b7e;white-space:nowrap}
 :root[data-theme="dark"] .hero-note .live-freshness{border-top-color:#2a3344}
 :root[data-theme="dark"] .hero-note .live-freshness-row b{color:#aeb8c9}
+
+/* 预测得分口径：净得分作为主指标，付费转会标红。 */
+.fantasy-metrics{grid-template-columns:repeat(6,1fr)}
+.fantasy-metrics .is-primary{background:#f2f6ff}
+.fantasy-metrics .is-primary b{color:#315efb}
+.fantasy-transfer-meta small.is-paid{color:#c2413f;font-weight:800}
+.planner-player small{line-height:1.45}
+@media(max-width:900px){.fantasy-metrics{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.fantasy-metrics{grid-template-columns:1fr 1fr}}
+:root[data-theme="dark"] .fantasy-metrics .is-primary{background:#232c44}
+:root[data-theme="dark"] .fantasy-metrics .is-primary b{color:#9fb4ff}
