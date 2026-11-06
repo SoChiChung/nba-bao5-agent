@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T21:37:59.131Z",
+  "updatedAt": "2026-11-06T00:39:36.622Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "out": 113,
-    "available": 417,
-    "questionable": 12
+    "out": 115,
+    "available": 414,
+    "questionable": 13
   },
   "provenance": {
     "officialCount": 15,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-05.json",
   "changesFile": "changes/changes_2026-11-05.json",
   "previousDate": "2026-11-04",
-  "changeCount": 114,
-  "restrictedCount": 125,
+  "changeCount": 119,
+  "restrictedCount": 128,
   "restricted": [
     {
       "id": "2544",
@@ -451,6 +451,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月2日：缺阵（左腿筋）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630191",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Stewart (knee) has been ruled out for Friday's game against the Thunder.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1201,6 +1215,20 @@
       "energy": null
     },
     {
+      "id": "1642854",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Newell (toe) is out for Friday's game against Washington.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642856",
       "key": "out",
       "label": "缺阵",
@@ -1499,7 +1527,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Head coach Dusty May said Friday that de Larrea (knee) will be re-evaluated next week, Noah Weber of TheSmokingCuban.com reports.",
+      "detail": "ESPN伤病名单：De Larrea (knee) is out for Friday's game against Utah.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1621,6 +1649,34 @@
       "energy": null
     },
     {
+      "id": "203076",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Davis is questionable for Friday's game against the Hawks due to a right ankle sprain, Josh Robbins of The Athletic reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203471",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Schroder (thigh) is questionable for Friday's game against the Celtics.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628380",
       "key": "questionable",
       "label": "每日观察",
@@ -1639,7 +1695,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Allen (knee) exited to the locker room in the first quarter of Wednesday's 124-116 loss to the Thunder and did not return, finishing with zero points (0-1 FG) and one rebound in seven minutes.",
+      "detail": "ESPN伤病名单：Allen (knee) is questionable for Friday's game against Philadelphia.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1654,20 +1710,6 @@
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Smith (hand) won't return to Wednesday's game against the Knicks.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630191",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Stewart (knee) exited Wednesday's 107-103 loss to the Pacers and did not return, finishing with six points (3-4 FG) and one rebound in 10 minutes.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1695,7 +1737,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Shannon (hip) is out for Wednesday against the Rockets.",
+      "detail": "ESPN伤病名单：Shannon (hip) is questionable for Friday's game against New Orleans.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1710,6 +1752,20 @@
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Sharpe registered 15 points (5-7 FG, 1-1 3Pt, 4-5 FT), 13 rebounds and four assists across 26 minutes in Sunday's 98-90 win over the Pacers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631217",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Diabate (quadriceps) is questionable for Friday's game against the Celtics.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1737,21 +1793,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Bona exited Wednesday's 112-106 win over the Pistons in the fourth quarter and did not return due to an apparent head injury, finishing with five points (2-4 FG, 1-1 FT), two rebounds, one assist and one steal across 15 minutes.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642854",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Newell won't return to Wednesday's game against the Wizards due to a left great toe hyperextension, Brad Rowland of the Locked On Podcast Network reports. He'll finish with two points (1-1 FG), three rebounds and three assists across 10 minutes.",
+      "detail": "ESPN伤病名单：Bona (back) is doubtful to play in Friday's game against the Cavaliers, Ky Carlin of USA Today reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1765,7 +1807,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Proctor exited Wednesday's 124-116 loss to the Thunder in the fourth quarter and did not return due to an apparent ankle injury, finishing with 11 points (4-7 FG, 2-3 3Pt, 1-1 FT), one rebound and one steal across 22 minutes.",
+      "detail": "ESPN伤病名单：Proctor (ankle) is questionable to play in Friday's game against the 76ers.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1775,5 +1817,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月5日 16:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月5日 19:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
