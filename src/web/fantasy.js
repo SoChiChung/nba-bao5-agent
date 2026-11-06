@@ -314,30 +314,42 @@ function renderScoreAnchor(plan) {
 
 function renderPlan(plan, index, rules) {
   const events = plan.daily.map(day => day.event);
+  const positionNameOf = player => rules.positionRules[String(player.position)]?.name ?? '阵容球员';
   const groups = new Map();
   for (const player of plan.roster) {
-    const position = rules.positionRules[String(player.position)]?.name ?? '阵容球员';
+    const position = positionNameOf(player);
     if (!groups.has(position)) groups.set(position, []);
     groups.get(position).push(player);
   }
-  let slotPlayers = plan.roster.slice();
+  // 🚨 表格行序是「一整组位置排完再排下一组」，所以快照数组必须用同一个顺序。
+  // 旧版用 plan.roster.slice()（优化器输出顺序，前后场是交错的），两者一旦不一致，
+  // 转会后每一行都会串位——后场球员被显示到「Front Court」行里（2026-11-07 实测：
+  // roster[1] 是 Wembanyama 而第 1 行是 Back Court 行，直接错开整张表）。
+  let slotPlayers = [...groups.values()].flat();
   const timeline = [];
-  // 野卡是「整队重建」，不是一对一对换：把 10 个名额整体换成重建后的阵容，
-  // 并按位置对齐，避免第 i 行在野卡前后变成不同位置的球员。
-  const alignRoster = (target, roster) => {
-    const back = roster.filter(player => Number(player.position) === 1);
-    const front = roster.filter(player => Number(player.position) === 2);
-    return target.map(slot => (Number(slot.position) === 1 ? back.shift() : front.shift()) ?? slot);
+  // 野卡是「整队重建」：行序固定，所以按「位置组 + 组内序号」把新阵容对进同样的行，
+  // 而不是按原始球员顺序逐位替换。
+  const alignRoster = incoming => {
+    const pools = new Map();
+    for (const player of incoming) {
+      const key = positionNameOf(player);
+      if (!pools.has(key)) pools.set(key, []);
+      pools.get(key).push(player);
+    }
+    return [...groups].flatMap(([position, rows]) => {
+      const source = pools.get(position) ?? [];
+      return rows.map((_, rowIndex) => source[rowIndex] ?? null);
+    });
   };
   events.forEach((event,index) => {
     const wildcard = plan.daily[index]?.wildcard;
     if (wildcard) {
-      slotPlayers = alignRoster(plan.roster, (wildcard.afterRoster ?? []).slice());
+      slotPlayers = alignRoster(wildcard.afterRoster ?? []);
       timeline.push({type:'wildcard', dayIndex:index, wildcard, slotPlayers:slotPlayers.slice()});
       return;
     }
     for (const [transferIndex,transfer] of (plan.daily[index]?.transfers ?? []).entries()) {
-      const slotIndex = slotPlayers.findIndex(player => String(player.id) === String(transfer.from.id));
+      const slotIndex = slotPlayers.findIndex(player => player && String(player.id) === String(transfer.from.id));
       if (slotIndex >= 0) slotPlayers[slotIndex] = transfer.to;
       timeline.push({type:'transfer', dayIndex:index, transfer, transferIndex, slotPlayers:slotPlayers.slice(), incomingSlotIndex:slotIndex});
     }
@@ -357,6 +369,7 @@ function renderPlan(plan, index, rules) {
       if (step.type === 'transfer') {
         const player = step.slotPlayers[rowSlotIndex];
         const incoming = step.incomingSlotIndex === rowSlotIndex;
+        if (!player) return `<div class="planner-event-cell planner-roster-snapshot ${incoming?'incoming':''}">—</div>`;
         return `<div class="planner-event-cell planner-roster-snapshot ${incoming?'incoming':''}">${avatarMarkup(player)}<span class="planner-snapshot-ident"><b>${escapeHtml(playerLabel(player))}</b><small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${price(player.cost)}</small></span></div>`;
       }
       if (step.type === 'wildcard') {
@@ -366,6 +379,7 @@ function renderPlan(plan, index, rules) {
         return `<div class="planner-event-cell planner-roster-snapshot is-wildcard ${incoming?'incoming':''}">${avatarMarkup(player)}<span class="planner-snapshot-ident"><b>${escapeHtml(playerLabel(player))}</b><small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${price(player.cost)}</small></span></div>`;
       }
       const player = step.slotPlayers[rowSlotIndex];
+      if (!player) return '<div class="planner-event-cell">—</div>';
       const match = day.games.find(game => String(game.home) === String(player.team) || String(game.away) === String(player.team));
       const opponentId = match ? (String(match.home) === String(player.team) ? match.away : match.home) : null;
       const opponent = opponentId ? team(opponentId)?.shortName ?? '赛' : '';

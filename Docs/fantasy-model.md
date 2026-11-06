@@ -658,3 +658,64 @@ benchmarks = { settledEvents, best5Average, best5Median, days[] }
 | 每个 event 的比赛场次 | 2–14 场，按 `fixture.event` 精确分区，无重复计入 |
 | 单场最高实际分 | 65（`element.event_points` 前 20 名 ≥ 24），确认「每个 Gameday 独立计分、每天首发 5 人」 |
 | 球员出场率（场均 ≥15 分钟者） | 中位 **1.000**、25 分位 0.875 ⇒ 无需额外「出场概率」折损 |
+
+---
+
+## 15. 位置口径与阵容表格对齐（2026-11-07 修复）
+
+用户反馈「多森姆明明是后场，却被算成前场」。排查分两层，结论是**位置数据源一直是对的，错的是表格渲染的槽位映射**。
+
+### 15.1 位置来源：只用官方 `element_type`
+
+| 环节 | 来源 | 说明 |
+|---|---|---|
+| 球员位置 | `bootstrap.elements[].element_type` | **1 = Back Court（后场，273 人）/ 2 = Front Court（前场，319 人）** |
+| 阵容配额 | `element_types[].squad_select` | 前后场各 5 人 |
+| 每日首发上下限 | `element_types[].squad_min_play / squad_max_play` | 每组 **2–3 人**，因此每天只可能是 3F2B 或 2F3B |
+| 对手位置防守 | `data/position/defense_vs_position.json` | 只用于**对手**强度，颗粒度是真实位置 PG/SG/SF/PF/C，按 PG+SG → 后场组、SF+PF+C → 前场组聚合 |
+
+「每日一阵」（BAO5）的位置表（`front`/`back` 字符串）**从不参与** Fantasy 面板——两套系统位置口径不同，混用一定出错。抽查验证：BC 组场均篮板最高的是 Doncic(7.0)/Josh Hart(6.25)/Jaylen Brown(6.0)，FC 组场均助攻最高的是 Jokic(7.5)/Franz Wagner(7.0)/Sengun(6.6)，分组方向正确。
+
+### 15.2 🚨 真 bug：阵容表格的槽位错位
+
+`renderPlan` 的三段代码用了两套不一致的顺序：
+
+```js
+// ① 行序：一整组位置排完，再排下一组
+const groups = new Map(); /* Back Court 5 行 → Front Court 5 行 */
+// ② 快照数组：optimizer 输出的 roster 原始顺序（前后场交错）
+let slotPlayers = plan.roster.slice();
+// ③ 每行取自己下标那个快照
+const player = step.slotPlayers[rowSlotIndex];
+```
+
+实测 `plan.roster` 是 `[Doncic(BC), Wembanyama(FC), Lendeborg(FC), Jerome(BC), …]`，而渲染行序是 `[Doncic, Jerome, Acuff, Hyland, Jackson, Wembanyama, …]`。于是从第 2 行起全部错开：**第 1 行（Back Court 行）显示 Wembanyama，第 5 行（Front Court 首行）显示 Acuff（后场）**。首列「初始阵容」用的是分组内的 `initialPlayer`，所以只有首列是对的，转会后每一列都串位。
+
+修法：
+
+```js
+let slotPlayers = [...groups.values()].flat();   // 与渲染行序严格一致
+const alignRoster = incoming => {                 // 野卡重建按「组 + 组内序号」对齐
+  const pools = /* incoming 按位置名分组 */;
+  return [...groups].flatMap(([position, rows]) =>
+    rows.map((_, i) => pools.get(position)?.[i] ?? null));
+};
+```
+
+同时给三条渲染分支补 `null` 兜底（新阵容某组人数不足时显示 `—`，而不是把旧球员顶上来）。
+
+**验收**：逐单元格核对「该格球员的官方位置 == 所在行标题」，修复前大量错位，修复后 **70 个快照单元格 0 处错位**。
+
+### 15.3 顺带修掉的球队缩写失配
+
+位置防守数据用两字母旧缩写，Fantasy 用官方三字母，5 支球队因此**查不到对位系数、静默退化成「无修正」**：
+
+| 防守数据 | Fantasy | 球队 |
+|---|---|---|
+| GS | GSW | 勇士 |
+| NO | NOP | 鹈鹕 |
+| NY | NYK | 尼克斯 |
+| PHO | PHX | 太阳 |
+| SA | SAS | 马刺 |
+
+在 `buildOpponentDefense` 入口做别名归一后，有对位系数的球员从「5 队对手全缺」变为 **592/592 全覆盖**。这类错误不会报错、只会让修正悄悄失效，必须靠覆盖率断言兜住。

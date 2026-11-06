@@ -61,6 +61,16 @@ export function median(values) {
 export const STAT_KEYS = ['pts', 'reb', 'ast', 'blk', 'stl'];
 /** 位置组：1 = Back Court（PG/SG），2 = Front Court（SF/PF/C）。 */
 const GROUP_BY_POSITION_NAME = { PG: 1, SG: 1, SF: 2, PF: 2, C: 2 };
+/**
+ * 位置防守数据（data/position/defense_vs_position.json）用的是两字母旧缩写，
+ * 而 NBA Fantasy 的 team.short_name 是官方三字母。不做归一会有 5 支球队查不到
+ * 对位系数、静默退化成「无修正」：GS/NO/NY/PHO/SA ↔ GSW/NOP/NYK/PHX/SAS。
+ */
+const DEFENSE_TEAM_ALIAS = { GS: 'GSW', NO: 'NOP', NY: 'NYK', PHO: 'PHX', SA: 'SAS' };
+const normalizeDefenseTeam = team => {
+  const key = String(team ?? '').toUpperCase();
+  return DEFENSE_TEAM_ALIAS[key] ?? key;
+};
 
 /** 官方 scoring 是放大 10 倍的口径，统一换算成「每 1 单位统计 = 几分」。 */
 export function scoringWeights(gameConfig) {
@@ -80,7 +90,7 @@ export function buildOpponentDefense(rows) {
   for (const row of rows ?? []) {
     const group = GROUP_BY_POSITION_NAME[String(row.Position).toUpperCase()];
     if (!group) continue;
-    const key = `${String(row.Team).toUpperCase()}:${group}`;
+    const key = `${normalizeDefenseTeam(row.Team)}:${group}`;
     const bucket = byTeamGroup.get(key) ?? { pts: [], reb: [], ast: [], blk: [], stl: [] };
     for (const stat of STAT_KEYS) {
       const source = { pts: 'PTS', reb: 'REB', ast: 'AST', blk: 'BLK', stl: 'STL' }[stat];
