@@ -1,0 +1,16 @@
+{
+  "fetchedAt": "2026-11-06T21:08:22.304Z",
+  "updatedAt": "2026-11-06T21:08:22.304Z",
+  "date": "2026-11-12",
+  "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+  "displayName": "ZCJenius",
+  "boardCount": 0,
+  "board": [],
+  "boardError": "2026-11-12 尚未结算（全 0 分）",
+  "boardSource": "/api/rankings?period=day&date=2026-11-12",
+  "source": {
+    "mine": "/api/rankings?mine=1&date=2026-11-12",
+    "board": "/api/rankings?period=day&date=2026-11-12"
+  },
+  "stale": true
+}
