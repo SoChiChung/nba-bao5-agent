@@ -142,6 +142,48 @@ export function recentGamesByCode(logPayload, limit = 6) {
   return map;
 }
 
+/**
+ * 预估分的标尺：已结算比赛日里「当天实际最高 5 人分数」。
+ *
+ * 为什么需要它：一个 21 个比赛日的方案合计 3000–4200 分，单看绝对值没有参照，
+ * 很容易被误读为「模型高估」。把模型对全池日最佳 5 人的预估放在这个实测数旁边，
+ * 就能立刻判断偏高还是偏保守——实测值来自官方 fixtures 的逐场分项，口径与游戏完全一致。
+ */
+function buildBenchmarks(fixtures) {
+  const weights = { points_scored: 1, rebounds: 1, assists: 2, blocks: 3, steals: 3 };
+  const byEvent = new Map();
+  for (const fixture of fixtures ?? []) {
+    const key = Number(fixture.event);
+    if (!byEvent.has(key)) byEvent.set(key, []);
+    byEvent.get(key).push(fixture);
+  }
+  const days = [];
+  for (const [eventId, games] of byEvent) {
+    if (!games.length || games.some(game => game.finished !== true)) continue;
+    const perPlayer = new Map();
+    for (const game of games) {
+      for (const block of game.stats ?? []) {
+        const weight = weights[block.identifier] ?? 0;
+        if (!weight) continue;
+        for (const side of ['h', 'a']) for (const row of block[side] ?? []) {
+          perPlayer.set(row.element, (perPlayer.get(row.element) ?? 0) + Number(row.value) * weight);
+        }
+      }
+    }
+    const values = [...perPlayer.values()].sort((a, b) => b - a);
+    if (values.length < 10) continue;
+    days.push({ eventId, games: games.length, best5: round(values.slice(0, 5).reduce((sum, value) => sum + value, 0), 1) });
+  }
+  if (!days.length) return null;
+  const average = days.reduce((sum, day) => sum + day.best5, 0) / days.length;
+  return {
+    settledEvents: days.length,
+    best5Average: round(average, 1),
+    best5Median: round(median(days.map(day => day.best5)), 1),
+    days,
+  };
+}
+
 function groupOf(position) {
   return Number(position) === 1 ? 1 : 2;
 }
@@ -303,6 +345,7 @@ export async function buildFantasyPayload(deps, { fetchJson = fetchFantasyJson }
 
   return {
     currentEvent, events, eventDirectory, players, teams, chips,
+    benchmarks: buildBenchmarks(fixtures),
     scoring: weights,
     positionPriors: priors,
     calibration: calibration && typeof calibration === 'object' ? calibration : null,

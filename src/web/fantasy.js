@@ -14,6 +14,44 @@ function teamLabel(id) { const item = team(id); return item ? `${item.shortName}
 function playerLabel(player) { return player?.fullName || player?.name || `球员 ${player?.id ?? ''}`; }
 function price(cost) { return `$${(Number(cost ?? 0) / 10).toFixed(1)}`; }
 function shortDate(date) { return date ? new Date(date).toLocaleDateString('zh-CN', { timeZone:'America/New_York', month:'numeric', day:'numeric' }) : '日期待定'; }
+function eventLabel(event) { return String(event?.name ?? '').replace('Gameweek ', 'GW').replace(' - Day ', '.'); }
+
+/** 可用的起算比赛日：官方 events 里还没过截止日的那些。 */
+function startOptions() {
+  const startId = Number($('fantasy-start-event').value);
+  return (data?.events ?? []).filter(event => !Number.isFinite(startId) || Number(event.id) >= startId);
+}
+
+function renderStartOptions() {
+  const select = $('fantasy-start-event');
+  const previous = select.value;
+  select.innerHTML = (data?.events ?? []).map(event => `<option value="${escapeHtml(event.id)}">${escapeHtml(eventLabel(event))} · ${escapeHtml(shortDate(event.deadline))} 截止</option>`).join('');
+  if (previous && [...select.options].some(option => option.value === previous)) select.value = previous;
+  syncEventCount();
+}
+
+/** 规划长度不能超过「从起算日到窗口末尾」的比赛日数，否则模型会拿到空列表。 */
+function syncEventCount() {
+  const input = $('fantasy-event-count');
+  const max = Math.max(1, startOptions().length);
+  input.max = String(max);
+  if (!Number(input.value) || Number(input.value) > max) input.value = String(max);
+}
+
+/** 免费转会说明：本周剩余数来自账号，之后每周期恒定重置。 */
+function syncFtNote() {
+  const perWeek = data?.rules?.freeTransfersPerWeek ?? 2;
+  const note = $('fantasy-ft-note');
+  if (!note) return;
+  if (accountTeam) {
+    const left = accountTeam.firstWeekFreeTransfers;
+    note.textContent = left == null
+      ? `免费转会：本周剩余数读取失败，请到官网核对 · 之后每个 Gameweek 重置为 ${perWeek} 个（不结转）`
+      : `免费转会：本周还剩 ${left} 个 · 之后每个 Gameweek 重新给 ${perWeek} 个（不结转，用光也不影响下周）`;
+    return;
+  }
+  note.textContent = `免费转会：每个 Gameweek 重置为 ${perWeek} 个、不结转。绑定账号后会读取本周实际剩余数。`;
+}
 function avatarMarkup(player) {
   const initials = playerLabel(player).split(/\s+/).slice(0,2).map(part => part[0] ?? '').join('').toUpperCase();
   const image = player?.photoUrl ? `<img src="${escapeHtml(player.photoUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('is-fallback');this.remove()">` : '';
@@ -26,8 +64,9 @@ export function initFantasy() {
   $('fantasy-generate').addEventListener('click', generate);
   $('fantasy-refresh').addEventListener('click', () => loadData(true));
   $('fantasy-account-load').addEventListener('click', loadAccount);
+  $('fantasy-start-event').addEventListener('change', syncEventCount);
   $('fantasy-account-id').value = localStorage.getItem(ACCOUNT_KEY) ?? '';
-  $('fantasy-account-id').addEventListener('input', () => { accountTeam = null; $('fantasy-account-summary').textContent = '绑定后会使用账号球员、官方售价和剩余资金规划。'; $('fantasy-account-summary').classList.remove('is-loaded'); $('fantasy-budget').disabled = false; });
+  $('fantasy-account-id').addEventListener('input', () => { accountTeam = null; $('fantasy-account-summary').textContent = '绑定后会使用账号球员、官方售价和剩余资金规划。'; $('fantasy-account-summary').classList.remove('is-loaded'); $('fantasy-budget').disabled = false; syncFtNote(); });
   document.addEventListener('click', event => {
     if (!event.target.closest('#fantasy-player-search') && !event.target.closest('#fantasy-player-results')) $('fantasy-player-results').classList.add('hidden');
   });
@@ -61,6 +100,8 @@ async function loadData(refresh = false) {
       $('fantasy-rules-note').textContent = `官方规则：${data.rules.squadSize} 人阵容、每队最多 ${data.rules.teamLimit} 人、前后场各 ${data.rules.squadByPosition['1']} 人、每天首发 5 人。计分：得分×${data.scoring?.pts ?? 1}、篮板×${data.scoring?.reb ?? 1}、助攻×${data.scoring?.ast ?? 2}、抢断/盖帽×${data.scoring?.blk ?? 3}（不计失误）。`;
       $('fantasy-generate').disabled = false;
       renderLocks();
+      renderStartOptions();
+      syncFtNote();
       if ($('fantasy-account-id').value.trim() && (!accountTeam || refresh)) await loadAccount(false);
       if (refresh) generate();
     } catch (error) {
@@ -136,13 +177,13 @@ async function loadAccount(runPlanner = true) {
     const currentWeekEvents = new Set(data.events.filter(event => String(event.gameweek) === String(currentWeek)).map(event => Number(event.id)));
     const transfersUsed = payload.transfersAvailable && currentWeek ? payload.transfers.filter(transfer => currentWeekEvents.has(Number(transfer.event))).length : null;
     const freeTransfers = transfersUsed == null ? null : Math.max(0, Math.min(2, 2 - transfersUsed));
-    accountTeam = { id, roster, moneyBank, eventId:payload.eventId, freeTransfers };
+    accountTeam = { id, roster, moneyBank, eventId:payload.eventId, freeTransfers, firstWeekFreeTransfers:freeTransfers };
     // 官方 entry_history.value 是口径统一的队伍价值；按球员当前价合计会因涨跌偏离，仅作兜底。
     const value = Number(payload.teamValue) > 0 ? Number(payload.teamValue) : roster.reduce((sum, player) => sum + player.sellingPrice, 0);
-    if (freeTransfers != null) $('fantasy-free-transfers').value = freeTransfers;
+    syncFtNote();
     $('fantasy-budget').value = (data.rules.budget / 10).toFixed(1);
     $('fantasy-budget').disabled = true;
-    $('fantasy-account-summary').innerHTML = `当前阵容已载入 · Value <b>${price(value)}</b> · Money Remaining <b>${price(moneyBank)}</b> · FT ${freeTransfers ?? '请核对'}`;
+    $('fantasy-account-summary').innerHTML = `当前阵容已载入 · Value <b>${price(value)}</b> · Money Remaining <b>${price(moneyBank)}</b> · 本周 FT ${freeTransfers ?? '请核对'}`;
     $('fantasy-account-summary').classList.add('is-loaded');
     $('fantasy-status').textContent = `已载入账号 ${id} 的阵容`;
     if (runPlanner && data) generate();
@@ -163,10 +204,13 @@ function generate() {
     return;
   }
   const budget = accountTeam ? data.rules.budget : budgetValue * 10;
-  const eventCount = Number($('fantasy-event-count').value);
-  const freeTransfers = Math.max(0, Math.min(2, Number($('fantasy-free-transfers').value) || 0));
-  const wildcardCount = Math.max(0, Math.min(3, Number($('fantasy-wildcard').value) || 0));
-  const paidLimit = Math.max(0, Math.min(10, Number($('fantasy-paid-limit').value) || 0));
+  const startEventId = Number($('fantasy-start-event').value) || data.events[0]?.id;
+  const available = Math.max(1, startOptions().length);
+  const eventCount = Math.max(1, Math.min(available, Math.round(Number($('fantasy-event-count').value) || available)));
+  const paidLimit = Math.max(0, Math.min(5, Math.round(Number($('fantasy-paid-limit').value) || 0)));
+  const useWildcard = $('fantasy-wildcard-use').checked;
+  const useAllStar = $('fantasy-allstar-use').checked;
+  $('fantasy-event-count').value = String(eventCount);
   $('fantasy-generate').disabled = true;
   $('fantasy-status').textContent = '正在比较阵容与每日赛程';
   $('fantasy-results').innerHTML = '<div class="fantasy-calculating"><span class="loader"></span><b>正在搜索满足预算和球队限制的方案…</b></div>';
@@ -198,19 +242,23 @@ function generate() {
     $('fantasy-results').innerHTML = `<div class="fantasy-error"><b>暂时无法生成方案</b><span>${escapeHtml(event.message || '请刷新页面后重试。')}</span></div>`;
     $('fantasy-generate').disabled = false;
   };
-  worker.postMessage({ data, options:{ lockedIds, budget, eventCount, freeTransfers, wildcardCount, paidLimit, ...(accountTeam ? { initialRoster:accountTeam.roster, moneyBank:accountTeam.moneyBank } : {}) } });
+  worker.postMessage({ data, options:{
+    lockedIds, budget, startEventId, eventCount, paidLimit, useWildcard, useAllStar,
+    firstWeekFreeTransfers: accountTeam?.firstWeekFreeTransfers ?? null,
+    ...(accountTeam ? { initialRoster:accountTeam.roster, moneyBank:accountTeam.moneyBank } : {}),
+  } });
 }
 
 /**
- * 野卡建议区（§13.8）。三种状态：已采纳（列重建明细）、评估但未达标（列最佳时机）、不评估。
+ * 野卡建议区。状态：已勾选并采纳（列重建明细）、勾选但没正收益、勾选但该模式不评估、未勾选。
  */
 function renderWildcard(plan) {
   const result = plan.wildcard;
   if (!result) return '';
-  const head = '<div class="fantasy-section-title"><b>野卡建议</b><span>官方 3 次/赛季 · 开卡当日所有转会免费且阵容保留</span></div>';
+  const head = '<div class="fantasy-section-title"><b>Wildcard 规划</b><span>官方 3 次/赛季 · 开卡当日所有转会免费且阵容保留</span></div>';
   const wrap = (body) => `<div class="fantasy-plan-section fantasy-wildcard-section">${head}${body}</div>`;
-  if (!result.configured) {
-    return wrap('<p class="fantasy-week-note">可用野卡设为 0 张，本次不做开卡规划。想评估开卡时机，把它改回 1–3 再算一次。</p>');
+  if (!result.requested) {
+    return wrap('<p class="fantasy-week-note">本次没有勾选「使用 Wildcard」，所以不评估开卡时机。想比较开卡收益，勾上再算一次即可。</p>');
   }
   if (!result.evaluated) {
     return wrap('<p class="fantasy-week-note">「总场次最多」「留足资金」两个模式不评估开卡时机——开卡会让它们偏离自己「多占席位 / 少花钱」的偏好。请看「得分优先」方案的建议。</p>');
@@ -218,12 +266,50 @@ function renderWildcard(plan) {
   if (result.adopted && plan.wildcardDetail) {
     const detail = plan.wildcardDetail;
     const brief = player => `<div class="fantasy-wildcard-player">${avatarMarkup(player)}<span><b>${escapeHtml(playerLabel(player))}</b><small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${price(player.cost)}</small></span></div>`;
-    return wrap(`<div class="fantasy-wildcard-card is-adopted"><div class="fantasy-wildcard-head"><b>建议在 ${escapeHtml(detail.eventLabel ?? '')} 开野卡</b><span>比不开多 ${result.gain >= 0 ? '+' : ''}${result.gain} 分</span></div><p class="fantasy-week-note">开出野卡后当天可免费重排整队：卖出 ${detail.sold.length} 人、买入 ${detail.bought.length} 人、保留 ${detail.keep.length} 人，不消耗任何 FT，也不占用「扣分换人」额度。可支配 ${price(detail.wallet)}（十人卖价 + 银行）· 重建花费 ${price(detail.spend)} · 结余 ${price(detail.bank)}。</p><div class="fantasy-wildcard-pairs"><div class="fantasy-wildcard-col"><b>卖出 ${detail.sold.length} 人</b>${detail.sold.map(brief).join('') || '<small>无</small>'}</div><div class="fantasy-wildcard-col"><b>买入 ${detail.bought.length} 人</b>${detail.bought.map(brief).join('') || '<small>无</small>'}</div></div>${detail.keep.length ? `<p class="fantasy-week-note">继续持有：${detail.keep.map(player => escapeHtml(playerLabel(player))).join('、')}</p>` : ''}</div>`);
+    return wrap(`<div class="fantasy-wildcard-card is-adopted"><div class="fantasy-wildcard-head"><b>建议在 ${escapeHtml(detail.eventLabel ?? '')} 开 Wildcard</b><span>比不开多 ${result.gain >= 0 ? '+' : ''}${result.gain} 分</span></div><p class="fantasy-week-note">开出后当天可免费重排整队：卖出 ${detail.sold.length} 人、买入 ${detail.bought.length} 人、保留 ${detail.keep.length} 人，不消耗任何 FT，也不占用「扣分换人」额度。可支配 ${price(detail.wallet)}（十人卖价 + 银行）· 重建花费 ${price(detail.spend)} · 结余 ${price(detail.bank)}。</p><div class="fantasy-wildcard-pairs"><div class="fantasy-wildcard-col"><b>卖出 ${detail.sold.length} 人</b>${detail.sold.map(brief).join('') || '<small>无</small>'}</div><div class="fantasy-wildcard-col"><b>买入 ${detail.bought.length} 人</b>${detail.bought.map(brief).join('') || '<small>无</small>'}</div></div>${detail.keep.length ? `<p class="fantasy-week-note">继续持有：${detail.keep.map(player => escapeHtml(playerLabel(player))).join('、')}</p>` : ''}${renderWildcardOptions(result)}</div>`);
   }
   if (result.suggestion) {
-    return wrap(`<div class="fantasy-wildcard-card"><div class="fantasy-wildcard-head"><b>本次不建议开野卡</b><span>最佳时机仅 ${result.gain >= 0 ? '+' : ''}${result.gain} 分</span></div><p class="fantasy-week-note">最好的一天是 ${escapeHtml(result.suggestion.eventLabel ?? '')}，但只比不开多 ${result.gain} 分，低于 ${result.threshold} 分门槛。野卡一赛季只有 3 张，留到阵容真正崩坏（大范围伤停或赛程断档）时用更划算。</p></div>`);
+    return wrap(`<div class="fantasy-wildcard-card"><div class="fantasy-wildcard-head"><b>已勾选，但这次开卡没有正收益</b><span>最佳时机 ${result.gain >= 0 ? '+' : ''}${result.gain} 分</span></div><p class="fantasy-week-note">最好的一天是 ${escapeHtml(result.suggestion.eventLabel ?? '')}，净得分 ${result.bestNet}，反而不如照常转会（${result.baseNet}）。野卡一赛季只有 3 张，这种情况先留着。</p>${renderWildcardOptions(result)}</div>`);
   }
   return wrap('<p class="fantasy-week-note">当前规划窗口内没有可用的野卡时间窗（官方窗口为 event 2–39 / 40–103 / 104–159）。</p>');
+}
+
+/** 候选开卡日一览：让「这周就开」和「等到下周」可以直接比较。 */
+function renderWildcardOptions(result) {
+  const options = result.options ?? [];
+  if (options.length < 2) return '';
+  return `<p class="fantasy-week-note">候选开卡日（相对「不开卡」的净得分差）：${options.map(option => `${escapeHtml(option.eventLabel ?? '')} ${option.gain >= 0 ? '+' : ''}${option.gain}`).join(' · ')}</p>`;
+}
+
+/**
+ * All-Star 补位区。只在「优化器怎么排都缺人」时才出现，
+ * 因为它是单日租借整队，全季只有 1 次。
+ */
+function renderAllStar(plan) {
+  const info = plan.allStar;
+  if (!info) return '';
+  const brief = player => `<div class="fantasy-wildcard-player">${avatarMarkup(player)}<span><b>${escapeHtml(playerLabel(player))}</b><small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${price(player.cost)} · 预测 ${player.projection}</small></span></div>`;
+  return `<div class="fantasy-plan-section fantasy-allstar-section"><div class="fantasy-section-title"><b>All-Star 补位</b><span>全季 1 次 · 单日租借整队，下个截止日自动还原</span></div>
+    <div class="fantasy-wildcard-card is-adopted fantasy-allstar-card"><div class="fantasy-wildcard-head"><b>建议在 ${escapeHtml(info.eventLabel)} 用 All-Star</b><span>+${info.gain} 分</span></div>
+    <p class="fantasy-week-note">那天按现在的阵容只能排 ${info.startersBefore} 人（${info.pointsBefore} 分）；租借整套临时阵容后可以排满 5 人、拿 ${info.pointsAfter} 分。可支配 ${price(info.wallet)}、租借阵容花费 ${price(info.spend)}，其中 ${info.kept} 人本来就在你队里。用完这一天，阵容自动还原，不影响后续比赛日、也不动银行。</p>
+    <div class="fantasy-wildcard-col"><b>租借首发 ${info.lineup.length} 人</b>${info.lineup.map(brief).join('')}</div></div></div>`;
+}
+
+/**
+ * 得分标尺：预估分是「未来 N 个比赛日」的累计，绝对值很容易被误读成偏高。
+ * 用官方 fixtures 里已结算比赛日的「当天实际最高 5 人分数」做锚点，
+ * 一眼能判断模型是保守还是激进——这个实测值来自逐场分项，口径和游戏完全一致。
+ */
+function renderScoreAnchor(plan) {
+  const bench = data?.benchmarks;
+  const days = Math.max(1, plan.possibleDays);
+  const perDay = plan.points / days;
+  const perWeek = plan.weekly?.length ? plan.points / plan.weekly.length : perDay * 6.5;
+  const parts = [`本方案 ${days} 个比赛日合计 <b>${plan.points.toFixed(1)}</b> 分，日均 <b>${perDay.toFixed(1)}</b>、约每周 <b>${perWeek.toFixed(0)}</b> 分。`];
+  if (bench?.best5Average) {
+    parts.push(`同口径实测：过去 ${bench.settledEvents} 个已结算比赛日，「当天实际最高 5 人」平均 <b>${bench.best5Average}</b> 分（中位 ${bench.best5Median}）。本方案日均是它的 <b>${((perDay / bench.best5Average) * 100).toFixed(0)}%</b>——分母是「全联盟当天最赚的 5 个人」，而你只有 10 人阵容、每队限 2 人，拿不到 100% 才是正常的。`);
+  }
+  return `<p class="fantasy-score-anchor">${parts.join(' ')}</p>`;
 }
 
 function renderPlan(plan, index, rules) {
@@ -290,12 +376,12 @@ function renderPlan(plan, index, rules) {
   const dailySummary = `<div class="planner-position planner-summary-label" style="grid-column:1">有效出阵人数</div>${timeline.map(step => step.type === 'transfer' ? '<div class="planner-event-cell planner-summary-cell planner-roster-snapshot">阵容快照</div>' : step.type === 'wildcard' ? '<div class="planner-event-cell planner-summary-cell planner-roster-snapshot is-wildcard">野卡重建</div>' : `<div class="planner-event-cell planner-summary-cell"><b>${plan.daily[step.dayIndex].starters.length} 人</b></div>`).join('')}`;
   const columnWidths = timeline.map(step => step.type === 'event' ? '78px' : '160px').join(' ');
   const schedule = `<div class="fantasy-planner-scroll"><div class="fantasy-planner-grid" style="--planner-columns:${columnWidths}"><div class="planner-corner"><b>阵容 / 赛程</b><small>转会列显示换人后的完整阵容</small></div>${scheduleHead}${scheduleRows}${dailySummary}</div></div>`;
-  const weekly = plan.weekly.map(week => `<div class="fantasy-week-plan"><div class="fantasy-week-head"><b>${escapeHtml(week.name)} · ${week.events.length} 个比赛日</b><span>本周 ${week.available} 个免费转会 · 已用 ${week.used}${week.remaining ? ` · 剩 ${week.remaining}` : ''}${week.paidThisWeek ? ` · 付费 ${week.paidThisWeek} 次` : ''}</span></div><div class="fantasy-week-outcome"><b>${week.fullDays}/${week.events.length}</b> 天排满 5 人 <span>· ${week.appearances} 个首发席位</span></div><div class="fantasy-team-chips">${week.targets.map(item => `<span><b>${escapeHtml(item.team.shortName)}</b> ${item.games} 场${item.held ? ` · 初始阵容 ${item.held} 人` : ''}</span>`).join('')}</div>${week.transfers.length ? `<div class="fantasy-transfer-list"><b>具体转会安排 · 按比赛日执行</b>${week.transfers.map(idea => `<div class="fantasy-transfer-row"><div class="fantasy-transfer-meta"><b>${escapeHtml(idea.eventLabel)} 开赛前</b><small class="${idea.paid ? 'is-paid' : ''}">${idea.paid ? `付费 −${idea.cost} 分` : `FT ${idea.order}`}</small></div><div class="fantasy-transfer-pair"><span class="fantasy-transfer-player">${avatarMarkup(idea.from)}<span><b>${escapeHtml(playerLabel(idea.from))}</b><small>${escapeHtml(teamLabel(idea.from.team))} · 卖价 ${price(idea.from.sellingPrice ?? idea.from.cost)}</small></span></span><i>→</i><span class="fantasy-transfer-player">${avatarMarkup(idea.to)}<span><b>${escapeHtml(playerLabel(idea.to))}</b><small>${escapeHtml(teamLabel(idea.to.team))} · 买价 ${price(idea.to.cost)}</small></span></span></div><small class="fantasy-transfer-reason">剩余赛程预测得分 ${idea.paid ? `+${idea.addedPoints} − ${idea.cost}（付费）` : `+${idea.addedPoints}`}；该名额首发场次 ${idea.slotStartsBefore} → ${idea.slotStartsAfter}；全队首发人次 ${idea.weekSlotsBefore} → ${idea.weekSlotsAfter}；排满日 ${idea.weekFullDaysBefore} → ${idea.weekFullDaysAfter}。</small></div>`).join('')}</div>` : `<p class="fantasy-week-note">本周没有找到净增益足够的换人。${week.remaining ? `剩余 ${week.remaining} 个免费转会未用（官方不结转，下周仍是 2 个）。` : ''}</p>`}</div>`).join('');
+  const weekly = plan.weekly.map(week => `<div class="fantasy-week-plan"><div class="fantasy-week-head"><b>${escapeHtml(week.name)} · ${week.events.length} 个比赛日</b><span>本周初 ${week.available} 个免费转会（每周重置）· 已用 ${week.used}${week.remaining ? ` · 剩 ${week.remaining}` : ''}${week.paidThisWeek ? ` · 付费 ${week.paidThisWeek} 次` : ''}</span></div><div class="fantasy-week-outcome"><b>${week.fullDays}/${week.events.length}</b> 天排满 5 人 <span>· ${week.appearances} 个首发席位</span></div><div class="fantasy-team-chips">${week.targets.map(item => `<span><b>${escapeHtml(item.team.shortName)}</b> ${item.games} 场${item.held ? ` · 初始阵容 ${item.held} 人` : ''}</span>`).join('')}</div>${week.transfers.length ? `<div class="fantasy-transfer-list"><b>具体转会安排 · 按比赛日执行</b>${week.transfers.map(idea => `<div class="fantasy-transfer-row"><div class="fantasy-transfer-meta"><b>${escapeHtml(idea.eventLabel)} 开赛前</b><small class="${idea.paid ? 'is-paid' : ''}">${idea.paid ? `付费 −${idea.cost} 分` : `FT ${idea.order}`}</small></div><div class="fantasy-transfer-pair"><span class="fantasy-transfer-player">${avatarMarkup(idea.from)}<span><b>${escapeHtml(playerLabel(idea.from))}</b><small>${escapeHtml(teamLabel(idea.from.team))} · 卖价 ${price(idea.from.sellingPrice ?? idea.from.cost)}</small></span></span><i>→</i><span class="fantasy-transfer-player">${avatarMarkup(idea.to)}<span><b>${escapeHtml(playerLabel(idea.to))}</b><small>${escapeHtml(teamLabel(idea.to.team))} · 买价 ${price(idea.to.cost)}</small></span></span></div><small class="fantasy-transfer-reason">剩余赛程预测得分 ${idea.paid ? `+${idea.addedPoints} − ${idea.cost}（付费）` : `+${idea.addedPoints}`}；该名额首发场次 ${idea.slotStartsBefore} → ${idea.slotStartsAfter}；全队首发人次 ${idea.weekSlotsBefore} → ${idea.weekSlotsAfter}；排满日 ${idea.weekFullDaysBefore} → ${idea.weekFullDaysAfter}。</small></div>`).join('')}</div>` : `<p class="fantasy-week-note">本周没有找到净增益足够的换人。${week.remaining ? `剩余 ${week.remaining} 个免费转会未用（官方不结转，下周仍是 2 个）。` : ''}</p>`}</div>`).join('');
   const daily = plan.daily.map(day => {
     const matchups = day.games.map(game => `${team(game.away)?.shortName ?? '—'} @ ${team(game.home)?.shortName ?? '—'}`).join('、');
     return `<div class="fantasy-day-row"><span><b>${escapeHtml(day.event.name)}</b><small>${shortDate(day.event.deadline)} · ${day.games.length} 场 NBA 比赛</small>${day.transfers?.length ? `<small class="fantasy-day-transfer">${day.transfers.map(item => `${escapeHtml(playerLabel(item.from))} → ${escapeHtml(playerLabel(item.to))}`).join('；')}</small>` : ''}</span><span class="fantasy-day-starters">${day.starters.map(player => `<i class="${player.locked ? 'locked' : ''}">${escapeHtml(player.name)} <small>${escapeHtml(team(player.team)?.shortName ?? '')} · ${player.projection}</small></i>`).join('') || '没有可排球员'}</span><strong class="${day.full ? 'full' : 'short'}">${5 - day.missing}/5</strong><small class="fantasy-matchups">${escapeHtml(matchups || '暂无比赛')}</small></div>`;
   }).join('');
-  return `<article class="fantasy-plan ${index === 0 ? 'recommended' : ''}"><div class="fantasy-plan-head"><div><span class="fantasy-plan-kicker">${index===0?'推荐方案':'阵容方案'}</span><h2>${escapeHtml(plan.title)}</h2><p>${escapeHtml(plan.description)}</p></div><span class="fantasy-plan-budget">预算余量<strong>${price(plan.budgetLeft)}</strong></span></div><div class="fantasy-metrics"><div class="is-primary"><small>预计净得分</small><b>${plan.netPoints.toFixed(1)}</b></div><div><small>预计总分</small><b>${plan.points.toFixed(1)}</b></div><div><small>扣分换人（次）</small><b>${plan.paidTransfers ?? 0} / ${plan.paidLimit ?? 0}</b>${plan.transferCost ? `<small class="is-paid">共扣 ${plan.transferCost} 分</small>` : ''}</div><div><small>排满 5 人的比赛日</small><b>${plan.fullDays} / ${plan.possibleDays}</b></div><div><small>未来可出场人次</small><b>${plan.appearances}</b></div><div><small>已用预算</small><b>${price(plan.cost)}</b></div></div>${renderWildcard(plan)}<div class="fantasy-plan-section planner-section"><div class="fantasy-section-title"><b>阵容赛程表</b><span>比赛日显示对手；转会列显示十人阵容快照</span></div>${schedule}</div><div class="fantasy-plan-section"><div class="fantasy-section-title"><b>每周转会计划</b><span>免费 FT 优先 · 付费转会需净增益超过 100 分成本</span></div>${weekly}</div><button class="fantasy-expand" data-expand>查看每天首发安排</button><div class="fantasy-daily hidden">${daily}</div></article>`;
+  return `<article class="fantasy-plan ${index === 0 ? 'recommended' : ''}"><div class="fantasy-plan-head"><div><span class="fantasy-plan-kicker">${index===0?'推荐方案':'阵容方案'}</span><h2>${escapeHtml(plan.title)}</h2><p>${escapeHtml(plan.description)}</p></div><span class="fantasy-plan-budget">预算余量<strong>${price(plan.budgetLeft)}</strong></span></div><div class="fantasy-metrics"><div class="is-primary"><small>预计净得分</small><b>${plan.netPoints.toFixed(1)}</b></div><div><small>预计总分</small><b>${plan.points.toFixed(1)}</b></div><div><small>扣分换人（次）</small><b>${plan.paidTransfers ?? 0} / ${plan.paidLimit ?? 0}</b><small>每周上限${plan.transferCost ? ` · 共扣 ${plan.transferCost} 分` : ''}</small></div><div><small>排满 5 人的比赛日</small><b>${plan.fullDays} / ${plan.possibleDays}</b></div><div><small>日均预估</small><b>${(plan.points / Math.max(1, plan.possibleDays)).toFixed(1)}</b><small>${plan.possibleDays} 个比赛日</small></div><div><small>未来可出场人次</small><b>${plan.appearances}</b></div></div>${renderScoreAnchor(plan)}${renderAllStar(plan)}${renderWildcard(plan)}<div class="fantasy-plan-section planner-section"><div class="fantasy-section-title"><b>阵容赛程表</b><span>比赛日显示对手；转会列显示十人阵容快照</span></div>${schedule}</div><div class="fantasy-plan-section"><div class="fantasy-section-title"><b>每周转会计划</b><span>免费 FT 优先 · 付费转会需净增益超过 100 分成本</span></div>${weekly}</div><button class="fantasy-expand" data-expand>查看每天首发安排</button><div class="fantasy-daily hidden">${daily}</div></article>`;
 }
 
 function bindDailyToggle() {
