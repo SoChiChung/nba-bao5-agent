@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-06T00:39:36.622Z",
+  "generatedAt": "2026-11-06T02:03:30.560Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-05T19:30:00",
+  "updatedAt": "2026-11-05T21:00:00",
   "counts": {
     "total": 542,
     "out": 115,
-    "available": 414,
-    "questionable": 13
+    "available": 412,
+    "questionable": 15
   },
   "provenance": {
     "officialCount": 15,
@@ -19,10 +19,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月5日 19:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月5日 21:00 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-04",
-  "changeCount": 119,
+  "changeCount": 121,
   "changes": [
     {
       "kind": "newInjury",
@@ -91,6 +91,36 @@
       "to": "questionable",
       "probability": "50%",
       "detail": "ESPN伤病名单：Sharpe registered 15 points (5-7 FG, 1-1 3Pt, 4-5 FT), 13 rebounds and four assists across 26 minutes in Sunday's 98-90 win over the Pacers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630567",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Barnes (groin) is questionable to play Friday's game against the Bucks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630572",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Mamukelashvili (illness) is listed as questionable for Friday's game against Portland.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -552,7 +582,7 @@
       "id": "1630541",
       "from": "out",
       "to": "out",
-      "note": "NBA官方伤病报告：缺阵（左修复手术）",
+      "note": "NBA官方伤病报告：缺阵 · 左",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1618,7 +1648,7 @@
     {
       "field": "updatedAt",
       "from": "2026-11-04T21:15:00",
-      "to": "2026-11-05T19:30:00"
+      "to": "2026-11-05T21:00:00"
     },
     {
       "field": "officialCount",

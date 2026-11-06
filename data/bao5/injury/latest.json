@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T00:39:36.622Z",
+  "updatedAt": "2026-11-06T02:03:30.560Z",
   "serverDate": "2026-11-05",
   "requestedDate": "2026-11-06",
   "available": true,
@@ -9,8 +9,8 @@
   "counts": {
     "total": 542,
     "out": 115,
-    "available": 414,
-    "questionable": 13
+    "available": 412,
+    "questionable": 15
   },
   "provenance": {
     "officialCount": 15,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-05.json",
   "changesFile": "changes/changes_2026-11-05.json",
   "previousDate": "2026-11-04",
-  "changeCount": 119,
-  "restrictedCount": 128,
+  "changeCount": 121,
+  "restrictedCount": 130,
   "restricted": [
     {
       "id": "2544",
@@ -519,7 +519,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（左修复手术）",
+      "detail": "NBA官方伤病报告：缺阵 · 左",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1761,6 +1761,34 @@
       "energy": null
     },
     {
+      "id": "1630567",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Barnes (groin) is questionable to play Friday's game against the Bucks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630572",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Mamukelashvili (illness) is listed as questionable for Friday's game against Portland.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631217",
       "key": "questionable",
       "label": "每日观察",
@@ -1817,5 +1845,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月5日 19:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月5日 21:00 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

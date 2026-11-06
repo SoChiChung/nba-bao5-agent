@@ -548,7 +548,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "德文·布克",
-      "t": "太阳"
+      "t": "太阳",
+      "st": "c:2026-11-06:rw"
     },
     "1626167": {
       "key": "available",
@@ -1036,7 +1037,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "狄龙·布鲁克斯",
-      "t": "太阳"
+      "t": "太阳",
+      "st": "c:2026-11-06:rw"
     },
     "1628418": {
       "key": "available",
@@ -1112,7 +1114,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "迈尔斯·布里奇斯",
-      "t": "太阳"
+      "t": "太阳",
+      "st": "c:2026-11-06:rw"
     },
     "1628971": {
       "key": "available",
@@ -1154,7 +1157,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "小温德尔·卡特",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-06:rw"
     },
     "1628978": {
       "key": "out",
@@ -2040,7 +2044,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "德斯蒙德·贝恩",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-06:rw"
     },
     "1630224": {
       "key": "available",
@@ -2050,7 +2055,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "杰伦·格林",
-      "t": "太阳"
+      "t": "太阳",
+      "st": "c:2026-11-06:rw"
     },
     "1630228": {
       "key": "available",
@@ -2179,7 +2185,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "弗朗茨·瓦格纳",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-06:rw"
     },
     "1630533": {
       "key": "available",
@@ -2218,7 +2225,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（左修复手术）",
+      "detail": "NBA官方伤病报告：缺阵 · 左",
       "source": "NBA官方",
       "n": "摩西·穆迪",
       "t": "勇士"
@@ -2322,13 +2329,13 @@
       "t": "湖人"
     },
     "1630567": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月2日：可以出战（左髋部紧张/酸痛）",
-      "source": "NBA官方",
-      "asOf": "2026-11-02",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Barnes (groin) is questionable to play Friday's game against the Bucks.",
+      "source": "ESPN",
+      "asOf": "2026-11-06",
+      "carry": false,
       "n": "斯科蒂·巴恩斯",
       "t": "猛龙"
     },
@@ -2355,13 +2362,13 @@
       "t": "鹈鹕"
     },
     "1630572": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月4日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-04",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Mamukelashvili (illness) is listed as questionable for Friday's game against Portland.",
+      "source": "ESPN",
+      "asOf": "2026-11-06",
+      "carry": false,
       "n": "桑德罗·马穆凯拉什维利",
       "t": "湖人"
     },
@@ -3257,7 +3264,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "安东尼·布莱克",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-06:rw"
     },
     "1641711": {
       "key": "available",
@@ -4077,7 +4085,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "奥索·伊戈达罗",
-      "t": "太阳"
+      "t": "太阳",
+      "st": "c:2026-11-06:rw"
     },
     "1642346": {
       "key": "available",
@@ -4654,7 +4663,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-05",
       "n": "杰斯·理查德森",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-06:rw"
     },
     "1642860": {
       "key": "available",
@@ -5886,16 +5896,16 @@
   "officialCount": 15,
   "projectedCount": 53,
   "filledCount": 0,
-  "espnCount": 18,
+  "espnCount": 20,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 472,
-  "updatedAt": "2026-11-05T19:30:00",
-  "updatedAtLabel": "11月5日 19:30",
+  "updatedAt": "2026-11-05T21:00:00",
+  "updatedAtLabel": "11月5日 21:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-05_07_30PM.pdf",
-  "message": "已读取官方伤病报告（11月5日 19:30 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-05_09_00PM.pdf",
+  "message": "已读取官方伤病报告（11月5日 21:00 发布）：列出15人，今日出战的另外53人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-06"
 }
