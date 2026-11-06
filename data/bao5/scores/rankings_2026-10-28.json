@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-06T07:22:59.982Z",
+  "fetchedAt": "2026-11-06T17:52:11.113Z",
   "date": "2026-10-28",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1212,7 +1212,7 @@
     {
       "userId": "6bfaf23a-a50c-4e0b-9a3d-e176915a4d7f",
       "displayName": "司机慢点开",
-      "avatarKey": null,
+      "avatarKey": "DAL",
       "score": 181.9,
       "remainingSalary": 0,
       "submittedAt": 1793109018566,
@@ -2684,7 +2684,7 @@
     {
       "userId": "cb5fe37e-462d-4dc8-85b1-677f5eb5b8a8",
       "displayName": "北极雪",
-      "avatarKey": null,
+      "avatarKey": "HOU",
       "score": 157.8,
       "remainingSalary": 0,
       "submittedAt": 1793127265658,
@@ -3632,5 +3632,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-28",
     "board": "/api/rankings?period=day&date=2026-10-28"
   },
-  "updatedAt": "2026-11-06T07:22:59.982Z"
+  "updatedAt": "2026-11-06T17:52:11.113Z"
 }
