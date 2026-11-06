@@ -71,7 +71,7 @@
     </main>
     <section id="fantasy-panel" class="app-view fantasy-panel" hidden>
       <div class="fantasy-hero">
-        <div><p class="eyebrow">NBA FANTASY · SEASON PLANNER</p><h1>把赛程优势，<em>留给整支队伍。</em></h1><p>锁定想留下的球员、点名必须带上或坚决不碰的人，按官方预算和每队人数限制补齐阵容；从任意 Game Day 起算，比较未来最多 21 个比赛日，并规划每周 FT、Wildcard 与 All-Star 的具体使用时机。</p></div>
+        <div><p class="eyebrow">NBA FANTASY · SEASON PLANNER</p><h1>把赛程优势，<em>留给整支队伍。</em></h1><p>锁定想留下的球员、点名必须带上或坚决不碰的人，按官方预算和每队人数限制补齐阵容；从任意 Game Day 起算、规划到指定比赛日结束（最长 60 个），并规划每周 FT、Wildcard 与 All-Star 的具体使用时机。</p></div>
         <div class="fantasy-live"><span class="pulse"></span><div><b id="fantasy-status">等待载入赛程</b><small id="fantasy-updated">使用 NBA Fantasy 官方公开球员与赛程</small></div></div>
       </div>
       <div class="fantasy-layout">
@@ -107,20 +107,22 @@
             <div class="fantasy-card-title"><div><p class="eyebrow">PLANNING RULES</p><h2>规划条件</h2></div></div>
             <div class="fantasy-input-grid">
               <label class="fantasy-field is-wide">起算比赛日<select id="fantasy-start-event"></select></label>
-              <label class="fantasy-field">规划比赛日数<input id="fantasy-event-count" type="number" min="1" max="21" step="1" value="21" inputmode="numeric"></label>
+              <label class="fantasy-field is-wide">规划到哪个比赛日<select id="fantasy-end-event"></select></label>
               <label class="fantasy-field">总预算（$）<input id="fantasy-budget" type="number" min="0" max="100" step="0.1" value="100"></label>
+              <label class="fantasy-field">本周剩余免费转会<input id="fantasy-first-ft" type="number" min="0" max="2" step="1" value="2" inputmode="numeric"></label>
               <label class="fantasy-field is-wide">每周扣分换人上限<input id="fantasy-paid-limit" type="number" min="0" max="5" step="1" value="2" inputmode="numeric"></label>
             </div>
             <div class="fantasy-toggle-list">
               <label class="fantasy-toggle"><input id="fantasy-wildcard-use" type="checkbox"><span><b>使用 Wildcard</b><small>勾选后先算「哪天开卡最划算」，再按开卡后的新阵容往下排。全季 3 次，开后当天转会全免费且阵容保留。</small></span></label>
+              <label class="fantasy-field is-wide hidden" id="fantasy-wildcard-event-field">Wildcard 开启比赛日<select id="fantasy-wildcard-event"><option value="">自动挑选最划算的一天</option></select><small class="fantasy-field-note">现实里已经开卡了就把这一天选上：模型会强制在这天重建整队，不再拿「收益为负」把它否掉。</small></label>
               <label class="fantasy-toggle"><input id="fantasy-allstar-use" type="checkbox" checked><span><b>允许 All-Star 补位</b><small>某个比赛日怎么排都缺人时，当天临时租借整队补满（下一个截止日自动还原，不动资金）。全季 1 次。</small></span></label>
             </div>
-            <p id="fantasy-ft-note" class="fantasy-help">免费转会每个 Gameweek 重置为 2 个、不结转；本周还剩几个由账号读取。</p>
+            <p id="fantasy-ft-note" class="fantasy-help">免费转会每个 Gameweek 重置为 2 个、不结转；本周还剩几个由账号读取，也可以手动改成实际值。</p>
             <p id="fantasy-rules-note" class="fantasy-help">官方规则：10 人阵容、每队最多 2 人、前后场各 5 人、每天首发 5 人。</p>
             <button id="fantasy-generate" class="button button-blue fantasy-generate">计算 4 个阵容方案 <span>↗</span></button>
             <button id="fantasy-refresh" class="fantasy-refresh">刷新球员和赛程数据</button>
           </article>
-          <article class="fantasy-card fantasy-method"><p class="eyebrow">HOW IT CHOOSES</p><p>默认推荐结合近期状态、球员对未来对手的历史表现、对手位置防守数据和球队赛程；伤病或出战存疑球员不会作为默认候选。优先最大化预测净得分（总分减扣分），再按比赛日安排转会。预算、位置和每队人数始终遵守官方规则。免费转会每个 Gameweek 重置为 2 次、不结转，所以本周用光不影响下周；付费转会的上限按周计。Wildcard 会让开卡那天的所有转会免费且阵容保留，勾选后模型会先在候选比赛日里挑净得分最高的那天，再据此重排后续；All-Star 是单日租借整队，只在「那天怎么排都缺人」时动用，全季 1 次。手动指定的球员优先级高于分数：想要的人一定会被排进十人阵容（账号模式下会主动买入），不要的人不会出现在任何候选里，模型也不会为了多拿分而违背这两条——只有在资金、球队人数或转会额度确实不允许时才会放弃，并在方案里标出没兑现的那几条。</p></article>
+          <article class="fantasy-card fantasy-method"><p class="eyebrow">HOW IT CHOOSES</p><p>默认推荐结合近期状态、球员对未来对手的历史表现、对手位置防守数据和球队赛程；伤病或出战存疑球员不会作为默认候选。优先最大化预测净得分（总分减扣分），再按比赛日安排转会。预算、位置和每队人数始终遵守官方规则。免费转会每个 Gameweek 重置为 2 次、不结转，所以本周用光不影响下周；付费转会的上限按周计。Wildcard 会让开卡那天的所有转会免费且阵容保留：勾选后可以自己指定开卡比赛日（现实里已经开了就选上），留空则由模型在候选比赛日里挑净得分最高的那天，再据此重排后续；All-Star 是单日租借整队，只在「那天怎么排都缺人」时动用，全季 1 次。手动指定的球员优先级高于分数：想要的人一定会被排进十人阵容（账号模式下会主动买入），不要的人不会出现在任何候选里，模型也不会为了多拿分而违背这两条——只有在资金、球队人数或转会额度确实不允许时才会放弃，并在方案里标出没兑现的那几条。</p></article>
         </aside>
         <div class="fantasy-results-column">
           <div id="fantasy-results" class="fantasy-results"><div class="fantasy-empty fantasy-start"><b>先锁定你想保留的球员</b><span>模型会根据官方逐日赛程、球员身价和未来每队比赛场次补齐阵容。</span></div></div>

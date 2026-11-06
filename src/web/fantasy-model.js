@@ -41,6 +41,12 @@ const MIN_STARTERS_SAFE_LINE = 3;
  * 前后场各 5、每队 ≤2、预算 ≤$100 —— 很容易无解，而模型只能报错。
  */
 const MAX_SPECIFIED_PLAYERS = 3;
+/**
+ * 规划窗口上限（比赛日数）。以前是 21，用户要「规划到 GW9.x」时直接被截断。
+ * 拉到 60（约 8 个 Gameweek）：beam search 的耗时随窗口近似线性增长，
+ * 再长就进入几十秒区间，且 6 周以后的伤停/轮换信息本身没有预测价值。
+ */
+const MAX_FUTURE_EVENTS = 60;
 
 /** GW3 - Day 4 → GW3.4，界面与技术文档共用同一套缩写。 */
 function eventLabel(event) {
@@ -442,6 +448,7 @@ function trimWildcard(info) {
   return {
     eventId:info.event?.id ?? null, eventLabel:info.eventLabel, deadline:info.event?.deadline ?? null,
     dayIndex:info.dayIndex, wallet:info.wallet, spend:info.spend, bank:info.bank,
+    forced:info.forced === true,
     keep:info.keep.map(brief), sold:info.sold.map(brief), bought:info.bought.map(brief),
     afterRoster:info.afterRoster.map(brief),
   };
@@ -492,7 +499,7 @@ function evaluateAllStar(data, roster, event, rules, wallet, starterSlots) {
 function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
   initialMoneyBank, mode='score', ftThreshold=DEFAULT_FT_THRESHOLD, paidThreshold=DEFAULT_PAID_THRESHOLD,
   firstWeekFreeTransfers=null, paidLimit=DEFAULT_PAID_LIMIT, buildDayFree=true,
-  wildcardDay=-1, useAllStar=true, mustIds=[], avoidIds=[],
+  wildcardDay=-1, wildcardForce=false, useAllStar=true, mustIds=[], avoidIds=[],
 } = {}) {
   const locked = new Set(lockedIds.map(String));
   // mustIds 是 must 里更硬的一层：不仅不许卖，而且必须真的出现在阵容里（账号模式下需要主动买入）。
@@ -574,23 +581,30 @@ function planDailyTransfers(data, startingRoster, events, rules, lockedIds, {
           // 就会出现「开了野卡反而掉分」的荒谬结论。所以重建结果必须严格优于「原地不动」才采纳。
           const keepPoints = evaluate(roster, remaining, rules).points;
           const rebuildPoints = rebuiltRoster.length ? evaluate(rebuiltRoster, remaining, rules).points : 0;
-          if (rebuiltRoster.length === number(rules.squadSize, 10) && wallet - spend >= 0 && rebuildPoints > keepPoints + 1e-6) {
+          const feasible = rebuiltRoster.length === number(rules.squadSize, 10) && wallet - spend >= 0;
+          const better = feasible && rebuildPoints > keepPoints + 1e-6;
+          // 强制开卡：用户指定了开卡轮次（现实里已经开了），这一天必须记成野卡日。
+          // 但阵容仍然只在「重建更优」时才换——否则等于拿一次野卡把队伍改差。
+          if (better || (wildcardForce && feasible)) {
             const before = roster.map(player => ({ ...player }));
             const beforeIds = new Set(before.map(player => String(player.id)));
-            const nextRoster = rebuiltRoster.map(player => ({ ...player, sellingPrice:number(player.cost), locked:locked.has(String(player.id)) }));
+            const nextRoster = better
+              ? rebuiltRoster.map(player => ({ ...player, sellingPrice:number(player.cost), locked:locked.has(String(player.id)) }))
+              : roster.map(player => ({ ...player }));
             const afterIds = new Set(nextRoster.map(player => String(player.id)));
             const event = week.events[dayIndex];
+            const spent = nextRoster.reduce((sum, player) => sum + number(player.cost), 0);
             wildcardInfo = {
-              event, dayIndex:horizonIndex - 1,
-              eventLabel:String(event.name ?? '').replace('Gameweek ','GW').replace(' - Day ','.'),
-              wallet, spend, bank:wallet - spend,
+              event, dayIndex:horizonIndex - 1, eventLabel:eventLabel(event),
+              wallet, spend:better ? spend : spent, bank:wallet - (better ? spend : spent),
+              forced:!better,
               keep:nextRoster.filter(player => beforeIds.has(String(player.id))),
               sold:before.filter(player => !afterIds.has(String(player.id))),
               bought:nextRoster.filter(player => !beforeIds.has(String(player.id))),
               afterRoster:nextRoster.map(player => ({ ...player })),
             };
             roster = nextRoster;
-            moneyBank = wallet - spend;
+            if (better) moneyBank = wallet - spend;
           }
         } catch { /* 重建失败就退回常规转会路径，不阻断整个方案 */ }
       }
@@ -841,23 +855,27 @@ function runTransferTracks(data, startingRoster, events, rules, lockedIds, runne
  * 等价于把该日当成一次新的免费建队日。所以直接把 wildcardDay 交给 planDailyTransfers，
  * 由它在当天做一次整队重建——这样 daily / weekly / transfers 天然一致，不必事后拼接。
  * 对每个候选日各跑一遍完整规划（含同一套轨径），取净得分最高者。
+ *
+ * 用户指定轮次（pinnedIndex）时只跑那一天，并让「当天必须开卡」变成硬条件：
+ * 现实里卡已经开了，模型不能再用「收益为负」把它否掉（§17）。
  */
-function planWildcard(data, startingRoster, events, rules, lockedIds, runnerOptions, mode) {
-  const candidates = wildcardCandidates(data, events);
-  if (!candidates.length) return { evaluated:false, candidates:0, options:[], best:null };
+function planWildcard(data, startingRoster, events, rules, lockedIds, runnerOptions, mode, pinnedIndex = -1) {
+  const pinned = Number.isInteger(pinnedIndex) && pinnedIndex >= 0;
+  const candidates = pinned ? [pinnedIndex] : wildcardCandidates(data, events);
+  if (!candidates.length) return { evaluated:false, candidates:0, pinned, options:[], best:null };
   const options = [];
   let best = null;
   for (const dayIndex of candidates) {
     let plan;
     try {
-      plan = runTransferTracks(data, startingRoster, events, rules, lockedIds, { ...runnerOptions, wildcardDay:dayIndex }, mode);
+      plan = runTransferTracks(data, startingRoster, events, rules, lockedIds, { ...runnerOptions, wildcardDay:dayIndex, wildcardForce:pinned }, mode);
     } catch { continue; }
     if (!plan.wildcard) continue;
     const netPoints = planNetPoints(plan);
     options.push({ dayIndex, netPoints:Number(netPoints.toFixed(1)), eventLabel:plan.wildcard.eventLabel ?? null, unmet:unmetCount(plan) });
     if (!best || preferPlan(plan, best.plan)) best = { dayIndex, netPoints, plan };
   }
-  return { evaluated:true, candidates:candidates.length, options, best };
+  return { evaluated:true, candidates:candidates.length, pinned, options, best };
 }
 
 /** 净得分 = 每日首发预测分之和 − 付费转会扣分。所有方案比较最终都回到这个数。 */
@@ -879,7 +897,8 @@ function playerLabelOf(player) {
 }
 
 export function buildFantasyPlans(data, {
-  lockedIds = [], budget = data.rules.budget, startEventId = null, eventCount = 21,
+  lockedIds = [], budget = data.rules.budget, startEventId = null, endEventId = null,
+  eventCount = null, wildcardEventId = null,
   firstWeekFreeTransfers = null, initialRoster = null, moneyBank = null,
   ftThreshold = DEFAULT_FT_THRESHOLD, paidThreshold = DEFAULT_PAID_THRESHOLD,
   paidLimit = DEFAULT_PAID_LIMIT, useWildcard = false, useAllStar = true,
@@ -929,11 +948,22 @@ export function buildFantasyPlans(data, {
   if (effectiveLocks.length > number(data.rules.squadSize, 10)) {
     throw new Error(`锁定保留 ${lockedIds.length} 人 + 想要 ${wantPlayers.length} 人，去重后共 ${effectiveLocks.length} 人，超过 ${data.rules.squadSize} 人的阵容上限。`);
   }
-  // 从用户选定的 Game Day 起算，而不是固定从当前比赛日起算：
-  // 本周 FT 已经用光时，用户常常想「从下一周开始排」。
-  const startId = Number.isFinite(Number(startEventId)) ? Number(startEventId) : number(data.currentEvent, 0);
-  const events = data.events.filter(event => Number(event.id) >= startId).slice(0, clamp(number(eventCount, 21), 1, 21));
-  if (!events.length) throw new Error('没有找到可用的未来赛程。');
+  // 从用户选定的 Game Day 起算，到用户选定的结束比赛日为止，而不是固定 21 天：
+  // 本周 FT 已经用光时，用户常常想「从下一周开始排」；要判断「这周开卡值不值」也得能看到 6 周以后。
+  const idOf = value => (value == null || value === '' ? null : (Number.isFinite(Number(value)) ? Number(value) : null));
+  const startId = idOf(startEventId) ?? number(data.currentEvent, 0);
+  const endId = idOf(endEventId);
+  const limit = eventCount == null ? MAX_FUTURE_EVENTS : clamp(number(eventCount, MAX_FUTURE_EVENTS), 1, MAX_FUTURE_EVENTS);
+  let events = data.events.filter(event => Number(event.id) >= startId);
+  if (endId != null) events = events.filter(event => Number(event.id) <= endId);
+  events = events.slice(0, limit);
+  if (!events.length) throw new Error('没有找到可用的未来赛程：所选结束比赛日早于起算日，请重新选择规划窗口。');
+  // 指定的野卡开卡日必须落在规划窗口里，否则模型无从规划（也不会静默改到你没选的日子）。
+  const wildcardId = idOf(wildcardEventId);
+  const pinnedWildcardIndex = wildcardId == null ? -1 : events.findIndex(event => Number(event.id) === wildcardId);
+  if (wildcardId != null && pinnedWildcardIndex < 0) {
+    throw new Error(`指定的野卡开卡日（event ${wildcardId}）不在当前规划窗口内，请调整起算日/结束日，或把野卡改成「自动挑最优」。`);
+  }
   const paidCap = Math.max(0, Math.min(MAX_PAID_TRANSFERS_PER_WEEK, number(paidLimit, DEFAULT_PAID_LIMIT)));
   const options = { ...data.rules, budget: number(budget, data.rules.budget), paidLimit:paidCap };
   const firstWeekQuota = firstWeekFreeTransfers == null
@@ -970,25 +1000,29 @@ export function buildFantasyPlans(data, {
       avoidIds: avoided,
     };
     let transferPlan = runTransferTracks(scope, result.roster, events, options, effectiveLocks, runnerOptions, mode.key);
-    // 野卡：用户勾选后才规划。开卡日从「每个 Gameweek 的第一个比赛日」里挑净得分最高的那天；
+    // 野卡：用户勾选后才规划。未指定轮次时，从「每个 Gameweek 的第一个比赛日」里挑净得分最高的那天；
     // 勾选 = 已经决定要用，所以只要开卡有正收益就采纳，不再套 20 分门槛。
+    // 指定了轮次（现实里已经开卡）时只在当天评估，并且无条件采纳——卡已经开了，不存在「不采纳」。
     let wildcard = { evaluated:false, candidates:0, best:null, adopted:false, gain:0, requested:wildcardRequested };
     if (wildcardRequested && (mode.key === 'score' || mode.key === 'steady')) {
-      const evaluation = planWildcard(scope, result.roster, events, options, effectiveLocks, runnerOptions, mode.key);
+      const evaluation = planWildcard(scope, result.roster, events, options, effectiveLocks, runnerOptions, mode.key, pinnedWildcardIndex);
       const baseNet = planNetPoints(transferPlan);
       const bestNet = evaluation.best?.netPoints ?? null;
       wildcard = {
-        ...evaluation, requested:true,
+        ...evaluation, requested:true, pinned:pinnedWildcardIndex >= 0,
+        pinnedEventId:wildcardId,
         baseNet:Number(baseNet.toFixed(1)),
         bestNet:bestNet == null ? null : Number(bestNet.toFixed(1)),
         gain:bestNet == null ? 0 : Number((bestNet - baseNet).toFixed(1)),
         adopted:false,
       };
       // 采纳门槛：优先保证「指定球员」兑现——若开卡能让 unmet 变少，即使净分略降也要开，
-      // 否则才按「有没有正收益」判断。
+      // 否则才按「有没有正收益」判断。指定轮次则直接采纳。
       const adoptByConstraint = Boolean(evaluation.best) && unmetCount(evaluation.best.plan) < unmetCount(transferPlan);
-      wildcard.adopted = Boolean(evaluation.best) && (wildcard.gain > 0 || adoptByConstraint);
-      wildcard.reason = wildcard.adopted ? (adoptByConstraint && wildcard.gain <= 0 ? 'constraint' : 'gain') : null;
+      wildcard.adopted = Boolean(evaluation.best) && (wildcard.pinned || wildcard.gain > 0 || adoptByConstraint);
+      wildcard.reason = !wildcard.adopted ? null
+        : wildcard.pinned ? 'pinned'
+        : (adoptByConstraint && wildcard.gain <= 0 ? 'constraint' : 'gain');
       if (wildcard.adopted) transferPlan = evaluation.best.plan;
     }
     const appearances = transferPlan.daily.reduce((sum, day) => sum + day.starters.length, 0);
@@ -1025,6 +1059,7 @@ export function buildFantasyPlans(data, {
       constraints,
       wildcard: {
         evaluated: wildcard.evaluated, candidates: wildcard.candidates, requested: wildcard.requested,
+        pinned: wildcard.pinned === true, pinnedEventId: wildcard.pinnedEventId ?? null,
         adopted: wildcard.adopted, gain: wildcard.gain, reason: wildcard.reason ?? null,
         options: (wildcard.options ?? []).map(option => ({ ...option, gain:Number((option.netPoints - (wildcard.baseNet ?? option.netPoints)).toFixed(1)) })),
         baseNet: wildcard.baseNet ?? null, bestNet: wildcard.bestNet ?? null,
@@ -1046,7 +1081,12 @@ export function buildFantasyPlans(data, {
     });
   }
   // 保持声明顺序：index 0 恒为「得分优先」，界面上标为推荐方案，不因某次回测波动而换默认。
-  return { events, plans, rules: options, scoring:data.scoring ?? null, modelVersion:MODEL_VERSION, updatedAt: data.updatedAt };
+  const first = events[0], last = events[events.length - 1];
+  const planWindow = {
+    startEventId:first?.id ?? null, endEventId:last?.id ?? null,
+    startLabel:eventLabel(first), endLabel:eventLabel(last), days:events.length,
+  };
+  return { events, window:planWindow, plans, rules: options, scoring:data.scoring ?? null, modelVersion:MODEL_VERSION, updatedAt: data.updatedAt };
 }
 
 export { statLineFantasy };

@@ -11,6 +11,8 @@ const execFileAsync = promisify(execFile);
 
 export const FANTASY_BASE = 'https://nba-fantasy-service.allaboutfantasy.workers.dev/api';
 export const FANTASY_APP_API = 'https://nba-fantasy-app.allaboutfantasy.workers.dev/api';
+/** 载荷里保留多少个未来比赛日（前端「规划到哪个比赛日」的上限，也是模型窗口上限）。 */
+export const FUTURE_EVENT_LIMIT = 60;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const number = (value, fallback = 0) => (Number.isFinite(Number(value)) ? Number(value) : fallback);
@@ -217,7 +219,12 @@ export async function buildFantasyPayload(deps, { fetchJson = fetchFantasyJson }
   if (!source?.elements?.length || !Array.isArray(fixtures)) throw new Error('NBA Fantasy 数据格式不完整');
 
   const currentEvent = Number(currentPayload?.event ?? source.events?.find(event => event.is_current)?.id ?? 1);
-  const allEvents = (source.events ?? []).filter(event => Number(event.id) >= currentEvent).slice(0, 21);
+  /**
+   * 未来赛事窗口：以前硬截 21 个比赛日，用户想「规划到 GW9.x」时直接看不到选项。
+   * 现在放到 60 个（约 8 个 Gameweek）——再往上拉，optimize 的 beam search 会从
+   * 秒级掉到几十秒，而球员库和转会额度也撑不住更长周期的规划精度。
+   */
+  const allEvents = (source.events ?? []).filter(event => Number(event.id) >= currentEvent).slice(0, FUTURE_EVENT_LIMIT);
   const futureEventIds = new Set(allEvents.map(event => Number(event.id)));
   const teams = (source.teams ?? []).map(team => ({ id: String(team.id), name: team.name, shortName: team.short_name }));
   const teamById = new Map(teams.map(team => [team.id, team]));

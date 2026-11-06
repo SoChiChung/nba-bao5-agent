@@ -626,17 +626,22 @@ All-Star 的实现要点：
 
 ## 14. 起算日、规划长度与「预估分标尺」
 
-### 14.1 起算比赛日（`startEventId`）
+### 14.1 起算比赛日与结束比赛日（`startEventId` / `endEventId`）
 
-用户本周 FT 用光时，真实诉求是「从下周开始怎么排」，而不是「从今天的比赛日开始」。所以窗口起点改为用户可选：
+用户本周 FT 用光时，真实诉求是「从下周开始怎么排」，而不是「从今天的比赛日开始」。所以窗口两端都交给用户选：
 
 ```js
-const startId = Number.isFinite(Number(startEventId)) ? Number(startEventId) : data.currentEvent;
-const events  = data.events.filter(e => Number(e.id) >= startId).slice(0, clamp(eventCount, 1, 21));
+const startId = idOf(startEventId) ?? data.currentEvent;
+const endId   = idOf(endEventId);                       // 为空 = 用满上限
+let events = data.events.filter(e => Number(e.id) >= startId);
+if (endId != null) events = events.filter(e => Number(e.id) <= endId);
+events = events.slice(0, limit);                        // limit = MAX_FUTURE_EVENTS = 60
 ```
 
 - 未绑定账号时窗口首日仍免 FT（在建队）；绑定账号后首日就要占用本周剩余 FT。
-- `eventCount` 上限取「从起算日起剩余的比赛日数」，前端 `syncEventCount()` 会同步 `max`，避免传进空窗口。
+- **上限从 21 提到 60 个比赛日**（`src/fantasy-data.mjs` 的 `FUTURE_EVENT_LIMIT` 同步放开），因为「这周开野卡值不值」需要看到 5–6 周以后；再长则 beam search 进入几十秒区间，且 6 周后的伤停/轮换信息本身没有预测价值。
+- 界面不再让用户填「天数」，改为两级下拉：**起算比赛日 → 规划到哪个比赛日**。天数是抽象量（用户得自己数），「GW8.1」是他在官网上直接看得到的坐标（2026-11-07 修订）。
+- `endEventId` 早于 `startEventId` 会让窗口为空，模型直接抛可读错误，不做静默回退。
 
 ### 14.2 预估分标尺（为什么 21 天 3000–4200 分是正常量级）
 
@@ -819,3 +824,75 @@ function preferPlan(candidate, current) {
 | 幂等 | 同输入两次结果一致 | ✅ 4/4 |
 | 阵型合法 | 每天首发每组 2–3 人 | ✅ 违规 0 天 |
 | 性能 | 3 指定 + 野卡，4 个模式 | 6.0 s |
+
+---
+
+## 17. 窗口、野卡轮次与账号口径（2026-11-08）
+
+上一版把「本周剩余 FT」和「预算」都当成用户手填的值，野卡也只能由模型自己挑时间。用户实际在用的场景是**卡已经开了、FT 只剩 2 个、预算跟着账号走**，所以这一版把三件事都改成「账号优先 + 可覆盖」。
+
+### 17.1 规划窗口：21 → 60 个比赛日，改用「结束比赛日」
+
+| 项 | 旧 | 新 |
+|---|---|---|
+| 载荷可见窗口 | `events.slice(0, 21)` | `FUTURE_EVENT_LIMIT = 60`（约 8 个 Gameweek） |
+| 模型参数 | `eventCount`（天数） | `endEventId`（比赛日 id），`eventCount` 保留为兼容用的截断上限 |
+| 界面控件 | `#fantasy-event-count` 数字框 | `#fantasy-end-event` 下拉，默认落在第 30 个比赛日 |
+| 结果展示 | 「30 个比赛日」 | 「规划窗口 GW3.4 → GW8.1 · 30 个比赛日」 |
+
+- 前端 `syncEndOptions()` 跟随起算日重建选项，`windowCandidates()` 截断到 60，与模型上限同源。
+- 60 天窗口实测耗时：建队 3.2 s、野卡 4 模式 5.3 s（21 天时分别是 1.5 s / 3.3 s）——增长来自 `createEvaluator` 的逐日聚合，属于线性，可接受。
+
+### 17.2 野卡：指定开卡轮次
+
+**为什么需要**：野卡在现实里可能上周就开掉了，模型再「建议哪天开」毫无意义；它应该直接接受「卡在 GW4.7 已经开了」这个事实，围绕那天做整队重建。
+
+```js
+// buildFantasyPlans({ useWildcard:true, wildcardEventId: 26 })
+const pinnedWildcardIndex = events.findIndex(e => Number(e.id) === wildcardId);
+// 指定的日子不在窗口内 → 抛错，不静默改到别的日子
+planWildcard(..., pinnedWildcardIndex)   // 候选只有这一个
+```
+
+三条关键语义：
+
+1. **指定即采纳**：`adopted = true`，`reason = 'pinned'`，不再套「开卡要有正收益」的门槛（卡已经开了，收益为负也得按它排）。
+2. **阵容只在更优时才换**：`wildcardForce` 允许「这天就是野卡日」，但重建结果仍要 `rebuildPoints > keepPoints` 才替换十人。否则会出现「用一张野卡把队伍改差」的荒谬结论，所以这种情况记录 `forced: true` 并在界面写明「阵容保持不变，但转会仍然免费」。
+3. **仍不吃 FT**：野卡当天的重建走 `wildcardDay` 分支，不碰 `available`/`paidThisWeek`，与官方「当日转会免费且阵容保留」一致。
+
+未指定时行为不变：仍从「每个 Gameweek 的第一个比赛日」挑净得分最高的那天，最多 3 个候选。
+
+### 17.3 预算与 FT 跟账号对齐
+
+| 项 | 旧 | 新 |
+|---|---|---|
+| 总预算（账号） | 固定 `data.rules.budget`（$100） | `Σ picks.selling_price + bank`（十人卖价 + 银行） |
+| 总预算（建队） | 用户手填 | 不变 |
+| 本周剩余 FT | 只从 `team-transfers` 反推 | 反推值填进 `#fantasy-first-ft`，**允许手改** |
+
+- 预算口径与野卡重建的 `wallet` 完全一致（§13.4），避免「建队按 $100、开卡按实际资金」两套数打架。
+- 账号模式下预算框禁用并加 `title` 说明，摘要行显示 `Value / Money Remaining / 可用总预算 / 本周 FT` 四项。
+- 官方 `team-transfers` 列表在 deadline 后才更新，读数可能落后一个比赛日，所以 FT 只做默认值：用户看到「本周还剩 2 个」仍可以改成 0（本周已用光）。
+- 解绑账号时预算与 FT 一起回落（`data.rules.budget` / 每周 2 个），不留账号残留。
+
+### 17.4 界面
+
+1. 「规划条件」改为 5 项：起算比赛日（宽）、规划到哪个比赛日（宽）、总预算、本周剩余免费转会、每周扣分换人上限（宽）。
+2. 勾选「使用 Wildcard」后**才**显示「Wildcard 开启比赛日」下拉，首项为「自动挑选最划算的一天」，其余为当前窗口内的每个比赛日。
+3. 顺带修掉深色主题下 `.fantasy-hero` 白底浅字的对比度问题（hero 渐变在 dark 下没有覆盖，标题几乎不可见）。
+
+### 17.5 验收
+
+| 项 | 标准 | 结果 |
+|---|---|---|
+| 窗口上限 | 起算/结束下拉各 60 项，默认结束 = 第 30 个比赛日 | ✅ GW3.4 → GW8.1 |
+| 长窗口可跑 | 60 天窗口返回 4 个方案 | ✅ 3.2 s |
+| 指定野卡轮次 | 指定 GW4.7 → 明细为 GW4.7，`reason=pinned` | ✅ 卖 2 买 2 留 8，净 +10.2 |
+| 指定日强制开卡 | 即便重建不更优也记为野卡日 | ✅ `forced=true` |
+| 指定日越界 | 报可读错误，不静默换日 | ✅ |
+| 账号预算 | 界面显示值与 `Σ卖价 + 银行` 一致且禁用 | ✅ $112.8 = $112.8 |
+| FT 跟随账号 | 输入框被账号读数覆盖 | ✅ 2 |
+| 阵型合法（满 5 人日） | 每组 2–3 人 | ✅ 违规 0 天（缺人日不计） |
+| 幂等 | 同输入两次结果一致 | ✅ |
+| 移动端 390px | 无横向溢出 | ✅ `scrollWidth = 390` |
+| 深色主题 | hero 标题对比度恢复 | ✅ |
