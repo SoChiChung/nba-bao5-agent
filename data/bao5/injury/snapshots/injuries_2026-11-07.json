@@ -2039,9 +2039,9 @@
       "t": "独行侠"
     },
     "1630241": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
       "detail": "ESPN伤病名单：Merrill (elbow) won't return to Friday's game against the 76ers, Dave McMenamin of ESPN.com reports.",
       "source": "ESPN",
       "asOf": "2026-11-07",
@@ -3354,12 +3354,11 @@
       "t": "爵士"
     },
     "1641730": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
       "source": "NBA官方",
-      "asOf": "2026-11-07",
       "n": "诺阿·克洛尼",
       "t": "篮网"
     },
@@ -4643,9 +4642,9 @@
       "t": "勇士"
     },
     "1642866": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
       "detail": "ESPN伤病名单：Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
       "source": "ESPN",
       "asOf": "2026-11-07",
@@ -5096,10 +5095,10 @@
       "t": "开拓者"
     },
     "1642962": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "德雷克·鲍威尔",
       "t": "篮网"
@@ -5801,19 +5800,19 @@
       "t": "掘金"
     }
   },
-  "officialCount": 31,
-  "projectedCount": 104,
+  "officialCount": 32,
+  "projectedCount": 103,
   "filledCount": 0,
   "espnCount": 10,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 405,
-  "updatedAt": "2026-11-07T05:30:00",
-  "updatedAtLabel": "11月7日 05:30",
+  "updatedAt": "2026-11-07T10:00:00",
+  "updatedAtLabel": "11月7日 10:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-07_05_30AM.pdf",
-  "message": "已读取官方伤病报告（11月7日 05:30 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-07_10_00AM.pdf",
+  "message": "已读取官方伤病报告（11月7日 10:00 发布）：列出32人，今日出战的另外103人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-08"
 }

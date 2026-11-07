@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T10:37:21.109Z",
+  "updatedAt": "2026-11-07T16:47:43.600Z",
   "serverDate": "2026-11-07",
   "requestedDate": "2026-11-08",
   "available": true,
@@ -9,20 +9,20 @@
   "counts": {
     "total": 542,
     "available": 415,
-    "questionable": 12,
-    "out": 114,
+    "questionable": 14,
+    "out": 112,
     "doubtful": 1
   },
   "provenance": {
-    "officialCount": 31,
-    "projectedCount": 104,
+    "officialCount": 32,
+    "projectedCount": 103,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-07.json",
   "changesFile": "changes/changes_2026-11-07.json",
   "previousDate": "2026-11-06",
-  "changeCount": 110,
+  "changeCount": 111,
   "restrictedCount": 127,
   "restricted": [
     {
@@ -410,20 +410,6 @@
       "probability": "0%",
       "detail": "上次官方报告 11月4日：缺阵（右髋部挫伤）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630241",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Merrill (elbow) won't return to Friday's game against the 76ers, Dave McMenamin of ESPN.com reports.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1174,20 +1160,6 @@
       "energy": null
     },
     {
-      "id": "1642866",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642869",
       "key": "out",
       "label": "缺阵",
@@ -1734,6 +1706,20 @@
       "energy": null
     },
     {
+      "id": "1630241",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Merrill (elbow) won't return to Friday's game against the 76ers, Dave McMenamin of ESPN.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630549",
       "key": "questionable",
       "label": "每日观察",
@@ -1776,6 +1762,20 @@
       "energy": null
     },
     {
+      "id": "1641730",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642853",
       "key": "questionable",
       "label": "出战成疑",
@@ -1790,12 +1790,12 @@
       "energy": null
     },
     {
-      "id": "1642962",
+      "id": "1642866",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1804,5 +1804,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月7日 05:30 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月7日 10:00 发布）：列出32人，今日出战的另外103人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
