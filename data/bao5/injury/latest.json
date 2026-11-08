@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T20:01:22.439Z",
+  "updatedAt": "2026-11-08T23:20:55.615Z",
   "serverDate": "2026-11-08",
   "requestedDate": "2026-11-09",
   "available": true,
@@ -7,22 +7,22 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
-    "total": 542,
-    "available": 418,
-    "out": 116,
-    "questionable": 8
+    "total": 543,
+    "available": 416,
+    "questionable": 9,
+    "out": 118
   },
   "provenance": {
-    "officialCount": 58,
-    "projectedCount": 171,
+    "officialCount": 59,
+    "projectedCount": 170,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-08.json",
   "changesFile": "changes/changes_2026-11-08.json",
   "previousDate": "2026-11-07",
-  "changeCount": 117,
-  "restrictedCount": 124,
+  "changeCount": 124,
+  "restrictedCount": 127,
   "restricted": [
     {
       "id": "202695",
@@ -212,6 +212,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月7日：缺阵（左膝盖）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1628374",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右手腕扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -773,6 +787,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641706",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Miller (groin) is listed as out for Monday's game against Cleveland.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1649,11 +1677,11 @@
       "energy": null
     },
     {
-      "id": "203954",
+      "id": "201942",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Embiid (foot) is probable for Sunday's game against the Bulls.",
+      "detail": "ESPN伤病名单：DeRozan is questionable for Monday's game against the Rockets due to lower back spasms.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1663,12 +1691,54 @@
       "energy": null
     },
     {
-      "id": "1628374",
+      "id": "203932",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Gordon (lower body injury management) is listed as questionable for Monday's game against the Rockets.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203999",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Jokic (elbow) is listed as questionable for Monday's game in Houston.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1627734",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右手腕扭伤）",
+      "detail": "NBA官方伤病报告：出战成疑（左膝盖酸痛）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1627750",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Murray is questionable for Monday's game against the Rockets due to a left shin contusion.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1705,11 +1775,11 @@
       "energy": null
     },
     {
-      "id": "1629028",
+      "id": "1629661",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Ayton won't return to Saturday's game against the Thunder due to a lower leg injury.",
+      "detail": "ESPN伤病名单：Johnson (lower body) is questionable for Monday's game against Houston.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1719,40 +1789,12 @@
       "energy": null
     },
     {
-      "id": "1631099",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641706",
+      "id": "1631128",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Head coach Charles Lee said Miller (groin) will be re-evaluated over the weekend, and they expect to have more information by Monday, Steve Reed of The Associated Press reports.",
+      "detail": "ESPN伤病名单：Braun (calf/illness) is listed as questionable for Monday's game against Houston.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641718",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1761,5 +1803,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月8日 15:00 发布）：列出58人，今日出战的另外171人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月8日 18:15 发布）：列出59人，今日出战的另外170人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
