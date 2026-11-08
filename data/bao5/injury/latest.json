@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T09:26:11.740Z",
+  "updatedAt": "2026-11-08T16:58:39.093Z",
   "serverDate": "2026-11-08",
   "requestedDate": "2026-11-09",
   "available": true,
@@ -8,10 +8,10 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "available": 417,
-    "out": 114,
+    "available": 415,
+    "out": 113,
     "probable": 2,
-    "questionable": 9
+    "questionable": 12
   },
   "provenance": {
     "officialCount": 49,
@@ -22,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-08.json",
   "changesFile": "changes/changes_2026-11-08.json",
   "previousDate": "2026-11-07",
-  "changeCount": 118,
-  "restrictedCount": 125,
+  "changeCount": 120,
+  "restrictedCount": 127,
   "restricted": [
     {
       "id": "202695",
@@ -270,20 +270,6 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629028",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Ayton won't return to Saturday's game against the Thunder due to a lower leg injury.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1622,12 +1608,40 @@
       "energy": null
     },
     {
+      "id": "1626181",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Powell (shoulder) is listed as questionable for Sunday's game against the 76ers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628374",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（右手腕扭伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629028",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Ayton won't return to Saturday's game against the Thunder due to a lower leg injury.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1683,6 +1697,20 @@
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Head coach Charles Lee said Miller (groin) will be re-evaluated over the weekend, and they expect to have more information by Monday, Steve Reed of The Associated Press reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641718",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：George (illness) has been downgraded to questionable for Sunday's game against Minnesota.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1776,5 +1804,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月8日 04:15 发布）：列出49人，今日出战的另外163人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月8日 07:15 发布）：列出49人，今日出战的另外163人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-08T09:26:11.740Z",
+  "generatedAt": "2026-11-08T16:58:39.093Z",
   "serverDate": "2026-11-08",
   "requestedDate": "2026-11-09",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-08T04:15:00",
+  "updatedAt": "2026-11-08T07:15:00",
   "counts": {
     "total": 542,
-    "available": 417,
-    "out": 114,
+    "available": 415,
+    "out": 113,
     "probable": 2,
-    "questionable": 9
+    "questionable": 12
   },
   "provenance": {
     "officialCount": 49,
@@ -20,18 +20,48 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月8日 04:15 发布）：列出49人，今日出战的另外163人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月8日 07:15 发布）：列出49人，今日出战的另外163人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-07",
-  "changeCount": 118,
+  "changeCount": 120,
   "changes": [
+    {
+      "kind": "newInjury",
+      "id": "1626181",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Powell (shoulder) is listed as questionable for Sunday's game against the 76ers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
     {
       "kind": "newInjury",
       "id": "1629028",
       "from": "available",
-      "to": "out",
-      "probability": "0%",
+      "to": "questionable",
+      "probability": "50%",
       "detail": "ESPN伤病名单：Ayton won't return to Saturday's game against the Thunder due to a lower leg injury.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1641718",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：George (illness) has been downgraded to questionable for Sunday's game against Minnesota.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1614,7 +1644,7 @@
     {
       "field": "updatedAt",
       "from": "2026-11-07T04:45:00",
-      "to": "2026-11-08T04:15:00"
+      "to": "2026-11-08T07:15:00"
     },
     {
       "field": "officialCount",
