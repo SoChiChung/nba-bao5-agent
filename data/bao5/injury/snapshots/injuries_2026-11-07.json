@@ -76,7 +76,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "詹姆斯·哈登",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-08:rw"
     },
     "201939": {
       "key": "available",
@@ -363,7 +364,7 @@
       "asOf": "2026-11-07",
       "n": "阿隆·戈登",
       "t": "掘金",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "203935": {
       "key": "available",
@@ -405,7 +406,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "朱利叶斯·兰德尔",
-      "t": "篮网"
+      "t": "篮网",
+      "st": "c:2026-11-08:nba"
     },
     "203952": {
       "key": "available",
@@ -422,7 +424,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Embiid chipped in 26 points (8-18 FG, 0-3 3Pt, 10-10 FT), 15 rebounds, two assists and one steal across 33 minutes during Wednesday's 112-106 win over Detroit.",
+      "detail": "ESPN伤病名单：Embiid (foot) is probable for Sunday's game against the Bulls.",
       "source": "ESPN",
       "asOf": "2026-11-07",
       "carry": false,
@@ -468,7 +470,7 @@
       "asOf": "2026-11-07",
       "n": "尼古拉·约基奇",
       "t": "掘金",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "204001": {
       "key": "out",
@@ -506,7 +508,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "卡尔-安东尼·唐斯",
-      "t": "尼克斯"
+      "t": "尼克斯",
+      "st": "c:2026-11-08:rw"
     },
     "1626162": {
       "key": "questionable",
@@ -711,7 +714,7 @@
       "asOf": "2026-11-07",
       "n": "贾马尔·穆雷",
       "t": "掘金",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1627751": {
       "key": "available",
@@ -764,7 +767,7 @@
       "asOf": "2026-11-07",
       "n": "帕斯卡尔·西亚卡姆",
       "t": "步行者",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1627826": {
       "key": "available",
@@ -775,7 +778,7 @@
       "asOf": "2026-11-07",
       "n": "伊维察·祖巴茨",
       "t": "步行者",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1627827": {
       "key": "available",
@@ -866,7 +869,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Markkanen posted 24 points (8-20 FG, 8-15 3Pt), eight rebounds and an assist across 34 minutes in Friday's 112-100 loss to the Mavericks.",
+      "detail": "ESPN伤病名单：Markkanen is questionable for Sunday's game against the Timberwolves due to a right wrist sprain.",
       "source": "ESPN",
       "asOf": "2026-11-07",
       "carry": false,
@@ -882,7 +885,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "多诺万·米切尔",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-08:rw"
     },
     "1628379": {
       "key": "available",
@@ -924,7 +928,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "OG·阿奴诺比",
-      "t": "尼克斯"
+      "t": "尼克斯",
+      "st": "c:2026-11-08:rw"
     },
     "1628386": {
       "key": "out",
@@ -957,7 +962,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "以赛亚·哈尔滕施泰因",
-      "t": "雷霆"
+      "t": "雷霆",
+      "st": "c:2026-11-08:rw"
     },
     "1628396": {
       "key": "available",
@@ -1073,7 +1079,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "米卡尔·布里奇斯",
-      "t": "尼克斯"
+      "t": "尼克斯",
+      "st": "c:2026-11-08:rw"
     },
     "1628970": {
       "key": "available",
@@ -1103,7 +1110,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "杰伦·布伦森",
-      "t": "尼克斯"
+      "t": "尼克斯",
+      "st": "c:2026-11-08:rw"
     },
     "1628975": {
       "key": "available",
@@ -1145,7 +1153,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "谢伊·吉尔杰斯-亚历山大",
-      "t": "雷霆"
+      "t": "雷霆",
+      "st": "c:2026-11-08:rw"
     },
     "1628989": {
       "key": "available",
@@ -1220,7 +1229,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "小迈克尔·波特",
-      "t": "篮网"
+      "t": "篮网",
+      "st": "c:2026-11-08:nba"
     },
     "1629011": {
       "key": "available",
@@ -1252,7 +1262,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "兰德里·沙梅特",
-      "t": "尼克斯"
+      "t": "尼克斯",
+      "st": "c:2026-11-08:rw"
     },
     "1629014": {
       "key": "available",
@@ -1317,7 +1328,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "肯里奇·威廉姆斯",
-      "t": "雷霆"
+      "t": "雷霆",
+      "st": "c:2026-11-08:rw"
     },
     "1629027": {
       "key": "available",
@@ -1328,7 +1340,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "特雷·杨",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-08:rw"
     },
     "1629028": {
       "key": "available",
@@ -1446,7 +1459,7 @@
       "asOf": "2026-11-07",
       "n": "安德鲁·内姆布哈德",
       "t": "步行者",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1629618": {
       "key": "available",
@@ -1556,7 +1569,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "尼基尔·亚历山大·沃克",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-08:nba"
     },
     "1629639": {
       "key": "available",
@@ -1665,7 +1679,7 @@
       "asOf": "2026-11-07",
       "n": "卡梅伦·约翰逊",
       "t": "掘金",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1629673": {
       "key": "available",
@@ -1796,7 +1810,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "奥涅卡·奥孔古",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-08:nba"
     },
     "1630169": {
       "key": "out",
@@ -1860,7 +1875,7 @@
       "asOf": "2026-11-07",
       "n": "阿隆·内史密斯",
       "t": "步行者",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1630178": {
       "key": "available",
@@ -2184,13 +2199,13 @@
       "t": "勇士"
     },
     "1630543": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月4日：可以出战（左腹股沟酸痛）",
-      "source": "NBA官方",
-      "asOf": "2026-11-04",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Jackson (groin) won't suit up for Sunday's game against the Pelicans, Law Murray of The Athletic reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-08",
+      "carry": false,
       "n": "以赛亚·杰克逊",
       "t": "快船"
     },
@@ -2206,13 +2221,13 @@
       "t": "奇才"
     },
     "1630545": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Shannon (hip) has been ruled out for Friday's game against New Orleans.",
-      "source": "ESPN",
-      "asOf": "2026-11-06",
-      "carry": false,
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "上次官方报告 10月27日：名单里没有他，视为可以出战",
+      "source": "NBA官方",
+      "asOf": "2026-10-27",
+      "carry": true,
       "n": "小特伦斯·香农",
       "t": "森林狼"
     },
@@ -2225,7 +2240,8 @@
       "asOf": "2026-11-05",
       "carry": false,
       "n": "戴罗恩·夏普",
-      "t": "篮网"
+      "t": "篮网",
+      "st": "c:2026-11-08:nba"
     },
     "1630551": {
       "key": "out",
@@ -2247,7 +2263,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "杰伦·约翰逊",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-08:nba"
     },
     "1630557": {
       "key": "available",
@@ -2453,7 +2470,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "埃文·莫布利",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-08:rw"
     },
     "1630598": {
       "key": "available",
@@ -2556,7 +2574,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "戴森·丹尼尔斯",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-08:nba"
     },
     "1630702": {
       "key": "available",
@@ -2811,7 +2830,7 @@
       "asOf": "2026-11-07",
       "n": "克里斯蒂安·布劳恩",
       "t": "掘金",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1631131": {
       "key": "available",
@@ -2962,7 +2981,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "佩顿·沃特森",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-08:rw"
     },
     "1631216": {
       "key": "available",
@@ -3353,13 +3373,12 @@
       "t": "爵士"
     },
     "1641730": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Clowney is listed as questionable for Saturday's game against the Hawks due to an illness.",
-      "source": "ESPN",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在NBA官方伤病报告中",
+      "source": "NBA官方",
       "asOf": "2026-11-07",
-      "carry": false,
       "n": "诺阿·克洛尼",
       "t": "篮网"
     },
@@ -3372,7 +3391,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "比拉尔·库利巴利",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-08:rw"
     },
     "1641737": {
       "key": "out",
@@ -3780,7 +3800,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "亚历克斯·萨尔",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-08:rw"
     },
     "1642260": {
       "key": "out",
@@ -3921,7 +3942,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "凯肖恩·乔治",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-08:rw"
     },
     "1642274": {
       "key": "out",
@@ -4059,7 +4081,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "阿杰·米切尔",
-      "t": "雷霆"
+      "t": "雷霆",
+      "st": "c:2026-11-08:rw"
     },
     "1642350": {
       "key": "available",
@@ -4493,7 +4516,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "诺兰·特拉奥雷",
-      "t": "篮网"
+      "t": "篮网",
+      "st": "c:2026-11-08:nba"
     },
     "1642850": {
       "key": "out",
@@ -4646,7 +4670,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
+      "detail": "ESPN伤病名单：Beringer (nose) is questionable for Sunday's game against the Jazz.",
       "source": "ESPN",
       "asOf": "2026-11-07",
       "carry": false,
@@ -4714,7 +4738,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-07",
       "n": "丹尼·沃尔夫",
-      "t": "篮网"
+      "t": "篮网",
+      "st": "c:2026-11-08:nba"
     },
     "1642875": {
       "key": "out",
@@ -5220,7 +5245,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "AJ·迪班萨",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-08:rw"
     },
     "1643408": {
       "key": "available",
@@ -5275,7 +5301,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "金斯顿·弗莱明斯",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-08:nba"
     },
     "1643413": {
       "key": "available",
@@ -5362,7 +5389,8 @@
       "asOf": "2026-11-06",
       "carry": true,
       "n": "米利克·托马斯",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-08:rw"
     },
     "1643510": {
       "key": "available",
@@ -5449,7 +5477,8 @@
       "asOf": "2026-11-04",
       "carry": true,
       "n": "阿代·马拉",
-      "t": "雷霆"
+      "t": "雷霆",
+      "st": "c:2026-11-08:rw"
     },
     "1643536": {
       "key": "available",
@@ -5544,7 +5573,7 @@
       "asOf": "2026-11-07",
       "n": "布雷登·史密斯",
       "t": "步行者",
-      "st": "c:2026-11-08:nba"
+      "st": "c:2026-11-08:rw"
     },
     "1643553": {
       "key": "available",
@@ -5816,16 +5845,16 @@
   "officialCount": 31,
   "projectedCount": 104,
   "filledCount": 0,
-  "espnCount": 18,
+  "espnCount": 17,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 405,
-  "updatedAt": "2026-11-07T08:30:00",
-  "updatedAtLabel": "11月7日 08:30",
+  "updatedAt": "2026-11-07T06:45:00",
+  "updatedAtLabel": "11月7日 06:45",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-07_08_30AM.pdf",
-  "message": "已读取官方伤病报告（11月7日 08:30 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-07_06_45AM.pdf",
+  "message": "已读取官方伤病报告（11月7日 06:45 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-08"
 }

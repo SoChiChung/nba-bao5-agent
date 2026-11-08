@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T23:17:49.366Z",
+  "updatedAt": "2026-11-08T01:12:31.081Z",
   "serverDate": "2026-11-07",
   "requestedDate": "2026-11-08",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 542,
-    "available": 407,
+    "available": 408,
     "out": 117,
-    "questionable": 17,
+    "questionable": 16,
     "doubtful": 1
   },
   "provenance": {
@@ -22,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-07.json",
   "changesFile": "changes/changes_2026-11-07.json",
   "previousDate": "2026-11-06",
-  "changeCount": 122,
-  "restrictedCount": 135,
+  "changeCount": 123,
+  "restrictedCount": 134,
   "restricted": [
     {
       "id": "202695",
@@ -502,11 +502,11 @@
       "energy": null
     },
     {
-      "id": "1630545",
+      "id": "1630543",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Shannon (hip) has been ruled out for Friday's game against New Orleans.",
+      "detail": "ESPN伤病名单：Jackson (groin) won't suit up for Sunday's game against the Pelicans, Law Murray of The Athletic reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1696,7 +1696,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Embiid chipped in 26 points (8-18 FG, 0-3 3Pt, 10-10 FT), 15 rebounds, two assists and one steal across 33 minutes during Wednesday's 112-106 win over Detroit.",
+      "detail": "ESPN伤病名单：Embiid (foot) is probable for Sunday's game against the Bulls.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1752,7 +1752,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Markkanen posted 24 points (8-20 FG, 8-15 3Pt), eight rebounds and an assist across 34 minutes in Friday's 112-100 loss to the Mavericks.",
+      "detail": "ESPN伤病名单：Markkanen is questionable for Sunday's game against the Timberwolves due to a right wrist sprain.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1832,20 +1832,6 @@
       "energy": null
     },
     {
-      "id": "1641730",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Clowney is listed as questionable for Saturday's game against the Hawks due to an illness.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642403",
       "key": "questionable",
       "label": "每日观察",
@@ -1878,7 +1864,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
+      "detail": "ESPN伤病名单：Beringer (nose) is questionable for Sunday's game against the Jazz.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1916,5 +1902,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月7日 08:30 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月7日 06:45 发布）：列出31人，今日出战的另外104人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
