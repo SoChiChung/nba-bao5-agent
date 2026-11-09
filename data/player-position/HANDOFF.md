@@ -142,7 +142,7 @@ node data/player-position/fetch-positions.mjs --window=20      # 改窗口场次
 ```
 
 - 建议**每天跑一次**（北京时间）。每跑一次就多一天快照，「近 15 场」窗口才有得算。
-- GitHub Actions 的 `bao5-lineup.yml` 在北京时间 06:00 用 Chrome + Xvfb 尝试刷新位置数据，成功后把 `positions.json` 与 `snapshots/` 一起提交；同一轮随后运行模型，所以自动提交阵容会用新位置。若 Basketball-Reference 的浏览器校验未通过，工作流保留旧快照并继续运行，不会写入空数据。
+- GitHub Actions 的 `bao5-lineup.yml` 在北京时间 19:00 用 Chrome + Xvfb 尝试刷新位置数据，成功后把 `positions.json` 与 `snapshots/` 一起提交；同一轮随后运行模型，所以自动提交阵容会用新位置。若 Basketball-Reference 的浏览器校验未通过，工作流保留旧快照并继续运行，不会写入空数据。
 - 本地 `run-model.mjs` 也会调用 `fetch-positions.mjs --if-stale`，一天只抓一次；本地持久浏览器 profile 可复用通过 Cloudflare 校验后的会话。GitHub hosted runner 是无持久 profile 的运行环境，远端首次成功刷新仍需以 Actions 日志为准。
 - 只发 1 个页面请求/次，无频率风险。
 - 匹配失败的人会出现在 `_meta.unmatched`；确认是同一人后，在 `aliases.json` 加一条 `"名单英文名": "BR 英文名"` 即可，**不要**加模糊匹配。
