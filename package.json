@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.mjs",
-    "model": "node data/bao5/bao1/run-model.mjs"
+    "model": "node data/bao5/bao1/run-model.mjs",
+    "positions": "node data/player-position/fetch-positions.mjs"
   }
 }

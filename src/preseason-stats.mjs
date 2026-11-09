@@ -3,6 +3,18 @@ import path from 'node:path';
 
 const CACHE_TTL_MS = 8 * 60 * 60 * 1000;
 const mean = values => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+const STAT_FIELDS = [
+  ['points',['points','pts']],['rebounds',['rebounds','reb']],['assists',['assists','ast']],
+  ['steals',['steals','stl']],['blocks',['blocks','blk']],['turnovers',['turnovers','tov']],
+];
+const averageStatLine = games => Object.fromEntries(STAT_FIELDS.map(([name,aliases])=>{
+  const values=games.map(game=>{
+    const raw=aliases.map(key=>game?.[key]).find(value=>value!=null&&value!=='');
+    const value=Number(raw);
+    return Number.isFinite(value)?value:null;
+  }).filter(value=>value!=null);
+  return [name,mean(values)];
+}));
 export const isPreseasonGame = game => game?.phase === 'preseason' || game?.label === '季前赛' || /preseason/i.test(game?.label ?? '');
 const seasonType = game => String(game?.seasonType ?? game?.season_type ?? '').toLowerCase().replace(/[\s_-]/g, '');
 export function currentNBASeasonLabel(now = new Date()) {
@@ -63,6 +75,8 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           recentRegularAverageFantasy: mean(latestThreeFantasy),
           recentRegularAverageMinutes: mean(latestThreeMinutes),
           recentRegularLastDate: latestRegular[0]?.date ?? null,
+          regularStatAverages:averageStatLine(latestRegular),
+          recentRegularStatAverages:averageStatLine(latestThree),
           lastDate: games[0]?.date ?? null,
         };
         fetched++;
@@ -94,6 +108,8 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           recentAverageMinutes:stats.recentRegularAverageMinutes,
           lastDate:stats.recentRegularLastDate,
           season:stats.regularSeasonLabel,
+          statAverages:stats.regularStatAverages??null,
+          recentStatAverages:stats.recentRegularStatAverages??null,
         },
       } : {}),
       ...(stats.regularSeasonGames ? { historicalStats:{games:stats.regularSeasonGames,season:stats.regularSeasonLabel,averageFantasy:stats.averageRegularFantasy,averageMinutes:stats.averageRegularMinutes,source:stats.regularSeasonSource??stats.source??null} } : {}),

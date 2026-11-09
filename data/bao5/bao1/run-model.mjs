@@ -4,7 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from './bao5.mjs';
-import { buildDashboardData, deriveCalibration, optimizeLineup, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
+import { attachPlayerActualsFromLogs, buildDashboardData, deriveCalibration, optimizeLineup, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from '../../../src/preseason-stats.mjs';
 import { refreshCurrentSeasonLogs } from '../../history-player/refresh-current-season.mjs';
 
@@ -56,6 +56,10 @@ try {
   if(process.env.BAO5_BACKFILL_ONLY!=='true'){
     try{runPython('data/position/fetch_hb.py',['--if-stale']);}
     catch(error){say(`位置防守数据刷新失败，继续沿用现有快照：${error.message}`);}
+    if(process.env.GITHUB_ACTIONS!=='true'){
+      try{run('../../player-position/fetch-positions.mjs',['--if-stale']);}
+      catch(error){say(`球员位置占比刷新失败，继续沿用现有位置快照：${error.message}`);}
+    }
   }
   const cfg=loadConfig();
   const api=new Bao5({baseUrl:cfg.baseUrl});
@@ -166,6 +170,10 @@ try {
     }
     if(currentHistory&&settledDates.includes(dateKey)){const day=topFiveStore.dates[dateKey];const common=new Map();for(const lineup of day?.lineups??[])for(const id of lineup.playerIds??[])common.set(String(id),(common.get(String(id))??0)+1);currentHistory.topFive={date:dateKey,lineups:day?.lineups??[],commonPicks:[...common].map(([id,selections])=>({id,name:lineupNames.get(id)??`球员 ${id}`,selections,rate:Number((selections/Math.max(1,day?.lineups?.length??0)).toFixed(2))})).sort((a,b)=>b.selections-a.selections||a.name.localeCompare(b.name,'zh'))};}
   }
+  let playerLogStore={players:{}};
+  try{playerLogStore=readJson('data/history-player/current-season-logs.json');}catch{say('球员逐场实际数据缓存不可用，本轮跳过逐人 loss 回填');}
+  const playerActuals=attachPlayerActualsFromLogs(history,playerLogStore,settledDates);
+  if(playerActuals.playerResults)say(`逐球员实际分回填：${playerActuals.playerResults} 条球员比赛、${playerActuals.completeModelLineups} 套完整模型阵容；实际阵容变更不影响球员级 loss`);
   saveHistory(history);
   if(Object.keys(topFiveStore.dates).length){
     topFiveStore.updatedAt=new Date().toISOString();fs.mkdirSync(path.dirname(lineupFile),{recursive:true});writeJsonWithRetry(lineupFile,JSON.stringify(topFiveStore,null,2)+'\n');
@@ -217,6 +225,8 @@ try {
   const nbaOddsFile=oddsMeta?.tournaments?.nba?.file??'nba/odds_2026-10-02.json';
   const odds=[...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
   const defenseData=readJson('data/position/defense_vs_position.json');
+  const playerPositionData=readJson('data/player-position/positions.json');
+  say(`球员位置占比：${playerPositionData._meta?.seasonLabel??'未知赛季'}，${playerPositionData._meta?.counts?.onRoster??0} 人，快照 ${playerPositionData._meta?.dateKey??'未知'}`);
   const defenseSeason=Object.keys(defenseData).filter(key=>/^season_\d{4}_\d{2}$/.test(key)).sort().at(-1);
   const currentDefenseSeason=`season_${currentNBASeasonLabel()}`;
   const selectedDefenseSeason=defenseData[currentDefenseSeason]?currentDefenseSeason:defenseSeason;

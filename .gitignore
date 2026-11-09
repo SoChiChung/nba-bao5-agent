@@ -26,3 +26,6 @@ data/赛前分析/
 # Python 编译缓存（fetch_hb.py 运行产生，不入仓库）
 __pycache__/
 *.pyc
+
+# BR 浏览器持久化配置（cf_clearance cookie，含会话信息，不入仓库）
+data/player-position/.br-profile/

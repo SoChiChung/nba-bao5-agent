@@ -35,6 +35,7 @@ const FINGERPRINT_FILES = [
   'data/odds/latest.json',
   'data/bao5/scores/top-five-lineups.json',
   'data/position/defense_vs_position.json',
+  'data/player-position/positions.json',
   'data/history-player/current-season-logs.json',
   'data/bao5/league/latest.json',
 ];
@@ -330,6 +331,13 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
     data.sources = { injuries:{serverDate:injuries.serverDate??injuries.date,requestedDate:injuries.requestedDate,available:injuries.available===true,sourceLabel:injuries.sourceLabel??'每日一阵网站伤病报告',updatedAt:injuries.updatedAt}, odds:{fetchedAt:latestOdds.fetchedAt,fetchedAtShanghai:latestOdds.fetchedAtShanghai,fixtures:latestOdds.totalFixtures,monthlyUsed:quotaCalls,monthlyQuota,monthlyRemaining:Math.max(0,monthlyQuota-quotaCalls)}, defense:{season:defense.season??'缺失',currentSeason:currentNBASeasonLabel()}, playerStats:playerStatsMeta };
+    const playerPositionData = readJson('data/player-position/positions.json', null);
+    data.sources.playerPosition = {
+      season: playerPositionData?._meta?.seasonLabel ?? null,
+      dateKey: playerPositionData?._meta?.dateKey ?? null,
+      updatedAt: playerPositionData?._meta?.generatedAt ?? null,
+      players: Number(playerPositionData?._meta?.counts?.onRoster ?? 0),
+    };
     const currentSeasonLogs = readJson('data/history-player/current-season-logs.json', {});
     const seasonLogsAt = currentSeasonLogs.updatedAt ?? currentSeasonLogs.lastAttemptAt ?? null;
     const matchupBaseAt = matchupStats.generatedAt ?? null;
