@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-09T01:30:57.610Z",
+  "generatedAt": "2026-11-09T01:40:56.138Z",
   "serverDate": "2026-11-08",
   "requestedDate": "2026-11-09",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-08T10:00:00",
+  "updatedAt": "2026-11-08T09:45:00",
   "counts": {
     "total": 543,
-    "available": 407,
-    "questionable": 18,
+    "available": 406,
+    "questionable": 19,
     "out": 116,
     "probable": 2
   },
@@ -20,7 +20,7 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月8日 10:00 发布）：列出50人，今日出战的另外162人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月8日 09:45 发布）：列出50人，今日出战的另外162人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-07",
   "changeCount": 129,
@@ -91,7 +91,7 @@
       "from": "available",
       "to": "questionable",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Grimes will start in Sunday's game against the Pistons.",
+      "detail": "ESPN伤病名单：Grimes went back to the locker room during Sunday's game against the Pistons, Dave McMenamin of ESPN.com reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -347,21 +347,6 @@
       "to": "available",
       "probability": "100%",
       "detail": "上次官方报告 11月7日：可以出战（左脚踝扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "cleared",
-      "id": "1630611",
-      "from": "questionable",
-      "to": "available",
-      "probability": "100%",
-      "detail": "上次官方报告 11月7日：可以出战（左膝盖肌腱炎）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -842,6 +827,19 @@
       "from": "out",
       "to": "out",
       "note": "上次官方报告 11月7日：缺阵（右膝盖挫伤）",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "detailChanged",
+      "id": "1630611",
+      "from": "questionable",
+      "to": "questionable",
+      "note": "ESPN伤病名单：Santos (knee) is listed as probable for Monday's game against New Orleans.",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1777,7 +1775,7 @@
     {
       "field": "updatedAt",
       "from": "2026-11-07T04:45:00",
-      "to": "2026-11-08T10:00:00"
+      "to": "2026-11-08T09:45:00"
     },
     {
       "field": "officialCount",

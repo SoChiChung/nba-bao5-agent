@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T01:30:57.610Z",
+  "updatedAt": "2026-11-09T01:40:56.138Z",
   "serverDate": "2026-11-08",
   "requestedDate": "2026-11-09",
   "available": true,
@@ -8,8 +8,8 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 543,
-    "available": 407,
-    "questionable": 18,
+    "available": 406,
+    "questionable": 19,
     "out": 116,
     "probable": 2
   },
@@ -23,7 +23,7 @@
   "changesFile": "changes/changes_2026-11-08.json",
   "previousDate": "2026-11-07",
   "changeCount": 129,
-  "restrictedCount": 136,
+  "restrictedCount": 137,
   "restricted": [
     {
       "id": "202695",
@@ -1780,7 +1780,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Grimes will start in Sunday's game against the Pistons.",
+      "detail": "ESPN伤病名单：Grimes went back to the locker room during Sunday's game against the Pistons, Dave McMenamin of ESPN.com reports.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1809,6 +1809,20 @@
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Vassell is questionable for Monday's game against the Suns due to left adductor tightness.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630611",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Santos (knee) is listed as probable for Monday's game against New Orleans.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1930,5 +1944,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月8日 10:00 发布）：列出50人，今日出战的另外162人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月8日 09:45 发布）：列出50人，今日出战的另外162人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
