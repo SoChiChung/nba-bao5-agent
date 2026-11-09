@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T02:46:01.939Z",
+  "fetchedAt": "2026-11-09T10:25:27.163Z",
   "date": "2026-11-08",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -539,7 +539,7 @@
     },
     {
       "userId": "c9e7509b-35bb-42ba-a7c5-1111a05fe551",
-      "displayName": "荧惑守心",
+      "displayName": "猜神",
       "avatarKey": "IND",
       "score": 189.2,
       "remainingSalary": 0,
@@ -1452,7 +1452,7 @@
     {
       "userId": "ab442033-361e-4f81-9821-22d13ac44f7d",
       "displayName": "太阳的幻想",
-      "avatarKey": "HOU",
+      "avatarKey": "MIN",
       "score": 170.4,
       "remainingSalary": 2,
       "submittedAt": 1794086109805,
@@ -1868,7 +1868,7 @@
     {
       "userId": "d62f853a-cfc1-4701-88b5-5d3967d3f797",
       "displayName": "阿杜归来",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "WAS",
       "score": 165.1,
       "remainingSalary": 0,
       "submittedAt": 1794049081423,
@@ -4656,6 +4656,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-08",
     "board": "/api/rankings?period=day&date=2026-11-08"
   },
-  "updatedAt": "2026-11-09T02:46:01.939Z",
+  "updatedAt": "2026-11-09T10:25:27.163Z",
   "stale": true
 }
