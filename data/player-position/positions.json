@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "generatedAt": "2026-11-09T13:42:32.085Z",
-  "dateKey": "2026-11-09",
+  "generatedAt": "2026-11-09T21:21:42.507Z",
+  "dateKey": "2026-11-10",
   "seasonYear": 2027,
   "seasonLabel": "2026-27",
   "source": "Basketball-Reference Position Estimate (play-by-play 分钟加权)",
@@ -9,12 +9,15 @@
   "windowTarget": 15,
   "counts": {
    "players": 460,
-   "onRoster": 460,
+   "onRoster": 458,
    "ambiguous": 0,
    "windowBasis": 0,
    "seasonBasis": 460
   },
-  "unmatched": [],
+  "unmatched": [
+   "Dalen Terry (OKC)",
+   "Norchad Omier (CLE)"
+  ],
   "fields": {
    "distribution": "该口径下的 5 位置分钟占比（%，和为 100）",
    "minutesByPosition": "按占比换算的出场分钟数",
@@ -17711,9 +17714,9 @@
   },
   {
    "nameEn": "Dalen Terry",
-   "nameCn": "达伦·特里",
-   "bao5Id": 1631207,
-   "onRoster": true,
+   "nameCn": null,
+   "bao5Id": null,
+   "onRoster": false,
    "brSlug": "terryda01",
    "team": "OKC",
    "brPosLabel": "SG",
@@ -19055,9 +19058,9 @@
   },
   {
    "nameEn": "Norchad Omier",
-   "nameCn": "诺恰德·奥米尔",
-   "bao5Id": 1641807,
-   "onRoster": true,
+   "nameCn": null,
+   "bao5Id": null,
+   "onRoster": false,
    "brSlug": "omierno01",
    "team": "CLE",
    "brPosLabel": "PF",
