@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T23:53:26.248Z",
+  "updatedAt": "2026-11-10T02:29:44.273Z",
   "serverDate": "2026-11-09",
   "requestedDate": "2026-11-10",
   "available": true,
@@ -7,10 +7,10 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
-    "total": 543,
-    "available": 408,
-    "questionable": 7,
-    "out": 122,
+    "total": 542,
+    "available": 406,
+    "out": 124,
+    "questionable": 6,
     "probable": 6
   },
   "provenance": {
@@ -22,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-09.json",
   "changesFile": "changes/changes_2026-11-09.json",
   "previousDate": "2026-11-08",
-  "changeCount": 121,
-  "restrictedCount": 135,
+  "changeCount": 124,
+  "restrictedCount": 136,
   "restricted": [
     {
       "id": "202695",
@@ -670,6 +670,20 @@
       "energy": null
     },
     {
+      "id": "1630692",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右小腿肚）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631094",
       "key": "out",
       "label": "缺阵",
@@ -886,6 +900,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月7日：缺阵（左肩部手术）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641718",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：George (ankle) has been ruled out for Tuesday's game against the Heat.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1734,39 +1762,11 @@
       "energy": null
     },
     {
-      "id": "201942",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：DeRozan (back) is probable for Monday against Houston.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "203507",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Antetokounmpo is probable for Tuesday's game against the Jazz due to a right wrist sprain.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "204456",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：McConnell is questionable for Monday's game against the Mavericks due to a right hamstring strain.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1804,12 +1804,12 @@
       "energy": null
     },
     {
-      "id": "1630692",
+      "id": "1631099",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右小腿肚）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Murray is questionable for Tuesday's game against the Magic due to right wrist soreness.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1818,11 +1818,25 @@
       "energy": null
     },
     {
-      "id": "1641718",
+      "id": "1642353",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：George will not return to Sunday's game against the Timberwolves due to a right ankle injury.",
+      "detail": "ESPN伤病名单：Christie is questionable for Tuesday's game against the Suns due to a right ankle sprain, Ohm Youngmisuk of ESPN.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642366",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Post is doubtful to return to Monday's game against Toronto due to a head injury.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1916,5 +1930,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月9日 18:45 发布）：列出80人，今日出战的另外154人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月9日 19:45 发布）：列出80人，今日出战的另外154人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
