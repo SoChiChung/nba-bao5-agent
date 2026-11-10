@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T18:32:57.055Z",
+  "updatedAt": "2026-11-10T21:30:14.385Z",
   "serverDate": "2026-11-10",
   "requestedDate": "2026-11-11",
   "available": true,
@@ -8,22 +8,23 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 606,
+    "available": 609,
     "out": 112,
     "probable": 1,
-    "questionable": 13
+    "doubtful": 1,
+    "questionable": 9
   },
   "provenance": {
-    "officialCount": 44,
-    "projectedCount": 231,
+    "officialCount": 46,
+    "projectedCount": 254,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-10.json",
   "changesFile": "changes/changes_2026-11-10.json",
   "previousDate": "2026-11-09",
-  "changeCount": 132,
-  "restrictedCount": 126,
+  "changeCount": 131,
+  "restrictedCount": 123,
   "restricted": [
     {
       "id": "202695",
@@ -586,20 +587,6 @@
       "energy": null
     },
     {
-      "id": "1630692",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 11月9日：缺阵（右小腿肚）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1631094",
       "key": "out",
       "label": "缺阵",
@@ -660,7 +647,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月9日：缺阵（左肩部手术）",
+      "detail": "NBA官方伤病报告：缺阵（左肩部手术）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -717,20 +704,6 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月9日：缺阵 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1631166",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 11月9日：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1356,6 +1329,20 @@
       "energy": null
     },
     {
+      "id": "1643257",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643414",
       "key": "out",
       "label": "缺阵",
@@ -1510,6 +1497,20 @@
       "energy": null
     },
     {
+      "id": "1643568",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643573",
       "key": "out",
       "label": "缺阵",
@@ -1594,25 +1595,11 @@
       "energy": null
     },
     {
-      "id": "1627734",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左膝盖酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1628404",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
+      "key": "doubtful",
+      "label": "小概率出战",
+      "probability": "25%",
+      "detail": "NBA官方伤病报告：小概率出战 · 疾病",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1642,20 +1629,6 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：Williams has been ruled out for the remainder of Monday's game against the Pelicans due to a left hamstring injury, Danny Emerman of SFStandard.com reports. He'll finish with four points (2-3 FG) in two minutes.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1631099",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右手腕酸痛）",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1762,20 +1735,6 @@
       "energy": null
     },
     {
-      "id": "1643568",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "203507",
       "key": "probable",
       "label": "大概率出战",
@@ -1790,5 +1749,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月10日 13:30 发布）：列出44人，今日出战的另外231人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月10日 16:15 发布）：列出46人，今日出战的另外254人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
