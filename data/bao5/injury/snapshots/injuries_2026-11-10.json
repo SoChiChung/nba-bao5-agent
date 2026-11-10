@@ -934,10 +934,10 @@
       "asOf": "2026-11-10"
     },
     "1628374": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右手腕扭伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右手腕扭伤）",
       "source": "NBA官方",
       "n": "劳里·马尔卡宁",
       "t": "爵士"
@@ -1061,7 +1061,7 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右脚踝酸痛）",
+      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
       "source": "NBA官方",
       "n": "约什·哈特",
       "t": "尼克斯"
@@ -3111,10 +3111,10 @@
       "t": "76人"
     },
     "1631127": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "哈里森·英格拉姆",
       "t": "爵士"
@@ -3709,10 +3709,10 @@
       "t": "公牛"
     },
     "1641723": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "科比·巴夫金",
       "t": "爵士"
@@ -3958,10 +3958,10 @@
       "t": "快船"
     },
     "1641759": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "狄龙·米切尔",
       "t": "凯尔特人"
@@ -4090,12 +4090,13 @@
       "t": "雄鹿"
     },
     "1641783": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
-      "source": "NBA官方",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Da Silva is questionable for Tuesday's game against the Kings due to a left calf strain.",
+      "source": "ESPN",
       "asOf": "2026-11-10",
+      "carry": false,
       "n": "特里斯坦·达·席尔瓦",
       "t": "魔术"
     },
@@ -4625,12 +4626,11 @@
       "t": "黄蜂"
     },
     "1642276": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
       "source": "NBA官方",
-      "asOf": "2026-11-10",
       "n": "凯莱尔·韦尔",
       "t": "雄鹿"
     },
@@ -7408,19 +7408,19 @@
       "asOf": "2026-11-10"
     }
   },
-  "officialCount": 43,
-  "projectedCount": 232,
+  "officialCount": 44,
+  "projectedCount": 231,
   "filledCount": 0,
-  "espnCount": 5,
+  "espnCount": 6,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 456,
-  "updatedAt": "2026-11-10T05:15:00",
-  "updatedAtLabel": "11月10日 05:15",
+  "updatedAt": "2026-11-10T13:30:00",
+  "updatedAtLabel": "11月10日 13:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-10_05_15AM.pdf",
-  "message": "已读取官方伤病报告（11月10日 05:15 发布）：列出43人，今日出战的另外232人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-10_01_30PM.pdf",
+  "message": "已读取官方伤病报告（11月10日 13:30 发布）：列出44人，今日出战的另外231人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-11"
 }
