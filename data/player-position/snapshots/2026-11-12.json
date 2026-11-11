@@ -1,0 +1,7401 @@
+{
+ "date": "2026-11-12",
+ "fetchedAt": "2026-11-11T18:29:48.934Z",
+ "seasonYear": 2027,
+ "sourceUrl": "https://www.basketball-reference.com/leagues/NBA_2027_play-by-play.html",
+ "source": "basketball-reference/position-estimate",
+ "players": {
+  "maxeyty01": {
+   "slug": "maxeyty01",
+   "nameEn": "Tyrese Maxey",
+   "team": "PHI",
+   "posLabel": "PG",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 435,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "acuffda01": {
+   "slug": "acuffda01",
+   "nameEn": "Darius Acuff Jr.",
+   "team": "SAC",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 411,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reaveau01": {
+   "slug": "reaveau01",
+   "nameEn": "Austin Reaves",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 398,
+   "pct": {
+    "PG": 16,
+    "SG": 83,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mitchda01": {
+   "slug": "mitchda01",
+   "nameEn": "Davion Mitchell",
+   "team": "MIA",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 394,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "youngtr01": {
+   "slug": "youngtr01",
+   "nameEn": "Trae Young",
+   "team": "WAS",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 390,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "smithja05": {
+   "slug": "smithja05",
+   "nameEn": "Jabari Smith Jr.",
+   "team": "HOU",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 388,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 81,
+    "C": 20
+   }
+  },
+  "brownja02": {
+   "slug": "brownja02",
+   "nameEn": "Jaylen Brown",
+   "team": "PHI",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 384,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 78,
+    "PF": 22,
+    "C": 0
+   }
+  },
+  "duranke01": {
+   "slug": "duranke01",
+   "nameEn": "Kevin Durant",
+   "team": "HOU",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 377,
+   "pct": {
+    "PG": 0,
+    "SG": 9,
+    "SF": 84,
+    "PF": 7,
+    "C": 0
+   }
+  },
+  "alexani01": {
+   "slug": "alexani01",
+   "nameEn": "Nickeil Alexander-Walker",
+   "team": "ATL",
+   "posLabel": "SG",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 373,
+   "pct": {
+    "PG": 0,
+    "SG": 64,
+    "SF": 36,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mcdanja02": {
+   "slug": "mcdanja02",
+   "nameEn": "Jaden McDaniels",
+   "team": "MIN",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 372,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 15,
+    "PF": 85,
+    "C": 1
+   }
+  },
+  "kesslwa01": {
+   "slug": "kesslwa01",
+   "nameEn": "Walker Kessler",
+   "team": "LAL",
+   "posLabel": "C",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 371,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "washipj01": {
+   "slug": "washipj01",
+   "nameEn": "P.J. Washington",
+   "team": "DAL",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 370,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 1,
+    "PF": 79,
+    "C": 20
+   }
+  },
+  "edgecvj01": {
+   "slug": "edgecvj01",
+   "nameEn": "VJ Edgecombe",
+   "team": "PHI",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 368,
+   "pct": {
+    "PG": 9,
+    "SG": 78,
+    "SF": 13,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "thompam01": {
+   "slug": "thompam01",
+   "nameEn": "Amen Thompson",
+   "team": "HOU",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 368,
+   "pct": {
+    "PG": 1,
+    "SG": 76,
+    "SF": 23,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "wagnefr01": {
+   "slug": "wagnefr01",
+   "nameEn": "Franz Wagner",
+   "team": "ORL",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 366,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 13,
+    "PF": 87,
+    "C": 0
+   }
+  },
+  "adebaba01": {
+   "slug": "adebaba01",
+   "nameEn": "Bam Adebayo",
+   "team": "MIA",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 365,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "georgky01": {
+   "slug": "georgky01",
+   "nameEn": "Kyshawn George",
+   "team": "WAS",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 365,
+   "pct": {
+    "PG": 4,
+    "SG": 63,
+    "SF": 32,
+    "PF": 2,
+    "C": 0
+   }
+  },
+  "daniedy01": {
+   "slug": "daniedy01",
+   "nameEn": "Dyson Daniels",
+   "team": "ATL",
+   "posLabel": "SF",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 363,
+   "pct": {
+    "PG": 0,
+    "SG": 10,
+    "SF": 88,
+    "PF": 2,
+    "C": 0
+   }
+  },
+  "doncilu01": {
+   "slug": "doncilu01",
+   "nameEn": "Luka Dončić",
+   "team": "LAL",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 363,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mitchdo01": {
+   "slug": "mitchdo01",
+   "nameEn": "Donovan Mitchell",
+   "team": "CLE",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 361,
+   "pct": {
+    "PG": 22,
+    "SG": 66,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "lavinza01": {
+   "slug": "lavinza01",
+   "nameEn": "Zach LaVine",
+   "team": "SAC",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 360,
+   "pct": {
+    "PG": 1,
+    "SG": 76,
+    "SF": 23,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "antetgi01": {
+   "slug": "antetgi01",
+   "nameEn": "Giannis Antetokounmpo",
+   "team": "MIA",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 359,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 58,
+    "C": 42
+   }
+  },
+  "hardeja01": {
+   "slug": "hardeja01",
+   "nameEn": "James Harden",
+   "team": "CLE",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 359,
+   "pct": {
+    "PG": 70,
+    "SG": 24,
+    "SF": 6,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "gilgesh01": {
+   "slug": "gilgesh01",
+   "nameEn": "Shai Gilgeous-Alexander",
+   "team": "OKC",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 357,
+   "pct": {
+    "PG": 69,
+    "SG": 31,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "okongon01": {
+   "slug": "okongon01",
+   "nameEn": "Onyeka Okongwu",
+   "team": "ATL",
+   "posLabel": "C",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 355,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "lendeya01": {
+   "slug": "lendeya01",
+   "nameEn": "Yaxel Lendeborg",
+   "team": "GSW",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 351,
+   "pct": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 60,
+    "PF": 37,
+    "C": 0
+   }
+  },
+  "mobleev01": {
+   "slug": "mobleev01",
+   "nameEn": "Evan Mobley",
+   "team": "CLE",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 351,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 33,
+    "C": 67
+   }
+  },
+  "dosunay01": {
+   "slug": "dosunay01",
+   "nameEn": "Ayo Dosunmu",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 7,
+   "minutes": 345,
+   "pct": {
+    "PG": 28,
+    "SG": 72,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "harpedy01": {
+   "slug": "harpedy01",
+   "nameEn": "Dylan Harper",
+   "team": "SAS",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 345,
+   "pct": {
+    "PG": 12,
+    "SG": 46,
+    "SF": 42,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sabondo01": {
+   "slug": "sabondo01",
+   "nameEn": "Domantas Sabonis",
+   "team": "SAC",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 343,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 1,
+    "C": 99
+   }
+  },
+  "baileac01": {
+   "slug": "baileac01",
+   "nameEn": "Ace Bailey",
+   "team": "UTA",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 10,
+   "minutes": 341,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 44,
+    "PF": 56,
+    "C": 0
+   }
+  },
+  "flaggco01": {
+   "slug": "flaggco01",
+   "nameEn": "Cooper Flagg",
+   "team": "DAL",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 341,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 62,
+    "PF": 38,
+    "C": 0
+   }
+  },
+  "bookede01": {
+   "slug": "bookede01",
+   "nameEn": "Devin Booker",
+   "team": "PHO",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 339,
+   "pct": {
+    "PG": 0,
+    "SG": 72,
+    "SF": 28,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "kuminjo01": {
+   "slug": "kuminjo01",
+   "nameEn": "Jonathan Kuminga",
+   "team": "MIN",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 338,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 87,
+    "PF": 12,
+    "C": 0
+   }
+  },
+  "peterda02": {
+   "slug": "peterda02",
+   "nameEn": "Darryn Peterson",
+   "team": "UTA",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 338,
+   "pct": {
+    "PG": 2,
+    "SG": 59,
+    "SF": 38,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "tatumja01": {
+   "slug": "tatumja01",
+   "nameEn": "Jayson Tatum",
+   "team": "BOS",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 336,
+   "pct": {
+    "PG": 0,
+    "SG": 41,
+    "SF": 54,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "brunsja01": {
+   "slug": "brunsja01",
+   "nameEn": "Jalen Brunson",
+   "team": "NYK",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 335,
+   "pct": {
+    "PG": 99,
+    "SG": 1,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "randlju01": {
+   "slug": "randlju01",
+   "nameEn": "Julius Randle",
+   "team": "BRK",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 335,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 17,
+    "PF": 72,
+    "C": 11
+   }
+  },
+  "cartewe01": {
+   "slug": "cartewe01",
+   "nameEn": "Wendell Carter Jr.",
+   "team": "ORL",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 334,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "barrerj01": {
+   "slug": "barrerj01",
+   "nameEn": "RJ Barrett",
+   "team": "TOR",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 333,
+   "pct": {
+    "PG": 0,
+    "SG": 21,
+    "SF": 70,
+    "PF": 10,
+    "C": 0
+   }
+  },
+  "cunnica01": {
+   "slug": "cunnica01",
+   "nameEn": "Cade Cunningham",
+   "team": "DET",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 332,
+   "pct": {
+    "PG": 64,
+    "SG": 36,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "murraja01": {
+   "slug": "murraja01",
+   "nameEn": "Jamal Murray",
+   "team": "DEN",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 332,
+   "pct": {
+    "PG": 99,
+    "SG": 1,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "portemi01": {
+   "slug": "portemi01",
+   "nameEn": "Michael Porter Jr.",
+   "team": "BRK",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 331,
+   "pct": {
+    "PG": 0,
+    "SG": 21,
+    "SF": 69,
+    "PF": 10,
+    "C": 0
+   }
+  },
+  "willizi01": {
+   "slug": "willizi01",
+   "nameEn": "Zion Williamson",
+   "team": "NOP",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 330,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 1,
+    "PF": 91,
+    "C": 8
+   }
+  },
+  "wembavi01": {
+   "slug": "wembavi01",
+   "nameEn": "Victor Wembanyama",
+   "team": "SAS",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 328,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "anunoog01": {
+   "slug": "anunoog01",
+   "nameEn": "OG Anunoby",
+   "team": "NYK",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 326,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 98,
+    "C": 2
+   }
+  },
+  "garlada01": {
+   "slug": "garlada01",
+   "nameEn": "Darius Garland",
+   "team": "LAC",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 326,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jamesle01": {
+   "slug": "jamesle01",
+   "nameEn": "LeBron James",
+   "team": "PHI",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 326,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 83,
+    "C": 17
+   }
+  },
+  "jokicni01": {
+   "slug": "jokicni01",
+   "nameEn": "Nikola Jokić",
+   "team": "DEN",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 326,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "larsspe01": {
+   "slug": "larsspe01",
+   "nameEn": "Pelle Larsson",
+   "team": "MIA",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 325,
+   "pct": {
+    "PG": 3,
+    "SG": 54,
+    "SF": 44,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reidna01": {
+   "slug": "reidna01",
+   "nameEn": "Naz Reid",
+   "team": "CHO",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 324,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 38,
+    "C": 62
+   }
+  },
+  "foxde01": {
+   "slug": "foxde01",
+   "nameEn": "De'Aaron Fox",
+   "team": "SAS",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 323,
+   "pct": {
+    "PG": 100,
+    "SG": 1,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "avdijde01": {
+   "slug": "avdijde01",
+   "nameEn": "Deni Avdija",
+   "team": "POR",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 323,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 65,
+    "PF": 34,
+    "C": 1
+   }
+  },
+  "boozeca02": {
+   "slug": "boozeca02",
+   "nameEn": "Cameron Boozer",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 322,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 82,
+    "C": 18
+   }
+  },
+  "siakapa01": {
+   "slug": "siakapa01",
+   "nameEn": "Pascal Siakam",
+   "team": "IND",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 322,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 59,
+    "C": 41
+   }
+  },
+  "georgke01": {
+   "slug": "georgke01",
+   "nameEn": "Keyonte George",
+   "team": "UTA",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 321,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "castlst01": {
+   "slug": "castlst01",
+   "nameEn": "Stephon Castle",
+   "team": "SAS",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 320,
+   "pct": {
+    "PG": 1,
+    "SG": 28,
+    "SF": 38,
+    "PF": 33,
+    "C": 0
+   }
+  },
+  "whitede01": {
+   "slug": "whitede01",
+   "nameEn": "Derrick White",
+   "team": "BOS",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 320,
+   "pct": {
+    "PG": 59,
+    "SG": 40,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "fearsje01": {
+   "slug": "fearsje01",
+   "nameEn": "Jeremiah Fears",
+   "team": "NOP",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 318,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "embiijo01": {
+   "slug": "embiijo01",
+   "nameEn": "Joel Embiid",
+   "team": "PHI",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 318,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "huntede01": {
+   "slug": "huntede01",
+   "nameEn": "De'Andre Hunter",
+   "team": "SAC",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 315,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 65,
+    "PF": 35,
+    "C": 0
+   }
+  },
+  "sengual01": {
+   "slug": "sengual01",
+   "nameEn": "Alperen Şengün",
+   "team": "HOU",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 312,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "townska01": {
+   "slug": "townska01",
+   "nameEn": "Karl-Anthony Towns",
+   "team": "NYK",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 311,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "banede01": {
+   "slug": "banede01",
+   "nameEn": "Desmond Bane",
+   "team": "ORL",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 311,
+   "pct": {
+    "PG": 4,
+    "SG": 61,
+    "SF": 35,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "wiggiaa01": {
+   "slug": "wiggiaa01",
+   "nameEn": "Aaron Wiggins",
+   "team": "ATL",
+   "posLabel": "SG",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 310,
+   "pct": {
+    "PG": 8,
+    "SG": 92,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "millebr02": {
+   "slug": "millebr02",
+   "nameEn": "Brandon Miller",
+   "team": "CHO",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 310,
+   "pct": {
+    "PG": 0,
+    "SG": 13,
+    "SF": 85,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  "robindu01": {
+   "slug": "robindu01",
+   "nameEn": "Duncan Robinson",
+   "team": "DET",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 308,
+   "pct": {
+    "PG": 0,
+    "SG": 4,
+    "SF": 48,
+    "PF": 48,
+    "C": 1
+   }
+  },
+  "mccolcj01": {
+   "slug": "mccolcj01",
+   "nameEn": "CJ McCollum",
+   "team": "ATL",
+   "posLabel": "PG",
+   "games": 12,
+   "gamesStarted": 8,
+   "minutes": 307,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "herroty01": {
+   "slug": "herroty01",
+   "nameEn": "Tyler Herro",
+   "team": "MIL",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 307,
+   "pct": {
+    "PG": 19,
+    "SG": 73,
+    "SF": 7,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "braunch01": {
+   "slug": "braunch01",
+   "nameEn": "Christian Braun",
+   "team": "DEN",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 307,
+   "pct": {
+    "PG": 0,
+    "SG": 99,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "ballla01": {
+   "slug": "ballla01",
+   "nameEn": "LaMelo Ball",
+   "team": "MIN",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 305,
+   "pct": {
+    "PG": 95,
+    "SG": 5,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jaqueja01": {
+   "slug": "jaqueja01",
+   "nameEn": "Jaime Jaquez Jr.",
+   "team": "MIL",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 303,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 85,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  "johnsja05": {
+   "slug": "johnsja05",
+   "nameEn": "Jalen Johnson",
+   "team": "ATL",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 302,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 99,
+    "C": 1
+   }
+  },
+  "bridgmi02": {
+   "slug": "bridgmi02",
+   "nameEn": "Miles Bridges",
+   "team": "PHO",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 301,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 79,
+    "C": 21
+   }
+  },
+  "georgpa01": {
+   "slug": "georgpa01",
+   "nameEn": "Paul George",
+   "team": "BOS",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 301,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 5,
+    "PF": 95,
+    "C": 0
+   }
+  },
+  "kuzmaky01": {
+   "slug": "kuzmaky01",
+   "nameEn": "Kyle Kuzma",
+   "team": "MIL",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 300,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 2,
+    "PF": 96,
+    "C": 2
+   }
+  },
+  "mitchaj01": {
+   "slug": "mitchaj01",
+   "nameEn": "Ajay Mitchell",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 8,
+   "minutes": 300,
+   "pct": {
+    "PG": 3,
+    "SG": 47,
+    "SF": 49,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "vassede01": {
+   "slug": "vassede01",
+   "nameEn": "Devin Vassell",
+   "team": "SAS",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 300,
+   "pct": {
+    "PG": 38,
+    "SG": 62,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "goberru01": {
+   "slug": "goberru01",
+   "nameEn": "Rudy Gobert",
+   "team": "MIN",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 299,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "nembhan01": {
+   "slug": "nembhan01",
+   "nameEn": "Andrew Nembhard",
+   "team": "IND",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 299,
+   "pct": {
+    "PG": 42,
+    "SG": 57,
+    "SF": 2,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "dortlu01": {
+   "slug": "dortlu01",
+   "nameEn": "Luguentz Dort",
+   "team": "ATL",
+   "posLabel": "PF",
+   "games": 12,
+   "gamesStarted": 3,
+   "minutes": 298,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 30,
+    "PF": 70,
+    "C": 0
+   }
+  },
+  "turnemy01": {
+   "slug": "turnemy01",
+   "nameEn": "Myles Turner",
+   "team": "MIL",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 298,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 1,
+    "C": 99
+   }
+  },
+  "brookdi01": {
+   "slug": "brookdi01",
+   "nameEn": "Dillon Brooks",
+   "team": "PHO",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 298,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 55,
+    "PF": 44,
+    "C": 1
+   }
+  },
+  "davisan02": {
+   "slug": "davisan02",
+   "nameEn": "Anthony Davis",
+   "team": "WAS",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 298,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 66,
+    "C": 34
+   }
+  },
+  "pritcpa01": {
+   "slug": "pritcpa01",
+   "nameEn": "Payton Pritchard",
+   "team": "BOS",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 297,
+   "pct": {
+    "PG": 98,
+    "SG": 2,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "podzibr01": {
+   "slug": "podzibr01",
+   "nameEn": "Brandin Podziemski",
+   "team": "GSW",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 297,
+   "pct": {
+    "PG": 0,
+    "SG": 46,
+    "SF": 53,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "walteja01": {
+   "slug": "walteja01",
+   "nameEn": "Ja'Kobe Walter",
+   "team": "TOR",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 8,
+   "minutes": 296,
+   "pct": {
+    "PG": 3,
+    "SG": 87,
+    "SF": 10,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "murphtr02": {
+   "slug": "murphtr02",
+   "nameEn": "Trey Murphy III",
+   "team": "NOP",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 295,
+   "pct": {
+    "PG": 0,
+    "SG": 30,
+    "SF": 65,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "thybuma01": {
+   "slug": "thybuma01",
+   "nameEn": "Matisse Thybulle",
+   "team": "LAL",
+   "posLabel": "SF",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 294,
+   "pct": {
+    "PG": 0,
+    "SG": 10,
+    "SF": 83,
+    "PF": 7,
+    "C": 0
+   }
+  },
+  "beysa01": {
+   "slug": "beysa01",
+   "nameEn": "Saddiq Bey",
+   "team": "NOP",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 294,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 67,
+    "PF": 33,
+    "C": 0
+   }
+  },
+  "allengr01": {
+   "slug": "allengr01",
+   "nameEn": "Grayson Allen",
+   "team": "CHO",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 293,
+   "pct": {
+    "PG": 14,
+    "SG": 87,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "wilsoca01": {
+   "slug": "wilsoca01",
+   "nameEn": "Caleb Wilson",
+   "team": "CHI",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 292,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 72,
+    "C": 28
+   }
+  },
+  "achiupr01": {
+   "slug": "achiupr01",
+   "nameEn": "Precious Achiuwa",
+   "team": "SAC",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 9,
+   "minutes": 288,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 65,
+    "C": 35
+   }
+  },
+  "lillada01": {
+   "slug": "lillada01",
+   "nameEn": "Damian Lillard",
+   "team": "POR",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 288,
+   "pct": {
+    "PG": 76,
+    "SG": 24,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "grimequ01": {
+   "slug": "grimequ01",
+   "nameEn": "Quentin Grimes",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 287,
+   "pct": {
+    "PG": 0,
+    "SG": 43,
+    "SF": 56,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "dunnkr01": {
+   "slug": "dunnkr01",
+   "nameEn": "Kris Dunn",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 285,
+   "pct": {
+    "PG": 29,
+    "SG": 72,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "champju02": {
+   "slug": "champju02",
+   "nameEn": "Julian Champagnie",
+   "team": "SAS",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 284,
+   "pct": {
+    "PG": 0,
+    "SG": 18,
+    "SF": 48,
+    "PF": 34,
+    "C": 0
+   }
+  },
+  "mccaija01": {
+   "slug": "mccaija01",
+   "nameEn": "Jared McCain",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 5,
+   "minutes": 283,
+   "pct": {
+    "PG": 26,
+    "SG": 62,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "wiggian01": {
+   "slug": "wiggian01",
+   "nameEn": "Andrew Wiggins",
+   "team": "MIA",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 9,
+   "minutes": 283,
+   "pct": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 82,
+    "PF": 15,
+    "C": 0
+   }
+  },
+  "mamuksa01": {
+   "slug": "mamuksa01",
+   "nameEn": "Sandro Mamukelashvili",
+   "team": "LAL",
+   "posLabel": "C",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 281,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 35,
+    "C": 65
+   }
+  },
+  "jamessi01": {
+   "slug": "jamessi01",
+   "nameEn": "Sion James",
+   "team": "CHO",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 9,
+   "minutes": 281,
+   "pct": {
+    "PG": 8,
+    "SG": 69,
+    "SF": 23,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "greenja05": {
+   "slug": "greenja05",
+   "nameEn": "Jalen Green",
+   "team": "PHO",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 277,
+   "pct": {
+    "PG": 68,
+    "SG": 30,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "camarto01": {
+   "slug": "camarto01",
+   "nameEn": "Toumani Camara",
+   "team": "POR",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 275,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 94,
+    "C": 6
+   }
+  },
+  "dasiltr01": {
+   "slug": "dasiltr01",
+   "nameEn": "Tristan Da Silva",
+   "team": "ORL",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 275,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 79,
+    "PF": 20,
+    "C": 0
+   }
+  },
+  "jeromty01": {
+   "slug": "jeromty01",
+   "nameEn": "Ty Jerome",
+   "team": "MEM",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 275,
+   "pct": {
+    "PG": 77,
+    "SG": 23,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "irvinky01": {
+   "slug": "irvinky01",
+   "nameEn": "Kyrie Irving",
+   "team": "DAL",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 274,
+   "pct": {
+    "PG": 85,
+    "SG": 15,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "laravja01": {
+   "slug": "laravja01",
+   "nameEn": "Jake LaRavia",
+   "team": "LAL",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 8,
+   "minutes": 273,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 22,
+    "PF": 78,
+    "C": 0
+   }
+  },
+  "thompkl01": {
+   "slug": "thompkl01",
+   "nameEn": "Klay Thompson",
+   "team": "MIA",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 273,
+   "pct": {
+    "PG": 0,
+    "SG": 58,
+    "SF": 42,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "wellsja01": {
+   "slug": "wellsja01",
+   "nameEn": "Jaylen Wells",
+   "team": "MEM",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 270,
+   "pct": {
+    "PG": 0,
+    "SG": 23,
+    "SF": 77,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "vanvlfr01": {
+   "slug": "vanvlfr01",
+   "nameEn": "Fred VanVleet",
+   "team": "HOU",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 270,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "schrode01": {
+   "slug": "schrode01",
+   "nameEn": "Dennis Schröder",
+   "team": "CHO",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 7,
+   "minutes": 269,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "harteis01": {
+   "slug": "harteis01",
+   "nameEn": "Isaiah Hartenstein",
+   "team": "OKC",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 266,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 7,
+    "C": 93
+   }
+  },
+  "risacza01": {
+   "slug": "risacza01",
+   "nameEn": "Zaccharie Risacher",
+   "team": "DAL",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 266,
+   "pct": {
+    "PG": 0,
+    "SG": 23,
+    "SF": 54,
+    "PF": 23,
+    "C": 0
+   }
+  },
+  "barnesc01": {
+   "slug": "barnesc01",
+   "nameEn": "Scottie Barnes",
+   "team": "TOR",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 266,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 9,
+    "PF": 43,
+    "C": 48
+   }
+  },
+  "collijo01": {
+   "slug": "collijo01",
+   "nameEn": "John Collins",
+   "team": "DET",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 265,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 41,
+    "C": 59
+   }
+  },
+  "gordoaa01": {
+   "slug": "gordoaa01",
+   "nameEn": "Aaron Gordon",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 264,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 18,
+    "PF": 82,
+    "C": 0
+   }
+  },
+  "jonesde02": {
+   "slug": "jonesde02",
+   "nameEn": "Derrick Jones Jr.",
+   "team": "LAC",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 262,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 79,
+    "PF": 20,
+    "C": 1
+   }
+  },
+  "easonta01": {
+   "slug": "easonta01",
+   "nameEn": "Tari Eason",
+   "team": "HOU",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 261,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 34,
+    "PF": 65,
+    "C": 0
+   }
+  },
+  "johnske04": {
+   "slug": "johnske04",
+   "nameEn": "Keldon Johnson",
+   "team": "SAS",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 261,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 30,
+    "PF": 71,
+    "C": 0
+   }
+  },
+  "jenkida01": {
+   "slug": "jenkida01",
+   "nameEn": "Daniss Jenkins",
+   "team": "DET",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 2,
+   "minutes": 260,
+   "pct": {
+    "PG": 98,
+    "SG": 2,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "simonan01": {
+   "slug": "simonan01",
+   "nameEn": "Anfernee Simons",
+   "team": "PHI",
+   "posLabel": "SG",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 259,
+   "pct": {
+    "PG": 29,
+    "SG": 67,
+    "SF": 4,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reedpa01": {
+   "slug": "reedpa01",
+   "nameEn": "Paul Reed",
+   "team": "DET",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 7,
+   "minutes": 259,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "diabamo01": {
+   "slug": "diabamo01",
+   "nameEn": "Moussa Diabaté",
+   "team": "CHO",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 259,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 70,
+    "C": 30
+   }
+  },
+  "coulibi01": {
+   "slug": "coulibi01",
+   "nameEn": "Bilal Coulibaly",
+   "team": "WAS",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 5,
+   "minutes": 258,
+   "pct": {
+    "PG": 0,
+    "SG": 4,
+    "SF": 70,
+    "PF": 26,
+    "C": 0
+   }
+  },
+  "holidjr01": {
+   "slug": "holidjr01",
+   "nameEn": "Jrue Holiday",
+   "team": "POR",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 258,
+   "pct": {
+    "PG": 10,
+    "SG": 67,
+    "SF": 23,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "caldwke01": {
+   "slug": "caldwke01",
+   "nameEn": "Kentavious Caldwell-Pope",
+   "team": "PHI",
+   "posLabel": "SF",
+   "games": 12,
+   "gamesStarted": 1,
+   "minutes": 257,
+   "pct": {
+    "PG": 0,
+    "SG": 37,
+    "SF": 61,
+    "PF": 2,
+    "C": 0
+   }
+  },
+  "rolliry01": {
+   "slug": "rolliry01",
+   "nameEn": "Ryan Rollins",
+   "team": "MIL",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 7,
+   "minutes": 257,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sarral01": {
+   "slug": "sarral01",
+   "nameEn": "Alex Sarr",
+   "team": "WAS",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 257,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 6,
+    "C": 94
+   }
+  },
+  "curryst01": {
+   "slug": "curryst01",
+   "nameEn": "Stephen Curry",
+   "team": "GSW",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 257,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "shamela01": {
+   "slug": "shamela01",
+   "nameEn": "Landry Shamet",
+   "team": "NYK",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 3,
+   "minutes": 256,
+   "pct": {
+    "PG": 0,
+    "SG": 52,
+    "SF": 47,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "cowarce01": {
+   "slug": "cowarce01",
+   "nameEn": "Cedric Coward",
+   "team": "MEM",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 256,
+   "pct": {
+    "PG": 0,
+    "SG": 92,
+    "SF": 8,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "murrade01": {
+   "slug": "murrade01",
+   "nameEn": "Dejounte Murray",
+   "team": "NOP",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 254,
+   "pct": {
+    "PG": 48,
+    "SG": 52,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "quickim01": {
+   "slug": "quickim01",
+   "nameEn": "Immanuel Quickley",
+   "team": "TOR",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 254,
+   "pct": {
+    "PG": 74,
+    "SG": 26,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "bridgmi01": {
+   "slug": "bridgmi01",
+   "nameEn": "Mikal Bridges",
+   "team": "NYK",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 251,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 91,
+    "PF": 8,
+    "C": 0
+   }
+  },
+  "giddejo01": {
+   "slug": "giddejo01",
+   "nameEn": "Josh Giddey",
+   "team": "CHI",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 250,
+   "pct": {
+    "PG": 92,
+    "SG": 8,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "watsope01": {
+   "slug": "watsope01",
+   "nameEn": "Peyton Watson",
+   "team": "CLE",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 250,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 57,
+    "PF": 43,
+    "C": 0
+   }
+  },
+  "joneshe01": {
+   "slug": "joneshe01",
+   "nameEn": "Herbert Jones",
+   "team": "NOP",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 5,
+   "minutes": 249,
+   "pct": {
+    "PG": 2,
+    "SG": 54,
+    "SF": 43,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "clingdo01": {
+   "slug": "clingdo01",
+   "nameEn": "Donovan Clingan",
+   "team": "POR",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 248,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "markkla01": {
+   "slug": "markkla01",
+   "nameEn": "Lauri Markkanen",
+   "team": "UTA",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 247,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 6,
+    "PF": 74,
+    "C": 21
+   }
+  },
+  "hayesja02": {
+   "slug": "hayesja02",
+   "nameEn": "Jaxson Hayes",
+   "team": "UTA",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 8,
+   "minutes": 246,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 6,
+    "C": 94
+   }
+  },
+  "queende01": {
+   "slug": "queende01",
+   "nameEn": "Derik Queen",
+   "team": "NOP",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 245,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "thompau01": {
+   "slug": "thompau01",
+   "nameEn": "Ausar Thompson",
+   "team": "DET",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 245,
+   "pct": {
+    "PG": 0,
+    "SG": 36,
+    "SF": 44,
+    "PF": 20,
+    "C": 1
+   }
+  },
+  "meltode01": {
+   "slug": "meltode01",
+   "nameEn": "De'Anthony Melton",
+   "team": "GSW",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 244,
+   "pct": {
+    "PG": 21,
+    "SG": 55,
+    "SF": 24,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "walkeja02": {
+   "slug": "walkeja02",
+   "nameEn": "Jarace Walker",
+   "team": "IND",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 244,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 52,
+    "PF": 39,
+    "C": 8
+   }
+  },
+  "wadede01": {
+   "slug": "wadede01",
+   "nameEn": "Dean Wade",
+   "team": "PHI",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 4,
+   "minutes": 244,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 22,
+    "PF": 60,
+    "C": 18
+   }
+  },
+  "gilleco01": {
+   "slug": "gilleco01",
+   "nameEn": "Collin Gillespie",
+   "team": "PHO",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 242,
+   "pct": {
+    "PG": 99,
+    "SG": 1,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sandeko01": {
+   "slug": "sandeko01",
+   "nameEn": "Kobe Sanders",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 2,
+   "minutes": 242,
+   "pct": {
+    "PG": 0,
+    "SG": 16,
+    "SF": 49,
+    "PF": 35,
+    "C": 0
+   }
+  },
+  "sheadja01": {
+   "slug": "sheadja01",
+   "nameEn": "Jamal Shead",
+   "team": "TOR",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 2,
+   "minutes": 242,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "gaffoda01": {
+   "slug": "gaffoda01",
+   "nameEn": "Daniel Gafford",
+   "team": "DAL",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 241,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "greendr01": {
+   "slug": "greendr01",
+   "nameEn": "Draymond Green",
+   "team": "GSW",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 241,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 3,
+    "PF": 43,
+    "C": 55
+   }
+  },
+  "flemiki01": {
+   "slug": "flemiki01",
+   "nameEn": "Kingston Flemings",
+   "team": "ATL",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 4,
+   "minutes": 240,
+   "pct": {
+    "PG": 98,
+    "SG": 2,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "quetane01": {
+   "slug": "quetane01",
+   "nameEn": "Neemias Queta",
+   "team": "BOS",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 6,
+   "minutes": 240,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "grantje01": {
+   "slug": "grantje01",
+   "nameEn": "Jerami Grant",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 239,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 65,
+    "PF": 34,
+    "C": 0
+   }
+  },
+  "jacksqu01": {
+   "slug": "jacksqu01",
+   "nameEn": "Quenton Jackson",
+   "team": "IND",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 238,
+   "pct": {
+    "PG": 78,
+    "SG": 22,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sharpda01": {
+   "slug": "sharpda01",
+   "nameEn": "Day'Ron Sharpe",
+   "team": "BRK",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 237,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 28,
+    "C": 72
+   }
+  },
+  "hachiru01": {
+   "slug": "hachiru01",
+   "nameEn": "Rui Hachimura",
+   "team": "LAC",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 237,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 96,
+    "C": 4
+   }
+  },
+  "burribr01": {
+   "slug": "burribr01",
+   "nameEn": "Brayden Burries",
+   "team": "MIL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 5,
+   "minutes": 236,
+   "pct": {
+    "PG": 35,
+    "SG": 43,
+    "SF": 22,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "lopezbr01": {
+   "slug": "lopezbr01",
+   "nameEn": "Brook Lopez",
+   "team": "LAC",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 4,
+   "minutes": 234,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "wagleke01": {
+   "slug": "wagleke01",
+   "nameEn": "Keaton Wagler",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 232,
+   "pct": {
+    "PG": 19,
+    "SG": 68,
+    "SF": 14,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "buzelma01": {
+   "slug": "buzelma01",
+   "nameEn": "Matas Buzelis",
+   "team": "CHI",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 232,
+   "pct": {
+    "PG": 0,
+    "SG": 11,
+    "SF": 85,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "huertke01": {
+   "slug": "huertke01",
+   "nameEn": "Kevin Huerter",
+   "team": "DET",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 231,
+   "pct": {
+    "PG": 0,
+    "SG": 24,
+    "SF": 68,
+    "PF": 8,
+    "C": 0
+   }
+  },
+  "nesmiaa01": {
+   "slug": "nesmiaa01",
+   "nameEn": "Aaron Nesmith",
+   "team": "IND",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 8,
+   "minutes": 230,
+   "pct": {
+    "PG": 0,
+    "SG": 68,
+    "SF": 32,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "powelno01": {
+   "slug": "powelno01",
+   "nameEn": "Norman Powell",
+   "team": "CHI",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 8,
+   "minutes": 230,
+   "pct": {
+    "PG": 0,
+    "SG": 93,
+    "SF": 7,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hausesa01": {
+   "slug": "hausesa01",
+   "nameEn": "Sam Hauser",
+   "team": "BOS",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 228,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 33,
+    "PF": 65,
+    "C": 0
+   }
+  },
+  "dybanaj01": {
+   "slug": "dybanaj01",
+   "nameEn": "AJ Dybantsa",
+   "team": "WAS",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 7,
+   "minutes": 227,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 43,
+    "PF": 57,
+    "C": 0
+   }
+  },
+  "niangge01": {
+   "slug": "niangge01",
+   "nameEn": "Georges Niang",
+   "team": "GSW",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 225,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 13,
+    "PF": 87,
+    "C": 0
+   }
+  },
+  "cissosi01": {
+   "slug": "cissosi01",
+   "nameEn": "Sidy Cissoko",
+   "team": "POR",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 225,
+   "pct": {
+    "PG": 0,
+    "SG": 20,
+    "SF": 49,
+    "PF": 30,
+    "C": 0
+   }
+  },
+  "maraad01": {
+   "slug": "maraad01",
+   "nameEn": "Aday Mara",
+   "team": "OKC",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 224,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "portibo01": {
+   "slug": "portibo01",
+   "nameEn": "Bobby Portis",
+   "team": "MIA",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 224,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 11,
+    "PF": 87,
+    "C": 1
+   }
+  },
+  "johnstr03": {
+   "slug": "johnstr03",
+   "nameEn": "Tre Johnson",
+   "team": "WAS",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 224,
+   "pct": {
+    "PG": 13,
+    "SG": 61,
+    "SF": 26,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hendesc01": {
+   "slug": "hendesc01",
+   "nameEn": "Scoot Henderson",
+   "team": "POR",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 5,
+   "minutes": 223,
+   "pct": {
+    "PG": 47,
+    "SG": 54,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "allenja01": {
+   "slug": "allenja01",
+   "nameEn": "Jarrett Allen",
+   "team": "CLE",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 222,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "hartjo01": {
+   "slug": "hartjo01",
+   "nameEn": "Josh Hart",
+   "team": "NYK",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 7,
+   "minutes": 222,
+   "pct": {
+    "PG": 0,
+    "SG": 46,
+    "SF": 19,
+    "PF": 35,
+    "C": 0
+   }
+  },
+  "traorno01": {
+   "slug": "traorno01",
+   "nameEn": "Nolan Traoré",
+   "team": "BRK",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 7,
+   "minutes": 221,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "willizi02": {
+   "slug": "willizi02",
+   "nameEn": "Ziaire Williams",
+   "team": "LAL",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 5,
+   "minutes": 221,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 38,
+    "PF": 61,
+    "C": 1
+   }
+  },
+  "scheiba01": {
+   "slug": "scheiba01",
+   "nameEn": "Baylor Scheierman",
+   "team": "BOS",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 220,
+   "pct": {
+    "PG": 2,
+    "SG": 62,
+    "SF": 35,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "richaja02": {
+   "slug": "richaja02",
+   "nameEn": "Jase Richardson",
+   "team": "ORL",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 7,
+   "minutes": 220,
+   "pct": {
+    "PG": 41,
+    "SG": 54,
+    "SF": 5,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hezonma01": {
+   "slug": "hezonma01",
+   "nameEn": "Mario Hezonja",
+   "team": "CLE",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 219,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 2,
+    "PF": 98,
+    "C": 0
+   }
+  },
+  "blackan01": {
+   "slug": "blackan01",
+   "nameEn": "Anthony Black",
+   "team": "ORL",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 6,
+   "minutes": 214,
+   "pct": {
+    "PG": 71,
+    "SG": 28,
+    "SF": 2,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "carrica01": {
+   "slug": "carrica01",
+   "nameEn": "Bub Carrington",
+   "team": "WAS",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 212,
+   "pct": {
+    "PG": 38,
+    "SG": 62,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "onealro01": {
+   "slug": "onealro01",
+   "nameEn": "Royce O'Neale",
+   "team": "CHO",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 211,
+   "pct": {
+    "PG": 0,
+    "SG": 12,
+    "SF": 61,
+    "PF": 28,
+    "C": 0
+   }
+  },
+  "smithja04": {
+   "slug": "smithja04",
+   "nameEn": "Jalen Smith",
+   "team": "CHI",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 210,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 1,
+    "C": 99
+   }
+  },
+  "greenaj01": {
+   "slug": "greenaj01",
+   "nameEn": "A.J. Green",
+   "team": "MIL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 209,
+   "pct": {
+    "PG": 56,
+    "SG": 44,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jakucka01": {
+   "slug": "jakucka01",
+   "nameEn": "Kasparas Jakučionis",
+   "team": "MIL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 209,
+   "pct": {
+    "PG": 6,
+    "SG": 39,
+    "SF": 54,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "merrisa01": {
+   "slug": "merrisa01",
+   "nameEn": "Sam Merrill",
+   "team": "CLE",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 208,
+   "pct": {
+    "PG": 0,
+    "SG": 28,
+    "SF": 66,
+    "PF": 6,
+    "C": 0
+   }
+  },
+  "kalkbry01": {
+   "slug": "kalkbry01",
+   "nameEn": "Ryan Kalkbrenner",
+   "team": "CHO",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 207,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "lylestr01": {
+   "slug": "lylestr01",
+   "nameEn": "Trey Lyles",
+   "team": "MIN",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 203,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 78,
+    "C": 22
+   }
+  },
+  "willike04": {
+   "slug": "willike04",
+   "nameEn": "Kenrich Williams",
+   "team": "OKC",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 8,
+   "minutes": 203,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 23,
+    "PF": 75,
+    "C": 2
+   }
+  },
+  "elliske01": {
+   "slug": "elliske01",
+   "nameEn": "Keon Ellis",
+   "team": "BRK",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 3,
+   "minutes": 203,
+   "pct": {
+    "PG": 20,
+    "SG": 78,
+    "SF": 2,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "oubreke01": {
+   "slug": "oubreke01",
+   "nameEn": "Kelly Oubre Jr.",
+   "team": "IND",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 5,
+   "minutes": 201,
+   "pct": {
+    "PG": 1,
+    "SG": 26,
+    "SF": 68,
+    "PF": 6,
+    "C": 0
+   }
+  },
+  "sextoco01": {
+   "slug": "sextoco01",
+   "nameEn": "Collin Sexton",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 200,
+   "pct": {
+    "PG": 65,
+    "SG": 35,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sharpem01": {
+   "slug": "sharpem01",
+   "nameEn": "Emanuel Sharp",
+   "team": "SAC",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 200,
+   "pct": {
+    "PG": 14,
+    "SG": 76,
+    "SF": 10,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "stirtbe01": {
+   "slug": "stirtbe01",
+   "nameEn": "Bennett Stirtz",
+   "team": "OKC",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 199,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "murraco01": {
+   "slug": "murraco01",
+   "nameEn": "Collin Murray-Boyles",
+   "team": "TOR",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 3,
+   "minutes": 199,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 5,
+    "PF": 72,
+    "C": 23
+   }
+  },
+  "maluakh01": {
+   "slug": "maluakh01",
+   "nameEn": "Khaman Maluach",
+   "team": "PHO",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 6,
+   "minutes": 198,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "marshna01": {
+   "slug": "marshna01",
+   "nameEn": "Naji Marshall",
+   "team": "DAL",
+   "posLabel": "SF",
+   "games": 8,
+   "gamesStarted": 1,
+   "minutes": 198,
+   "pct": {
+    "PG": 5,
+    "SG": 50,
+    "SF": 45,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "clownno01": {
+   "slug": "clownno01",
+   "nameEn": "Noah Clowney",
+   "team": "BRK",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 197,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 46,
+    "PF": 53,
+    "C": 1
+   }
+  },
+  "cainja01": {
+   "slug": "cainja01",
+   "nameEn": "Jamal Cain",
+   "team": "ORL",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 2,
+   "minutes": 196,
+   "pct": {
+    "PG": 0,
+    "SG": 44,
+    "SF": 51,
+    "PF": 6,
+    "C": 0
+   }
+  },
+  "chrisma02": {
+   "slug": "chrisma02",
+   "nameEn": "Max Christie",
+   "team": "DAL",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 7,
+   "minutes": 196,
+   "pct": {
+    "PG": 17,
+    "SG": 62,
+    "SF": 21,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "spencca01": {
+   "slug": "spencca01",
+   "nameEn": "Cam Spencer",
+   "team": "MEM",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 193,
+   "pct": {
+    "PG": 62,
+    "SG": 38,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "johnsch06": {
+   "slug": "johnsch06",
+   "nameEn": "Chaney Johnson",
+   "team": "BRK",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 4,
+   "minutes": 192,
+   "pct": {
+    "PG": 0,
+    "SG": 66,
+    "SF": 34,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "derozde01": {
+   "slug": "derozde01",
+   "nameEn": "DeMar DeRozan",
+   "team": "DEN",
+   "posLabel": "SF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 191,
+   "pct": {
+    "PG": 1,
+    "SG": 53,
+    "SF": 45,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "wareke01": {
+   "slug": "wareke01",
+   "nameEn": "Kel'el Ware",
+   "team": "MIL",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 190,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "okogijo01": {
+   "slug": "okogijo01",
+   "nameEn": "Josh Okogie",
+   "team": "UTA",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 187,
+   "pct": {
+    "PG": 26,
+    "SG": 62,
+    "SF": 13,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "edeyza01": {
+   "slug": "edeyza01",
+   "nameEn": "Zach Edey",
+   "team": "MEM",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 9,
+   "minutes": 187,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "robinmi01": {
+   "slug": "robinmi01",
+   "nameEn": "Mitchell Robinson",
+   "team": "BOS",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 5,
+   "minutes": 186,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 5,
+    "C": 95
+   }
+  },
+  "matkoka01": {
+   "slug": "matkoka01",
+   "nameEn": "Karlo Matković",
+   "team": "NOP",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 7,
+   "minutes": 184,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 5,
+    "C": 95
+   }
+  },
+  "jacksis01": {
+   "slug": "jacksis01",
+   "nameEn": "Isaiah Jackson",
+   "team": "LAC",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 6,
+   "minutes": 184,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "thomame01": {
+   "slug": "thomame01",
+   "nameEn": "Meleek Thomas",
+   "team": "CLE",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 2,
+   "minutes": 184,
+   "pct": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 46,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "brazitr01": {
+   "slug": "brazitr01",
+   "nameEn": "Trevon Brazile",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 183,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 99,
+    "C": 1
+   }
+  },
+  "battlja01": {
+   "slug": "battlja01",
+   "nameEn": "Jamison Battle",
+   "team": "TOR",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 182,
+   "pct": {
+    "PG": 0,
+    "SG": 7,
+    "SF": 49,
+    "PF": 44,
+    "C": 0
+   }
+  },
+  "wagnemo01": {
+   "slug": "wagnemo01",
+   "nameEn": "Moritz Wagner",
+   "team": "BRK",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 182,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 11,
+    "C": 89
+   }
+  },
+  "poeltja01": {
+   "slug": "poeltja01",
+   "nameEn": "Jakob Poeltl",
+   "team": "TOR",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 7,
+   "minutes": 182,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "colliis01": {
+   "slug": "colliis01",
+   "nameEn": "Isaiah Collier",
+   "team": "UTA",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 181,
+   "pct": {
+    "PG": 78,
+    "SG": 23,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mcbrimi01": {
+   "slug": "mcbrimi01",
+   "nameEn": "Miles McBride",
+   "team": "NYK",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 181,
+   "pct": {
+    "PG": 1,
+    "SG": 99,
+    "SF": 1,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "berinjo01": {
+   "slug": "berinjo01",
+   "nameEn": "Joan Beringer",
+   "team": "MIN",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 1,
+   "minutes": 180,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "dunnry01": {
+   "slug": "dunnry01",
+   "nameEn": "Ryan Dunn",
+   "team": "PHO",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 176,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 59,
+    "PF": 38,
+    "C": 1
+   }
+  },
+  "smartma01": {
+   "slug": "smartma01",
+   "nameEn": "Marcus Smart",
+   "team": "HOU",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 1,
+   "minutes": 176,
+   "pct": {
+    "PG": 45,
+    "SG": 55,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "walshjo01": {
+   "slug": "walshjo01",
+   "nameEn": "Jordan Walsh",
+   "team": "BOS",
+   "posLabel": "PF",
+   "games": 11,
+   "gamesStarted": 7,
+   "minutes": 175,
+   "pct": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 76,
+    "PF": 20,
+    "C": 0
+   }
+  },
+  "greenja02": {
+   "slug": "greenja02",
+   "nameEn": "Javonte Green",
+   "team": "DET",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 175,
+   "pct": {
+    "PG": 0,
+    "SG": 81,
+    "SF": 18,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "toppiob01": {
+   "slug": "toppiob01",
+   "nameEn": "Obi Toppin",
+   "team": "IND",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 175,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 5,
+    "PF": 60,
+    "C": 35
+   }
+  },
+  "mathube01": {
+   "slug": "mathube01",
+   "nameEn": "Bennedict Mathurin",
+   "team": "NOP",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 174,
+   "pct": {
+    "PG": 28,
+    "SG": 49,
+    "SF": 11,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  "mykhasv01": {
+   "slug": "mykhasv01",
+   "nameEn": "Svi Mykhailiuk",
+   "team": "UTA",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 174,
+   "pct": {
+    "PG": 0,
+    "SG": 39,
+    "SF": 43,
+    "PF": 18,
+    "C": 0
+   }
+  },
+  "greenjo02": {
+   "slug": "greenjo02",
+   "nameEn": "Josh Green",
+   "team": "UTA",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 3,
+   "minutes": 174,
+   "pct": {
+    "PG": 13,
+    "SG": 63,
+    "SF": 24,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "richawi02": {
+   "slug": "richawi02",
+   "nameEn": "Will Richard",
+   "team": "GSW",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 3,
+   "minutes": 172,
+   "pct": {
+    "PG": 0,
+    "SG": 74,
+    "SF": 26,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "shannte01": {
+   "slug": "shannte01",
+   "nameEn": "Terrence Shannon Jr.",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 172,
+   "pct": {
+    "PG": 0,
+    "SG": 31,
+    "SF": 65,
+    "PF": 4,
+    "C": 0
+   }
+  },
+  "johnsmo01": {
+   "slug": "johnsmo01",
+   "nameEn": "Morez Johnson Jr.",
+   "team": "DAL",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 170,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "okorois01": {
+   "slug": "okorois01",
+   "nameEn": "Isaac Okoro",
+   "team": "CHI",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 168,
+   "pct": {
+    "PG": 0,
+    "SG": 22,
+    "SF": 74,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "ighodos01": {
+   "slug": "ighodos01",
+   "nameEn": "Oso Ighodaro",
+   "team": "PHO",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 4,
+   "minutes": 168,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "johnsca02": {
+   "slug": "johnsca02",
+   "nameEn": "Cameron Johnson",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 6,
+   "gamesStarted": 6,
+   "minutes": 168,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 91,
+    "PF": 9,
+    "C": 0
+   }
+  },
+  "aytonde01": {
+   "slug": "aytonde01",
+   "nameEn": "Deandre Ayton",
+   "team": "WAS",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 165,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "kornelu01": {
+   "slug": "kornelu01",
+   "nameEn": "Luke Kornet",
+   "team": "SAS",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 165,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "proctty01": {
+   "slug": "proctty01",
+   "nameEn": "Tyrese Proctor",
+   "team": "CLE",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 165,
+   "pct": {
+    "PG": 70,
+    "SG": 30,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "claytwa01": {
+   "slug": "claytwa01",
+   "nameEn": "Walter Clayton",
+   "team": "DAL",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 164,
+   "pct": {
+    "PG": 51,
+    "SG": 46,
+    "SF": 3,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "huffja01": {
+   "slug": "huffja01",
+   "nameEn": "Jay Huff",
+   "team": "IND",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 5,
+   "minutes": 164,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "brownmi02": {
+   "slug": "brownmi02",
+   "nameEn": "Mikel Brown Jr.",
+   "team": "BRK",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 162,
+   "pct": {
+    "PG": 87,
+    "SG": 13,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "willibr03": {
+   "slug": "willibr03",
+   "nameEn": "Brandon Williams",
+   "team": "GSW",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 161,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sheppre01": {
+   "slug": "sheppre01",
+   "nameEn": "Reed Sheppard",
+   "team": "HOU",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 1,
+   "minutes": 161,
+   "pct": {
+    "PG": 85,
+    "SG": 15,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jonestr01": {
+   "slug": "jonestr01",
+   "nameEn": "Tre Jones",
+   "team": "CHI",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 160,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "horfoal01": {
+   "slug": "horfoal01",
+   "nameEn": "Al Horford",
+   "team": "GSW",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 158,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "nancela02": {
+   "slug": "nancela02",
+   "nameEn": "Larry Nance Jr.",
+   "team": "IND",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 156,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 49,
+    "PF": 47,
+    "C": 2
+   }
+  },
+  "sensabr01": {
+   "slug": "sensabr01",
+   "nameEn": "Brice Sensabaugh",
+   "team": "UTA",
+   "posLabel": "SF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 155,
+   "pct": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 69,
+    "PF": 28,
+    "C": 0
+   }
+  },
+  "hollaro01": {
+   "slug": "hollaro01",
+   "nameEn": "Ron Holland",
+   "team": "DET",
+   "posLabel": "SF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 155,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 12,
+    "PF": 88,
+    "C": 0
+   }
+  },
+  "monkma01": {
+   "slug": "monkma01",
+   "nameEn": "Malik Monk",
+   "team": "SAC",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 155,
+   "pct": {
+    "PG": 55,
+    "SG": 45,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "dickgr01": {
+   "slug": "dickgr01",
+   "nameEn": "Gradey Dick",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 1,
+   "minutes": 154,
+   "pct": {
+    "PG": 0,
+    "SG": 32,
+    "SF": 65,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  "santogu01": {
+   "slug": "santogu01",
+   "nameEn": "Gui Santos",
+   "team": "GSW",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 6,
+   "minutes": 153,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 4,
+    "PF": 58,
+    "C": 38
+   }
+  },
+  "salauti01": {
+   "slug": "salauti01",
+   "nameEn": "Tidjane Salaün",
+   "team": "CHO",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 151,
+   "pct": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 16,
+    "PF": 81,
+    "C": 0
+   }
+  },
+  "amentna01": {
+   "slug": "amentna01",
+   "nameEn": "Nate Ament",
+   "team": "MIL",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 149,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 46,
+    "PF": 51,
+    "C": 2
+   }
+  },
+  "kennalu01": {
+   "slug": "kennalu01",
+   "nameEn": "Luke Kennard",
+   "team": "PHO",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 149,
+   "pct": {
+    "PG": 0,
+    "SG": 26,
+    "SF": 68,
+    "PF": 6,
+    "C": 0
+   }
+  },
+  "sassema01": {
+   "slug": "sassema01",
+   "nameEn": "Marcus Sasser",
+   "team": "DAL",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 148,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "carusal01": {
+   "slug": "carusal01",
+   "nameEn": "Alex Caruso",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 148,
+   "pct": {
+    "PG": 0,
+    "SG": 12,
+    "SF": 69,
+    "PF": 18,
+    "C": 0
+   }
+  },
+  "gonzahu01": {
+   "slug": "gonzahu01",
+   "nameEn": "Hugo González",
+   "team": "BOS",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 3,
+   "minutes": 147,
+   "pct": {
+    "PG": 10,
+    "SG": 78,
+    "SF": 13,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hardati02": {
+   "slug": "hardati02",
+   "nameEn": "Tim Hardaway Jr.",
+   "team": "MIA",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 147,
+   "pct": {
+    "PG": 14,
+    "SG": 86,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jacksgg01": {
+   "slug": "jacksgg01",
+   "nameEn": "GG Jackson II",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 142,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 34,
+    "PF": 66,
+    "C": 0
+   }
+  },
+  "clarkja02": {
+   "slug": "clarkja02",
+   "nameEn": "Jaylen Clark",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 141,
+   "pct": {
+    "PG": 0,
+    "SG": 59,
+    "SF": 38,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  "millele01": {
+   "slug": "millele01",
+   "nameEn": "Leonard Miller",
+   "team": "CHI",
+   "posLabel": "SF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 141,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 17,
+    "PF": 78,
+    "C": 5
+   }
+  },
+  "garzalu01": {
+   "slug": "garzalu01",
+   "nameEn": "Luka Garza",
+   "team": "BOS",
+   "posLabel": "C",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 137,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 17,
+    "C": 83
+   }
+  },
+  "hylanbo01": {
+   "slug": "hylanbo01",
+   "nameEn": "Bones Hyland",
+   "team": "MIN",
+   "posLabel": "PG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 135,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "drumman01": {
+   "slug": "drumman01",
+   "nameEn": "Andre Drummond",
+   "team": "NYK",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 135,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "edwaran01": {
+   "slug": "edwaran01",
+   "nameEn": "Anthony Edwards",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 135,
+   "pct": {
+    "PG": 9,
+    "SG": 84,
+    "SF": 7,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "paytoga02": {
+   "slug": "paytoga02",
+   "nameEn": "Gary Payton II",
+   "team": "GSW",
+   "posLabel": "SG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 134,
+   "pct": {
+    "PG": 11,
+    "SG": 89,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "slawsja01": {
+   "slug": "slawsja01",
+   "nameEn": "Jalen Slawson",
+   "team": "IND",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 134,
+   "pct": {
+    "PG": 0,
+    "SG": 32,
+    "SF": 62,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "blackle01": {
+   "slug": "blackle01",
+   "nameEn": "Leaky Black",
+   "team": "SAC",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 1,
+   "minutes": 134,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 61,
+    "PF": 38,
+    "C": 0
+   }
+  },
+  "graveal01": {
+   "slug": "graveal01",
+   "nameEn": "Allen Graves",
+   "team": "TOR",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 132,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 57,
+    "C": 43
+   }
+  },
+  "halibty01": {
+   "slug": "halibty01",
+   "nameEn": "Tyrese Haliburton",
+   "team": "IND",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 132,
+   "pct": {
+    "PG": 71,
+    "SG": 29,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "williro04": {
+   "slug": "williro04",
+   "nameEn": "Robert Williams",
+   "team": "POR",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 131,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "zubaciv01": {
+   "slug": "zubaciv01",
+   "nameEn": "Ivica Zubac",
+   "team": "IND",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 6,
+   "minutes": 130,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "martica02": {
+   "slug": "martica02",
+   "nameEn": "Caleb Martin",
+   "team": "DAL",
+   "posLabel": "SG",
+   "games": 7,
+   "gamesStarted": 4,
+   "minutes": 129,
+   "pct": {
+    "PG": 7,
+    "SG": 74,
+    "SF": 17,
+    "PF": 2,
+    "C": 0
+   }
+  },
+  "willija07": {
+   "slug": "willija07",
+   "nameEn": "Jaylin Williams",
+   "team": "OKC",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 1,
+   "minutes": 129,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 72,
+    "C": 28
+   }
+  },
+  "bonaad01": {
+   "slug": "bonaad01",
+   "nameEn": "Adem Bona",
+   "team": "PHI",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 128,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "stewais01": {
+   "slug": "stewais01",
+   "nameEn": "Isaiah Stewart",
+   "team": "MEM",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 1,
+   "minutes": 128,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 8,
+    "C": 92
+   }
+  },
+  "bogdabo01": {
+   "slug": "bogdabo01",
+   "nameEn": "Bogdan Bogdanović",
+   "team": "HOU",
+   "posLabel": "SG",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 125,
+   "pct": {
+    "PG": 18,
+    "SG": 74,
+    "SF": 9,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "barneha02": {
+   "slug": "barneha02",
+   "nameEn": "Harrison Barnes",
+   "team": "SAS",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 124,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "anderch02": {
+   "slug": "anderch02",
+   "nameEn": "Christian Anderson Jr.",
+   "team": "CHO",
+   "posLabel": "PG",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 123,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "peavymi01": {
+   "slug": "peavymi01",
+   "nameEn": "Micah Peavy",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 123,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 21,
+    "PF": 72,
+    "C": 7
+   }
+  },
+  "landajo01": {
+   "slug": "landajo01",
+   "nameEn": "Jock Landale",
+   "team": "ATL",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 121,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "bambamo01": {
+   "slug": "bambamo01",
+   "nameEn": "Mo Bamba",
+   "team": "UTA",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 121,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "essenno01": {
+   "slug": "essenno01",
+   "nameEn": "Noa Essengue",
+   "team": "CHI",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 113,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 19,
+    "PF": 45,
+    "C": 36
+   }
+  },
+  "wolfda01": {
+   "slug": "wolfda01",
+   "nameEn": "Danny Wolf",
+   "team": "BRK",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 2,
+   "minutes": 113,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "bassech01": {
+   "slug": "bassech01",
+   "nameEn": "Charles Bassey",
+   "team": "GSW",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 112,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "conwery01": {
+   "slug": "conwery01",
+   "nameEn": "Ryan Conwell",
+   "team": "MIA",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 112,
+   "pct": {
+    "PG": 54,
+    "SG": 46,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "baglema01": {
+   "slug": "baglema01",
+   "nameEn": "Marvin Bagley III",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 111,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 9,
+    "C": 91
+   }
+  },
+  "goodwjo01": {
+   "slug": "goodwjo01",
+   "nameEn": "Jordan Goodwin",
+   "team": "PHO",
+   "posLabel": "PG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 107,
+   "pct": {
+    "PG": 18,
+    "SG": 82,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "smithbr01": {
+   "slug": "smithbr01",
+   "nameEn": "Braden Smith",
+   "team": "IND",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 4,
+   "minutes": 106,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "watfotr01": {
+   "slug": "watfotr01",
+   "nameEn": "Trendon Watford",
+   "team": "NOP",
+   "posLabel": "PF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 106,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 92,
+    "C": 8
+   }
+  },
+  "bryanca01": {
+   "slug": "bryanca01",
+   "nameEn": "Carter Bryant",
+   "team": "SAS",
+   "posLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 105,
+   "pct": {
+    "PG": 0,
+    "SG": 29,
+    "SF": 50,
+    "PF": 21,
+    "C": 0
+   }
+  },
+  "hieldbu01": {
+   "slug": "hieldbu01",
+   "nameEn": "Buddy Hield",
+   "team": "CHI",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 104,
+   "pct": {
+    "PG": 0,
+    "SG": 89,
+    "SF": 11,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "postqu01": {
+   "slug": "postqu01",
+   "nameEn": "Quinten Post",
+   "team": "MEM",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 104,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "tysonja01": {
+   "slug": "tysonja01",
+   "nameEn": "Jaylon Tyson",
+   "team": "CLE",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 104,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 56,
+    "PF": 43,
+    "C": 0
+   }
+  },
+  "jacksja02": {
+   "slug": "jacksja02",
+   "nameEn": "Jaren Jackson Jr.",
+   "team": "UTA",
+   "posLabel": "C",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 104,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 32,
+    "C": 69
+   }
+  },
+  "dixjo01": {
+   "slug": "dixjo01",
+   "nameEn": "Josh Dix",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 103,
+   "pct": {
+    "PG": 0,
+    "SG": 30,
+    "SF": 45,
+    "PF": 25,
+    "C": 0
+   }
+  },
+  "moranja01": {
+   "slug": "moranja01",
+   "nameEn": "Ja Morant",
+   "team": "POR",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 103,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "kolekty01": {
+   "slug": "kolekty01",
+   "nameEn": "Tyler Kolek",
+   "team": "NYK",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 102,
+   "pct": {
+    "PG": 93,
+    "SG": 7,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "murrake02": {
+   "slug": "murrake02",
+   "nameEn": "Keegan Murray",
+   "team": "SAC",
+   "posLabel": "PF",
+   "games": 4,
+   "gamesStarted": 2,
+   "minutes": 101,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 29,
+    "PF": 71,
+    "C": 0
+   }
+  },
+  "martial01": {
+   "slug": "martial01",
+   "nameEn": "Alijah Martin",
+   "team": "TOR",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 100,
+   "pct": {
+    "PG": 0,
+    "SG": 73,
+    "SF": 27,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hopkibr01": {
+   "slug": "hopkibr01",
+   "nameEn": "Bryce Hopkins",
+   "team": "DEN",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 2,
+   "minutes": 100,
+   "pct": {
+    "PG": 0,
+    "SG": 18,
+    "SF": 77,
+    "PF": 5,
+    "C": 0
+   }
+  },
+  "suggsja01": {
+   "slug": "suggsja01",
+   "nameEn": "Jalen Suggs",
+   "team": "ORL",
+   "posLabel": "PG",
+   "games": 3,
+   "gamesStarted": 3,
+   "minutes": 100,
+   "pct": {
+    "PG": 93,
+    "SG": 7,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "diengou01": {
+   "slug": "diengou01",
+   "nameEn": "Ousmane Dieng",
+   "team": "MIL",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 99,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 3,
+    "PF": 95,
+    "C": 3
+   }
+  },
+  "poolejo01": {
+   "slug": "poolejo01",
+   "nameEn": "Jordan Poole",
+   "team": "NOP",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 98,
+   "pct": {
+    "PG": 32,
+    "SG": 68,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "vucevni01": {
+   "slug": "vucevni01",
+   "nameEn": "Nikola Vučević",
+   "team": "ORL",
+   "posLabel": "C",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 95,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 27,
+    "C": 73
+   }
+  },
+  "clarkjo01": {
+   "slug": "clarkjo01",
+   "nameEn": "Jordan Clarkson",
+   "team": "NYK",
+   "posLabel": "SG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 95,
+   "pct": {
+    "PG": 0,
+    "SG": 43,
+    "SF": 57,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "jonesty01": {
+   "slug": "jonesty01",
+   "nameEn": "Tyus Jones",
+   "team": "DEN",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 95,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "willija06": {
+   "slug": "willija06",
+   "nameEn": "Jalen Williams",
+   "team": "OKC",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 3,
+   "minutes": 95,
+   "pct": {
+    "PG": 0,
+    "SG": 6,
+    "SF": 72,
+    "PF": 22,
+    "C": 0
+   }
+  },
+  "milleba01": {
+   "slug": "milleba01",
+   "nameEn": "Baba Miller",
+   "team": "LAC",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 94,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 42,
+    "C": 58
+   }
+  },
+  "walkeja01": {
+   "slug": "walkeja01",
+   "nameEn": "Jabari Walker",
+   "team": "PHI",
+   "posLabel": "PF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 91,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 5,
+    "PF": 77,
+    "C": 18
+   }
+  },
+  "portecr01": {
+   "slug": "portecr01",
+   "nameEn": "Craig Porter Jr.",
+   "team": "CLE",
+   "posLabel": "PG",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 90,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "holmgch01": {
+   "slug": "holmgch01",
+   "nameEn": "Chet Holmgren",
+   "team": "OKC",
+   "posLabel": "PF",
+   "games": 3,
+   "gamesStarted": 3,
+   "minutes": 90,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 90,
+    "C": 10
+   }
+  },
+  "plowdda01": {
+   "slug": "plowdda01",
+   "nameEn": "Daeqwon Plowden",
+   "team": "SAC",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 88,
+   "pct": {
+    "PG": 0,
+    "SG": 22,
+    "SF": 78,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "strusma01": {
+   "slug": "strusma01",
+   "nameEn": "Max Strus",
+   "team": "LAC",
+   "posLabel": "SF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 88,
+   "pct": {
+    "PG": 0,
+    "SG": 12,
+    "SF": 24,
+    "PF": 64,
+    "C": 0
+   }
+  },
+  "vandeja01": {
+   "slug": "vandeja01",
+   "nameEn": "Jarred Vanderbilt",
+   "team": "LAL",
+   "posLabel": "PF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 87,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 89,
+    "C": 11
+   }
+  },
+  "demineg01": {
+   "slug": "demineg01",
+   "nameEn": "Egor Dëmin",
+   "team": "BRK",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 87,
+   "pct": {
+    "PG": 82,
+    "SG": 18,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jovicni01": {
+   "slug": "jovicni01",
+   "nameEn": "Nikola Jović",
+   "team": "MIA",
+   "posLabel": "PF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 85,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 9,
+    "PF": 84,
+    "C": 7
+   }
+  },
+  "murrakr01": {
+   "slug": "murrakr01",
+   "nameEn": "Kris Murray",
+   "team": "MEM",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 85,
+   "pct": {
+    "PG": 0,
+    "SG": 45,
+    "SF": 54,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  "capelca01": {
+   "slug": "capelca01",
+   "nameEn": "Clint Capela",
+   "team": "HOU",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 1,
+   "minutes": 85,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "moralal01": {
+   "slug": "moralal01",
+   "nameEn": "Alex Morales",
+   "team": "ORL",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 83,
+   "pct": {
+    "PG": 77,
+    "SG": 23,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "brownko01": {
+   "slug": "brownko01",
+   "nameEn": "Kobe Brown",
+   "team": "IND",
+   "posLabel": "PF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 82,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 20,
+    "PF": 54,
+    "C": 25
+   }
+  },
+  "ikegr01": {
+   "slug": "ikegr01",
+   "nameEn": "Graham Ike",
+   "team": "GSW",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 2,
+   "minutes": 80,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 15,
+    "C": 85
+   }
+  },
+  "youngch01": {
+   "slug": "youngch01",
+   "nameEn": "Chris Youngblood",
+   "team": "POR",
+   "posLabel": "SG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 80,
+   "pct": {
+    "PG": 17,
+    "SG": 42,
+    "SF": 40,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "pippesc02": {
+   "slug": "pippesc02",
+   "nameEn": "Scotty Pippen Jr.",
+   "team": "MEM",
+   "posLabel": "PG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 80,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "ejiofzu01": {
+   "slug": "ejiofzu01",
+   "nameEn": "Zuby Ejiofor",
+   "team": "ATL",
+   "posLabel": "PF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 78,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 42,
+    "C": 58
+   }
+  },
+  "mannte01": {
+   "slug": "mannte01",
+   "nameEn": "Terance Mann",
+   "team": "BRK",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 78,
+   "pct": {
+    "PG": 5,
+    "SG": 74,
+    "SF": 21,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "bitadgo01": {
+   "slug": "bitadgo01",
+   "nameEn": "Goga Bitadze",
+   "team": "ORL",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 77,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "cardwdy01": {
+   "slug": "cardwdy01",
+   "nameEn": "Dylan Cardwell",
+   "team": "SAC",
+   "posLabel": "C",
+   "games": 4,
+   "gamesStarted": 1,
+   "minutes": 76,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "bryanth01": {
+   "slug": "bryanth01",
+   "nameEn": "Thomas Bryant",
+   "team": "CLE",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 75,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "carteje01": {
+   "slug": "carteje01",
+   "nameEn": "Jevon Carter",
+   "team": "ORL",
+   "posLabel": "PG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 74,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "champju01": {
+   "slug": "champju01",
+   "nameEn": "Justin Champagnie",
+   "team": "WAS",
+   "posLabel": "SF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 73,
+   "pct": {
+    "PG": 0,
+    "SG": 4,
+    "SF": 56,
+    "PF": 41,
+    "C": 0
+   }
+  },
+  "krejcvi01": {
+   "slug": "krejcvi01",
+   "nameEn": "Vít Krejčí",
+   "team": "POR",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 72,
+   "pct": {
+    "PG": 21,
+    "SG": 31,
+    "SF": 46,
+    "PF": 2,
+    "C": 0
+   }
+  },
+  "mogbojo01": {
+   "slug": "mogbojo01",
+   "nameEn": "Jonathan Mogbo",
+   "team": "SAC",
+   "posLabel": "PF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 72,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 81,
+    "C": 19
+   }
+  },
+  "whiteco01": {
+   "slug": "whiteco01",
+   "nameEn": "Coby White",
+   "team": "CHO",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 4,
+   "minutes": 71,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "filipky01": {
+   "slug": "filipky01",
+   "nameEn": "Kyle Filipowski",
+   "team": "UTA",
+   "posLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 70,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 35,
+    "C": 65
+   }
+  },
+  "cliffni01": {
+   "slug": "cliffni01",
+   "nameEn": "Nique Clifford",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 20,
+   "pct": {
+    "PG": 0,
+    "SG": 23,
+    "SF": 42,
+    "PF": 35,
+    "C": 0
+   }
+  },
+  "middlkh01": {
+   "slug": "middlkh01",
+   "nameEn": "Khris Middleton",
+   "team": "WAS",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 69,
+   "pct": {
+    "PG": 0,
+    "SG": 5,
+    "SF": 32,
+    "PF": 64,
+    "C": 0
+   }
+  },
+  "banchpa01": {
+   "slug": "banchpa01",
+   "nameEn": "Paolo Banchero",
+   "team": "ORL",
+   "posLabel": "PF",
+   "games": 2,
+   "gamesStarted": 2,
+   "minutes": 68,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "jackstr02": {
+   "slug": "jackstr02",
+   "nameEn": "Trayce Jackson-Davis",
+   "team": "TOR",
+   "posLabel": "C",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 67,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "yangha01": {
+   "slug": "yangha01",
+   "nameEn": "Yang Hansen",
+   "team": "POR",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 65,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "smallja01": {
+   "slug": "smallja01",
+   "nameEn": "Javon Small",
+   "team": "MEM",
+   "posLabel": "PG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 64,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mcneeli01": {
+   "slug": "mcneeli01",
+   "nameEn": "Liam McNeeley",
+   "team": "CHO",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 63,
+   "pct": {
+    "PG": 7,
+    "SG": 11,
+    "SF": 68,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  "steinha02": {
+   "slug": "steinha02",
+   "nameEn": "Hannes Steinbach",
+   "team": "CHO",
+   "posLabel": "PF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 63,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 7,
+    "PF": 37,
+    "C": 56
+   }
+  },
+  "rileywi01": {
+   "slug": "rileywi01",
+   "nameEn": "Will Riley",
+   "team": "WAS",
+   "posLabel": "SF",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 61,
+   "pct": {
+    "PG": 0,
+    "SG": 8,
+    "SF": 25,
+    "PF": 62,
+    "C": 5
+   }
+  },
+  "mcgowbr01": {
+   "slug": "mcgowbr01",
+   "nameEn": "Bryce McGowens",
+   "team": "NOP",
+   "posLabel": "SG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 61,
+   "pct": {
+    "PG": 2,
+    "SG": 59,
+    "SF": 39,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "diawamo01": {
+   "slug": "diawamo01",
+   "nameEn": "Mohamed Diawara",
+   "team": "NYK",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 61,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 1,
+    "PF": 99,
+    "C": 0
+   }
+  },
+  "kispeco01": {
+   "slug": "kispeco01",
+   "nameEn": "Corey Kispert",
+   "team": "ATL",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 57,
+   "pct": {
+    "PG": 0,
+    "SG": 16,
+    "SF": 39,
+    "PF": 45,
+    "C": 0
+   }
+  },
+  "simsje01": {
+   "slug": "simsje01",
+   "nameEn": "Jericho Sims",
+   "team": "MIL",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 55,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 36,
+    "C": 64
+   }
+  },
+  "newelas01": {
+   "slug": "newelas01",
+   "nameEn": "Asa Newell",
+   "team": "ATL",
+   "posLabel": "PF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 55,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 6,
+    "C": 94
+   }
+  },
+  "anderky01": {
+   "slug": "anderky01",
+   "nameEn": "Kyle Anderson",
+   "team": "TOR",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 1,
+   "minutes": 52,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 38,
+    "PF": 62,
+    "C": 0
+   }
+  },
+  "minotjo01": {
+   "slug": "minotjo01",
+   "nameEn": "Josh Minott",
+   "team": "BRK",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 52,
+   "pct": {
+    "PG": 0,
+    "SG": 23,
+    "SF": 49,
+    "PF": 25,
+    "C": 4
+   }
+  },
+  "colliza01": {
+   "slug": "colliza01",
+   "nameEn": "Zach Collins",
+   "team": "CHI",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 52,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "alvarjo01": {
+   "slug": "alvarjo01",
+   "nameEn": "Jose Alvarado",
+   "team": "NYK",
+   "posLabel": "PG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 52,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "leonaka01": {
+   "slug": "leonaka01",
+   "nameEn": "Kawhi Leonard",
+   "team": "TOR",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 2,
+   "minutes": 52,
+   "pct": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 93,
+    "PF": 6,
+    "C": 0
+   }
+  },
+  "cryerlj01": {
+   "slug": "cryerlj01",
+   "nameEn": "LJ Cryer",
+   "team": "GSW",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 50,
+   "pct": {
+    "PG": 96,
+    "SG": 4,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mclaujo01": {
+   "slug": "mclaujo01",
+   "nameEn": "Jordan McLaughlin",
+   "team": "SAS",
+   "posLabel": "PG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 50,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "smithdr01": {
+   "slug": "smithdr01",
+   "nameEn": "Dru Smith",
+   "team": "MIA",
+   "posLabel": "SG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 50,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "karabal01": {
+   "slug": "karabal01",
+   "nameEn": "Alex Karaban",
+   "team": "SAC",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 49,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 14,
+    "PF": 86,
+    "C": 0
+   }
+  },
+  "wallaca01": {
+   "slug": "wallaca01",
+   "nameEn": "Cason Wallace",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 3,
+   "minutes": 49,
+   "pct": {
+    "PG": 2,
+    "SG": 82,
+    "SF": 16,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "aldamsa01": {
+   "slug": "aldamsa01",
+   "nameEn": "Santi Aldama",
+   "team": "DAL",
+   "posLabel": "PF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 47,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 51,
+    "C": 49
+   }
+  },
+  "selleja01": {
+   "slug": "selleja01",
+   "nameEn": "Jaylin Sellers",
+   "team": "CHI",
+   "posLabel": "PG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 46,
+   "pct": {
+    "PG": 89,
+    "SG": 11,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "delarse01": {
+   "slug": "delarse01",
+   "nameEn": "Sergio de Larrea",
+   "team": "DAL",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 46,
+   "pct": {
+    "PG": 23,
+    "SG": 77,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "pottemi01": {
+   "slug": "pottemi01",
+   "nameEn": "Micah Potter",
+   "team": "POR",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 45,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 59,
+    "PF": 32,
+    "C": 9
+   }
+  },
+  "philola01": {
+   "slug": "philola01",
+   "nameEn": "Labaron Philon Jr.",
+   "team": "PHI",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 44,
+   "pct": {
+    "PG": 72,
+    "SG": 28,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "willipa01": {
+   "slug": "willipa01",
+   "nameEn": "Patrick Williams",
+   "team": "CHI",
+   "posLabel": "PF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 44,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 44,
+    "PF": 35,
+    "C": 21
+   }
+  },
+  "barnhbr01": {
+   "slug": "barnhbr01",
+   "nameEn": "Brooks Barnhizer",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 43,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 67,
+    "PF": 31,
+    "C": 0
+   }
+  },
+  "tshieos01": {
+   "slug": "tshieos01",
+   "nameEn": "Oscar Tshiebwe",
+   "team": "HOU",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 42,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "joeis01": {
+   "slug": "joeis01",
+   "nameEn": "Isaiah Joe",
+   "team": "DET",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 42,
+   "pct": {
+    "PG": 0,
+    "SG": 94,
+    "SF": 6,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "bradlja02": {
+   "slug": "bradlja02",
+   "nameEn": "Jaden Bradley",
+   "team": "TOR",
+   "posLabel": "PG",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 41,
+   "pct": {
+    "PG": 99,
+    "SG": 1,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reedjta01": {
+   "slug": "reedjta01",
+   "nameEn": "Tarris Reed Jr.",
+   "team": "SAS",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 41,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 4,
+    "C": 96
+   }
+  },
+  "awakato01": {
+   "slug": "awakato01",
+   "nameEn": "Tobe Awaka",
+   "team": "CHI",
+   "posLabel": "PF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 41,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 61,
+    "C": 39
+   }
+  },
+  "carlsbr01": {
+   "slug": "carlsbr01",
+   "nameEn": "Branden Carlson",
+   "team": "POR",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 39,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 69,
+    "C": 31
+   }
+  },
+  "hawkijo01": {
+   "slug": "hawkijo01",
+   "nameEn": "Jordan Hawkins",
+   "team": "CHI",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 39,
+   "pct": {
+    "PG": 0,
+    "SG": 94,
+    "SF": 7,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "missiyv01": {
+   "slug": "missiyv01",
+   "nameEn": "Yves Missi",
+   "team": "NOP",
+   "posLabel": "C",
+   "games": 2,
+   "gamesStarted": 2,
+   "minutes": 39,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "durenja01": {
+   "slug": "durenja01",
+   "nameEn": "Jalen Duren",
+   "team": "DET",
+   "posLabel": "C",
+   "games": 2,
+   "gamesStarted": 2,
+   "minutes": 38,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "harpero02": {
+   "slug": "harpero02",
+   "nameEn": "Ron Harper Jr.",
+   "team": "BOS",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 35,
+   "pct": {
+    "PG": 7,
+    "SG": 0,
+    "SF": 77,
+    "PF": 16,
+    "C": 0
+   }
+  },
+  "flemira01": {
+   "slug": "flemira01",
+   "nameEn": "Rasheer Fleming",
+   "team": "PHO",
+   "posLabel": "PF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 35,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 63,
+    "C": 37
+   }
+  },
+  "jonessp01": {
+   "slug": "jonessp01",
+   "nameEn": "Spencer Jones",
+   "team": "DEN",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 35,
+   "pct": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 98,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reathdu01": {
+   "slug": "reathdu01",
+   "nameEn": "Duop Reath",
+   "team": "PHO",
+   "posLabel": "C",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 33,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "hendrta01": {
+   "slug": "hendrta01",
+   "nameEn": "Taylor Hendricks",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 33,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 51,
+    "C": 50
+   }
+  },
+  "minixri01": {
+   "slug": "minixri01",
+   "nameEn": "Riley Minix",
+   "team": "CLE",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 33,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 76,
+    "PF": 24,
+    "C": 0
+   }
+  },
+  "jordade01": {
+   "slug": "jordade01",
+   "nameEn": "DeAndre Jordan",
+   "team": "NOP",
+   "posLabel": "C",
+   "games": 2,
+   "gamesStarted": 2,
+   "minutes": 33,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "conlemi01": {
+   "slug": "conlemi01",
+   "nameEn": "Mike Conley",
+   "team": "BOS",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 1,
+   "minutes": 32,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "diallal01": {
+   "slug": "diallal01",
+   "nameEn": "Alpha Diallo",
+   "team": "DEN",
+   "posLabel": "SF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 32,
+   "pct": {
+    "PG": 2,
+    "SG": 17,
+    "SF": 81,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "crawfis01": {
+   "slug": "crawfis01",
+   "nameEn": "Isaiah Crawford",
+   "team": "HOU",
+   "posLabel": "SF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 31,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 50,
+    "PF": 40,
+    "C": 10
+   }
+  },
+  "bouyeja01": {
+   "slug": "bouyeja01",
+   "nameEn": "Jamaree Bouyea",
+   "team": "PHO",
+   "posLabel": "PG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 31,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "leonsma01": {
+   "slug": "leonsma01",
+   "nameEn": "Malevy Leons",
+   "team": "GSW",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 30,
+   "pct": {
+    "PG": 0,
+    "SG": 19,
+    "SF": 60,
+    "PF": 22,
+    "C": 0
+   }
+  },
+  "bradlto01": {
+   "slug": "bradlto01",
+   "nameEn": "Tony Bradley",
+   "team": "UTA",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 30,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 41,
+    "C": 59
+   }
+  },
+  "chrisca02": {
+   "slug": "chrisca02",
+   "nameEn": "Cam Christie",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 30,
+   "pct": {
+    "PG": 10,
+    "SG": 76,
+    "SF": 14,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "enarutr01": {
+   "slug": "enarutr01",
+   "nameEn": "Tristan Enaruna",
+   "team": "CLE",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 30,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 51,
+    "PF": 49,
+    "C": 0
+   }
+  },
+  "looneke01": {
+   "slug": "looneke01",
+   "nameEn": "Kevon Looney",
+   "team": "LAL",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 29,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 76,
+    "C": 24
+   }
+  },
+  "knechda01": {
+   "slug": "knechda01",
+   "nameEn": "Dalton Knecht",
+   "team": "NYK",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 29,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 87,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  "poweldr01": {
+   "slug": "poweldr01",
+   "nameEn": "Drake Powell",
+   "team": "BRK",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 28,
+   "pct": {
+    "PG": 24,
+    "SG": 76,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "smithto05": {
+   "slug": "smithto05",
+   "nameEn": "Tolu Smith",
+   "team": "DET",
+   "posLabel": "PF",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 27,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "peatko01": {
+   "slug": "peatko01",
+   "nameEn": "Koa Peat",
+   "team": "PHO",
+   "posLabel": "PF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 26,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 51,
+    "PF": 49,
+    "C": 0
+   }
+  },
+  "pickeja02": {
+   "slug": "pickeja02",
+   "nameEn": "Jalen Pickett",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 26,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "prospol01": {
+   "slug": "prospol01",
+   "nameEn": "Olivier-Maxence Prosper",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 26,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 25,
+    "PF": 75,
+    "C": 0
+   }
+  },
+  "wisemja01": {
+   "slug": "wisemja01",
+   "nameEn": "James Wiseman",
+   "team": "NYK",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 26,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "manntr01": {
+   "slug": "manntr01",
+   "nameEn": "Tre Mann",
+   "team": "WAS",
+   "posLabel": "PG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 24,
+   "pct": {
+    "PG": 60,
+    "SG": 40,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "martini01": {
+   "slug": "martini01",
+   "nameEn": "Nick Martinelli",
+   "team": "LAC",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 22,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "thierad01": {
+   "slug": "thierad01",
+   "nameEn": "Adou Thiero",
+   "team": "LAL",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 22,
+   "pct": {
+    "PG": 0,
+    "SG": 24,
+    "SF": 43,
+    "PF": 34,
+    "C": 0
+   }
+  },
+  "cissemo01": {
+   "slug": "cissemo01",
+   "nameEn": "Moussa Cissé",
+   "team": "DAL",
+   "posLabel": "C",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 21,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "hardyja02": {
+   "slug": "hardyja02",
+   "nameEn": "Jaden Hardy",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 21,
+   "pct": {
+    "PG": 45,
+    "SG": 49,
+    "SF": 7,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "willico04": {
+   "slug": "willico04",
+   "nameEn": "Cody Williams",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 21,
+   "pct": {
+    "PG": 0,
+    "SG": 10,
+    "SF": 22,
+    "PF": 39,
+    "C": 29
+   }
+  },
+  "gardnmy01": {
+   "slug": "gardnmy01",
+   "nameEn": "Myron Gardner",
+   "team": "MIA",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 20,
+   "pct": {
+    "PG": 0,
+    "SG": 66,
+    "SF": 19,
+    "PF": 15,
+    "C": 0
+   }
+  },
+  "fontesi01": {
+   "slug": "fontesi01",
+   "nameEn": "Simone Fontecchio",
+   "team": "MIA",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 20,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 39,
+    "PF": 61,
+    "C": 0
+   }
+  },
+  "okorieb01": {
+   "slug": "okorieb01",
+   "nameEn": "Ebuka Okorie",
+   "team": "DET",
+   "posLabel": "PG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 20,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "thornbr01": {
+   "slug": "thornbr01",
+   "nameEn": "Bruce Thornton",
+   "team": "HOU",
+   "posLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 19,
+   "pct": {
+    "PG": 83,
+    "SG": 17,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "trentga02": {
+   "slug": "trentga02",
+   "nameEn": "Gary Trent Jr.",
+   "team": "MIL",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 19,
+   "pct": {
+    "PG": 0,
+    "SG": 92,
+    "SF": 8,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "kentja01": {
+   "slug": "kentja01",
+   "nameEn": "Jayson Kent",
+   "team": "POR",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 19,
+   "pct": {
+    "PG": 0,
+    "SG": 63,
+    "SF": 37,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "swainda01": {
+   "slug": "swainda01",
+   "nameEn": "Dailyn Swain",
+   "team": "CHI",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 19,
+   "pct": {
+    "PG": 0,
+    "SG": 14,
+    "SF": 86,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "spencpa01": {
+   "slug": "spencpa01",
+   "nameEn": "Pat Spencer",
+   "team": "PHO",
+   "posLabel": "PG",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 18,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "johnsaj01": {
+   "slug": "johnsaj01",
+   "nameEn": "AJ Johnson",
+   "team": "NOP",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 18,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "claxtni01": {
+   "slug": "claxtni01",
+   "nameEn": "Nic Claxton",
+   "team": "CHI",
+   "posLabel": "C",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 18,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "mccontj01": {
+   "slug": "mccontj01",
+   "nameEn": "T.J. McConnell",
+   "team": "IND",
+   "posLabel": "PG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 17,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "tateja01": {
+   "slug": "tateja01",
+   "nameEn": "Jae'Sean Tate",
+   "team": "HOU",
+   "posLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 16,
+   "pct": {
+    "PG": 6,
+    "SG": 3,
+    "SF": 72,
+    "PF": 20,
+    "C": 0
+   }
+  },
+  "dadiepa01": {
+   "slug": "dadiepa01",
+   "nameEn": "Pacôme Dadiet",
+   "team": "NYK",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 16,
+   "pct": {
+    "PG": 0,
+    "SG": 68,
+    "SF": 32,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "reeseju01": {
+   "slug": "reeseju01",
+   "nameEn": "Julian Reese",
+   "team": "NOP",
+   "posLabel": "C",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 16,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "lawalto01": {
+   "slug": "lawalto01",
+   "nameEn": "Tobi Lawal",
+   "team": "DAL",
+   "posLabel": "PF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 15,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 98,
+    "C": 2
+   }
+  },
+  "omierno01": {
+   "slug": "omierno01",
+   "nameEn": "Norchad Omier",
+   "team": "CLE",
+   "posLabel": "PF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 15,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "whitmca01": {
+   "slug": "whitmca01",
+   "nameEn": "Cam Whitmore",
+   "team": "DEN",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 15,
+   "pct": {
+    "PG": 0,
+    "SG": 24,
+    "SF": 76,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "edwarju01": {
+   "slug": "edwarju01",
+   "nameEn": "Justin Edwards",
+   "team": "PHI",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 14,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 23,
+    "PF": 77,
+    "C": 0
+   }
+  },
+  "princta02": {
+   "slug": "princta02",
+   "nameEn": "Taurean Prince",
+   "team": "DET",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 14,
+   "pct": {
+    "PG": 0,
+    "SG": 37,
+    "SF": 30,
+    "PF": 33,
+    "C": 0
+   }
+  },
+  "jonesis01": {
+   "slug": "jonesis01",
+   "nameEn": "Isaac Jones",
+   "team": "DET",
+   "posLabel": "PF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 13,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 59,
+    "C": 41
+   }
+  },
+  "laniech01": {
+   "slug": "laniech01",
+   "nameEn": "Chaz Lanier",
+   "team": "DET",
+   "posLabel": "SG",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 13,
+   "pct": {
+    "PG": 0,
+    "SG": 60,
+    "SF": 41,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "finnedo01": {
+   "slug": "finnedo01",
+   "nameEn": "Dorian Finney-Smith",
+   "team": "ATL",
+   "posLabel": "PF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 13,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 76,
+    "PF": 24,
+    "C": 0
+   }
+  },
+  "evansis01": {
+   "slug": "evansis01",
+   "nameEn": "Isaiah Evans",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 0,
+    "SG": 66,
+    "SF": 34,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "howarje01": {
+   "slug": "howarje01",
+   "nameEn": "Jett Howard",
+   "team": "DAL",
+   "posLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 100,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jamesbr02": {
+   "slug": "jamesbr02",
+   "nameEn": "Bronny James",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 89,
+    "SG": 11,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "castlco01": {
+   "slug": "castlco01",
+   "nameEn": "Colin Castleton",
+   "team": "ORL",
+   "posLabel": "C",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 72,
+    "C": 28
+   }
+  },
+  "jonesda06": {
+   "slug": "jonesda06",
+   "nameEn": "David Jones García",
+   "team": "SAS",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "sheppbe01": {
+   "slug": "sheppbe01",
+   "nameEn": "Ben Sheppard",
+   "team": "IND",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 12,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "carrca01": {
+   "slug": "carrca01",
+   "nameEn": "Cameron Carr",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 11,
+   "pct": {
+    "PG": 0,
+    "SG": 51,
+    "SF": 36,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  "gillan01": {
+   "slug": "gillan01",
+   "nameEn": "Anthony Gill",
+   "team": "WAS",
+   "posLabel": "PF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 11,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 19,
+    "C": 81
+   }
+  },
+  "lopezka01": {
+   "slug": "lopezka01",
+   "nameEn": "Karim López",
+   "team": "MEM",
+   "posLabel": "SF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 11,
+   "pct": {
+    "PG": 10,
+    "SG": 80,
+    "SF": 10,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "hallpj01": {
+   "slug": "hallpj01",
+   "nameEn": "PJ Hall",
+   "team": "CHO",
+   "posLabel": "C",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 11,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 39,
+    "C": 61
+   }
+  },
+  "terryda01": {
+   "slug": "terryda01",
+   "nameEn": "Dalen Terry",
+   "team": "OKC",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 11,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 100,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "richani01": {
+   "slug": "richani01",
+   "nameEn": "Nick Richards",
+   "team": "MIA",
+   "posLabel": "C",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 10,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "holmeda01": {
+   "slug": "holmeda01",
+   "nameEn": "DaRon Holmes",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 4,
+   "gamesStarted": 0,
+   "minutes": 10,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "cenacch01": {
+   "slug": "cenacch01",
+   "nameEn": "Chris Cenac Jr.",
+   "team": "BOS",
+   "posLabel": "PF",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 10,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 77,
+    "C": 23
+   }
+  },
+  "nembhry01": {
+   "slug": "nembhry01",
+   "nameEn": "Ryan Nembhard",
+   "team": "DEN",
+   "posLabel": "PG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 10,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "markobo01": {
+   "slug": "markobo01",
+   "nameEn": "Bogoljub Markovic",
+   "team": "MIL",
+   "posLabel": "PF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 9,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 67,
+    "PF": 33,
+    "C": 0
+   }
+  },
+  "weslebl01": {
+   "slug": "weslebl01",
+   "nameEn": "Blake Wesley",
+   "team": "LAC",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 9,
+   "pct": {
+    "PG": 57,
+    "SG": 43,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mashaja01": {
+   "slug": "mashaja01",
+   "nameEn": "Jahmai Mashack",
+   "team": "MEM",
+   "posLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 8,
+   "pct": {
+    "PG": 87,
+    "SG": 13,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "ruperra01": {
+   "slug": "ruperra01",
+   "nameEn": "Rayan Rupert",
+   "team": "PHI",
+   "posLabel": "SF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 8,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 100,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "adamsst01": {
+   "slug": "adamsst01",
+   "nameEn": "Steven Adams",
+   "team": "HOU",
+   "posLabel": "C",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 8,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "dennira01": {
+   "slug": "dennira01",
+   "nameEn": "RayJ Dennis",
+   "team": "ATL",
+   "posLabel": "PG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 8,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "manonch01": {
+   "slug": "manonch01",
+   "nameEn": "Chris Mañon",
+   "team": "LAL",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 7,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 100,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "nnajize01": {
+   "slug": "nnajize01",
+   "nameEn": "Zeke Nnaji",
+   "team": "DEN",
+   "posLabel": "PF",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 7,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "pullizy01": {
+   "slug": "pullizy01",
+   "nameEn": "Zyon Pullin",
+   "team": "MIN",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 6,
+   "pct": {
+    "PG": 25,
+    "SG": 75,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "knuepko01": {
+   "slug": "knuepko01",
+   "nameEn": "Kon Knueppel",
+   "team": "CHO",
+   "posLabel": "SF",
+   "games": 1,
+   "gamesStarted": 1,
+   "minutes": 6,
+   "pct": {
+    "PG": 0,
+    "SG": 88,
+    "SF": 13,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "okparfe01": {
+   "slug": "okparfe01",
+   "nameEn": "Felix Okpara",
+   "team": "WAS",
+   "posLabel": "C",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 5,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "tonjejo01": {
+   "slug": "tonjejo01",
+   "nameEn": "John Tonje",
+   "team": "POR",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 5,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "gilleja02": {
+   "slug": "gilleja02",
+   "nameEn": "Ja'Kobi Gillespie",
+   "team": "SAS",
+   "posLabel": "PG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 4,
+   "pct": {
+    "PG": 29,
+    "SG": 72,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "jeffejo01": {
+   "slug": "jeffejo01",
+   "nameEn": "Joshua Jefferson",
+   "team": "BRK",
+   "posLabel": "PF",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 4,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "sarafbe01": {
+   "slug": "sarafbe01",
+   "nameEn": "Ben Saraf",
+   "team": "BRK",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 4,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "loverla01": {
+   "slug": "loverla01",
+   "nameEn": "Lawson Lovering",
+   "team": "LAL",
+   "posLabel": "C",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 3,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "coopeca02": {
+   "slug": "coopeca02",
+   "nameEn": "Carson Cooper",
+   "team": "MEM",
+   "posLabel": "PF",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 3,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "fallta01": {
+   "slug": "fallta01",
+   "nameEn": "Tacko Fall",
+   "team": "PHI",
+   "posLabel": "C",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 3,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "harklej01": {
+   "slug": "harklej01",
+   "nameEn": "Elijah Harkless",
+   "team": "DET",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 3,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "akinsja01": {
+   "slug": "akinsja01",
+   "nameEn": "Jaden Akins",
+   "team": "NYK",
+   "posLabel": "SG",
+   "games": 2,
+   "gamesStarted": 0,
+   "minutes": 2,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "mitchdi01": {
+   "slug": "mitchdi01",
+   "nameEn": "Dillon Mitchell",
+   "team": "BOS",
+   "posLabel": "SF",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 2,
+   "pct": {
+    "PG": 0,
+    "SG": 100,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "zikarro01": {
+   "slug": "zikarro01",
+   "nameEn": "Rocco Zikarsky",
+   "team": "MIN",
+   "posLabel": "C",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 2,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  "beekmre01": {
+   "slug": "beekmre01",
+   "nameEn": "Reece Beekman",
+   "team": "WAS",
+   "posLabel": "PG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 1,
+   "pct": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "brownma05": {
+   "slug": "brownma05",
+   "nameEn": "Maliq Brown",
+   "team": "SAS",
+   "posLabel": "PF",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 1,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  "smithma02": {
+   "slug": "smithma02",
+   "nameEn": "Malachi Smith",
+   "team": "TOR",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 1,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 100,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  "loveca01": {
+   "slug": "loveca01",
+   "nameEn": "Caleb Love",
+   "team": "PHI",
+   "posLabel": "SG",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 0,
+   "pct": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  }
+ }
+}
