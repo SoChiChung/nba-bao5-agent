@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T21:30:14.385Z",
+  "updatedAt": "2026-11-11T00:21:17.502Z",
   "serverDate": "2026-11-10",
   "requestedDate": "2026-11-11",
   "available": true,
@@ -8,11 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 609,
-    "out": 112,
-    "probable": 1,
-    "doubtful": 1,
-    "questionable": 9
+    "available": 606,
+    "out": 116,
+    "questionable": 10
   },
   "provenance": {
     "officialCount": 46,
@@ -23,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-10.json",
   "changesFile": "changes/changes_2026-11-10.json",
   "previousDate": "2026-11-09",
-  "changeCount": 131,
-  "restrictedCount": 123,
+  "changeCount": 134,
+  "restrictedCount": 126,
   "restricted": [
     {
       "id": "202695",
@@ -251,6 +249,20 @@
       "energy": null
     },
     {
+      "id": "1628404",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 疾病",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628978",
       "key": "out",
       "label": "缺阵",
@@ -298,6 +310,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左腿筋拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629639",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右膝盖挫伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -439,6 +465,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左脚踝骨折）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630314",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Williams (hamstring) will miss at least one week, per Anthony Slater of ESPN.com.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1063,6 +1103,20 @@
       "energy": null
     },
     {
+      "id": "1642366",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Post (concussion) has been ruled out for Wednesday's game against the Nuggets.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642367",
       "key": "out",
       "label": "缺阵",
@@ -1595,25 +1649,11 @@
       "energy": null
     },
     {
-      "id": "1628404",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629639",
+      "id": "203507",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右挫伤）",
+      "detail": "NBA官方伤病报告：出战成疑（右手腕扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1623,11 +1663,11 @@
       "energy": null
     },
     {
-      "id": "1630314",
+      "id": "204456",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Williams has been ruled out for the remainder of Monday's game against the Pelicans due to a left hamstring injury, Danny Emerman of SFStandard.com reports. He'll finish with four points (2-3 FG) in two minutes.",
+      "detail": "ESPN伤病名单：McConnell is questionable for Wednesday's game against the Wizards due to a strained right hamstring.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1643,6 +1683,20 @@
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631218",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Jackson-Davis is questionable for Wednesday's game against Boston with an illness.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1679,20 +1733,6 @@
       "energy": null
     },
     {
-      "id": "1642276",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642353",
       "key": "questionable",
       "label": "出战成疑",
@@ -1707,11 +1747,11 @@
       "energy": null
     },
     {
-      "id": "1642366",
+      "id": "1642849",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Post (head) didn't return to Monday's 118-102 win over the Raptors. He ended the night with one rebound in two minutes.",
+      "detail": "ESPN伤病名单：Traore (calf) is listed as questionable for Wednesday's game against New Orleans.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1735,12 +1775,12 @@
       "energy": null
     },
     {
-      "id": "203507",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右手腕扭伤）",
-      "source": "NBA官方",
+      "id": "1643591",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Awaka (back) is questionable for Wednesday's game against the Spurs.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1749,5 +1789,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月10日 16:15 发布）：列出46人，今日出战的另外254人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月10日 19:15 发布）：列出46人，今日出战的另外254人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
