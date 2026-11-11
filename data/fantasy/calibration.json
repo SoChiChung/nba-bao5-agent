@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-11T06:49:52.981Z",
+  "modelVersion": "2026.11.fantasy.1",
+  "samples": 990,
+  "events": 5,
+  "global": 0.8632,
+  "groups": {
+    "1": {
+      "all": 0.8809,
+      "top": null,
+      "rest": 0.8815
+    },
+    "2": {
+      "all": 0.8406,
+      "top": null,
+      "rest": 0.8035
+    }
+  },
+  "metrics": {
+    "mae": 8.313,
+    "rmse": 10.61,
+    "bias": -1.013,
+    "corr": 0.7519
+  },
+  "byEvent": [
+    {
+      "eventId": 17,
+      "name": "Gameweek 3 - Day 4",
+      "coverage": 1,
+      "n": 239,
+      "mae": 8.656,
+      "rmse": 10.975,
+      "bias": -0.985,
+      "corr": 0.7523969859263179
+    },
+    {
+      "eventId": 18,
+      "name": "Gameweek 3 - Day 5",
+      "coverage": 1,
+      "n": 182,
+      "mae": 8.544,
+      "rmse": 10.592,
+      "bias": -1.158,
+      "corr": 0.7546547125988929
+    },
+    {
+      "eventId": 19,
+      "name": "Gameweek 3 - Day 6",
+      "coverage": 1,
+      "n": 194,
+      "mae": 8.507,
+      "rmse": 11.002,
+      "bias": -1.429,
+      "corr": 0.7307977266839374
+    },
+    {
+      "eventId": 20,
+      "name": "Gameweek 4 - Day 1",
+      "coverage": 1,
+      "n": 217,
+      "mae": 8.493,
+      "rmse": 11.207,
+      "bias": -0.668,
+      "corr": 0.7519888419661426
+    },
+    {
+      "eventId": 21,
+      "name": "Gameweek 4 - Day 2",
+      "coverage": 1,
+      "n": 158,
+      "mae": 7.041,
+      "rmse": 8.531,
+      "bias": -0.849,
+      "corr": 0.7851864540805221
+    }
+  ],
+  "note": "由 evaluate-predictions.mjs 生成；样本 = 已结算比赛日的球员×比赛。未出场按 0 分计入。"
+}
