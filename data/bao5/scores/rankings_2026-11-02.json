@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-11T00:20:45.251Z",
+  "fetchedAt": "2026-11-11T01:45:26.752Z",
   "date": "2026-11-02",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1564,7 +1564,7 @@
     {
       "userId": "b9369135-33fc-4f42-bc91-8e133c9d4843",
       "displayName": "相交线",
-      "avatarKey": "HOU",
+      "avatarKey": "badge:T08_S",
       "score": 221.3,
       "remainingSalary": 0,
       "submittedAt": 1793524409744,
@@ -3036,7 +3036,7 @@
     {
       "userId": "3948982b-0a78-41db-9679-6037bab7920e",
       "displayName": "shay02",
-      "avatarKey": "badge:T06_P",
+      "avatarKey": "badge:F11",
       "score": 193.7,
       "remainingSalary": 11,
       "submittedAt": 1793546589188,
@@ -3648,5 +3648,5 @@
     "mine": "/api/rankings?mine=1&date=2026-11-02",
     "board": "/api/rankings?period=day&date=2026-11-02"
   },
-  "updatedAt": "2026-11-11T00:20:45.251Z"
+  "updatedAt": "2026-11-11T01:45:26.752Z"
 }

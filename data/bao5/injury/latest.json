@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T00:21:17.502Z",
+  "updatedAt": "2026-11-11T01:46:02.444Z",
   "serverDate": "2026-11-10",
   "requestedDate": "2026-11-11",
   "available": true,
@@ -9,19 +9,19 @@
   "counts": {
     "total": 732,
     "available": 606,
-    "out": 116,
-    "questionable": 10
+    "out": 121,
+    "questionable": 5
   },
   "provenance": {
-    "officialCount": 46,
-    "projectedCount": 254,
+    "officialCount": 49,
+    "projectedCount": 251,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-10.json",
   "changesFile": "changes/changes_2026-11-10.json",
   "previousDate": "2026-11-09",
-  "changeCount": 134,
+  "changeCount": 136,
   "restrictedCount": 126,
   "restricted": [
     {
@@ -473,6 +473,20 @@
       "energy": null
     },
     {
+      "id": "1630311",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630314",
       "key": "out",
       "label": "缺阵",
@@ -753,6 +767,20 @@
       "energy": null
     },
     {
+      "id": "1631166",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631215",
       "key": "out",
       "label": "缺阵",
@@ -991,11 +1019,39 @@
       "energy": null
     },
     {
+      "id": "1641783",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Da Silva is questionable for Tuesday's game against the Kings due to a left calf strain.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641844",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月9日：缺阵（右脚跟）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641871",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1080,6 +1136,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月9日：缺阵（右脚踝扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642353",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1649,20 +1719,6 @@
       "energy": null
     },
     {
-      "id": "203507",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右手腕扭伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "204456",
       "key": "questionable",
       "label": "每日观察",
@@ -1677,68 +1733,12 @@
       "energy": null
     },
     {
-      "id": "1631127",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1631218",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Jackson-Davis is questionable for Wednesday's game against Boston with an illness.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641723",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641783",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Da Silva is questionable for Tuesday's game against the Kings due to a left calf strain.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642353",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右脚踝扭伤）",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1789,5 +1789,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月10日 19:15 发布）：列出46人，今日出战的另外254人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月10日 20:45 发布）：列出49人，今日出战的另外251人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
