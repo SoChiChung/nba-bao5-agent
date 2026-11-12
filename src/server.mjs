@@ -629,16 +629,38 @@ function exposePlayerForecastHistory(data){
     return {...publicRow,playerLoss:loss,playerForecastResults};
   });
 }
+/** 锁定快照的最大可信时长：超出即视为「DDL 前无有效记录」，标记 stale 而不是伪装成最后记录。 */
+const LOCKED_SNAPSHOT_MAX_AGE_MS=6*60*60_000;
+/**
+ * 解析某日的「锁定前最后推荐」。
+ * 铁律：以按赛程算出的 DDL（首场 -15min）为唯一基准，永远取 at < lockedAt 的最新一条带阵容的记录。
+ * 旧实现遇到已存在的 lockedRecommendation 直接返回，导致 dashboard 快照步骤批量占位后永久钉死
+ * （2026-11-12 实测：展示时间 11-07 02:47，与 DDL 11-12 07:45 相差 5 天，且 CI 再跑也不会修正）。
+ */
 function resolveLockedRecommendation(row,schedule,players=[]){
   const existing=row.lockedRecommendation;
-  if(existing?.players?.length)return {...existing,playerNames:existing.playerNames??existing.players.map(id=>namesForPlayer(players,id))};
+  const withNames=record=>record?{...record,playerNames:record.playerNames?.length?record.playerNames:(record.players??[]).map(id=>namesForPlayer(players,id))}:null;
   const tips=(schedule??[]).filter(game=>game.date===row.dateKey).map(game=>Date.parse(game.utc)).filter(Number.isFinite);
-  if(!tips.length)return null;
+  // 赛程缺失时无法核验锁定线，退回已存值但显式标注未核验
+  if(!tips.length)return withNames(existing?.players?.length?{...existing,unverified:true}:null);
   const lockedAt=Math.min(...tips)-15*60_000;
-  const lastUpdate=[...(row.updates??[])].filter(update=>Date.parse(update.at)<lockedAt).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
-  const source=lastUpdate??(Date.parse(row.updatedAt)<lockedAt?row:null);
-  if(!source?.players?.length)return null;
-  return {lockedAt:new Date(lockedAt).toISOString(),sourceUpdateAt:source.at??source.updatedAt??row.updatedAt,source:source.reason==='dashboard-display'?'dashboard-display':'model-update',reason:source.reason??'last-pre-lock-update',players:source.players.map(String),playerNames:source.players.map(id=>namesForPlayer(players,id)),expected:source.expected??null,energy:source.energy??row.energy??null,formation:source.formation??row.formation??null,mode:source.mode??row.selectedMode??null};
+  // stale 只对「已过 DDL」的日期有意义：未锁定的日期本来就该随模型持续更新
+  const isLocked=Date.now()>=lockedAt;
+  const lastUpdate=[...(row.updates??[])].filter(update=>{const at=Date.parse(update.at);return Number.isFinite(at)&&at<lockedAt&&Array.isArray(update.players)&&update.players.length;}).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
+  const fallback=Array.isArray(row.players)&&row.players.length&&Date.parse(row.updatedAt)<lockedAt?{at:row.updatedAt,reason:'last-pre-lock-update',players:row.players,expected:row.expected,energy:row.energy,formation:row.formation,mode:row.selectedMode}:null;
+  const candidate=lastUpdate??fallback;
+  const candidateAt=candidate?Date.parse(candidate.at):NaN;
+  const existingAt=Date.parse(existing?.sourceUpdateAt??'');
+  const existingLockAt=Date.parse(existing?.lockedAt??'');
+  // 幂等条件：锁定线一致 + 现存快照不早于候选。任一不满足即用候选重算（这才是修复钉死的关键）。
+  const keepExisting=Boolean(existing?.players?.length)
+    &&Number.isFinite(existingLockAt)&&Math.abs(existingLockAt-lockedAt)<60_000
+    &&Number.isFinite(existingAt)&&(!Number.isFinite(candidateAt)||existingAt>=candidateAt);
+  const chosen=keepExisting?existing:candidate;
+  if(!Array.isArray(chosen?.players)||!chosen.players.length)return null;
+  const sourceUpdateAt=chosen.sourceUpdateAt??chosen.at??row.updatedAt;
+  const sourceAge=lockedAt-Date.parse(sourceUpdateAt);
+  return withNames({lockedAt:new Date(lockedAt).toISOString(),sourceUpdateAt,source:chosen.source??(chosen.reason==='dashboard-display'?'dashboard-display':chosen.reason==='submitted-lineup-backfill'?'submitted-lineup-backfill':'model-update'),reason:chosen.reason??'last-pre-lock-update',players:chosen.players.map(String),expected:chosen.expected??null,energy:chosen.energy??row.energy??null,formation:chosen.formation??row.formation??null,mode:chosen.mode??row.selectedMode??null,stale:isLocked&&(!Number.isFinite(sourceAge)||sourceAge>LOCKED_SNAPSHOT_MAX_AGE_MS),staleHours:isLocked&&Number.isFinite(sourceAge)?Math.round(sourceAge/3_600_000):null});
 }
 const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
 const sourcePreferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');

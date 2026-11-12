@@ -11,6 +11,7 @@ function applyTheme(){const mode=$('theme-mode')?.value??'auto';const parts=new 
 const savedTheme=localStorage.getItem('bao5-theme-mode');$('theme-mode').value=['auto','light','dark'].includes(savedTheme)?savedTheme:'auto';$('theme-mode').onchange=()=>{localStorage.setItem('bao5-theme-mode',$('theme-mode').value);applyTheme();};applyTheme();setInterval(applyTheme,60000);
 const fmtDate=d=>{const x=new Date(`${d}T12:00:00Z`);return `${x.getUTCMonth()+1}/${x.getUTCDate()}`;};
 function formatTimestamp(value){const date=new Date(value??'');return Number.isNaN(date.getTime())?'暂无':date.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});}
+function shortTimestamp(value){return formatTimestamp(value).replace(/^\d{4}[\/-]/,'');}
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 initFantasy();
 const teamNames={ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才'};
@@ -381,7 +382,7 @@ function renderHistory(){
   const daily=selected.map(x=>{
    const lockedRecommendation=x.lockedRecommendation?.players?.length?x.lockedRecommendation:null;
    const modelPlayers=lockedRecommendation?.players??[];
-   const modelNames=(lockedRecommendation?.playerNames??modelPlayers).map(player=>typeof player==='object'?(player.name??player.playerName??`球员 ${player.id??''}`):`球员 ${player}`);
+   const modelNames=(lockedRecommendation?.playerNames?.length?lockedRecommendation.playerNames:modelPlayers).map(player=>typeof player==='object'?(player.name??player.playerName??`球员 ${player.id??''}`):(lockedRecommendation?.playerNames?.length?String(player):`球员 ${player}`));
    const submittedNames=(x.bao5PlayerNames??[]).map(player=>typeof player==='object'?(player.name??player.playerName??`球员 ${player.id??''}`):player);
    const modelExpected=lockedRecommendation?.expected??null;
    const five=x.topFive,topFiveLineups=five?.lineups??x.topFiveAnalysis?.topFive??[];
@@ -391,7 +392,8 @@ function renderHistory(){
    const loss=x.playerLoss;
    const forecastRows=x.playerForecastResults??[];
    const playerLossHtml=forecastRows.length?`<section class="history-player-loss"><header><b>NBA 球员逐日预测与误差</b><span>${loss?.count?`${loss.count} 位有效预测 · MAE ${loss.mae} · RMSE ${loss.rmse} · 实际减预测 ${loss.bias>0?'+':''}${loss.bias} 分`:'比赛尚未结算，误差待回填'}</span></header><details><summary>展开当天 ${forecastRows.length} 位 NBA 球员的记录</summary>${forecastTableHtml(forecastRows)}</details></section>`:x.settled===true?`<section class="history-player-loss is-pending"><b>逐球员预测损失</b><span>此日期没有历史球员级锁定预测，无法还原。</span></section>`:'';
-   const modelLabel=lockedRecommendation?(lockedRecommendation.source==='user-reported'?'用户确认的 23:00 推荐 · 预期分未留存':`锁定前最后记录 · ${formatTimestamp(lockedRecommendation.sourceUpdateAt)}`):'锁定前模型快照缺失';
+   const modelBase=lockedRecommendation?(lockedRecommendation.source==='user-reported'?'用户确认的 23:00 推荐 · 预期分未留存':(lockedRecommendation.source==='submitted-lineup-backfill'?`账号阵容 · ${shortTimestamp(lockedRecommendation.sourceUpdateAt)} · 无预测值`:`锁定前最后记录 · ${formatTimestamp(lockedRecommendation.sourceUpdateAt)}`)):'锁定前模型快照缺失';
+   const modelLabel=lockedRecommendation?.stale?`${modelBase} · ⚠ 早于 DDL ${lockedRecommendation.staleHours??'?'} 小时`:modelBase;
    return `<details class="history-day"><summary><span class="history-summary-date"><b>${escapeHtml(x.dateKey)}</b><i>${modelPlayers.length} 人 · ${escapeHtml(lockedRecommendation?.formation??'模型阵容')}</i></span><span class="history-summary-result">${x.actualTotal!=null?`<b>${Number(x.actualTotal).toFixed(1)} <small>分</small></b><i>日榜 ${escapeHtml(x.rank??'—')}</i>`:'<i>等待赛果</i>'}<em>⌄</em></span></summary><div class="history-day-body">
     <div class="history-score-grid"><div class="history-metric is-model"><small>锁定前模型预测</small><b>${modelExpected!=null?`${escapeHtml(modelExpected)}<i> 分</i>`:'—'}</b></div><div class="history-metric is-actual"><small>实际得分</small><b>${x.actualTotal!=null?`${Number(x.actualTotal).toFixed(1)}<i> 分</i>`:'待结算'}</b></div><div class="history-metric is-delta"><small>预测误差</small><b>${scoreDelta}</b></div><div class="history-metric is-rank"><small>日榜排名</small><b>${x.rank!=null?`第 ${escapeHtml(x.rank)}<i> / ${escapeHtml(x.rankTotal??'—')}</i>`:'—'}</b></div></div>
     <div class="history-lineup-grid"><section class="history-lineup-block is-predicted"><small>${escapeHtml(modelLabel)}</small><div class="history-name-chips">${renderHistoryNameChips(modelNames,'无 DDL 前模型快照')}</div></section><section class="history-lineup-block is-submitted"><small>BAO5 已提交</small><div class="history-name-chips">${renderHistoryNameChips(submittedNames,'暂无提交记录')}</div></section></div>

@@ -305,11 +305,24 @@ try {
           prior.lockedPlayerForecastAt=prior.playerForecastAt??prior.updatedAt??null;
           frozeSnapshot=true;
         }
-        if(prior&&!prior.lockedRecommendation){
-          const lastUpdate=[...(prior.updates??[])].filter(update=>Date.parse(update.at)<slate.lockedAt).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
-          prior.lockedRecommendation={lockedAt:new Date(slate.lockedAt).toISOString(),sourceUpdateAt:lastUpdate?.at??prior.updatedAt,source:lastUpdate?.reason==='dashboard-display'?'dashboard-display':'model-update',reason:lastUpdate?.reason??'last-pre-lock-update',players:lastUpdate?.players??prior.players,expected:lastUpdate?.expected??prior.expected,energy:lastUpdate?.energy??prior.energy,formation:lastUpdate?.formation??prior.formation,mode:lastUpdate?.mode??prior.selectedMode??'legacy'};
-          frozeSnapshot=true;
-          say(`${slate.dateKey} 已冻结 DDL 前最后推荐（${prior.lockedRecommendation.players?.join('、')??'无阵容记录'}）`);
+        // 冻结 DDL 前最后推荐：以 slate.lockedAt 为基准重算，不能因为「已存在」就跳过。
+        // 旧实现 `if(prior&&!prior.lockedRecommendation)` 会让 dashboard 批量占位的旧快照永久钉死
+        // （2026-11-12：展示 11-07 02:47，DDL 11-12 07:45，CI 每天跑到这里都 continue）。
+        if(prior){
+          const lastUpdate=[...(prior.updates??[])].filter(update=>{const at=Date.parse(update.at);return Number.isFinite(at)&&at<slate.lockedAt&&Array.isArray(update.players)&&update.players.length;}).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
+          const fallback=Array.isArray(prior.players)&&prior.players.length&&Date.parse(prior.updatedAt)<slate.lockedAt?{at:prior.updatedAt,reason:'last-pre-lock-update',players:prior.players,expected:prior.expected,energy:prior.energy,formation:prior.formation,mode:prior.selectedMode}:null;
+          const candidate=lastUpdate??fallback;
+          const candidateAt=candidate?Date.parse(candidate.at):NaN;
+          const existing=prior.lockedRecommendation;
+          const existingAt=Date.parse(existing?.sourceUpdateAt??'');
+          const existingLockAt=Date.parse(existing?.lockedAt??'');
+          const keepExisting=Boolean(existing?.players?.length)&&Number.isFinite(existingLockAt)&&Math.abs(existingLockAt-slate.lockedAt)<60_000&&Number.isFinite(existingAt)&&(!Number.isFinite(candidateAt)||existingAt>=candidateAt);
+          if(!keepExisting&&Array.isArray(candidate?.players)&&candidate.players.length){
+            const sourceAge=slate.lockedAt-Date.parse(candidate.at);
+            prior.lockedRecommendation={lockedAt:new Date(slate.lockedAt).toISOString(),sourceUpdateAt:candidate.at,source:candidate.reason==='dashboard-display'?'dashboard-display':candidate.reason==='submitted-lineup-backfill'?'submitted-lineup-backfill':'model-update',reason:candidate.reason??'last-pre-lock-update',players:candidate.players.map(String),expected:candidate.expected??null,energy:candidate.energy??prior.energy??null,formation:candidate.formation??prior.formation??null,mode:candidate.mode??prior.selectedMode??'legacy',stale:!Number.isFinite(sourceAge)||sourceAge>6*60*60_000,staleHours:Number.isFinite(sourceAge)?Math.round(sourceAge/3_600_000):null};
+            frozeSnapshot=true;
+            say(`${slate.dateKey} 已冻结 DDL 前最后推荐（${prior.lockedRecommendation.players.join('、')}${prior.lockedRecommendation.stale?`；⚠ 快照早于 DDL ${prior.lockedRecommendation.staleHours} 小时`:''}）`);
+          }
         }
         if(frozeSnapshot)saveHistory(runHistory);
         say(`${slate.dateKey} 已超过 BAO5 当日首场锁定线；仅保留首发/赔率检查，不覆盖阵容`);continue;
