@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-12T01:47:02.084Z",
+  "generatedAt": "2026-11-12T02:47:04.513Z",
   "modelVersion": "2026.11.fantasy.1",
-  "samples": 990,
+  "samples": 991,
   "events": 5,
-  "global": 0.8632,
+  "global": 0.8629,
   "groups": {
     "1": {
       "all": 0.8809,
@@ -11,16 +11,16 @@
       "rest": 0.8809
     },
     "2": {
-      "all": 0.8406,
+      "all": 0.8395,
       "top": null,
-      "rest": 0.8035
+      "rest": 0.8028
     }
   },
   "metrics": {
     "mae": 8.313,
-    "rmse": 10.61,
-    "bias": -1.013,
-    "corr": 0.7519
+    "rmse": 10.608,
+    "bias": -1.02,
+    "corr": 0.7521
   },
   "byEvent": [
     {
@@ -47,11 +47,11 @@
       "eventId": 19,
       "name": "Gameweek 3 - Day 6",
       "coverage": 1,
-      "n": 194,
-      "mae": 8.507,
-      "rmse": 11.002,
-      "bias": -1.429,
-      "corr": 0.7307977266839374
+      "n": 195,
+      "mae": 8.505,
+      "rmse": 10.99,
+      "bias": -1.463,
+      "corr": 0.7321027545944703
     },
     {
       "eventId": 20,
