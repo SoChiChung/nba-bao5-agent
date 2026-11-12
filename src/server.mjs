@@ -641,9 +641,12 @@ function resolveLockedRecommendation(row,schedule,players=[]){
   const existing=row.lockedRecommendation;
   const withNames=record=>record?{...record,playerNames:record.playerNames?.length?record.playerNames:(record.players??[]).map(id=>namesForPlayer(players,id))}:null;
   const tips=(schedule??[]).filter(game=>game.date===row.dateKey).map(game=>Date.parse(game.utc)).filter(Number.isFinite);
-  // 赛程缺失时无法核验锁定线，退回已存值但显式标注未核验
-  if(!tips.length)return withNames(existing?.players?.length?{...existing,unverified:true}:null);
-  const lockedAt=Math.min(...tips)-15*60_000;
+  // 请求历史日期时赛程往往已取不到（BAO5 只返回当前窗口），此时必须用已存的 DDL 兜底，
+  // 否则整段历史都会退化成「无法核验」，重算永远不生效 —— 这正是历史日期修不回来的原因。
+  const scheduleLockAt=tips.length?Math.min(...tips)-15*60_000:NaN;
+  const ddlVerified=Number.isFinite(scheduleLockAt);
+  const lockedAt=ddlVerified?scheduleLockAt:Date.parse(existing?.lockedAt??'');
+  if(!Number.isFinite(lockedAt))return withNames(existing?.players?.length?{...existing,unverified:true}:null);
   // stale 只对「已过 DDL」的日期有意义：未锁定的日期本来就该随模型持续更新
   const isLocked=Date.now()>=lockedAt;
   const lastUpdate=[...(row.updates??[])].filter(update=>{const at=Date.parse(update.at);return Number.isFinite(at)&&at<lockedAt&&Array.isArray(update.players)&&update.players.length;}).sort((a,b)=>Date.parse(b.at)-Date.parse(a.at))[0];
@@ -656,11 +659,12 @@ function resolveLockedRecommendation(row,schedule,players=[]){
   const keepExisting=Boolean(existing?.players?.length)
     &&Number.isFinite(existingLockAt)&&Math.abs(existingLockAt-lockedAt)<60_000
     &&Number.isFinite(existingAt)&&(!Number.isFinite(candidateAt)||existingAt>=candidateAt);
-  const chosen=keepExisting?existing:candidate;
+  // 宁可保留旧快照也不要凭空丢数据：没有更优候选时沿用现存值（旧实现无条件保留，不能退化）
+  const chosen=(keepExisting||!candidate)?existing:candidate;
   if(!Array.isArray(chosen?.players)||!chosen.players.length)return null;
   const sourceUpdateAt=chosen.sourceUpdateAt??chosen.at??row.updatedAt;
   const sourceAge=lockedAt-Date.parse(sourceUpdateAt);
-  return withNames({lockedAt:new Date(lockedAt).toISOString(),sourceUpdateAt,source:chosen.source??(chosen.reason==='dashboard-display'?'dashboard-display':chosen.reason==='submitted-lineup-backfill'?'submitted-lineup-backfill':'model-update'),reason:chosen.reason??'last-pre-lock-update',players:chosen.players.map(String),expected:chosen.expected??null,energy:chosen.energy??row.energy??null,formation:chosen.formation??row.formation??null,mode:chosen.mode??row.selectedMode??null,stale:isLocked&&(!Number.isFinite(sourceAge)||sourceAge>LOCKED_SNAPSHOT_MAX_AGE_MS),staleHours:isLocked&&Number.isFinite(sourceAge)?Math.round(sourceAge/3_600_000):null});
+  return withNames({lockedAt:new Date(lockedAt).toISOString(),sourceUpdateAt,source:chosen.source??(chosen.reason==='dashboard-display'?'dashboard-display':chosen.reason==='submitted-lineup-backfill'?'submitted-lineup-backfill':'model-update'),reason:chosen.reason??'last-pre-lock-update',players:chosen.players.map(String),expected:chosen.expected??null,energy:chosen.energy??row.energy??null,formation:chosen.formation??row.formation??null,mode:chosen.mode??row.selectedMode??null,ddlVerified,stale:isLocked&&(!Number.isFinite(sourceAge)||sourceAge>LOCKED_SNAPSHOT_MAX_AGE_MS),staleHours:isLocked&&Number.isFinite(sourceAge)?Math.round(sourceAge/3_600_000):null});
 }
 const preferencesPath=path.join(RUNTIME_ROOT,'data','bao5','bao1','preferences.json');
 const sourcePreferencesPath=path.join(ROOT,'data','bao5','bao1','preferences.json');
