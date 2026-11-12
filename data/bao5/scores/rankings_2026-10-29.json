@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T02:51:56.320Z",
+  "fetchedAt": "2026-11-12T08:52:23.038Z",
   "date": "2026-10-29",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -236,7 +236,7 @@
     {
       "userId": "f48035b0-97a5-4c07-9cb8-f7dd103ad41c",
       "displayName": "1996",
-      "avatarKey": "MEM",
+      "avatarKey": "badge:T08_S",
       "score": 200.5,
       "remainingSalary": 4,
       "submittedAt": 1793183450575,
@@ -427,7 +427,7 @@
     },
     {
       "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
-      "displayName": "窗外的麻雀",
+      "displayName": "诺里纯cs",
       "avatarKey": "badge:T05_S",
       "score": 190,
       "remainingSalary": 0,
@@ -524,7 +524,7 @@
     {
       "userId": "ab482302-16ee-45fe-a158-568059673bde",
       "displayName": "Ree3",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:F10",
       "score": 187,
       "remainingSalary": 3,
       "submittedAt": 1793162139385,
@@ -828,7 +828,7 @@
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
       "displayName": "ZCJenius",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T05_G",
       "score": 179.7,
       "remainingSalary": 1,
       "submittedAt": 1793217917209,
@@ -940,7 +940,7 @@
     {
       "userId": "518dbd0d-d56a-43eb-9c89-0b44c22b83d5",
       "displayName": "热心网友",
-      "avatarKey": "SAS",
+      "avatarKey": "badge:F08",
       "score": 177.4,
       "remainingSalary": 0,
       "submittedAt": 1793195597941,
@@ -1452,7 +1452,7 @@
     {
       "userId": "52c1f02d-ae75-42d3-972f-e874d7e7fea2",
       "displayName": "绿豆",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:T05_G",
       "score": 170,
       "remainingSalary": 2,
       "submittedAt": 1793150571086,
@@ -2636,7 +2636,7 @@
     {
       "userId": "2121407d-4b88-4f27-a3ff-36858a4d9b12",
       "displayName": "大毛",
-      "avatarKey": "badge:T08_S",
+      "avatarKey": "badge:F11",
       "score": 143.7,
       "remainingSalary": 0,
       "submittedAt": 1793167079578,
@@ -3504,5 +3504,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-29",
     "board": "/api/rankings?period=day&date=2026-10-29"
   },
-  "updatedAt": "2026-11-12T02:51:56.320Z"
+  "updatedAt": "2026-11-12T08:52:23.038Z"
 }

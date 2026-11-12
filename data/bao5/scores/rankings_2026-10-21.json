@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T02:51:38.411Z",
+  "fetchedAt": "2026-11-12T08:52:05.739Z",
   "date": "2026-10-21",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -716,7 +716,7 @@
     {
       "userId": "2121407d-4b88-4f27-a3ff-36858a4d9b12",
       "displayName": "大毛",
-      "avatarKey": "badge:T08_S",
+      "avatarKey": "badge:F11",
       "score": 146.1,
       "remainingSalary": 0,
       "submittedAt": 1792220398614,
@@ -1195,7 +1195,7 @@
     },
     {
       "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
-      "displayName": "窗外的麻雀",
+      "displayName": "诺里纯cs",
       "avatarKey": "badge:T05_S",
       "score": 138.1,
       "remainingSalary": 0,
@@ -1548,7 +1548,7 @@
     {
       "userId": "ab482302-16ee-45fe-a158-568059673bde",
       "displayName": "Ree3",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:F10",
       "score": 132.9,
       "remainingSalary": 0,
       "submittedAt": 1792416706375,
@@ -2316,7 +2316,7 @@
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
       "displayName": "ZCJenius",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T05_G",
       "score": 116.3,
       "remainingSalary": 2,
       "submittedAt": 1792521514549,
@@ -2576,5 +2576,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-21",
     "board": "/api/rankings?period=day&date=2026-10-21"
   },
-  "updatedAt": "2026-11-12T02:51:38.411Z"
+  "updatedAt": "2026-11-12T08:52:05.739Z"
 }

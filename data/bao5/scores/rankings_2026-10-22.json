@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T02:51:40.621Z",
+  "fetchedAt": "2026-11-12T08:52:08.219Z",
   "date": "2026-10-22",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -219,7 +219,7 @@
     },
     {
       "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
-      "displayName": "窗外的麻雀",
+      "displayName": "诺里纯cs",
       "avatarKey": "badge:T05_S",
       "score": 181.1,
       "remainingSalary": 2,
@@ -972,7 +972,7 @@
     {
       "userId": "2121407d-4b88-4f27-a3ff-36858a4d9b12",
       "displayName": "大毛",
-      "avatarKey": "badge:T08_S",
+      "avatarKey": "badge:F11",
       "score": 165.8,
       "remainingSalary": 0,
       "submittedAt": 1792550649406,
@@ -1820,7 +1820,7 @@
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
       "displayName": "ZCJenius",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T05_G",
       "score": 149.2,
       "remainingSalary": 1,
       "submittedAt": 1792618058336,
@@ -1948,7 +1948,7 @@
     {
       "userId": "518dbd0d-d56a-43eb-9c89-0b44c22b83d5",
       "displayName": "热心网友",
-      "avatarKey": "SAS",
+      "avatarKey": "badge:F08",
       "score": 145.4,
       "remainingSalary": 7,
       "submittedAt": 1792597145534,
@@ -2636,12 +2636,12 @@
     {
       "userId": "ab482302-16ee-45fe-a158-568059673bde",
       "displayName": "Ree3",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:F10",
       "score": 108,
       "remainingSalary": 0,
       "submittedAt": 1792575857452,
       "statuses": [
-        "done",
+        "todo",
         "done",
         "done",
         "done",
@@ -2736,5 +2736,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-22",
     "board": "/api/rankings?period=day&date=2026-10-22"
   },
-  "updatedAt": "2026-11-12T02:51:40.621Z"
+  "updatedAt": "2026-11-12T08:52:08.219Z"
 }

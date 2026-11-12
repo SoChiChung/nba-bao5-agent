@@ -1,6 +1,204 @@
 {
   "runs": [
     {
+      "id": "43186439459",
+      "runNumber": "240",
+      "workflow": "BAO5 lineup assistant",
+      "event": "schedule",
+      "startedAt": "2026-11-12T08:51:58.516Z",
+      "finishedAt": "2026-11-12T08:53:32.733Z",
+      "status": "success",
+      "summary": "自动更新完成",
+      "processedDates": [
+        "2026-11-13"
+      ],
+      "settledDates": [],
+      "topFiveDates": [
+        {
+          "dateKey": "2026-10-04",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-05",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-06",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-07",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-12",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-08",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-09",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-10",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-11",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-13",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-14",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-15",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-16",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-17",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-21",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-22",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-23",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-24",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-25",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-26",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-27",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-28",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-29",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-30",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-10-31",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-01",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-02",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-03",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-05",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-06",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-07",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-08",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-09",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-10",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-11",
+          "lineups": 5
+        },
+        {
+          "dateKey": "2026-11-12",
+          "lineups": 5
+        }
+      ],
+      "learning": "180 份阵容、211 位独立球员；常见选人 斯科蒂·巴恩斯 14/180、佩勒·拉尔松 3/180、尼古拉·约维奇 4/180、扬尼斯·阿德托昆博 19/180、马拉奇·史密斯 1/180",
+      "messages": [
+        "[2026-11-12T08:52:04.898Z] 球员历史对位仍在每周刷新周期内（2026-11-11T06:46:20.959Z），本次跳过拉取",
+        "[2026-11-12T08:52:04.902Z] 常规赛球员参考：季前赛缓存覆盖 137 人",
+        "[2026-11-12T08:52:06.983Z] 2026-10-21 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:09.465Z] 2026-10-22 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:11.448Z] 2026-10-23 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:13.438Z] 2026-10-24 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:15.877Z] 2026-10-25 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:18.314Z] 2026-10-26 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:20.304Z] 2026-10-27 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:22.293Z] 2026-10-28 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:24.731Z] 2026-10-29 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:28.717Z] 2026-10-30 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:31.162Z] 2026-10-31 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:34.051Z] 2026-11-01 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:39.663Z] 2026-11-02 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:42.221Z] 2026-11-03 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:44.302Z] 2026-11-05 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:46.380Z] 2026-11-06 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:50.773Z] 2026-11-07 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:53.325Z] 2026-11-08 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:55.414Z] 2026-11-09 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:52:57.967Z] 2026-11-10 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:53:01.460Z] 2026-11-11 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:53:04.026Z] 2026-11-12 已记录 5/5 份日榜前五阵容",
+        "[2026-11-12T08:53:20.108Z] 逐球员实际分回填：1145 条球员比赛、7 套完整模型阵容；实际阵容变更不影响球员级 loss",
+        "[2026-11-12T08:53:20.223Z] 前五选人学习样本：180 份阵容、211 位独立球员；常见选人 斯科蒂·巴恩斯 14/180、佩勒·拉尔松 3/180、尼古拉·约维奇 4/180、扬尼斯·阿德托昆博 19/180、马拉奇·史密斯 1/180",
+        "[2026-11-12T08:53:20.356Z] 拉取每日一阵网站最新伤病报告",
+        "[2026-11-12T08:53:26.569Z] 赔率快照仍在 8 小时刷新周期内（2026/11/12 10:46:03 北京时间），本次跳过抓取",
+        "[2026-11-12T08:53:26.573Z] 球员位置占比：2026-27，461 人，快照 2026-11-12",
+        "[2026-11-12T08:53:26.573Z] 位置防守对位：使用 2026_27；当前赛季 2026-27 暂无数据，沿用最近已有赛季",
+        "[2026-11-12T08:53:26.584Z] 常规赛校准：12 个已结算样本，近期 MAE 22.7 分、MAPE 12.7%、偏差 -14.5 分、得分比 0.918，系数 0.938。季前赛：0 个已结算样本，近期 MAE 暂无 分，系数 1.000",
+        "[2026-11-12T08:53:27.489Z] 按下一场未锁定比赛日执行阵容检查",
+        "[2026-11-12T08:53:27.490Z] 检查赛程日 2026-11-13：4 场；首场锁定 2026/11/13 07:45:00（北京时间）",
+        "[2026-11-12T08:53:28.369Z] 2026-11-13 模型阵容 2前3后、能量 149/150、预期 152 分；提交更新",
+        "[2026-11-12T08:53:32.330Z] 2026-11-13 已确认 BAO5 阵容：杰伦·布朗、凯里·欧文、阿约·多森姆、邓肯·罗宾逊、杰米森·巴特尔"
+      ]
+    },
+    {
       "id": "43144252417",
       "runNumber": "239",
       "workflow": "BAO5 lineup assistant",
@@ -15601,109 +15799,6 @@
       "learning": "",
       "messages": [
         "[2026-10-27T20:16:45.085Z] 失败：fetch failed",
-        "失败：TypeError: fetch failed\n    at node:internal/deps/undici/undici:15270:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Bao5.raw (file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/bao5.mjs:66:17)\n    at async Bao5.login (file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/bao5.mjs:82:15)\n    at async file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/run-model.mjs:50:3"
-      ]
-    },
-    {
-      "id": "40539517846",
-      "runNumber": "121",
-      "workflow": "BAO5 lineup assistant",
-      "event": "schedule",
-      "startedAt": "2026-10-27T16:18:02.681Z",
-      "finishedAt": "2026-10-27T16:18:02.825Z",
-      "status": "failure",
-      "summary": "自动更新失败：fetch failed",
-      "processedDates": [],
-      "settledDates": [],
-      "topFiveDates": [
-        {
-          "dateKey": "2026-10-04",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-05",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-06",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-07",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-12",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-08",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-09",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-10",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-11",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-13",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-14",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-15",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-16",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-17",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-21",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-22",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-23",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-24",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-25",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-26",
-          "lineups": 5
-        },
-        {
-          "dateKey": "2026-10-27",
-          "lineups": 5
-        }
-      ],
-      "learning": "",
-      "messages": [
-        "[2026-10-27T16:18:02.821Z] 失败：fetch failed",
         "失败：TypeError: fetch failed\n    at node:internal/deps/undici/undici:15270:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Bao5.raw (file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/bao5.mjs:66:17)\n    at async Bao5.login (file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/bao5.mjs:82:15)\n    at async file:///home/runner/work/nba-bao5-agent/nba-bao5-agent/data/bao5/bao1/run-model.mjs:50:3"
       ]
     }
