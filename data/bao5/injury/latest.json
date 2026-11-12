@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T18:46:52.447Z",
+  "updatedAt": "2026-11-12T21:57:22.682Z",
   "serverDate": "2026-11-12",
   "requestedDate": "2026-11-13",
   "available": true,
@@ -8,10 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "out": 111,
+    "out": 112,
     "available": 607,
-    "questionable": 12,
-    "probable": 2
+    "questionable": 13
   },
   "provenance": {
     "officialCount": 36,
@@ -22,7 +21,7 @@
   "snapshotFile": "snapshots/injuries_2026-11-12.json",
   "changesFile": "changes/changes_2026-11-12.json",
   "previousDate": "2026-11-11",
-  "changeCount": 128,
+  "changeCount": 130,
   "restrictedCount": 125,
   "restricted": [
     {
@@ -1328,6 +1327,20 @@
       "energy": null
     },
     {
+      "id": "1643410",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Wilson (hand) is expected to miss four to six weeks, Shams Charania of ESPN reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643414",
       "key": "out",
       "label": "缺阵",
@@ -1584,7 +1597,21 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Thompson (ankle) didn't practice Thursday, per Ira Winderman of the South Florida Sun Sentinel.",
+      "detail": "ESPN伤病名单：Thompson (ankle) is listed as questionable for Friday's game against the Cavaliers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203507",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Antetokounmpo (wrist) is probable for Friday's game against Cleveland.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1678,6 +1705,20 @@
       "energy": null
     },
     {
+      "id": "1631121",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：McGowens (elbow) is listed as doubtful for Friday's game against the Grizzlies.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631157",
       "key": "questionable",
       "label": "每日观察",
@@ -1710,21 +1751,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Larsson closed Tuesday's 115-109 victory over the Jazz with 14 points (4-7 FG, 2-3 3Pt, 4-4 FT), seven rebounds, two assists and one steal across 31 minutes.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643410",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Wilson won't return to Wednesday's game against the Spurs due to a right hand injury. He'll finish with 15 points (5-7 FG, 2-2 3Pt, 3-3 FT), five rebounds and one steal in 15 minutes.",
+      "detail": "ESPN伤病名单：Larsson (illness) is listed as questionable for Friday's game against Cleveland.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1746,35 +1773,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "1629684",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右腿筋拉伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1631217",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右股四头肌）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月12日 13:45 发布）：列出36人，今日出战的另外160人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月12日 16:45 发布）：列出36人，今日出战的另外160人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
