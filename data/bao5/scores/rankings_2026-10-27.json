@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-13T00:49:51.863Z",
+  "fetchedAt": "2026-11-13T02:28:03.882Z",
   "date": "2026-10-27",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1084,7 +1084,7 @@
     {
       "userId": "9bf5a1e2-1d94-4601-8500-468f69a86943",
       "displayName": "划水大将",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:F05",
       "score": 198.6,
       "remainingSalary": 7,
       "submittedAt": 1793027560186,
@@ -1932,7 +1932,7 @@
     {
       "userId": "92562191-b47d-489b-9d60-ee76a9f8378f",
       "displayName": "最后冇事",
-      "avatarKey": "badge:T07_S",
+      "avatarKey": "badge:T07_G",
       "score": 181.7,
       "remainingSalary": 0,
       "submittedAt": 1793054547688,
@@ -2220,7 +2220,7 @@
     {
       "userId": "18be32d7-d616-43e7-8b1e-1113c1c7de6b",
       "displayName": "吉尔邦硬",
-      "avatarKey": "TOR",
+      "avatarKey": "badge:F11",
       "score": 169.9,
       "remainingSalary": 2,
       "submittedAt": 1792999518443,
@@ -3552,5 +3552,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-27",
     "board": "/api/rankings?period=day&date=2026-10-27"
   },
-  "updatedAt": "2026-11-13T00:49:51.863Z"
+  "updatedAt": "2026-11-13T02:28:03.882Z"
 }
