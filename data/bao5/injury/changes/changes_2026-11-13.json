@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-11-13T18:28:33.283Z",
+  "generatedAt": "2026-11-13T21:42:23.550Z",
   "serverDate": "2026-11-13",
   "requestedDate": "2026-11-14",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-13T13:15:00",
+  "updatedAt": "2026-11-13T16:30:00",
   "counts": {
     "total": 732,
-    "out": 111,
-    "available": 598,
+    "out": 113,
+    "available": 599,
     "probable": 3,
-    "questionable": 18,
-    "doubtful": 2
+    "questionable": 16,
+    "doubtful": 1
   },
   "provenance": {
     "officialCount": 88,
@@ -21,7 +21,7 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月13日 13:15 发布）：列出88人，今日出战的另外352人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月13日 16:30 发布）：列出88人，今日出战的另外352人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-12",
   "changeCount": 139,
@@ -30,9 +30,9 @@
       "kind": "newInjury",
       "id": "1627749",
       "from": "available",
-      "to": "doubtful",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左脚踝扭伤）",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -538,6 +538,21 @@
     },
     {
       "kind": "worsened",
+      "id": "1630173",
+      "from": "questionable",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "worsened",
       "id": "1630530",
       "from": "questionable",
       "to": "out",
@@ -747,6 +762,21 @@
       "energy": null
     },
     {
+      "kind": "cleared",
+      "id": "203507",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战（右手腕扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "kind": "improved",
       "id": "1629646",
       "from": "questionable",
@@ -928,7 +958,7 @@
       "id": "1629029",
       "from": "questionable",
       "to": "questionable",
-      "note": "ESPN伤病名单：Doncic finished Wednesday's 123-112 win over the Bucks with 32 points (10-25 FG, 5-12 3Pt, 7-10 FT), five rebounds, five assists and three steals across 32 minutes. He exited to the locker room late in the fourth quarter due to an apparent right ankle injury and did not return, Thuc Nhi Nguyen of the Los Angeles Times reports.",
+      "note": "ESPN伤病名单：Head coach JJ Redick said Friday that Doncic (ankle) is \"fine,\" per Law Murray of The Athletic.",
       "name": null,
       "englishName": null,
       "team": null,
@@ -981,19 +1011,6 @@
       "from": "questionable",
       "to": "questionable",
       "note": "NBA官方伤病报告：出战成疑（左紧张）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1630173",
-      "from": "questionable",
-      "to": "questionable",
-      "note": "NBA官方伤病报告：出战成疑（左脚踝酸痛）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1097,7 +1114,7 @@
       "id": "1630559",
       "from": "questionable",
       "to": "questionable",
-      "note": "ESPN伤病名单：Head coach JJ Redick said that X-rays on Reaves' left heel came back negative, but they won't have another update until he undergoes further imaging back in Los Angeles on Thursday, Dave McMenamin of ESPN.com reports.",
+      "note": "ESPN伤病名单：Reaves (heel) won't undergo imaging and is considered day-to-day ahead of Sunday's game against the Suns, Jovan Buha of The Athletic reports.",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1861,19 +1878,6 @@
     },
     {
       "kind": "detailChanged",
-      "id": "203507",
-      "from": "questionable",
-      "to": "questionable",
-      "note": "ESPN伤病名单：Antetokounmpo (wrist) is probable for Friday's game against Cleveland.",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
       "id": "203935",
       "from": "out",
       "to": "out",
@@ -1952,7 +1956,7 @@
     {
       "field": "updatedAt",
       "from": null,
-      "to": "2026-11-13T13:15:00"
+      "to": "2026-11-13T16:30:00"
     },
     {
       "field": "officialCount",

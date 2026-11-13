@@ -317,13 +317,11 @@
       "t": "热火"
     },
     "203507": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Antetokounmpo (wrist) is probable for Friday's game against Cleveland.",
-      "source": "ESPN",
-      "asOf": "2026-11-12",
-      "carry": false,
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战（右手腕扭伤）",
+      "source": "NBA官方",
       "n": "扬尼斯·阿德托昆博",
       "t": "热火"
     },
@@ -720,10 +718,10 @@
       "t": "雄鹿"
     },
     "1627749": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左脚踝扭伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "n": "德章泰·穆雷",
       "t": "鹈鹕"
@@ -1399,9 +1397,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Doncic finished Wednesday's 123-112 win over the Bucks with 32 points (10-25 FG, 5-12 3Pt, 7-10 FT), five rebounds, five assists and three steals across 32 minutes. He exited to the locker room late in the fourth quarter due to an apparent right ankle injury and did not return, Thuc Nhi Nguyen of the Los Angeles Times reports.",
+      "detail": "ESPN伤病名单：Head coach JJ Redick said Friday that Doncic (ankle) is \"fine,\" per Law Murray of The Athletic.",
       "source": "ESPN",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "carry": false,
       "n": "卢卡·东契奇",
       "t": "湖人"
@@ -1938,10 +1936,10 @@
       "t": "公牛"
     },
     "1630173": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝酸痛）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝酸痛）",
       "source": "NBA官方",
       "n": "普雷舍斯·阿丘瓦",
       "t": "国王"
@@ -2430,9 +2428,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Head coach JJ Redick said that X-rays on Reaves' left heel came back negative, but they won't have another update until he undergoes further imaging back in Los Angeles on Thursday, Dave McMenamin of ESPN.com reports.",
+      "detail": "ESPN伤病名单：Reaves (heel) won't undergo imaging and is considered day-to-day ahead of Sunday's game against the Suns, Jovan Buha of The Athletic reports.",
       "source": "ESPN",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "carry": false,
       "n": "奥斯汀·里夫斯",
       "t": "湖人"
@@ -7204,16 +7202,16 @@
   "officialCount": 88,
   "projectedCount": 352,
   "filledCount": 0,
-  "espnCount": 8,
+  "espnCount": 7,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 291,
-  "updatedAt": "2026-11-13T13:15:00",
-  "updatedAtLabel": "11月13日 13:15",
+  "updatedAt": "2026-11-13T16:30:00",
+  "updatedAtLabel": "11月13日 16:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-13_01_15PM.pdf",
-  "message": "已读取官方伤病报告（11月13日 13:15 发布）：列出88人，今日出战的另外352人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-13_04_30PM.pdf",
+  "message": "已读取官方伤病报告（11月13日 16:30 发布）：列出88人，今日出战的另外352人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-14"
 }
