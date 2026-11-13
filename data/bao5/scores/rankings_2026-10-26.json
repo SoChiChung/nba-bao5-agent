@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-13T02:33:11.546Z",
+  "fetchedAt": "2026-11-13T07:25:07.374Z",
   "date": "2026-10-26",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -127,7 +127,7 @@
       "avatarKey": "MIN",
       "score": 212.4,
       "remainingSalary": 7,
-      "submittedAt": 1792958751533,
+      "submittedAt": 1792926403732,
       "statuses": [
         "done",
         "done",
@@ -170,6 +170,22 @@
       "rank": 9
     },
     {
+      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
+      "displayName": "杜伦铁粉的信徒",
+      "avatarKey": "LAL",
+      "score": 212.4,
+      "remainingSalary": 1,
+      "submittedAt": 1792905160788,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 10
+    },
+    {
       "userId": "ab2eedcd-07f1-4365-a639-19688c92de01",
       "displayName": "888",
       "avatarKey": "HOU",
@@ -183,7 +199,7 @@
         "done",
         "done"
       ],
-      "rank": 10
+      "rank": 11
     },
     {
       "userId": "342d21e2-1c6b-4e67-80d3-d3c1a8ec877e",
@@ -199,7 +215,7 @@
         "done",
         "done"
       ],
-      "rank": 11
+      "rank": 12
     },
     {
       "userId": "18be32d7-d616-43e7-8b1e-1113c1c7de6b",
@@ -208,22 +224,6 @@
       "score": 212.4,
       "remainingSalary": 1,
       "submittedAt": 1792926725962,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 12
-    },
-    {
-      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
-      "displayName": "杜伦铁粉的信徒",
-      "avatarKey": "LAL",
-      "score": 212.4,
-      "remainingSalary": 1,
-      "submittedAt": 1792938530880,
       "statuses": [
         "done",
         "done",
@@ -303,7 +303,7 @@
       "avatarKey": "LAC",
       "score": 203.9,
       "remainingSalary": 1,
-      "submittedAt": 1792938831068,
+      "submittedAt": 1792907987411,
       "statuses": [
         "done",
         "done",
@@ -362,6 +362,22 @@
       "rank": 21
     },
     {
+      "userId": "6f9c9a16-b5d9-4e89-a04b-f9628cfaf76c",
+      "displayName": "金黄色的松饵",
+      "avatarKey": "NOP",
+      "score": 200.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792897286911,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 22
+    },
+    {
       "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
       "displayName": "SsSylar",
       "avatarKey": "badge:T04_S",
@@ -375,7 +391,7 @@
         "done",
         "done"
       ],
-      "rank": 22
+      "rank": 23
     },
     {
       "userId": "203882ac-8e10-4eb1-9ffe-060f8967c60d",
@@ -391,7 +407,7 @@
         "done",
         "done"
       ],
-      "rank": 23
+      "rank": 24
     },
     {
       "userId": "f78aa3fb-aa19-4974-81ca-943ef231f645",
@@ -407,28 +423,12 @@
         "done",
         "done"
       ],
-      "rank": 24
-    },
-    {
-      "userId": "6f9c9a16-b5d9-4e89-a04b-f9628cfaf76c",
-      "displayName": "金黄色的松饵",
-      "avatarKey": "NOP",
-      "score": 200.9,
-      "remainingSalary": 1,
-      "submittedAt": 1792910124109,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
       "rank": 25
     },
     {
       "userId": "d62f853a-cfc1-4701-88b5-5d3967d3f797",
       "displayName": "阿杜归来",
-      "avatarKey": "WAS",
+      "avatarKey": "badge:T05_S",
       "score": 200.9,
       "remainingSalary": 1,
       "submittedAt": 1792920764091,
@@ -554,6 +554,22 @@
       "rank": 33
     },
     {
+      "userId": "aae74b9b-0ee0-43e6-a086-73e35802aabc",
+      "displayName": "我叫杨参谋",
+      "avatarKey": "PHI",
+      "score": 200.9,
+      "remainingSalary": 1,
+      "submittedAt": 1792936964626,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 34
+    },
+    {
       "userId": "edf99707-c73f-47e4-bfe0-cbec725dda31",
       "displayName": "内德维德",
       "avatarKey": "NOP",
@@ -567,7 +583,7 @@
         "done",
         "done"
       ],
-      "rank": 34
+      "rank": 35
     },
     {
       "userId": "4c6686bd-0b72-4d70-84e7-6410132c0791",
@@ -576,22 +592,6 @@
       "score": 200.9,
       "remainingSalary": 1,
       "submittedAt": 1792937842885,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 35
-    },
-    {
-      "userId": "aae74b9b-0ee0-43e6-a086-73e35802aabc",
-      "displayName": "我叫杨参谋",
-      "avatarKey": "PHI",
-      "score": 200.9,
-      "remainingSalary": 1,
-      "submittedAt": 1792939274242,
       "statuses": [
         "done",
         "done",
@@ -682,12 +682,12 @@
       "rank": 41
     },
     {
-      "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
-      "displayName": "Santiago",
-      "avatarKey": "SAS",
+      "userId": "5156111b-a55a-4c3f-bff8-0a3c3d63d819",
+      "displayName": "杜伦铁粉的铁粉",
+      "avatarKey": "badge:T08_S",
       "score": 200,
       "remainingSalary": 0,
-      "submittedAt": 1792909142654,
+      "submittedAt": 1792904836868,
       "statuses": [
         "done",
         "done",
@@ -698,12 +698,12 @@
       "rank": 42
     },
     {
-      "userId": "5156111b-a55a-4c3f-bff8-0a3c3d63d819",
-      "displayName": "杜伦铁粉的铁粉",
-      "avatarKey": "badge:T08_S",
+      "userId": "5bc22e88-1023-4bd9-b381-e37a4ce13949",
+      "displayName": "Santiago",
+      "avatarKey": "SAS",
       "score": 200,
       "remainingSalary": 0,
-      "submittedAt": 1792920060052,
+      "submittedAt": 1792909142654,
       "statuses": [
         "done",
         "done",
@@ -959,7 +959,7 @@
       "avatarKey": "BOS",
       "score": 194.7,
       "remainingSalary": 0,
-      "submittedAt": 1792851793082,
+      "submittedAt": 1792851776010,
       "statuses": [
         "done",
         "done",
@@ -1135,7 +1135,7 @@
       "avatarKey": "badge:T08_S",
       "score": 188.5,
       "remainingSalary": 3,
-      "submittedAt": 1792922501989,
+      "submittedAt": 1792922449715,
       "statuses": [
         "done",
         "done",
@@ -1183,7 +1183,7 @@
       "avatarKey": "SAS",
       "score": 185.6,
       "remainingSalary": 2,
-      "submittedAt": 1792907959619,
+      "submittedAt": 1792903529654,
       "statuses": [
         "done",
         "done",
@@ -1503,7 +1503,7 @@
       "avatarKey": "badge:T05_G",
       "score": 177,
       "remainingSalary": 2,
-      "submittedAt": 1792959670498,
+      "submittedAt": 1792948223448,
       "statuses": [
         "done",
         "done",
@@ -1631,7 +1631,7 @@
       "avatarKey": "badge:T07_S",
       "score": 172.6,
       "remainingSalary": 0,
-      "submittedAt": 1792894505213,
+      "submittedAt": 1792894462002,
       "statuses": [
         "done",
         "done",
@@ -1663,7 +1663,7 @@
       "avatarKey": "PHI",
       "score": 170.9,
       "remainingSalary": 4,
-      "submittedAt": 1792895229821,
+      "submittedAt": 1792895071798,
       "statuses": [
         "done",
         "done",
@@ -1855,7 +1855,7 @@
       "avatarKey": "HOU",
       "score": 164.4,
       "remainingSalary": 3,
-      "submittedAt": 1792926064636,
+      "submittedAt": 1792916182039,
       "statuses": [
         "done",
         "done",
@@ -1887,7 +1887,7 @@
       "avatarKey": "LAL",
       "score": 164.4,
       "remainingSalary": 3,
-      "submittedAt": 1792954637670,
+      "submittedAt": 1792954566214,
       "statuses": [
         "done",
         "done",
@@ -1983,7 +1983,7 @@
       "avatarKey": "OKC",
       "score": 163.2,
       "remainingSalary": 0,
-      "submittedAt": 1792958548286,
+      "submittedAt": 1792939815139,
       "statuses": [
         "done",
         "done",
@@ -2031,7 +2031,7 @@
       "avatarKey": "badge:T05_S",
       "score": 160.1,
       "remainingSalary": 1,
-      "submittedAt": 1792912866654,
+      "submittedAt": 1792895635481,
       "statuses": [
         "done",
         "done",
@@ -2511,7 +2511,7 @@
       "avatarKey": "MEM",
       "score": 140.4,
       "remainingSalary": 1,
-      "submittedAt": 1792943517370,
+      "submittedAt": 1792905742544,
       "statuses": [
         "done",
         "done",
@@ -2623,7 +2623,7 @@
       "avatarKey": "BOS",
       "score": 134,
       "remainingSalary": 0,
-      "submittedAt": 1792932357697,
+      "submittedAt": 1792932347055,
       "statuses": [
         "done",
         "done",
@@ -2636,7 +2636,7 @@
     {
       "userId": "89928a76-1d58-49a5-88e0-2cbe60b9f068",
       "displayName": "筐筐",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:T05_S",
       "score": 131.1,
       "remainingSalary": 0,
       "submittedAt": 1792950658609,
@@ -3088,5 +3088,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-26",
     "board": "/api/rankings?period=day&date=2026-10-26"
   },
-  "updatedAt": "2026-11-13T02:33:11.546Z"
+  "updatedAt": "2026-11-13T07:25:07.374Z"
 }

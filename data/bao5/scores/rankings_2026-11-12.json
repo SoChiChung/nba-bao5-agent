@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-13T02:33:41.157Z",
-  "updatedAt": "2026-11-13T02:33:41.157Z",
+  "fetchedAt": "2026-11-13T07:25:59.927Z",
+  "updatedAt": "2026-11-13T07:25:59.927Z",
   "date": "2026-11-12",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -412,7 +412,7 @@
       "avatarKey": "TOR",
       "score": 173.3,
       "remainingSalary": 0,
-      "submittedAt": 1794433777962,
+      "submittedAt": 1794433529419,
       "statuses": [
         "done",
         "done",
@@ -732,7 +732,7 @@
       "avatarKey": "HOU",
       "score": 168.2,
       "remainingSalary": 1,
-      "submittedAt": 1794439338428,
+      "submittedAt": 1794437728541,
       "statuses": [
         "done",
         "done",
@@ -764,7 +764,7 @@
       "avatarKey": "SAS",
       "score": 166.7,
       "remainingSalary": 0,
-      "submittedAt": 1794417389390,
+      "submittedAt": 1794378094986,
       "statuses": [
         "done",
         "done",
@@ -860,7 +860,7 @@
       "avatarKey": "WAS",
       "score": 165,
       "remainingSalary": 2,
-      "submittedAt": 1794168432633,
+      "submittedAt": 1794041033931,
       "statuses": [
         "done",
         "done",
@@ -1257,7 +1257,7 @@
     {
       "userId": "d62f853a-cfc1-4701-88b5-5d3967d3f797",
       "displayName": "阿杜归来",
-      "avatarKey": "WAS",
+      "avatarKey": "badge:T05_S",
       "score": 161,
       "remainingSalary": 0,
       "submittedAt": 1794151384958,
@@ -1468,7 +1468,7 @@
       "avatarKey": "badge:T05_G",
       "score": 157.9,
       "remainingSalary": 0,
-      "submittedAt": 1794440021473,
+      "submittedAt": 1794420333650,
       "statuses": [
         "done",
         "done",
@@ -1596,7 +1596,7 @@
       "avatarKey": "HOU",
       "score": 156.5,
       "remainingSalary": 0,
-      "submittedAt": 1794399412991,
+      "submittedAt": 1794316035220,
       "statuses": [
         "done",
         "done",
@@ -2156,7 +2156,7 @@
       "avatarKey": "GSW",
       "score": 151.1,
       "remainingSalary": 0,
-      "submittedAt": 1794415485367,
+      "submittedAt": 1794372314428,
       "statuses": [
         "done",
         "done",
@@ -2492,7 +2492,7 @@
       "avatarKey": "SAS",
       "score": 148.4,
       "remainingSalary": 1,
-      "submittedAt": 1794413353621,
+      "submittedAt": 1794413313477,
       "statuses": [
         "done",
         "done",
@@ -2716,7 +2716,7 @@
       "avatarKey": "MIN",
       "score": 146.4,
       "remainingSalary": 1,
-      "submittedAt": 1794440530403,
+      "submittedAt": 1794440077458,
       "statuses": [
         "done",
         "done",
@@ -2796,7 +2796,7 @@
       "avatarKey": "OKC",
       "score": 145.4,
       "remainingSalary": 0,
-      "submittedAt": 1794380502793,
+      "submittedAt": 1794376047978,
       "statuses": [
         "done",
         "done",
@@ -2887,6 +2887,22 @@
       "rank": 180
     },
     {
+      "userId": "bfa6ad37-8f5a-43eb-b49a-60fc45ad2bb0",
+      "displayName": "不能开矿的菜地",
+      "avatarKey": "CHA",
+      "score": 144.9,
+      "remainingSalary": 0,
+      "submittedAt": 1794374753356,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 181
+    },
+    {
       "userId": "55da2ddc-741a-4343-a496-1c7e871db089",
       "displayName": "蓝猫",
       "avatarKey": "SAS",
@@ -2900,7 +2916,7 @@
         "done",
         "done"
       ],
-      "rank": 181
+      "rank": 182
     },
     {
       "userId": "5889dd4d-55d5-4e80-b01a-d74dadea9b84",
@@ -2909,22 +2925,6 @@
       "score": 144.9,
       "remainingSalary": 0,
       "submittedAt": 1794388467683,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 182
-    },
-    {
-      "userId": "bfa6ad37-8f5a-43eb-b49a-60fc45ad2bb0",
-      "displayName": "不能开矿的菜地",
-      "avatarKey": "CHA",
-      "score": 144.9,
-      "remainingSalary": 0,
-      "submittedAt": 1794390216670,
       "statuses": [
         "done",
         "done",
@@ -3004,7 +3004,7 @@
       "avatarKey": "badge:T04_S",
       "score": 144.4,
       "remainingSalary": 2,
-      "submittedAt": 1794386140984,
+      "submittedAt": 1794386109062,
       "statuses": [
         "done",
         "done",
@@ -3196,7 +3196,7 @@
       "avatarKey": "badge:T07_G",
       "score": 142.1,
       "remainingSalary": 0,
-      "submittedAt": 1794440654612,
+      "submittedAt": 1794332938946,
       "statuses": [
         "done",
         "done",
@@ -3500,7 +3500,7 @@
       "avatarKey": "badge:S01",
       "score": 139.5,
       "remainingSalary": 2,
-      "submittedAt": 1794440560332,
+      "submittedAt": 1794435807404,
       "statuses": [
         "done",
         "done",
@@ -3532,7 +3532,7 @@
       "avatarKey": "badge:T08_S",
       "score": 139.3,
       "remainingSalary": 0,
-      "submittedAt": 1794196778090,
+      "submittedAt": 1794111852025,
       "statuses": [
         "done",
         "done",
@@ -3676,7 +3676,7 @@
       "avatarKey": "DAL",
       "score": 136.3,
       "remainingSalary": 1,
-      "submittedAt": 1794422302130,
+      "submittedAt": 1794380506977,
       "statuses": [
         "done",
         "done",
@@ -3996,7 +3996,7 @@
       "avatarKey": "LAL",
       "score": 131.6,
       "remainingSalary": 0,
-      "submittedAt": 1794440525214,
+      "submittedAt": 1794440491864,
       "statuses": [
         "done",
         "done",
@@ -4124,7 +4124,7 @@
       "avatarKey": "IND",
       "score": 129.3,
       "remainingSalary": 0,
-      "submittedAt": 1794381475907,
+      "submittedAt": 1794359863279,
       "statuses": [
         "done",
         "done",
@@ -4604,7 +4604,7 @@
       "avatarKey": "HOU",
       "score": 114.6,
       "remainingSalary": 0,
-      "submittedAt": 1794401074867,
+      "submittedAt": 1794401017308,
       "statuses": [
         "done",
         "done",
@@ -4777,7 +4777,7 @@
     {
       "userId": "89928a76-1d58-49a5-88e0-2cbe60b9f068",
       "displayName": "筐筐",
-      "avatarKey": "MIN",
+      "avatarKey": "badge:T05_S",
       "score": 109.2,
       "remainingSalary": 0,
       "submittedAt": 1794402415931,

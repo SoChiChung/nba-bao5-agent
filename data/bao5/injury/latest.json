@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T02:33:58.022Z",
+  "updatedAt": "2026-11-13T07:26:21.515Z",
   "serverDate": "2026-11-13",
   "requestedDate": "2026-11-14",
   "available": false,
@@ -8,36 +8,22 @@
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "counts": {
     "total": 732,
-    "out": 76,
-    "available": 626,
-    "questionable": 30
+    "questionable": 34,
+    "available": 625,
+    "out": 73
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 626,
-    "filledCount": 104,
+    "projectedCount": 625,
+    "filledCount": 105,
     "fallbackSource": "mixed"
   },
   "snapshotFile": "snapshots/injuries_2026-11-13.json",
   "changesFile": "changes/changes_2026-11-13.json",
   "previousDate": "2026-11-12",
-  "changeCount": 2,
-  "restrictedCount": 106,
+  "changeCount": 6,
+  "restrictedCount": 107,
   "restricted": [
-    {
-      "id": "2544",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
     {
       "id": "201939",
       "key": "out",
@@ -599,20 +585,6 @@
       "energy": null
     },
     {
-      "id": "1631218",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1631230",
       "key": "out",
       "label": "缺阵",
@@ -628,20 +600,6 @@
     },
     {
       "id": "1631243",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1641706",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -1089,6 +1047,20 @@
       "energy": null
     },
     {
+      "id": "2544",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "202331",
       "key": "questionable",
       "label": "出战成疑",
@@ -1327,7 +1299,35 @@
       "energy": null
     },
     {
+      "id": "1631218",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631288",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641706",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1375,6 +1375,20 @@
       "probability": "50%",
       "detail": "Sleeper伤病名单：出战成疑",
       "source": "Sleeper",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642267",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1509,5 +1523,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出104人，其余626人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出105人，其余625人未被列入（视为可出战）。"
 }
