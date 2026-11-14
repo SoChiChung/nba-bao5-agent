@@ -69,10 +69,10 @@
       "t": "鹈鹕"
     },
     "201935": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左小腿肚紧张）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左小腿肚紧张）",
       "source": "NBA官方",
       "n": "詹姆斯·哈登",
       "t": "骑士"
@@ -140,11 +140,13 @@
       "t": "独行侠"
     },
     "202691": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左脚踝扭伤）",
-      "source": "NBA官方",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Thompson (ankle) is listed as probable for Saturday's game against the Pistons.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "克莱·汤普森",
       "t": "热火"
     },
@@ -334,10 +336,10 @@
       "t": "热火"
     },
     "203507": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右手腕扭伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战（右手腕扭伤）",
       "source": "NBA官方",
       "n": "扬尼斯·阿德托昆博",
       "t": "热火"
@@ -455,13 +457,13 @@
       "t": "热火"
     },
     "203954": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月12日：可以出战（右足部）",
-      "source": "NBA官方",
-      "asOf": "2026-11-12",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Embiid (right foot injury management) has been ruled out for Sunday's game against the Pacers.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "乔尔·恩比德",
       "t": "76人"
     },
@@ -520,13 +522,13 @@
       "t": "勇士"
     },
     "204456": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月13日：可以出战（右腿筋拉伤）",
-      "source": "NBA官方",
-      "asOf": "2026-11-13",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：McConnell (hamstring) is listed as probable for Sunday's game against the 76ers.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "TJ·麦康奈尔",
       "t": "步行者"
     },
@@ -858,13 +860,13 @@
       "t": "老鹰"
     },
     "1627832": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月13日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-13",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "弗雷德·范弗利特",
       "t": "火箭"
     },
@@ -954,10 +956,10 @@
       "t": "爵士"
     },
     "1628378": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左膝盖挫伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左膝盖挫伤）",
       "source": "NBA官方",
       "n": "多诺万·米切尔",
       "t": "骑士"
@@ -1005,10 +1007,10 @@
       "t": "尼克斯"
     },
     "1628386": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右膝盖）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右膝盖）",
       "source": "NBA官方",
       "n": "贾勒特·阿伦",
       "t": "骑士"
@@ -1303,12 +1305,11 @@
       "t": "爵士"
     },
     "1629008": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 个人原因",
       "source": "NBA官方",
-      "asOf": "2026-11-14",
       "n": "小迈克尔·波特",
       "t": "篮网"
     },
@@ -1327,9 +1328,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Sexton did not return to Wednesday's 123-112 win over the Bucks and required stitches to close a cut on his forehead, Thuc Nhi Nguyen of the Los Angeles Times reports.",
+      "detail": "ESPN伤病名单：Sexton (head) was a full participant in Saturday's practice, Dave McMenamin of ESPN.com reports.",
       "source": "ESPN",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-14",
       "carry": false,
       "n": "科林·塞克斯顿",
       "t": "湖人"
@@ -1451,13 +1452,13 @@
       "t": "奇才"
     },
     "1629029": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Head coach JJ Redick said Friday that Doncic (ankle) is \"fine,\" per Law Murray of The Athletic.",
-      "source": "ESPN",
-      "asOf": "2026-11-13",
-      "carry": false,
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "上次官方报告 11月11日：今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-11",
+      "carry": true,
       "n": "卢卡·东契奇",
       "t": "湖人"
     },
@@ -2030,7 +2031,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Nesmith exited to the locker room in the final seconds of Friday's 106-104 win over the Knicks due to an apparent hand/wrist injury, Tony East of Forbes.com reports. He posted 18 points (7-10 FG, 2-3 3Pt, 2-2 FT), seven rebounds and one assist in 33 minutes.",
+      "detail": "ESPN伤病名单：Nesmith (hand) is listed as questionable for Sunday's game against Philadelphia.",
       "source": "ESPN",
       "asOf": "2026-11-14",
       "carry": false,
@@ -2517,9 +2518,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Reaves (heel) won't undergo imaging and is considered day-to-day ahead of Sunday's game against the Suns, Jovan Buha of The Athletic reports.",
+      "detail": "ESPN伤病名单：Reaves (heel) didn't participate in Saturday's practice, Dave McMenamin of ESPN.com reports.",
       "source": "ESPN",
-      "asOf": "2026-11-13",
+      "asOf": "2026-11-14",
       "carry": false,
       "n": "奥斯汀·里夫斯",
       "t": "湖人"
@@ -2907,23 +2908,22 @@
       "t": "雷霆"
     },
     "1631097": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 左",
       "source": "NBA官方",
-      "asOf": "2026-11-14",
       "n": "本尼迪克特·马瑟林",
       "t": "鹈鹕"
     },
     "1631099": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月13日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-13",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Murray (illness) didn't participate in Saturday's practice, Brenden Nunes of KHTK Sactown Sports 1140 reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "基根·穆雷",
       "t": "国王"
     },
@@ -2991,10 +2991,10 @@
       "t": "热火"
     },
     "1631108": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左脚踝扭伤）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
       "source": "NBA官方",
       "n": "马克斯·克里斯蒂",
       "t": "独行侠"
@@ -3246,13 +3246,13 @@
       "t": "雄鹿"
     },
     "1631172": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月13日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-13",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Dieng (finger) has been ruled out for Sunday's game against the Hawks.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "乌斯曼·迪昂",
       "t": "雄鹿"
     },
@@ -3326,10 +3326,10 @@
       "t": "奇才"
     },
     "1631212": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右腿筋）",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右腿筋）",
       "source": "NBA官方",
       "n": "佩顿·沃特森",
       "t": "骑士"
@@ -3774,7 +3774,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右足部手术）",
+      "detail": "NBA官方伤病报告：缺阵",
       "source": "NBA官方",
       "n": "德里克·莱夫利二世",
       "t": "独行侠"
@@ -4173,10 +4173,10 @@
       "t": "76人"
     },
     "1641796": {
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 疾病",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 疾病",
       "source": "NBA官方",
       "n": "佩勒·拉尔松",
       "t": "热火"
@@ -4474,13 +4474,13 @@
       "t": "独行侠"
     },
     "1642259": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月12日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-12",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Sarr (illness) is listed as questionable for Sunday's game against Houston.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "亚历克斯·萨尔",
       "t": "奇才"
     },
@@ -4563,9 +4563,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Carrington (chest) has been ruled out for the remainder of Thursday's game against the Pistons.",
+      "detail": "ESPN伤病名单：Carrington (chest) is listed as questionable for Sunday's game against Houston.",
       "source": "ESPN",
-      "asOf": "2026-11-13",
+      "asOf": "2026-11-14",
       "carry": false,
       "n": "卡尔顿·卡林顿",
       "t": "奇才"
@@ -4637,10 +4637,10 @@
       "t": "奇才"
     },
     "1642274": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左膝盖挫伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战（左膝盖挫伤）",
       "source": "NBA官方",
       "n": "伊夫·米西",
       "t": "鹈鹕"
@@ -5337,13 +5337,13 @@
       "t": "鹈鹕"
     },
     "1642848": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月12日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-12",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Johnson is listed as questionable for Sunday's game against the Rockets due to lower-back soreness.",
+      "source": "ESPN",
+      "asOf": "2026-11-14",
+      "carry": false,
       "n": "特雷·约翰逊",
       "t": "奇才"
     },
@@ -5351,7 +5351,7 @@
       "key": "probable",
       "label": "大概率出战",
       "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右小腿肚紧张）",
+      "detail": "NBA官方伤病报告：大概率出战（右小腿肚紧张/酸痛）",
       "source": "NBA官方",
       "n": "诺兰·特拉奥雷",
       "t": "篮网"
@@ -5656,10 +5656,10 @@
       "t": "雄鹿"
     },
     "1642882": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "朱利安·里斯",
       "t": "鹈鹕"
@@ -6397,10 +6397,10 @@
       "t": "国王"
     },
     "1643412": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Flemings (back tightness) will not return to Friday's game against the Bulls.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Flemings (back) has been ruled out for Sunday's game against the Bucks.",
       "source": "ESPN",
       "asOf": "2026-11-14",
       "carry": false,
@@ -6525,13 +6525,12 @@
       "t": "黄蜂"
     },
     "1643516": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Johnson (left shin contusion) is listed as probable for Saturday against Cleveland.",
-      "source": "ESPN",
-      "asOf": "2026-11-13",
-      "carry": false,
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在NBA官方伤病报告中",
+      "source": "NBA官方",
+      "asOf": "2026-11-14",
       "n": "小莫雷兹·约翰逊",
       "t": "独行侠"
     },
@@ -6681,10 +6680,10 @@
       "t": "热火"
     },
     "1643555": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战",
       "source": "NBA官方",
       "n": "小贾隆·皮埃尔",
       "t": "鹈鹕"
@@ -7152,10 +7151,10 @@
       "carry": true
     },
     "1643738": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "NBA官方伤病报告：可以出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "n": "马利克·迪亚",
       "t": "鹈鹕"
@@ -7430,19 +7429,19 @@
       "carry": true
     }
   },
-  "officialCount": 55,
-  "projectedCount": 188,
+  "officialCount": 57,
+  "projectedCount": 186,
   "filledCount": 0,
-  "espnCount": 10,
+  "espnCount": 16,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 488,
-  "updatedAt": "2026-11-14T15:00:00",
-  "updatedAtLabel": "11月14日 15:00",
+  "updatedAt": "2026-11-14T18:30:00",
+  "updatedAtLabel": "11月14日 18:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-14_03_00PM.pdf",
-  "message": "已读取官方伤病报告（11月14日 15:00 发布）：列出55人，今日出战的另外188人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-14_06_30PM.pdf",
+  "message": "已读取官方伤病报告（11月14日 18:30 发布）：列出57人，今日出战的另外186人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-15"
 }
