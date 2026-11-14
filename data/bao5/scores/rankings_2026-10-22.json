@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T02:16:31.778Z",
+  "fetchedAt": "2026-11-14T06:57:46.794Z",
   "date": "2026-10-22",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1276,7 +1276,7 @@
     {
       "userId": "a13c59ae-9bed-47e4-aa50-df890e6ba49c",
       "displayName": "隆多就是最屌的",
-      "avatarKey": "badge:F08",
+      "avatarKey": "badge:T08_S",
       "score": 159.9,
       "remainingSalary": 1,
       "submittedAt": 1792571614347,
@@ -1932,7 +1932,7 @@
     {
       "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
       "displayName": "SsSylar",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T05_G",
       "score": 147.5,
       "remainingSalary": 1,
       "submittedAt": 1792557561596,
@@ -2736,5 +2736,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-22",
     "board": "/api/rankings?period=day&date=2026-10-22"
   },
-  "updatedAt": "2026-11-14T02:16:31.778Z"
+  "updatedAt": "2026-11-14T06:57:46.794Z"
 }
