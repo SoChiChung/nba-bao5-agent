@@ -53,8 +53,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "布鲁克·洛佩斯",
-      "t": "快船",
-      "st": "c:2026-11-14:rw"
+      "t": "快船"
     },
     "201599": {
       "key": "available",
@@ -141,16 +140,16 @@
       "t": "独行侠"
     },
     "202691": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "克莱·汤普森",
@@ -335,13 +334,13 @@
       "others": [
         {
           "source": "RotoWire",
-          "label": "缺阵",
-          "detail": "RotoWire伤病名单：缺阵（小腿肚）"
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（小腿肚）"
         },
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "史蒂文·亚当斯",
@@ -481,8 +480,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "克林特·卡佩拉",
@@ -700,8 +699,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "克里斯·邓恩",
-      "t": "快船",
-      "st": "c:2026-11-14:rw"
+      "t": "快船"
     },
     "1627741": {
       "key": "available",
@@ -857,8 +855,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "小德里克·琼斯",
-      "t": "快船",
-      "st": "c:2026-11-14:rw"
+      "t": "快船"
     },
     "1627936": {
       "key": "available",
@@ -1005,8 +1002,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "以赛亚·哈尔滕施泰因",
-      "t": "雷霆",
-      "st": "c:2026-11-14:rw"
+      "t": "雷霆"
     },
     "1628396": {
       "key": "available",
@@ -1175,8 +1171,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "谢伊·吉尔杰斯-亚历山大",
-      "t": "雷霆",
-      "st": "c:2026-11-14:rw"
+      "t": "雷霆"
     },
     "1628989": {
       "key": "available",
@@ -1359,8 +1354,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "肯里奇·威廉姆斯",
-      "t": "雷霆",
-      "st": "c:2026-11-14:rw"
+      "t": "雷霆"
     },
     "1629027": {
       "key": "available",
@@ -1421,8 +1415,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "八村垒",
-      "t": "快船",
-      "st": "c:2026-11-14:rw"
+      "t": "快船"
     },
     "1629111": {
       "key": "available",
@@ -1585,8 +1578,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "达里厄斯·加兰",
-      "t": "快船",
-      "st": "c:2026-11-14:rw"
+      "t": "快船"
     },
     "1629637": {
       "key": "questionable",
@@ -1899,21 +1891,21 @@
       "t": "公牛"
     },
     "1630173": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "RotoWire",
-          "label": "缺阵",
-          "detail": "RotoWire伤病名单：缺阵（脚踝）"
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（脚踝）"
         },
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "普雷舍斯·阿丘瓦",
@@ -2239,8 +2231,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "特雷·墨菲三世",
@@ -2450,8 +2442,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "特伦登·沃特福特",
@@ -2587,16 +2579,16 @@
       "t": "活塞"
     },
     "1630596": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "埃文·莫布利",
@@ -2973,8 +2965,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "杰林·威廉姆斯",
@@ -2990,16 +2982,16 @@
       "t": "魔术"
     },
     "1631121": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "布莱斯·麦高文斯",
@@ -3730,16 +3722,16 @@
       "source": "公开名单"
     },
     "1641744": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "扎克·埃迪",
@@ -4017,16 +4009,16 @@
       "t": "76人"
     },
     "1641796": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "佩勒·拉尔松",
@@ -4418,8 +4410,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "贾里德·麦凯恩",
-      "t": "雷霆",
-      "st": "c:2026-11-14:rw"
+      "t": "雷霆"
     },
     "1642273": {
       "key": "available",
@@ -4439,8 +4430,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "伊夫·米西",
@@ -4567,16 +4558,16 @@
       "t": "76人"
     },
     "1642349": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "阿杰·米切尔",
@@ -4687,16 +4678,16 @@
       "t": "奇才"
     },
     "1642366": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "昆腾·波斯特",
@@ -5317,8 +5308,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "马克西姆·雷诺",
@@ -5715,16 +5706,16 @@
       "source": "公开名单"
     },
     "1642959": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "克里斯·扬布拉德",
@@ -6170,16 +6161,16 @@
       "t": "独行侠"
     },
     "1643517": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "戴林·斯温",
@@ -6217,8 +6208,7 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "阿代·马拉",
-      "t": "雷霆",
-      "st": "c:2026-11-14:rw"
+      "t": "雷霆"
     },
     "1643536": {
       "key": "available",
@@ -6458,21 +6448,21 @@
       "t": "奇才"
     },
     "1643591": {
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
       "others": [
         {
           "source": "RotoWire",
-          "label": "缺阵",
-          "detail": "RotoWire伤病名单：缺阵（背部）"
+          "label": "出战成疑",
+          "detail": "RotoWire伤病名单：出战成疑（背部）"
         },
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "托比·阿瓦卡",
