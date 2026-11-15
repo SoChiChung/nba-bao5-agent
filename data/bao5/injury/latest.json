@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T01:47:59.443Z",
+  "updatedAt": "2026-11-15T03:01:30.451Z",
   "serverDate": "2026-11-15",
   "requestedDate": "2026-11-16",
   "available": true,
@@ -8,10 +8,10 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 592,
-    "out": 121,
+    "available": 588,
+    "out": 124,
     "probable": 2,
-    "questionable": 16,
+    "questionable": 17,
     "doubtful": 1
   },
   "provenance": {
@@ -23,8 +23,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-15.json",
   "changesFile": "changes/changes_2026-11-15.json",
   "previousDate": "2026-11-14",
-  "changeCount": 138,
-  "restrictedCount": 140,
+  "changeCount": 142,
+  "restrictedCount": 144,
   "restricted": [
     {
       "id": "201935",
@@ -405,6 +405,20 @@
       "energy": null
     },
     {
+      "id": "1629655",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Gafford (face) won't return to Saturday's game against the Cavaliers, Grant Afseth of DallasHoopsJournal.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629660",
       "key": "out",
       "label": "缺阵",
@@ -703,8 +717,8 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Christie (ankle) has been ruled out for Saturday's game against Cleveland.",
-      "source": "ESPN",
+      "detail": "上次官方报告 11月14日：缺阵（左脚踝扭伤）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -867,6 +881,20 @@
       "energy": null
     },
     {
+      "id": "1641713",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Jackson (foot) has been ruled out for the remainder of Saturday's game against the Nets.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641715",
       "key": "out",
       "label": "缺阵",
@@ -957,6 +985,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（扭伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641740",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Clark (hamstring) has been ruled out for the remainder of Saturday's game against the Bulls, Sarah Todd of The Deseret News reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1749,6 +1791,20 @@
       "energy": null
     },
     {
+      "id": "1629130",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Robinson (thigh) is questionable to return to Saturday's game against Miami.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629614",
       "key": "questionable",
       "label": "出战成疑",
@@ -1987,5 +2043,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月14日 20:45 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月14日 22:00 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

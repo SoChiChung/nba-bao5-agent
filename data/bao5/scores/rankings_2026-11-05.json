@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-15T01:47:22.907Z",
+  "fetchedAt": "2026-11-15T03:00:47.478Z",
   "date": "2026-11-05",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -124,7 +124,7 @@
     {
       "userId": "e90e764d-d463-462e-8a6c-74898885d0b6",
       "displayName": "zyzuoo",
-      "avatarKey": "HOU",
+      "avatarKey": "CHI",
       "score": 227.8,
       "remainingSalary": 1,
       "submittedAt": 1793533325627,
@@ -3648,6 +3648,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-05",
     "board": "/api/rankings?period=day&date=2026-11-05"
   },
-  "updatedAt": "2026-11-15T01:47:22.907Z",
+  "updatedAt": "2026-11-15T03:00:47.478Z",
   "stale": true
 }

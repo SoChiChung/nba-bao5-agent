@@ -395,7 +395,7 @@
       "carry": true,
       "n": "阿隆·戈登",
       "t": "掘金",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "203935": {
       "key": "out",
@@ -497,7 +497,7 @@
       "carry": true,
       "n": "尼古拉·约基奇",
       "t": "掘金",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "204001": {
       "key": "out",
@@ -755,7 +755,7 @@
       "carry": true,
       "n": "贾马尔·穆雷",
       "t": "掘金",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1627751": {
       "key": "available",
@@ -1470,13 +1470,13 @@
       "t": "老鹰"
     },
     "1629130": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Robinson (thigh) is questionable to return to Saturday's game against Miami.",
+      "source": "ESPN",
+      "asOf": "2026-11-15",
+      "carry": false,
       "n": "邓肯·罗宾逊",
       "t": "活塞",
       "st": "c:2026-11-15:nba"
@@ -1586,7 +1586,7 @@
       "carry": true,
       "n": "锡安·威廉森",
       "t": "鹈鹕",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1629628": {
       "key": "available",
@@ -1721,13 +1721,13 @@
       "t": "老鹰"
     },
     "1629655": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Gafford (face) won't return to Saturday's game against the Cavaliers, Grant Afseth of DallasHoopsJournal.com reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-15",
+      "carry": false,
       "n": "丹尼尔·加福德",
       "t": "独行侠",
       "st": "c:2026-11-15:nba"
@@ -1762,7 +1762,7 @@
       "carry": true,
       "n": "卡梅伦·约翰逊",
       "t": "掘金",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1629671": {
       "key": "available",
@@ -2005,7 +2005,7 @@
       "carry": true,
       "n": "萨迪克·贝",
       "t": "鹈鹕",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1630182": {
       "key": "available",
@@ -2300,7 +2300,7 @@
       "carry": true,
       "n": "赫伯特·琼斯",
       "t": "鹈鹕",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1630530": {
       "key": "out",
@@ -2945,10 +2945,10 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Christie (ankle) has been ruled out for Saturday's game against Cleveland.",
-      "source": "ESPN",
+      "detail": "上次官方报告 11月14日：缺阵（左脚踝扭伤）",
+      "source": "NBA官方",
       "asOf": "2026-11-14",
-      "carry": false,
+      "carry": true,
       "n": "马克斯·克里斯蒂",
       "t": "独行侠"
     },
@@ -3097,7 +3097,7 @@
       "carry": true,
       "n": "克里斯蒂安·布劳恩",
       "t": "掘金",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1631131": {
       "key": "available",
@@ -3606,13 +3606,13 @@
       "t": "76人"
     },
     "1641713": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Jackson (foot) has been ruled out for the remainder of Saturday's game against the Nets.",
+      "source": "ESPN",
+      "asOf": "2026-11-15",
+      "carry": false,
       "n": "格雷格·杰克逊二世",
       "t": "灰熊"
     },
@@ -3785,13 +3785,13 @@
       "t": "开拓者"
     },
     "1641740": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Clark (hamstring) has been ruled out for the remainder of Saturday's game against the Bulls, Sarah Todd of The Deseret News reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-15",
+      "carry": false,
       "n": "杰伦·克拉克",
       "t": "森林狼"
     },
@@ -4551,7 +4551,7 @@
       "carry": true,
       "n": "伊夫·米西",
       "t": "鹈鹕",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1642275": {
       "key": "available",
@@ -5230,7 +5230,7 @@
       "carry": true,
       "n": "杰里迈亚·费尔斯",
       "t": "鹈鹕",
-      "st": "c:2026-11-15:nba"
+      "st": "c:2026-11-15:rw"
     },
     "1642848": {
       "key": "questionable",
@@ -7283,16 +7283,16 @@
   "officialCount": 83,
   "projectedCount": 330,
   "filledCount": 0,
-  "espnCount": 3,
+  "espnCount": 6,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 318,
-  "updatedAt": "2026-11-14T20:45:00",
-  "updatedAtLabel": "11月14日 20:45",
+  "updatedAt": "2026-11-14T22:00:00",
+  "updatedAtLabel": "11月14日 22:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-14_08_45PM.pdf",
-  "message": "已读取官方伤病报告（11月14日 20:45 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-14_10_00PM.pdf",
+  "message": "已读取官方伤病报告（11月14日 22:00 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-16"
 }
