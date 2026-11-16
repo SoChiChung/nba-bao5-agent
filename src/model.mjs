@@ -10,6 +10,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const RUNTIME_ROOT = process.env.VERCEL ? path.join('/tmp', 'nba-agent') : ROOT;
 const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+const quantile = (values,q) => {
+  const sorted=[...values].sort((a,b)=>a-b);
+  return sorted.length?sorted[Math.max(0,Math.min(sorted.length-1,Math.floor((sorted.length-1)*q)))]:0;
+};
 const round = x => Math.round((x + Number.EPSILON) * 10) / 10;
 const DEFENSE_TEAM_ALIAS = { GS:'GSW', NO:'NOP', NY:'NYK', PHO:'PHX', SA:'SAS' };
 const normalizeDefenseTeam = team => {
@@ -113,10 +117,23 @@ const TEAM_CN = { ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:
 export const MODEL_MODES = {
   lowRisk: { label:'稳健优先', recent:0.18, history:0.08, matchup:0.04, odds:0.04, injury:1.25, replacement:0.14, crowd:0.08 },
   highRisk: { label:'近期冲刺', recent:0.42, history:0.24, matchup:0.06, odds:0.08, injury:1, replacement:0.28, crowd:0.12 },
-  crowdFocus: { label:'前五趋势', recent:0.24, history:0.12, matchup:0.04, odds:0.04, injury:1.1, replacement:0.18, crowd:0.3 },
+  crowdFocus: { label:'前五趋势', recent:0.45, history:0.12, matchup:0.04, odds:0.04, injury:1.1, replacement:0.18, crowd:0.3 },
   matchupFocus: { label:'对位优先', recent:0.2, history:0.1, matchup:0.1, odds:0.08, injury:1.15, replacement:0.18, crowd:0.12 },
   balanced: { label:'均衡探索', recent:0.28, history:0.16, matchup:0.06, odds:0.08, injury:1.1, replacement:0.2, crowd:0.18 },
 };
+
+export const POSITION_MATCHUP_EXPERIMENT = Object.freeze({
+  id:'position-matchup-c-pf-2026-11',
+  startDate:'2026-11-17',
+  endDate:'2026-11-23',
+  reviewDate:'2026-11-24',
+  positions:['C','PF'],
+  multiplier:2,
+});
+
+const HIGH_ENERGY_QUANTILE=0.75;
+const STABLE_RECENT_CV_MAX=0.20;
+const STABLE_RECENT_FLOOR_MARGIN=0.02;
 
 function sameLineupIds(left, right) {
   if (!Array.isArray(left) || !Array.isArray(right) || left.length !== 5 || right.length !== 5) return false;
@@ -131,10 +148,22 @@ const normalizePlayerLogTeam = value => {
 };
 
 /** Attach per-player realized scores to settled forecast snapshots using ID, opponent, and date. */
-export function attachPlayerActualsFromLogs(history = [], logStore = {}, settledDates = []) {
+export function attachPlayerActualsFromLogs(history = [], logStore = {}, settledDates = [], schedule = []) {
   const settled=new Set([...settledDates].map(String));
   const dayMs=86_400_000;
-  const counts={rows:0,playerResults:0,completeModelLineups:0};
+  const counts={rows:0,playerResults:0,dnpResults:0,completeModelLineups:0};
+  const completedGamesById=new Map((schedule??[]).filter(game=>Number(game?.status)===3&&game?.id!=null).map(game=>[String(game.id),game]));
+  const completedTeamGames=new Set();
+  for(const player of Object.values(logStore?.players??{})){
+    const team=normalizePlayerLogTeam(player?.team);
+    if(!team)continue;
+    for(const log of player.logs??[]){
+      const date=String(log?.date??'').slice(0,10);
+      const opponent=normalizePlayerLogTeam(log?.oppAbbr);
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!opponent)continue;
+      completedTeamGames.add(`${date}|${[team,opponent].sort().join('|')}`);
+    }
+  }
   for(const row of history){
     if(!settled.has(String(row?.dateKey??''))||!Array.isArray(row?.playerForecasts))continue;
     const forecastById=new Map();
@@ -146,24 +175,48 @@ export function attachPlayerActualsFromLogs(history = [], logStore = {}, settled
       if(!id||!forecast?.lossEligible||!forecast?.hasGame||!Number.isFinite(predicted)||predicted<=0)continue;
       const opponent=normalizePlayerLogTeam(forecast.opponent);
       if(!opponent)continue;
+      const team=normalizePlayerLogTeam(forecast.team);
+      const scheduledGame=completedGamesById.get(String(forecast.gameId??''));
+      const scheduledTeams=scheduledGame?[normalizePlayerLogTeam(scheduledGame.home),normalizePlayerLogTeam(scheduledGame.away)]:[];
+      const scheduledDate=scheduledGame&&team&&scheduledTeams.includes(team)&&scheduledTeams.includes(opponent)
+        ?(scheduledGame.utc&&Number.isFinite(Date.parse(scheduledGame.utc))
+          ?new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York'}).format(new Date(scheduledGame.utc))
+          :String(scheduledGame.date??'').slice(0,10)):'';
       const logs=logStore?.players?.[id]?.logs??[];
-      const matches=logs.filter(log=>{
+      const possibleMatches=logs.filter(log=>{
         const logDate=String(log?.date??'').slice(0,10);
         const logMs=Date.parse(`${logDate}T00:00:00Z`);
         return normalizePlayerLogTeam(log?.oppAbbr)===opponent&&Number.isFinite(logMs)&&Math.abs(logMs-dateMs)<=dayMs;
       });
-      if(matches.length!==1)continue;
-      const log=matches[0];
-      const statKeys=['points','rebounds','assists','steals','blocks','turnovers'];
-      const stats=Object.fromEntries(statKeys.map(key=>[key,Number(log[key])]));
-      if(statKeys.some(key=>log[key]==null||!Number.isFinite(stats[key])))continue;
-      const actual=Number.isFinite(Number(log.bao5))?Number(log.bao5)
-        :stats.points+1.2*stats.rebounds+1.5*stats.assists+3*stats.steals+3*stats.blocks-stats.turnovers;
+      const matches=scheduledDate?possibleMatches.filter(log=>String(log?.date??'').slice(0,10)===scheduledDate):possibleMatches;
+      let actual,stats,actualGameDate,actualOpponent,actualSource;
+      if(matches.length===1){
+        const log=matches[0];
+        const statKeys=['points','rebounds','assists','steals','blocks','turnovers'];
+        stats=Object.fromEntries(statKeys.map(key=>[key,Number(log[key])]));
+        if(statKeys.some(key=>log[key]==null||!Number.isFinite(stats[key])))continue;
+        actual=Number.isFinite(Number(log.bao5))?Number(log.bao5)
+          :stats.points+1.2*stats.rebounds+1.5*stats.assists+3*stats.steals+3*stats.blocks-stats.turnovers;
+        actualGameDate=String(log.date).slice(0,10);
+        actualOpponent=normalizePlayerLogTeam(log.oppAbbr);
+        actualSource='current-season-player-log';
+      }else if(matches.length===0){
+        if(!team)continue;
+        const candidateDates=[-1,0,1].map(offset=>new Date(dateMs+offset*dayMs).toISOString().slice(0,10));
+        const gameDates=scheduledDate?[scheduledDate]:candidateDates.filter(date=>completedTeamGames.has(`${date}|${[team,opponent].sort().join('|')}`));
+        if(gameDates.length!==1)continue;
+        actual=0;
+        stats={points:0,rebounds:0,assists:0,steals:0,blocks:0,turnovers:0};
+        actualGameDate=gameDates[0];
+        actualOpponent=opponent;
+        actualSource='completed-team-game-no-player-boxscore';
+        counts.dnpResults++;
+      }else continue;
       forecast.actual=Number(actual.toFixed(1));
-      forecast.actualStats={...stats,minutes:Number.isFinite(Number(log.minutes))?Number(log.minutes):null};
-      forecast.actualGameDate=String(log.date).slice(0,10);
-      forecast.actualOpponent=normalizePlayerLogTeam(log.oppAbbr);
-      forecast.actualSource='current-season-player-log';
+      forecast.actualStats={...stats,minutes:actualSource==='completed-team-game-no-player-boxscore'?0:Number.isFinite(Number(matches[0]?.minutes))?Number(matches[0].minutes):null};
+      forecast.actualGameDate=actualGameDate;
+      forecast.actualOpponent=actualOpponent;
+      forecast.actualSource=actualSource;
       forecast.scoreError=Number((actual-predicted).toFixed(1));
       forecastById.set(id,forecast);
       counts.playerResults++;
@@ -321,8 +374,10 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const gameOdds = dayGames.map(g => findOdds(allOdds, g)).filter(Boolean);
     const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
     const siteInjuries = siteInjuryReportUsable(injuries,dateKey);
-    const candidates = players.filter(p => p.active !== false && teams.has(p.team)).map(p =>
-      scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate:playerPositionIndex.get(String(p.id))??null, calibrationFactor:calibrationForPhase(preseason?'preseason':'regular'), preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines })
+    const slatePlayers=players.filter(p=>p.active!==false&&teams.has(p.team));
+    const highEnergyThreshold=quantile(slatePlayers.map(p=>Number(p.energy)).filter(value=>Number.isFinite(value)&&value>0),HIGH_ENERGY_QUANTILE);
+    const candidates = slatePlayers.map(p =>
+      scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate:playerPositionIndex.get(String(p.id))??null, positionIndex:playerPositionIndex, calibrationFactor:calibrationForPhase(preseason?'preseason':'regular'), preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold })
     );
     // Compare <=20-energy players with this slate's own low-energy pool. This
     // bounded adjustment affects lineup choices, not displayed projections.
@@ -347,16 +402,18 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
     const startMs = Math.min(...dayGames.map(g => new Date(g.utc).getTime()));
     return {
       dateKey, games: scoredGames, candidates: candidates.length, phase:preseason?'Preseason':'Regular Season', diversification,
+      positionMatchupExperiment:{...POSITION_MATCHUP_EXPERIMENT,active:dateKey>=POSITION_MATCHUP_EXPERIMENT.startDate&&dateKey<=POSITION_MATCHUP_EXPERIMENT.endDate},
+      stabilityGuardrail:{energyQuantile:HIGH_ENERGY_QUANTILE,energyThreshold:highEnergyThreshold,cvMax:STABLE_RECENT_CV_MAX,floorMargin:STABLE_RECENT_FLOOR_MARGIN},
       players: [...candidates].sort((a,b)=>b.projected-a.projected),
       injuryMeta: { date: injuries.serverDate??injuries.date, available: siteInjuries, note: siteInjuries ? '健康状态采用每日一阵网站伤病报告' : '没有可用的每日一阵伤病报告；未应用伤病限制' },
       oddsMeta: gameOdds.length ? { updatedAt: gameOdds[0].updatedAt, count: gameOdds.length } : null,
       lineup, efficientLineup, startMs, lockedAt: startMs - 15 * 60_000,
     };
   });
-  return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES };
+  return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES, positionMatchupExperiment:POSITION_MATCHUP_EXPERIMENT };
 }
 
-function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines }) {
+function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate, positionIndex, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold }) {
   const currentStatBase = statScore(p);
   const currentSeasonStats=p.currentSeasonStats;
   const currentSeasonAverage=Number(currentSeasonStats?.averageFantasy);
@@ -372,14 +429,22 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const useRookiePrior = !hasRegularBaseline && hasPreseasonSample && positionBaseline > 0;
   const observedCurrentAverage=currentSeasonAverage>0?currentSeasonAverage:currentStatBase;
   const shrinkPrior=positionBaseline>0?positionBaseline:hasHistoricalAverage?historicalAverage:0;
+  // The old one-game positional prior pulled established stars too far toward
+  // the league median. Keep a small prior when current-season logs exist.
+  const priorStrength=hasCurrentSeasonLog?0.25:1;
   const statBase=observedCurrentAverage>0&&currentSampleCount>0&&shrinkPrior>0
-    ?(observedCurrentAverage*currentSampleCount+shrinkPrior)/(currentSampleCount+1)
+    ?(observedCurrentAverage*currentSampleCount+shrinkPrior*priorStrength)/(currentSampleCount+priorStrength)
     :observedCurrentAverage>0?observedCurrentAverage:hasHistoricalAverage?historicalAverage:useRookiePrior?positionBaseline:hasPreseasonAverage?preseasonAverage:0;
-  const baselineSource=observedCurrentAverage>0?`本赛季数据${currentSampleCount>0&&shrinkPrior>0?'（向同位置中位数收缩，先验 1 场）':''}`:hasHistoricalAverage?p.historicalStats.source??`${p.historicalStats.season??'上赛季'}常规赛近 ${p.historicalStats.games} 场`:useRookiePrior?`${p.position==='back'?'后场':'前场'}常规赛中位数先验`:hasPreseasonAverage?'季前赛样本':'没有可用球员得分样本';
+  const baselineSource=observedCurrentAverage>0?`本赛季数据${currentSampleCount>0&&shrinkPrior>0?`（向同位置中位数收缩，先验 ${priorStrength} 场）`:''}`:hasHistoricalAverage?p.historicalStats.source??`${p.historicalStats.season??'上赛季'}常规赛近 ${p.historicalStats.games} 场`:useRookiePrior?`${p.position==='back'?'后场':'前场'}常规赛中位数先验`:hasPreseasonAverage?'季前赛样本':'没有可用球员得分样本';
   const opponentGame = dayGames.find(g => g.home === p.team || g.away === p.team);
   const opponent = opponentGame ? (opponentGame.home === p.team ? opponentGame.away : opponentGame.home) : null;
   const matchup = opponent ? positionMatchup(defenseRows, opponent, p, positionEstimate) : { positions: [], positionWeights:{}, rank: null, signal: 0, teams: 0 };
-  const matchupFactor = matchup.teams ? clamp(1 + matchup.signal * weights.matchup, 1-weights.matchup, 1+weights.matchup) : 1;
+  const primaryPosition=mainPosition(positionEstimate,p);
+  const matchupExperimentActive=dateKey>=POSITION_MATCHUP_EXPERIMENT.startDate&&dateKey<=POSITION_MATCHUP_EXPERIMENT.endDate&&POSITION_MATCHUP_EXPERIMENT.positions.includes(primaryPosition);
+  const matchupBaseWeight=Math.max(0,Number(weights.matchup)||0);
+  const matchupWeight=matchupBaseWeight*(matchupExperimentActive?POSITION_MATCHUP_EXPERIMENT.multiplier:1);
+  const matchupBaseFactor=matchup.teams?clamp(1+matchup.signal*matchupBaseWeight,1-matchupBaseWeight,1+matchupBaseWeight):1;
+  const matchupFactor=matchup.teams?clamp(1+matchup.signal*matchupWeight,1-matchupWeight,1+matchupWeight):1;
   const matchupPositionLabel=Object.entries(matchup.positionWeights??{}).map(([position,share])=>`${position} ${Math.round(Number(share)*100)}%`).join('/');
   const odds = gameOdds.find(x => x.participant1Abbr === p.team || x.participant2Abbr === p.team);
   const totalLine = mainTotal(odds);
@@ -389,7 +454,6 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
   const reportedChance = injury ? probability(injury) : 0.97;
   const chance = reportedChance;
   const injuryFactor=injury?Math.max(0,1-(1-chance)*weights.injury):1;
-  const replacementBoost=injury?replacementOpportunity(p,players,injuries,weights.replacement):1;
   const historyMatchup=opponent?matchupSignal(p.name??p.nameCn,TEAM_CN[opponent],{nameEn:p.englishName,bao5Id:p.id,playerTeamCn:TEAM_CN[p.team]}):{available:false,reason:'无法识别对手球队'};
   // Convert the bounded relative-strength percentage to the same point scale
   // as the baseline before blending it with the other signals.
@@ -404,49 +468,76 @@ function scorePlayer(p, { dayGames, gameOdds, injuries, siteInjuries, defenseRow
       : Number(preseasonStats.averageFantasy)
   ):(p.recentAverage!=null&&Number.isFinite(Number(p.recentAverage))?Number(p.recentAverage):null);
   const preseasonGames=Number(preseasonStats?.games??0);
-  // Chronological player-game validation favors a .45 recent-signal blend.
-  // Current-season logs already contain the exact season average; keep the
-  // same weight throughout the regular season instead of dropping it after
-  // the (always three-game) rolling window.
-  const recentWeight=hasCurrentSeasonLog?0.45:hasCurrentSeasonSample?Math.max(0.3,weights.recent):hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0.3,weights.recent)*Math.min(1,preseasonGames/2)):weights.recent;
+  // Use the selected mode's recent weight for every player. The front-five
+  // preset carries its validated 45% setting explicitly in MODEL_MODES.
+  const recentWeight=hasCurrentSeasonLog?Math.max(0,Number(weights.recent)||0):hasCurrentSeasonSample?Math.max(0,Number(weights.recent)||0):hasPreseasonSample?(useRookiePrior?Math.min(0.5,0.35+0.03*Math.max(0,Math.min(5,preseasonGames-1))):Math.max(0,Number(weights.recent)||0)*Math.min(1,preseasonGames/2)):Math.max(0,Number(weights.recent)||0);
   const activeSignals=[{value:recentSignal,weight:recentWeight,kind:'recent'},{value:historySignal,weight:weights.history,kind:'history'}].filter(s=>s.value!=null);
   const baselineWeight=Math.max(0,1-activeSignals.reduce((sum,s)=>sum+s.weight,0));
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const currentSeasonMinutes=Number(currentSeasonStats?.recentAverageMinutes??currentSeasonStats?.averageMinutes??0);
+  const opportunity=siteInjuries?replacementOpportunity(p,players,injuries,positionIndex,weights.replacement):{addedMinutes:0,missingTeammates:0};
+  const projectedMinutes=currentSeasonMinutes>0?Math.min(40,currentSeasonMinutes+opportunity.addedMinutes):0;
+  const minutesFactor=currentSeasonMinutes>0?clamp(projectedMinutes/currentSeasonMinutes,1,1.35):1;
+  const replacementBoost=minutesFactor;
+  const energy=Number(p.energy);
   const noCurrentSeasonMinutes=!preseason&&Boolean(priorTeamGameDate)&&Number(p.gamesPlayed??0)===0&&!(hasCurrentSeasonLog&&currentSeasonMinutes>0);
   // A tiny current-season role is a real availability signal. Shrink the
   // projection when recent logged minutes are low, with the adjustment growing
   // as more games confirm the role; one short appearance should not dominate.
-  const lowMinutesRatio=hasCurrentSeasonLog?clamp((10-currentSeasonMinutes)/10,0,0.5)*Math.min(1,Number(currentSeasonStats.recentGames??currentSeasonStats.games)/3):0;
+  const lowMinutesRatio=hasCurrentSeasonLog?clamp((10-projectedMinutes)/10,0,0.5)*Math.min(1,Number(currentSeasonStats.recentGames??currentSeasonStats.games)/3):0;
   const rotationFactor=1-lowMinutesRatio;
-  const projected = personalized * matchupFactor * totalFactor * injuryFactor * replacementBoost * popularityFactor * rotationFactor * (preseason?0.84:1) * calibrationFactor * (noCurrentSeasonMinutes?0:1);
+  const projectionTailFactor=totalFactor*injuryFactor*minutesFactor*popularityFactor*rotationFactor*(preseason?0.84:1)*(noCurrentSeasonMinutes?0:1);
+  const rawControlProjected=personalized*matchupBaseFactor*projectionTailFactor;
+  const rawProjected=personalized*matchupFactor*projectionTailFactor;
+  const recentCv=Number(currentSeasonStats?.recentCoefficientOfVariation);
+  const stableHighEnergy=hasCurrentSeasonLog&&Number(currentSeasonStats?.recentGames)>=6&&Number(highEnergyThreshold)>0&&energy>=Number(highEnergyThreshold)&&Number.isFinite(recentCv)&&recentCv<=STABLE_RECENT_CV_MAX&&!preseason&&!injuryHardExclude(injury)&&chance>=0.75;
+  const stabilityFloor=stableHighEnergy&&recentSignal!=null&&Number.isFinite(Number(recentSignal))?Number(recentSignal)*(1+STABLE_RECENT_FLOOR_MARGIN):null;
+  const controlProjected=stabilityFloor==null?rawControlProjected:Math.max(rawControlProjected,stabilityFloor);
+  const projected=stabilityFloor==null?rawProjected:Math.max(rawProjected,stabilityFloor);
+  const stabilityFloorApplied=stabilityFloor!=null&&projected>rawProjected+1e-9;
   const statForecast=projectStatForecast({currentSeasonStats,statBase,baselineWeight,activeSignals,personalized,projected:round(projected)});
-  const energy=Number(p.energy);
   const upsideBoost=0;
   const selectionScore=projected;
   const reasons = [
 `球员基准 ${round(statBase)} 分（${baselineSource}）；${hasPreseasonSample?`季前赛 ${preseasonStats.games} 场场均 ${round(preseasonStats.averageFantasy)} 分${preseasonStats.recentAverageFantasy!=null?`，最近 3 场均值 ${round(preseasonStats.recentAverageFantasy)} 分`:''}${preseasonStats.averageMinutes!=null?`、场均 ${round(preseasonStats.averageMinutes)} 分钟`:''}${preseasonStats.source?`（${preseasonStats.source}）`:''}${useRookiePrior?'，无常规赛记录，季前赛高权重参考':hasCurrentSeasonSample?'，本季样本优先':'，本季尚无数据，近期表现加权参考'}，近期权重 ${Math.round(recentWeight*100)}%`:recentSignal==null?'BAO5 未提供近期逐场样本，近期权重暂回落到场均':`近期状态 ${round(recentSignal)} 分，权重 ${Math.round(recentWeight*100)}%`}；${historyMatchup.available?`历史对阵 ${Math.round(historyMatchup.signal*100)}%，${historyMatchup.games} 场有效样本，${historyMatchup.detail}；按 ${Math.round(weights.history*100)}% 权重参与`:`历史对阵数据暂不可用（${historyMatchup.reason}），按中性值处理`}`,
-    matchup.teams ? `${opponent} 对 ${matchupPositionLabel||matchup.positions.join('/')} 的 PTS 防守位次 ${round(matchup.rank)}（按球员位置分钟占比加权，${round((matchup.teams+1)/2)} 为中性）按 ${Math.round(weights.matchup*100)}% 权重调整` : '对位样本未匹配，按中性值处理',
-    hasCurrentSeasonLog?`本赛季 ${currentSeasonStats.season} 已有 ${currentSeasonStats.games} 场日志；最近 ${currentSeasonStats.recentGames} 场均分 ${round(currentSeasonStats.recentAverageFantasy)}、均分钟 ${round(currentSeasonStats.recentAverageMinutes)}，日志日期 ${currentSeasonStats.lastDate??'未知'}，近期权重 ${Math.round(recentWeight*100)}%`:noCurrentSeasonMinutes?`球队已于 ${priorTeamGameDate} 打过本赛季比赛，但球员本赛季累计出场仍为 0；上赛季均分不再用于推荐，待出现本赛季上场记录后恢复`:'本赛季还没有可用的近期逐场日志',
+    matchup.teams ? `${opponent} 对 ${matchupPositionLabel||matchup.positions.join('/')} 的 PTS 防守位次 ${round(matchup.rank)}（按球员位置分钟占比加权，${round((matchup.teams+1)/2)} 为中性）按 ${Math.round(matchupWeight*100)}% 权重调整${matchupExperimentActive?`；一周试验权重 ${Math.round(matchupBaseWeight*100)}%→${Math.round(matchupWeight*100)}%，未加倍对照 ${round(controlProjected)} 分`:''}` : '对位样本未匹配，按中性值处理',
+    hasCurrentSeasonLog?`本赛季 ${currentSeasonStats.season} 已有 ${currentSeasonStats.games} 场日志；最近 ${currentSeasonStats.recentGames} 场均分 ${round(currentSeasonStats.recentAverageFantasy)}、样本标准差 ${Number.isFinite(Number(currentSeasonStats.recentStdDevFantasy))?round(currentSeasonStats.recentStdDevFantasy):'—'}、CV ${Number.isFinite(recentCv)?`${Math.round(recentCv*100)}%`:'—'}、均分钟 ${round(currentSeasonStats.recentAverageMinutes)}，近期权重 ${Math.round(recentWeight*100)}%`:noCurrentSeasonMinutes?`球队已于 ${priorTeamGameDate} 打过本赛季比赛，但球员本赛季累计出场仍为 0；上赛季均分不再用于推荐，待出现本赛季上场记录后恢复`:'本赛季还没有可用的近期逐场日志',
+    stableHighEnergy?`高能量低波动保护：能量门槛 ${round(highEnergyThreshold)}、近六场 CV ${Math.round(recentCv*100)}%；预测下限为近六场均分 +2%（${round(stabilityFloor)} 分）${stabilityFloorApplied?'，本次已触发':''}`:'未触发高能量低波动保护（未达能量前 25%、近六场不足或 CV 高于 20%）',
     lowMinutesRatio>0?`近期上场时间偏少（约 ${round(currentSeasonMinutes)} 分钟/场，${currentSeasonStats.recentGames??currentSeasonStats.games} 场样本），预计分按轮换风险下调 ${Math.round(lowMinutesRatio*100)}%`:'近期上场时间未触发轮换风险下调',
     totalLine ? `盘口总分 ${totalLine}，仅作小幅比赛环境修正` : '没有可用总分盘口',
     injury ? `BAO5 网站伤病状态：${injury.label ?? injury.key}；${injuryHardExclude(injury)?'健康风险过高，禁止入选阵容':`折算出场概率约 ${Math.round(chance*100)}%`}` : siteInjuries ? 'BAO5 网站报告未限制该球员，按可出战处理' : '没有近期 BAO5 网站伤病报告，按默认可出战概率处理',
-    replacementBoost>1?`队友伤病后预计角色提升，替补机会修正 +${Math.round((replacementBoost-1)*100)}%`:'队友伤病替补机会未产生额外修正',
+    opportunity.addedMinutes>0?`队友缺阵预计释放 ${round(opportunity.addedMinutes)} 分钟，本人预计上场 ${round(projectedMinutes)} 分钟，按个人本季每分钟产出修正 +${Math.round((minutesFactor-1)*100)}%（最多 +35%）`:'没有同队缺阵球员释放出可分配的相近位置分钟',
+    `球员分预测直接使用逐球员统计与角色分钟，不套用个人阵容总分校准；当前阵容校准参考值 ${Number(calibrationFactor).toFixed(3)}`,
     crowdPick.selections?`总榜前五历史选人偏好：${crowdPick.selections} 次入选，平均贡献 ${crowdPick.averagePoints} 分；轻量修正 ${Math.round(crowdPick.signal*weights.crowd*100)}%`:'暂无已揭晓前五阵容样本，不应用选人偏好修正',
     '低能量性价比修正按当日候选池计算；预计得分仍独立展示',
     preseason?'季前赛预计出场时间不稳定，统一预留 16% 轮换风险折扣':'常规赛不应用季前赛轮换折扣',
   ];
   const gameId=opponentGame?String(opponentGame.gameId??opponentGame.id??`${opponentGame.date}:${opponentGame.home}:${opponentGame.away}`):null;
   const scoreComponents={
-    observedCurrentAverage:round(observedCurrentAverage),currentSampleCount,shrinkPrior:round(shrinkPrior),
+    observedCurrentAverage:round(observedCurrentAverage),currentSampleCount,shrinkPrior:round(shrinkPrior),priorStrength,
     recentSignal:recentSignal==null?null:round(recentSignal),recentWeight,
     historySignal:historySignal==null?null:round(historySignal),historyWeight:weights.history,
-    matchupFactor:Number(matchupFactor.toFixed(3)),matchupWeight:weights.matchup,matchupPositions:matchup.positions,matchupPositionWeights:matchup.positionWeights??{},matchupPositionSource:matchup.positionSource??null,matchupPositionBasis:matchup.positionBasis??null,matchupPrimaryPosition:matchup.primaryPosition??null,matchupPositionConfidence:matchup.positionConfidence??null,matchupRank:matchup.rank==null?null:Number(matchup.rank.toFixed(2)),matchupSignal:Number(matchup.signal.toFixed(3)),totalFactor:round(totalFactor),injuryFactor:round(injuryFactor),
-    replacementBoost:round(replacementBoost),popularityFactor:round(popularityFactor),rotationFactor:round(rotationFactor),
-    calibrationFactor:Number(calibrationFactor.toFixed(3)),phaseFactor:preseason?0.84:1,
+    matchupFactor:Number(matchupFactor.toFixed(3)),matchupBaseFactor:Number(matchupBaseFactor.toFixed(3)),matchupWeight,matchupBaseWeight,matchupPositions:matchup.positions,matchupPositionWeights:matchup.positionWeights??{},matchupPositionSource:matchup.positionSource??null,matchupPositionBasis:matchup.positionBasis??null,matchupPrimaryPosition:matchup.primaryPosition??null,matchupPositionConfidence:matchup.positionConfidence??null,matchupRank:matchup.rank==null?null:Number(matchup.rank.toFixed(2)),matchupSignal:Number(matchup.signal.toFixed(3)),positionMatchupExperiment:matchupExperimentActive?{id:POSITION_MATCHUP_EXPERIMENT.id,startDate:POSITION_MATCHUP_EXPERIMENT.startDate,endDate:POSITION_MATCHUP_EXPERIMENT.endDate,reviewDate:POSITION_MATCHUP_EXPERIMENT.reviewDate,position:primaryPosition,multiplier:POSITION_MATCHUP_EXPERIMENT.multiplier,controlProjected:round(controlProjected)}:null,totalFactor:round(totalFactor),injuryFactor:round(injuryFactor),
+    recentStdDevFantasy:Number.isFinite(Number(currentSeasonStats?.recentStdDevFantasy))?round(currentSeasonStats.recentStdDevFantasy):null,recentCoefficientOfVariation:Number.isFinite(recentCv)?Number(recentCv.toFixed(3)):null,highEnergyThreshold:round(highEnergyThreshold),stabilityFloor:stabilityFloor==null?null:round(stabilityFloor),stabilityFloorMargin:stableHighEnergy?STABLE_RECENT_FLOOR_MARGIN:null,stabilityFloorApplied,
+    replacementBoost:round(replacementBoost),opportunityMinutes:round(opportunity.addedMinutes),projectedMinutes:projectedMinutes>0?round(projectedMinutes):null,missingTeammates:opportunity.missingTeammates,
+    minutesFactor:round(minutesFactor),popularityFactor:round(popularityFactor),rotationFactor:round(rotationFactor),
+    calibrationFactor:1,lineupCalibrationReference:Number(calibrationFactor.toFixed(3)),phaseFactor:preseason?0.84:1,
   };
-  return { ...p, positionEstimate:positionEstimate??null, gameId, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), scoreComponents, statForecast, projected:round(projected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude: injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+  return { ...p, positionEstimate:positionEstimate??null, gameId, opponent, baseScore:round(statBase), baselineSource, regularBaselineAvailable:hasRegularBaseline, noCurrentSeasonMinutes, rotationFactor:round(rotationFactor), projectedMinutes:projectedMinutes>0?round(projectedMinutes):null, opportunityMinutes:round(opportunity.addedMinutes), scoreComponents, statForecast, projected:round(projected), controlProjected:round(controlProjected), selectionScore:round(selectionScore), upsideBoost:round(upsideBoost), value:round(projected / Math.max(1, Number(p.energy))), chance:round(chance), matchupFactor:round(matchupFactor), totalLine, crowdPick, historyMatchupAvailable:historyMatchup.available, historyMatchupReason:historyMatchup.reason??null, injury: injury ? { label:injury.label ?? injury.key, detail:injury.detail, source:injury.source, hardExclude:injuryHardExclude(injury) } : null, healthLabel:injury?.label ?? '无伤病报告', reasons };
+}
+
+function mainPosition(positionEstimate,player){
+  const valid=['PG','SG','SF','PF','C'];
+  const primary=String(positionEstimate?.primary??'').toUpperCase();
+  if(valid.includes(primary))return primary;
+  const distribution=positionEstimate?.distribution;
+  if(distribution&&typeof distribution==='object'){
+    const best=Object.entries(distribution).filter(([position,value])=>valid.includes(position)&&Number(value)>0).sort((a,b)=>Number(b[1])-Number(a[1]))[0]?.[0];
+    if(best)return best;
+  }
+  const raw=String(player?.positionRaw??'').toUpperCase();
+  return raw.split(/[^A-Z]+/).find(position=>valid.includes(position))??null;
 }
 
 // Decompose the existing total projection into a stat line for later loss analysis;
@@ -502,7 +593,9 @@ export function playerForecastSnapshot(slate, roster=[]) {
       }:null,
       gameId:prediction?.gameId?String(prediction.gameId):game?String(game.gameId??game.id??game.game_id??''):null,
       opponent:prediction?.opponent??opponent,hasGame,predictionStatus:prediction?(prediction.injury?.label??'模型已评分'):hasGame?'未进入有效候选池':'当日无比赛',
-      predicted:projected,baseScore:Number(prediction?.baseScore??0),selectionScore:Number(prediction?.selectionScore??projected),
+      predicted:projected,controlPredicted:Number(prediction?.controlProjected??projected),positionMatchupExperiment:prediction?.scoreComponents?.positionMatchupExperiment??null,baseScore:Number(prediction?.baseScore??0),selectionScore:Number(prediction?.selectionScore??projected),
+      projectedMinutes:prediction?.projectedMinutes??prediction?.scoreComponents?.projectedMinutes??null,
+      opportunityMinutes:Number(prediction?.opportunityMinutes??prediction?.scoreComponents?.opportunityMinutes??0),
       lineupEligible:Boolean(prediction&&!prediction.injury?.hardExclude&&!prediction.noCurrentSeasonMinutes&&Number(prediction.baseScore)>0),
       lossEligible:Boolean(hasGame&&prediction&&projected>0&&!prediction.noCurrentSeasonMinutes&&Number(prediction.baseScore)>0),
       noCurrentSeasonMinutes:prediction?.noCurrentSeasonMinutes===true,chance:Number(prediction?.chance??0),
@@ -520,15 +613,72 @@ function playerPopularity(playerId, feedback) {
   return {selections:item.selections,averagePoints:item.averagePoints,signal:clamp((Number(item.selectionRate??0)-.2)*2+performance*.35,-1,1)};
 }
 
-function replacementOpportunity(player, players, injuries, weight) {
-  const hurtTeammates=(injuries?.restricted??[]).filter(x=>['out','doubtful','questionable'].includes(String(x.key??'').toLowerCase())).filter(x=>String(x.team??'')===String(player.team));
-  if(!hurtTeammates.length)return 1;
-  const sameRole=hurtTeammates.some(x=>x.position&&player.positionRaw&&x.position===player.positionRaw);
-  if(!sameRole)return 1;
-  const depth=(players??[]).filter(x=>x.team===player.team&&x.position===player.position&&x.active!==false).sort((a,b)=>Number(b.average??0)-Number(a.average??0));
-  const injuredIds=new Set(hurtTeammates.map(x=>String(x.id)));
-  const nextAvailable=depth.filter(x=>!injuredIds.has(String(x.id))).slice(0,3).some(x=>String(x.id)===String(player.id));
-  return nextAvailable?1+Math.min(.18,weight):1;
+function roleDistribution(player, estimate=null) {
+  const source=estimate?.distribution??player?.positionEstimate?.distribution;
+  const values=source&&typeof source==='object'?Object.fromEntries(['PG','SG','SF','PF','C'].map(position=>[position,Number(source[position]??0)])):null;
+  const total=values?Object.values(values).reduce((sum,value)=>sum+(Number.isFinite(value)&&value>0?value:0),0):0;
+  if(total>0)return Object.fromEntries(Object.entries(values).map(([position,value])=>[position,Math.max(0,Number(value)||0)/total]));
+  const raw=String(player?.positionRaw??'').toUpperCase();
+  const exact=raw.split(/[^A-Z]+/).filter(position=>['PG','SG','SF','PF','C'].includes(position));
+  const positions=exact.length?exact:[...(raw.includes('G')?['PG','SG']:[]),...(raw.includes('F')?['SF','PF']:[]),...(raw.includes('C')?['C']:[])];
+  if(!positions.length&&player?.position==='back')positions.push('PG','SG');
+  if(!positions.length&&player?.position==='front')positions.push('SF','PF','C');
+  return positions.length?Object.fromEntries(positions.map(position=>[position,1/positions.length])):{};
+}
+
+function roleOverlap(left, right) {
+  const a=Object.entries(left??{}),b=new Map(Object.entries(right??{}));
+  if(!a.length||!b.size)return 0;
+  return a.reduce((sum,[position,share])=>sum+Math.min(Number(share)||0,Number(b.get(position))||0),0);
+}
+
+function playerMinuteBaseline(player) {
+  const current=Number(player?.currentSeasonStats?.averageMinutes??0);
+  const recent=Number(player?.currentSeasonStats?.recentAverageMinutes??0);
+  if(current>0){
+    const recentWeight=recent>0?Math.min(.5,Number(player.currentSeasonStats?.recentGames??0)/6):0;
+    return recent>0?current*(1-recentWeight)+recent*recentWeight:current;
+  }
+  const fallback=Number(player?.historicalStats?.averageMinutes??player?.preseasonStats?.averageMinutes??0);
+  return Number.isFinite(fallback)&&fallback>0?fallback:0;
+}
+
+function replacementOpportunity(player, players, injuries, positionIndex, weight) {
+  const roster=players??[];
+  const rosterById=new Map(roster.map(item=>[String(item.id),item]));
+  const statuses=new Map(Object.entries(injuries?.statuses??{}).map(([id,status])=>[String(id),status]));
+  for(const status of injuries?.restricted??[])if(status?.id!=null&&!statuses.has(String(status.id)))statuses.set(String(status.id),status);
+  const roles=new Map(roster.map(item=>[String(item.id),roleDistribution(item,positionIndex?.get(String(item.id)))]));
+  const playerId=String(player.id),team=String(player.team??'');
+  const unavailable=[];
+  for(const [id,status] of statuses){
+    const key=String(status?.key??'').toLowerCase();
+    if(!['out','doubtful','questionable','probable'].includes(key))continue;
+    const teammate=rosterById.get(id);
+    if(!teammate||id===playerId||String(teammate.team??'')!==team||teammate.active===false)continue;
+    const absenceShare=1-probability(status),minutes=playerMinuteBaseline(teammate),role=roles.get(id);
+    if(absenceShare<=0||minutes<=0||!role||!Object.keys(role).length)continue;
+    unavailable.push({id,minutes:Math.min(40,minutes)*absenceShare,role});
+  }
+  if(!unavailable.length)return {addedMinutes:0,missingTeammates:0};
+  const recipientMinutes=new Map();
+  for(const absent of unavailable){
+    const pool=roster.filter(item=>String(item.team??'')===team&&item.active!==false&&!unavailable.some(other=>other.id===String(item.id))&&playerMinuteBaseline(item)>0)
+      .map(item=>({item,id:String(item.id),minutes:playerMinuteBaseline(item),overlap:roleOverlap(roles.get(String(item.id)),absent.role),availability:statuses.has(String(item.id))?probability(statuses.get(String(item.id))):1}))
+      .filter(item=>item.overlap>=.2&&item.availability>0)
+      .sort((a,b)=>b.minutes-a.minutes||a.id.localeCompare(b.id))
+      .slice(0,5);
+    if(!pool.length)continue;
+    const depthShares=[.42,.24,.15,.11,.08].slice(0,pool.length);
+    const rawWeights=pool.map((candidate,index)=>candidate.overlap*candidate.availability*depthShares[index]);
+    const weightTotal=rawWeights.reduce((sum,value)=>sum+value,0);
+    if(weightTotal<=0)continue;
+    pool.forEach((candidate,index)=>recipientMinutes.set(candidate.id,(recipientMinutes.get(candidate.id)??0)+absent.minutes*rawWeights[index]/weightTotal));
+  }
+  const rawAdded=recipientMinutes.get(playerId)??0;
+  const scale=clamp((Number(weight)||.18)/.18,.65,1.35);
+  const addedMinutes=clamp(rawAdded*scale,0,Math.min(8,Math.max(0,40-playerMinuteBaseline(player))));
+  return {addedMinutes,missingTeammates:unavailable.length};
 }
 
 function injuryHardExclude(item) {

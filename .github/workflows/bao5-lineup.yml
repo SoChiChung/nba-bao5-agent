@@ -54,19 +54,20 @@ jobs:
         if: github.event.schedule != '0 18 * * *'
         run: |
           if [ ! -f data/odds/usage-log.json ]; then echo '{"monthlyQuota":200,"calls":[]}' > data/odds/usage-log.json; fi
+      # GitHub may expose a timezone-aware 19:00 Asia/Shanghai schedule as its UTC equivalent (11:00).
       - name: Setup Chrome for daily player-position refresh
-        if: github.event_name == 'schedule' && github.event.schedule == '0 19 * * *'
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
         id: setup-player-position-chrome
         uses: browser-actions/setup-chrome@v2
         with:
           install-dependencies: true
       - name: Install player-position browser driver
-        if: github.event_name == 'schedule' && github.event.schedule == '0 19 * * *'
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
         run: |
           if ! command -v xvfb-run >/dev/null; then sudo apt-get update && sudo apt-get install -y xvfb; fi
           npm install --no-save --package-lock=false puppeteer-core@24
       - name: Refresh player-position estimates
-        if: github.event_name == 'schedule' && github.event.schedule == '0 19 * * *'
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
         continue-on-error: true
         env:
           CHROME_PATH: ${{ steps.setup-player-position-chrome.outputs.chrome-path }}

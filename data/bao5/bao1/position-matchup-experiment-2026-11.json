@@ -1,0 +1,73 @@
+{
+  "id": "position-matchup-c-pf-2026-11",
+  "status": "active",
+  "startDate": "2026-11-17",
+  "endDate": "2026-11-23",
+  "reviewDate": "2026-11-24",
+  "targetPrimaryPositions": ["C", "PF"],
+  "matchupMultiplier": 2,
+  "stabilityGuardrail": {
+    "recentGames": 6,
+    "energyQuantile": 0.75,
+    "volatilityMetric": "sample-standard-deviation / recent-six-average",
+    "maxCoefficientOfVariation": 0.2,
+    "predictionFloorMultiplier": 1.02,
+    "excludeHardInjuryRisk": true
+  },
+  "baselineCapturedAt": "2026-11-16",
+  "baselineSlateDate": "2026-11-17",
+  "baselineComparisonToRecentSix": {
+    "metric": "prediction - recent-six-average; reference only, not actual-outcome loss",
+    "all": {"count": 171, "belowMean": 60, "meanGap": 1.36, "mae": 3.02, "rmse": 3.9},
+    "C": {"count": 33, "belowMean": 16, "meanGap": 0.42, "mae": 3.3, "rmse": 4.21},
+    "PF": {"count": 35, "belowMean": 12, "meanGap": 1.39, "mae": 2.4, "rmse": 3.51},
+    "stableHighEnergy": {"energyThreshold": 25, "count": 12, "belowMean": 4}
+  },
+  "retrospectiveValidation": {
+    "dates": ["2026-11-09", "2026-11-15"],
+    "predictionSource": "prediction-time locked player forecasts",
+    "actualSource": "current-season player logs",
+    "metricConvention": "Bias = actual - predicted; positive means underprediction",
+    "all": {"count": 1315, "mae": 7.85, "rmse": 10.39, "bias": 1.6},
+    "positionDates": ["2026-11-10", "2026-11-15"],
+    "positionNote": "2026-11-09 locked forecasts predate saved five-position distributions",
+    "positions": {
+      "PG": {"count": 208, "mae": 8.7, "rmse": 11.63, "bias": 3.01},
+      "SG": {"count": 223, "mae": 7.46, "rmse": 9.66, "bias": 2.18},
+      "SF": {"count": 237, "mae": 7.7, "rmse": 9.81, "bias": 0.52},
+      "PF": {"count": 211, "mae": 7.64, "rmse": 10.19, "bias": 1.74},
+      "C": {"count": 239, "mae": 8.11, "rmse": 10.75, "bias": 2.01}
+    }
+  },
+  "dailyRecords": [
+    {
+      "dateKey": "2026-11-17",
+      "forecastCapturedAt": "2026-11-16T14:17:39.112Z",
+      "fullRosterForecasts": 593,
+      "slateCandidates": 278,
+      "eligibleRecentSixComparisons": 171,
+      "cPfEligibleRecentSixComparisons": 68,
+      "cPfForecastsChangedByMultiplier": 56,
+      "energyThreshold": 25,
+      "stableHighEnergyEligible": 12,
+      "stabilityFloorApplied": 5,
+      "recentSixReference": {
+        "all": {"meanGap": 1.03, "mae": 2.69, "rmse": 3.54, "belowMean": 70},
+        "C": {"count": 34, "meanGap": 0.29, "mae": 3.15, "rmse": 3.98, "belowMean": 15},
+        "PF": {"count": 34, "meanGap": 1.53, "mae": 2.49, "rmse": 3.4, "belowMean": 12}
+      },
+      "jokic": {"predicted": 61.8, "controlPredicted": 60.8, "recentSixAverage": 59.57, "coefficientOfVariation": 0.098}
+    }
+  ],
+  "operationalAudit": {
+    "checkedAt": "2026-11-16",
+    "remoteWorkflowRun": 270,
+    "remoteRunAt": "2026-11-16T11:00:31Z",
+    "remoteRunConclusion": "success",
+    "modelDataCommitStep": "success",
+    "playerPositionRefreshStep": "skipped",
+    "localWorkflowFix": "accepts timezone-aware 19:00 Asia/Shanghai cron and UTC-equivalent 11:00 cron",
+    "remoteCodePushed": false
+  },
+  "reviewMetrics": ["MAE", "RMSE", "Bias", "count", "belowRecentSixRate", "stableHighEnergyFloorCount", "cvThresholdSensitivity:15/20/25%"]
+}

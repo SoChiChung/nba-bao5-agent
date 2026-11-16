@@ -51,14 +51,16 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
         const fantasies = games.map(game => Number(game.fantasy)).filter(Number.isFinite);
         const recentFantasy = games.slice(0, 3).map(game => Number(game.fantasy)).filter(Number.isFinite);
         const minutes = games.map(game => Number(game.min)).filter(Number.isFinite);
-        const regularSeason = rows.filter(game => seasonType(game) === 'regular' || seasonType(game) === 'regularseason');
+        const regularSeason = rows.filter(game => seasonType(game) === 'regular' || seasonType(game) === 'regularseason').slice().sort((a,b)=>String(b.date??'').localeCompare(String(a.date??'')));
         const latestSeason = regularSeason[0]?.seasonLabel;
         const latestRegular = regularSeason.filter(game => !latestSeason || game.seasonLabel === latestSeason).slice(0, 20);
         const regularFantasy = latestRegular.map(game => Number(game.fantasy)).filter(Number.isFinite);
         const regularMinutes = latestRegular.map(game => Number(game.min)).filter(Number.isFinite);
-        const latestThree = latestRegular.slice(0, 3);
-        const latestThreeFantasy = latestThree.map(game => Number(game.fantasy)).filter(Number.isFinite);
-        const latestThreeMinutes = latestThree.map(game => Number(game.min)).filter(Number.isFinite);
+        const latestSix = latestRegular.slice(0, 6);
+        const latestSixFantasy = latestSix.map(game => Number(game.fantasy)).filter(Number.isFinite);
+        const latestSixMinutes = latestSix.map(game => Number(game.min)).filter(Number.isFinite);
+        const recentSixAverage=mean(latestSixFantasy);
+        const recentSixStdDev=latestSixFantasy.length>=2?Math.sqrt(latestSixFantasy.reduce((sum,value)=>sum+(value-recentSixAverage)**2,0)/(latestSixFantasy.length-1)):null;
         const previous = cache.players[String(player.id)] ?? {};
         cache.players[String(player.id)] = {
           ...previous,
@@ -71,12 +73,15 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           regularSeasonLabel: latestSeason ?? null,
           averageRegularFantasy: mean(regularFantasy),
           averageRegularMinutes: mean(regularMinutes),
-          recentRegularGames: latestThreeFantasy.length,
-          recentRegularAverageFantasy: mean(latestThreeFantasy),
-          recentRegularAverageMinutes: mean(latestThreeMinutes),
+          recentRegularGames: latestSixFantasy.length,
+          recentRegularAverageFantasy: recentSixAverage,
+          recentRegularAverageMinutes: mean(latestSixMinutes),
+          recentRegularStdDevFantasy:recentSixStdDev,
+          recentRegularCoefficientOfVariation:recentSixStdDev!=null&&recentSixAverage>0?recentSixStdDev/recentSixAverage:null,
+          recentRegularWindow:6,
           recentRegularLastDate: latestRegular[0]?.date ?? null,
           regularStatAverages:averageStatLine(latestRegular),
-          recentRegularStatAverages:averageStatLine(latestThree),
+          recentRegularStatAverages:averageStatLine(latestSix),
           lastDate: games[0]?.date ?? null,
         };
         fetched++;
@@ -106,6 +111,8 @@ export async function attachPreseasonStats(api, players, { teamCodes, cachePath,
           recentGames:stats.recentRegularGames,
           recentAverageFantasy:stats.recentRegularAverageFantasy,
           recentAverageMinutes:stats.recentRegularAverageMinutes,
+          recentStdDevFantasy:stats.recentRegularStdDevFantasy??null,
+          recentCoefficientOfVariation:stats.recentRegularCoefficientOfVariation??null,
           lastDate:stats.recentRegularLastDate,
           season:stats.regularSeasonLabel,
           statAverages:stats.regularStatAverages??null,

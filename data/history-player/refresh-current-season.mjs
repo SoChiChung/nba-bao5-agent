@@ -29,9 +29,8 @@ function shanghaiParts(now) {
 function shanghaiSundayAt19(now) {
   const parts = shanghaiParts(now);
   const weekday = ({ Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 })[parts.weekday] ?? 0;
-  const daysUntilSunday = (7 - weekday) % 7;
-  let targetDay = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day) + daysUntilSunday));
-  if (weekday === 0 && Number(parts.hour) < 19) targetDay.setUTCDate(targetDay.getUTCDate() - 7);
+  const daysSinceSunday = weekday === 0 && Number(parts.hour) < 19 ? 7 : weekday;
+  const targetDay = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day) - daysSinceSunday));
   // Beijing is UTC+8 year-round: Sunday 19:00 local is Sunday 11:00 UTC.
   return Date.UTC(targetDay.getUTCFullYear(), targetDay.getUTCMonth(), targetDay.getUTCDate(), 11, 0, 0);
 }
