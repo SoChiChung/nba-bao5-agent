@@ -226,10 +226,21 @@
 
 /* Shareable player cards */
 .lineup-heading-actions,.top20-heading-actions{display:flex;align-items:center;gap:10px}
+.lineup-title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ddl-countdown{display:inline-flex;align-items:baseline;gap:7px;padding:6px 10px;border:1px solid #dfe5f8;border-radius:20px;background:#f7f9ff;color:#465fae;font-size:12px;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ddl-countdown-label{color:#7785ac;font-weight:600}
+.ddl-countdown strong{font-size:14px;letter-spacing:.03em}
+.ddl-countdown small{color:#8990a1;font-size:11px}
+.ddl-countdown.is-urgent{border-color:#f2d6b1;background:#fff8ee;color:#9d5a12}
+.ddl-countdown.is-urgent .ddl-countdown-label,.ddl-countdown.is-urgent small{color:#a16a2b}
+:root[data-theme="dark"] .ddl-countdown{background:#263453;border-color:#3c4e76;color:#c4d1ff}
+:root[data-theme="dark"] .ddl-countdown-label,:root[data-theme="dark"] .ddl-countdown small{color:#a8b7dc}
+:root[data-theme="dark"] .ddl-countdown.is-urgent{background:#49351f;border-color:#7a5832;color:#ffd49c}
+:root[data-theme="dark"] .ddl-countdown.is-urgent .ddl-countdown-label,:root[data-theme="dark"] .ddl-countdown.is-urgent small{color:#e7bb7e}
 .share-image-button{flex:none;background:#edf2ff;color:#315efb;border:1px solid #dce5ff;padding:8px 12px;font-size:14px;white-space:nowrap}
 .share-image-button:hover{background:#e2eaff}
 .share-image-button:disabled{opacity:.65;cursor:wait}
-@media(max-width:520px){.lineup-heading-actions,.top20-heading-actions{gap:6px}.share-image-button{padding:7px 8px;font-size:12px}.lineup-card>.card-heading{align-items:flex-start}.lineup-heading-actions{flex-wrap:wrap;justify-content:flex-end}}
+@media(max-width:520px){.lineup-heading-actions,.top20-heading-actions{gap:6px}.lineup-title-row{gap:7px}.ddl-countdown{gap:5px;padding:5px 8px;font-size:11px}.ddl-countdown strong{font-size:12px}.ddl-countdown small{font-size:10px}.share-image-button{padding:7px 8px;font-size:12px}.lineup-card>.card-heading{align-items:flex-start}.lineup-heading-actions{flex-wrap:wrap;justify-content:flex-end}}
 :root[data-theme="dark"] .share-image-button{background:#263453;border-color:#3c4e76;color:#c4d1ff}
 :root[data-theme="dark"] .share-image-button:hover{background:#304066}
 

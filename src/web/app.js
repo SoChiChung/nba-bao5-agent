@@ -13,6 +13,27 @@ const fmtDate=d=>{const x=new Date(`${d}T12:00:00Z`);return `${x.getUTCMonth()+1
 function formatTimestamp(value){const date=new Date(value??'');return Number.isNaN(date.getTime())?'暂无':date.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});}
 function shortTimestamp(value){return formatTimestamp(value).replace(/^\d{4}[\/-]/,'');}
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function updateDdlCountdown(){
+ const container=$('ddl-countdown'),valueEl=$('ddl-countdown-value'),dateEl=$('ddl-countdown-date');
+ if(!container||!valueEl||!dateEl)return;
+ const now=Date.now();
+ const next=(state?.slates??[]).map(slate=>{
+  let deadline=Number(slate.lockedAt);
+  if(!Number.isFinite(deadline)||deadline<1e12)deadline=Date.parse(slate.lockedAt??'');
+  if(!Number.isFinite(deadline)&&Number.isFinite(Number(slate.startMs)))deadline=Number(slate.startMs)-15*60_000;
+  return {dateKey:slate.dateKey,deadline};
+ }).filter(item=>Number.isFinite(item.deadline)&&item.deadline>now).sort((a,b)=>a.deadline-b.deadline)[0];
+ if(!next){
+  valueEl.textContent='暂无待锁定赛程';dateEl.textContent='';container.classList.remove('is-urgent');
+  container.setAttribute('aria-label','暂无待锁定赛程');return;
+ }
+ const seconds=Math.floor((next.deadline-now)/1000),days=Math.floor(seconds/86400),hours=Math.floor(seconds%86400/3600),minutes=Math.floor(seconds%3600/60),remaining=seconds%60;
+ valueEl.textContent=`${days?`${days}天 `:''}${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(remaining).padStart(2,'0')}`;
+ const time=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(next.deadline));
+ dateEl.textContent=`· ${fmtDate(next.dateKey)} ${time}`;
+ container.classList.toggle('is-urgent',next.deadline-now<=60*60_000);
+ container.setAttribute('aria-label',`距离下一个 DDL 还有 ${valueEl.textContent}，${fmtDate(next.dateKey)} 北京时间 ${time}`);
+}
 initFantasy();
 const teamNames={ATL:'老鹰',BOS:'凯尔特人',BKN:'篮网',CHA:'黄蜂',CHI:'公牛',CLE:'骑士',DAL:'独行侠',DEN:'掘金',DET:'活塞',GSW:'勇士',HOU:'火箭',IND:'步行者',LAC:'快船',LAL:'湖人',MEM:'灰熊',MIA:'热火',MIL:'雄鹿',MIN:'森林狼',NOP:'鹈鹕',NYK:'尼克斯',OKC:'雷霆',ORL:'魔术',PHI:'76人',PHX:'太阳',POR:'开拓者',SAC:'国王',SAS:'马刺',TOR:'猛龙',UTA:'爵士',WAS:'奇才'};
 function team(t){return teamNames[t]??t;}
@@ -74,6 +95,7 @@ function submittedPlayerCard(id,index,player){
 }
 function renderLineupView(slate){
  if(!slate)return;
+ updateDdlCountdown();
  const submitted=lineupView==='submitted';
  document.querySelectorAll('[data-lineup-view]').forEach(tab=>{const active=tab.dataset.lineupView===lineupView;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));});
  $('lineup-view-title').textContent=submitted?'每日一阵已提交阵容':'今日推荐阵容';$('lineup-view-mode').textContent=submitted?'DAILY ACCOUNT':'MODEL PICK';$('data-notices').classList.toggle('hidden',submitted);
@@ -432,4 +454,4 @@ $('cancel-submit-lineup').onclick=closeSubmitDialog;$('cancel-submit-lineup-bott
 }
 $('apply-model').onclick=applyModelAndConstraints;
 $('lineup-budget').oninput=()=>{constraintsApplied=false;markModelPending(true);$('constraint-message').textContent='预算已调整，点击“应用并重算阵容”生效';};
-$('model-mode').onchange=()=>{const mode=$('model-mode').value;if(mode==='custom'){for(const key of ['recent','history','matchup','odds','crowd']){const value=Math.round(Number((state?.weights??{})[key]??0)*100);$(`weight-${key}`).value=value;$(`weight-${key}-number`).value=value;$(`weight-${key}-value`).textContent=`${value}%`;}updateWeightTotal();}markModelPending(true);};load();setInterval(()=>{if(!document.hidden)load(true);},30*60*1000);
+$('model-mode').onchange=()=>{const mode=$('model-mode').value;if(mode==='custom'){for(const key of ['recent','history','matchup','odds','crowd']){const value=Math.round(Number((state?.weights??{})[key]??0)*100);$(`weight-${key}`).value=value;$(`weight-${key}-number`).value=value;$(`weight-${key}-value`).textContent=`${value}%`;}updateWeightTotal();}markModelPending(true);};load();setInterval(updateDdlCountdown,1000);setInterval(()=>{if(!document.hidden)load(true);},30*60*1000);
