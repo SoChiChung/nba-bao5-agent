@@ -75,7 +75,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "詹姆斯·哈登",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-17:rw"
     },
     "201939": {
       "key": "out",
@@ -124,7 +125,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "保罗·乔治",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-17:rw"
     },
     "202681": {
       "key": "out",
@@ -196,7 +198,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "安东尼·戴维斯",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-17:rw"
     },
     "203078": {
       "key": "out",
@@ -628,7 +631,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "诺曼·鲍威尔",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-17:rw"
     },
     "1626192": {
       "key": "available",
@@ -778,13 +782,13 @@
       "t": "猛龙"
     },
     "1627752": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Prince (knee) has been ruled out for Tuesday's game against the Spurs.",
+      "source": "ESPN",
+      "asOf": "2026-11-16",
+      "carry": false,
       "n": "托里恩·普林斯",
       "t": "活塞"
     },
@@ -905,7 +909,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "杰森·塔图姆",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-17:rw"
     },
     "1628370": {
       "key": "available",
@@ -954,7 +959,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "多诺万·米切尔",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-17:rw"
     },
     "1628379": {
       "key": "available",
@@ -1007,7 +1013,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "贾勒特·阿伦",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-17:rw"
     },
     "1628389": {
       "key": "available",
@@ -1061,7 +1068,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "德里克·怀特",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-17:rw"
     },
     "1628404": {
       "key": "available",
@@ -1200,7 +1208,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "小温德尔·卡特",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-17:rw"
     },
     "1628978": {
       "key": "out",
@@ -1433,7 +1442,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "特雷·杨",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-17:rw"
     },
     "1629028": {
       "key": "available",
@@ -1500,12 +1510,12 @@
       "t": "老鹰"
     },
     "1629130": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Robinson (thigh) did not return to Saturday's 137-117 win over the Pistons. He finished with 10 points (3-8 FG, 2-6 3Pt, 2-2 FT), one rebound and one assist across 17 minutes.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
       "source": "ESPN",
-      "asOf": "2026-11-15",
+      "asOf": "2026-11-16",
       "carry": false,
       "n": "邓肯·罗宾逊",
       "t": "活塞"
@@ -1822,10 +1832,10 @@
       "t": "鹈鹕"
     },
     "1629674": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Queta (rest) is questionable for Monday's game against the Magic.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Queta (rest) won't play in Monday's game against the Magic, Taylor Snow of the Celtics' official site reports.",
       "source": "ESPN",
       "asOf": "2026-11-16",
       "carry": false,
@@ -1996,7 +2006,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "艾萨克·奥科罗",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-17:rw"
     },
     "1630172": {
       "key": "available",
@@ -2087,7 +2098,8 @@
       "detail": "NBA官方伤病报告：出战成疑（左手指扭伤）",
       "source": "NBA官方",
       "n": "杰伦·史密斯",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-17:rw"
     },
     "1630191": {
       "key": "questionable",
@@ -2180,7 +2192,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "德斯蒙德·贝恩",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-17:rw"
     },
     "1630224": {
       "key": "available",
@@ -2344,7 +2357,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "弗朗茨·瓦格纳",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-17:rw"
     },
     "1630533": {
       "key": "available",
@@ -2532,7 +2546,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "卢卡·加尔扎",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-17:rw"
     },
     "1630570": {
       "key": "out",
@@ -2617,7 +2632,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "约什·吉迪",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-17:rw"
     },
     "1630583": {
       "key": "out",
@@ -2656,7 +2672,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "杰伦·萨格斯",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-17:rw"
     },
     "1630592": {
       "key": "out",
@@ -2962,10 +2979,10 @@
       "t": "火箭"
     },
     "1631107": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Jovic (illness) has been downgraded to questionable for Monday's game against Houston.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Jovic (illness) is out for Monday's game against Houston.",
       "source": "ESPN",
       "asOf": "2026-11-16",
       "carry": false,
@@ -3312,7 +3329,8 @@
       "detail": "NBA官方伤病报告：出战成疑（右酸痛）",
       "source": "NBA官方",
       "n": "佩顿·沃特森",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-17:rw"
     },
     "1631214": {
       "key": "available",
@@ -3627,7 +3645,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "安东尼·布莱克",
-      "t": "魔术"
+      "t": "魔术",
+      "st": "c:2026-11-17:rw"
     },
     "1641711": {
       "key": "available",
@@ -3862,7 +3881,8 @@
       "detail": "NBA官方伤病报告：出战成疑（左脚踝）",
       "source": "NBA官方",
       "n": "扎克·埃迪",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-11-17:rw"
     },
     "1641745": {
       "key": "available",
@@ -4065,7 +4085,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "乔丹·沃尔什",
-      "t": "凯尔特人"
+      "t": "凯尔特人",
+      "st": "c:2026-11-17:rw"
     },
     "1641778": {
       "key": "available",
@@ -4262,7 +4283,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "马塔斯·布泽利斯",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-17:rw"
     },
     "1641825": {
       "key": "available",
@@ -4274,13 +4296,13 @@
       "carry": true
     },
     "1641842": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月14日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-14",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Holland is out for Tuesday's game against San Antonio due to a left knee contusion.",
+      "source": "ESPN",
+      "asOf": "2026-11-16",
+      "carry": false,
       "n": "罗纳德·霍兰二世",
       "t": "活塞"
     },
@@ -4458,7 +4480,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "亚历克斯·萨尔",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-17:rw"
     },
     "1642260": {
       "key": "available",
@@ -4609,7 +4632,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "凯肖恩·乔治",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-17:rw"
     },
     "1642274": {
       "key": "available",
@@ -4710,7 +4734,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "卡梅隆·斯宾塞",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-11-17:rw"
     },
     "1642345": {
       "key": "available",
@@ -4929,7 +4954,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "杰伦·威尔斯",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-11-17:rw"
     },
     "1642378": {
       "key": "available",
@@ -5603,7 +5629,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "泰瑞斯·普洛克特",
-      "t": "骑士"
+      "t": "骑士",
+      "st": "c:2026-11-17:rw"
     },
     "1642879": {
       "key": "out",
@@ -5735,7 +5762,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "塞德里克·考沃德",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-11-17:rw"
     },
     "1642910": {
       "key": "available",
@@ -6325,7 +6353,8 @@
       "asOf": "2026-11-15",
       "carry": true,
       "n": "AJ·迪班萨",
-      "t": "奇才"
+      "t": "奇才",
+      "st": "c:2026-11-17:rw"
     },
     "1643408": {
       "key": "available",
@@ -6346,7 +6375,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-16",
       "n": "卡梅隆·布泽尔",
-      "t": "灰熊"
+      "t": "灰熊",
+      "st": "c:2026-11-17:rw"
     },
     "1643410": {
       "key": "out",
@@ -7407,16 +7437,16 @@
   "officialCount": 55,
   "projectedCount": 213,
   "filledCount": 0,
-  "espnCount": 9,
+  "espnCount": 11,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 463,
-  "updatedAt": "2026-11-16T03:00:00",
-  "updatedAtLabel": "11月16日 03:00",
+  "updatedAt": "2026-11-16T00:00:00",
+  "updatedAtLabel": "11月16日 00:00",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-16_03_00AM.pdf",
-  "message": "已读取官方伤病报告（11月16日 03:00 发布）：列出55人，今日出战的另外213人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-16_12_00AM.pdf",
+  "message": "已读取官方伤病报告（11月16日 00:00 发布）：列出55人，今日出战的另外213人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-17"
 }

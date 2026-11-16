@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T20:53:47.173Z",
+  "updatedAt": "2026-11-16T23:53:32.271Z",
   "serverDate": "2026-11-16",
   "requestedDate": "2026-11-17",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "out": 130,
-    "available": 586,
-    "questionable": 16
+    "out": 135,
+    "available": 584,
+    "questionable": 13
   },
   "provenance": {
     "officialCount": 55,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-16.json",
   "changesFile": "changes/changes_2026-11-16.json",
   "previousDate": "2026-11-15",
-  "changeCount": 148,
-  "restrictedCount": 146,
+  "changeCount": 151,
+  "restrictedCount": 148,
   "restricted": [
     {
       "id": "2544",
@@ -277,6 +277,20 @@
       "energy": null
     },
     {
+      "id": "1627752",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Prince (knee) has been ruled out for Tuesday's game against the Spurs.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1627832",
       "key": "out",
       "label": "缺阵",
@@ -375,6 +389,20 @@
       "energy": null
     },
     {
+      "id": "1629130",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629614",
       "key": "out",
       "label": "缺阵",
@@ -437,6 +465,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右髋部酸痛）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629674",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Queta (rest) won't play in Monday's game against the Magic, Taylor Snow of the Celtics' official site reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -745,6 +787,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月14日：缺阵（右腿筋拉伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1631107",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Jovic (illness) is out for Monday's game against Houston.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1193,6 +1249,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月15日：缺阵（左髋部）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641842",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Holland is out for Tuesday's game against San Antonio due to a left knee contusion.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1845,34 +1915,6 @@
       "energy": null
     },
     {
-      "id": "1629130",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Robinson (thigh) did not return to Saturday's 137-117 win over the Pistons. He finished with 10 points (3-8 FG, 2-6 3Pt, 2-2 FT), one rebound and one assist across 17 minutes.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629674",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Queta (rest) is questionable for Monday's game against the Magic.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630188",
       "key": "questionable",
       "label": "出战成疑",
@@ -1907,20 +1949,6 @@
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（右脚踝炎症）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1631107",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Jovic (illness) has been downgraded to questionable for Monday's game against Houston.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -2069,5 +2097,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月16日 03:00 发布）：列出55人，今日出战的另外213人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月16日 00:00 发布）：列出55人，今日出战的另外213人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
