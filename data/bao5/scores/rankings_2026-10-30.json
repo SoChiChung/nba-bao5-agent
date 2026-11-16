@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T03:06:45.630Z",
+  "fetchedAt": "2026-11-16T11:01:07.909Z",
   "date": "2026-10-30",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1132,7 +1132,7 @@
     {
       "userId": "3e5a152f-6b1e-4c09-98f8-df255fcc4273",
       "displayName": "Kkyrie23",
-      "avatarKey": "GSW",
+      "avatarKey": "badge:T05_G",
       "score": 189.7,
       "remainingSalary": 0,
       "submittedAt": 1793262594583,
@@ -2043,7 +2043,7 @@
     },
     {
       "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
-      "displayName": "4472FG冠军",
+      "displayName": "b站德国极装客",
       "avatarKey": "LAC",
       "score": 177.4,
       "remainingSalary": 0,
@@ -2220,7 +2220,7 @@
     {
       "userId": "79bdde61-cb5b-4ba5-8a24-97b1279f949d",
       "displayName": "脆脆鲨我来了",
-      "avatarKey": "PHX",
+      "avatarKey": "badge:T04_S",
       "score": 177.4,
       "remainingSalary": 0,
       "submittedAt": 1793283571751,
@@ -3500,7 +3500,7 @@
     {
       "userId": "dfe112d5-8193-405b-aa18-9605aa34883f",
       "displayName": "好堡",
-      "avatarKey": "BOS",
+      "avatarKey": "BKN",
       "score": 127.4,
       "remainingSalary": 2,
       "submittedAt": 1793271810073,
@@ -3696,5 +3696,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-30",
     "board": "/api/rankings?period=day&date=2026-10-30"
   },
-  "updatedAt": "2026-11-16T03:06:45.630Z"
+  "updatedAt": "2026-11-16T11:01:07.909Z"
 }
