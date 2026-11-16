@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T23:41:11.141Z",
+  "updatedAt": "2026-11-16T01:39:22.229Z",
   "serverDate": "2026-11-15",
   "requestedDate": "2026-11-16",
   "available": true,
@@ -8,10 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 589,
-    "out": 123,
-    "probable": 1,
-    "questionable": 18,
+    "available": 591,
+    "out": 125,
+    "questionable": 15,
     "doubtful": 1
   },
   "provenance": {
@@ -23,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-15.json",
   "changesFile": "changes/changes_2026-11-15.json",
   "previousDate": "2026-11-14",
-  "changeCount": 149,
-  "restrictedCount": 143,
+  "changeCount": 151,
+  "restrictedCount": 141,
   "restricted": [
     {
       "id": "201935",
@@ -131,6 +130,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左腿筋拉伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203897",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：LaVine is out for Sunday's game against Oklahoma City due to illness, Brandon Rahbar of DailyThunder.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -383,6 +396,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月13日：缺阵（左腿筋拉伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629631",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Hunter (hip) is out for Sunday's game against the Thunder.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1875,48 +1902,6 @@
       "energy": null
     },
     {
-      "id": "1642259",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642267",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（胸部挫伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642269",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642281",
       "key": "questionable",
       "label": "每日观察",
@@ -2013,21 +1998,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "203500",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右拉伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月15日 07:15 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月15日 04:15 发布）：列出83人，今日出战的另外330人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-15T23:40:20.660Z",
+  "fetchedAt": "2026-11-16T01:38:30.213Z",
   "date": "2026-10-30",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1388,7 +1388,7 @@
     {
       "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
       "displayName": "诺里纯cs",
-      "avatarKey": "badge:T05_S",
+      "avatarKey": "badge:T06_S",
       "score": 185.7,
       "remainingSalary": 0,
       "submittedAt": 1793165963020,
@@ -1676,7 +1676,7 @@
     {
       "userId": "786753aa-98fc-4229-a151-b937a73780d9",
       "displayName": "下快攻了",
-      "avatarKey": "PHI",
+      "avatarKey": "badge:F06",
       "score": 185.7,
       "remainingSalary": 0,
       "submittedAt": 1793286700593,
@@ -3696,5 +3696,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-30",
     "board": "/api/rankings?period=day&date=2026-10-30"
   },
-  "updatedAt": "2026-11-15T23:40:20.660Z"
+  "updatedAt": "2026-11-16T01:38:30.213Z"
 }
