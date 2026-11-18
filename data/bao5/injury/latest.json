@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T02:00:25.400Z",
+  "updatedAt": "2026-11-18T03:25:30.299Z",
   "serverDate": "2026-11-17",
   "requestedDate": "2026-11-18",
   "available": true,
@@ -9,8 +9,8 @@
   "counts": {
     "total": 732,
     "out": 136,
-    "available": 588,
-    "questionable": 8
+    "available": 587,
+    "questionable": 9
   },
   "provenance": {
     "officialCount": 46,
@@ -21,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-17.json",
   "changesFile": "changes/changes_2026-11-17.json",
   "previousDate": "2026-11-16",
-  "changeCount": 120,
-  "restrictedCount": 144,
+  "changeCount": 121,
+  "restrictedCount": 145,
   "restricted": [
     {
       "id": "2544",
@@ -333,6 +333,20 @@
       "energy": null
     },
     {
+      "id": "1628960",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Allen (concussion-like symptoms) has been ruled out for Tuesday's game against the Lakers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628978",
       "key": "out",
       "label": "缺阵",
@@ -478,20 +492,6 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右膝盖）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630166",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（左足部酸痛/炎症）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1971,6 +1971,20 @@
       "energy": null
     },
     {
+      "id": "1630166",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左足部酸痛/炎症）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630172",
       "key": "questionable",
       "label": "每日观察",
@@ -2041,5 +2055,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月17日 21:00 发布）：列出46人，今日出战的另外202人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月17日 18:00 发布）：列出46人，今日出战的另外202人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

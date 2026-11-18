@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-18T01:59:17.937Z",
+  "fetchedAt": "2026-11-18T03:24:28.107Z",
   "date": "2026-11-01",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -124,7 +124,7 @@
     {
       "userId": "16909b90-c69d-4caa-91a0-41c0c004c1e8",
       "displayName": "曼切斯特蘑菇头",
-      "avatarKey": "HOU",
+      "avatarKey": "badge:T04_S",
       "score": 225.1,
       "remainingSalary": 3,
       "submittedAt": 1793409964619,
@@ -3520,5 +3520,5 @@
     "mine": "/api/rankings?mine=1&date=2026-11-01",
     "board": "/api/rankings?period=day&date=2026-11-01"
   },
-  "updatedAt": "2026-11-18T01:59:17.937Z"
+  "updatedAt": "2026-11-18T03:24:28.107Z"
 }

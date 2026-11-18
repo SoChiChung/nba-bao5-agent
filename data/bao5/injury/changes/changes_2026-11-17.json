@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-18T02:00:25.400Z",
+  "generatedAt": "2026-11-18T03:25:30.299Z",
   "serverDate": "2026-11-17",
   "requestedDate": "2026-11-18",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-17T21:00:00",
+  "updatedAt": "2026-11-17T18:00:00",
   "counts": {
     "total": 732,
     "out": 136,
-    "available": 588,
-    "questionable": 8
+    "available": 587,
+    "questionable": 9
   },
   "provenance": {
     "officialCount": 46,
@@ -19,10 +19,10 @@
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月17日 21:00 发布）：列出46人，今日出战的另外202人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月17日 18:00 发布）：列出46人，今日出战的另外202人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-16",
-  "changeCount": 120,
+  "changeCount": 121,
   "changes": [
     {
       "kind": "newInjury",
@@ -56,11 +56,26 @@
     },
     {
       "kind": "newInjury",
-      "id": "1630166",
+      "id": "1628960",
       "from": "available",
       "to": "out",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（左足部酸痛/炎症）",
+      "detail": "ESPN伤病名单：Allen (concussion-like symptoms) has been ruled out for Tuesday's game against the Lakers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1630166",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（左足部酸痛/炎症）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1657,7 +1672,7 @@
     {
       "field": "updatedAt",
       "from": "2026-11-16T00:00:00",
-      "to": "2026-11-17T21:00:00"
+      "to": "2026-11-17T18:00:00"
     },
     {
       "field": "officialCount",
