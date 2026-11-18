@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-16T20:53:38.232Z",
-  "updatedAt": "2026-11-18T03:40:08.939Z",
+  "fetchedAt": "2026-11-18T09:51:37.922Z",
+  "updatedAt": "2026-11-18T09:51:37.922Z",
   "date": "2026-11-19",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -12,5 +12,25 @@
     "mine": "/api/rankings?mine=1&date=2026-11-19",
     "board": "/api/rankings?period=day&date=2026-11-19"
   },
-  "stale": true
+  "stale": true,
+  "mine": {
+    "day": {
+      "rank": 131,
+      "score": 0,
+      "total": 192,
+      "settled": false
+    },
+    "week": {
+      "rank": 75,
+      "score": 505.4,
+      "total": 344,
+      "settled": true
+    },
+    "season": {
+      "rank": 88,
+      "score": 4530.2,
+      "total": 440,
+      "settled": true
+    }
+  }
 }
