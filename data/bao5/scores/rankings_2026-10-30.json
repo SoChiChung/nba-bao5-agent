@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-17T23:12:26.849Z",
+  "fetchedAt": "2026-11-18T01:59:12.929Z",
   "date": "2026-10-30",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -3116,7 +3116,7 @@
     {
       "userId": "f48035b0-97a5-4c07-9cb8-f7dd103ad41c",
       "displayName": "1996",
-      "avatarKey": "badge:T08_S",
+      "avatarKey": "badge:F11",
       "score": 148.7,
       "remainingSalary": 0,
       "submittedAt": 1793250102118,
@@ -3148,7 +3148,7 @@
     {
       "userId": "c136eafe-a864-4982-960d-c88dc2a15d3b",
       "displayName": "敌羞吾去脱他衣",
-      "avatarKey": "badge:T08_S",
+      "avatarKey": "badge:T05_G",
       "score": 148.7,
       "remainingSalary": 0,
       "submittedAt": 1793251529024,
@@ -3696,5 +3696,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-30",
     "board": "/api/rankings?period=day&date=2026-10-30"
   },
-  "updatedAt": "2026-11-17T23:12:26.849Z"
+  "updatedAt": "2026-11-18T01:59:12.929Z"
 }

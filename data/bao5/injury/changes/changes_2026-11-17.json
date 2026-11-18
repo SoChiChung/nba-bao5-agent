@@ -1,29 +1,28 @@
 {
-  "generatedAt": "2026-11-17T23:13:20.895Z",
+  "generatedAt": "2026-11-18T02:00:25.400Z",
   "serverDate": "2026-11-17",
   "requestedDate": "2026-11-18",
   "available": true,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "updatedAt": "2026-11-17T05:15:00",
+  "updatedAt": "2026-11-17T21:00:00",
   "counts": {
     "total": 732,
-    "out": 134,
+    "out": 136,
     "available": 588,
-    "questionable": 9,
-    "doubtful": 1
+    "questionable": 8
   },
   "provenance": {
-    "officialCount": 33,
-    "projectedCount": 168,
+    "officialCount": 46,
+    "projectedCount": 202,
     "filledCount": 0,
     "fallbackSource": "none"
   },
-  "message": "已读取官方伤病报告（11月17日 05:15 发布）：列出33人，今日出战的另外168人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "message": "已读取官方伤病报告（11月17日 21:00 发布）：列出46人，今日出战的另外202人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "baseline": false,
   "previousDate": "2026-11-16",
-  "changeCount": 126,
+  "changeCount": 120,
   "changes": [
     {
       "kind": "newInjury",
@@ -59,10 +58,10 @@
       "kind": "newInjury",
       "id": "1630166",
       "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Avdija (foot) is questionable for Tuesday's game against the Timberwolves.",
-      "source": "ESPN",
+      "to": "out",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左足部酸痛/炎症）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -91,8 +90,8 @@
       "from": "available",
       "to": "out",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Kuminga (shoulder) is out for Tuesday's game against Portland.",
-      "source": "ESPN",
+      "detail": "NBA官方伤病报告：缺阵（右肩部挫伤）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -106,7 +105,7 @@
       "from": "available",
       "to": "out",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "detail": "NBA官方伤病报告：缺阵（右酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -151,8 +150,8 @@
       "from": "available",
       "to": "out",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Pullin (quadriceps) has been ruled out for Tuesday's game against Portland.",
-      "source": "ESPN",
+      "detail": "NBA官方伤病报告：缺阵（右股四头肌挫伤）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -536,21 +535,6 @@
       "energy": null
     },
     {
-      "kind": "improved",
-      "id": "1630198",
-      "from": "out",
-      "to": "doubtful",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（右髋部挫伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "kind": "detailChanged",
       "id": "1627742",
       "from": "out",
@@ -617,23 +601,10 @@
     },
     {
       "kind": "detailChanged",
-      "id": "1628978",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（右跟腱修复手术）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
       "id": "1628991",
       "from": "out",
       "to": "out",
-      "note": "NBA官方伤病报告：缺阵",
+      "note": "NBA官方伤病报告：缺阵（右撕裂）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -647,19 +618,6 @@
       "from": "out",
       "to": "out",
       "note": "NBA官方伤病报告：缺阵（左股四头肌拉伤）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1629630",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（左腿筋拉伤）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -708,10 +666,10 @@
     },
     {
       "kind": "detailChanged",
-      "id": "1630162",
+      "id": "1630198",
       "from": "out",
       "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（右膝盖）",
+      "note": "NBA官方伤病报告：缺阵（右髋部挫伤）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -725,19 +683,6 @@
       "from": "out",
       "to": "out",
       "note": "上次官方报告 11月16日：缺阵（右肘部）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1630249",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（左脚踝骨折）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -893,7 +838,7 @@
       "id": "1631101",
       "from": "out",
       "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（右膝盖手术）",
+      "note": "NBA官方伤病报告：缺阵（右手术）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1089,19 +1034,6 @@
       "from": "out",
       "to": "out",
       "note": "上次官方报告 11月16日：缺阵（扭伤）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1641740",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（右腿筋拉伤）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1349,19 +1281,6 @@
       "from": "out",
       "to": "out",
       "note": "NBA官方伤病报告：缺阵（右手术）",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "detailChanged",
-      "id": "1642959",
-      "from": "out",
-      "to": "out",
-      "note": "上次官方报告 11月16日：缺阵（右脚跟挫伤）",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1738,17 +1657,17 @@
     {
       "field": "updatedAt",
       "from": "2026-11-16T00:00:00",
-      "to": "2026-11-17T05:15:00"
+      "to": "2026-11-17T21:00:00"
     },
     {
       "field": "officialCount",
       "from": 55,
-      "to": 33
+      "to": 46
     },
     {
       "field": "projectedCount",
       "from": 213,
-      "to": 168
+      "to": 202
     }
   ]
 }
