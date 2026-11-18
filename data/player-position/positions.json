@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "generatedAt": "2026-11-17T19:41:35.488Z",
-  "dateKey": "2026-11-18",
+  "generatedAt": "2026-11-18T19:18:31.618Z",
+  "dateKey": "2026-11-19",
   "seasonYear": 2027,
   "seasonLabel": "2026-27",
   "source": "Basketball-Reference Position Estimate (play-by-play 分钟加权)",
@@ -196,6 +196,48 @@
    }
   },
   {
+   "nameEn": "Jaden McDaniels",
+   "nameCn": "杰登·麦克丹尼尔斯",
+   "bao5Id": 1630183,
+   "onRoster": true,
+   "brSlug": "mcdanja02",
+   "team": "MIN",
+   "brPosLabel": "PF",
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 502,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 80,
+   "secondaryPct": 19,
+   "gap": 61,
+   "confidence": 0.8,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 19,
+    "PF": 80,
+    "C": 2
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 95,
+    "PF": 402,
+    "C": 10
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 19,
+    "PF": 80,
+    "C": 2
+   }
+  },
+  {
    "nameEn": "Kyshawn George",
    "nameCn": "凯肖恩·乔治",
    "bao5Id": 1642273,
@@ -322,6 +364,48 @@
    }
   },
   {
+   "nameEn": "Jalen Brunson",
+   "nameCn": "杰伦·布伦森",
+   "bao5Id": 1628973,
+   "onRoster": true,
+   "brSlug": "brunsja01",
+   "team": "NYK",
+   "brPosLabel": "PG",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 481,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 98,
+   "secondaryPct": 2,
+   "gap": 96,
+   "confidence": 0.98,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 98,
+    "SG": 2,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 471,
+    "SG": 10,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 98,
+    "SG": 2,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Darius Acuff Jr.",
    "nameCn": "小达里厄斯·埃卡夫",
    "bao5Id": 1643411,
@@ -402,6 +486,258 @@
     "SG": 0,
     "SF": 13,
     "PF": 87,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "RJ Barrett",
+   "nameCn": "RJ·巴雷特",
+   "bao5Id": 1629628,
+   "onRoster": true,
+   "brSlug": "barrerj01",
+   "team": "TOR",
+   "brPosLabel": "SF",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 477,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 73,
+   "secondaryPct": 17,
+   "gap": 56,
+   "confidence": 0.73,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 17,
+    "SF": 73,
+    "PF": 10,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 81,
+    "SF": 348,
+    "PF": 48,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 17,
+    "SF": 73,
+    "PF": 10,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Dylan Harper",
+   "nameCn": "迪伦·哈珀",
+   "bao5Id": 1642844,
+   "onRoster": true,
+   "brSlug": "harpedy01",
+   "team": "SAS",
+   "brPosLabel": "SG",
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 475,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 49,
+   "secondaryPct": 36,
+   "gap": 13,
+   "confidence": 0.21,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 15,
+    "SG": 49,
+    "SF": 36,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 71,
+    "SG": 233,
+    "SF": 171,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 15,
+    "SG": 49,
+    "SF": 36,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Ayo Dosunmu",
+   "nameCn": "阿约·多森姆",
+   "bao5Id": 1630245,
+   "onRoster": true,
+   "brSlug": "dosunay01",
+   "team": "MIN",
+   "brPosLabel": "SG",
+   "games": 15,
+   "gamesStarted": 11,
+   "minutes": 474,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 78,
+   "secondaryPct": 22,
+   "gap": 56,
+   "confidence": 0.78,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 22,
+    "SG": 78,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 104,
+    "SG": 370,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 22,
+    "SG": 78,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "OG Anunoby",
+   "nameCn": "OG·阿奴诺比",
+   "bao5Id": 1628384,
+   "onRoster": true,
+   "brSlug": "anunoog01",
+   "team": "NYK",
+   "brPosLabel": "PF",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 474,
+   "primary": "PF",
+   "secondary": null,
+   "primaryPct": 98,
+   "secondaryPct": 2,
+   "gap": 96,
+   "confidence": 0.98,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 98,
+    "C": 2
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 465,
+    "C": 9
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 98,
+    "C": 2
+   }
+  },
+  {
+   "nameEn": "Luka Dončić",
+   "nameCn": "卢卡·东契奇",
+   "bao5Id": 1629029,
+   "onRoster": true,
+   "brSlug": "doncilu01",
+   "team": "LAL",
+   "brPosLabel": "PG",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 473,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 473,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Darryn Peterson",
+   "nameCn": "达林·彼得森",
+   "bao5Id": 1643408,
+   "onRoster": true,
+   "brSlug": "peterda02",
+   "team": "UTA",
+   "brPosLabel": "SG",
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 471,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 57,
+   "secondaryPct": 41,
+   "gap": 16,
+   "confidence": 0.3,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 2,
+    "SG": 57,
+    "SF": 41,
+    "PF": 1,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 9,
+    "SG": 268,
+    "SF": 193,
+    "PF": 5,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 2,
+    "SG": 57,
+    "SF": 41,
+    "PF": 1,
     "C": 0
    }
   },
@@ -487,48 +823,6 @@
     "SF": 24,
     "PF": 1,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Jaden McDaniels",
-   "nameCn": "杰登·麦克丹尼尔斯",
-   "bao5Id": 1630183,
-   "onRoster": true,
-   "brSlug": "mcdanja02",
-   "team": "MIN",
-   "brPosLabel": "PF",
-   "games": 14,
-   "gamesStarted": 14,
-   "minutes": 465,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 82,
-   "secondaryPct": 16,
-   "gap": 66,
-   "confidence": 0.82,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 16,
-    "PF": 82,
-    "C": 2
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 74,
-    "PF": 381,
-    "C": 9
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 16,
-    "PF": 82,
-    "C": 2
    }
   },
   {
@@ -658,6 +952,132 @@
    }
   },
   {
+   "nameEn": "Ace Bailey",
+   "nameCn": "埃斯·贝利",
+   "bao5Id": 1642846,
+   "onRoster": true,
+   "brSlug": "baileac01",
+   "team": "UTA",
+   "brPosLabel": "SF",
+   "games": 15,
+   "gamesStarted": 14,
+   "minutes": 460,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 67,
+   "secondaryPct": 33,
+   "gap": 34,
+   "confidence": 0.67,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 33,
+    "PF": 67,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 152,
+    "PF": 308,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 33,
+    "PF": 67,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Keyonte George",
+   "nameCn": "基扬特·乔治",
+   "bao5Id": 1641718,
+   "onRoster": true,
+   "brSlug": "georgke01",
+   "team": "UTA",
+   "brPosLabel": "PG",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 460,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 460,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Karl-Anthony Towns",
+   "nameCn": "卡尔-安东尼·唐斯",
+   "bao5Id": 1626157,
+   "onRoster": true,
+   "brSlug": "townska01",
+   "team": "NYK",
+   "brPosLabel": "C",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 459,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 459
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
    "nameEn": "Bam Adebayo",
    "nameCn": "巴姆·阿德巴约",
    "bao5Id": 1628389,
@@ -690,6 +1110,90 @@
     "SF": 0,
     "PF": 0,
     "C": 454
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
+   "nameEn": "Cade Cunningham",
+   "nameCn": "凯德·坎宁安",
+   "bao5Id": 1630595,
+   "onRoster": true,
+   "brSlug": "cunnica01",
+   "team": "DET",
+   "brPosLabel": "PG",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 453,
+   "primary": "PG",
+   "secondary": "SG",
+   "primaryPct": 54,
+   "secondaryPct": 46,
+   "gap": 8,
+   "confidence": 0.14,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 54,
+    "SG": 46,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 245,
+    "SG": 208,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 54,
+    "SG": 46,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Victor Wembanyama",
+   "nameCn": "维克托·文班亚马",
+   "bao5Id": 1641705,
+   "onRoster": true,
+   "brSlug": "wembavi01",
+   "team": "SAS",
+   "brPosLabel": "C",
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 450,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 450
    },
    "seasonDistribution": {
     "PG": 0,
@@ -826,48 +1330,6 @@
    }
   },
   {
-   "nameEn": "Jalen Brunson",
-   "nameCn": "杰伦·布伦森",
-   "bao5Id": 1628973,
-   "onRoster": true,
-   "brSlug": "brunsja01",
-   "team": "NYK",
-   "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 446,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 99,
-   "secondaryPct": 1,
-   "gap": 98,
-   "confidence": 0.99,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 99,
-    "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 442,
-    "SG": 4,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 99,
-    "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Alperen Şengün",
    "nameCn": "阿尔佩伦·申京",
    "bao5Id": 1630578,
@@ -922,31 +1384,31 @@
    "minutes": 443,
    "primary": "SF",
    "secondary": "PF",
-   "primaryPct": 63,
+   "primaryPct": 62,
    "secondaryPct": 33,
-   "gap": 30,
-   "confidence": 0.63,
+   "gap": 29,
+   "confidence": 0.6,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
     "SG": 5,
-    "SF": 63,
+    "SF": 62,
     "PF": 33,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
     "SG": 22,
-    "SF": 279,
+    "SF": 275,
     "PF": 146,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
     "SG": 5,
-    "SF": 63,
+    "SF": 62,
     "PF": 33,
     "C": 0
    }
@@ -994,44 +1456,44 @@
    }
   },
   {
-   "nameEn": "Dylan Harper",
-   "nameCn": "迪伦·哈珀",
-   "bao5Id": 1642844,
+   "nameEn": "Stephon Castle",
+   "nameCn": "斯蒂芬·卡斯尔",
+   "bao5Id": 1642264,
    "onRoster": true,
-   "brSlug": "harpedy01",
+   "brSlug": "castlst01",
    "team": "SAS",
    "brPosLabel": "SG",
-   "games": 14,
-   "gamesStarted": 14,
+   "games": 15,
+   "gamesStarted": 15,
    "minutes": 441,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 49,
-   "secondaryPct": 36,
-   "gap": 13,
-   "confidence": 0.21,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 41,
+   "secondaryPct": 29,
+   "gap": 12,
+   "confidence": 0.16,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 15,
-    "SG": 49,
-    "SF": 36,
-    "PF": 0,
+    "PG": 1,
+    "SG": 29,
+    "SF": 41,
+    "PF": 28,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 66,
-    "SG": 216,
-    "SF": 159,
-    "PF": 0,
+    "PG": 4,
+    "SG": 128,
+    "SF": 181,
+    "PF": 123,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 15,
-    "SG": 49,
-    "SF": 36,
-    "PF": 0,
+    "PG": 1,
+    "SG": 29,
+    "SF": 41,
+    "PF": 28,
     "C": 0
    }
   },
@@ -1116,90 +1578,6 @@
     "SG": 42,
     "SF": 54,
     "PF": 5,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Darryn Peterson",
-   "nameCn": "达林·彼得森",
-   "bao5Id": 1643408,
-   "onRoster": true,
-   "brSlug": "peterda02",
-   "team": "UTA",
-   "brPosLabel": "SG",
-   "games": 14,
-   "gamesStarted": 14,
-   "minutes": 439,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 56,
-   "secondaryPct": 41,
-   "gap": 15,
-   "confidence": 0.28,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 2,
-    "SG": 56,
-    "SF": 41,
-    "PF": 1,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 9,
-    "SG": 246,
-    "SF": 180,
-    "PF": 4,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 2,
-    "SG": 56,
-    "SF": 41,
-    "PF": 1,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "RJ Barrett",
-   "nameCn": "RJ·巴雷特",
-   "bao5Id": 1629628,
-   "onRoster": true,
-   "brSlug": "barrerj01",
-   "team": "TOR",
-   "brPosLabel": "SF",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 439,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 72,
-   "secondaryPct": 17,
-   "gap": 55,
-   "confidence": 0.72,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 72,
-    "PF": 11,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 75,
-    "SF": 316,
-    "PF": 48,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 72,
-    "PF": 11,
     "C": 0
    }
   },
@@ -1330,90 +1708,6 @@
    }
   },
   {
-   "nameEn": "OG Anunoby",
-   "nameCn": "OG·阿奴诺比",
-   "bao5Id": 1628384,
-   "onRoster": true,
-   "brSlug": "anunoog01",
-   "team": "NYK",
-   "brPosLabel": "PF",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 438,
-   "primary": "PF",
-   "secondary": null,
-   "primaryPct": 98,
-   "secondaryPct": 2,
-   "gap": 96,
-   "confidence": 0.98,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 98,
-    "C": 2
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 429,
-    "C": 9
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 98,
-    "C": 2
-   }
-  },
-  {
-   "nameEn": "Ace Bailey",
-   "nameCn": "埃斯·贝利",
-   "bao5Id": 1642846,
-   "onRoster": true,
-   "brSlug": "baileac01",
-   "team": "UTA",
-   "brPosLabel": "SF",
-   "games": 14,
-   "gamesStarted": 13,
-   "minutes": 437,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 66,
-   "secondaryPct": 34,
-   "gap": 32,
-   "confidence": 0.66,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 34,
-    "PF": 66,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 149,
-    "PF": 288,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 34,
-    "PF": 66,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "P.J. Washington",
    "nameCn": "PJ·华盛顿",
    "bao5Id": 1629023,
@@ -1492,48 +1786,6 @@
    "seasonDistribution": {
     "PG": 99,
     "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Ayo Dosunmu",
-   "nameCn": "阿约·多森姆",
-   "bao5Id": 1630245,
-   "onRoster": true,
-   "brSlug": "dosunay01",
-   "team": "MIN",
-   "brPosLabel": "SG",
-   "games": 14,
-   "gamesStarted": 10,
-   "minutes": 434,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 76,
-   "secondaryPct": 24,
-   "gap": 52,
-   "confidence": 0.76,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 24,
-    "SG": 76,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 104,
-    "SG": 330,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 24,
-    "SG": 76,
     "SF": 0,
     "PF": 0,
     "C": 0
@@ -1624,6 +1876,48 @@
    }
   },
   {
+   "nameEn": "Ja'Kobe Walter",
+   "nameCn": "贾科比·沃尔特",
+   "bao5Id": 1642266,
+   "onRoster": true,
+   "brSlug": "walteja01",
+   "team": "TOR",
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 12,
+   "minutes": 432,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 87,
+   "secondaryPct": 11,
+   "gap": 76,
+   "confidence": 0.87,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 2,
+    "SG": 87,
+    "SF": 11,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 9,
+    "SG": 376,
+    "SF": 48,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 2,
+    "SG": 87,
+    "SF": 11,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Saddiq Bey",
    "nameCn": "萨迪克·贝",
    "bao5Id": 1630180,
@@ -1662,48 +1956,6 @@
     "SG": 0,
     "SF": 74,
     "PF": 25,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Luka Dončić",
-   "nameCn": "卢卡·东契奇",
-   "bao5Id": 1629029,
-   "onRoster": true,
-   "brSlug": "doncilu01",
-   "team": "LAL",
-   "brPosLabel": "PG",
-   "games": 12,
-   "gamesStarted": 12,
-   "minutes": 431,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 431,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -1750,6 +2002,48 @@
    }
   },
   {
+   "nameEn": "Darius Garland",
+   "nameCn": "达里厄斯·加兰",
+   "bao5Id": 1629636,
+   "onRoster": true,
+   "brSlug": "garlada01",
+   "team": "LAC",
+   "brPosLabel": "PG",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 428,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 428,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Jonathan Kuminga",
    "nameCn": "乔纳森·库明加",
    "bao5Id": 1630228,
@@ -1789,6 +2083,48 @@
     "SF": 85,
     "PF": 13,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Naz Reid",
+   "nameCn": "纳兹·里德",
+   "bao5Id": 1629675,
+   "onRoster": true,
+   "brSlug": "reidna01",
+   "team": "CHO",
+   "brPosLabel": "C",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 427,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 66,
+   "secondaryPct": 34,
+   "gap": 32,
+   "confidence": 0.66,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 66
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 145,
+    "C": 282
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 66
    }
   },
   {
@@ -1876,48 +2212,6 @@
    }
   },
   {
-   "nameEn": "Keyonte George",
-   "nameCn": "基扬特·乔治",
-   "bao5Id": 1641718,
-   "onRoster": true,
-   "brSlug": "georgke01",
-   "team": "UTA",
-   "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 425,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 425,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Austin Reaves",
    "nameCn": "奥斯汀·里夫斯",
    "bao5Id": 1630559,
@@ -1999,48 +2293,6 @@
     "SF": 70,
     "PF": 29,
     "C": 1
-   }
-  },
-  {
-   "nameEn": "Karl-Anthony Towns",
-   "nameCn": "卡尔-安东尼·唐斯",
-   "bao5Id": 1626157,
-   "onRoster": true,
-   "brSlug": "townska01",
-   "team": "NYK",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 422,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 422
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
    }
   },
   {
@@ -2170,84 +2422,42 @@
    }
   },
   {
-   "nameEn": "Victor Wembanyama",
-   "nameCn": "维克托·文班亚马",
-   "bao5Id": 1641705,
+   "nameEn": "LaMelo Ball",
+   "nameCn": "拉梅洛·鲍尔",
+   "bao5Id": 1630163,
    "onRoster": true,
-   "brSlug": "wembavi01",
-   "team": "SAS",
-   "brPosLabel": "C",
-   "games": 14,
-   "gamesStarted": 14,
-   "minutes": 417,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 417
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
-   "nameEn": "Cade Cunningham",
-   "nameCn": "凯德·坎宁安",
-   "bao5Id": 1630595,
-   "onRoster": true,
-   "brSlug": "cunnica01",
-   "team": "DET",
+   "brSlug": "ballla01",
+   "team": "MIN",
    "brPosLabel": "PG",
-   "games": 12,
-   "gamesStarted": 12,
-   "minutes": 416,
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 415,
    "primary": "PG",
    "secondary": "SG",
-   "primaryPct": 58,
-   "secondaryPct": 43,
-   "gap": 15,
-   "confidence": 0.29,
+   "primaryPct": 95,
+   "secondaryPct": 5,
+   "gap": 90,
+   "confidence": 0.95,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 58,
-    "SG": 43,
+    "PG": 95,
+    "SG": 5,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 241,
-    "SG": 179,
+    "PG": 394,
+    "SG": 21,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 58,
-    "SG": 43,
+    "PG": 95,
+    "SG": 5,
     "SF": 0,
     "PF": 0,
     "C": 0
@@ -2296,44 +2506,44 @@
    }
   },
   {
-   "nameEn": "Stephon Castle",
-   "nameCn": "斯蒂芬·卡斯尔",
-   "bao5Id": 1642264,
+   "nameEn": "Damian Lillard",
+   "nameCn": "达米安·利拉德",
+   "bao5Id": 203081,
    "onRoster": true,
-   "brSlug": "castlst01",
-   "team": "SAS",
-   "brPosLabel": "SG",
+   "brSlug": "lillada01",
+   "team": "POR",
+   "brPosLabel": "PG",
    "games": 14,
    "gamesStarted": 14,
-   "minutes": 410,
-   "primary": "SF",
+   "minutes": 408,
+   "primary": "PG",
    "secondary": "SG",
-   "primaryPct": 40,
-   "secondaryPct": 31,
-   "gap": 9,
-   "confidence": 0.12,
+   "primaryPct": 83,
+   "secondaryPct": 17,
+   "gap": 66,
+   "confidence": 0.83,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 1,
-    "SG": 31,
-    "SF": 40,
-    "PF": 28,
+    "PG": 83,
+    "SG": 17,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 4,
-    "SG": 127,
-    "SF": 164,
-    "PF": 115,
+    "PG": 339,
+    "SG": 69,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 1,
-    "SG": 31,
-    "SF": 40,
-    "PF": 28,
+    "PG": 83,
+    "SG": 17,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -2380,6 +2590,90 @@
    }
   },
   {
+   "nameEn": "Toumani Camara",
+   "nameCn": "图马尼·卡马拉",
+   "bao5Id": 1641739,
+   "onRoster": true,
+   "brSlug": "camarto01",
+   "team": "POR",
+   "brPosLabel": "PF",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 407,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 94,
+   "secondaryPct": 5,
+   "gap": 89,
+   "confidence": 0.94,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 1,
+    "PF": 94,
+    "C": 5
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 4,
+    "PF": 383,
+    "C": 20
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 1,
+    "PF": 94,
+    "C": 5
+   }
+  },
+  {
+   "nameEn": "De'Aaron Fox",
+   "nameCn": "达龙·福克斯",
+   "bao5Id": 1628368,
+   "onRoster": true,
+   "brSlug": "foxde01",
+   "team": "SAS",
+   "brPosLabel": "PG",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 405,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 405,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Christian Braun",
    "nameCn": "克里斯蒂安·布劳恩",
    "bao5Id": 1631128,
@@ -2422,45 +2716,45 @@
    }
   },
   {
-   "nameEn": "Ja'Kobe Walter",
-   "nameCn": "贾科比·沃尔特",
-   "bao5Id": 1642266,
+   "nameEn": "Rudy Gobert",
+   "nameCn": "鲁迪·戈贝尔",
+   "bao5Id": 203497,
    "onRoster": true,
-   "brSlug": "walteja01",
-   "team": "TOR",
-   "brPosLabel": "SG",
-   "games": 13,
-   "gamesStarted": 11,
-   "minutes": 399,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 87,
-   "secondaryPct": 11,
-   "gap": 76,
-   "confidence": 0.87,
+   "brSlug": "goberru01",
+   "team": "MIN",
+   "brPosLabel": "C",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 403,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 2,
-    "SG": 87,
-    "SF": 11,
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
     "PF": 0,
-    "C": 0
+    "C": 100
    },
    "minutesByPosition": {
-    "PG": 8,
-    "SG": 347,
-    "SF": 44,
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
     "PF": 0,
-    "C": 0
+    "C": 403
    },
    "seasonDistribution": {
-    "PG": 2,
-    "SG": 87,
-    "SF": 11,
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
     "PF": 0,
-    "C": 0
+    "C": 100
    }
   },
   {
@@ -2502,48 +2796,6 @@
     "SG": 23,
     "SF": 69,
     "PF": 9,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Darius Garland",
-   "nameCn": "达里厄斯·加兰",
-   "bao5Id": 1629636,
-   "onRoster": true,
-   "brSlug": "garlada01",
-   "team": "LAC",
-   "brPosLabel": "PG",
-   "games": 12,
-   "gamesStarted": 12,
-   "minutes": 398,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 398,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -2632,6 +2884,48 @@
    }
   },
   {
+   "nameEn": "Julian Champagnie",
+   "nameCn": "朱利安·尚帕尼",
+   "bao5Id": 1630577,
+   "onRoster": true,
+   "brSlug": "champju02",
+   "team": "SAS",
+   "brPosLabel": "SF",
+   "games": 15,
+   "gamesStarted": 3,
+   "minutes": 395,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 47,
+   "secondaryPct": 36,
+   "gap": 11,
+   "confidence": 0.17,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 17,
+    "SF": 47,
+    "PF": 36,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 67,
+    "SF": 186,
+    "PF": 142,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 17,
+    "SF": 47,
+    "PF": 36,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Jaime Jaquez Jr.",
    "nameCn": "小海梅·哈克斯",
    "bao5Id": 1631170,
@@ -2674,6 +2968,48 @@
    }
   },
   {
+   "nameEn": "Devin Vassell",
+   "nameCn": "德文·瓦塞尔",
+   "bao5Id": 1630170,
+   "onRoster": true,
+   "brSlug": "vassede01",
+   "team": "SAS",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 391,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 59,
+   "secondaryPct": 40,
+   "gap": 19,
+   "confidence": 0.37,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 40,
+    "SG": 59,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 156,
+    "SG": 231,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 40,
+    "SG": 59,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Brandin Podziemski",
    "nameCn": "布兰丁·波杰姆斯基",
    "bao5Id": 1641764,
@@ -2712,90 +3048,6 @@
     "SG": 50,
     "SF": 49,
     "PF": 1,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Naz Reid",
-   "nameCn": "纳兹·里德",
-   "bao5Id": 1629675,
-   "onRoster": true,
-   "brSlug": "reidna01",
-   "team": "CHO",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 385,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 65,
-   "secondaryPct": 35,
-   "gap": 30,
-   "confidence": 0.65,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 35,
-    "C": 65
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 135,
-    "C": 250
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 35,
-    "C": 65
-   }
-  },
-  {
-   "nameEn": "LaMelo Ball",
-   "nameCn": "拉梅洛·鲍尔",
-   "bao5Id": 1630163,
-   "onRoster": true,
-   "brSlug": "ballla01",
-   "team": "MIN",
-   "brPosLabel": "PG",
-   "games": 14,
-   "gamesStarted": 14,
-   "minutes": 384,
-   "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 95,
-   "secondaryPct": 5,
-   "gap": 90,
-   "confidence": 0.95,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 95,
-    "SG": 5,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 365,
-    "SG": 19,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 95,
-    "SG": 5,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -2884,45 +3136,45 @@
    }
   },
   {
-   "nameEn": "Rudy Gobert",
-   "nameCn": "鲁迪·戈贝尔",
-   "bao5Id": 203497,
+   "nameEn": "Immanuel Quickley",
+   "nameCn": "伊曼纽尔·奎克利",
+   "bao5Id": 1630193,
    "onRoster": true,
-   "brSlug": "goberru01",
-   "team": "MIN",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 381,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
+   "brSlug": "quickim01",
+   "team": "TOR",
+   "brPosLabel": "PG",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 382,
+   "primary": "PG",
+   "secondary": "SG",
+   "primaryPct": 76,
+   "secondaryPct": 24,
+   "gap": 52,
+   "confidence": 0.76,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
-    "SG": 0,
+    "PG": 76,
+    "SG": 24,
     "SF": 0,
     "PF": 0,
-    "C": 100
+    "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
+    "PG": 290,
+    "SG": 92,
     "SF": 0,
     "PF": 0,
-    "C": 381
+    "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
+    "PG": 76,
+    "SG": 24,
     "SF": 0,
     "PF": 0,
-    "C": 100
+    "C": 0
    }
   },
   {
@@ -3094,6 +3346,48 @@
    }
   },
   {
+   "nameEn": "Sion James",
+   "nameCn": "西翁·詹姆斯",
+   "bao5Id": 1642883,
+   "onRoster": true,
+   "brSlug": "jamessi01",
+   "team": "CHO",
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 11,
+   "minutes": 378,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 65,
+   "secondaryPct": 24,
+   "gap": 41,
+   "confidence": 0.65,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 11,
+    "SG": 65,
+    "SF": 24,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 42,
+    "SG": 246,
+    "SF": 91,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 11,
+    "SG": 65,
+    "SF": 24,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Jalen Johnson",
    "nameCn": "杰伦·约翰逊",
    "bao5Id": 1630552,
@@ -3220,44 +3514,86 @@
    }
   },
   {
-   "nameEn": "Damian Lillard",
-   "nameCn": "达米安·利拉德",
-   "bao5Id": 203081,
+   "nameEn": "Daniss Jenkins",
+   "nameCn": "丹尼斯·詹金斯",
+   "bao5Id": 1642450,
    "onRoster": true,
-   "brSlug": "lillada01",
-   "team": "POR",
+   "brSlug": "jenkida01",
+   "team": "DET",
    "brPosLabel": "PG",
    "games": 13,
-   "gamesStarted": 13,
+   "gamesStarted": 5,
    "minutes": 376,
    "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 82,
-   "secondaryPct": 18,
-   "gap": 64,
-   "confidence": 0.82,
+   "secondary": null,
+   "primaryPct": 99,
+   "secondaryPct": 1,
+   "gap": 98,
+   "confidence": 0.99,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 82,
-    "SG": 18,
+    "PG": 99,
+    "SG": 1,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 308,
-    "SG": 68,
+    "PG": 372,
+    "SG": 4,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 82,
-    "SG": 18,
+    "PG": 99,
+    "SG": 1,
     "SF": 0,
     "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Matisse Thybulle",
+   "nameCn": "马蒂斯·赛布尔",
+   "bao5Id": 1629680,
+   "onRoster": true,
+   "brSlug": "thybuma01",
+   "team": "LAL",
+   "brPosLabel": "SF",
+   "games": 15,
+   "gamesStarted": 15,
+   "minutes": 375,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 82,
+   "secondaryPct": 11,
+   "gap": 71,
+   "confidence": 0.82,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 11,
+    "SF": 82,
+    "PF": 8,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 41,
+    "SF": 308,
+    "PF": 30,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 11,
+    "SF": 82,
+    "PF": 8,
     "C": 0
    }
   },
@@ -3346,48 +3682,6 @@
    }
   },
   {
-   "nameEn": "Toumani Camara",
-   "nameCn": "图马尼·卡马拉",
-   "bao5Id": 1641739,
-   "onRoster": true,
-   "brSlug": "camarto01",
-   "team": "POR",
-   "brPosLabel": "PF",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 374,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 95,
-   "secondaryPct": 5,
-   "gap": 90,
-   "confidence": 0.95,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 95,
-    "C": 5
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 355,
-    "C": 19
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 95,
-    "C": 5
-   }
-  },
-  {
    "nameEn": "Cedric Coward",
    "nameCn": "塞德里克·考沃德",
    "bao5Id": 1642907,
@@ -3425,6 +3719,48 @@
     "PG": 0,
     "SG": 92,
     "SF": 8,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Jrue Holiday",
+   "nameCn": "朱·霍勒迪",
+   "bao5Id": 201950,
+   "onRoster": true,
+   "brSlug": "holidjr01",
+   "team": "POR",
+   "brPosLabel": "PG",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 371,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 72,
+   "secondaryPct": 20,
+   "gap": 52,
+   "confidence": 0.72,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 8,
+    "SG": 72,
+    "SF": 20,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 30,
+    "SG": 267,
+    "SF": 74,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 8,
+    "SG": 72,
+    "SF": 20,
     "PF": 0,
     "C": 0
    }
@@ -3468,48 +3804,6 @@
     "SG": 5,
     "SF": 81,
     "PF": 14,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "De'Aaron Fox",
-   "nameCn": "达龙·福克斯",
-   "bao5Id": 1628368,
-   "onRoster": true,
-   "brSlug": "foxde01",
-   "team": "SAS",
-   "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 371,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 371,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -3640,6 +3934,90 @@
    }
   },
   {
+   "nameEn": "Quentin Grimes",
+   "nameCn": "昆廷·格兰姆斯",
+   "bao5Id": 1629656,
+   "onRoster": true,
+   "brSlug": "grimequ01",
+   "team": "LAL",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 4,
+   "minutes": 366,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 53,
+   "secondaryPct": 46,
+   "gap": 7,
+   "confidence": 0.12,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 46,
+    "PF": 1,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 194,
+    "SF": 168,
+    "PF": 4,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 46,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Brandon Miller",
+   "nameCn": "布兰登·米勒",
+   "bao5Id": 1641706,
+   "onRoster": true,
+   "brSlug": "millebr02",
+   "team": "CHO",
+   "brPosLabel": "SF",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 366,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 78,
+   "secondaryPct": 20,
+   "gap": 58,
+   "confidence": 0.78,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 20,
+    "SF": 78,
+    "PF": 3,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 73,
+    "SF": 285,
+    "PF": 11,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 20,
+    "SF": 78,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Duncan Robinson",
    "nameCn": "邓肯·罗宾逊",
    "bao5Id": 1629130,
@@ -3679,48 +4057,6 @@
     "SF": 44,
     "PF": 52,
     "C": 1
-   }
-  },
-  {
-   "nameEn": "Julian Champagnie",
-   "nameCn": "朱利安·尚帕尼",
-   "bao5Id": 1630577,
-   "onRoster": true,
-   "brSlug": "champju02",
-   "team": "SAS",
-   "brPosLabel": "SF",
-   "games": 14,
-   "gamesStarted": 3,
-   "minutes": 365,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 49,
-   "secondaryPct": 34,
-   "gap": 15,
-   "confidence": 0.25,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 49,
-    "PF": 34,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 62,
-    "SF": 179,
-    "PF": 124,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 49,
-    "PF": 34,
-    "C": 0
    }
   },
   {
@@ -3808,6 +4144,48 @@
    }
   },
   {
+   "nameEn": "Landry Shamet",
+   "nameCn": "兰德里·沙梅特",
+   "bao5Id": 1629013,
+   "onRoster": true,
+   "brSlug": "shamela01",
+   "team": "NYK",
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 3,
+   "minutes": 360,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 53,
+   "secondaryPct": 46,
+   "gap": 7,
+   "confidence": 0.12,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 46,
+    "PF": 1,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 191,
+    "SF": 166,
+    "PF": 4,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 46,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Fred VanVleet",
    "nameCn": "弗雷德·范弗利特",
    "bao5Id": 1627832,
@@ -3850,6 +4228,90 @@
    }
   },
   {
+   "nameEn": "Mikal Bridges",
+   "nameCn": "米卡尔·布里奇斯",
+   "bao5Id": 1628969,
+   "onRoster": true,
+   "brSlug": "bridgmi01",
+   "team": "NYK",
+   "brPosLabel": "SF",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 359,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 91,
+   "secondaryPct": 8,
+   "gap": 83,
+   "confidence": 0.91,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 91,
+    "PF": 8,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 4,
+    "SF": 327,
+    "PF": 29,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 91,
+    "PF": 8,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Donovan Clingan",
+   "nameCn": "多诺万·克林根",
+   "bao5Id": 1642270,
+   "onRoster": true,
+   "brSlug": "clingdo01",
+   "team": "POR",
+   "brPosLabel": "C",
+   "games": 14,
+   "gamesStarted": 14,
+   "minutes": 359,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 359
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
    "nameEn": "Aaron Wiggins",
    "nameCn": "阿隆·威金斯",
    "bao5Id": 1630598,
@@ -3888,6 +4350,48 @@
     "SG": 90,
     "SF": 0,
     "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Keldon Johnson",
+   "nameCn": "凯尔登·约翰逊",
+   "bao5Id": 1629640,
+   "onRoster": true,
+   "brSlug": "johnske04",
+   "team": "SAS",
+   "brPosLabel": "PF",
+   "games": 15,
+   "gamesStarted": 0,
+   "minutes": 358,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 67,
+   "secondaryPct": 33,
+   "gap": 34,
+   "confidence": 0.67,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 33,
+    "PF": 67,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 118,
+    "PF": 240,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 33,
+    "PF": 67,
     "C": 0
    }
   },
@@ -3946,31 +4450,31 @@
    "minutes": 357,
    "primary": "SG",
    "secondary": "SF",
-   "primaryPct": 57,
-   "secondaryPct": 41,
-   "gap": 16,
-   "confidence": 0.3,
+   "primaryPct": 58,
+   "secondaryPct": 40,
+   "gap": 18,
+   "confidence": 0.35,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 1,
-    "SG": 57,
-    "SF": 41,
+    "SG": 58,
+    "SF": 40,
     "PF": 1,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 4,
-    "SG": 203,
-    "SF": 146,
+    "SG": 207,
+    "SF": 143,
     "PF": 4,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 1,
-    "SG": 57,
-    "SF": 41,
+    "SG": 58,
+    "SF": 40,
     "PF": 1,
     "C": 0
    }
@@ -4018,45 +4522,45 @@
    }
   },
   {
-   "nameEn": "Devin Vassell",
-   "nameCn": "德文·瓦塞尔",
-   "bao5Id": 1630170,
+   "nameEn": "Moussa Diabaté",
+   "nameCn": "穆萨·迪亚巴特",
+   "bao5Id": 1631217,
    "onRoster": true,
-   "brSlug": "vassede01",
-   "team": "SAS",
-   "brPosLabel": "SG",
+   "brSlug": "diabamo01",
+   "team": "CHO",
+   "brPosLabel": "C",
    "games": 12,
    "gamesStarted": 12,
    "minutes": 355,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 59,
-   "secondaryPct": 41,
-   "gap": 18,
-   "confidence": 0.35,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 73,
+   "secondaryPct": 27,
+   "gap": 46,
+   "confidence": 0.73,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 41,
-    "SG": 59,
+    "PG": 0,
+    "SG": 0,
     "SF": 0,
-    "PF": 0,
-    "C": 0
+    "PF": 73,
+    "C": 27
    },
    "minutesByPosition": {
-    "PG": 146,
-    "SG": 209,
+    "PG": 0,
+    "SG": 0,
     "SF": 0,
-    "PF": 0,
-    "C": 0
+    "PF": 259,
+    "C": 96
    },
    "seasonDistribution": {
-    "PG": 41,
-    "SG": 59,
+    "PG": 0,
+    "SG": 0,
     "SF": 0,
-    "PF": 0,
-    "C": 0
+    "PF": 73,
+    "C": 27
    }
   },
   {
@@ -4186,6 +4690,48 @@
    }
   },
   {
+   "nameEn": "Sandro Mamukelashvili",
+   "nameCn": "桑德罗·马穆凯拉什维利",
+   "bao5Id": 1630572,
+   "onRoster": true,
+   "brSlug": "mamuksa01",
+   "team": "LAL",
+   "brPosLabel": "C",
+   "games": 15,
+   "gamesStarted": 0,
+   "minutes": 351,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 67,
+   "secondaryPct": 34,
+   "gap": 33,
+   "confidence": 0.67,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 67
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 119,
+    "C": 235
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 67
+   }
+  },
+  {
    "nameEn": "Bilal Coulibaly",
    "nameCn": "比拉尔·库利巴利",
    "bao5Id": 1641731,
@@ -4224,6 +4770,90 @@
     "SG": 7,
     "SF": 69,
     "PF": 24,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Jake LaRavia",
+   "nameCn": "杰克·拉拉维亚",
+   "bao5Id": 1631222,
+   "onRoster": true,
+   "brSlug": "laravja01",
+   "team": "LAL",
+   "brPosLabel": "PF",
+   "games": 14,
+   "gamesStarted": 11,
+   "minutes": 349,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 77,
+   "secondaryPct": 21,
+   "gap": 56,
+   "confidence": 0.77,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 21,
+    "PF": 77,
+    "C": 2
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 73,
+    "PF": 269,
+    "C": 7
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 21,
+    "PF": 77,
+    "C": 2
+   }
+  },
+  {
+   "nameEn": "Kris Dunn",
+   "nameCn": "克里斯·邓恩",
+   "bao5Id": 1627739,
+   "onRoster": true,
+   "brSlug": "dunnkr01",
+   "team": "LAC",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 349,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 76,
+   "secondaryPct": 24,
+   "gap": 52,
+   "confidence": 0.76,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 24,
+    "SG": 76,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 84,
+    "SG": 265,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 24,
+    "SG": 76,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -4270,48 +4900,6 @@
    }
   },
   {
-   "nameEn": "Sion James",
-   "nameCn": "西翁·詹姆斯",
-   "bao5Id": 1642883,
-   "onRoster": true,
-   "brSlug": "jamessi01",
-   "team": "CHO",
-   "brPosLabel": "SG",
-   "games": 13,
-   "gamesStarted": 11,
-   "minutes": 348,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 67,
-   "secondaryPct": 26,
-   "gap": 41,
-   "confidence": 0.67,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 6,
-    "SG": 67,
-    "SF": 26,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 21,
-    "SG": 233,
-    "SF": 90,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 6,
-    "SG": 67,
-    "SF": 26,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Aaron Gordon",
    "nameCn": "阿隆·戈登",
    "bao5Id": 203932,
@@ -4350,48 +4938,6 @@
     "SG": 0,
     "SF": 16,
     "PF": 84,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Immanuel Quickley",
-   "nameCn": "伊曼纽尔·奎克利",
-   "bao5Id": 1630193,
-   "onRoster": true,
-   "brSlug": "quickim01",
-   "team": "TOR",
-   "brPosLabel": "PG",
-   "games": 11,
-   "gamesStarted": 11,
-   "minutes": 348,
-   "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 75,
-   "secondaryPct": 25,
-   "gap": 50,
-   "confidence": 0.75,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 75,
-    "SG": 25,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 261,
-    "SG": 87,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 75,
-    "SG": 25,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -4480,128 +5026,170 @@
    }
   },
   {
-   "nameEn": "Matisse Thybulle",
-   "nameCn": "马蒂斯·赛布尔",
-   "bao5Id": 1629680,
+   "nameEn": "Derrick Jones Jr.",
+   "nameCn": "小德里克·琼斯",
+   "bao5Id": 1627884,
    "onRoster": true,
-   "brSlug": "thybuma01",
-   "team": "LAL",
+   "brSlug": "jonesde02",
+   "team": "LAC",
    "brPosLabel": "SF",
-   "games": 14,
-   "gamesStarted": 14,
-   "minutes": 344,
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 345,
    "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 83,
-   "secondaryPct": 10,
-   "gap": 73,
-   "confidence": 0.83,
+   "secondary": "PF",
+   "primaryPct": 81,
+   "secondaryPct": 19,
+   "gap": 62,
+   "confidence": 0.81,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 10,
-    "SF": 83,
-    "PF": 6,
-    "C": 0
+    "SG": 0,
+    "SF": 81,
+    "PF": 19,
+    "C": 1
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 34,
-    "SF": 286,
+    "SG": 0,
+    "SF": 279,
+    "PF": 66,
+    "C": 3
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 81,
+    "PF": 19,
+    "C": 1
+   }
+  },
+  {
+   "nameEn": "Paul Reed",
+   "nameCn": "保罗·里德",
+   "bao5Id": 1630194,
+   "onRoster": true,
+   "brSlug": "reedpa01",
+   "team": "DET",
+   "brPosLabel": "C",
+   "games": 13,
+   "gamesStarted": 7,
+   "minutes": 344,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 344
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
+   "nameEn": "John Collins",
+   "nameCn": "约翰·科林斯",
+   "bao5Id": 1628381,
+   "onRoster": true,
+   "brSlug": "collijo01",
+   "team": "DET",
+   "brPosLabel": "PF",
+   "games": 13,
+   "gamesStarted": 13,
+   "minutes": 340,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 66,
+   "secondaryPct": 34,
+   "gap": 32,
+   "confidence": 0.66,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 66
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 116,
+    "C": 224
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 34,
+    "C": 66
+   }
+  },
+  {
+   "nameEn": "Sidy Cissoko",
+   "nameCn": "西迪·西索科",
+   "bao5Id": 1631321,
+   "onRoster": true,
+   "brSlug": "cissosi01",
+   "team": "POR",
+   "brPosLabel": "SF",
+   "games": 14,
+   "gamesStarted": 5,
+   "minutes": 339,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 48,
+   "secondaryPct": 30,
+   "gap": 18,
+   "confidence": 0.29,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 30,
+    "SF": 48,
     "PF": 21,
     "C": 0
    },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 10,
-    "SF": 83,
-    "PF": 6,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Keldon Johnson",
-   "nameCn": "凯尔登·约翰逊",
-   "bao5Id": 1629640,
-   "onRoster": true,
-   "brSlug": "johnske04",
-   "team": "SAS",
-   "brPosLabel": "PF",
-   "games": 14,
-   "gamesStarted": 0,
-   "minutes": 343,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 68,
-   "secondaryPct": 33,
-   "gap": 35,
-   "confidence": 0.68,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 33,
-    "PF": 68,
-    "C": 0
-   },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 0,
-    "SF": 113,
-    "PF": 233,
+    "SG": 102,
+    "SF": 163,
+    "PF": 71,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 0,
-    "SF": 33,
-    "PF": 68,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Jrue Holiday",
-   "nameCn": "朱·霍勒迪",
-   "bao5Id": 201950,
-   "onRoster": true,
-   "brSlug": "holidjr01",
-   "team": "POR",
-   "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 340,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 72,
-   "secondaryPct": 20,
-   "gap": 52,
-   "confidence": 0.72,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 8,
-    "SG": 72,
-    "SF": 20,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 27,
-    "SG": 245,
-    "SF": 68,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 8,
-    "SG": 72,
-    "SF": 20,
-    "PF": 0,
+    "SG": 30,
+    "SF": 48,
+    "PF": 21,
     "C": 0
    }
   },
@@ -4690,48 +5278,6 @@
    }
   },
   {
-   "nameEn": "Daniss Jenkins",
-   "nameCn": "丹尼斯·詹金斯",
-   "bao5Id": 1642450,
-   "onRoster": true,
-   "brSlug": "jenkida01",
-   "team": "DET",
-   "brPosLabel": "PG",
-   "games": 12,
-   "gamesStarted": 4,
-   "minutes": 337,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 99,
-   "secondaryPct": 2,
-   "gap": 97,
-   "confidence": 0.99,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 99,
-    "SG": 2,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 334,
-    "SG": 7,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 99,
-    "SG": 2,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Tristan Da Silva",
    "nameCn": "特里斯坦·达·席尔瓦",
    "bao5Id": 1641783,
@@ -4771,6 +5317,48 @@
     "SF": 79,
     "PF": 19,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Scottie Barnes",
+   "nameCn": "斯科蒂·巴恩斯",
+   "bao5Id": 1630567,
+   "onRoster": true,
+   "brSlug": "barnesc01",
+   "team": "TOR",
+   "brPosLabel": "PF",
+   "games": 10,
+   "gamesStarted": 10,
+   "minutes": 337,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 52,
+   "secondaryPct": 39,
+   "gap": 13,
+   "confidence": 0.23,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 9,
+    "PF": 39,
+    "C": 52
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 30,
+    "PF": 131,
+    "C": 175
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 9,
+    "PF": 39,
+    "C": 52
    }
   },
   {
@@ -4816,44 +5404,44 @@
    }
   },
   {
-   "nameEn": "Landry Shamet",
-   "nameCn": "兰德里·沙梅特",
-   "bao5Id": 1629013,
+   "nameEn": "Ausar Thompson",
+   "nameCn": "奥萨尔·汤普森",
+   "bao5Id": 1641709,
    "onRoster": true,
-   "brSlug": "shamela01",
-   "team": "NYK",
-   "brPosLabel": "SG",
-   "games": 13,
-   "gamesStarted": 3,
-   "minutes": 336,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 51,
-   "secondaryPct": 48,
-   "gap": 3,
-   "confidence": 0.05,
+   "brSlug": "thompau01",
+   "team": "DET",
+   "brPosLabel": "SF",
+   "games": 12,
+   "gamesStarted": 12,
+   "minutes": 335,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 45,
+   "secondaryPct": 28,
+   "gap": 17,
+   "confidence": 0.26,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 51,
-    "SF": 48,
-    "PF": 1,
+    "SG": 28,
+    "SF": 45,
+    "PF": 27,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 171,
-    "SF": 161,
-    "PF": 3,
+    "SG": 94,
+    "SF": 151,
+    "PF": 90,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 51,
-    "SF": 48,
-    "PF": 1,
+    "SG": 28,
+    "SF": 45,
+    "PF": 27,
     "C": 0
    }
   },
@@ -4900,48 +5488,6 @@
    }
   },
   {
-   "nameEn": "Brandon Miller",
-   "nameCn": "布兰登·米勒",
-   "bao5Id": 1641706,
-   "onRoster": true,
-   "brSlug": "millebr02",
-   "team": "CHO",
-   "brPosLabel": "SF",
-   "games": 11,
-   "gamesStarted": 11,
-   "minutes": 334,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 83,
-   "secondaryPct": 14,
-   "gap": 69,
-   "confidence": 0.83,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 83,
-    "PF": 3,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 47,
-    "SF": 277,
-    "PF": 10,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 83,
-    "PF": 3,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Zaccharie Risacher",
    "nameCn": "扎卡里·里萨谢",
    "bao5Id": 1642258,
@@ -4980,6 +5526,48 @@
     "SG": 21,
     "SF": 55,
     "PF": 24,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Jamal Shead",
+   "nameCn": "贾马尔·谢德",
+   "bao5Id": 1642347,
+   "onRoster": true,
+   "brSlug": "sheadja01",
+   "team": "TOR",
+   "brPosLabel": "PG",
+   "games": 14,
+   "gamesStarted": 2,
+   "minutes": 332,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 332,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -5026,87 +5614,45 @@
    }
   },
   {
-   "nameEn": "Mikal Bridges",
-   "nameCn": "米卡尔·布里奇斯",
-   "bao5Id": 1628969,
+   "nameEn": "Kevin Huerter",
+   "nameCn": "凯文·赫尔特",
+   "bao5Id": 1628989,
    "onRoster": true,
-   "brSlug": "bridgmi01",
-   "team": "NYK",
-   "brPosLabel": "SF",
+   "brSlug": "huertke01",
+   "team": "DET",
+   "brPosLabel": "SG",
    "games": 13,
-   "gamesStarted": 13,
+   "gamesStarted": 1,
    "minutes": 329,
    "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 91,
-   "secondaryPct": 8,
-   "gap": 83,
-   "confidence": 0.91,
+   "secondary": "SG",
+   "primaryPct": 68,
+   "secondaryPct": 22,
+   "gap": 46,
+   "confidence": 0.68,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 1,
-    "SF": 91,
-    "PF": 8,
+    "SG": 22,
+    "SF": 68,
+    "PF": 10,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 3,
-    "SF": 299,
-    "PF": 26,
+    "SG": 72,
+    "SF": 224,
+    "PF": 33,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 1,
-    "SF": 91,
-    "PF": 8,
+    "SG": 22,
+    "SF": 68,
+    "PF": 10,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Sandro Mamukelashvili",
-   "nameCn": "桑德罗·马穆凯拉什维利",
-   "bao5Id": 1630572,
-   "onRoster": true,
-   "brSlug": "mamuksa01",
-   "team": "LAL",
-   "brPosLabel": "C",
-   "games": 14,
-   "gamesStarted": 0,
-   "minutes": 328,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 64,
-   "secondaryPct": 36,
-   "gap": 28,
-   "confidence": 0.6,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 36,
-    "C": 64
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 118,
-    "C": 210
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 36,
-    "C": 64
    }
   },
   {
@@ -5152,6 +5698,48 @@
    }
   },
   {
+   "nameEn": "Josh Hart",
+   "nameCn": "约什·哈特",
+   "bao5Id": 1628404,
+   "onRoster": true,
+   "brSlug": "hartjo01",
+   "team": "NYK",
+   "brPosLabel": "SF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 328,
+   "primary": "SG",
+   "secondary": "PF",
+   "primaryPct": 45,
+   "secondaryPct": 32,
+   "gap": 13,
+   "confidence": 0.2,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 45,
+    "SF": 24,
+    "PF": 32,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 148,
+    "SF": 79,
+    "PF": 105,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 45,
+    "SF": 24,
+    "PF": 32,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Derik Queen",
    "nameCn": "德里克·奎因",
    "bao5Id": 1642852,
@@ -5191,90 +5779,6 @@
     "SF": 0,
     "PF": 3,
     "C": 97
-   }
-  },
-  {
-   "nameEn": "Donovan Clingan",
-   "nameCn": "多诺万·克林根",
-   "bao5Id": 1642270,
-   "onRoster": true,
-   "brSlug": "clingdo01",
-   "team": "POR",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 13,
-   "minutes": 327,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 327
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
-   "nameEn": "Jake LaRavia",
-   "nameCn": "杰克·拉拉维亚",
-   "bao5Id": 1631222,
-   "onRoster": true,
-   "brSlug": "laravja01",
-   "team": "LAL",
-   "brPosLabel": "PF",
-   "games": 13,
-   "gamesStarted": 10,
-   "minutes": 326,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 79,
-   "secondaryPct": 21,
-   "gap": 58,
-   "confidence": 0.79,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 21,
-    "PF": 79,
-    "C": 1
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 68,
-    "PF": 258,
-    "C": 3
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 21,
-    "PF": 79,
-    "C": 1
    }
   },
   {
@@ -5362,45 +5866,45 @@
    }
   },
   {
-   "nameEn": "Quentin Grimes",
-   "nameCn": "昆廷·格兰姆斯",
-   "bao5Id": 1629656,
+   "nameEn": "Collin Murray-Boyles",
+   "nameCn": "科林·穆雷·博伊尔斯",
+   "bao5Id": 1642867,
    "onRoster": true,
-   "brSlug": "grimequ01",
-   "team": "LAL",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 3,
+   "brSlug": "murraco01",
+   "team": "TOR",
+   "brPosLabel": "PF",
+   "games": 13,
+   "gamesStarted": 7,
    "minutes": 324,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 50,
-   "secondaryPct": 49,
-   "gap": 1,
-   "confidence": 0.02,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 74,
+   "secondaryPct": 20,
+   "gap": 54,
+   "confidence": 0.74,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 49,
-    "SF": 50,
-    "PF": 1,
-    "C": 0
+    "SG": 0,
+    "SF": 6,
+    "PF": 74,
+    "C": 20
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 159,
-    "SF": 162,
-    "PF": 3,
-    "C": 0
+    "SG": 0,
+    "SF": 19,
+    "PF": 240,
+    "C": 65
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 49,
-    "SF": 50,
-    "PF": 1,
-    "C": 0
+    "SG": 0,
+    "SF": 6,
+    "PF": 74,
+    "C": 20
    }
   },
   {
@@ -5482,48 +5986,6 @@
    "seasonDistribution": {
     "PG": 99,
     "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Kris Dunn",
-   "nameCn": "克里斯·邓恩",
-   "bao5Id": 1627739,
-   "onRoster": true,
-   "brSlug": "dunnkr01",
-   "team": "LAC",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 12,
-   "minutes": 323,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 74,
-   "secondaryPct": 26,
-   "gap": 48,
-   "confidence": 0.74,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 26,
-    "SG": 74,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 84,
-    "SG": 239,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 26,
-    "SG": 74,
     "SF": 0,
     "PF": 0,
     "C": 0
@@ -5614,16 +6076,58 @@
    }
   },
   {
-   "nameEn": "Paul Reed",
-   "nameCn": "保罗·里德",
-   "bao5Id": 1630194,
+   "nameEn": "Rui Hachimura",
+   "nameCn": "八村垒",
+   "bao5Id": 1629060,
    "onRoster": true,
-   "brSlug": "reedpa01",
-   "team": "DET",
+   "brSlug": "hachiru01",
+   "team": "LAC",
+   "brPosLabel": "PF",
+   "games": 11,
+   "gamesStarted": 11,
+   "minutes": 318,
+   "primary": "PF",
+   "secondary": null,
+   "primaryPct": 96,
+   "secondaryPct": 4,
+   "gap": 92,
+   "confidence": 0.96,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 96,
+    "C": 4
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 305,
+    "C": 13
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 96,
+    "C": 4
+   }
+  },
+  {
+   "nameEn": "Brook Lopez",
+   "nameCn": "布鲁克·洛佩斯",
+   "bao5Id": 201572,
+   "onRoster": true,
+   "brSlug": "lopezbr01",
+   "team": "LAC",
    "brPosLabel": "C",
-   "games": 12,
+   "games": 13,
    "gamesStarted": 7,
-   "minutes": 319,
+   "minutes": 317,
    "primary": "C",
    "secondary": null,
    "primaryPct": 100,
@@ -5645,7 +6149,7 @@
     "SG": 0,
     "SF": 0,
     "PF": 0,
-    "C": 319
+    "C": 317
    },
    "seasonDistribution": {
     "PG": 0,
@@ -5698,132 +6202,6 @@
    }
   },
   {
-   "nameEn": "John Collins",
-   "nameCn": "约翰·科林斯",
-   "bao5Id": 1628381,
-   "onRoster": true,
-   "brSlug": "collijo01",
-   "team": "DET",
-   "brPosLabel": "PF",
-   "games": 12,
-   "gamesStarted": 12,
-   "minutes": 316,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 63,
-   "secondaryPct": 37,
-   "gap": 26,
-   "confidence": 0.55,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 37,
-    "C": 63
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 117,
-    "C": 199
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 37,
-    "C": 63
-   }
-  },
-  {
-   "nameEn": "Moussa Diabaté",
-   "nameCn": "穆萨·迪亚巴特",
-   "bao5Id": 1631217,
-   "onRoster": true,
-   "brSlug": "diabamo01",
-   "team": "CHO",
-   "brPosLabel": "C",
-   "games": 11,
-   "gamesStarted": 11,
-   "minutes": 316,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 71,
-   "secondaryPct": 29,
-   "gap": 42,
-   "confidence": 0.71,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 71,
-    "C": 29
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 224,
-    "C": 92
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 71,
-    "C": 29
-   }
-  },
-  {
-   "nameEn": "Derrick Jones Jr.",
-   "nameCn": "小德里克·琼斯",
-   "bao5Id": 1627884,
-   "onRoster": true,
-   "brSlug": "jonesde02",
-   "team": "LAC",
-   "brPosLabel": "SF",
-   "games": 11,
-   "gamesStarted": 11,
-   "minutes": 316,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 81,
-   "secondaryPct": 19,
-   "gap": 62,
-   "confidence": 0.81,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 81,
-    "PF": 19,
-    "C": 1
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 256,
-    "PF": 60,
-    "C": 3
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 81,
-    "PF": 19,
-    "C": 1
-   }
-  },
-  {
    "nameEn": "Klay Thompson",
    "nameCn": "克莱·汤普森",
    "bao5Id": 202691,
@@ -5866,42 +6244,42 @@
    }
   },
   {
-   "nameEn": "Jamal Shead",
-   "nameCn": "贾马尔·谢德",
-   "bao5Id": 1642347,
+   "nameEn": "Scoot Henderson",
+   "nameCn": "斯库特·亨德森",
+   "bao5Id": 1630703,
    "onRoster": true,
-   "brSlug": "sheadja01",
-   "team": "TOR",
+   "brSlug": "hendesc01",
+   "team": "POR",
    "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 2,
-   "minutes": 312,
+   "games": 14,
+   "gamesStarted": 5,
+   "minutes": 310,
    "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
+   "secondary": "SG",
+   "primaryPct": 53,
+   "secondaryPct": 47,
+   "gap": 6,
+   "confidence": 0.11,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 100,
-    "SG": 0,
+    "PG": 53,
+    "SG": 47,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 312,
-    "SG": 0,
+    "PG": 164,
+    "SG": 146,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
+    "PG": 53,
+    "SG": 47,
     "SF": 0,
     "PF": 0,
     "C": 0
@@ -6046,10 +6424,10 @@
    "minutes": 309,
    "primary": "C",
    "secondary": "PF",
-   "primaryPct": 53,
-   "secondaryPct": 44,
-   "gap": 9,
-   "confidence": 0.16,
+   "primaryPct": 51,
+   "secondaryPct": 46,
+   "gap": 5,
+   "confidence": 0.09,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
@@ -6057,22 +6435,22 @@
     "PG": 0,
     "SG": 0,
     "SF": 3,
-    "PF": 44,
-    "C": 53
+    "PF": 46,
+    "C": 51
    },
    "minutesByPosition": {
     "PG": 0,
     "SG": 0,
     "SF": 9,
-    "PF": 136,
-    "C": 164
+    "PF": 142,
+    "C": 158
    },
    "seasonDistribution": {
     "PG": 0,
     "SG": 0,
     "SF": 3,
-    "PF": 44,
-    "C": 53
+    "PF": 46,
+    "C": 51
    }
   },
   {
@@ -6088,31 +6466,31 @@
    "minutes": 308,
    "primary": "SG",
    "secondary": "PG",
-   "primaryPct": 46,
-   "secondaryPct": 36,
-   "gap": 10,
-   "confidence": 0.15,
+   "primaryPct": 47,
+   "secondaryPct": 34,
+   "gap": 13,
+   "confidence": 0.2,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 36,
-    "SG": 46,
-    "SF": 18,
+    "PG": 34,
+    "SG": 47,
+    "SF": 19,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 111,
-    "SG": 142,
-    "SF": 55,
+    "PG": 105,
+    "SG": 145,
+    "SF": 59,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 36,
-    "SG": 46,
-    "SF": 18,
+    "PG": 34,
+    "SG": 47,
+    "SF": 19,
     "PF": 0,
     "C": 0
    }
@@ -6244,90 +6622,6 @@
    }
   },
   {
-   "nameEn": "Sidy Cissoko",
-   "nameCn": "西迪·西索科",
-   "bao5Id": 1631321,
-   "onRoster": true,
-   "brSlug": "cissosi01",
-   "team": "POR",
-   "brPosLabel": "SF",
-   "games": 13,
-   "gamesStarted": 4,
-   "minutes": 307,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 48,
-   "secondaryPct": 29,
-   "gap": 19,
-   "confidence": 0.3,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 29,
-    "SF": 48,
-    "PF": 23,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 89,
-    "SF": 147,
-    "PF": 71,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 29,
-    "SF": 48,
-    "PF": 23,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Ausar Thompson",
-   "nameCn": "奥萨尔·汤普森",
-   "bao5Id": 1641709,
-   "onRoster": true,
-   "brSlug": "thompau01",
-   "team": "DET",
-   "brPosLabel": "SF",
-   "games": 11,
-   "gamesStarted": 11,
-   "minutes": 306,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 49,
-   "secondaryPct": 30,
-   "gap": 19,
-   "confidence": 0.31,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 30,
-    "SF": 49,
-    "PF": 21,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 92,
-    "SF": 150,
-    "PF": 64,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 30,
-    "SF": 49,
-    "PF": 21,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Cam Spencer",
    "nameCn": "卡梅隆·斯宾塞",
    "bao5Id": 1642285,
@@ -6409,48 +6703,6 @@
     "SF": 20,
     "PF": 0,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Scottie Barnes",
-   "nameCn": "斯科蒂·巴恩斯",
-   "bao5Id": 1630567,
-   "onRoster": true,
-   "brSlug": "barnesc01",
-   "team": "TOR",
-   "brPosLabel": "PF",
-   "games": 9,
-   "gamesStarted": 9,
-   "minutes": 303,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 51,
-   "secondaryPct": 40,
-   "gap": 11,
-   "confidence": 0.19,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 9,
-    "PF": 40,
-    "C": 51
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 27,
-    "PF": 121,
-    "C": 155
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 9,
-    "PF": 40,
-    "C": 51
    }
   },
   {
@@ -6538,48 +6790,6 @@
    }
   },
   {
-   "nameEn": "Josh Hart",
-   "nameCn": "约什·哈特",
-   "bao5Id": 1628404,
-   "onRoster": true,
-   "brSlug": "hartjo01",
-   "team": "NYK",
-   "brPosLabel": "SF",
-   "games": 10,
-   "gamesStarted": 10,
-   "minutes": 297,
-   "primary": "SG",
-   "secondary": "PF",
-   "primaryPct": 46,
-   "secondaryPct": 32,
-   "gap": 14,
-   "confidence": 0.21,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 46,
-    "SF": 22,
-    "PF": 32,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 137,
-    "SF": 65,
-    "PF": 95,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 46,
-    "SF": 22,
-    "PF": 32,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Isaac Okoro",
    "nameCn": "艾萨克·奥科罗",
    "bao5Id": 1630171,
@@ -6618,6 +6828,90 @@
     "SG": 19,
     "SF": 77,
     "PF": 5,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Keaton Wagler",
+   "nameCn": "基顿·瓦格勒",
+   "bao5Id": 1643413,
+   "onRoster": true,
+   "brSlug": "wagleke01",
+   "team": "LAC",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 0,
+   "minutes": 296,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 62,
+   "secondaryPct": 26,
+   "gap": 36,
+   "confidence": 0.62,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 26,
+    "SG": 62,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 77,
+    "SG": 184,
+    "SF": 36,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 26,
+    "SG": 62,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Kobe Sanders",
+   "nameCn": "科比·桑德斯",
+   "bao5Id": 1642920,
+   "onRoster": true,
+   "brSlug": "sandeko01",
+   "team": "LAC",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 2,
+   "minutes": 295,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 56,
+   "secondaryPct": 31,
+   "gap": 25,
+   "confidence": 0.47,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 13,
+    "SF": 56,
+    "PF": 31,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 38,
+    "SF": 165,
+    "PF": 91,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 13,
+    "SF": 56,
+    "PF": 31,
     "C": 0
    }
   },
@@ -6706,90 +7000,6 @@
    }
   },
   {
-   "nameEn": "Kevin Huerter",
-   "nameCn": "凯文·赫尔特",
-   "bao5Id": 1628989,
-   "onRoster": true,
-   "brSlug": "huertke01",
-   "team": "DET",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 0,
-   "minutes": 293,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 69,
-   "secondaryPct": 24,
-   "gap": 45,
-   "confidence": 0.69,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 24,
-    "SF": 69,
-    "PF": 7,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 70,
-    "SF": 202,
-    "PF": 21,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 24,
-    "SF": 69,
-    "PF": 7,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Brook Lopez",
-   "nameCn": "布鲁克·洛佩斯",
-   "bao5Id": 201572,
-   "onRoster": true,
-   "brSlug": "lopezbr01",
-   "team": "LAC",
-   "brPosLabel": "C",
-   "games": 12,
-   "gamesStarted": 6,
-   "minutes": 293,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 293
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
    "nameEn": "Kelly Oubre Jr.",
    "nameCn": "小凯利·乌布雷",
    "bao5Id": 1626162,
@@ -6829,48 +7039,6 @@
     "SF": 76,
     "PF": 5,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Collin Murray-Boyles",
-   "nameCn": "科林·穆雷·博伊尔斯",
-   "bao5Id": 1642867,
-   "onRoster": true,
-   "brSlug": "murraco01",
-   "team": "TOR",
-   "brPosLabel": "PF",
-   "games": 12,
-   "gamesStarted": 6,
-   "minutes": 291,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 73,
-   "secondaryPct": 22,
-   "gap": 51,
-   "confidence": 0.73,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 6,
-    "PF": 73,
-    "C": 22
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 17,
-    "PF": 212,
-    "C": 64
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 6,
-    "PF": 73,
-    "C": 22
    }
   },
   {
@@ -6916,48 +7084,6 @@
    }
   },
   {
-   "nameEn": "Rui Hachimura",
-   "nameCn": "八村垒",
-   "bao5Id": 1629060,
-   "onRoster": true,
-   "brSlug": "hachiru01",
-   "team": "LAC",
-   "brPosLabel": "PF",
-   "games": 10,
-   "gamesStarted": 10,
-   "minutes": 290,
-   "primary": "PF",
-   "secondary": null,
-   "primaryPct": 96,
-   "secondaryPct": 4,
-   "gap": 92,
-   "confidence": 0.96,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 96,
-    "C": 4
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 278,
-    "C": 12
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 96,
-    "C": 4
-   }
-  },
-  {
    "nameEn": "Sam Hauser",
    "nameCn": "萨姆·豪瑟",
    "bao5Id": 1630573,
@@ -6996,48 +7122,6 @@
     "SG": 2,
     "SF": 32,
     "PF": 67,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Scoot Henderson",
-   "nameCn": "斯库特·亨德森",
-   "bao5Id": 1630703,
-   "onRoster": true,
-   "brSlug": "hendesc01",
-   "team": "POR",
-   "brPosLabel": "PG",
-   "games": 13,
-   "gamesStarted": 5,
-   "minutes": 288,
-   "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 52,
-   "secondaryPct": 48,
-   "gap": 4,
-   "confidence": 0.07,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 52,
-    "SG": 48,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 150,
-    "SG": 138,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 52,
-    "SG": 48,
-    "SF": 0,
-    "PF": 0,
     "C": 0
    }
   },
@@ -7126,6 +7210,48 @@
    }
   },
   {
+   "nameEn": "Trey Lyles",
+   "nameCn": "特雷·莱尔斯",
+   "bao5Id": 1626168,
+   "onRoster": true,
+   "brSlug": "lylestr01",
+   "team": "MIN",
+   "brPosLabel": "PF",
+   "games": 15,
+   "gamesStarted": 0,
+   "minutes": 287,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 83,
+   "secondaryPct": 18,
+   "gap": 65,
+   "confidence": 0.83,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 83,
+    "C": 18
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 238,
+    "C": 52
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 83,
+    "C": 18
+   }
+  },
+  {
    "nameEn": "Neemias Queta",
    "nameCn": "内米亚斯·克塔",
    "bao5Id": 1629674,
@@ -7207,6 +7333,90 @@
     "SF": 1,
     "PF": 99,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Royce O'Neale",
+   "nameCn": "罗伊斯·奥尼尔",
+   "bao5Id": 1626220,
+   "onRoster": true,
+   "brSlug": "onealro01",
+   "team": "CHO",
+   "brPosLabel": "SF",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 285,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 62,
+   "secondaryPct": 23,
+   "gap": 39,
+   "confidence": 0.62,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 16,
+    "SF": 62,
+    "PF": 23,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 46,
+    "SF": 177,
+    "PF": 66,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 16,
+    "SF": 62,
+    "PF": 23,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Ziaire Williams",
+   "nameCn": "宰伊尔·威廉姆斯",
+   "bao5Id": 1630533,
+   "onRoster": true,
+   "brSlug": "willizi02",
+   "team": "LAL",
+   "brPosLabel": "SF",
+   "games": 12,
+   "gamesStarted": 5,
+   "minutes": 284,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 51,
+   "secondaryPct": 47,
+   "gap": 4,
+   "confidence": 0.07,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 47,
+    "PF": 51,
+    "C": 1
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 133,
+    "PF": 145,
+    "C": 3
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 1,
+    "SF": 47,
+    "PF": 51,
+    "C": 1
    }
   },
   {
@@ -7420,90 +7630,6 @@
    }
   },
   {
-   "nameEn": "Keaton Wagler",
-   "nameCn": "基顿·瓦格勒",
-   "bao5Id": 1643413,
-   "onRoster": true,
-   "brSlug": "wagleke01",
-   "team": "LAC",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 0,
-   "minutes": 278,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 64,
-   "secondaryPct": 23,
-   "gap": 41,
-   "confidence": 0.64,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 23,
-    "SG": 64,
-    "SF": 13,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 64,
-    "SG": 178,
-    "SF": 36,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 23,
-    "SG": 64,
-    "SF": 13,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Kobe Sanders",
-   "nameCn": "科比·桑德斯",
-   "bao5Id": 1642920,
-   "onRoster": true,
-   "brSlug": "sandeko01",
-   "team": "LAC",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 2,
-   "minutes": 277,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 53,
-   "secondaryPct": 33,
-   "gap": 20,
-   "confidence": 0.35,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 53,
-    "PF": 33,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 39,
-    "SF": 147,
-    "PF": 91,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 53,
-    "PF": 33,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Noah Clowney",
    "nameCn": "诺阿·克洛尼",
    "bao5Id": 1641730,
@@ -7546,6 +7672,48 @@
    }
   },
   {
+   "nameEn": "Terrence Shannon Jr.",
+   "nameCn": "小特伦斯·香农",
+   "bao5Id": 1630545,
+   "onRoster": true,
+   "brSlug": "shannte01",
+   "team": "MIN",
+   "brPosLabel": "SG",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 275,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 63,
+   "secondaryPct": 34,
+   "gap": 29,
+   "confidence": 0.61,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 34,
+    "SF": 63,
+    "PF": 3,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 94,
+    "SF": 173,
+    "PF": 8,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 34,
+    "SF": 63,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Georges Niang",
    "nameCn": "乔治·尼昂",
    "bao5Id": 1627777,
@@ -7558,33 +7726,75 @@
    "minutes": 274,
    "primary": "PF",
    "secondary": "SF",
-   "primaryPct": 85,
-   "secondaryPct": 14,
-   "gap": 71,
-   "confidence": 0.85,
+   "primaryPct": 83,
+   "secondaryPct": 17,
+   "gap": 66,
+   "confidence": 0.83,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
     "SG": 0,
-    "SF": 14,
-    "PF": 85,
+    "SF": 17,
+    "PF": 83,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
     "SG": 0,
-    "SF": 38,
-    "PF": 233,
+    "SF": 47,
+    "PF": 227,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
     "SG": 0,
-    "SF": 14,
-    "PF": 85,
+    "SF": 17,
+    "PF": 83,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Jakob Poeltl",
+   "nameCn": "雅各布·珀尔特尔",
+   "bao5Id": 1627751,
+   "onRoster": true,
+   "brSlug": "poeltja01",
+   "team": "TOR",
+   "brPosLabel": "C",
+   "games": 12,
+   "gamesStarted": 9,
+   "minutes": 274,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 274
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    }
   },
   {
@@ -7630,6 +7840,48 @@
    }
   },
   {
+   "nameEn": "Josh Okogie",
+   "nameCn": "约什·奥科吉",
+   "bao5Id": 1629006,
+   "onRoster": true,
+   "brSlug": "okogijo01",
+   "team": "UTA",
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 2,
+   "minutes": 273,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 60,
+   "secondaryPct": 29,
+   "gap": 31,
+   "confidence": 0.6,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 29,
+    "SG": 60,
+    "SF": 11,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 79,
+    "SG": 164,
+    "SF": 30,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 29,
+    "SG": 60,
+    "SF": 11,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Nolan Traoré",
    "nameCn": "诺兰·特拉奥雷",
    "bao5Id": 1642849,
@@ -7668,6 +7920,48 @@
     "SG": 0,
     "SF": 0,
     "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Brice Sensabaugh",
+   "nameCn": "布赖斯·森萨博",
+   "bao5Id": 1641729,
+   "onRoster": true,
+   "brSlug": "sensabr01",
+   "team": "UTA",
+   "brPosLabel": "SF",
+   "games": 15,
+   "gamesStarted": 0,
+   "minutes": 270,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 56,
+   "secondaryPct": 42,
+   "gap": 14,
+   "confidence": 0.26,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 56,
+    "PF": 42,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 5,
+    "SF": 151,
+    "PF": 113,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 2,
+    "SF": 56,
+    "PF": 42,
     "C": 0
    }
   },
@@ -7840,45 +8134,45 @@
    }
   },
   {
-   "nameEn": "Ziaire Williams",
-   "nameCn": "宰伊尔·威廉姆斯",
-   "bao5Id": 1630533,
+   "nameEn": "Collin Sexton",
+   "nameCn": "科林·塞克斯顿",
+   "bao5Id": 1629012,
    "onRoster": true,
-   "brSlug": "willizi02",
+   "brSlug": "sextoco01",
    "team": "LAL",
-   "brPosLabel": "SF",
-   "games": 11,
-   "gamesStarted": 5,
-   "minutes": 260,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 53,
-   "secondaryPct": 45,
-   "gap": 8,
-   "confidence": 0.14,
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 262,
+   "primary": "PG",
+   "secondary": "SG",
+   "primaryPct": 63,
+   "secondaryPct": 37,
+   "gap": 26,
+   "confidence": 0.55,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
-    "SG": 1,
-    "SF": 45,
-    "PF": 53,
-    "C": 1
+    "PG": 63,
+    "SG": 37,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
-    "SG": 3,
-    "SF": 117,
-    "PF": 138,
-    "C": 3
+    "PG": 165,
+    "SG": 97,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
-    "SG": 1,
-    "SF": 45,
-    "PF": 53,
-    "C": 1
+    "PG": 63,
+    "SG": 37,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
    }
   },
   {
@@ -7894,10 +8188,10 @@
    "minutes": 259,
    "primary": "C",
    "secondary": "PF",
-   "primaryPct": 79,
-   "secondaryPct": 21,
-   "gap": 58,
-   "confidence": 0.79,
+   "primaryPct": 81,
+   "secondaryPct": 19,
+   "gap": 62,
+   "confidence": 0.81,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
@@ -7905,22 +8199,22 @@
     "PG": 0,
     "SG": 0,
     "SF": 0,
-    "PF": 21,
-    "C": 79
+    "PF": 19,
+    "C": 81
    },
    "minutesByPosition": {
     "PG": 0,
     "SG": 0,
     "SF": 0,
-    "PF": 54,
-    "C": 205
+    "PF": 49,
+    "C": 210
    },
    "seasonDistribution": {
     "PG": 0,
     "SG": 0,
     "SF": 0,
-    "PF": 21,
-    "C": 79
+    "PF": 19,
+    "C": 81
    }
   },
   {
@@ -7966,6 +8260,48 @@
    }
   },
   {
+   "nameEn": "Joan Beringer",
+   "nameCn": "若昂·贝兰热",
+   "bao5Id": 1642866,
+   "onRoster": true,
+   "brSlug": "berinjo01",
+   "team": "MIN",
+   "brPosLabel": "C",
+   "games": 15,
+   "gamesStarted": 1,
+   "minutes": 257,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 257
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
    "nameEn": "Keon Ellis",
    "nameCn": "基恩·埃利斯",
    "bao5Id": 1631165,
@@ -8008,57 +8344,15 @@
    }
   },
   {
-   "nameEn": "Trey Lyles",
-   "nameCn": "特雷·莱尔斯",
-   "bao5Id": 1626168,
+   "nameEn": "Ryan Kalkbrenner",
+   "nameCn": "瑞安·卡尔克布伦纳",
+   "bao5Id": 1641750,
    "onRoster": true,
-   "brSlug": "lylestr01",
-   "team": "MIN",
-   "brPosLabel": "PF",
-   "games": 14,
-   "gamesStarted": 0,
-   "minutes": 256,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 81,
-   "secondaryPct": 20,
-   "gap": 61,
-   "confidence": 0.81,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 81,
-    "C": 20
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 207,
-    "C": 51
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 81,
-    "C": 20
-   }
-  },
-  {
-   "nameEn": "Jakob Poeltl",
-   "nameCn": "雅各布·珀尔特尔",
-   "bao5Id": 1627751,
-   "onRoster": true,
-   "brSlug": "poeltja01",
-   "team": "TOR",
+   "brSlug": "kalkbry01",
+   "team": "CHO",
    "brPosLabel": "C",
-   "games": 11,
-   "gamesStarted": 9,
+   "games": 14,
+   "gamesStarted": 2,
    "minutes": 256,
    "primary": "C",
    "secondary": null,
@@ -8089,6 +8383,48 @@
     "SF": 0,
     "PF": 0,
     "C": 100
+   }
+  },
+  {
+   "nameEn": "Svi Mykhailiuk",
+   "nameCn": "斯维亚托斯拉夫·米哈伊柳克",
+   "bao5Id": 1629004,
+   "onRoster": true,
+   "brSlug": "mykhasv01",
+   "team": "UTA",
+   "brPosLabel": "SF",
+   "games": 15,
+   "gamesStarted": 0,
+   "minutes": 255,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 57,
+   "secondaryPct": 29,
+   "gap": 28,
+   "confidence": 0.53,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 29,
+    "SF": 57,
+    "PF": 14,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 74,
+    "SF": 145,
+    "PF": 36,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 29,
+    "SF": 57,
+    "PF": 14,
+    "C": 0
    }
   },
   {
@@ -8176,6 +8512,48 @@
    }
   },
   {
+   "nameEn": "Miles McBride",
+   "nameCn": "迈尔斯·麦克布莱德",
+   "bao5Id": 1630540,
+   "onRoster": true,
+   "brSlug": "mcbrimi01",
+   "team": "NYK",
+   "brPosLabel": "SG",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 253,
+   "primary": "SG",
+   "secondary": null,
+   "primaryPct": 96,
+   "secondaryPct": 3,
+   "gap": 93,
+   "confidence": 0.96,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 1,
+    "SG": 96,
+    "SF": 3,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 3,
+    "SG": 243,
+    "SF": 8,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 1,
+    "SG": 96,
+    "SF": 3,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Bennett Stirtz",
    "nameCn": "本内特·斯特茨",
    "bao5Id": 1642892,
@@ -8213,90 +8591,6 @@
     "PG": 100,
     "SG": 0,
     "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Royce O'Neale",
-   "nameCn": "罗伊斯·奥尼尔",
-   "bao5Id": 1626220,
-   "onRoster": true,
-   "brSlug": "onealro01",
-   "team": "CHO",
-   "brPosLabel": "SF",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 251,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 61,
-   "secondaryPct": 25,
-   "gap": 36,
-   "confidence": 0.61,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 13,
-    "SF": 61,
-    "PF": 25,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 33,
-    "SF": 153,
-    "PF": 63,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 13,
-    "SF": 61,
-    "PF": 25,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Josh Okogie",
-   "nameCn": "约什·奥科吉",
-   "bao5Id": 1629006,
-   "onRoster": true,
-   "brSlug": "okogijo01",
-   "team": "UTA",
-   "brPosLabel": "SG",
-   "games": 13,
-   "gamesStarted": 2,
-   "minutes": 251,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 61,
-   "secondaryPct": 27,
-   "gap": 34,
-   "confidence": 0.61,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 27,
-    "SG": 61,
-    "SF": 12,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 68,
-    "SG": 153,
-    "SF": 30,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 27,
-    "SG": 61,
-    "SF": 12,
     "PF": 0,
     "C": 0
    }
@@ -8428,44 +8722,44 @@
    }
   },
   {
-   "nameEn": "Terrence Shannon Jr.",
-   "nameCn": "小特伦斯·香农",
-   "bao5Id": 1630545,
+   "nameEn": "Jamison Battle",
+   "nameCn": "杰米森·巴特尔",
+   "bao5Id": 1642419,
    "onRoster": true,
-   "brSlug": "shannte01",
-   "team": "MIN",
-   "brPosLabel": "SG",
-   "games": 11,
+   "brSlug": "battlja01",
+   "team": "TOR",
+   "brPosLabel": "SF",
+   "games": 14,
    "gamesStarted": 0,
-   "minutes": 250,
+   "minutes": 247,
    "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 62,
-   "secondaryPct": 35,
-   "gap": 27,
-   "confidence": 0.56,
+   "secondary": "PF",
+   "primaryPct": 48,
+   "secondaryPct": 44,
+   "gap": 4,
+   "confidence": 0.06,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 35,
-    "SF": 62,
-    "PF": 4,
+    "SG": 8,
+    "SF": 48,
+    "PF": 44,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 88,
-    "SF": 155,
-    "PF": 10,
+    "SG": 20,
+    "SF": 119,
+    "PF": 109,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 35,
-    "SF": 62,
-    "PF": 4,
+    "SG": 8,
+    "SF": 48,
+    "PF": 44,
     "C": 0
    }
   },
@@ -8596,128 +8890,44 @@
    }
   },
   {
-   "nameEn": "Miles McBride",
-   "nameCn": "迈尔斯·麦克布莱德",
-   "bao5Id": 1630540,
+   "nameEn": "Josh Green",
+   "nameCn": "约什·格林",
+   "bao5Id": 1630182,
    "onRoster": true,
-   "brSlug": "mcbrimi01",
-   "team": "NYK",
+   "brSlug": "greenjo02",
+   "team": "UTA",
    "brPosLabel": "SG",
    "games": 13,
-   "gamesStarted": 0,
-   "minutes": 244,
+   "gamesStarted": 6,
+   "minutes": 243,
    "primary": "SG",
-   "secondary": null,
-   "primaryPct": 96,
-   "secondaryPct": 3,
-   "gap": 93,
-   "confidence": 0.96,
+   "secondary": "SF",
+   "primaryPct": 69,
+   "secondaryPct": 19,
+   "gap": 50,
+   "confidence": 0.69,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 1,
-    "SG": 96,
-    "SF": 3,
+    "PG": 12,
+    "SG": 69,
+    "SF": 19,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 2,
-    "SG": 234,
-    "SF": 7,
+    "PG": 29,
+    "SG": 168,
+    "SF": 46,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 1,
-    "SG": 96,
-    "SF": 3,
+    "PG": 12,
+    "SG": 69,
+    "SF": 19,
     "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Ryan Kalkbrenner",
-   "nameCn": "瑞安·卡尔克布伦纳",
-   "bao5Id": 1641750,
-   "onRoster": true,
-   "brSlug": "kalkbry01",
-   "team": "CHO",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 2,
-   "minutes": 241,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 241
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
-   "nameEn": "Jamison Battle",
-   "nameCn": "杰米森·巴特尔",
-   "bao5Id": 1642419,
-   "onRoster": true,
-   "brSlug": "battlja01",
-   "team": "TOR",
-   "brPosLabel": "SF",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 240,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 49,
-   "secondaryPct": 44,
-   "gap": 5,
-   "confidence": 0.08,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 7,
-    "SF": 49,
-    "PF": 44,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 118,
-    "PF": 106,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 7,
-    "SF": 49,
-    "PF": 44,
     "C": 0
    }
   },
@@ -8848,87 +9058,45 @@
    }
   },
   {
-   "nameEn": "Collin Sexton",
-   "nameCn": "科林·塞克斯顿",
-   "bao5Id": 1629012,
+   "nameEn": "Isaiah Jackson",
+   "nameCn": "以赛亚·杰克逊",
+   "bao5Id": 1630543,
    "onRoster": true,
-   "brSlug": "sextoco01",
-   "team": "LAL",
-   "brPosLabel": "SG",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 237,
-   "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 65,
-   "secondaryPct": 35,
-   "gap": 30,
-   "confidence": 0.65,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 65,
-    "SG": 35,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 154,
-    "SG": 83,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 65,
-    "SG": 35,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Brice Sensabaugh",
-   "nameCn": "布赖斯·森萨博",
-   "bao5Id": 1641729,
-   "onRoster": true,
-   "brSlug": "sensabr01",
-   "team": "UTA",
-   "brPosLabel": "SF",
-   "games": 14,
-   "gamesStarted": 0,
+   "brSlug": "jacksis01",
+   "team": "LAC",
+   "brPosLabel": "C",
+   "games": 12,
+   "gamesStarted": 6,
    "minutes": 235,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 61,
-   "secondaryPct": 37,
-   "gap": 24,
-   "confidence": 0.49,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 2,
-    "SF": 61,
-    "PF": 37,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 5,
-    "SF": 143,
-    "PF": 87,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 235
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 2,
-    "SF": 61,
-    "PF": 37,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    }
   },
   {
@@ -9016,48 +9184,6 @@
    }
   },
   {
-   "nameEn": "Joan Beringer",
-   "nameCn": "若昂·贝兰热",
-   "bao5Id": 1642866,
-   "onRoster": true,
-   "brSlug": "berinjo01",
-   "team": "MIN",
-   "brPosLabel": "C",
-   "games": 14,
-   "gamesStarted": 1,
-   "minutes": 231,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 231
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
    "nameEn": "Jordan Walsh",
    "nameCn": "乔丹·沃尔什",
    "bao5Id": 1641775,
@@ -9139,48 +9265,6 @@
     "SF": 0,
     "PF": 14,
     "C": 86
-   }
-  },
-  {
-   "nameEn": "Josh Green",
-   "nameCn": "约什·格林",
-   "bao5Id": 1630182,
-   "onRoster": true,
-   "brSlug": "greenjo02",
-   "team": "UTA",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 5,
-   "minutes": 230,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 67,
-   "secondaryPct": 20,
-   "gap": 47,
-   "confidence": 0.67,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 13,
-    "SG": 67,
-    "SF": 20,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 30,
-    "SG": 154,
-    "SF": 46,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 13,
-    "SG": 67,
-    "SF": 20,
-    "PF": 0,
-    "C": 0
    }
   },
   {
@@ -9310,6 +9394,90 @@
    }
   },
   {
+   "nameEn": "Javonte Green",
+   "nameCn": "贾文特·格林",
+   "bao5Id": 1629750,
+   "onRoster": true,
+   "brSlug": "greenja02",
+   "team": "DET",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 0,
+   "minutes": 226,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 76,
+   "secondaryPct": 21,
+   "gap": 55,
+   "confidence": 0.76,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 76,
+    "SF": 21,
+    "PF": 3,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 172,
+    "SF": 47,
+    "PF": 7,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 76,
+    "SF": 21,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Mo Bamba",
+   "nameCn": "穆罕默德·班巴",
+   "bao5Id": 1628964,
+   "onRoster": true,
+   "brSlug": "bambamo01",
+   "team": "UTA",
+   "brPosLabel": "C",
+   "games": 11,
+   "gamesStarted": 2,
+   "minutes": 226,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 226
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   }
+  },
+  {
    "nameEn": "Morez Johnson Jr.",
    "nameCn": "小莫雷兹·约翰逊",
    "bao5Id": 1643516,
@@ -9352,45 +9520,45 @@
    }
   },
   {
-   "nameEn": "Svi Mykhailiuk",
-   "nameCn": "斯维亚托斯拉夫·米哈伊柳克",
-   "bao5Id": 1629004,
+   "nameEn": "Luke Kornet",
+   "nameCn": "卢克·科内特",
+   "bao5Id": 1628436,
    "onRoster": true,
-   "brSlug": "mykhasv01",
-   "team": "UTA",
-   "brPosLabel": "SF",
-   "games": 14,
+   "brSlug": "kornelu01",
+   "team": "SAS",
+   "brPosLabel": "C",
+   "games": 15,
    "gamesStarted": 0,
    "minutes": 222,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 53,
-   "secondaryPct": 31,
-   "gap": 22,
-   "confidence": 0.39,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 31,
-    "SF": 53,
-    "PF": 16,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 69,
-    "SF": 118,
-    "PF": 36,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 222
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 31,
-    "SF": 53,
-    "PF": 16,
-    "C": 0
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    }
   },
   {
@@ -9604,48 +9772,6 @@
    }
   },
   {
-   "nameEn": "Isaiah Jackson",
-   "nameCn": "以赛亚·杰克逊",
-   "bao5Id": 1630543,
-   "onRoster": true,
-   "brSlug": "jacksis01",
-   "team": "LAC",
-   "brPosLabel": "C",
-   "games": 11,
-   "gamesStarted": 6,
-   "minutes": 216,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 216
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
    "nameEn": "Caleb Martin",
    "nameCn": "凯莱布·马丁",
    "bao5Id": 1628997,
@@ -9856,17 +9982,17 @@
    }
   },
   {
-   "nameEn": "Luke Kornet",
-   "nameCn": "卢克·科内特",
-   "bao5Id": 1628436,
+   "nameEn": "Bones Hyland",
+   "nameCn": "纳肖恩·海兰德",
+   "bao5Id": 1630538,
    "onRoster": true,
-   "brSlug": "kornelu01",
-   "team": "SAS",
-   "brPosLabel": "C",
-   "games": 14,
+   "brSlug": "hylanbo01",
+   "team": "MIN",
+   "brPosLabel": "PG",
+   "games": 15,
    "gamesStarted": 0,
    "minutes": 208,
-   "primary": "C",
+   "primary": "PG",
    "secondary": null,
    "primaryPct": 100,
    "secondaryPct": 0,
@@ -9876,25 +10002,25 @@
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
+    "PG": 100,
     "SG": 0,
     "SF": 0,
     "PF": 0,
-    "C": 100
+    "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
+    "PG": 208,
     "SG": 0,
     "SF": 0,
     "PF": 0,
-    "C": 208
+    "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
+    "PG": 100,
     "SG": 0,
     "SF": 0,
     "PF": 0,
-    "C": 100
+    "C": 0
    }
   },
   {
@@ -9982,6 +10108,48 @@
    }
   },
   {
+   "nameEn": "Gradey Dick",
+   "nameCn": "格雷迪·迪克",
+   "bao5Id": 1641711,
+   "onRoster": true,
+   "brSlug": "dickgr01",
+   "team": "LAC",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 1,
+   "minutes": 207,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 53,
+   "secondaryPct": 44,
+   "gap": 9,
+   "confidence": 0.16,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 44,
+    "SF": 53,
+    "PF": 3,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 91,
+    "SF": 110,
+    "PF": 6,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 44,
+    "SF": 53,
+    "PF": 3,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Gui Santos",
    "nameCn": "桂·桑托斯",
    "bao5Id": 1630611,
@@ -10063,48 +10231,6 @@
     "SF": 0,
     "PF": 0,
     "C": 100
-   }
-  },
-  {
-   "nameEn": "Javonte Green",
-   "nameCn": "贾文特·格林",
-   "bao5Id": 1629750,
-   "onRoster": true,
-   "brSlug": "greenja02",
-   "team": "DET",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 0,
-   "minutes": 203,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 82,
-   "secondaryPct": 17,
-   "gap": 65,
-   "confidence": 0.82,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 82,
-    "SF": 17,
-    "PF": 1,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 166,
-    "SF": 35,
-    "PF": 2,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 82,
-    "SF": 17,
-    "PF": 1,
-    "C": 0
    }
   },
   {
@@ -10360,6 +10486,48 @@
    }
   },
   {
+   "nameEn": "Robert Williams",
+   "nameCn": "罗伯特·威廉姆斯三世",
+   "bao5Id": 1629057,
+   "onRoster": true,
+   "brSlug": "williro04",
+   "team": "POR",
+   "brPosLabel": "C",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 196,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 90,
+   "secondaryPct": 10,
+   "gap": 80,
+   "confidence": 0.9,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 10,
+    "C": 90
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 20,
+    "C": 176
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 10,
+    "C": 90
+   }
+  },
+  {
    "nameEn": "Bogdan Bogdanović",
    "nameCn": "波格丹·波格丹诺维奇",
    "bao5Id": 203992,
@@ -10402,48 +10570,6 @@
    }
   },
   {
-   "nameEn": "Mo Bamba",
-   "nameCn": "穆罕默德·班巴",
-   "bao5Id": 1628964,
-   "onRoster": true,
-   "brSlug": "bambamo01",
-   "team": "UTA",
-   "brPosLabel": "C",
-   "games": 10,
-   "gamesStarted": 1,
-   "minutes": 195,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 195
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
    "nameEn": "Jordan Poole",
    "nameCn": "乔丹·普尔",
    "bao5Id": 1629673,
@@ -10456,33 +10582,75 @@
    "minutes": 194,
    "primary": "SG",
    "secondary": "PG",
-   "primaryPct": 61,
-   "secondaryPct": 38,
-   "gap": 23,
-   "confidence": 0.47,
+   "primaryPct": 63,
+   "secondaryPct": 36,
+   "gap": 27,
+   "confidence": 0.57,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 38,
-    "SG": 61,
+    "PG": 36,
+    "SG": 63,
     "SF": 1,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 74,
-    "SG": 118,
+    "PG": 70,
+    "SG": 122,
     "SF": 2,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 38,
-    "SG": 61,
+    "PG": 36,
+    "SG": 63,
     "SF": 1,
     "PF": 0,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Allen Graves",
+   "nameCn": "艾伦·格雷夫斯",
+   "bao5Id": 1643512,
+   "onRoster": true,
+   "brSlug": "graveal01",
+   "team": "TOR",
+   "brPosLabel": "PF",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 193,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 51,
+   "secondaryPct": 49,
+   "gap": 2,
+   "confidence": 0.03,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 51,
+    "C": 49
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 98,
+    "C": 95
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 51,
+    "C": 49
    }
   },
   {
@@ -10524,90 +10692,6 @@
     "SG": 58,
     "SF": 0,
     "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Bones Hyland",
-   "nameCn": "纳肖恩·海兰德",
-   "bao5Id": 1630538,
-   "onRoster": true,
-   "brSlug": "hylanbo01",
-   "team": "MIN",
-   "brPosLabel": "PG",
-   "games": 14,
-   "gamesStarted": 0,
-   "minutes": 191,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 191,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Gradey Dick",
-   "nameCn": "格雷迪·迪克",
-   "bao5Id": 1641711,
-   "onRoster": true,
-   "brSlug": "dickgr01",
-   "team": "LAC",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 1,
-   "minutes": 191,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 58,
-   "secondaryPct": 39,
-   "gap": 19,
-   "confidence": 0.37,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 39,
-    "SF": 58,
-    "PF": 3,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 74,
-    "SF": 111,
-    "PF": 6,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 39,
-    "SF": 58,
-    "PF": 3,
     "C": 0
    }
   },
@@ -10780,6 +10864,48 @@
    }
   },
   {
+   "nameEn": "Harrison Barnes",
+   "nameCn": "哈里森·巴恩斯",
+   "bao5Id": 203084,
+   "onRoster": true,
+   "brSlug": "barneha02",
+   "team": "SAS",
+   "brPosLabel": "PF",
+   "games": 13,
+   "gamesStarted": 0,
+   "minutes": 182,
+   "primary": "PF",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 182,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Larry Nance Jr.",
    "nameCn": "小拉里·南斯",
    "bao5Id": 1626204,
@@ -10861,6 +10987,48 @@
     "SF": 0,
     "PF": 6,
     "C": 94
+   }
+  },
+  {
+   "nameEn": "Andre Drummond",
+   "nameCn": "安德烈·德拉蒙德",
+   "bao5Id": 203083,
+   "onRoster": true,
+   "brSlug": "drumman01",
+   "team": "NYK",
+   "brPosLabel": "C",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 181,
+   "primary": "C",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 181
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 100
    }
   },
   {
@@ -10948,48 +11116,6 @@
    }
   },
   {
-   "nameEn": "Robert Williams",
-   "nameCn": "罗伯特·威廉姆斯三世",
-   "bao5Id": 1629057,
-   "onRoster": true,
-   "brSlug": "williro04",
-   "team": "POR",
-   "brPosLabel": "C",
-   "games": 11,
-   "gamesStarted": 0,
-   "minutes": 180,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 93,
-   "secondaryPct": 7,
-   "gap": 86,
-   "confidence": 0.93,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 7,
-    "C": 93
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 13,
-    "C": 167
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 7,
-    "C": 93
-   }
-  },
-  {
    "nameEn": "Luka Garza",
    "nameCn": "卢卡·加尔扎",
    "bao5Id": 1630568,
@@ -11032,48 +11158,6 @@
    }
   },
   {
-   "nameEn": "Allen Graves",
-   "nameCn": "艾伦·格雷夫斯",
-   "bao5Id": 1643512,
-   "onRoster": true,
-   "brSlug": "graveal01",
-   "team": "TOR",
-   "brPosLabel": "PF",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 179,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 51,
-   "secondaryPct": 49,
-   "gap": 2,
-   "confidence": 0.03,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 51,
-    "C": 49
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 91,
-    "C": 88
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 51,
-    "C": 49
-   }
-  },
-  {
    "nameEn": "Hugo González",
    "nameCn": "雨果·冈萨雷斯",
    "bao5Id": 1642864,
@@ -11112,6 +11196,48 @@
     "SG": 73,
     "SF": 19,
     "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Tidjane Salaün",
+   "nameCn": "提贾尼·萨隆",
+   "bao5Id": 1642275,
+   "onRoster": true,
+   "brSlug": "salauti01",
+   "team": "CHO",
+   "brPosLabel": "PF",
+   "games": 13,
+   "gamesStarted": 0,
+   "minutes": 177,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 74,
+   "secondaryPct": 23,
+   "gap": 51,
+   "confidence": 0.74,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 23,
+    "PF": 74,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 5,
+    "SF": 41,
+    "PF": 131,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 3,
+    "SF": 23,
+    "PF": 74,
     "C": 0
    }
   },
@@ -11200,17 +11326,17 @@
    }
   },
   {
-   "nameEn": "Harrison Barnes",
-   "nameCn": "哈里森·巴恩斯",
-   "bao5Id": 203084,
+   "nameEn": "Christian Anderson Jr.",
+   "nameCn": "克里斯蒂安·安德森二世",
+   "bao5Id": 1643515,
    "onRoster": true,
-   "brSlug": "barneha02",
-   "team": "SAS",
-   "brPosLabel": "PF",
-   "games": 12,
+   "brSlug": "anderch02",
+   "team": "CHO",
+   "brPosLabel": "PG",
+   "games": 13,
    "gamesStarted": 0,
-   "minutes": 172,
-   "primary": "PF",
+   "minutes": 173,
+   "primary": "PG",
    "secondary": null,
    "primaryPct": 100,
    "secondaryPct": 0,
@@ -11220,66 +11346,24 @@
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
+    "PG": 100,
     "SG": 0,
     "SF": 0,
-    "PF": 100,
+    "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
+    "PG": 173,
     "SG": 0,
     "SF": 0,
-    "PF": 172,
+    "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
+    "PG": 100,
     "SG": 0,
     "SF": 0,
-    "PF": 100,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Tidjane Salaün",
-   "nameCn": "提贾尼·萨隆",
-   "bao5Id": 1642275,
-   "onRoster": true,
-   "brSlug": "salauti01",
-   "team": "CHO",
-   "brPosLabel": "PF",
-   "games": 12,
-   "gamesStarted": 0,
-   "minutes": 172,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 76,
-   "secondaryPct": 22,
-   "gap": 54,
-   "confidence": 0.76,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 3,
-    "SF": 22,
-    "PF": 76,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 5,
-    "SF": 38,
-    "PF": 131,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 3,
-    "SF": 22,
-    "PF": 76,
+    "PF": 0,
     "C": 0
    }
   },
@@ -11323,48 +11407,6 @@
     "SF": 62,
     "PF": 4,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Andre Drummond",
-   "nameCn": "安德烈·德拉蒙德",
-   "bao5Id": 203083,
-   "onRoster": true,
-   "brSlug": "drumman01",
-   "team": "NYK",
-   "brPosLabel": "C",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 170,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 170
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
    }
   },
   {
@@ -11532,6 +11574,48 @@
     "SG": 58,
     "SF": 40,
     "PF": 2,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Tyler Kolek",
+   "nameCn": "泰勒·科勒克",
+   "bao5Id": 1642278,
+   "onRoster": true,
+   "brSlug": "kolekty01",
+   "team": "NYK",
+   "brPosLabel": "PG",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 163,
+   "primary": "PG",
+   "secondary": "SG",
+   "primaryPct": 89,
+   "secondaryPct": 11,
+   "gap": 78,
+   "confidence": 0.89,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 89,
+    "SG": 11,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 145,
+    "SG": 18,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 89,
+    "SG": 11,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -11704,43 +11788,85 @@
    }
   },
   {
-   "nameEn": "Christian Anderson Jr.",
-   "nameCn": "克里斯蒂安·安德森二世",
-   "bao5Id": 1643515,
+   "nameEn": "Max Strus",
+   "nameCn": "马克斯·斯特鲁斯",
+   "bao5Id": 1629622,
    "onRoster": true,
-   "brSlug": "anderch02",
-   "team": "CHO",
-   "brPosLabel": "PG",
-   "games": 12,
+   "brSlug": "strusma01",
+   "team": "LAC",
+   "brPosLabel": "SF",
+   "games": 7,
    "gamesStarted": 0,
-   "minutes": 159,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
+   "minutes": 156,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 63,
+   "secondaryPct": 22,
+   "gap": 41,
+   "confidence": 0.63,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
+    "PG": 0,
+    "SG": 15,
+    "SF": 22,
+    "PF": 63,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 23,
+    "SF": 34,
+    "PF": 98,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 15,
+    "SF": 22,
+    "PF": 63,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Alijah Martin",
+   "nameCn": "阿利贾·马丁",
+   "bao5Id": 1642918,
+   "onRoster": true,
+   "brSlug": "martial01",
+   "team": "TOR",
+   "brPosLabel": "SG",
+   "games": 13,
+   "gamesStarted": 0,
+   "minutes": 155,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 71,
+   "secondaryPct": 27,
+   "gap": 44,
+   "confidence": 0.71,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 2,
+    "SG": 71,
+    "SF": 27,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 159,
-    "SG": 0,
-    "SF": 0,
+    "PG": 3,
+    "SG": 110,
+    "SF": 42,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
+    "PG": 2,
+    "SG": 71,
+    "SF": 27,
     "PF": 0,
     "C": 0
    }
@@ -11872,48 +11998,6 @@
    }
   },
   {
-   "nameEn": "Tyler Kolek",
-   "nameCn": "泰勒·科勒克",
-   "bao5Id": 1642278,
-   "onRoster": true,
-   "brSlug": "kolekty01",
-   "team": "NYK",
-   "brPosLabel": "PG",
-   "games": 11,
-   "gamesStarted": 0,
-   "minutes": 149,
-   "primary": "PG",
-   "secondary": "SG",
-   "primaryPct": 88,
-   "secondaryPct": 12,
-   "gap": 76,
-   "confidence": 0.88,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 88,
-    "SG": 12,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 131,
-    "SG": 18,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 88,
-    "SG": 12,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Jabari Walker",
    "nameCn": "贾巴里·沃克",
    "bao5Id": 1631133,
@@ -11998,6 +12082,48 @@
    }
   },
   {
+   "nameEn": "Carter Bryant",
+   "nameCn": "卡特·布莱恩特",
+   "bao5Id": 1642868,
+   "onRoster": true,
+   "brSlug": "bryanca01",
+   "team": "SAS",
+   "brPosLabel": "PF",
+   "games": 14,
+   "gamesStarted": 0,
+   "minutes": 146,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 45,
+   "secondaryPct": 30,
+   "gap": 15,
+   "confidence": 0.23,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 30,
+    "SF": 45,
+    "PF": 25,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 44,
+    "SF": 66,
+    "PF": 37,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 30,
+    "SF": 45,
+    "PF": 25,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Marvin Bagley III",
    "nameCn": "马文·巴格利三世",
    "bao5Id": 1628963,
@@ -12040,48 +12166,6 @@
    }
   },
   {
-   "nameEn": "Alijah Martin",
-   "nameCn": "阿利贾·马丁",
-   "bao5Id": 1642918,
-   "onRoster": true,
-   "brSlug": "martial01",
-   "team": "TOR",
-   "brPosLabel": "SG",
-   "games": 12,
-   "gamesStarted": 0,
-   "minutes": 146,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 71,
-   "secondaryPct": 26,
-   "gap": 45,
-   "confidence": 0.71,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 2,
-    "SG": 71,
-    "SF": 26,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 3,
-    "SG": 104,
-    "SF": 38,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 2,
-    "SG": 71,
-    "SF": 26,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Jalen Suggs",
    "nameCn": "杰伦·萨格斯",
    "bao5Id": 1630591,
@@ -12120,48 +12204,6 @@
     "SG": 10,
     "SF": 0,
     "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Carter Bryant",
-   "nameCn": "卡特·布莱恩特",
-   "bao5Id": 1642868,
-   "onRoster": true,
-   "brSlug": "bryanca01",
-   "team": "SAS",
-   "brPosLabel": "PF",
-   "games": 13,
-   "gamesStarted": 0,
-   "minutes": 144,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 45,
-   "secondaryPct": 30,
-   "gap": 15,
-   "confidence": 0.23,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 30,
-    "SF": 45,
-    "PF": 25,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 43,
-    "SF": 65,
-    "PF": 36,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 30,
-    "SF": 45,
-    "PF": 25,
     "C": 0
    }
   },
@@ -12292,44 +12334,44 @@
    }
   },
   {
-   "nameEn": "Max Strus",
-   "nameCn": "马克斯·斯特鲁斯",
-   "bao5Id": 1629622,
+   "nameEn": "Coby White",
+   "nameCn": "科比·怀特",
+   "bao5Id": 1629632,
    "onRoster": true,
-   "brSlug": "strusma01",
-   "team": "LAC",
-   "brPosLabel": "SF",
-   "games": 6,
-   "gamesStarted": 0,
+   "brSlug": "whiteco01",
+   "team": "CHO",
+   "brPosLabel": "PG",
+   "games": 7,
+   "gamesStarted": 7,
    "minutes": 136,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 63,
-   "secondaryPct": 21,
-   "gap": 42,
-   "confidence": 0.63,
+   "primary": "PG",
+   "secondary": "SG",
+   "primaryPct": 95,
+   "secondaryPct": 6,
+   "gap": 89,
+   "confidence": 0.95,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 21,
-    "PF": 63,
+    "PG": 95,
+    "SG": 6,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
-    "SG": 23,
-    "SF": 29,
-    "PF": 86,
+    "PG": 129,
+    "SG": 8,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
-    "SG": 17,
-    "SF": 21,
-    "PF": 63,
+    "PG": 95,
+    "SG": 6,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -12712,6 +12754,48 @@
    }
   },
   {
+   "nameEn": "Jarred Vanderbilt",
+   "nameCn": "贾里德·范德比尔特",
+   "bao5Id": 1629020,
+   "onRoster": true,
+   "brSlug": "vandeja01",
+   "team": "LAL",
+   "brPosLabel": "PF",
+   "games": 10,
+   "gamesStarted": 0,
+   "minutes": 122,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 89,
+   "secondaryPct": 11,
+   "gap": 78,
+   "confidence": 0.89,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 89,
+    "C": 11
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 109,
+    "C": 13
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 89,
+    "C": 11
+   }
+  },
+  {
    "nameEn": "Nikola Vučević",
    "nameCn": "尼古拉·武切维奇",
    "bao5Id": 202696,
@@ -12796,6 +12880,48 @@
    }
   },
   {
+   "nameEn": "Jordan Clarkson",
+   "nameCn": "乔丹·克拉克森",
+   "bao5Id": 203903,
+   "onRoster": true,
+   "brSlug": "clarkjo01",
+   "team": "NYK",
+   "brPosLabel": "SG",
+   "games": 12,
+   "gamesStarted": 0,
+   "minutes": 118,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 55,
+   "secondaryPct": 45,
+   "gap": 10,
+   "confidence": 0.18,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 45,
+    "SF": 55,
+    "PF": 1,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 53,
+    "SF": 65,
+    "PF": 1,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 45,
+    "SF": 55,
+    "PF": 1,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "LJ Cryer",
    "nameCn": "LJ·克赖尔",
    "bao5Id": 1643018,
@@ -12808,29 +12934,29 @@
    "minutes": 116,
    "primary": "PG",
    "secondary": null,
-   "primaryPct": 98,
+   "primaryPct": 99,
    "secondaryPct": 2,
-   "gap": 96,
-   "confidence": 0.98,
+   "gap": 97,
+   "confidence": 0.99,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 98,
+    "PG": 99,
     "SG": 2,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "minutesByPosition": {
-    "PG": 114,
+    "PG": 115,
     "SG": 2,
     "SF": 0,
     "PF": 0,
     "C": 0
    },
    "seasonDistribution": {
-    "PG": 98,
+    "PG": 99,
     "SG": 2,
     "SF": 0,
     "PF": 0,
@@ -12964,90 +13090,6 @@
    }
   },
   {
-   "nameEn": "Coby White",
-   "nameCn": "科比·怀特",
-   "bao5Id": 1629632,
-   "onRoster": true,
-   "brSlug": "whiteco01",
-   "team": "CHO",
-   "brPosLabel": "PG",
-   "games": 6,
-   "gamesStarted": 6,
-   "minutes": 111,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 1,
-   "gap": 99,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 111,
-    "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 1,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Jordan Clarkson",
-   "nameCn": "乔丹·克拉克森",
-   "bao5Id": 203903,
-   "onRoster": true,
-   "brSlug": "clarkjo01",
-   "team": "NYK",
-   "brPosLabel": "SG",
-   "games": 11,
-   "gamesStarted": 0,
-   "minutes": 110,
-   "primary": "SF",
-   "secondary": "SG",
-   "primaryPct": 55,
-   "secondaryPct": 44,
-   "gap": 11,
-   "confidence": 0.2,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 44,
-    "SF": 55,
-    "PF": 1,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 48,
-    "SF": 61,
-    "PF": 1,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 44,
-    "SF": 55,
-    "PF": 1,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Taylor Hendricks",
    "nameCn": "泰勒·亨德里克斯",
    "bao5Id": 1641707,
@@ -13087,48 +13129,6 @@
     "SF": 0,
     "PF": 46,
     "C": 54
-   }
-  },
-  {
-   "nameEn": "Jarred Vanderbilt",
-   "nameCn": "贾里德·范德比尔特",
-   "bao5Id": 1629020,
-   "onRoster": true,
-   "brSlug": "vandeja01",
-   "team": "LAL",
-   "brPosLabel": "PF",
-   "games": 9,
-   "gamesStarted": 0,
-   "minutes": 108,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 91,
-   "secondaryPct": 9,
-   "gap": 82,
-   "confidence": 0.91,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 91,
-    "C": 9
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 98,
-    "C": 10
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 91,
-    "C": 9
    }
   },
   {
@@ -13384,6 +13384,48 @@
    }
   },
   {
+   "nameEn": "Baba Miller",
+   "nameCn": "巴巴·米勒",
+   "bao5Id": 1642394,
+   "onRoster": true,
+   "brSlug": "milleba01",
+   "team": "LAC",
+   "brPosLabel": "SF",
+   "games": 11,
+   "gamesStarted": 0,
+   "minutes": 103,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 62,
+   "secondaryPct": 39,
+   "gap": 23,
+   "confidence": 0.48,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 39,
+    "C": 62
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 40,
+    "C": 64
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 39,
+    "C": 62
+   }
+  },
+  {
    "nameEn": "Bryce Hopkins",
    "nameCn": "布莱斯·霍普金斯",
    "bao5Id": 1643624,
@@ -13507,48 +13549,6 @@
     "SF": 0,
     "PF": 0,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Baba Miller",
-   "nameCn": "巴巴·米勒",
-   "bao5Id": 1642394,
-   "onRoster": true,
-   "brSlug": "milleba01",
-   "team": "LAC",
-   "brPosLabel": "SF",
-   "games": 10,
-   "gamesStarted": 0,
-   "minutes": 99,
-   "primary": "C",
-   "secondary": "PF",
-   "primaryPct": 60,
-   "secondaryPct": 40,
-   "gap": 20,
-   "confidence": 0.4,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 40,
-    "C": 60
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 40,
-    "C": 59
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 40,
-    "C": 60
    }
   },
   {
@@ -13843,6 +13843,48 @@
     "SF": 74,
     "PF": 6,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Branden Carlson",
+   "nameCn": "布兰登·卡尔森",
+   "bao5Id": 1642382,
+   "onRoster": true,
+   "brSlug": "carlsbr01",
+   "team": "POR",
+   "brPosLabel": "C",
+   "games": 9,
+   "gamesStarted": 0,
+   "minutes": 86,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 60,
+   "secondaryPct": 41,
+   "gap": 19,
+   "confidence": 0.38,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 60,
+    "C": 41
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 52,
+    "C": 35
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 60,
+    "C": 41
    }
   },
   {
@@ -14518,6 +14560,48 @@
    }
   },
   {
+   "nameEn": "Tony Bradley",
+   "nameCn": "托尼·布拉德利",
+   "bao5Id": 1628396,
+   "onRoster": true,
+   "brSlug": "bradlto01",
+   "team": "UTA",
+   "brPosLabel": "C",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 72,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 83,
+   "secondaryPct": 17,
+   "gap": 66,
+   "confidence": 0.83,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 17,
+    "C": 83
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 12,
+    "C": 60
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 17,
+    "C": 83
+   }
+  },
+  {
    "nameEn": "Vít Krejčí",
    "nameCn": "维特·克雷伊奇",
    "bao5Id": 1630249,
@@ -14728,48 +14812,6 @@
    }
   },
   {
-   "nameEn": "Branden Carlson",
-   "nameCn": "布兰登·卡尔森",
-   "bao5Id": 1642382,
-   "onRoster": true,
-   "brSlug": "carlsbr01",
-   "team": "POR",
-   "brPosLabel": "C",
-   "games": 8,
-   "gamesStarted": 0,
-   "minutes": 71,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 61,
-   "secondaryPct": 39,
-   "gap": 22,
-   "confidence": 0.45,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 61,
-    "C": 39
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 43,
-    "C": 28
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 61,
-    "C": 39
-   }
-  },
-  {
    "nameEn": "Gary Trent Jr.",
    "nameCn": "小加里·特伦特",
    "bao5Id": 1629018,
@@ -14892,6 +14934,48 @@
     "SG": 0,
     "SF": 29,
     "PF": 70,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Jayson Kent",
+   "nameCn": "杰森·肯特",
+   "bao5Id": 1643257,
+   "onRoster": true,
+   "brSlug": "kentja01",
+   "team": "POR",
+   "brPosLabel": "SF",
+   "games": 5,
+   "gamesStarted": 1,
+   "minutes": 68,
+   "primary": "SF",
+   "secondary": "SG",
+   "primaryPct": 47,
+   "secondaryPct": 39,
+   "gap": 8,
+   "confidence": 0.13,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 39,
+    "SF": 47,
+    "PF": 14,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 27,
+    "SF": 32,
+    "PF": 10,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 39,
+    "SF": 47,
+    "PF": 14,
     "C": 0
    }
   },
@@ -15064,6 +15148,90 @@
    }
   },
   {
+   "nameEn": "Grant Williams",
+   "nameCn": "格兰特·威廉姆斯",
+   "bao5Id": 1629684,
+   "onRoster": true,
+   "brSlug": "willigr01",
+   "team": "CHO",
+   "brPosLabel": "PF",
+   "games": 3,
+   "gamesStarted": 1,
+   "minutes": 66,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 50,
+   "secondaryPct": 50,
+   "gap": 0,
+   "confidence": 0,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 50,
+    "PF": 50,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 33,
+    "PF": 33,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 50,
+    "PF": 50,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Liam McNeeley",
+   "nameCn": "利亚姆·麦克尼利",
+   "bao5Id": 1642862,
+   "onRoster": true,
+   "brSlug": "mcneeli01",
+   "team": "CHO",
+   "brPosLabel": "SF",
+   "games": 8,
+   "gamesStarted": 0,
+   "minutes": 65,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 69,
+   "secondaryPct": 13,
+   "gap": 56,
+   "confidence": 0.69,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 7,
+    "SG": 11,
+    "SF": 69,
+    "PF": 13,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 5,
+    "SG": 7,
+    "SF": 45,
+    "PF": 8,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 7,
+    "SG": 11,
+    "SF": 69,
+    "PF": 13,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Olivier-Maxence Prosper",
    "nameCn": "奥利维耶·马克桑斯·普罗斯珀",
    "bao5Id": 1641765,
@@ -15103,48 +15271,6 @@
     "SF": 32,
     "PF": 66,
     "C": 3
-   }
-  },
-  {
-   "nameEn": "Liam McNeeley",
-   "nameCn": "利亚姆·麦克尼利",
-   "bao5Id": 1642862,
-   "onRoster": true,
-   "brSlug": "mcneeli01",
-   "team": "CHO",
-   "brPosLabel": "SF",
-   "games": 7,
-   "gamesStarted": 0,
-   "minutes": 64,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 69,
-   "secondaryPct": 13,
-   "gap": 56,
-   "confidence": 0.69,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 7,
-    "SG": 11,
-    "SF": 69,
-    "PF": 13,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 4,
-    "SG": 7,
-    "SF": 44,
-    "PF": 8,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 7,
-    "SG": 11,
-    "SF": 69,
-    "PF": 13,
-    "C": 0
    }
   },
   {
@@ -15354,6 +15480,48 @@
     "SG": 0,
     "SF": 43,
     "PF": 57,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Jose Alvarado",
+   "nameCn": "约瑟·阿尔瓦拉多",
+   "bao5Id": 1630631,
+   "onRoster": true,
+   "brSlug": "alvarjo01",
+   "team": "NYK",
+   "brPosLabel": "PG",
+   "games": 7,
+   "gamesStarted": 0,
+   "minutes": 60,
+   "primary": "PG",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 60,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 100,
+    "SG": 0,
+    "SF": 0,
+    "PF": 0,
     "C": 0
    }
   },
@@ -15568,87 +15736,45 @@
    }
   },
   {
-   "nameEn": "Tony Bradley",
-   "nameCn": "托尼·布拉德利",
-   "bao5Id": 1628396,
+   "nameEn": "Micah Potter",
+   "nameCn": "米卡·波特",
+   "bao5Id": 1630695,
    "onRoster": true,
-   "brSlug": "bradlto01",
-   "team": "UTA",
+   "brSlug": "pottemi01",
+   "team": "POR",
    "brPosLabel": "C",
-   "games": 7,
+   "games": 8,
    "gamesStarted": 0,
    "minutes": 54,
-   "primary": "C",
+   "primary": "SF",
    "secondary": "PF",
-   "primaryPct": 78,
-   "secondaryPct": 22,
-   "gap": 56,
-   "confidence": 0.78,
+   "primaryPct": 64,
+   "secondaryPct": 29,
+   "gap": 35,
+   "confidence": 0.64,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
     "SG": 0,
-    "SF": 0,
-    "PF": 22,
-    "C": 78
+    "SF": 64,
+    "PF": 29,
+    "C": 8
    },
    "minutesByPosition": {
     "PG": 0,
     "SG": 0,
-    "SF": 0,
-    "PF": 12,
-    "C": 42
+    "SF": 35,
+    "PF": 16,
+    "C": 4
    },
    "seasonDistribution": {
     "PG": 0,
     "SG": 0,
-    "SF": 0,
-    "PF": 22,
-    "C": 78
-   }
-  },
-  {
-   "nameEn": "Jose Alvarado",
-   "nameCn": "约瑟·阿尔瓦拉多",
-   "bao5Id": 1630631,
-   "onRoster": true,
-   "brSlug": "alvarjo01",
-   "team": "NYK",
-   "brPosLabel": "PG",
-   "games": 6,
-   "gamesStarted": 0,
-   "minutes": 54,
-   "primary": "PG",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 54,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 100,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
+    "SF": 64,
+    "PF": 29,
+    "C": 8
    }
   },
   {
@@ -15664,32 +15790,32 @@
    "minutes": 54,
    "primary": "SG",
    "secondary": "PF",
-   "primaryPct": 80,
-   "secondaryPct": 11,
-   "gap": 69,
-   "confidence": 0.8,
+   "primaryPct": 77,
+   "secondaryPct": 12,
+   "gap": 65,
+   "confidence": 0.77,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
     "PG": 0,
-    "SG": 80,
-    "SF": 10,
-    "PF": 11,
+    "SG": 77,
+    "SF": 11,
+    "PF": 12,
     "C": 0
    },
    "minutesByPosition": {
     "PG": 0,
-    "SG": 43,
-    "SF": 5,
+    "SG": 42,
+    "SF": 6,
     "PF": 6,
     "C": 0
    },
    "seasonDistribution": {
     "PG": 0,
-    "SG": 80,
-    "SF": 10,
-    "PF": 11,
+    "SG": 77,
+    "SF": 11,
+    "PF": 12,
     "C": 0
    }
   },
@@ -15733,48 +15859,6 @@
     "SF": 73,
     "PF": 17,
     "C": 0
-   }
-  },
-  {
-   "nameEn": "Micah Potter",
-   "nameCn": "米卡·波特",
-   "bao5Id": 1630695,
-   "onRoster": true,
-   "brSlug": "pottemi01",
-   "team": "POR",
-   "brPosLabel": "C",
-   "games": 7,
-   "gamesStarted": 0,
-   "minutes": 53,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 65,
-   "secondaryPct": 27,
-   "gap": 38,
-   "confidence": 0.65,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 65,
-    "PF": 27,
-    "C": 8
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 34,
-    "PF": 14,
-    "C": 4
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 65,
-    "PF": 27,
-    "C": 8
    }
   },
   {
@@ -15859,6 +15943,48 @@
     "SF": 93,
     "PF": 6,
     "C": 0
+   }
+  },
+  {
+   "nameEn": "Kevon Looney",
+   "nameCn": "凯文·卢尼",
+   "bao5Id": 1626172,
+   "onRoster": true,
+   "brSlug": "looneke01",
+   "team": "LAL",
+   "brPosLabel": "C",
+   "games": 7,
+   "gamesStarted": 1,
+   "minutes": 51,
+   "primary": "C",
+   "secondary": "PF",
+   "primaryPct": 54,
+   "secondaryPct": 46,
+   "gap": 8,
+   "confidence": 0.14,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 46,
+    "C": 54
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 23,
+    "C": 28
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 46,
+    "C": 54
    }
   },
   {
@@ -16072,6 +16198,90 @@
    }
   },
   {
+   "nameEn": "Cody Williams",
+   "nameCn": "科迪·威廉姆斯",
+   "bao5Id": 1642262,
+   "onRoster": true,
+   "brSlug": "willico04",
+   "team": "MIN",
+   "brPosLabel": "SG",
+   "games": 9,
+   "gamesStarted": 1,
+   "minutes": 45,
+   "primary": "PF",
+   "secondary": "SF",
+   "primaryPct": 43,
+   "secondaryPct": 36,
+   "gap": 7,
+   "confidence": 0.1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 8,
+    "SF": 36,
+    "PF": 43,
+    "C": 14
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 4,
+    "SF": 16,
+    "PF": 19,
+    "C": 6
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 8,
+    "SF": 36,
+    "PF": 43,
+    "C": 14
+   }
+  },
+  {
+   "nameEn": "Adou Thiero",
+   "nameCn": "阿杜·蒂耶罗",
+   "bao5Id": 1642876,
+   "onRoster": true,
+   "brSlug": "thierad01",
+   "team": "LAL",
+   "brPosLabel": "SF",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 43,
+   "primary": "SF",
+   "secondary": "PF",
+   "primaryPct": 50,
+   "secondaryPct": 38,
+   "gap": 12,
+   "confidence": 0.2,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 12,
+    "SF": 50,
+    "PF": 38,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 5,
+    "SF": 22,
+    "PF": 16,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 12,
+    "SF": 50,
+    "PF": 38,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Jaden Bradley",
    "nameCn": "杰登·布拉德利",
    "bao5Id": 1643558,
@@ -16198,48 +16408,6 @@
    }
   },
   {
-   "nameEn": "Jayson Kent",
-   "nameCn": "杰森·肯特",
-   "bao5Id": 1643257,
-   "onRoster": true,
-   "brSlug": "kentja01",
-   "team": "POR",
-   "brPosLabel": "SF",
-   "games": 4,
-   "gamesStarted": 0,
-   "minutes": 41,
-   "primary": "SG",
-   "secondary": "PF",
-   "primaryPct": 55,
-   "secondaryPct": 23,
-   "gap": 32,
-   "confidence": 0.55,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 55,
-    "SF": 22,
-    "PF": 23,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 23,
-    "SF": 9,
-    "PF": 9,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 55,
-    "SF": 22,
-    "PF": 23,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Bruce Thornton",
    "nameCn": "布鲁斯·桑顿",
    "bao5Id": 1643570,
@@ -16277,6 +16445,48 @@
     "PG": 74,
     "SG": 26,
     "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
+   "nameEn": "Chaz Lanier",
+   "nameCn": "查兹·兰尼尔",
+   "bao5Id": 1642404,
+   "onRoster": true,
+   "brSlug": "laniech01",
+   "team": "DET",
+   "brPosLabel": "SG",
+   "games": 5,
+   "gamesStarted": 0,
+   "minutes": 38,
+   "primary": "SG",
+   "secondary": "SF",
+   "primaryPct": 56,
+   "secondaryPct": 44,
+   "gap": 12,
+   "confidence": 0.22,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 56,
+    "SF": 44,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 21,
+    "SF": 17,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 56,
+    "SF": 44,
     "PF": 0,
     "C": 0
    }
@@ -16408,48 +16618,6 @@
    }
   },
   {
-   "nameEn": "Adou Thiero",
-   "nameCn": "阿杜·蒂耶罗",
-   "bao5Id": 1642876,
-   "onRoster": true,
-   "brSlug": "thierad01",
-   "team": "LAL",
-   "brPosLabel": "SF",
-   "games": 4,
-   "gamesStarted": 0,
-   "minutes": 37,
-   "primary": "SF",
-   "secondary": "PF",
-   "primaryPct": 50,
-   "secondaryPct": 36,
-   "gap": 14,
-   "confidence": 0.23,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 50,
-    "PF": 36,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 5,
-    "SF": 19,
-    "PF": 13,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 14,
-    "SF": 50,
-    "PF": 36,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Tobi Lawal",
    "nameCn": "托比·拉瓦尔",
    "bao5Id": 1643588,
@@ -16576,48 +16744,6 @@
    }
   },
   {
-   "nameEn": "Grant Williams",
-   "nameCn": "格兰特·威廉姆斯",
-   "bao5Id": 1629684,
-   "onRoster": true,
-   "brSlug": "willigr01",
-   "team": "CHO",
-   "brPosLabel": "PF",
-   "games": 2,
-   "gamesStarted": 0,
-   "minutes": 36,
-   "primary": "PF",
-   "secondary": "SF",
-   "primaryPct": 67,
-   "secondaryPct": 33,
-   "gap": 34,
-   "confidence": 0.67,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 33,
-    "PF": 67,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 12,
-    "PF": 24,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 33,
-    "PF": 67,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "AJ Johnson",
    "nameCn": "AJ·约翰逊",
    "bao5Id": 1642358,
@@ -16702,45 +16828,45 @@
    }
   },
   {
-   "nameEn": "Kevon Looney",
-   "nameCn": "凯文·卢尼",
-   "bao5Id": 1626172,
+   "nameEn": "Cam Christie",
+   "nameCn": "卡姆·克里斯蒂",
+   "bao5Id": 1642353,
    "onRoster": true,
-   "brSlug": "looneke01",
-   "team": "LAL",
-   "brPosLabel": "C",
+   "brSlug": "chrisca02",
+   "team": "LAC",
+   "brPosLabel": "SG",
    "games": 6,
    "gamesStarted": 0,
    "minutes": 34,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 66,
-   "secondaryPct": 34,
-   "gap": 32,
-   "confidence": 0.66,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 67,
+   "secondaryPct": 21,
+   "gap": 46,
+   "confidence": 0.67,
    "basis": "season",
    "windowGames": null,
    "windowFrom": null,
    "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 66,
-    "C": 34
+    "PG": 21,
+    "SG": 67,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
    },
    "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 22,
-    "C": 12
+    "PG": 7,
+    "SG": 23,
+    "SF": 4,
+    "PF": 0,
+    "C": 0
    },
    "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 66,
-    "C": 34
+    "PG": 21,
+    "SG": 67,
+    "SF": 12,
+    "PF": 0,
+    "C": 0
    }
   },
   {
@@ -16825,48 +16951,6 @@
     "SF": 0,
     "PF": 0,
     "C": 100
-   }
-  },
-  {
-   "nameEn": "Cody Williams",
-   "nameCn": "科迪·威廉姆斯",
-   "bao5Id": 1642262,
-   "onRoster": true,
-   "brSlug": "willico04",
-   "team": "MIN",
-   "brPosLabel": "SG",
-   "games": 8,
-   "gamesStarted": 0,
-   "minutes": 32,
-   "primary": "PF",
-   "secondary": "C",
-   "primaryPct": 60,
-   "secondaryPct": 19,
-   "gap": 41,
-   "confidence": 0.6,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 6,
-    "SF": 14,
-    "PF": 60,
-    "C": 19
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 2,
-    "SF": 4,
-    "PF": 19,
-    "C": 6
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 6,
-    "SF": 14,
-    "PF": 60,
-    "C": 19
    }
   },
   {
@@ -17033,48 +17117,6 @@
     "PG": 100,
     "SG": 0,
     "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Cam Christie",
-   "nameCn": "卡姆·克里斯蒂",
-   "bao5Id": 1642353,
-   "onRoster": true,
-   "brSlug": "chrisca02",
-   "team": "LAC",
-   "brPosLabel": "SG",
-   "games": 5,
-   "gamesStarted": 0,
-   "minutes": 30,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 76,
-   "secondaryPct": 14,
-   "gap": 62,
-   "confidence": 0.76,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 10,
-    "SG": 76,
-    "SF": 14,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 3,
-    "SG": 23,
-    "SF": 4,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 10,
-    "SG": 76,
-    "SF": 14,
     "PF": 0,
     "C": 0
    }
@@ -17332,6 +17374,48 @@
    }
   },
   {
+   "nameEn": "Nick Martinelli",
+   "nameCn": "尼克·马丁内利",
+   "bao5Id": 1643568,
+   "onRoster": true,
+   "brSlug": "martini01",
+   "team": "LAC",
+   "brPosLabel": "SF",
+   "games": 6,
+   "gamesStarted": 0,
+   "minutes": 26,
+   "primary": "PF",
+   "secondary": null,
+   "primaryPct": 100,
+   "secondaryPct": 0,
+   "gap": 100,
+   "confidence": 1,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 26,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 100,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Jalen Pickett",
    "nameCn": "杰伦·皮克特",
    "bao5Id": 1629618,
@@ -17538,48 +17622,6 @@
     "SG": 83,
     "SF": 17,
     "PF": 0,
-    "C": 0
-   }
-  },
-  {
-   "nameEn": "Nick Martinelli",
-   "nameCn": "尼克·马丁内利",
-   "bao5Id": 1643568,
-   "onRoster": true,
-   "brSlug": "martini01",
-   "team": "LAC",
-   "brPosLabel": "SF",
-   "games": 5,
-   "gamesStarted": 0,
-   "minutes": 22,
-   "primary": "PF",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 100,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 22,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 100,
     "C": 0
    }
   },
@@ -17791,6 +17833,48 @@
     "SF": 0,
     "PF": 11,
     "C": 89
+   }
+  },
+  {
+   "nameEn": "Carson Cooper",
+   "nameCn": "卡森·库珀",
+   "bao5Id": 1643721,
+   "onRoster": true,
+   "brSlug": "coopeca02",
+   "team": "LAL",
+   "brPosLabel": "PF",
+   "games": 1,
+   "gamesStarted": 0,
+   "minutes": 18,
+   "primary": "PF",
+   "secondary": "C",
+   "primaryPct": 63,
+   "secondaryPct": 38,
+   "gap": 25,
+   "confidence": 0.53,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 63,
+    "C": 38
+   },
+   "minutesByPosition": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 11,
+    "C": 7
+   },
+   "seasonDistribution": {
+    "PG": 0,
+    "SG": 0,
+    "SF": 0,
+    "PF": 63,
+    "C": 38
    }
   },
   {
@@ -18253,48 +18337,6 @@
     "SF": 0,
     "PF": 73,
     "C": 27
-   }
-  },
-  {
-   "nameEn": "Chaz Lanier",
-   "nameCn": "查兹·兰尼尔",
-   "bao5Id": 1642404,
-   "onRoster": true,
-   "brSlug": "laniech01",
-   "team": "DET",
-   "brPosLabel": "SG",
-   "games": 4,
-   "gamesStarted": 0,
-   "minutes": 13,
-   "primary": "SG",
-   "secondary": "SF",
-   "primaryPct": 60,
-   "secondaryPct": 41,
-   "gap": 19,
-   "confidence": 0.38,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 60,
-    "SF": 41,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 8,
-    "SF": 5,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 60,
-    "SF": 41,
-    "PF": 0,
-    "C": 0
    }
   },
   {
@@ -18886,6 +18928,48 @@
    }
   },
   {
+   "nameEn": "Elijah Harkless",
+   "nameCn": "伊莱贾·哈克利斯",
+   "bao5Id": 1641989,
+   "onRoster": true,
+   "brSlug": "harklej01",
+   "team": "DET",
+   "brPosLabel": "SG",
+   "games": 3,
+   "gamesStarted": 0,
+   "minutes": 8,
+   "primary": "SG",
+   "secondary": "PG",
+   "primaryPct": 52,
+   "secondaryPct": 48,
+   "gap": 4,
+   "confidence": 0.07,
+   "basis": "season",
+   "windowGames": null,
+   "windowFrom": null,
+   "distribution": {
+    "PG": 48,
+    "SG": 52,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "minutesByPosition": {
+    "PG": 4,
+    "SG": 4,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   },
+   "seasonDistribution": {
+    "PG": 48,
+    "SG": 52,
+    "SF": 0,
+    "PF": 0,
+    "C": 0
+   }
+  },
+  {
    "nameEn": "Rayan Rupert",
    "nameCn": "拉扬·吕佩尔",
    "bao5Id": 1641712,
@@ -19222,48 +19306,6 @@
    }
   },
   {
-   "nameEn": "Elijah Harkless",
-   "nameCn": "伊莱贾·哈克利斯",
-   "bao5Id": 1641989,
-   "onRoster": true,
-   "brSlug": "harklej01",
-   "team": "DET",
-   "brPosLabel": "SG",
-   "games": 2,
-   "gamesStarted": 0,
-   "minutes": 4,
-   "primary": "SG",
-   "secondary": "PG",
-   "primaryPct": 68,
-   "secondaryPct": 32,
-   "gap": 36,
-   "confidence": 0.68,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 32,
-    "SG": 68,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "minutesByPosition": {
-    "PG": 1,
-    "SG": 3,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   },
-   "seasonDistribution": {
-    "PG": 32,
-    "SG": 68,
-    "SF": 0,
-    "PF": 0,
-    "C": 0
-   }
-  },
-  {
    "nameEn": "Keshad Johnson",
    "nameCn": "凯沙德·约翰逊",
    "bao5Id": 1642352,
@@ -19440,48 +19482,6 @@
    "team": "LAL",
    "brPosLabel": "C",
    "games": 2,
-   "gamesStarted": 0,
-   "minutes": 3,
-   "primary": "C",
-   "secondary": null,
-   "primaryPct": 100,
-   "secondaryPct": 0,
-   "gap": 100,
-   "confidence": 1,
-   "basis": "season",
-   "windowGames": null,
-   "windowFrom": null,
-   "distribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   },
-   "minutesByPosition": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 3
-   },
-   "seasonDistribution": {
-    "PG": 0,
-    "SG": 0,
-    "SF": 0,
-    "PF": 0,
-    "C": 100
-   }
-  },
-  {
-   "nameEn": "Carson Cooper",
-   "nameCn": "卡森·库珀",
-   "bao5Id": 1643721,
-   "onRoster": true,
-   "brSlug": "coopeca02",
-   "team": "MEM",
-   "brPosLabel": "PF",
-   "games": 1,
    "gamesStarted": 0,
    "minutes": 3,
    "primary": "C",
