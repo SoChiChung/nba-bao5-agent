@@ -22,18 +22,11 @@
       "t": "火箭"
     },
     "201143": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "艾尔·霍福德",
       "t": "勇士"
     },
@@ -251,16 +244,16 @@
       "t": "马刺"
     },
     "203110": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "德雷蒙德·格林",
@@ -525,11 +518,18 @@
       "t": "勇士"
     },
     "204456": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ],
       "n": "TJ·麦康奈尔",
       "t": "步行者"
     },
@@ -582,10 +582,15 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Turner (shoulder) has been ruled out for Thursday's game against Portland due to a left shoulder contusion,",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
-      "asOf": "2026-11-19",
-      "carry": false,
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "迈尔斯·特纳",
       "t": "雄鹿"
     },
@@ -740,8 +745,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "德章泰·穆雷",
@@ -766,16 +771,16 @@
       "t": "猛龙"
     },
     "1627752": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "托里恩·普林斯",
@@ -1027,10 +1032,15 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Kuzma (shoulder) has been ruled out for Thursday's game against Portland due to a right shoulder contusion.",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
-      "asOf": "2026-11-19",
-      "carry": false,
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "凯尔·库兹马",
       "t": "雄鹿"
     },
@@ -1080,21 +1090,21 @@
       "t": "马刺"
     },
     "1628960": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "RotoWire",
-          "label": "出战成疑",
-          "detail": "RotoWire伤病名单：出战成疑（脑震荡）"
+          "label": "缺阵",
+          "detail": "RotoWire伤病名单：缺阵（脑震荡）"
         },
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "格雷森·阿伦",
@@ -1435,16 +1445,16 @@
       "t": "快船"
     },
     "1629111": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "乔克·兰代尔",
@@ -1567,16 +1577,16 @@
       "t": "鹈鹕"
     },
     "1629628": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "RJ·巴雷特",
@@ -1724,8 +1734,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "泰·杰罗姆",
@@ -1784,11 +1794,18 @@
       "t": "湖人"
     },
     "1629684": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "格兰特·威廉姆斯",
       "t": "黄蜂"
     },
@@ -2447,18 +2464,11 @@
       "t": "湖人"
     },
     "1630567": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "斯科蒂·巴恩斯",
       "t": "猛龙"
     },
@@ -2480,8 +2490,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "特伦登·沃特福特",
@@ -2844,8 +2854,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "本尼迪克特·马瑟林",
@@ -3035,8 +3045,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "布莱斯·麦高文斯",
@@ -3122,18 +3132,11 @@
       "t": "76人"
     },
     "1631157": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "瑞安·罗林斯",
       "t": "雄鹿"
     },
@@ -3792,10 +3795,15 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Edey (hip) has been ruled out for Thursday's game against the Warriors.",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
-      "asOf": "2026-11-19",
-      "carry": false,
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "扎克·埃迪",
       "t": "灰熊"
     },
@@ -4176,16 +4184,16 @@
       "source": "公开名单"
     },
     "1641842": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "罗纳德·霍兰二世",
@@ -4529,16 +4537,16 @@
       "t": "尼克斯"
     },
     "1642281": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "杰隆·泰森",
@@ -4803,12 +4811,11 @@
       "t": "火箭"
     },
     "1642389": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "锡恩·普林",
       "t": "森林狼"
     },
@@ -5191,11 +5198,18 @@
       "t": "老鹰"
     },
     "1642855": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ],
       "n": "诺阿·埃森格",
       "t": "公牛"
     },
@@ -5281,16 +5295,16 @@
       "t": "森林狼"
     },
     "1642867": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "科林·穆雷·博伊尔斯",
@@ -5809,7 +5823,13 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
-      "others": [],
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ],
       "n": "LJ·克赖尔",
       "t": "勇士"
     },
@@ -6232,11 +6252,18 @@
       "t": "雷霆"
     },
     "1643536": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "埃布卡·奥科里",
       "t": "活塞"
     },
@@ -7001,8 +7028,8 @@
   },
   "officialCount": 0,
   "projectedCount": 619,
-  "filledCount": 108,
-  "espnCount": 5,
+  "filledCount": 111,
+  "espnCount": 2,
   "manualCount": 0,
   "fallbackSource": "mixed",
   "officialOnly": false,
@@ -7012,6 +7039,6 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出108人，其余619人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出111人，其余619人未被列入（视为可出战）。",
   "requestedDate": "2026-11-20"
 }
