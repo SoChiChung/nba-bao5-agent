@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T01:36:18.814Z",
+  "generatedAt": "2026-11-19T02:59:43.779Z",
   "serverDate": "2026-11-18",
   "requestedDate": "2026-11-19",
   "available": false,
@@ -9,17 +9,17 @@
   "updatedAt": null,
   "counts": {
     "total": 732,
-    "available": 628,
+    "available": 629,
     "out": 92,
-    "questionable": 12
+    "questionable": 11
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 447,
+    "projectedCount": 415,
     "filledCount": 103,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出103人，其余447人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出103人，其余415人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-11-17",
   "changeCount": 158,
@@ -326,12 +326,27 @@
     },
     {
       "kind": "cleared",
-      "id": "1629674",
+      "id": "1629637",
       "from": "out",
       "to": "available",
       "probability": "100%",
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1629674",
+      "from": "out",
+      "to": "available",
+      "probability": "100%",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -450,8 +465,8 @@
       "from": "out",
       "to": "available",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1122,21 +1137,6 @@
     {
       "kind": "improved",
       "id": "1628960",
-      "from": "out",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "improved",
-      "id": "1629637",
       "from": "out",
       "to": "questionable",
       "probability": "50%",
@@ -2259,7 +2259,7 @@
     {
       "field": "projectedCount",
       "from": 202,
-      "to": 447
+      "to": 415
     },
     {
       "field": "filledCount",
