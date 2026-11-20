@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:34.218Z",
+  "fetchedAt": "2026-11-20T02:52:54.791Z",
   "date": "2026-10-29",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -559,7 +559,7 @@
       "avatarKey": "CHI",
       "score": 186.6,
       "remainingSalary": 3,
-      "submittedAt": 1793165505588,
+      "submittedAt": 1793226292507,
       "statuses": [
         "done",
         "done",
@@ -687,7 +687,7 @@
       "avatarKey": "SAC",
       "score": 181.7,
       "remainingSalary": 0,
-      "submittedAt": 1793224609442,
+      "submittedAt": 1793226057957,
       "statuses": [
         "done",
         "done",
@@ -1743,7 +1743,7 @@
       "avatarKey": "LAL",
       "score": 163.3,
       "remainingSalary": 1,
-      "submittedAt": 1793226440557,
+      "submittedAt": 1793226788070,
       "statuses": [
         "done",
         "done",
@@ -2218,12 +2218,12 @@
       "rank": 137
     },
     {
-      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
-      "displayName": "静安赫尔特",
-      "avatarKey": "WAS",
+      "userId": "c1bb13d3-8412-4cc8-a1fa-6eb211fc6b01",
+      "displayName": "日日是好日",
+      "avatarKey": "GSW",
       "score": 155.3,
       "remainingSalary": 0,
-      "submittedAt": 1793226365446,
+      "submittedAt": 1793226902095,
       "statuses": [
         "done",
         "done",
@@ -2234,12 +2234,12 @@
       "rank": 138
     },
     {
-      "userId": "c1bb13d3-8412-4cc8-a1fa-6eb211fc6b01",
-      "displayName": "日日是好日",
-      "avatarKey": "GSW",
+      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+      "displayName": "静安赫尔特",
+      "avatarKey": "WAS",
       "score": 155.3,
       "remainingSalary": 0,
-      "submittedAt": 1793226902095,
+      "submittedAt": 1793227254234,
       "statuses": [
         "done",
         "done",
@@ -2751,7 +2751,7 @@
       "avatarKey": "HOU",
       "score": 137.6,
       "remainingSalary": 3,
-      "submittedAt": 1793185625309,
+      "submittedAt": 1793186055164,
       "statuses": [
         "done",
         "done",
@@ -3327,7 +3327,7 @@
       "avatarKey": "badge:T05_P",
       "score": 112.3,
       "remainingSalary": 0,
-      "submittedAt": 1793225669281,
+      "submittedAt": 1793227299588,
       "statuses": [
         "done",
         "done",
@@ -3504,5 +3504,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-29",
     "board": "/api/rankings?period=day&date=2026-10-29"
   },
-  "updatedAt": "2026-11-20T01:34:34.218Z"
+  "updatedAt": "2026-11-20T02:52:54.791Z"
 }

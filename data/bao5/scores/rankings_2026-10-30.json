@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:37.596Z",
+  "fetchedAt": "2026-11-20T02:52:56.287Z",
   "date": "2026-10-30",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -127,7 +127,7 @@
       "avatarKey": "badge:T05_P",
       "score": 229.4,
       "remainingSalary": 0,
-      "submittedAt": 1793252602130,
+      "submittedAt": 1793317267153,
       "statuses": [
         "done",
         "done",
@@ -330,22 +330,6 @@
       "rank": 19
     },
     {
-      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
-      "displayName": "笨CHINA",
-      "avatarKey": "CLE",
-      "score": 213.5,
-      "remainingSalary": 1,
-      "submittedAt": 1793262641683,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 20
-    },
-    {
       "userId": "f59d1248-56c6-4b75-a8ab-0bcd941fc2f4",
       "displayName": "TearMay",
       "avatarKey": "POR",
@@ -359,7 +343,7 @@
         "done",
         "done"
       ],
-      "rank": 21
+      "rank": 20
     },
     {
       "userId": "db66fc2e-56d8-4d14-9ea4-bb83f8d05f7c",
@@ -375,7 +359,7 @@
         "done",
         "done"
       ],
-      "rank": 22
+      "rank": 21
     },
     {
       "userId": "24827626-7d2d-442b-b950-4f3b342e24d0",
@@ -384,6 +368,22 @@
       "score": 213.5,
       "remainingSalary": 1,
       "submittedAt": 1793282528710,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 22
+    },
+    {
+      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
+      "displayName": "笨CHINA",
+      "avatarKey": "CLE",
+      "score": 213.5,
+      "remainingSalary": 1,
+      "submittedAt": 1793317049184,
       "statuses": [
         "done",
         "done",
@@ -586,22 +586,6 @@
       "rank": 35
     },
     {
-      "userId": "3eb604cb-e8ff-41c3-914a-1078ec8d6eff",
-      "displayName": "Oah2",
-      "avatarKey": "badge:T08_S",
-      "score": 205.1,
-      "remainingSalary": 7,
-      "submittedAt": 1793254554681,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 36
-    },
-    {
       "userId": "e36817b5-8f23-414c-91c4-d7fff8313c75",
       "displayName": "Xyxxx",
       "avatarKey": "LAL",
@@ -615,7 +599,7 @@
         "done",
         "done"
       ],
-      "rank": 37
+      "rank": 36
     },
     {
       "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
@@ -631,7 +615,7 @@
         "done",
         "done"
       ],
-      "rank": 38
+      "rank": 37
     },
     {
       "userId": "e7ca6e1a-d430-4ff6-ae16-a2aaeafb9d6a",
@@ -647,7 +631,7 @@
         "done",
         "done"
       ],
-      "rank": 39
+      "rank": 38
     },
     {
       "userId": "b0fa7b21-1634-47ec-9f7f-ed146e23a30d",
@@ -663,7 +647,7 @@
         "done",
         "done"
       ],
-      "rank": 40
+      "rank": 39
     },
     {
       "userId": "5b582050-2cf3-4cc7-8b76-edcb0a80d772",
@@ -679,7 +663,7 @@
         "done",
         "done"
       ],
-      "rank": 41
+      "rank": 40
     },
     {
       "userId": "38c11ed7-c980-4a48-9965-8bbb3b0cebd0",
@@ -695,7 +679,7 @@
         "done",
         "done"
       ],
-      "rank": 42
+      "rank": 41
     },
     {
       "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
@@ -711,7 +695,7 @@
         "done",
         "done"
       ],
-      "rank": 43
+      "rank": 42
     },
     {
       "userId": "58861a58-7bf4-4401-9ee3-a35bb611b448",
@@ -727,7 +711,7 @@
         "done",
         "done"
       ],
-      "rank": 44
+      "rank": 43
     },
     {
       "userId": "e61395b4-9dc5-4980-9548-20ae6925f2ec",
@@ -736,6 +720,22 @@
       "score": 205.1,
       "remainingSalary": 7,
       "submittedAt": 1793299542716,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 44
+    },
+    {
+      "userId": "3eb604cb-e8ff-41c3-914a-1078ec8d6eff",
+      "displayName": "Oah2",
+      "avatarKey": "badge:T08_S",
+      "score": 205.1,
+      "remainingSalary": 7,
+      "submittedAt": 1793316847841,
       "statuses": [
         "done",
         "done",
@@ -1258,12 +1258,12 @@
       "rank": 77
     },
     {
-      "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
-      "displayName": "ZCJenius",
-      "avatarKey": "badge:T05_G",
+      "userId": "c9fd6cdb-ba0f-4536-b19e-419370f91b2d",
+      "displayName": "雪山",
+      "avatarKey": "DEN",
       "score": 186.8,
       "remainingSalary": 1,
-      "submittedAt": 1793280333788,
+      "submittedAt": 1793287988322,
       "statuses": [
         "done",
         "done",
@@ -1274,12 +1274,12 @@
       "rank": 78
     },
     {
-      "userId": "c9fd6cdb-ba0f-4536-b19e-419370f91b2d",
-      "displayName": "雪山",
-      "avatarKey": "DEN",
+      "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
+      "displayName": "ZCJenius",
+      "avatarKey": "badge:T05_G",
       "score": 186.8,
       "remainingSalary": 1,
-      "submittedAt": 1793287988322,
+      "submittedAt": 1793308492889,
       "statuses": [
         "done",
         "done",
@@ -1439,7 +1439,7 @@
       "avatarKey": "OKC",
       "score": 185.7,
       "remainingSalary": 0,
-      "submittedAt": 1793238590533,
+      "submittedAt": 1793245147729,
       "statuses": [
         "done",
         "done",
@@ -1674,12 +1674,12 @@
       "rank": 103
     },
     {
-      "userId": "786753aa-98fc-4229-a151-b937a73780d9",
-      "displayName": "下快攻了",
-      "avatarKey": "badge:F11",
+      "userId": "cd4c88dd-5150-4fbd-86a6-7e8960ba8da6",
+      "displayName": "杜伦淫粉",
+      "avatarKey": "SAC",
       "score": 185.7,
       "remainingSalary": 0,
-      "submittedAt": 1793286700593,
+      "submittedAt": 1793286998745,
       "statuses": [
         "done",
         "done",
@@ -1690,12 +1690,12 @@
       "rank": 104
     },
     {
-      "userId": "cd4c88dd-5150-4fbd-86a6-7e8960ba8da6",
-      "displayName": "杜伦淫粉",
-      "avatarKey": "SAC",
+      "userId": "786753aa-98fc-4229-a151-b937a73780d9",
+      "displayName": "下快攻了",
+      "avatarKey": "badge:F11",
       "score": 185.7,
       "remainingSalary": 0,
-      "submittedAt": 1793286998745,
+      "submittedAt": 1793287161714,
       "statuses": [
         "done",
         "done",
@@ -3696,5 +3696,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-30",
     "board": "/api/rankings?period=day&date=2026-10-30"
   },
-  "updatedAt": "2026-11-20T01:34:37.596Z"
+  "updatedAt": "2026-11-20T02:52:56.287Z"
 }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:35:02.351Z",
+  "fetchedAt": "2026-11-20T02:53:18.849Z",
   "date": "2026-11-09",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -143,7 +143,7 @@
       "avatarKey": "HOU",
       "score": 198.9,
       "remainingSalary": 0,
-      "submittedAt": 1794131794232,
+      "submittedAt": 1794158016312,
       "statuses": [
         "done",
         "done",
@@ -1135,7 +1135,7 @@
       "avatarKey": "WAS",
       "score": 173.5,
       "remainingSalary": 0,
-      "submittedAt": 1794154804570,
+      "submittedAt": 1794164220695,
       "statuses": [
         "done",
         "done",
@@ -1247,7 +1247,7 @@
       "avatarKey": "badge:T05_G",
       "score": 170.9,
       "remainingSalary": 0,
-      "submittedAt": 1794161154025,
+      "submittedAt": 1794168274243,
       "statuses": [
         "done",
         "done",
@@ -1343,7 +1343,7 @@
       "avatarKey": "SAS",
       "score": 169.7,
       "remainingSalary": 2,
-      "submittedAt": 1794124700485,
+      "submittedAt": 1794150908695,
       "statuses": [
         "done",
         "done",
@@ -1594,12 +1594,12 @@
       "rank": 98
     },
     {
-      "userId": "92c74e77-e071-48f4-9a10-c8112919edfb",
-      "displayName": "相信过程",
-      "avatarKey": "badge:F08",
+      "userId": "e0a4159d-83db-4970-ab2b-aedeeca316e9",
+      "displayName": "Tshiebwe",
+      "avatarKey": "OKC",
       "score": 165.9,
       "remainingSalary": 0,
-      "submittedAt": 1794138059369,
+      "submittedAt": 1794138253206,
       "statuses": [
         "done",
         "done",
@@ -1610,12 +1610,12 @@
       "rank": 99
     },
     {
-      "userId": "e0a4159d-83db-4970-ab2b-aedeeca316e9",
-      "displayName": "Tshiebwe",
-      "avatarKey": "OKC",
+      "userId": "92c74e77-e071-48f4-9a10-c8112919edfb",
+      "displayName": "相信过程",
+      "avatarKey": "badge:F08",
       "score": 165.9,
       "remainingSalary": 0,
-      "submittedAt": 1794138253206,
+      "submittedAt": 1794155670834,
       "statuses": [
         "done",
         "done",
@@ -4383,7 +4383,7 @@
       "avatarKey": "LAL",
       "score": 100.5,
       "remainingSalary": 4,
-      "submittedAt": 1794046095525,
+      "submittedAt": 1794133047667,
       "statuses": [
         "done",
         "done",
@@ -4560,6 +4560,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-09",
     "board": "/api/rankings?period=day&date=2026-11-09"
   },
-  "updatedAt": "2026-11-20T01:35:02.351Z",
+  "updatedAt": "2026-11-20T02:53:18.849Z",
   "stale": true
 }

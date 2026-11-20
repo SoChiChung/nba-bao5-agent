@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:57.586Z",
+  "fetchedAt": "2026-11-20T02:53:17.059Z",
   "date": "2026-11-08",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -895,7 +895,7 @@
       "avatarKey": "HOU",
       "score": 181.5,
       "remainingSalary": 0,
-      "submittedAt": 1794083039331,
+      "submittedAt": 1794086039299,
       "statuses": [
         "done",
         "done",
@@ -1599,7 +1599,7 @@
       "avatarKey": "HOU",
       "score": 167.5,
       "remainingSalary": 0,
-      "submittedAt": 1794075423982,
+      "submittedAt": 1794076368481,
       "statuses": [
         "done",
         "done",
@@ -1775,7 +1775,7 @@
       "avatarKey": "badge:T06_S",
       "score": 166.2,
       "remainingSalary": 0,
-      "submittedAt": 1794026261013,
+      "submittedAt": 1794026467640,
       "statuses": [
         "done",
         "done",
@@ -1887,7 +1887,7 @@
       "avatarKey": "MIN",
       "score": 164.7,
       "remainingSalary": 0,
-      "submittedAt": 1793555062800,
+      "submittedAt": 1793555151253,
       "statuses": [
         "done",
         "done",
@@ -2431,7 +2431,7 @@
       "avatarKey": "badge:F11",
       "score": 156.9,
       "remainingSalary": 0,
-      "submittedAt": 1793860532342,
+      "submittedAt": 1793934589612,
       "statuses": [
         "done",
         "done",
@@ -2879,7 +2879,7 @@
       "avatarKey": "HOU",
       "score": 150.2,
       "remainingSalary": 0,
-      "submittedAt": 1794047309642,
+      "submittedAt": 1794048290826,
       "statuses": [
         "done",
         "done",
@@ -3023,7 +3023,7 @@
       "avatarKey": "LAL",
       "score": 148.2,
       "remainingSalary": 0,
-      "submittedAt": 1793701185503,
+      "submittedAt": 1793946095597,
       "statuses": [
         "done",
         "done",
@@ -3375,7 +3375,7 @@
       "avatarKey": "badge:T05_G",
       "score": 141.6,
       "remainingSalary": 0,
-      "submittedAt": 1794022225604,
+      "submittedAt": 1794065821905,
       "statuses": [
         "done",
         "done",
@@ -4191,7 +4191,7 @@
       "avatarKey": "MEM",
       "score": 124.5,
       "remainingSalary": 3,
-      "submittedAt": 1794035424748,
+      "submittedAt": 1794035487245,
       "statuses": [
         "done",
         "done",
@@ -4656,6 +4656,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-08",
     "board": "/api/rankings?period=day&date=2026-11-08"
   },
-  "updatedAt": "2026-11-20T01:34:57.586Z",
+  "updatedAt": "2026-11-20T02:53:17.059Z",
   "stale": true
 }

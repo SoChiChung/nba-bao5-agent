@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:45.775Z",
+  "fetchedAt": "2026-11-20T02:53:05.695Z",
   "date": "2026-11-02",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -2490,12 +2490,12 @@
       "rank": 154
     },
     {
-      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
-      "displayName": "静安赫尔特",
-      "avatarKey": "WAS",
+      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+      "displayName": "宁波爆胎王",
+      "avatarKey": "ATL",
       "score": 202.9,
       "remainingSalary": 1,
-      "submittedAt": 1793544168205,
+      "submittedAt": 1793545457968,
       "statuses": [
         "done",
         "done",
@@ -2506,12 +2506,12 @@
       "rank": 155
     },
     {
-      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
-      "displayName": "宁波爆胎王",
-      "avatarKey": "ATL",
+      "userId": "5b63cbe8-19c4-4e94-bde2-ea1968a9ac48",
+      "displayName": "静安赫尔特",
+      "avatarKey": "WAS",
       "score": 202.9,
       "remainingSalary": 1,
-      "submittedAt": 1793545457968,
+      "submittedAt": 1793563836529,
       "statuses": [
         "done",
         "done",
@@ -2591,7 +2591,7 @@
       "avatarKey": "PHI",
       "score": 202.2,
       "remainingSalary": 3,
-      "submittedAt": 1793543782388,
+      "submittedAt": 1793543905702,
       "statuses": [
         "done",
         "done",
@@ -2799,7 +2799,7 @@
       "avatarKey": "LAL",
       "score": 200.2,
       "remainingSalary": 0,
-      "submittedAt": 1793505452662,
+      "submittedAt": 1793505568826,
       "statuses": [
         "done",
         "done",
@@ -3055,7 +3055,7 @@
       "avatarKey": "MIN",
       "score": 193.3,
       "remainingSalary": 1,
-      "submittedAt": 1793535902178,
+      "submittedAt": 1793539164562,
       "statuses": [
         "done",
         "done",
@@ -3648,5 +3648,5 @@
     "mine": "/api/rankings?mine=1&date=2026-11-02",
     "board": "/api/rankings?period=day&date=2026-11-02"
   },
-  "updatedAt": "2026-11-20T01:34:45.775Z"
+  "updatedAt": "2026-11-20T02:53:05.695Z"
 }

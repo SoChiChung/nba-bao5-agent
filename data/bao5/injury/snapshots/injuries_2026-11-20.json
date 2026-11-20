@@ -395,11 +395,18 @@
       "t": "活塞"
     },
     "203924": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
+        }
+      ],
       "n": "杰拉米·格兰特",
       "t": "灰熊"
     },
@@ -1177,12 +1184,11 @@
       "t": "尼克斯"
     },
     "1628973": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "others": [],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "杰伦·布伦森",
       "t": "尼克斯",
       "st": "c:2026-11-20:nba"

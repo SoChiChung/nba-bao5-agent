@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:13.339Z",
+  "fetchedAt": "2026-11-20T02:52:41.595Z",
   "date": "2026-10-21",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -191,7 +191,7 @@
       "avatarKey": "badge:T05_G",
       "score": 164.7,
       "remainingSalary": 0,
-      "submittedAt": 1792381566260,
+      "submittedAt": 1792491063829,
       "statuses": [
         "done",
         "done",
@@ -207,7 +207,7 @@
       "avatarKey": "badge:S01",
       "score": 164.7,
       "remainingSalary": 0,
-      "submittedAt": 1792510899588,
+      "submittedAt": 1792511291226,
       "statuses": [
         "done",
         "done",
@@ -1039,7 +1039,7 @@
       "avatarKey": "badge:T04_S",
       "score": 141.2,
       "remainingSalary": 5,
-      "submittedAt": 1792485060344,
+      "submittedAt": 1792487328553,
       "statuses": [
         "done",
         "done",
@@ -2319,7 +2319,7 @@
       "avatarKey": "badge:T05_G",
       "score": 116.3,
       "remainingSalary": 2,
-      "submittedAt": 1792490926290,
+      "submittedAt": 1792521514549,
       "statuses": [
         "done",
         "done",
@@ -2576,5 +2576,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-21",
     "board": "/api/rankings?period=day&date=2026-10-21"
   },
-  "updatedAt": "2026-11-20T01:34:13.339Z"
+  "updatedAt": "2026-11-20T02:52:41.595Z"
 }

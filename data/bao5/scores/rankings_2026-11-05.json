@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:49.927Z",
+  "fetchedAt": "2026-11-20T02:53:08.888Z",
   "date": "2026-11-05",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -255,7 +255,7 @@
       "avatarKey": "BOS",
       "score": 223.9,
       "remainingSalary": 4,
-      "submittedAt": 1793799354715,
+      "submittedAt": 1793835248354,
       "statuses": [
         "done",
         "done",
@@ -655,7 +655,7 @@
       "avatarKey": "GSW",
       "score": 206.5,
       "remainingSalary": 1,
-      "submittedAt": 1793777521118,
+      "submittedAt": 1793832751022,
       "statuses": [
         "done",
         "done",
@@ -1263,7 +1263,7 @@
       "avatarKey": "SAS",
       "score": 187,
       "remainingSalary": 0,
-      "submittedAt": 1793799248531,
+      "submittedAt": 1793805222159,
       "statuses": [
         "done",
         "done",
@@ -2079,7 +2079,7 @@
       "avatarKey": "badge:T05_G",
       "score": 171.2,
       "remainingSalary": 0,
-      "submittedAt": 1793803906228,
+      "submittedAt": 1793833999832,
       "statuses": [
         "done",
         "done",
@@ -3087,7 +3087,7 @@
       "avatarKey": "NYK",
       "score": 144.5,
       "remainingSalary": 1,
-      "submittedAt": 1793835680903,
+      "submittedAt": 1793835868941,
       "statuses": [
         "done",
         "done",
@@ -3648,6 +3648,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-05",
     "board": "/api/rankings?period=day&date=2026-11-05"
   },
-  "updatedAt": "2026-11-20T01:34:49.927Z",
+  "updatedAt": "2026-11-20T02:53:08.888Z",
   "stale": true
 }

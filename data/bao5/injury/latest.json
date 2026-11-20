@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T01:35:59.051Z",
+  "updatedAt": "2026-11-20T02:53:57.461Z",
   "serverDate": "2026-11-20",
   "requestedDate": "2026-11-21",
   "available": false,
@@ -1285,6 +1285,20 @@
       "energy": null
     },
     {
+      "id": "203924",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "204456",
       "key": "questionable",
       "label": "出战成疑",
@@ -1305,20 +1319,6 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：出战成疑",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1628973",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
       "name": null,
       "englishName": null,
       "team": null,

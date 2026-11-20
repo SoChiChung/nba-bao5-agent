@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:31.828Z",
+  "fetchedAt": "2026-11-20T02:52:53.271Z",
   "date": "2026-10-28",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -202,22 +202,6 @@
       "rank": 11
     },
     {
-      "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
-      "displayName": "b站德国极装客",
-      "avatarKey": "LAC",
-      "score": 207.3,
-      "remainingSalary": 3,
-      "submittedAt": 1793060929264,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 12
-    },
-    {
       "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
       "displayName": "笨CHINA",
       "avatarKey": "CLE",
@@ -231,7 +215,7 @@
         "done",
         "done"
       ],
-      "rank": 13
+      "rank": 12
     },
     {
       "userId": "7830196c-4e08-48ad-a4b7-85f35a2013ba",
@@ -247,7 +231,7 @@
         "done",
         "done"
       ],
-      "rank": 14
+      "rank": 13
     },
     {
       "userId": "ecba148f-5373-44f2-af2d-37dce6b8ac7f",
@@ -256,6 +240,22 @@
       "score": 207.3,
       "remainingSalary": 3,
       "submittedAt": 1793112675523,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 14
+    },
+    {
+      "userId": "d92cbfba-8e32-41e9-b880-22b1d4ebd9ba",
+      "displayName": "b站德国极装客",
+      "avatarKey": "LAC",
+      "score": 207.3,
+      "remainingSalary": 3,
+      "submittedAt": 1793126832434,
       "statuses": [
         "done",
         "done",
@@ -607,7 +607,7 @@
       "avatarKey": "HOU",
       "score": 194.2,
       "remainingSalary": 2,
-      "submittedAt": 1793084724603,
+      "submittedAt": 1793118012059,
       "statuses": [
         "done",
         "done",
@@ -991,7 +991,7 @@
       "avatarKey": "GSW",
       "score": 183.8,
       "remainingSalary": 0,
-      "submittedAt": 1793007295087,
+      "submittedAt": 1793008471748,
       "statuses": [
         "done",
         "done",
@@ -1738,12 +1738,12 @@
       "rank": 107
     },
     {
-      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
-      "displayName": "宁波爆胎王",
-      "avatarKey": "ATL",
+      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
+      "displayName": "老四238",
+      "avatarKey": "MIA",
       "score": 174.3,
       "remainingSalary": 2,
-      "submittedAt": 1793085769340,
+      "submittedAt": 1793099016522,
       "statuses": [
         "done",
         "done",
@@ -1754,12 +1754,12 @@
       "rank": 108
     },
     {
-      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
-      "displayName": "老四238",
-      "avatarKey": "MIA",
+      "userId": "537aeec8-b139-4ff7-9bae-3a5cd5cf7f06",
+      "displayName": "宁波爆胎王",
+      "avatarKey": "ATL",
       "score": 174.3,
       "remainingSalary": 2,
-      "submittedAt": 1793099016522,
+      "submittedAt": 1793115584501,
       "statuses": [
         "done",
         "done",
@@ -2639,7 +2639,7 @@
       "avatarKey": "MIA",
       "score": 159,
       "remainingSalary": 0,
-      "submittedAt": 1793005549182,
+      "submittedAt": 1793007079537,
       "statuses": [
         "done",
         "done",
@@ -2799,7 +2799,7 @@
       "avatarKey": "OKC",
       "score": 154.6,
       "remainingSalary": 1,
-      "submittedAt": 1793079811815,
+      "submittedAt": 1793080490036,
       "statuses": [
         "done",
         "done",
@@ -2863,7 +2863,7 @@
       "avatarKey": "badge:T05_S",
       "score": 154,
       "remainingSalary": 0,
-      "submittedAt": 1793105895054,
+      "submittedAt": 1793142885902,
       "statuses": [
         "done",
         "done",
@@ -3231,7 +3231,7 @@
       "avatarKey": "badge:T04_G",
       "score": 144.1,
       "remainingSalary": 3,
-      "submittedAt": 1793111997684,
+      "submittedAt": 1793112016479,
       "statuses": [
         "done",
         "done",
@@ -3632,5 +3632,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-28",
     "board": "/api/rankings?period=day&date=2026-10-28"
   },
-  "updatedAt": "2026-11-20T01:34:31.828Z"
+  "updatedAt": "2026-11-20T02:52:53.271Z"
 }

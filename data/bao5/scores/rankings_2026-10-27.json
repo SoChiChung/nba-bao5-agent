@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T01:34:29.438Z",
+  "fetchedAt": "2026-11-20T02:52:51.775Z",
   "date": "2026-10-27",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -223,7 +223,7 @@
       "avatarKey": "POR",
       "score": 215.2,
       "remainingSalary": 0,
-      "submittedAt": 1793001178827,
+      "submittedAt": 1793001883672,
       "statuses": [
         "done",
         "done",
@@ -282,22 +282,6 @@
       "rank": 16
     },
     {
-      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
-      "displayName": "笨CHINA",
-      "avatarKey": "CLE",
-      "score": 214.1,
-      "remainingSalary": 1,
-      "submittedAt": 1792898064794,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 17
-    },
-    {
       "userId": "af01046f-b1a0-4ddd-bfc2-38ebfe6d26ce",
       "displayName": "江逐流",
       "avatarKey": "MIA",
@@ -311,7 +295,7 @@
         "done",
         "done"
       ],
-      "rank": 18
+      "rank": 17
     },
     {
       "userId": "a8868e2d-44fb-41da-a5d2-509258b6ed96",
@@ -320,6 +304,22 @@
       "score": 214.1,
       "remainingSalary": 1,
       "submittedAt": 1793053115258,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 18
+    },
+    {
+      "userId": "04c99a5b-76d4-4ba1-bccd-e43344cfbb53",
+      "displayName": "笨CHINA",
+      "avatarKey": "CLE",
+      "score": 214.1,
+      "remainingSalary": 1,
+      "submittedAt": 1793054485250,
       "statuses": [
         "done",
         "done",
@@ -346,22 +346,6 @@
       "rank": 20
     },
     {
-      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
-      "displayName": "杜伦铁粉的信徒",
-      "avatarKey": "LAL",
-      "score": 213,
-      "remainingSalary": 1,
-      "submittedAt": 1792990347549,
-      "statuses": [
-        "done",
-        "done",
-        "done",
-        "done",
-        "done"
-      ],
-      "rank": 21
-    },
-    {
       "userId": "d3b6a9a9-9134-40a5-8b91-9aa79f99de2d",
       "displayName": "黑色轨迹",
       "avatarKey": "HOU",
@@ -375,7 +359,7 @@
         "done",
         "done"
       ],
-      "rank": 22
+      "rank": 21
     },
     {
       "userId": "71a9dd2d-8d7b-4412-ba63-b6d6bcfb8b38",
@@ -384,6 +368,22 @@
       "score": 213,
       "remainingSalary": 1,
       "submittedAt": 1793005583523,
+      "statuses": [
+        "done",
+        "done",
+        "done",
+        "done",
+        "done"
+      ],
+      "rank": 22
+    },
+    {
+      "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
+      "displayName": "杜伦铁粉的信徒",
+      "avatarKey": "LAL",
+      "score": 213,
+      "remainingSalary": 1,
+      "submittedAt": 1793033286983,
       "statuses": [
         "done",
         "done",
@@ -607,7 +607,7 @@
       "avatarKey": "WAS",
       "score": 209.1,
       "remainingSalary": 0,
-      "submittedAt": 1793025527578,
+      "submittedAt": 1793053146690,
       "statuses": [
         "done",
         "done",
@@ -799,7 +799,7 @@
       "avatarKey": "badge:T04_G",
       "score": 202.3,
       "remainingSalary": 0,
-      "submittedAt": 1793007676344,
+      "submittedAt": 1793033174076,
       "statuses": [
         "done",
         "done",
@@ -895,7 +895,7 @@
       "avatarKey": "badge:T05_G",
       "score": 202.1,
       "remainingSalary": 0,
-      "submittedAt": 1793037783471,
+      "submittedAt": 1793053929648,
       "statuses": [
         "done",
         "done",
@@ -1087,7 +1087,7 @@
       "avatarKey": "badge:F05",
       "score": 198.6,
       "remainingSalary": 7,
-      "submittedAt": 1792989600472,
+      "submittedAt": 1793027560186,
       "statuses": [
         "done",
         "done",
@@ -1162,12 +1162,12 @@
       "rank": 71
     },
     {
-      "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
-      "displayName": "桑滴二大妈",
-      "avatarKey": "badge:S01",
+      "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
+      "displayName": "SsSylar",
+      "avatarKey": "badge:T05_G",
       "score": 196.6,
       "remainingSalary": 0,
-      "submittedAt": 1792944159767,
+      "submittedAt": 1792989448312,
       "statuses": [
         "done",
         "done",
@@ -1178,12 +1178,12 @@
       "rank": 72
     },
     {
-      "userId": "3fec0e33-4fba-4e8c-b959-4aabf8123fa8",
-      "displayName": "SsSylar",
-      "avatarKey": "badge:T05_G",
+      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
+      "displayName": "老四238",
+      "avatarKey": "MIA",
       "score": 196.6,
       "remainingSalary": 0,
-      "submittedAt": 1792986892665,
+      "submittedAt": 1793001282971,
       "statuses": [
         "done",
         "done",
@@ -1194,12 +1194,12 @@
       "rank": 73
     },
     {
-      "userId": "ae0ac1ce-22d7-4b4f-bf7c-b6050cfe35c4",
-      "displayName": "老四238",
-      "avatarKey": "MIA",
+      "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
+      "displayName": "桑滴二大妈",
+      "avatarKey": "badge:S01",
       "score": 196.6,
       "remainingSalary": 0,
-      "submittedAt": 1793001282971,
+      "submittedAt": 1793005807457,
       "statuses": [
         "done",
         "done",
@@ -3552,5 +3552,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-27",
     "board": "/api/rankings?period=day&date=2026-10-27"
   },
-  "updatedAt": "2026-11-20T01:34:29.438Z"
+  "updatedAt": "2026-11-20T02:52:51.775Z"
 }

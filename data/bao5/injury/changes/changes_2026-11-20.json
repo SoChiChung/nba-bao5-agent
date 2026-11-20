@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T01:35:59.051Z",
+  "generatedAt": "2026-11-20T02:53:57.461Z",
   "serverDate": "2026-11-20",
   "requestedDate": "2026-11-21",
   "available": false,
@@ -24,21 +24,6 @@
   "previousDate": "2026-11-19",
   "changeCount": 9,
   "changes": [
-    {
-      "kind": "newInjury",
-      "id": "1628973",
-      "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "Sleeper伤病名单：出战成疑",
-      "source": "Sleeper",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
     {
       "kind": "newInjury",
       "id": "1629631",
@@ -72,6 +57,21 @@
     {
       "kind": "newInjury",
       "id": "203500",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "203924",
       "from": "available",
       "to": "questionable",
       "probability": "50%",
