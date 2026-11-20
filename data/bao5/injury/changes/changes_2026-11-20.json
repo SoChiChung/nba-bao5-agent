@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T19:01:42.365Z",
+  "generatedAt": "2026-11-20T22:25:14.749Z",
   "serverDate": "2026-11-20",
   "requestedDate": "2026-11-21",
   "available": false,
@@ -9,21 +9,36 @@
   "updatedAt": null,
   "counts": {
     "total": 732,
-    "available": 618,
-    "out": 83,
-    "questionable": 31
+    "available": 617,
+    "out": 86,
+    "questionable": 29
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 618,
-    "filledCount": 112,
+    "projectedCount": 617,
+    "filledCount": 110,
     "fallbackSource": "mixed"
   },
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出112人，其余618人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出110人，其余617人未被列入（视为可出战）。",
   "baseline": false,
   "previousDate": "2026-11-19",
-  "changeCount": 17,
+  "changeCount": 19,
   "changes": [
+    {
+      "kind": "newInjury",
+      "id": "1628384",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Anunoby (calf) is questionable for Saturday's game against Portland.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
     {
       "kind": "newInjury",
       "id": "1629631",
@@ -43,9 +58,9 @@
       "kind": "newInjury",
       "id": "1630173",
       "from": "available",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -101,6 +116,21 @@
     },
     {
       "kind": "newInjury",
+      "id": "203903",
+      "from": "available",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Clarkson supplied three points (1-3 FG, 0-1 3Pt, 1-1 FT) across eight minutes during Tuesday's 111-102 victory over Toronto.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
       "id": "203924",
       "from": "available",
       "to": "questionable",
@@ -115,9 +145,39 @@
       "energy": null
     },
     {
-      "kind": "cleared",
+      "kind": "worsened",
       "id": "1629731",
       "from": "questionable",
+      "to": "out",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Wade (hamstring) won't play Saturday against the Bucks.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1626167",
+      "from": "out",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "cleared",
+      "id": "1628398",
+      "from": "out",
       "to": "available",
       "probability": "100%",
       "detail": "未出现在伤病名单中",
@@ -191,36 +251,6 @@
     },
     {
       "kind": "improved",
-      "id": "1626167",
-      "from": "out",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "improved",
-      "id": "1628398",
-      "from": "out",
-      "to": "questionable",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "kind": "improved",
       "id": "1629057",
       "from": "out",
       "to": "questionable",
@@ -284,12 +314,12 @@
     {
       "field": "projectedCount",
       "from": 619,
-      "to": 618
+      "to": 617
     },
     {
       "field": "filledCount",
       "from": 111,
-      "to": 112
+      "to": 110
     }
   ]
 }

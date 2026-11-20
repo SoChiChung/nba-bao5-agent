@@ -374,11 +374,13 @@
       "source": "公开名单"
     },
     "203903": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Clarkson supplied three points (1-3 FG, 0-1 3Pt, 1-1 FT) across eight minutes during Tuesday's 111-102 victory over Toronto.",
+      "source": "ESPN",
+      "asOf": "2026-11-20",
+      "carry": false,
       "n": "乔丹·克拉克森",
       "t": "尼克斯"
     },
@@ -598,18 +600,11 @@
       "t": "太阳"
     },
     "1626167": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "迈尔斯·特纳",
       "t": "雄鹿"
     },
@@ -732,8 +727,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "布兰登·英格拉姆",
@@ -1003,11 +998,13 @@
       "t": "活塞"
     },
     "1628384": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Anunoby (calf) is questionable for Saturday's game against Portland.",
+      "source": "ESPN",
+      "asOf": "2026-11-20",
+      "carry": false,
       "n": "OG·阿奴诺比",
       "t": "尼克斯"
     },
@@ -1048,18 +1045,11 @@
       "t": "爵士"
     },
     "1628398": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "凯尔·库兹马",
       "t": "雄鹿"
     },
@@ -1845,11 +1835,13 @@
       "t": "森林狼"
     },
     "1629731": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Wade (hamstring) won't play Saturday against the Bucks.",
+      "source": "ESPN",
+      "asOf": "2026-11-20",
+      "carry": false,
       "n": "迪恩·韦德",
       "t": "76人"
     },
@@ -1984,21 +1976,21 @@
       "t": "公牛"
     },
     "1630173": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "RotoWire",
-          "label": "小概率出战",
-          "detail": "RotoWire伤病名单：小概率出战（小腿）"
+          "label": "缺阵",
+          "detail": "RotoWire伤病名单：缺阵（小腿）"
         },
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "普雷舍斯·阿丘瓦",
@@ -7034,9 +7026,9 @@
     }
   },
   "officialCount": 0,
-  "projectedCount": 618,
-  "filledCount": 112,
-  "espnCount": 2,
+  "projectedCount": 617,
+  "filledCount": 110,
+  "espnCount": 5,
   "manualCount": 0,
   "fallbackSource": "mixed",
   "officialOnly": false,
@@ -7046,6 +7038,6 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出112人，其余618人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出110人，其余617人未被列入（视为可出战）。",
   "requestedDate": "2026-11-21"
 }
