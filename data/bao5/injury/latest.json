@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T03:02:15.078Z",
+  "updatedAt": "2026-11-20T09:08:14.180Z",
   "serverDate": "2026-11-20",
   "requestedDate": "2026-11-21",
   "available": true,
@@ -8,8 +8,8 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 589,
-    "out": 124,
+    "available": 590,
+    "out": 123,
     "questionable": 14,
     "probable": 4,
     "doubtful": 1
@@ -23,8 +23,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-20.json",
   "changesFile": "changes/changes_2026-11-20.json",
   "previousDate": "2026-11-19",
-  "changeCount": 153,
-  "restrictedCount": 143,
+  "changeCount": 152,
+  "restrictedCount": 142,
   "restricted": [
     {
       "id": "201939",
@@ -382,20 +382,6 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（左股四头肌拉伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629618",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "上次官方报告 11月17日：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1837,7 +1823,7 @@
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左髋部酸痛）",
+      "detail": "NBA官方伤病报告：出战成疑（左髋部紧张/酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2019,7 +2005,7 @@
       "key": "probable",
       "label": "大概率出战",
       "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战",
+      "detail": "NBA官方伤病报告：大概率出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2029,5 +2015,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月19日 22:00 发布）：列出95人，今日出战的另外350人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月20日 04:00 发布）：列出95人，今日出战的另外350人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
