@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-19T22:48:30.841Z",
+  "fetchedAt": "2026-11-20T01:35:02.351Z",
   "date": "2026-11-09",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1740,7 +1740,7 @@
     {
       "userId": "27c0b339-02c5-4e00-80f9-15a0da09b3d0",
       "displayName": "奶味大宇宙",
-      "avatarKey": "badge:T05_P",
+      "avatarKey": "badge:T08_G",
       "score": 165.1,
       "remainingSalary": 2,
       "submittedAt": 1793545167441,
@@ -2844,7 +2844,7 @@
     {
       "userId": "5fa79037-5dcf-4fb9-b4c3-fda4bc29bb4a",
       "displayName": "最佳新秀迪伦哈珀",
-      "avatarKey": "DEN",
+      "avatarKey": "badge:T04_G",
       "score": 153.7,
       "remainingSalary": 3,
       "submittedAt": 1794147242962,
@@ -3660,7 +3660,7 @@
     {
       "userId": "4e712a5d-0e2b-4225-8641-315fff9ec7e3",
       "displayName": "雕堡",
-      "avatarKey": "HOU",
+      "avatarKey": "badge:T08_G",
       "score": 134.8,
       "remainingSalary": 3,
       "submittedAt": 1794102482710,
@@ -3708,7 +3708,7 @@
     {
       "userId": "f476057a-0476-45cd-9fa1-3c06796d5a1c",
       "displayName": "蒂兰基尔尼",
-      "avatarKey": "badge:F11",
+      "avatarKey": "badge:T04_G",
       "score": 132,
       "remainingSalary": 0,
       "submittedAt": 1794150827105,
@@ -4316,7 +4316,7 @@
     {
       "userId": "ab482302-16ee-45fe-a158-568059673bde",
       "displayName": "Ree3",
-      "avatarKey": "badge:F11",
+      "avatarKey": "badge:F07",
       "score": 106.6,
       "remainingSalary": 12,
       "submittedAt": 1794125665511,
@@ -4560,6 +4560,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-09",
     "board": "/api/rankings?period=day&date=2026-11-09"
   },
-  "updatedAt": "2026-11-19T22:48:30.841Z",
+  "updatedAt": "2026-11-20T01:35:02.351Z",
   "stale": true
 }
