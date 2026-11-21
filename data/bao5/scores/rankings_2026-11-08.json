@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-21T03:08:09.930Z",
+  "fetchedAt": "2026-11-21T08:08:43.955Z",
   "date": "2026-11-08",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -3372,7 +3372,7 @@
     {
       "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
       "displayName": "ZCJenius",
-      "avatarKey": "badge:T05_G",
+      "avatarKey": "badge:T05_P",
       "score": 141.6,
       "remainingSalary": 0,
       "submittedAt": 1794065821905,
@@ -4428,7 +4428,7 @@
     {
       "userId": "ad82bf1a-434d-4f07-92d0-3ff986e33a7a",
       "displayName": "休斯敦国米",
-      "avatarKey": "HOU",
+      "avatarKey": "badge:F05",
       "score": 115.2,
       "remainingSalary": 1,
       "submittedAt": 1794022401815,
@@ -4540,7 +4540,7 @@
     {
       "userId": "e108dd18-21cb-4b7c-80a4-969e025eeec4",
       "displayName": "冠希哥",
-      "avatarKey": "WAS",
+      "avatarKey": "badge:T04_S",
       "score": 105.4,
       "remainingSalary": 2,
       "submittedAt": 1794037915309,
@@ -4620,7 +4620,7 @@
     {
       "userId": "73167283-24c4-4db6-bc60-ccb51a5b8616",
       "displayName": "企鹅",
-      "avatarKey": "NOP",
+      "avatarKey": "badge:F07",
       "score": 87.2,
       "remainingSalary": 9,
       "submittedAt": 1793626778287,
@@ -4656,6 +4656,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-08",
     "board": "/api/rankings?period=day&date=2026-11-08"
   },
-  "updatedAt": "2026-11-21T03:08:09.930Z",
+  "updatedAt": "2026-11-21T08:08:43.955Z",
   "stale": true
 }
