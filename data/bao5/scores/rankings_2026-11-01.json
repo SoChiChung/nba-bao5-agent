@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-21T01:00:28.107Z",
+  "fetchedAt": "2026-11-21T03:01:00.578Z",
   "date": "2026-11-01",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1564,7 +1564,7 @@
     {
       "userId": "c136eafe-a864-4982-960d-c88dc2a15d3b",
       "displayName": "敌羞吾去脱他衣",
-      "avatarKey": "badge:T05_G",
+      "avatarKey": "badge:T05_P",
       "score": 194.7,
       "remainingSalary": 0,
       "submittedAt": 1793439378988,
@@ -2460,7 +2460,7 @@
     {
       "userId": "b3eb724f-d508-43c6-a0ae-dcb2fca7c836",
       "displayName": "acidboy",
-      "avatarKey": "badge:T05_S",
+      "avatarKey": "badge:T05_G",
       "score": 172.1,
       "remainingSalary": 0,
       "submittedAt": 1793339226073,
@@ -3520,5 +3520,5 @@
     "mine": "/api/rankings?mine=1&date=2026-11-01",
     "board": "/api/rankings?period=day&date=2026-11-01"
   },
-  "updatedAt": "2026-11-21T01:00:28.107Z"
+  "updatedAt": "2026-11-21T03:01:00.578Z"
 }
