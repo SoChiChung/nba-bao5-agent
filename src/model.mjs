@@ -330,7 +330,7 @@ export function selectAutoMode(history = []) {
   return stats.sort((a,b)=>a.loss-b.loss||b.count-a.count)[0]?.key??'balanced';
 }
 
-export function buildDashboardData({ players, schedule, injuries, odds, defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
+export function buildDashboardData({ players, schedule, injuries, odds, playsportOdds = [], defense, calibrationFactor = 1, mode = 'lowRisk', customWeights = null, lineupFeedback = null }) {
   const weights={...(MODEL_MODES[mode]??MODEL_MODES.lowRisk),...(customWeights??{})};
   const calibrationForPhase = phase => typeof calibrationFactor === 'number'
     ? calibrationFactor
@@ -342,6 +342,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
   const phaseGames=upcoming.filter(g=>isPreseasonGame(g)===usePreseason);
   const slateKeys = [...new Set(phaseGames.map(g => g.date))].sort().slice(0, 7);
   const allOdds = Array.isArray(odds) ? odds : odds.fixtures ?? odds;
+  const fallbackOdds = Array.isArray(playsportOdds) ? playsportOdds : [];
   const defenseRows = Array.isArray(defense)
     ? defense
     : parseCsv(defense);
@@ -371,8 +372,8 @@ export function buildDashboardData({ players, schedule, injuries, odds, defense,
         if (!priorGameByTeam.has(team) || priorGameByTeam.get(team) < game.date) priorGameByTeam.set(team, game.date);
       }
     }
-    const gameOdds = dayGames.map(g => findOdds(allOdds, g)).filter(Boolean);
-    const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOdds(allOdds,g),g)}));
+    const gameOdds = dayGames.map(g => findOddsWithFallback(allOdds, fallbackOdds, g)).filter(Boolean);
+    const scoredGames=dayGames.map(g=>({...g,...getGameLines(findOddsWithFallback(allOdds,fallbackOdds,g),g)}));
     const siteInjuries = siteInjuryReportUsable(injuries,dateKey);
     const slatePlayers=players.filter(p=>p.active!==false&&teams.has(p.team));
     const highEnergyThreshold=quantile(slatePlayers.map(p=>Number(p.energy)).filter(value=>Number.isFinite(value)&&value>0),HIGH_ENERGY_QUANTILE);
@@ -724,19 +725,45 @@ function marketLine(fixture, marketSuffix, preferredMarketId = null) {
   return {line:null,marketId:null};
 }
 
-function mainTotal(fixture){return marketLine(fixture,'totals').line;}
+function mainTotal(fixture){
+  if(fixture?.source==='playsport')return finiteLine(fixture.international?.total);
+  return marketLine(fixture,'totals').line;
+}
+
+function finiteLine(value){
+  if(value==null||value==='')return null;
+  const line=Number(value);
+  return Number.isFinite(line)?line:null;
+}
 
 function getGameLines(fixture,game){
+  if(fixture?.source==='playsport'){
+    const market=fixture.international??{};
+    const total=finiteLine(market.total);
+    const spread=finiteLine(market.spread);
+    const favorite=market.spreadFavorite==='home'?game.home:market.spreadFavorite==='away'?game.away:null;
+    const favoriteSign=market.spreadFavorite==='home'?'-':market.spreadFavorite==='away'?'+':null;
+    return {oddsTotal:total,totalMarketId:total==null?null:'playsport:international:totals',spread:spread==null?null:Number(Math.abs(spread).toFixed(1)),spreadFavorite:favorite,spreadText:spread==null?null:`${favorite??'主队'} ${favoriteSign??''}${Math.abs(spread).toFixed(1)}`,oddsSource:'playsport'};
+  }
   const total=marketLine(fixture,'totals');
   const home=marketLine(fixture,'spreads');
   const away=marketLine(fixture,'spreads');
   const spread=home.line??away.line;
   const homeAbbr=fixture?.participant1Abbr;
   const favorite=spread==null?null:(spread<0?homeAbbr:fixture?.participant2Abbr);
-  return {oddsTotal:total.line,totalMarketId:total.marketId,spread:spread==null?null:Number(Math.abs(spread).toFixed(1)),spreadFavorite:favorite,spreadText:spread==null?null:`${favorite??'主队'} ${spread<0?'-':'+'}${Math.abs(spread).toFixed(1)}`};
+  return {oddsTotal:total.line,totalMarketId:total.marketId,spread:spread==null?null:Number(Math.abs(spread).toFixed(1)),spreadFavorite:favorite,spreadText:spread==null?null:`${favorite??'主队'} ${spread<0?'-':'+'}${Math.abs(spread).toFixed(1)}`,oddsSource:fixture?'oddspapi':null};
 }
 
-function findOdds(fixtures, game) { return fixtures.find(f => f.participant1Abbr === game.home && f.participant2Abbr === game.away); }
+function findOdds(fixtures, game) {
+  return fixtures.find(f => f.participant1Abbr === game.home && f.participant2Abbr === game.away
+    && (f.source!=='playsport'||!f.scheduleDate||f.scheduleDate===game.date));
+}
+
+function findOddsWithFallback(primary, fallback, game){
+  const original=findOdds(primary,game);
+  if(original&&(marketLine(original,'totals').line!=null||marketLine(original,'spreads').line!=null))return original;
+  return findOdds(fallback,game)??original;
+}
 
 function parseCsv(text) {
   if (typeof text !== 'string') return [];

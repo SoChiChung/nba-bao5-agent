@@ -21,5 +21,5 @@
       "note": "当前可访问的公开盘口列表只列出 11/22 与 11/23；这不代表 11/24 没有 NBA 比赛，只表示本次没有取得该日玩运彩盘口。"
     }
   },
-  "nextStep": "This snapshot is separate from OddsPapi. No model fallback has been wired in."
+  "nextStep": "The model uses PlaySport international odds only when OddsPapi has no main game line."
 }

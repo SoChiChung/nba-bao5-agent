@@ -4,6 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Bao5, loadConfig } from './bao5.mjs';
+import { loadPlaySportOdds } from '../../odds/playsport/loader.mjs';
 import { attachPlayerActualsFromLogs, buildDashboardData, deriveCalibration, optimizeLineup, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, writePicks, selectAutoMode } from '../../../src/model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from '../../../src/preseason-stats.mjs';
 import { refreshCurrentSeasonLogs } from '../../history-player/refresh-current-season.mjs';
@@ -224,6 +225,7 @@ try {
   const preseasonOddsFile=oddsMeta?.tournaments?.nbaPreseason?.file??'nba-preseason/odds_2026-10-02.json';
   const nbaOddsFile=oddsMeta?.tournaments?.nba?.file??'nba/odds_2026-10-02.json';
   const odds=[...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
+  const playsportOdds=loadPlaySportOdds(ROOT);
   const defenseData=readJson('data/position/defense_vs_position.json');
   const playerPositionData=readJson('data/player-position/positions.json');
   say(`球员位置占比：${playerPositionData._meta?.seasonLabel??'未知赛季'}，${playerPositionData._meta?.counts?.onRoster??0} 人，快照 ${playerPositionData._meta?.dateKey??'未知'}`);
@@ -239,7 +241,7 @@ try {
   const regular=calibration.regular,preseason=calibration.preseason;
   say(`常规赛校准：${regular.count} 个已结算样本，近期 MAE ${regular.recentLoss.mae??'暂无'} 分、MAPE ${regular.recentLoss.mape??'暂无'}%、偏差 ${regular.recentLoss.bias??'暂无'} 分、得分比 ${regular.recentRatio?.toFixed(3)??'暂无'}，系数 ${regular.factor.toFixed(3)}。季前赛：${preseason.count} 个已结算样本，近期 MAE ${preseason.recentLoss.mae??'暂无'} 分，系数 ${preseason.factor.toFixed(3)}`);
   const preferences=(()=>{try{return JSON.parse(fs.readFileSync(path.join(here,'preferences.json'),'utf8'));}catch{return {mode:'auto'};}})();
-  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
+  const result=buildDashboardData({players,schedule:fullSchedule,injuries,odds,playsportOdds,defense,calibrationFactor:factors,mode:preferences.mode==='auto'?selectAutoMode(previous):preferences.mode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
   const nowMs=Date.now();const upcomingDates=[...new Set(gamesToWatch.map(g=>g.date))].sort().slice(0,1);
   const slates=upcomingDates.map(dateKey=>{const dayGames=games.filter(g=>g.date===dateKey);const dashboard=result.slates.find(s=>s.dateKey===dateKey);if(dashboard)return dashboard;const teams=new Set(dayGames.flatMap(g=>[g.home,g.away]));const preseason=dayGames.some(isPreseasonGame);const phaseFactor=preseason?0.84:1;const candidates=players.filter(p=>p.active!==false&&teams.has(p.team)).map(p=>{const injury=injuries.statuses?.[String(p.id)]??injuries.restricted?.find(x=>String(x.id)===String(p.id))??null;const baseScore=Number(p.average??0),projected=baseScore*phaseFactor,game=dayGames.find(g=>g.home===p.team||g.away===p.team);return {...p,injury,gameId:String(game?.gameId??game?.id??game?.game_id??''),opponent:game?(game.home===p.team?game.away:game.home):null,baseScore,projected,selectionScore:projected,value:projected/Math.max(1,Number(p.energy))};});const lineup=optimizeLineup(candidates.filter(p=>!['out','questionable','doubtful'].includes(p.injury?.key)));const startMs=Math.min(...dayGames.map(g=>Date.parse(g.utc)));return {dateKey,games:dayGames,players:candidates,lineup,startMs,lockedAt:startMs-15*60_000};});
   if(!slates.length)throw new Error('没有找到未来 7 天内可用的比赛阵容');
@@ -259,7 +261,7 @@ try {
       const prior=runHistory.find(x=>x.dateKey===slate.dateKey);
       if(!slate.lineup){say(`${slate.dateKey} 无符合健康和规则约束的阵容，跳过提交`);continue;}
       const selectedMode=prior?.selectedMode??(preferences.mode==='auto'?selectAutoMode(previous):preferences.mode);
-      const modeResult=selectedMode===result.mode?result:buildDashboardData({players,schedule:fullSchedule,injuries,odds,defense,calibrationFactor:factors,mode:selectedMode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
+      const modeResult=selectedMode===result.mode?result:buildDashboardData({players,schedule:fullSchedule,injuries,odds,playsportOdds,defense,calibrationFactor:factors,mode:selectedMode,customWeights:preferences.mode==='custom'?preferences.customWeights:null,lineupFeedback:{...lineupFeedback,weight:preferences.crowdWeight??0.04}});
       let lineup=modeResult.slates.find(item=>item.dateKey===slate.dateKey)?.lineup??slate.lineup;
       const lineupIds=()=>lineup.players.map(p=>String(p.id));
       // Probe NBA boxscores in either requested per-game decision window.

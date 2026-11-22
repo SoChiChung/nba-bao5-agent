@@ -7,6 +7,7 @@ import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
+import { loadPlaySportOdds } from '../data/odds/playsport/loader.mjs';
 import { buildDashboardData, deriveCalibration, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, RUNTIME_ROOT, writePicks, selectAutoMode } from './model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from './preseason-stats.mjs';
 import { matchupSignal } from '../data/history-player/matchup.mjs';
@@ -313,6 +314,7 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     const preseasonOddsFile = latestOdds?.tournaments?.nbaPreseason?.file ?? 'nba-preseason/odds_2026-10-02.json';
     const nbaOddsFile = latestOdds?.tournaments?.nba?.file ?? 'nba/odds_2026-10-02.json';
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
+    const playsportOdds = loadPlaySportOdds(ROOT);
     const defense = combineDefense(readJson('data/position/defense_vs_position.json'));
     const matchupStats = readJson('data/history-player/matchup-stats.json', {});
     const histories = readHistory();
@@ -326,7 +328,7 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     const calibrationFactor={preseason:calibration.preseason.factor,regular:calibration.regular.factor};
     const prefs=readPreferences();
     const effectiveMode=prefs.mode==='auto'?selectAutoMode(calibrationHistory):prefs.mode==='custom'?'lowRisk':prefs.mode;
-    const data = buildDashboardData({ players, schedule:games, injuries, odds, defense:defense.rows, calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
+    const data = buildDashboardData({ players, schedule:games, injuries, odds, playsportOdds, defense:defense.rows, calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
     if(prefs.mode==='auto'){data.mode='auto';data.selectedMode=effectiveMode;data.modeLabel=`自动学习 · 当前策略：${data.modeLabel}`;}
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
