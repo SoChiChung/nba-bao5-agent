@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T18:24:17.721Z",
+  "updatedAt": "2026-11-22T21:22:38.839Z",
   "serverDate": "2026-11-22",
   "requestedDate": "2026-11-23",
   "available": true,
@@ -9,9 +9,9 @@
   "counts": {
     "total": 567,
     "available": 418,
-    "out": 128,
-    "questionable": 18,
-    "probable": 3
+    "out": 131,
+    "questionable": 16,
+    "probable": 2
   },
   "provenance": {
     "officialCount": 65,
@@ -22,7 +22,7 @@
   "snapshotFile": "snapshots/injuries_2026-11-22.json",
   "changesFile": "changes/changes_2026-11-22.json",
   "previousDate": "2026-11-21",
-  "changeCount": 158,
+  "changeCount": 161,
   "restrictedCount": 149,
   "restricted": [
     {
@@ -32,6 +32,20 @@
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵（右撕裂）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "202331",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -522,6 +536,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月21日：缺阵（左腿筋拉伤）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629651",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Claxton (illness) won't play in Sunday's game against the Nuggets.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1272,6 +1300,20 @@
       "energy": null
     },
     {
+      "id": "1642849",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Traore (hamstring) has been ruled out for Monday's game against the Timberwolves.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642850",
       "key": "out",
       "label": "缺阵",
@@ -1888,20 +1930,6 @@
       "energy": null
     },
     {
-      "id": "1629651",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Claxton (illness) is questionable to play in Sunday's game against the Nuggets.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1629684",
       "key": "questionable",
       "label": "每日观察",
@@ -1944,12 +1972,12 @@
       "energy": null
     },
     {
-      "id": "1641842",
+      "id": "1642267",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Carrington (illness) has been downgraded to questionable for Sunday's game against the Magic.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1962,7 +1990,21 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Dunn won't return to Friday's game against the Jazz due to a right quad injury, Amanda Pflugrad of 3TV Phoenix reports.",
+      "detail": "ESPN伤病名单：Dunn (quadriceps) was a full participant in Sunday's practice, Duane Rankin of The Arizona Republic reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642383",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Clayton (knee) is listed as questionable for Sunday's game against the Jazz.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -2000,40 +2042,12 @@
       "energy": null
     },
     {
-      "id": "1642849",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Traore (hamstring) won't return to Friday's game against Orlando, Meghan Triplett of YES Network reports. He finished with four points (2-6 FG, 0-2 3Pt) and two assists over 18 minutes.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642867",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Murray-Boyles (concussion) participated in Sunday's practice, Michael Grange of Sportsnet.ca reports.",
+      "detail": "ESPN伤病名单：Murray-Boyles (concussion) is listed as probable for Monday's game against Milwaukee, Blake Murphy of Sportsnet.ca reports.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643412",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（拉伤）",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -2084,20 +2098,6 @@
       "energy": null
     },
     {
-      "id": "1630595",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右膝盖酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642066",
       "key": "probable",
       "label": "大概率出战",
@@ -2112,5 +2112,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月22日 07:45 发布）：列出65人，今日出战的另外212人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月22日 05:30 发布）：列出65人，今日出战的另外212人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

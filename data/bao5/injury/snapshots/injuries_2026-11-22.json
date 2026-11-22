@@ -110,13 +110,13 @@
       "t": "开拓者"
     },
     "202331": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月21日：名单里没有他，视为可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-21",
-      "carry": true,
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
+      "source": "ESPN",
+      "asOf": "2026-11-22",
+      "carry": false,
       "n": "保罗·乔治",
       "t": "凯尔特人"
     },
@@ -941,7 +941,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "约翰·科林斯",
-      "t": "活塞"
+      "t": "活塞",
+      "st": "c:2026-11-23:nba"
     },
     "1628384": {
       "key": "out",
@@ -1184,7 +1185,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "凯文·赫尔特",
-      "t": "活塞"
+      "t": "活塞",
+      "st": "c:2026-11-23:nba"
     },
     "1628991": {
       "key": "out",
@@ -1607,7 +1609,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "尼基尔·亚历山大·沃克",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-23:nba"
     },
     "1629639": {
       "key": "available",
@@ -1653,10 +1656,10 @@
       "t": "勇士"
     },
     "1629651": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Claxton (illness) is questionable to play in Sunday's game against the Nuggets.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Claxton (illness) won't play in Sunday's game against the Nuggets.",
       "source": "ESPN",
       "asOf": "2026-11-22",
       "carry": false,
@@ -1854,7 +1857,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "奥涅卡·奥孔古",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-23:nba"
     },
     "1630169": {
       "key": "out",
@@ -2302,7 +2306,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "杰伦·约翰逊",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-23:nba"
     },
     "1630553": {
       "key": "available",
@@ -2496,13 +2501,16 @@
       "t": "老鹰"
     },
     "1630595": {
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右膝盖酸痛）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "今天已经上场（实时技术统计）",
       "source": "NBA官方",
+      "asOf": "2026-11-22",
+      "carry": false,
       "n": "凯德·坎宁安",
-      "t": "活塞"
+      "t": "活塞",
+      "st": "c:2026-11-23:nba"
     },
     "1630596": {
       "key": "out",
@@ -2617,7 +2625,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "戴森·丹尼尔斯",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-23:nba"
     },
     "1630702": {
       "key": "available",
@@ -3283,7 +3292,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "奥萨尔·汤普森",
-      "t": "活塞"
+      "t": "活塞",
+      "st": "c:2026-11-23:nba"
     },
     "1641710": {
       "key": "available",
@@ -3788,11 +3798,13 @@
       "t": "公牛"
     },
     "1641842": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "今天已经上场（实时技术统计）",
       "source": "NBA官方",
+      "asOf": "2026-11-22",
+      "carry": false,
       "n": "罗纳德·霍兰二世",
       "t": "活塞"
     },
@@ -3966,12 +3978,13 @@
       "t": "猛龙"
     },
     "1642267": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "未出现在NBA官方伤病报告中",
-      "source": "NBA官方",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Carrington (illness) has been downgraded to questionable for Sunday's game against the Magic.",
+      "source": "ESPN",
       "asOf": "2026-11-22",
+      "carry": false,
       "n": "卡尔顿·卡林顿",
       "t": "奇才"
     },
@@ -4138,9 +4151,9 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Dunn won't return to Friday's game against the Jazz due to a right quad injury, Amanda Pflugrad of 3TV Phoenix reports.",
+      "detail": "ESPN伤病名单：Dunn (quadriceps) was a full participant in Sunday's practice, Duane Rankin of The Arizona Republic reports.",
       "source": "ESPN",
-      "asOf": "2026-11-21",
+      "asOf": "2026-11-22",
       "carry": false,
       "n": "瑞安·邓恩",
       "t": "太阳"
@@ -4336,13 +4349,13 @@
       "t": "开拓者"
     },
     "1642383": {
-      "key": "available",
-      "label": "可以出战",
-      "probability": "100%",
-      "detail": "上次官方报告 11月21日：可以出战",
-      "source": "NBA官方",
-      "asOf": "2026-11-21",
-      "carry": true,
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Clayton (knee) is listed as questionable for Sunday's game against the Jazz.",
+      "source": "ESPN",
+      "asOf": "2026-11-22",
+      "carry": false,
       "n": "小沃尔特·克莱顿",
       "t": "独行侠"
     },
@@ -4501,7 +4514,8 @@
       "source": "NBA官方",
       "asOf": "2026-11-22",
       "n": "丹尼斯·詹金斯",
-      "t": "活塞"
+      "t": "活塞",
+      "st": "c:2026-11-23:nba"
     },
     "1642461": {
       "key": "available",
@@ -4630,12 +4644,12 @@
       "t": "奇才"
     },
     "1642849": {
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Traore (hamstring) won't return to Friday's game against Orlando, Meghan Triplett of YES Network reports. He finished with four points (2-6 FG, 0-2 3Pt) and two assists over 18 minutes.",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Traore (hamstring) has been ruled out for Monday's game against the Timberwolves.",
       "source": "ESPN",
-      "asOf": "2026-11-21",
+      "asOf": "2026-11-22",
       "carry": false,
       "n": "诺兰·特拉奥雷",
       "t": "篮网"
@@ -4801,7 +4815,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Murray-Boyles (concussion) participated in Sunday's practice, Michael Grange of Sportsnet.ca reports.",
+      "detail": "ESPN伤病名单：Murray-Boyles (concussion) is listed as probable for Monday's game against Milwaukee, Blake Murphy of Sportsnet.ca reports.",
       "source": "ESPN",
       "asOf": "2026-11-22",
       "carry": false,
@@ -5407,13 +5421,16 @@
       "t": "国王"
     },
     "1643412": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（拉伤）",
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "今天已经上场（实时技术统计）",
       "source": "NBA官方",
+      "asOf": "2026-11-22",
+      "carry": false,
       "n": "金斯顿·弗莱明斯",
-      "t": "老鹰"
+      "t": "老鹰",
+      "st": "c:2026-11-23:nba"
     },
     "1643413": {
       "key": "available",
@@ -5977,16 +5994,16 @@
   "officialCount": 65,
   "projectedCount": 212,
   "filledCount": 0,
-  "espnCount": 8,
+  "espnCount": 11,
   "manualCount": 0,
   "fallbackSource": "none",
   "officialOnly": true,
   "carriedCount": 454,
-  "updatedAt": "2026-11-22T07:45:00",
-  "updatedAtLabel": "11月22日 07:45",
+  "updatedAt": "2026-11-22T05:30:00",
+  "updatedAtLabel": "11月22日 05:30",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "NBA官方伤病报告",
-  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-22_07_45AM.pdf",
-  "message": "已读取官方伤病报告（11月22日 07:45 发布）：列出65人，今日出战的另外212人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
+  "reportUrl": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-22_05_30AM.pdf",
+  "message": "已读取官方伤病报告（11月22日 05:30 发布）：列出65人，今日出战的另外212人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。",
   "requestedDate": "2026-11-23"
 }
