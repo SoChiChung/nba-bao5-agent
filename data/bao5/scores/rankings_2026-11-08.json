@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-22T00:00:24.959Z",
+  "fetchedAt": "2026-11-22T01:57:51.086Z",
   "date": "2026-11-08",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -3852,7 +3852,7 @@
     {
       "userId": "6af7af2f-834c-4080-89db-59825e4e92b0",
       "displayName": "Conan",
-      "avatarKey": "badge:T04_S",
+      "avatarKey": "badge:T04_G",
       "score": 135.1,
       "remainingSalary": 3,
       "submittedAt": 1794068723642,
@@ -4656,6 +4656,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-08",
     "board": "/api/rankings?period=day&date=2026-11-08"
   },
-  "updatedAt": "2026-11-22T00:00:24.959Z",
+  "updatedAt": "2026-11-22T01:57:51.086Z",
   "stale": true
 }
