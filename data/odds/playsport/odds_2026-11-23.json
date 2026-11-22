@@ -1,0 +1,143 @@
+{
+  "source": "playsport",
+  "league": "NBA",
+  "scheduleDate": "2026-11-23",
+  "scheduleTimezone": "Asia/Taipei",
+  "capturedAt": "2026-11-22T21:07:15+08:00",
+  "marketLabel": "國際盤",
+  "games": [
+    {
+      "gameId": "2026112331001",
+      "startTimeLocal": "2026-11-23T04:30:00+08:00",
+      "startTime": "2026-11-22T20:30:00Z",
+      "away": "DET",
+      "home": "ATL",
+      "awayName": "活塞",
+      "homeName": "老鷹",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 2,
+        "spreadFromHome": 2,
+        "spreadText": "客 2分輸 50%",
+        "total": 226,
+        "totalText": "大 226 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331001"
+    },
+    {
+      "gameId": "2026112331002",
+      "startTimeLocal": "2026-11-23T07:00:00+08:00",
+      "startTime": "2026-11-22T23:00:00Z",
+      "away": "OKC",
+      "home": "MIA",
+      "awayName": "雷霆",
+      "homeName": "熱火",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 2,
+        "spreadFromHome": -2,
+        "spreadText": "主 2分輸 50%",
+        "total": 231,
+        "totalText": "大 231 輸 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331002"
+    },
+    {
+      "gameId": "2026112331003",
+      "startTimeLocal": "2026-11-23T08:00:00+08:00",
+      "startTime": "2026-11-23T00:00:00Z",
+      "away": "DAL",
+      "home": "UTA",
+      "awayName": "獨行俠",
+      "homeName": "爵士",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 1,
+        "spreadFromHome": 1,
+        "spreadText": "客 1分贏 50%",
+        "total": 225,
+        "totalText": "大 225 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331003"
+    },
+    {
+      "gameId": "2026112331004",
+      "startTimeLocal": "2026-11-23T08:00:00+08:00",
+      "startTime": "2026-11-23T00:00:00Z",
+      "away": "ORL",
+      "home": "WAS",
+      "awayName": "魔術",
+      "homeName": "巫師",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 5,
+        "spreadFromHome": 5,
+        "spreadText": "客 5分贏 50%",
+        "total": 220,
+        "totalText": "大 220 輸 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331004"
+    },
+    {
+      "gameId": "2026112331005",
+      "startTimeLocal": "2026-11-23T08:00:00+08:00",
+      "startTime": "2026-11-23T00:00:00Z",
+      "away": "DEN",
+      "home": "CHI",
+      "awayName": "金塊",
+      "homeName": "公牛",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 9,
+        "spreadFromHome": 9,
+        "spreadText": "客 9分贏 50%",
+        "total": 237,
+        "totalText": "大 237 輸 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331005"
+    },
+    {
+      "gameId": "2026112331006",
+      "startTimeLocal": "2026-11-23T09:00:00+08:00",
+      "startTime": "2026-11-23T01:00:00Z",
+      "away": "IND",
+      "home": "NYK",
+      "awayName": "溜馬",
+      "homeName": "尼克",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 9,
+        "spreadFromHome": -9,
+        "spreadText": "主 9分贏 50%",
+        "total": 214.5,
+        "totalText": "大 214.5"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331006"
+    },
+    {
+      "gameId": "2026112331007",
+      "startTimeLocal": "2026-11-23T09:30:00+08:00",
+      "startTime": "2026-11-23T01:30:00Z",
+      "away": "BOS",
+      "home": "GSW",
+      "awayName": "塞爾提",
+      "homeName": "勇士",
+      "statusAtCapture": "upcoming",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 8,
+        "spreadFromHome": 8,
+        "spreadText": "客 8分輸 50%",
+        "total": 211,
+        "totalText": "大 211 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112331007"
+    }
+  ]
+}

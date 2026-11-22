@@ -1,0 +1,124 @@
+{
+  "source": "playsport",
+  "league": "NBA",
+  "scheduleDate": "2026-11-22",
+  "scheduleTimezone": "Asia/Taipei",
+  "capturedAt": "2026-11-22T21:07:15+08:00",
+  "marketLabel": "國際盤",
+  "games": [
+    {
+      "gameId": "2026112231001",
+      "startTimeLocal": "2026-11-22T02:00:00+08:00",
+      "startTime": "2026-11-21T18:00:00Z",
+      "away": "MIL",
+      "home": "PHI",
+      "awayName": "公鹿",
+      "homeName": "76人",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 11,
+        "spreadFromHome": -11,
+        "spreadText": "主 11分輸 50%",
+        "total": 231,
+        "totalText": "大 231 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231001"
+    },
+    {
+      "gameId": "2026112231002",
+      "startTimeLocal": "2026-11-22T08:30:00+08:00",
+      "startTime": "2026-11-22T00:30:00Z",
+      "away": "POR",
+      "home": "NYK",
+      "awayName": "拓荒者",
+      "homeName": "尼克",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 3,
+        "spreadFromHome": -3,
+        "spreadText": "主 3分贏 50%",
+        "total": 216,
+        "totalText": "大 216 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231002"
+    },
+    {
+      "gameId": "2026112231003",
+      "startTimeLocal": "2026-11-22T09:00:00+08:00",
+      "startTime": "2026-11-22T01:00:00Z",
+      "away": "NOP",
+      "home": "SAS",
+      "awayName": "鵜鶘",
+      "homeName": "馬刺",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 20,
+        "spreadFromHome": -20,
+        "spreadText": "主 20分贏 50%",
+        "total": 226.5,
+        "totalText": "大 226.5"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231003"
+    },
+    {
+      "gameId": "2026112231004",
+      "startTimeLocal": "2026-11-22T09:00:00+08:00",
+      "startTime": "2026-11-22T01:00:00Z",
+      "away": "MEM",
+      "home": "MIN",
+      "awayName": "灰熊",
+      "homeName": "灰狼",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 6,
+        "spreadFromHome": -6,
+        "spreadText": "主 6分贏 50%",
+        "total": 229,
+        "totalText": "大 229 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231004"
+    },
+    {
+      "gameId": "2026112231005",
+      "startTimeLocal": "2026-11-22T09:00:00+08:00",
+      "startTime": "2026-11-22T01:00:00Z",
+      "away": "LAC",
+      "home": "DAL",
+      "awayName": "快艇",
+      "homeName": "獨行俠",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "home",
+        "spread": 5,
+        "spreadFromHome": -5,
+        "spreadText": "主 5分贏 50%",
+        "total": 230,
+        "totalText": "大 230 輸 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231005"
+    },
+    {
+      "gameId": "2026112231006",
+      "startTimeLocal": "2026-11-22T11:00:00+08:00",
+      "startTime": "2026-11-22T03:00:00Z",
+      "away": "BOS",
+      "home": "SAC",
+      "awayName": "塞爾提",
+      "homeName": "國王",
+      "statusAtCapture": "finished",
+      "international": {
+        "spreadFavorite": "away",
+        "spread": 12,
+        "spreadFromHome": 12,
+        "spreadText": "客 12分輸 50%",
+        "total": 218,
+        "totalText": "大 218 贏 50%"
+      },
+      "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112231006"
+    }
+  ]
+}

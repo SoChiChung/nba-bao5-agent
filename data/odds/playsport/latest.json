@@ -1,0 +1,25 @@
+{
+  "source": "playsport",
+  "sourceLabel": "玩運彩 / 國際盤",
+  "capturedAt": "2026-11-22T21:07:15+08:00",
+  "timezone": "Asia/Shanghai",
+  "files": {
+    "2026-11-22": {
+      "file": "odds_2026-11-22.json",
+      "games": 6,
+      "status": "finished"
+    },
+    "2026-11-23": {
+      "file": "odds_2026-11-23.json",
+      "games": 7,
+      "status": "upcoming"
+    },
+    "2026-11-24": {
+      "file": null,
+      "games": 0,
+      "status": "not-found-in-current-public-listing",
+      "note": "当前可访问的公开盘口列表只列出 11/22 与 11/23；这不代表 11/24 没有 NBA 比赛，只表示本次没有取得该日玩运彩盘口。"
+    }
+  },
+  "nextStep": "This snapshot is separate from OddsPapi. No model fallback has been wired in."
+}
