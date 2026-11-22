@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-11-22T05:56:24.157Z",
+  "serverDate": "2026-11-22",
+  "requestedDate": "2026-11-23",
+  "available": false,
+  "season": "2026-27",
+  "source": "ak-static.cms.nba.com",
+  "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
+  "updatedAt": null,
+  "counts": {
+    "total": 732,
+    "available": 616,
+    "out": 93,
+    "questionable": 23
+  },
+  "provenance": {
+    "officialCount": 0,
+    "projectedCount": 616,
+    "filledCount": 114,
+    "fallbackSource": "mixed"
+  },
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出114人，其余616人未被列入（视为可出战）。",
+  "baseline": false,
+  "previousDate": "2026-11-21",
+  "changeCount": 4,
+  "changes": [
+    {
+      "kind": "cleared",
+      "id": "1630173",
+      "from": "questionable",
+      "to": "available",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "improved",
+      "id": "1626157",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "improved",
+      "id": "1628384",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "improved",
+      "id": "203903",
+      "from": "out",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    }
+  ],
+  "meta": [
+    {
+      "field": "projectedCount",
+      "from": 516,
+      "to": 616
+    },
+    {
+      "field": "filledCount",
+      "from": 115,
+      "to": 114
+    }
+  ]
+}

@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-11-22T02:07:36.902Z",
-  "serverDate": "2026-11-21",
-  "requestedDate": "2026-11-22",
+  "updatedAt": "2026-11-22T05:56:24.157Z",
+  "serverDate": "2026-11-22",
+  "requestedDate": "2026-11-23",
   "available": false,
   "season": "2026-27",
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "counts": {
     "total": 732,
-    "available": 615,
-    "out": 96,
-    "questionable": 21
+    "available": 616,
+    "out": 93,
+    "questionable": 23
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 516,
-    "filledCount": 115,
+    "projectedCount": 616,
+    "filledCount": 114,
     "fallbackSource": "mixed"
   },
-  "snapshotFile": "snapshots/injuries_2026-11-21.json",
-  "changesFile": "changes/changes_2026-11-21.json",
-  "previousDate": "2026-11-20",
-  "changeCount": 162,
-  "restrictedCount": 117,
+  "snapshotFile": "snapshots/injuries_2026-11-22.json",
+  "changesFile": "changes/changes_2026-11-22.json",
+  "previousDate": "2026-11-21",
+  "changeCount": 4,
+  "restrictedCount": 116,
   "restricted": [
     {
       "id": "201939",
@@ -123,20 +123,6 @@
       "energy": null
     },
     {
-      "id": "203903",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "203924",
       "key": "out",
       "label": "缺阵",
@@ -194,20 +180,6 @@
     },
     {
       "id": "204456",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1626157",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -334,20 +306,6 @@
     },
     {
       "id": "1628374",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：缺阵",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1628384",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -1397,6 +1355,34 @@
       "energy": null
     },
     {
+      "id": "203903",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1626157",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1626181",
       "key": "questionable",
       "label": "出战成疑",
@@ -1412,6 +1398,20 @@
     },
     {
       "id": "1627783",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1628384",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1454,20 +1454,6 @@
     },
     {
       "id": "1629684",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630173",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1663,5 +1649,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出115人，其余516人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出114人，其余616人未被列入（视为可出战）。"
 }
