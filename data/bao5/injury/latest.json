@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T21:16:27.960Z",
+  "updatedAt": "2026-11-22T00:01:07.678Z",
   "serverDate": "2026-11-21",
   "requestedDate": "2026-11-22",
   "available": true,
@@ -8,10 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 587,
-    "out": 128,
-    "questionable": 15,
-    "doubtful": 2
+    "available": 586,
+    "out": 136,
+    "questionable": 10
   },
   "provenance": {
     "officialCount": 64,
@@ -22,8 +21,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-21.json",
   "changesFile": "changes/changes_2026-11-21.json",
   "previousDate": "2026-11-20",
-  "changeCount": 143,
-  "restrictedCount": 145,
+  "changeCount": 146,
+  "restrictedCount": 146,
   "restricted": [
     {
       "id": "201939",
@@ -208,6 +207,34 @@
       "energy": null
     },
     {
+      "id": "204456",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：McConnell (hamstring) is listed as out for Sunday's game in New York.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1626157",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 疾病",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1627732",
       "key": "out",
       "label": "缺阵",
@@ -278,6 +305,20 @@
       "energy": null
     },
     {
+      "id": "1627936",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Caruso (hip) won't play Sunday against the Heat.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628369",
       "key": "out",
       "label": "缺阵",
@@ -311,6 +352,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月18日：缺阵（右手部骨折）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1628384",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左小腿肚紧张）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -377,6 +432,20 @@
     },
     {
       "id": "1629011",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 疾病",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629023",
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
@@ -768,6 +837,20 @@
       "energy": null
     },
     {
+      "id": "1631119",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Williams (back) is listed as out for Sunday's game against Miami.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1631121",
       "key": "out",
       "label": "缺阵",
@@ -899,6 +982,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月18日：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1641724",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1124,6 +1221,20 @@
       "probability": "0%",
       "detail": "上次官方报告 11月18日：缺阵（右腿筋紧张/酸痛）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642260",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Topic (hip) is listed as out for Sunday's game versus the Heat.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1818,34 +1929,6 @@
       "energy": null
     },
     {
-      "id": "1628384",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左小腿肚紧张）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629023",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "203507",
       "key": "questionable",
       "label": "每日观察",
@@ -1860,11 +1943,11 @@
       "energy": null
     },
     {
-      "id": "204456",
+      "id": "1627783",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Rick Carlisle revealed during his postgame interview that McConnell exited Friday's 128-119 loss with a left hamstring issue, Tony East of Forbes.com reports.",
+      "detail": "ESPN伤病名单：Siakam (hip) is listed as questionable for Sunday's game against New York.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1874,25 +1957,11 @@
       "energy": null
     },
     {
-      "id": "1626157",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1627936",
+      "id": "1628983",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Caruso (hip) is listed as out for Friday's game against the Pelicans.",
+      "detail": "ESPN伤病名单：Gilgeous-Alexander (back/neck) is listed as questionable for Sunday's game versus Miami.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1908,20 +1977,6 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：Williams (hamstring) is listed as out for Friday's game versus the Hawks.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630166",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左足部挫伤）",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1958,25 +2013,11 @@
       "energy": null
     },
     {
-      "id": "1641724",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642260",
+      "id": "1630595",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Topic (hip) is out for Friday's game against New Orleans.",
+      "detail": "ESPN伤病名单：Cunningham (knee) is probable to play Sunday in Atlanta.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1992,20 +2033,6 @@
       "probability": "50%",
       "detail": "ESPN伤病名单：Dunn won't return to Friday's game against the Jazz due to a right quad injury, Amanda Pflugrad of 3TV Phoenix reports.",
       "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1642383",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
-      "source": "NBA官方",
       "name": null,
       "englishName": null,
       "team": null,
@@ -2040,21 +2067,7 @@
       "teamName": null,
       "position": null,
       "energy": null
-    },
-    {
-      "id": "1642912",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 疾病",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月21日 16:15 发布）：列出64人，今日出战的另外223人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月21日 19:00 发布）：列出64人，今日出战的另外223人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
