@@ -1,0 +1,75 @@
+name: Refresh PlaySport NBA odds
+
+on:
+  schedule:
+    # 每半小时检查一次；距上次快照满 30 分钟才启动抓取。
+    - cron: '15,45 * * * *'
+      timezone: Asia/Shanghai
+
+permissions:
+  contents: write
+
+concurrency:
+  group: playsport-odds-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check snapshot age
+        id: freshness
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file = 'data/odds/playsport/latest.json';
+          let capturedAt = null;
+          try { capturedAt = JSON.parse(fs.readFileSync(file, 'utf8')).capturedAt; } catch {}
+          const previous = Date.parse(capturedAt ?? '');
+          const ageMinutes = (Date.now() - previous) / 60_000;
+          const stale = !Number.isFinite(previous) || ageMinutes >= 30;
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `stale=${stale}\n`);
+          console.log(stale
+            ? `快照已过期（${Number.isFinite(ageMinutes) ? ageMinutes.toFixed(1) : '无记录'} 分钟），启动抓取。`
+            : `快照仅 ${Math.max(0, ageMinutes).toFixed(1)} 分钟，跳过本轮。`);
+          NODE
+      - name: Setup Chrome
+        if: steps.freshness.outputs.stale == 'true'
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v2
+        with:
+          install-dependencies: true
+      - name: Install browser driver
+        if: steps.freshness.outputs.stale == 'true'
+        run: |
+          if ! command -v xvfb-run >/dev/null; then sudo apt-get update && sudo apt-get install -y xvfb; fi
+          npm install --no-save --package-lock=false puppeteer-core@24
+      - name: Refresh today's and tomorrow's odds
+        if: steps.freshness.outputs.stale == 'true'
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: |
+          for attempt in 1 2 3; do
+            if xvfb-run -a node data/odds/playsport/fetch-playsport.mjs --min-interval-minutes=30; then exit 0; fi
+            if [ "$attempt" -lt 3 ]; then sleep 20; fi
+          done
+          echo "PlaySport odds refresh failed after three attempts."
+          exit 1
+      - name: Commit refreshed odds snapshot
+        if: steps.freshness.outputs.stale == 'true' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/odds/playsport
+          if git diff --cached --quiet; then
+            echo "No PlaySport snapshot changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(odds): refresh PlaySport snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main

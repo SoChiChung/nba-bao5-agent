@@ -54,15 +54,15 @@ jobs:
         if: github.event.schedule != '0 18 * * *'
         run: |
           if [ ! -f data/odds/usage-log.json ]; then echo '{"monthlyQuota":200,"calls":[]}' > data/odds/usage-log.json; fi
-      # 06:00 and 19:00 Asia/Shanghai odds refreshes; GitHub may report their UTC cron equivalents.
-      - name: Setup Chrome for scheduled browser refreshes
-        if: github.event_name == 'schedule' && (github.event.schedule == '0 6 * * *' || github.event.schedule == '0 22 * * *' || github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
-        id: setup-browser-chrome
+      # GitHub may expose a timezone-aware 19:00 Asia/Shanghai schedule as its UTC equivalent (11:00).
+      - name: Setup Chrome for daily player-position refresh
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
+        id: setup-player-position-chrome
         uses: browser-actions/setup-chrome@v2
         with:
           install-dependencies: true
-      - name: Install browser drivers
-        if: github.event_name == 'schedule' && (github.event.schedule == '0 6 * * *' || github.event.schedule == '0 22 * * *' || github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
+      - name: Install player-position browser driver
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
         run: |
           if ! command -v xvfb-run >/dev/null; then sudo apt-get update && sudo apt-get install -y xvfb; fi
           npm install --no-save --package-lock=false puppeteer-core@24
@@ -70,25 +70,13 @@ jobs:
         if: github.event_name == 'schedule' && (github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
         continue-on-error: true
         env:
-          CHROME_PATH: ${{ steps.setup-browser-chrome.outputs.chrome-path }}
+          CHROME_PATH: ${{ steps.setup-player-position-chrome.outputs.chrome-path }}
         run: |
           for attempt in 1 2 3; do
             if xvfb-run -a node data/player-position/fetch-positions.mjs --if-stale; then exit 0; fi
             if [ "$attempt" -lt 3 ]; then sleep 20; fi
           done
           echo "::warning::Player-position refresh did not pass the Basketball-Reference browser check; the model will use the last saved snapshot."
-          exit 1
-      - name: Refresh PlaySport fallback odds
-        if: github.event_name == 'schedule' && (github.event.schedule == '0 6 * * *' || github.event.schedule == '0 22 * * *' || github.event.schedule == '0 19 * * *' || github.event.schedule == '0 11 * * *')
-        continue-on-error: true
-        env:
-          CHROME_PATH: ${{ steps.setup-browser-chrome.outputs.chrome-path }}
-        run: |
-          for attempt in 1 2 3; do
-            if xvfb-run -a node data/odds/playsport/fetch-playsport.mjs; then exit 0; fi
-            if [ "$attempt" -lt 3 ]; then sleep 20; fi
-          done
-          echo "::warning::PlaySport odds refresh failed; the model will use the most recent saved snapshot."
           exit 1
       - name: Refresh position defense data
         if: github.event_name == 'schedule' && github.event.schedule == '0 18 * * *'
@@ -141,7 +129,7 @@ jobs:
           rm -f data/bao5/bao1/config.json data/odds/config.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/automation-runs.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/odds/playsport data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes data/bao5/scores/top-five-lineups.json data/bao5/scores/rankings_*.json data/position/defense_vs_position.json data/fantasy
+          git add data/bao5/bao1/model-history.json data/bao5/bao1/scheduler-state.json data/bao5/bao1/automation-runs.json data/bao5/bao1/model-picks-*.json data/bao5/injury data/odds/latest.json data/odds/nba data/odds/nba-preseason data/bao5/league/latest.json data/bao5/league/snapshots data/bao5/league/changes data/bao5/scores/top-five-lineups.json data/bao5/scores/rankings_*.json data/position/defense_vs_position.json data/fantasy
           if [ -f data/player-position/positions.json ]; then git add data/player-position/positions.json; fi
           if [ -d data/player-position/snapshots ]; then git add data/player-position/snapshots; fi
           for file in data/position/defense_vs_position_*.csv; do

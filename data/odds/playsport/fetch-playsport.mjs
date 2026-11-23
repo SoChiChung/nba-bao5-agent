@@ -20,6 +20,11 @@ const TEAM_ALIASES = {
   國王: 'SAC', 馬刺: 'SAS', 巫師: 'WAS', 暴龍: 'TOR', 黃蜂: 'CHA',
 };
 
+function getMinIntervalMinutes() {
+  const value = process.argv.find(arg => arg.startsWith('--min-interval-minutes='))?.split('=')[1];
+  return Math.max(0, Number(value) || 0);
+}
+
 function todayInShanghai() {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit',
@@ -186,6 +191,14 @@ async function main() {
   const today = todayInShanghai();
   const tomorrow = addDays(today, 1);
   const targetDates = new Set([today, tomorrow]);
+  const prior = readJson(LATEST_FILE, { source: 'playsport', sourceLabel: '玩運彩 / 國際盤', files: {} });
+  const minIntervalMinutes = getMinIntervalMinutes();
+  const previousCaptureMs = Date.parse(prior.capturedAt ?? '');
+  const ageMinutes = (Date.now() - previousCaptureMs) / 60_000;
+  if (minIntervalMinutes > 0 && Number.isFinite(previousCaptureMs) && ageMinutes < minIntervalMinutes) {
+    console.log(`[skip] 最近一次快照距今 ${Math.max(0, ageMinutes).toFixed(1)} 分钟，未达到 ${minIntervalMinutes} 分钟更新间隔`);
+    return;
+  }
   const capturedAt = new Date().toISOString();
   fs.mkdirSync(DIR, { recursive: true });
 
@@ -221,7 +234,6 @@ async function main() {
     await browser.close().catch(() => {});
   }
 
-  const prior = readJson(LATEST_FILE, { source: 'playsport', sourceLabel: '玩運彩 / 國際盤', files: {} });
   const index = { ...prior, source: 'playsport', sourceLabel: '玩運彩 / 國際盤', capturedAt, timezone: 'Asia/Shanghai', files: { ...(prior.files ?? {}) } };
   let written = 0;
   for (const date of [...targetDates].sort()) {
