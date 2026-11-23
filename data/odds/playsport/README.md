@@ -1,12 +1,17 @@
 # 玩運彩国际盘快照
 
-本目录保存从玩運彩 NBA 对战页面读取的国际盘数据，与现有 OddsPapi 数据分开保存。模型优先使用 OddsPapi；仅当某场没有主盘总分或让分数据时，才使用这里对应比赛日期的国际盘补充。
+本目录保存玩運彩 NBA 对战页面的国际盘数据，供 OddsPapi 缺少主盘总分或让分时补充使用。快照按比赛日期写入 `odds_YYYY-MM-DD.json`，`latest.json` 保存索引；每场同时保留网页队名、标准球队缩写、盘口原文和抓取时间。
 
-每场记录按现有比赛口径整理为 NBA 三字母球队缩写：`away` 是客队，`home` 是主队。`international.spreadFromHome` 是以主队为参照的让分：负数表示主队让分，正数表示主队受让；`international.total` 是国际盘总分线。原始页面文字保存在 `spreadText` 和 `totalText`。
+自动抓取由 `.github/workflows/bao5-lineup.yml` 执行，每天北京时间 06:00 和 19:00 读取今天与明天的比赛，并在模型计算前提交更新后的快照。抓取使用 Chrome 浏览器访问玩運彩页面，以通过站点的浏览器校验；若网页不可用或解析失败，本轮会保留最近快照并继续运行模型。
 
-2026-11-22 的页面列出 6 场，当时均已结束；2026-11-23 页面列出 7 场待赛。当前可访问的列表没有提供 2026-11-24 的盘口，所以 `latest.json` 将该日期标为未取得，而不是无比赛。网页盘口会变动，本快照只代表 `capturedAt` 所示时间点。
+手动运行需要 Node.js 22、Chrome、`puppeteer-core` 和可用的虚拟显示环境：
 
-数据来自以下公开页面：
+```sh
+xvfb-run -a node data/odds/playsport/fetch-playsport.mjs
+```
 
-- `https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=...`
+数据来源：
+
+- `https://www.playsport.cc/predict/games?allianceid=3&gameday=today`
 - `https://www.playsport.cc/predict/games?allianceid=3&gameday=tomorrow`
+- `https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=...`
