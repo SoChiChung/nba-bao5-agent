@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-23T02:33:26.969Z",
+  "fetchedAt": "2026-11-23T08:06:02.775Z",
   "date": "2026-10-25",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -1644,7 +1644,7 @@
     {
       "userId": "e078767b-c842-4fb6-8603-1572f6717a11",
       "displayName": "面线糊加醋肉",
-      "avatarKey": "badge:T06_S",
+      "avatarKey": "badge:F10",
       "score": 164.7,
       "remainingSalary": 0,
       "submittedAt": 1792831890254,
@@ -2220,7 +2220,7 @@
     {
       "userId": "2ecedf67-7590-4444-80f5-a3c7e68b0346",
       "displayName": "千人羽",
-      "avatarKey": "badge:T05_S",
+      "avatarKey": "badge:F11",
       "score": 142.2,
       "remainingSalary": 1,
       "submittedAt": 1792845754269,
@@ -2864,5 +2864,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-25",
     "board": "/api/rankings?period=day&date=2026-10-25"
   },
-  "updatedAt": "2026-11-23T02:33:26.969Z"
+  "updatedAt": "2026-11-23T08:06:02.775Z"
 }
