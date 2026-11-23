@@ -43,7 +43,26 @@ const writeJsonWithRetry=(file,data)=>{
   }
 };
 const readHistory=()=>{try{return JSON.parse(fs.readFileSync(historyFile,'utf8'));}catch{return[];}};
-const saveHistory=rows=>writeJsonWithRetry(historyFile,JSON.stringify(rows,null,2)+'\n');
+const saveHistory=rows=>{
+  // model-history can exceed 30 MB. Write a complete sibling file first so a
+  // transient Windows read lock never leaves the live history truncated.
+  const tempFile=`${historyFile}.${process.pid}.${Date.now()}.tmp`;
+  const data=JSON.stringify(rows,null,2)+'\n';
+  try{
+    writeJsonWithRetry(tempFile,data);
+    for(let attempt=0;;attempt++){
+      try{return fs.renameSync(tempFile,historyFile);}
+      catch(error){
+        const transient=['UNKNOWN','EBUSY','EPERM','EACCES'].includes(error.code);
+        if(!transient||attempt>=5)throw error;
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,100*(attempt+1));
+      }
+    }
+  }catch(error){
+    try{fs.rmSync(tempFile,{force:true});}catch{}
+    throw error;
+  }
+};
 const readState=()=>{try{return JSON.parse(fs.readFileSync(stateFile,'utf8'));}catch{return{};}};
 const saveState=state=>writeJsonWithRetry(stateFile,JSON.stringify(state,null,2)+'\n');
 function saveRunReport(status,error=null){
@@ -70,7 +89,7 @@ try {
   if(!backfillOnly){
     try{
       const updated=await refreshCurrentSeasonLogs(api,players,{log:say});
-      if(updated.skipped)say(`球员历史对位仍在每周刷新周期内（${updated.updatedAt??'无更新时间'}），本次跳过拉取`);
+      if(updated.skipped)say(`球员历史对位仍在每日刷新周期内（${updated.updatedAt??'无更新时间'}），本次跳过拉取`);
     }catch(error){say(`球员历史对位刷新失败，继续沿用现有快照：${error.message}`);}
   }
   if(backfillOnly){

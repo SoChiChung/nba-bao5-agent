@@ -8,7 +8,6 @@ import { currentNBASeasonLabel } from '../../src/preseason-stats.mjs';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const outputPath = path.join(here, 'current-season-logs.json');
 const DAY = 24 * 60 * 60 * 1000;
-const WEEK = 7 * DAY;
 const RETRY_COOLDOWN = 6 * 60 * 60 * 1000;
 const RETRY_DELAY_MS = 350;
 const CONCURRENCY = 6;
@@ -26,23 +25,21 @@ function shanghaiParts(now) {
   return Object.fromEntries(values.filter(item => item.type !== 'literal').map(item => [item.type, item.value]));
 }
 
-function shanghaiSundayAt19(now) {
+function shanghaiTodayAt19(now) {
   const parts = shanghaiParts(now);
-  const weekday = ({ Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 })[parts.weekday] ?? 0;
-  const daysSinceSunday = weekday === 0 && Number(parts.hour) < 19 ? 7 : weekday;
-  const targetDay = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day) - daysSinceSunday));
-  // Beijing is UTC+8 year-round: Sunday 19:00 local is Sunday 11:00 UTC.
+  const targetDay = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+  // Beijing is UTC+8 year-round: 19:00 local is 11:00 UTC.
   return Date.UTC(targetDay.getUTCFullYear(), targetDay.getUTCMonth(), targetDay.getUTCDate(), 11, 0, 0);
 }
 
-export function weeklyRefreshDue(metadata = {}, now = Date.now()) {
+export function dailyRefreshDue(metadata = {}, now = Date.now()) {
   const lastAttemptAt = Date.parse(metadata.lastAttemptAt ?? '');
   if (Number(metadata.failedPlayers ?? 0) > 0 && Number.isFinite(lastAttemptAt) && now - lastAttemptAt < RETRY_COOLDOWN) return false;
   const updatedAt = Date.parse(metadata.updatedAt ?? '');
   if (!Number.isFinite(updatedAt)) return !Number.isFinite(lastAttemptAt) || now - lastAttemptAt >= RETRY_COOLDOWN;
-  const target = shanghaiSundayAt19(now);
+  const target = shanghaiTodayAt19(now);
   if (now >= target && updatedAt < target) return true;
-  return now - updatedAt >= WEEK;
+  return now - updatedAt >= DAY;
 }
 
 function readExisting() {
@@ -111,7 +108,7 @@ export async function refreshCurrentSeasonLogs(api, players, { force = false, no
   const saved = readExisting();
   const current = saved.season === season ? saved : { players: {} };
   current.players ??= {};
-  if (!force && current.season === season && !weeklyRefreshDue(current, now)) {
+  if (!force && current.season === season && !dailyRefreshDue(current, now)) {
     return { skipped: true, season, updatedAt: current.updatedAt, players: Object.keys(current.players).length, games: current.gameCount ?? 0 };
   }
 
@@ -152,7 +149,7 @@ export async function refreshCurrentSeasonLogs(api, players, { force = false, no
   fs.writeFileSync(temp, JSON.stringify(output, null, 2) + '\n', 'utf8');
   fs.renameSync(temp, outputPath);
 
-  log(`球员历史对位：${season}，${succeeded}/${active.length} 人成功，${totalGames} 场当前赛季日志${completeEnough ? '，周刷新时间已更新' : '，成功率不足 95%，保留过期标记以便重试'}`);
+  log(`球员历史对位：${season}，${succeeded}/${active.length} 人成功，${totalGames} 场当前赛季日志${completeEnough ? '，日刷新时间已更新' : '，成功率不足 95%，保留过期标记以便重试'}`);
   if (failed.length) log(`球员历史对位失败样例：${failed.slice(0, 5).map(item => `${item.id}: ${item.error}`).join('；')}`);
   return { skipped: false, season, succeeded, failed: failed.length, games: totalGames, updatedAt: output.updatedAt ?? null };
 }

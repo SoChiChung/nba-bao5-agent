@@ -1000767,20 +1000767,20 @@
           "weightedFantasyScore": 8.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 1.5,
         "actualStats": {
           "points": 0,
           "rebounds": 0,
-          "assists": 0,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 8
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1000919,21 +1000919,7 @@
           "turnovers": 1.1743,
           "weightedFantasyScore": 21.8,
           "basis": "stat-mix-aligned-to-model-total"
-        },
-        "actual": 0,
-        "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
-        },
-        "actualGameDate": "2026-11-22",
-        "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -21.8
+        }
       },
       {
         "dateKey": "2026-11-23",
@@ -1001033,20 +1001019,20 @@
           "weightedFantasyScore": 19.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 21,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 15,
+          "rebounds": 5,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -19.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1001246,20 +1001232,20 @@
           "weightedFantasyScore": 20.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 19.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 10,
+          "rebounds": 8,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 21
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -2.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1001400,7 +1001386,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.9
+        "scoreError": -12.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1001546,20 +1001532,20 @@
           "weightedFantasyScore": 10.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 10.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 5,
+          "rebounds": 3,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -10.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1001799,20 +1001785,20 @@
           "weightedFantasyScore": 19.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 50.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 33,
+          "rebounds": 7,
+          "assists": 6,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 40
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -19.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 28.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1002022,20 +1002008,20 @@
           "weightedFantasyScore": 50.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 74.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 45,
+          "rebounds": 5,
+          "assists": 7,
+          "steals": 3,
+          "blocks": 2,
+          "turnovers": 2,
+          "minutes": 45
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -50.4
+        "actualSource": "current-season-player-log",
+        "scoreError": 26.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1002304,20 +1002290,20 @@
           "weightedFantasyScore": 17.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 1.2,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
+          "rebounds": 1,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 8
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -17.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1002415,20 +1002401,20 @@
           "weightedFantasyScore": 12.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 8,
+          "rebounds": 1,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 13
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1002542,20 +1002528,20 @@
           "weightedFantasyScore": 14,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 37.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 25,
+          "rebounds": 6,
+          "assists": 1,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -14
+        "actualSource": "current-season-player-log",
+        "scoreError": 23.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1002667,20 +1002653,20 @@
           "weightedFantasyScore": 23.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 27.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 10,
+          "rebounds": 14,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 31
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -23.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1002807,7 +1002793,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -1.3
+        "scoreError": -1.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1003476,20 +1003462,20 @@
           "weightedFantasyScore": 10.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 7.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 5,
+          "rebounds": 1,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 2,
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -10.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -7
       },
       {
         "dateKey": "2026-11-23",
@@ -1003603,20 +1003589,20 @@
           "weightedFantasyScore": 26,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 30.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 18,
+          "rebounds": 6,
           "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -26
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1003869,20 +1003855,20 @@
           "weightedFantasyScore": 48,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 72,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
+          "points": 24,
+          "rebounds": 15,
+          "assists": 12,
+          "steals": 2,
+          "blocks": 2,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 37
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -48
+        "actualSource": "current-season-player-log",
+        "scoreError": 23.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1003996,20 +1003982,20 @@
           "weightedFantasyScore": 34.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 2,
+          "rebounds": 8,
+          "assists": 4,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 23
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -34.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -17.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1004123,20 +1004109,20 @@
           "weightedFantasyScore": 8.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 1,
+          "rebounds": 5,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 13
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1004363,20 +1004349,20 @@
           "weightedFantasyScore": 24.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 38.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 10,
+          "rebounds": 11,
+          "assists": 10,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 39
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -24.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 14.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1004602,20 +1004588,20 @@
           "weightedFantasyScore": 13.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 4.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 2,
+          "rebounds": 2,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -9.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1004727,20 +1004713,20 @@
           "weightedFantasyScore": 27.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 10,
+          "assists": 1,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 5,
+          "minutes": 23
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -27.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -11.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1004840,20 +1004826,20 @@
           "weightedFantasyScore": 17.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 14.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 8,
+          "rebounds": 3,
+          "assists": 1,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 31
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -17.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -2.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1005007,20 +1004993,20 @@
           "weightedFantasyScore": 44.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 35.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 22,
+          "rebounds": 3,
+          "assists": 7,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 4,
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -44.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1005116,20 +1005102,20 @@
           "weightedFantasyScore": 11.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 8.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 3,
+          "rebounds": 2,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 14
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -2.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1005243,20 +1005229,20 @@
           "weightedFantasyScore": 27.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 24.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 9,
+          "rebounds": 6,
+          "assists": 3,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 2,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -27.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1005395,7 +1005381,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -23.7
+        "scoreError": -23.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1005523,20 +1005509,20 @@
           "weightedFantasyScore": 26.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 7.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 2,
+          "rebounds": 3,
+          "assists": 1,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 30
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -26.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -16.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1005751,20 +1005737,20 @@
           "weightedFantasyScore": 17.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 38.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 13,
+          "rebounds": 6,
+          "assists": 4,
+          "steals": 4,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 29
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -17.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 18.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1005864,20 +1005850,20 @@
           "weightedFantasyScore": 23.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 20.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 2,
+          "rebounds": 3,
+          "assists": 7,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -23.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -2.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1005977,20 +1005963,20 @@
           "weightedFantasyScore": 7.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 46.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 39,
+          "rebounds": 5,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 33.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1006090,20 +1006076,20 @@
           "weightedFantasyScore": 12.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 7.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 1,
+          "rebounds": 4,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 14
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1006372,20 +1006358,20 @@
           "weightedFantasyScore": 15.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 17,
+          "rebounds": 2,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -15.7
+        "actualSource": "current-season-player-log",
+        "scoreError": 10.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1006728,20 +1006714,20 @@
           "weightedFantasyScore": 18.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 19.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 12,
+          "rebounds": 4,
+          "assists": 2,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -18.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1006837,20 +1006823,20 @@
           "weightedFantasyScore": 35.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 32.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 11,
+          "rebounds": 4,
+          "assists": 11,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 28
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -35.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1006962,20 +1006948,20 @@
           "weightedFantasyScore": 3.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 5.4,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "rebounds": 2,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 5
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -3.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1007115,20 +1007101,20 @@
           "weightedFantasyScore": 12.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 10.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 1,
+          "rebounds": 4,
+          "assists": 1,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 15
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1007708,20 +1007694,20 @@
           "weightedFantasyScore": 33.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 24.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 16,
+          "rebounds": 2,
+          "assists": 8,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 6,
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -33.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1008059,20 +1008045,20 @@
           "weightedFantasyScore": 24.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 8,
+          "rebounds": 3,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 12
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -24.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -16.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1008172,20 +1008158,20 @@
           "weightedFantasyScore": 35.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 28.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 27,
+          "rebounds": 2,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 28
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -35.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1008381,20 +1008367,20 @@
           "weightedFantasyScore": 20.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 36.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 13,
+          "rebounds": 9,
+          "assists": 3,
+          "steals": 3,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.4
+        "actualSource": "current-season-player-log",
+        "scoreError": 14.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1008519,7 +1008505,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -9.6
+        "scoreError": -21.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1008633,20 +1008619,20 @@
           "weightedFantasyScore": 21.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 33.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 7,
+          "assists": 1,
+          "steals": 3,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 31
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -21.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 14.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1008758,20 +1008744,20 @@
           "weightedFantasyScore": 28.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 10,
+          "rebounds": 4,
+          "assists": 4,
+          "steals": 2,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 28
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -28.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -2.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1008925,20 +1008911,20 @@
           "weightedFantasyScore": 29.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 28.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 2,
+          "assists": 5,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 36
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -29.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1009078,20 +1009064,20 @@
           "weightedFantasyScore": 25.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 21,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 10,
+          "assists": 4,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 30
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -25.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1009331,20 +1009317,20 @@
           "weightedFantasyScore": 13.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 12.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 6,
+          "rebounds": 3,
+          "assists": 1,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 18
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1009525,7 +1009511,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -9.4
+        "scoreError": -13.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1009669,20 +1009655,20 @@
           "weightedFantasyScore": 20.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 14.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 9,
+          "rebounds": 5,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -6
       },
       {
         "dateKey": "2026-11-23",
@@ -1009794,20 +1009780,20 @@
           "weightedFantasyScore": 41.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 21.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 9,
+          "assists": 2,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 29
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -41.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -16.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1010032,20 +1010018,20 @@
           "weightedFantasyScore": 14.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 20.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 11,
+          "rebounds": 1,
+          "assists": 2,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 42
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -14.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1010161,20 +1010147,20 @@
           "weightedFantasyScore": 21.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 6.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 2,
+          "rebounds": 2,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 16
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -21.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1010300,20 +1010286,20 @@
           "weightedFantasyScore": 25.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 9,
+          "rebounds": 2,
+          "assists": 2,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -25.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -8
       },
       {
         "dateKey": "2026-11-23",
@@ -1010469,20 +1010455,20 @@
           "weightedFantasyScore": 9.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 3.2,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
+          "rebounds": 1,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 23
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -9.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1010624,20 +1010610,20 @@
           "weightedFantasyScore": 24.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 43.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 26,
+          "rebounds": 4,
+          "assists": 1,
+          "steals": 2,
+          "blocks": 2,
+          "turnovers": 1,
+          "minutes": 34
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -24.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 28.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1010790,7 +1010776,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -3.3
+        "scoreError": -3.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1010930,20 +1010916,20 @@
           "weightedFantasyScore": 32.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 28,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 16,
+          "rebounds": 5,
+          "assists": 2,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -32.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -7.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1011043,20 +1011029,20 @@
           "weightedFantasyScore": 13.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 34.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 19,
+          "rebounds": 2,
+          "assists": 3,
+          "steals": 3,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 21.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1011152,20 +1011138,20 @@
           "weightedFantasyScore": 20.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 9,
+          "rebounds": 2,
+          "assists": 4,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 12
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -7.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1011263,20 +1011249,20 @@
           "weightedFantasyScore": 27.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 21.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 5,
+          "rebounds": 1,
+          "assists": 4,
+          "steals": 3,
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 28
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -27.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -5.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1011401,7 +1011387,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -1.5
+        "scoreError": -0.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1011531,20 +1011517,20 @@
           "weightedFantasyScore": 31.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 17,
+          "rebounds": 1,
+          "assists": 5,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -31.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1011702,20 +1011688,20 @@
           "weightedFantasyScore": 27.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 27,
         "actualStats": {
-          "points": 0,
+          "points": 6,
           "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "assists": 4,
+          "steals": 5,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 25
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -27.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 0.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1011941,20 +1011927,20 @@
           "weightedFantasyScore": 2.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 3.9,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "rebounds": 2,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 3
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -2.5
+        "actualSource": "current-season-player-log",
+        "scoreError": 2.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1012247,20 +1012233,20 @@
           "weightedFantasyScore": 54,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 38.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 8,
+          "assists": 6,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -54
+        "actualSource": "current-season-player-log",
+        "scoreError": -19.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1012485,7 +1012471,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -14.8
+        "scoreError": -12.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1012693,12 +1012679,12 @@
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 3
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -5.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1012967,20 +1012953,20 @@
           "weightedFantasyScore": 43.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 25.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 12,
+          "rebounds": 11,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 30
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -43.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -20.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1013080,20 +1013066,20 @@
           "weightedFantasyScore": 11,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 30.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 18,
+          "rebounds": 4,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11
+        "actualSource": "current-season-player-log",
+        "scoreError": 15
       },
       {
         "dateKey": "2026-11-23",
@@ -1013189,20 +1013175,20 @@
           "weightedFantasyScore": 43,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 22.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 14,
+          "rebounds": 4,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 4,
+          "minutes": 34
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -43
+        "actualSource": "current-season-player-log",
+        "scoreError": -21.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1013372,20 +1013358,20 @@
           "weightedFantasyScore": 15.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 15,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 10,
+          "rebounds": 5,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -15.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 2.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1013557,20 +1013543,20 @@
           "weightedFantasyScore": 20.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 7.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 3,
+          "rebounds": 1,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -17.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1013780,20 +1013766,20 @@
           "weightedFantasyScore": 31.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 70.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 23,
+          "rebounds": 14,
+          "assists": 22,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 5,
+          "minutes": 41
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -31.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 40.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1013907,20 +1013893,20 @@
           "weightedFantasyScore": 20,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 14.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 9,
+          "rebounds": 4,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 16
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20
+        "actualSource": "current-season-player-log",
+        "scoreError": 0.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1014074,20 +1014060,20 @@
           "weightedFantasyScore": 22,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 16.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 9,
+          "rebounds": 4,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -22
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1014259,20 +1014245,20 @@
           "weightedFantasyScore": 39.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 32.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 5,
+          "rebounds": 4,
+          "assists": 15,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 6,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -39.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1014398,20 +1014384,20 @@
           "weightedFantasyScore": 26.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 9,
+          "rebounds": 6,
+          "assists": 1,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -26.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -8
       },
       {
         "dateKey": "2026-11-23",
@@ -1014527,20 +1014513,20 @@
           "weightedFantasyScore": 13.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 25.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 13,
+          "rebounds": 5,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 23
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 7.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1014665,7 +1014651,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -1.9
+        "scoreError": -1.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1014789,20 +1014775,20 @@
           "weightedFantasyScore": 5.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 18.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 11,
+          "rebounds": 1,
+          "assists": 3,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -5.4
+        "actualSource": "current-season-player-log",
+        "scoreError": 13
       },
       {
         "dateKey": "2026-11-23",
@@ -1014942,20 +1014928,20 @@
           "weightedFantasyScore": 13.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 2,
         "actualStats": {
-          "points": 0,
+          "points": 2,
           "rebounds": 0,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 1
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1015082,7 +1015068,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -5.7
+        "scoreError": -5.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1015379,20 +1015365,20 @@
           "weightedFantasyScore": 38.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 54.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 5,
+          "rebounds": 14,
+          "assists": 8,
+          "steals": 5,
+          "blocks": 3,
+          "turnovers": 3,
+          "minutes": 39
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -38.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 17
       },
       {
         "dateKey": "2026-11-23",
@@ -1016179,20 +1016165,20 @@
           "weightedFantasyScore": 9.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 32.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 15,
+          "rebounds": 8,
+          "assists": 3,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -9.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 21.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1016292,20 +1016278,20 @@
           "weightedFantasyScore": 6.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 8.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 3,
+          "rebounds": 2,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 16
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -6.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1017043,20 +1017029,20 @@
           "weightedFantasyScore": 27.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 37.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 21,
+          "rebounds": 8,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 38
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -27.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 6.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1017297,7 +1017283,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -17.5
+        "scoreError": -14.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1017565,20 +1017551,20 @@
           "weightedFantasyScore": 2.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 5,
+          "rebounds": 1,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 6
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -2.5
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1017715,7 +1017701,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -6.3
+        "scoreError": -6.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1017771,7 +1017757,21 @@
         "injuryStatus": null,
         "energy": 10,
         "scoreComponents": null,
-        "statForecast": null
+        "statForecast": null,
+        "actual": 0,
+        "actualStats": {
+          "points": 0,
+          "rebounds": 0,
+          "assists": 0,
+          "steals": 0,
+          "blocks": 0,
+          "turnovers": 0,
+          "minutes": 0
+        },
+        "actualGameDate": "2026-11-22",
+        "actualOpponent": "MIA",
+        "actualSource": "completed-team-game-no-player-boxscore",
+        "scoreError": -4.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1018279,20 +1018279,20 @@
           "weightedFantasyScore": 26.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 13.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 2,
+          "rebounds": 1,
+          "assists": 3,
+          "steals": 2,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -26.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -12.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1018394,20 +1018394,20 @@
           "weightedFantasyScore": 20.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 3,
+          "rebounds": 4,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 15
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1018591,20 +1018591,20 @@
           "weightedFantasyScore": 13.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 3.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 2,
+          "rebounds": 1,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 9
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -9.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1018730,20 +1018730,20 @@
           "weightedFantasyScore": 4.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 13,
         "actualStats": {
-          "points": 0,
+          "points": 11,
           "rebounds": 0,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 15
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -4.5
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1018869,20 +1018869,20 @@
           "weightedFantasyScore": 7.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 4.2,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "rebounds": 1,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 5
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1019122,20 +1019122,20 @@
           "weightedFantasyScore": 39.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 46.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 18,
+          "rebounds": 11,
+          "assists": 5,
+          "steals": 1,
+          "blocks": 2,
+          "turnovers": 1,
+          "minutes": 38
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -39.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 5.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1019235,20 +1019235,20 @@
           "weightedFantasyScore": 35.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 28,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 14,
+          "rebounds": 5,
+          "assists": 2,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 35
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -35.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -7.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1019539,12 +1019539,12 @@
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 1
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -16.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -13.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1019739,20 +1019739,20 @@
           "weightedFantasyScore": 34.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 30.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 15,
+          "rebounds": 5,
+          "assists": 7,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -34.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1019850,20 +1019850,20 @@
           "weightedFantasyScore": 11,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 8.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 1,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 14
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1020324,20 +1020324,20 @@
           "weightedFantasyScore": 19.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 15.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 10,
+          "rebounds": 3,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -19.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1020465,20 +1020465,20 @@
           "weightedFantasyScore": 21.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 12,
+          "rebounds": 3,
+          "assists": 1,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 25
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -21.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1020721,7 +1020721,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8
+        "scoreError": -7.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1021326,20 +1021326,20 @@
           "weightedFantasyScore": 33,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 23.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 18,
+          "rebounds": 7,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 6,
+          "minutes": 38
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -33
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1021562,20 +1021562,20 @@
           "weightedFantasyScore": 14.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 22.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 7,
+          "rebounds": 3,
           "assists": 0,
-          "steals": 0,
-          "blocks": 0,
+          "steals": 1,
+          "blocks": 3,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 14
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -14.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 8.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1021777,20 +1021777,20 @@
           "weightedFantasyScore": 12,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 5,
         "actualStats": {
-          "points": 0,
+          "points": 2,
           "rebounds": 0,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 9
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1021946,20 +1021946,20 @@
           "weightedFantasyScore": 24.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 20.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 18,
+          "rebounds": 3,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -24.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1022115,20 +1022115,20 @@
           "weightedFantasyScore": 20,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 38.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 21,
+          "rebounds": 3,
+          "assists": 5,
+          "steals": 3,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 30
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20
+        "actualSource": "current-season-player-log",
+        "scoreError": 19.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1022424,20 +1022424,20 @@
           "weightedFantasyScore": 26.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 36.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 21,
+          "rebounds": 5,
+          "assists": 3,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 2,
+          "turnovers": 1,
+          "minutes": 38
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -26.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 6.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1022579,20 +1022579,20 @@
           "weightedFantasyScore": 7.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 2,
+          "rebounds": 4,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 10
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 2.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1022861,7 +1022861,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -1.2
+        "scoreError": -4.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1022989,20 +1022989,20 @@
           "weightedFantasyScore": 4.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 8.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 4,
+          "rebounds": 1,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -4.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1023102,20 +1023102,20 @@
           "weightedFantasyScore": 23.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 15,
+          "rebounds": 8,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 28
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -23.7
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1023229,20 +1023229,20 @@
           "weightedFantasyScore": 30.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 32.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
+          "points": 10,
+          "rebounds": 9,
+          "assists": 2,
+          "steals": 2,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -30.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 8.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1023450,7 +1023450,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.6
+        "scoreError": -5.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1023696,12 +1023696,12 @@
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 3
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.8
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1023799,20 +1023799,20 @@
           "weightedFantasyScore": 12.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 10,
+          "rebounds": 2,
+          "assists": 7,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 2,
+          "minutes": 13
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.5
+        "actualSource": "current-season-player-log",
+        "scoreError": 14.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1023923,7 +1023923,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -4.3
+        "scoreError": -3.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1024065,20 +1024065,20 @@
           "weightedFantasyScore": 8.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 2,
+          "rebounds": 4,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 9
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1024178,20 +1024178,20 @@
           "weightedFantasyScore": 29.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 25.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 20,
+          "rebounds": 2,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 29
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -29.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1024293,20 +1024293,20 @@
           "weightedFantasyScore": 38,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 34.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 24,
+          "rebounds": 3,
+          "assists": 4,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 2,
+          "minutes": 36
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -38
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1024562,20 +1024562,20 @@
           "weightedFantasyScore": 11.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 8,
+          "rebounds": 3,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 0.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1024901,20 +1024901,20 @@
           "weightedFantasyScore": 35.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 28.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 17,
+          "rebounds": 3,
+          "assists": 3,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -35.6
+        "actualSource": "current-season-player-log",
+        "scoreError": -5.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1025028,20 +1025028,20 @@
           "weightedFantasyScore": 14.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11,
         "actualStats": {
-          "points": 0,
+          "points": 8,
           "rebounds": 0,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 15
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -14.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -1.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1025381,20 +1025381,20 @@
           "weightedFantasyScore": 1.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 5.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 5,
+          "rebounds": 2,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -1.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1025522,20 +1025522,20 @@
           "weightedFantasyScore": 7.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 19.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 11,
+          "rebounds": 3,
           "assists": 0,
-          "steals": 0,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 26
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 10.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1025877,20 +1025877,20 @@
           "weightedFantasyScore": 15.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 12.5,
         "actualStats": {
-          "points": 0,
+          "points": 9,
           "rebounds": 0,
-          "assists": 0,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 21
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -15.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1026356,7 +1026356,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -2.9
+        "scoreError": -6.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1026565,7 +1026565,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -6.4
+        "scoreError": -5.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1026663,20 +1026663,20 @@
           "weightedFantasyScore": 30.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 24.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 11,
+          "rebounds": 5,
+          "assists": 3,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 38
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ATL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -30.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1026776,20 +1026776,20 @@
           "weightedFantasyScore": 13.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.8,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
+          "rebounds": 4,
           "assists": 0,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 2,
+          "turnovers": 1,
+          "minutes": 20
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1026926,7 +1026926,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.3
+        "scoreError": -9
       },
       {
         "dateKey": "2026-11-23",
@@ -1027039,7 +1027039,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -3
+        "scoreError": -3.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1027193,20 +1027193,20 @@
           "weightedFantasyScore": 56.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 35.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 28,
+          "rebounds": 3,
+          "assists": 4,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 5,
+          "minutes": 31
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -56.9
+        "actualSource": "current-season-player-log",
+        "scoreError": -20
       },
       {
         "dateKey": "2026-11-23",
@@ -1027376,20 +1027376,20 @@
           "weightedFantasyScore": 31.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 31,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 5,
+          "assists": 2,
+          "steals": 3,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -31.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1027517,20 +1027517,20 @@
           "weightedFantasyScore": 18.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 12.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 11,
+          "rebounds": 2,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 15
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -18.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -4
       },
       {
         "dateKey": "2026-11-23",
@@ -1027959,20 +1027959,20 @@
           "weightedFantasyScore": 16.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 13.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 9,
+          "rebounds": 4,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -16.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -0.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1028128,20 +1028128,20 @@
           "weightedFantasyScore": 13.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 4.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 2,
+          "rebounds": 1,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 6
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -9
       },
       {
         "dateKey": "2026-11-23",
@@ -1028259,20 +1028259,20 @@
           "weightedFantasyScore": 5.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 4,
+          "rebounds": 3,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 9
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -5.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 5.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1028428,20 +1028428,20 @@
           "weightedFantasyScore": 13.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 10.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
+          "points": 6,
+          "rebounds": 2,
           "assists": 0,
-          "steals": 0,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -13.7
+        "actualSource": "current-season-player-log",
+        "scoreError": -3.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1028541,20 +1028541,20 @@
           "weightedFantasyScore": 46.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 23.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 12,
+          "rebounds": 8,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 34
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -46.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -23.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1029002,20 +1029002,20 @@
           "weightedFantasyScore": 15.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 22.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 9,
+          "rebounds": 6,
+          "assists": 1,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 31
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -15.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 9.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1029385,20 +1029385,20 @@
           "weightedFantasyScore": 12.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 2.4,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
+          "rebounds": 2,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 8
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -9.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1029550,20 +1029550,20 @@
           "weightedFantasyScore": 18,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 32.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 21,
+          "rebounds": 3,
+          "assists": 5,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -18
+        "actualSource": "current-season-player-log",
+        "scoreError": 14.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1030322,20 +1030322,20 @@
           "weightedFantasyScore": 11.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 9.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 3,
+          "rebounds": 2,
+          "assists": 2,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1030519,20 +1030519,20 @@
           "weightedFantasyScore": 3.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 14.8,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 8,
+          "rebounds": 4,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -3.3
+        "actualSource": "current-season-player-log",
+        "scoreError": 11.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1030714,20 +1030714,20 @@
           "weightedFantasyScore": 12.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 6,
         "actualStats": {
-          "points": 0,
+          "points": 3,
           "rebounds": 0,
-          "assists": 0,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 11
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -12.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -9.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1031107,20 +1031107,20 @@
           "weightedFantasyScore": 29.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 35.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 8,
+          "assists": 6,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -29.2
+        "actualSource": "current-season-player-log",
+        "scoreError": 2.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1031222,20 +1031222,20 @@
           "weightedFantasyScore": 40.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 13.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 3,
+          "assists": 5,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 4,
+          "minutes": 25
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DAL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -40.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -19.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1031502,20 +1031502,20 @@
           "weightedFantasyScore": 10.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 26,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 10,
+          "rebounds": 5,
+          "assists": 6,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -10.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 15.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1031713,20 +1031713,20 @@
           "weightedFantasyScore": 4.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 1.4,
         "actualStats": {
           "points": 0,
-          "rebounds": 0,
+          "rebounds": 2,
           "assists": 0,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 5
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -4.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -7.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1032036,20 +1032036,20 @@
           "weightedFantasyScore": 19.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 21.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 7,
+          "rebounds": 6,
+          "assists": 2,
+          "steals": 2,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 2,
+          "minutes": 20
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -19.5
+        "actualSource": "current-season-player-log",
+        "scoreError": 3.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1032160,7 +1032160,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DEN",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -7.9
+        "scoreError": -4.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1032341,7 +1032341,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -25.1
+        "scoreError": -27.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1032694,20 +1032694,20 @@
           "weightedFantasyScore": 18.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 10.3,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 4,
+          "rebounds": 4,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "DET",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -18.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -6
       },
       {
         "dateKey": "2026-11-23",
@@ -1032956,20 +1032956,20 @@
           "weightedFantasyScore": 15.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 13.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 1,
+          "assists": 4,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 18
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "NYK",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -15.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -6.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1033067,20 +1033067,20 @@
           "weightedFantasyScore": 11.9,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 14.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 10,
+          "rebounds": 1,
+          "assists": 1,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 29
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.9
+        "actualSource": "current-season-player-log",
+        "scoreError": 0.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1033674,7 +1033674,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -0.6
+        "scoreError": -0.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1033998,7 +1033998,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -2
+        "scoreError": -4
       },
       {
         "dateKey": "2026-11-23",
@@ -1034252,7 +1034252,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -9.9
+        "scoreError": -11.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1034533,20 +1034533,20 @@
           "weightedFantasyScore": 8.7,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 25,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 13,
+          "rebounds": 5,
+          "assists": 4,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 32
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "MIA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8.7
+        "actualSource": "current-season-player-log",
+        "scoreError": 16.3
       },
       {
         "dateKey": "2026-11-23",
@@ -1034911,20 +1034911,20 @@
           "weightedFantasyScore": 19.3,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 16.6,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 7,
+          "rebounds": 3,
+          "assists": 2,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 18
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -19.3
+        "actualSource": "current-season-player-log",
+        "scoreError": -1
       },
       {
         "dateKey": "2026-11-23",
@@ -1035020,20 +1035020,20 @@
           "weightedFantasyScore": 8.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 6,
+          "rebounds": 2,
+          "assists": 4,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 16
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -8.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1035396,20 +1035396,20 @@
           "weightedFantasyScore": 22.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 4.5,
         "actualStats": {
-          "points": 0,
+          "points": 4,
           "rebounds": 0,
-          "assists": 0,
+          "assists": 1,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 18
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -22.1
+        "actualSource": "current-season-player-log",
+        "scoreError": -17.6
       },
       {
         "dateKey": "2026-11-23",
@@ -1035592,7 +1035592,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "GSW",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -36.5
+        "scoreError": -37.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1035690,20 +1035690,20 @@
           "weightedFantasyScore": 39.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 31.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 16,
+          "rebounds": 1,
+          "assists": 8,
+          "steals": 1,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 1,
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "UTA",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -39.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -8.1
       },
       {
         "dateKey": "2026-11-23",
@@ -1035801,20 +1035801,20 @@
           "weightedFantasyScore": 22.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 27.2,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 9,
+          "rebounds": 6,
+          "assists": 4,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 23
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -22.4
+        "actualSource": "current-season-player-log",
+        "scoreError": 6.4
       },
       {
         "dateKey": "2026-11-23",
@@ -1035956,20 +1035956,20 @@
           "weightedFantasyScore": 11.8,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 19.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
+          "points": 5,
+          "rebounds": 3,
+          "assists": 3,
+          "steals": 2,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 17
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "WAS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -11.8
+        "actualSource": "current-season-player-log",
+        "scoreError": 5.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1036185,20 +1036185,20 @@
           "weightedFantasyScore": 52.5,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 38.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 22,
+          "rebounds": 7,
+          "assists": 1,
+          "steals": 2,
+          "blocks": 1,
+          "turnovers": 2,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -52.5
+        "actualSource": "current-season-player-log",
+        "scoreError": -10.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1036366,20 +1036366,20 @@
           "weightedFantasyScore": 20.2,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 15.5,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 2,
+          "rebounds": 10,
+          "assists": 1,
           "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 19
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "IND",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -20.2
+        "actualSource": "current-season-player-log",
+        "scoreError": -4.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1036523,20 +1036523,20 @@
           "weightedFantasyScore": 23.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 17.7,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 9,
+          "rebounds": 6,
+          "assists": 3,
           "steals": 0,
           "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "turnovers": 3,
+          "minutes": 27
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "BOS",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -23.4
+        "actualSource": "current-season-player-log",
+        "scoreError": -5.2
       },
       {
         "dateKey": "2026-11-23",
@@ -1036652,20 +1036652,20 @@
           "weightedFantasyScore": 6.1,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.4,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 6,
+          "rebounds": 2,
+          "assists": 2,
           "steals": 0,
           "blocks": 0,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 20
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "ORL",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -6.1
+        "actualSource": "current-season-player-log",
+        "scoreError": 1.8
       },
       {
         "dateKey": "2026-11-23",
@@ -1037112,7 +1037112,7 @@
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
         "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -24.5
+        "scoreError": -25.5
       },
       {
         "dateKey": "2026-11-23",
@@ -1037465,20 +1037465,20 @@
           "weightedFantasyScore": 21.4,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 43.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 18,
+          "rebounds": 8,
+          "assists": 5,
+          "steals": 2,
+          "blocks": 1,
+          "turnovers": 1,
+          "minutes": 33
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -21.4
+        "actualSource": "current-season-player-log",
+        "scoreError": 21.9
       },
       {
         "dateKey": "2026-11-23",
@@ -1037690,20 +1037690,20 @@
           "weightedFantasyScore": 17,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 11.9,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
+          "points": 5,
+          "rebounds": 2,
+          "assists": 1,
           "steals": 0,
-          "blocks": 0,
+          "blocks": 1,
           "turnovers": 0,
-          "minutes": 0
+          "minutes": 22
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "OKC",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -17
+        "actualSource": "current-season-player-log",
+        "scoreError": -7.7
       },
       {
         "dateKey": "2026-11-23",
@@ -1037987,20 +1037987,20 @@
           "weightedFantasyScore": 61.6,
           "basis": "stat-mix-aligned-to-model-total"
         },
-        "actual": 0,
+        "actual": 78.1,
         "actualStats": {
-          "points": 0,
-          "rebounds": 0,
-          "assists": 0,
-          "steals": 0,
-          "blocks": 0,
-          "turnovers": 0,
-          "minutes": 0
+          "points": 37,
+          "rebounds": 18,
+          "assists": 11,
+          "steals": 1,
+          "blocks": 1,
+          "turnovers": 3,
+          "minutes": 42
         },
         "actualGameDate": "2026-11-22",
         "actualOpponent": "CHI",
-        "actualSource": "completed-team-game-no-player-boxscore",
-        "scoreError": -61.6
+        "actualSource": "current-season-player-log",
+        "scoreError": 19.4
       },
       {
         "dateKey": "2026-11-23",
