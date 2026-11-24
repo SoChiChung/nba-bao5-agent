@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-24T05:56:04.379Z",
+  "fetchedAt": "2026-11-24T15:14:38.301Z",
   "date": "2026-10-21",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -604,7 +604,7 @@
     {
       "userId": "42301153-5ed7-4717-9bbb-9fe2cd630d06",
       "displayName": "杜伦铁粉的信徒",
-      "avatarKey": "LAL",
+      "avatarKey": "badge:F11",
       "score": 148.7,
       "remainingSalary": 1,
       "submittedAt": 1792498147726,
@@ -1916,7 +1916,7 @@
     {
       "userId": "5fa79037-5dcf-4fb9-b4c3-fda4bc29bb4a",
       "displayName": "最佳新秀迪伦哈珀",
-      "avatarKey": "badge:T04_G",
+      "avatarKey": "badge:T09_S",
       "score": 126.1,
       "remainingSalary": 0,
       "submittedAt": 1792488763956,
@@ -2576,5 +2576,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-21",
     "board": "/api/rankings?period=day&date=2026-10-21"
   },
-  "updatedAt": "2026-11-24T05:56:04.379Z"
+  "updatedAt": "2026-11-24T15:14:38.301Z"
 }
