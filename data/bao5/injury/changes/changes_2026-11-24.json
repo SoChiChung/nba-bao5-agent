@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-11-24T04:33:57.050Z",
+  "serverDate": "2026-11-24",
+  "requestedDate": "2026-11-25",
+  "available": false,
+  "season": "2026-27",
+  "source": "ak-static.cms.nba.com",
+  "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
+  "updatedAt": null,
+  "counts": {
+    "total": 567,
+    "available": 468,
+    "out": 86,
+    "questionable": 13
+  },
+  "provenance": {
+    "officialCount": 0,
+    "projectedCount": 633,
+    "filledCount": 97,
+    "fallbackSource": "mixed"
+  },
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出97人，其余633人未被列入（视为可出战）。",
+  "baseline": false,
+  "previousDate": "2026-11-23",
+  "changeCount": 2,
+  "changes": [
+    {
+      "kind": "newInjury",
+      "id": "1626204",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "kind": "newInjury",
+      "id": "1641750",
+      "from": "available",
+      "to": "questionable",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    }
+  ],
+  "meta": [
+    {
+      "field": "projectedCount",
+      "from": 467,
+      "to": 633
+    }
+  ]
+}
