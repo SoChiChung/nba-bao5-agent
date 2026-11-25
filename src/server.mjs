@@ -10,7 +10,7 @@ import { Bao5, loadConfig } from '../data/bao5/bao1/bao5.mjs';
 import { loadPlaySportOdds } from '../data/odds/playsport/loader.mjs';
 import { buildDashboardData, deriveCalibration, playerForecastSnapshot, prepareHistoryForCalibration, ROOT, RUNTIME_ROOT, writePicks, selectAutoMode } from './model.mjs';
 import { attachPreseasonStats, currentNBASeasonLabel, isPreseasonGame } from './preseason-stats.mjs';
-import { matchupSignal } from '../data/history-player/matchup.mjs';
+import { datasetHealth, matchupSignal } from '../data/history-player/matchup.mjs';
 import { buildFantasyPayload, fetchFantasyJson, getSystemHttpsProxy as detectHttpsProxy } from './fantasy-data.mjs';
 
 const webRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
@@ -154,6 +154,7 @@ let systemHttpsProxy;
 let injuryRefresh = null;
 let injuriesRuntimeCache = null;
 let injuriesRuntimeFetchedAt = 0;
+let lastRecordedDashboardAt = null;
 
 async function refreshInjuryReport(schedule = null, { force = false } = {}) {
   if (injuryRefresh) return injuryRefresh;
@@ -273,23 +274,38 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
   }
   refreshingStartedAt = Date.now();
   refreshing = (async () => {
+    const t0 = Date.now();
     const cfg = loadConfig();
     const api = new Bao5({ baseUrl: cfg.baseUrl });
     await api.login(cfg.email, cfg.password);
     let [players, games] = await Promise.all([api.getPlayers(), api.getSchedule()]);
+    const tAuth = Date.now();
     const upcomingGames = games.filter(game => game.status !== 3 && Date.parse(game.utc) > Date.now());
     const statsPhaseIsPreseason = upcomingGames.some(isPreseasonGame);
     const statsDates = [...new Set(upcomingGames.filter(game => isPreseasonGame(game) === statsPhaseIsPreseason).map(game => game.date))].sort().slice(0,7);
     let playerStatsMeta = { fetched: 0, preseasonCovered: 0, historicalCovered: 0, staleFailures: 0, failures: [] };
     const backendWarnings = [];
     const teamCodes = new Set(games.filter(game => statsDates.includes(game.date) && isPreseasonGame(game) === statsPhaseIsPreseason).flatMap(game => [game.home, game.away]));
-    const enriched = await attachPreseasonStats(api, players, {
-      teamCodes,
-      refresh: true,
-      cachePath: path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
-      fallbackCachePath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
-      vettedFallbackPath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-fallbacks.json'),
-    });
+    // 并行拉取彼此独立的远程数据源，缩短冷启动与后台刷新耗时
+    let injuries = readJson('data/bao5/injury/latest.json', null);
+    const [enriched, refreshedInjuries, scoreData, officialCompetition, accountAvatar] = await Promise.all([
+      attachPreseasonStats(api, players, {
+        teamCodes,
+        refresh: true,
+        cachePath: path.join(RUNTIME_ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
+        fallbackCachePath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-stats.json'),
+        vettedFallbackPath: path.join(ROOT, 'data', 'bao5', 'bao1', 'preseason-player-fallbacks.json'),
+      }),
+      refreshInjuryReport(games, { force: forceInjury }).catch(error => {
+        backendWarnings.push(`伤病报告刷新失败，沿用本地报告：${error.message}`);
+        console.warn(backendWarnings.at(-1));
+        return null;
+      }),
+      getDailyScoreSnapshot(api),
+      getOfficialCompetition(api),
+      getAccountAvatar(api.user?.avatarKey),
+    ]);
+    if (refreshedInjuries) injuries = refreshedInjuries;
     players = enriched.players;
     modelRoster = players;
     playerStatsMeta = {
@@ -302,24 +318,23 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
         error: item.error,
       })),
     };
-    let injuries = readJson('data/bao5/injury/latest.json', null);
-    try { injuries = await refreshInjuryReport(games, { force: forceInjury }); }
-    catch (error) { backendWarnings.push(`伤病报告刷新失败，沿用本地报告：${error.message}`); console.warn(backendWarnings.at(-1)); }
     if (!injuries) throw new Error('伤病报告不可用，且没有本地快照');
     const latestOdds = readJson('data/odds/latest.json');
     // usage-log.json is intentionally gitignored because it is local runtime state.
     // A fresh deployment may not have it yet, so treat it as an empty usage log.
     const usage=readJson('data/odds/usage-log.json',{monthlyQuota:200,calls:[]});
-    const weeklyLeague=readJson('data/bao5/league/latest.json');
     const preseasonOddsFile = latestOdds?.tournaments?.nbaPreseason?.file ?? 'nba-preseason/odds_2026-10-02.json';
     const nbaOddsFile = latestOdds?.tournaments?.nba?.file ?? 'nba/odds_2026-10-02.json';
     const odds = [...readJson(path.join('data/odds',preseasonOddsFile)),...readJson(path.join('data/odds',nbaOddsFile))];
     const playsportOdds = loadPlaySportOdds(ROOT);
     const defense = combineDefense(readJson('data/position/defense_vs_position.json'));
-    const matchupStats = readJson('data/history-player/matchup-stats.json', {});
+    // 复用单次读取的 histories，避免在 getDashboard 内 3 次重复读取 33MB model-history.json
     const histories = readHistory();
-    const [scoreData,officialCompetition]=await Promise.all([getDailyScoreSnapshot(api),getOfficialCompetition(api)]);
-    const lineupFeedback=await refreshTopFiveLineups(api,scoreData,players);
+    const [lineupFeedback, ownLineup] = await Promise.all([
+      refreshTopFiveLineups(api, scoreData, players, histories),
+      api.getLineup(scoreData.date),
+    ]);
+    const tIo = Date.now();
     const calibrationHistory=prepareHistoryForCalibration(histories,games,dateKey=>{
       if(dateKey===scoreData?.date&&typeof scoreData?.mine?.day?.settled==='boolean')return {mine:{day:scoreData.mine.day}};
       return readJson(`data/bao5/scores/rankings_${dateKey}.json`,null);
@@ -329,6 +344,7 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     const prefs=readPreferences();
     const effectiveMode=prefs.mode==='auto'?selectAutoMode(calibrationHistory):prefs.mode==='custom'?'lowRisk':prefs.mode;
     const data = buildDashboardData({ players, schedule:games, injuries, odds, playsportOdds, defense:defense.rows, calibrationFactor, mode:effectiveMode, customWeights:prefs.mode==='custom'?prefs.customWeights:null, lineupFeedback:{preferences:lineupFeedback.preferences,...(lineupFeedback.daily?.date===scoreData?.date?{daily:lineupFeedback.daily}:{})} });
+    const tModel = Date.now();
     if(prefs.mode==='auto'){data.mode='auto';data.selectedMode=effectiveMode;data.modeLabel=`自动学习 · 当前策略：${data.modeLabel}`;}
     if(prefs.mode==='custom'){data.mode='custom';data.modeLabel='自定义';data.customWeights=prefs.customWeights??{};}
     const month=new Date().toISOString().slice(0,7);const quotaCalls=(usage.calls??[]).filter(c=>String(c.date??'').startsWith(month)&&c.ok).length;const monthlyQuota=Number(usage.monthlyQuota??200);
@@ -342,12 +358,12 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     };
     const currentSeasonLogs = readJson('data/history-player/current-season-logs.json', {});
     const seasonLogsAt = currentSeasonLogs.updatedAt ?? currentSeasonLogs.lastAttemptAt ?? null;
-    const matchupBaseAt = matchupStats.generatedAt ?? null;
+    // 复用 matchup.mjs 内存缓存中的 generatedAt，避免再次同步读取 30MB matchup-stats.json
+    const matchupBaseAt = datasetHealth()?.generatedAt ?? null;
     const matchupLatestAt = [matchupBaseAt, seasonLogsAt].filter(Boolean).sort().at(-1) ?? null;
     data.sources.historyMatchup = { updatedAt: matchupLatestAt, baseUpdatedAt: matchupBaseAt, currentSeasonUpdatedAt: seasonLogsAt, currentSeason: currentSeasonLogs.season ?? null, currentSeasonGames: currentSeasonLogs.gameCount ?? null, currentSeasonPlayers: currentSeasonLogs.playerCount ?? null };
     data.sources.defense.updatedAt = defense.updatedAt;
     const league=readJson('data/bao5/league/latest.json');
-    const accountAvatar=await getAccountAvatar(api.user?.avatarKey);
     data.account={displayName:league.displayName??api.user?.displayName??'BAO5',avatar:accountAvatar};
     const weeklyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_weekly.json`);const weekly=fs.existsSync(weeklyPath)?JSON.parse(fs.readFileSync(weeklyPath,'utf8')):null;
     const dailyPath=path.join(ROOT,'data','bao5','league','snapshots',`leagues_${league.date}_daily.json`);const daily=fs.existsSync(dailyPath)?JSON.parse(fs.readFileSync(dailyPath,'utf8')):null;
@@ -366,8 +382,7 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     data.dailyScore=scoreData;
     data.officialCompetition=officialCompetition;
     data.topFiveLineups=lineupFeedback.daily?.lineups??[];
-    const topFiveHistory=readHistory().find(x=>x.dateKey===scoreData.date);
-    const ownLineup=await api.getLineup(scoreData.date);
+    const topFiveHistory=histories.find(x=>x.dateKey===scoreData.date);
     const scoreDayPicks=ownLineup.ok?(ownLineup.json?.lineup?.playerIds??[]).map(String):[];
     const scoreDayNames=scoreDayPicks.map(id=>namesForPlayer(players,id));
     const analysis=scoreData?.mine?.day?.rank>0?analyzeTopFive({dateKey:scoreData.date,players:scoreDayPicks,scoreDelta:topFiveHistory?.scoreDelta,ownLineupAvailable:ownLineup.ok&&scoreDayPicks.length>0},scoreData,players):null;
@@ -377,9 +392,17 @@ async function getDashboard({ refresh = false, forceInjury = false } = {}) {
     data.history=mergeDailyResult(data.history,scoreData,players);
     if(analysis){const row=data.history.find(x=>x.dateKey===scoreData.date);if(row){row.topFiveAnalysis=analysis;row.topFive=buildTopFiveSummary({date:scoreData.date,lineups:data.topFiveLineups},players);}}
     for(const row of data.history){if(row.topFive)continue;const day=persistedLineups.dates?.[row.dateKey];if(day)row.topFive=buildTopFiveSummary(day,players);}
-    if(scoreData?.mine?.day?.rank>0){const row=data.history.find(x=>x.dateKey===scoreData.date);if(row&&scoreDayPicks.length){row.bao5Players=scoreDayPicks;row.bao5PlayerNames=scoreDayNames;row.bao5LineupSource=`/api/lineups?date=${scoreData.date}`;}saveHistory(data.history.filter(x=>x.dateKey));}
+    if(scoreData?.mine?.day?.rank>0){
+      const row=data.history.find(x=>x.dateKey===scoreData.date);
+      const prevRow=topFiveHistory;
+      const picksChanged=scoreDayPicks.length&&JSON.stringify(prevRow?.bao5Players??[])!==JSON.stringify(scoreDayPicks);
+      const scoreChanged=row&&(prevRow?.actualTotal!==row.actualTotal||prevRow?.rank!==row.rank);
+      if(row&&scoreDayPicks.length){row.bao5Players=scoreDayPicks;row.bao5PlayerNames=scoreDayNames;row.bao5LineupSource=`/api/lineups?date=${scoreData.date}`;}
+      if(picksChanged||scoreChanged)saveHistory(data.history.filter(x=>x.dateKey));
+    }
     data.history=data.history.map(row=>({...row,playerLoss:buildPlayerLoss(row,currentSeasonLogs,games)}));
     data.playerLossSummary=summarizePlayerLoss(data.history);
+    console.log(`[dashboard] refresh total=${Date.now()-t0}ms (auth=${tAuth-t0}ms, io=${tIo-tAuth}ms, model=${tModel-tIo}ms, post=${Date.now()-tModel}ms)`);
     const activeCalibrationPhase=data.slates[0]?.phase==='Preseason'?'preseason':'regular';
     data.calibrationFactor=calibration[activeCalibrationPhase].factor;
     data.calibrationInfo={phase:activeCalibrationPhase,...calibration[activeCalibrationPhase]};
@@ -691,21 +714,47 @@ async function fetchDailyBoard(api,dateKey){
 async function getDailyScoreSnapshot(api){
   const dateKey=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const target=path.join(scoreDir,`rankings_${dateKey}.json`);
-  // board 一律以 fetchDailyBoard 实时结果为准：
-  // 落盘快照里的 board 曾长期混装赛季累计榜（run-model 的旧 board fallback 所致），
-  // 若直接返回缓存，前五分析就会把赛季总榜当日榜用。缓存只用于兜底 mine。
+  const sourceTarget=path.join(sourceScoreDir,`rankings_${dateKey}.json`);
+  const readCached=()=>{
+    for(const file of [target,sourceTarget]){
+      try{const doc=JSON.parse(fs.readFileSync(file,'utf8'));if(doc&&typeof doc==='object')return doc;}catch{}
+    }
+    return null;
+  };
   const withLiveBoard=async(cached)=>{
     const resolvedDate=cached.date??cached.dateKey??dateKey;
     const board=await fetchDailyBoard(api,resolvedDate);
     return {...cached,date:resolvedDate,board:board.ok?board.rows:[],boardSource:board.ok?board.source:null,boardError:board.ok?null:board.reason};
   };
-  try{const cached=JSON.parse(fs.readFileSync(target,'utf8'));if(cached.mine?.day?.settled===true)return withLiveBoard(cached);}catch{}
-  const proc=await import('node:child_process');
+  const cached=readCached();
+  // 已结算且已验证为当日日榜（非历史总榜污染）的本地缓存直接复用，零网络请求
+  if(cached?.mine?.day?.settled===true){
+    const resolvedDate=cached.date??cached.dateKey??dateKey;
+    if(Array.isArray(cached.board)&&cached.board.length>0&&cached.boardSource===`/api/rankings?period=day&date=${resolvedDate}`&&!cached.boardError){
+      return {...cached,date:resolvedDate};
+    }
+    return withLiveBoard(cached);
+  }
+  // 直接复用当前已登录的 api 会话，不再 spawnSync 子进程重登
   try{
-    const result=proc.spawnSync(process.execPath,[path.join(ROOT,'data','bao5','fetch-my-scores.mjs'),`--date=${dateKey}`,'--json'],{cwd:ROOT,encoding:'utf8',timeout:30_000,env:process.env});
-    if(result.status===0){const parsed=JSON.parse(result.stdout);return await withLiveBoard({...parsed,date:parsed.date??parsed.dateKey,userId:api.user?.id,displayName:api.user?.displayName});}
+    const mineRes=await api.get(`/api/rankings?mine=1&date=${encodeURIComponent(dateKey)}`);
+    if(mineRes.ok&&mineRes.json){
+      const resolvedDate=mineRes.json.date??dateKey;
+      const board=await fetchDailyBoard(api,resolvedDate);
+      return {
+        fetchedAt:new Date().toISOString(),
+        date:resolvedDate,
+        userId:api.user?.id,
+        displayName:api.user?.displayName,
+        mine:mineRes.json.mine??{},
+        board:board.ok?board.rows:[],
+        boardSource:board.ok?board.source:null,
+        boardError:board.ok?null:board.reason,
+      };
+    }
   }catch(error){console.warn('BAO5 当日得分刷新失败:',error.message);}
-  try{return await withLiveBoard({...JSON.parse(fs.readFileSync(target,'utf8')),stale:true});}catch{return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};}
+  if(cached)return await withLiveBoard({...cached,stale:true});
+  return {date:dateKey,mine:{},board:[],userId:api.user?.id,displayName:api.user?.displayName,unavailable:true};
 }
 async function getOfficialCompetition(api){
   try{
@@ -717,7 +766,7 @@ async function getOfficialCompetition(api){
     return {available:true,name:league.name??'官方头碰头联赛',seasonKey:league.season_key??null,phase:league.phase??null,status:mine.status??league.status??null,points:Number.isFinite(points)?points:null,rank:Number.isFinite(rank)&&rank>0?rank:null,memberCount:Number.isFinite(memberCount)&&memberCount>0?memberCount:null,startDate:league.start_date??null,endDate:league.end_date??null};
   }catch(error){return {available:false,error:error.message};}
 }
-async function refreshTopFiveLineups(api,score,players){
+async function refreshTopFiveLineups(api,score,players,historyRows=null){
   // ⚠️ 运行时缓存(.runtime)与仓库快照(data/)是两套文件，回填判定必须同时看两边。
   // 旧实现只读第一个存在的文件：.runtime 缺失时落到仓库快照，而仓库快照里
   // dates 有数据但 checkedDates 恒为空 ⇒ 每个冷启动都把最近 7 天判成「待回填」，
@@ -755,14 +804,26 @@ async function refreshTopFiveLineups(api,score,players){
     for(const item of fetched)if(item)lineups.push(item);
     return lineups;
   };
+  let storeChanged=false;
   if(score?.date){
-    const lineups=await fetchDayLineups(score.date,'当日');
-    // 抓取失败时保留上一次成功的阵容，只更新 fetchedAt，避免把已有数据清空
-    const previous=store.dates[score.date];
-    if(lineups?.length)store.dates[score.date]={date:score.date,fetchedAt:new Date().toISOString(),source:`/api/rankings?period=day&date=${score.date}`,lineups};
-    else if(previous)store.dates[score.date]={...previous,fetchedAt:previous.fetchedAt??new Date().toISOString(),stale:true};
+    const previous=store.dates[score.date]??stores.find(s=>s.dates?.[score.date]?.lineups?.length)?.dates?.[score.date];
+    const alreadySettledCached=score?.mine?.day?.settled===true&&((previous?.lineups?.length??0)>=5||Boolean(store.checkedDates?.[score.date]));
+    if(alreadySettledCached&&previous){
+      if(!store.dates[score.date]){store.dates[score.date]=previous;storeChanged=true;}
+    }else{
+      const lineups=await fetchDayLineups(score.date,'当日');
+      // 抓取失败时保留上一次成功的阵容，只更新 fetchedAt，避免把已有数据清空
+      if(lineups?.length){
+        store.dates[score.date]={date:score.date,fetchedAt:new Date().toISOString(),source:`/api/rankings?period=day&date=${score.date}`,lineups};
+        if(score?.mine?.day?.settled===true)store.checkedDates[score.date]=new Date().toISOString();
+        storeChanged=true;
+      }else if(previous){
+        store.dates[score.date]={...previous,fetchedAt:previous.fetchedAt??new Date().toISOString(),stale:true};
+        storeChanged=true;
+      }
+    }
   }
-  const history=readHistory();
+  const history=Array.isArray(historyRows)?historyRows:readHistory();
   const settledDates=[...new Set(history.filter(row=>row.dateKey&&Number.isFinite(row.actualTotal)).map(row=>row.dateKey))].sort().slice(-7);
   const datesToCheck=settledDates.filter(dateKey=>dateKey!==score?.date&&!hasFetched(dateKey));
   await Promise.all(datesToCheck.map(async dateKey=>{
@@ -771,12 +832,13 @@ async function refreshTopFiveLineups(api,score,players){
       const previous=store.dates[dateKey];
       if(lineups!==null){
         store.checkedDates[dateKey]=new Date().toISOString();
+        storeChanged=true;
         if(lineups.length)store.dates[dateKey]={date:dateKey,fetchedAt:store.checkedDates[dateKey],source:`/api/rankings?period=day&date=${dateKey}`,lineups};
         else if(previous)console.warn(`历史日榜前五 (${dateKey}) 本次未取到，沿用上次成功数据`);
       }
     }catch(error){console.warn(`历史日榜前五回填失败 (${dateKey}):`,error.message);}
   }));
-  store.updatedAt=new Date().toISOString();fs.mkdirSync(scoreDir,{recursive:true});fs.writeFileSync(lineupHistoryPath,JSON.stringify(store,null,2)+'\n','utf8');
+  if(storeChanged){store.updatedAt=new Date().toISOString();fs.mkdirSync(scoreDir,{recursive:true});fs.writeFileSync(lineupHistoryPath,JSON.stringify(store,null,2)+'\n','utf8');}
   const accumulated=new Map();
   for(const date of Object.values(store.dates))for(const lineup of date.lineups??[])for(const id of lineup.playerIds??[]){
     const item=accumulated.get(String(id))??{playerId:String(id),selections:0,topOne:0,totalPoints:0,appearances:0};item.selections++;if(lineup.rank===1)item.topOne++;item.totalPoints+=Number(lineup.playerScores?.[String(id)]??0);item.appearances++;accumulated.set(String(id),item);
@@ -938,10 +1000,16 @@ const server = http.createServer(async (req,res) => {
       return send(res,404,{error:'球员头像暂不可用'});
     }
     if (url.pathname === '/api/dashboard' && req.method === 'GET') {
+      const reqStart=Date.now();
       const data = await getDashboard({refresh:url.searchParams.get('refresh')==='1'});
-      recordDashboardRecommendations(data,modelRoster);
+      // 仅在产生新计算结果（非冷启动快照、非重复命中同一份缓存）时写入历史，避免每次请求同步读写 33MB
+      if(!data.isSnapshot&&data.live?.fetchedAt&&data.live.fetchedAt!==lastRecordedDashboardAt){
+        recordDashboardRecommendations(data,modelRoster);
+        lastRecordedDashboardAt=data.live.fetchedAt;
+      }
       exposePlayerForecastHistory(data);
       res.setHeader('Cache-Control','no-store, no-cache, must-revalidate');
+      res.setHeader('Server-Timing',`dashboard;dur=${Date.now()-reqStart}`);
       // 前端据此显示「正在后台刷新」与预计剩余时间。
       // refreshing=true 表示后台仍有全量计算在跑，数据可能即将更新。
       const stillRefreshing=Boolean(refreshing);

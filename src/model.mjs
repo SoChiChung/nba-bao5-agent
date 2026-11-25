@@ -34,6 +34,32 @@ function loadPlayerPositionIndex(){
   return playerPositionIndex;
 }
 
+function buildDefenseRankIndex(defenseRows) {
+  const byPos = new Map();
+  for (const pos of ['PG', 'SG', 'SF', 'PF', 'C']) {
+    const rows = (defenseRows ?? []).filter(row => String(row.Position ?? '').toUpperCase() === pos
+      && row.PTS != null && String(row.PTS).trim() !== ''
+      && Number.isFinite(Number(row.PTS)) && normalizeDefenseTeam(row.Team));
+    if (rows.length < 2) continue;
+    const teamMap = new Map();
+    const ptsList = rows.map(row => Number(row.PTS));
+    for (let i = 0; i < rows.length; i++) {
+      const teamKey = normalizeDefenseTeam(rows[i].Team);
+      if (teamMap.has(teamKey)) continue;
+      const targetPts = ptsList[i];
+      let lower = 0, tied = 0;
+      for (const pts of ptsList) {
+        if (pts < targetPts) lower++;
+        else if (pts === targetPts) tied++;
+      }
+      const rank = lower + (tied + 1) / 2;
+      teamMap.set(teamKey, { position: pos, rank, teams: rows.length, signal: (rank - (rows.length + 1) / 2) / ((rows.length - 1) / 2) });
+    }
+    byPos.set(pos, teamMap);
+  }
+  return byPos;
+}
+
 /**
  * Compare the opponent with teams defending each player's estimated position,
  * weighting each defense signal by the player's on-court position share. PTS_Rank spans all 150
@@ -41,7 +67,7 @@ function loadPlayerPositionIndex(){
  * systematically different by position. Re-rank PTS within each position;
  * 1 is toughest, 30 allows the most points.
  */
-function positionMatchup(defenseRows, opponent, player, positionEstimate=null) {
+function positionMatchup(defenseRows, opponent, player, positionEstimate=null, defenseIndex=null) {
   const raw = String(player?.positionRaw ?? '').toUpperCase();
   const directPosition = ['PG', 'SG', 'SF', 'PF', 'C'].includes(raw) ? [raw] : null;
   const rawParts = raw.split(/[^A-Z]+/).filter(Boolean);
@@ -65,17 +91,11 @@ function positionMatchup(defenseRows, opponent, player, positionEstimate=null) {
   const sourceWeightTotal=sourceWeights.reduce((sum,[,weight])=>sum+weight,0);
   const normalizedSourceWeights=Object.fromEntries(sourceWeights.map(([position,weight])=>[position,weight/sourceWeightTotal]));
   const opponentKey = normalizeDefenseTeam(opponent);
+  const index = defenseIndex ?? buildDefenseRankIndex(defenseRows);
   const ranks = sourceWeights.map(([position,weight]) => {
-    const rows = (defenseRows ?? []).filter(row => String(row.Position ?? '').toUpperCase() === position
-      && row.PTS != null && String(row.PTS).trim() !== ''
-      && Number.isFinite(Number(row.PTS)) && normalizeDefenseTeam(row.Team));
-    const target = rows.find(row => normalizeDefenseTeam(row.Team) === opponentKey);
-    if (!target || rows.length < 2) return null;
-    const targetPts = Number(target.PTS);
-    const lower = rows.filter(row => Number(row.PTS) < targetPts).length;
-    const tied = rows.filter(row => Number(row.PTS) === targetPts).length;
-    const rank = lower + (tied + 1) / 2;
-    return { position, weight, rank, teams: rows.length, signal: (rank - (rows.length + 1) / 2) / ((rows.length - 1) / 2) };
+    const hit = index.get(position)?.get(opponentKey);
+    if (!hit) return null;
+    return { position, weight, rank: hit.rank, teams: hit.teams, signal: hit.signal };
   }).filter(Boolean);
   if (!ranks.length) return {
     positions:sourceWeights.map(([position])=>position),positionWeights:normalizedSourceWeights,
@@ -346,7 +366,11 @@ export function buildDashboardData({ players, schedule, injuries, odds, playspor
   const defenseRows = Array.isArray(defense)
     ? defense
     : parseCsv(defense);
+  const defenseIndex=buildDefenseRankIndex(defenseRows);
   const playerPositionIndex=loadPlayerPositionIndex();
+  const playersById=new Map((players??[]).map(item=>[String(item.id),item]));
+  const popularityIndex=buildPopularityIndex(lineupFeedback);
+  const replacementIndex=buildReplacementIndex(players,injuries,playerPositionIndex);
   const regularScoresByPosition = new Map();
   for (const player of players) {
     const loggedAverage=Number(player.currentSeasonStats?.averageFantasy);
@@ -378,7 +402,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, playspor
     const slatePlayers=players.filter(p=>p.active!==false&&teams.has(p.team));
     const highEnergyThreshold=quantile(slatePlayers.map(p=>Number(p.energy)).filter(value=>Number.isFinite(value)&&value>0),HIGH_ENERGY_QUANTILE);
     const candidates = slatePlayers.map(p =>
-      scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate:playerPositionIndex.get(String(p.id))??null, positionIndex:playerPositionIndex, calibrationFactor:calibrationForPhase(preseason?'preseason':'regular'), preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold })
+      scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, defenseIndex, positionEstimate:playerPositionIndex.get(String(p.id))??null, positionIndex:playerPositionIndex, replacementIndex, playersById, popularityIndex, calibrationFactor:calibrationForPhase(preseason?'preseason':'regular'), preseason, priorTeamGameDate:priorGameByTeam.get(p.team)??null, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold })
     );
     // Compare <=20-energy players with this slate's own low-energy pool. This
     // bounded adjustment affects lineup choices, not displayed projections.
@@ -414,7 +438,7 @@ export function buildDashboardData({ players, schedule, injuries, odds, playspor
   return { slates, mode, modeLabel:weights.label, weights, modes:MODEL_MODES, positionMatchupExperiment:POSITION_MATCHUP_EXPERIMENT };
 }
 
-function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, positionEstimate, positionIndex, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold }) {
+function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, defenseRows, defenseIndex, positionEstimate, positionIndex, replacementIndex, playersById, popularityIndex, calibrationFactor, preseason, priorTeamGameDate, weights, players, lineupFeedback, positionBaselines, highEnergyThreshold }) {
   const currentStatBase = statScore(p);
   const currentSeasonStats=p.currentSeasonStats;
   const currentSeasonAverage=Number(currentSeasonStats?.averageFantasy);
@@ -439,7 +463,7 @@ function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, d
   const baselineSource=observedCurrentAverage>0?`本赛季数据${currentSampleCount>0&&shrinkPrior>0?`（向同位置中位数收缩，先验 ${priorStrength} 场）`:''}`:hasHistoricalAverage?p.historicalStats.source??`${p.historicalStats.season??'上赛季'}常规赛近 ${p.historicalStats.games} 场`:useRookiePrior?`${p.position==='back'?'后场':'前场'}常规赛中位数先验`:hasPreseasonAverage?'季前赛样本':'没有可用球员得分样本';
   const opponentGame = dayGames.find(g => g.home === p.team || g.away === p.team);
   const opponent = opponentGame ? (opponentGame.home === p.team ? opponentGame.away : opponentGame.home) : null;
-  const matchup = opponent ? positionMatchup(defenseRows, opponent, p, positionEstimate) : { positions: [], positionWeights:{}, rank: null, signal: 0, teams: 0 };
+  const matchup = opponent ? positionMatchup(defenseRows, opponent, p, positionEstimate, defenseIndex) : { positions: [], positionWeights:{}, rank: null, signal: 0, teams: 0 };
   const primaryPosition=mainPosition(positionEstimate,p);
   const matchupExperimentActive=dateKey>=POSITION_MATCHUP_EXPERIMENT.startDate&&dateKey<=POSITION_MATCHUP_EXPERIMENT.endDate&&POSITION_MATCHUP_EXPERIMENT.positions.includes(primaryPosition);
   const matchupBaseWeight=Math.max(0,Number(weights.matchup)||0);
@@ -451,7 +475,7 @@ function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, d
   const totalLine = mainTotal(odds);
   const totalFactor = totalLine ? clamp(1 + (totalLine - 220) / 220 * weights.odds*2, 1-weights.odds, 1+weights.odds) : 1;
   const injury = siteInjuries ? injuryForPlayer(injuries,p.id) : null;
-  if(injury){const injuredPlayer=(players??[]).find(x=>String(x.id)===String(p.id));injury.team??=injuredPlayer?.team;injury.position??=injuredPlayer?.positionRaw;}
+  if(injury){const injuredPlayer=playersById?playersById.get(String(p.id)):(players??[]).find(x=>String(x.id)===String(p.id));injury.team??=injuredPlayer?.team;injury.position??=injuredPlayer?.positionRaw;}
   const reportedChance = injury ? probability(injury) : 0.97;
   const chance = reportedChance;
   const injuryFactor=injury?Math.max(0,1-(1-chance)*weights.injury):1;
@@ -459,7 +483,7 @@ function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, d
   // Convert the bounded relative-strength percentage to the same point scale
   // as the baseline before blending it with the other signals.
   const historySignal=historyMatchup.available?statBase*(1+historyMatchup.signal):null;
-  const crowdPick=playerPopularity(p.id,lineupFeedback);
+  const crowdPick=popularityIndex?(popularityIndex.get(String(p.id))??{selections:0,averagePoints:0,signal:0}):playerPopularity(p.id,lineupFeedback);
   const preseasonStats=p.preseasonStats;
   const hasCurrentSeasonSample=currentStatBase>0||Number(p.gamesPlayed??0)>0||hasCurrentSeasonLog;
   const loggedRecentAverage=currentSeasonStats?.recentAverageFantasy;
@@ -477,7 +501,7 @@ function scorePlayer(p, { dateKey, dayGames, gameOdds, injuries, siteInjuries, d
   const personalized=statBase*baselineWeight+activeSignals.reduce((sum,s)=>sum+s.value*s.weight,0);
   const popularityFactor=1+crowdPick.signal*weights.crowd;
   const currentSeasonMinutes=Number(currentSeasonStats?.recentAverageMinutes??currentSeasonStats?.averageMinutes??0);
-  const opportunity=siteInjuries?replacementOpportunity(p,players,injuries,positionIndex,weights.replacement):{addedMinutes:0,missingTeammates:0};
+  const opportunity=siteInjuries?replacementOpportunity(p,players,injuries,positionIndex,weights.replacement,replacementIndex):{addedMinutes:0,missingTeammates:0};
   const projectedMinutes=currentSeasonMinutes>0?Math.min(40,currentSeasonMinutes+opportunity.addedMinutes):0;
   const minutesFactor=currentSeasonMinutes>0?clamp(projectedMinutes/currentSeasonMinutes,1,1.35):1;
   const replacementBoost=minutesFactor;
@@ -606,6 +630,18 @@ export function playerForecastSnapshot(slate, roster=[]) {
   }).sort((a,b)=>a.id.localeCompare(b.id));
 }
 
+function buildPopularityIndex(feedback) {
+  const map=new Map();
+  const list=feedback?.preferences??[];
+  if(!list.length)return map;
+  const baseline=list.reduce((sum,x)=>sum+Number(x.averagePoints??0),0)/Math.max(1,list.length);
+  for(const item of list){
+    const performance=baseline>0?clamp((Number(item.averagePoints)-baseline)/baseline,-1,1):0;
+    map.set(String(item.playerId),{selections:item.selections,averagePoints:item.averagePoints,signal:clamp((Number(item.selectionRate??0)-.2)*2+performance*.35,-1,1)});
+  }
+  return map;
+}
+
 function playerPopularity(playerId, feedback) {
   const item=(feedback?.preferences??[]).find(x=>String(x.playerId)===String(playerId));
   if(!item)return {selections:0,averagePoints:0,signal:0};
@@ -644,7 +680,76 @@ function playerMinuteBaseline(player) {
   return Number.isFinite(fallback)&&fallback>0?fallback:0;
 }
 
-function replacementOpportunity(player, players, injuries, positionIndex, weight) {
+function buildReplacementIndex(players, injuries, positionIndex) {
+  const roster=players??[];
+  const rosterById=new Map(roster.map(item=>[String(item.id),item]));
+  const statuses=new Map(Object.entries(injuries?.statuses??{}).map(([id,status])=>[String(id),status]));
+  for(const status of injuries?.restricted??[])if(status?.id!=null&&!statuses.has(String(status.id)))statuses.set(String(status.id),status);
+  const roles=new Map();
+  const minutesById=new Map();
+  const activeByTeam=new Map();
+  for(const item of roster){
+    const id=String(item.id);
+    roles.set(id,roleDistribution(item,positionIndex?.get(id)));
+    const mins=playerMinuteBaseline(item);
+    minutesById.set(id,mins);
+    if(item.active!==false&&mins>0){
+      const team=String(item.team??'');
+      if(!activeByTeam.has(team))activeByTeam.set(team,[]);
+      activeByTeam.get(team).push(item);
+    }
+  }
+  const unavailableByTeam=new Map();
+  for(const [id,status] of statuses){
+    const key=String(status?.key??'').toLowerCase();
+    if(!['out','doubtful','questionable','probable'].includes(key))continue;
+    const teammate=rosterById.get(id);
+    if(!teammate||teammate.active===false)continue;
+    const absenceShare=1-probability(status),minutes=minutesById.get(id)??0,role=roles.get(id);
+    if(absenceShare<=0||minutes<=0||!role||!Object.keys(role).length)continue;
+    const team=String(teammate.team??'');
+    if(!unavailableByTeam.has(team))unavailableByTeam.set(team,[]);
+    unavailableByTeam.get(team).push({id,minutes:Math.min(40,minutes)*absenceShare,role});
+  }
+  const teamDistributions=new Map();
+  for(const [team,unavailable] of unavailableByTeam){
+    const unavailableIds=new Set(unavailable.map(item=>item.id));
+    const healthyPool=(activeByTeam.get(team)??[]).filter(item=>!unavailableIds.has(String(item.id)));
+    const recipientMinutes=new Map();
+    for(const absent of unavailable){
+      const pool=healthyPool
+        .map(item=>({item,id:String(item.id),minutes:minutesById.get(String(item.id))??0,overlap:roleOverlap(roles.get(String(item.id)),absent.role),availability:statuses.has(String(item.id))?probability(statuses.get(String(item.id))):1}))
+        .filter(item=>item.overlap>=.2&&item.availability>0)
+        .sort((a,b)=>b.minutes-a.minutes||a.id.localeCompare(b.id))
+        .slice(0,5);
+      if(!pool.length)continue;
+      const depthShares=[.42,.24,.15,.11,.08].slice(0,pool.length);
+      const rawWeights=pool.map((candidate,index)=>candidate.overlap*candidate.availability*depthShares[index]);
+      const weightTotal=rawWeights.reduce((sum,value)=>sum+value,0);
+      if(weightTotal<=0)continue;
+      pool.forEach((candidate,index)=>recipientMinutes.set(candidate.id,(recipientMinutes.get(candidate.id)??0)+absent.minutes*rawWeights[index]/weightTotal));
+    }
+    teamDistributions.set(team,{unavailableIds,unavailableCount:unavailable.length,recipientMinutes});
+  }
+  return {teamDistributions,minutesById};
+}
+
+function replacementOpportunity(player, players, injuries, positionIndex, weight, replacementIndex=null) {
+  if(replacementIndex){
+    const playerId=String(player.id),team=String(player.team??'');
+    const info=replacementIndex.teamDistributions.get(team);
+    if(!info)return {addedMinutes:0,missingTeammates:0};
+    // Note: original code excludes playerId from `unavailable`, so if player itself was in `unavailable`,
+    // it wouldn't be in `healthyPool` anyway (rawAdded=0) and missingTeammates is unavailableCount - 1.
+    const selfUnavailable=info.unavailableIds.has(playerId);
+    const missingTeammates=info.unavailableCount-(selfUnavailable?1:0);
+    if(missingTeammates<=0)return {addedMinutes:0,missingTeammates:0};
+    const rawAdded=selfUnavailable?0:(info.recipientMinutes.get(playerId)??0);
+    const scale=clamp((Number(weight)||.18)/.18,.65,1.35);
+    const baseline=replacementIndex.minutesById.get(playerId)??playerMinuteBaseline(player);
+    const addedMinutes=clamp(rawAdded*scale,0,Math.min(8,Math.max(0,40-baseline)));
+    return {addedMinutes,missingTeammates};
+  }
   const roster=players??[];
   const rosterById=new Map(roster.map(item=>[String(item.id),item]));
   const statuses=new Map(Object.entries(injuries?.statuses??{}).map(([id,status])=>[String(id),status]));
