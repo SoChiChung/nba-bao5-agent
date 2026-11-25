@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-25T00:11:46.872Z",
+  "fetchedAt": "2026-11-25T03:17:00.288Z",
   "date": "2026-11-09",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -812,7 +812,7 @@
     {
       "userId": "440ac1c6-e968-48bf-96cd-0b418966d90d",
       "displayName": "Kyujin",
-      "avatarKey": "badge:T04_G",
+      "avatarKey": "badge:T09_S",
       "score": 180.9,
       "remainingSalary": 0,
       "submittedAt": 1794150434075,
@@ -3020,7 +3020,7 @@
     {
       "userId": "31578ca4-e179-46f9-b24c-ad257e99cf52",
       "displayName": "黄豆哥",
-      "avatarKey": "TOR",
+      "avatarKey": "BOS",
       "score": 151.7,
       "remainingSalary": 0,
       "submittedAt": 1794123081061,
@@ -4560,6 +4560,6 @@
     "mine": "/api/rankings?mine=1&date=2026-11-09",
     "board": "/api/rankings?period=day&date=2026-11-09"
   },
-  "updatedAt": "2026-11-25T00:11:46.872Z",
+  "updatedAt": "2026-11-25T03:17:00.288Z",
   "stale": true
 }
