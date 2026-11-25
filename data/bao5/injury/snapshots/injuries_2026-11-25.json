@@ -7,10 +7,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "勒布朗·詹姆斯",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-11-26:nba"
     },
     "201142": {
       "key": "available",
@@ -122,10 +125,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "克莱·汤普森",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-11-26:nba"
     },
     "202695": {
       "key": "out",
@@ -200,6 +206,11 @@
       "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
+        {
+          "source": "RotoWire",
+          "label": "缺阵",
+          "detail": "RotoWire伤病名单：缺阵（膝盖）"
+        },
         {
           "source": "Sleeper",
           "label": "缺阵",
@@ -290,8 +301,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "肯塔维厄斯·考德威尔·波普",
       "t": "76人"
     },
@@ -323,32 +336,30 @@
       "t": "热火"
     },
     "203507": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "RotoWire",
-          "label": "出战成疑",
-          "detail": "RotoWire伤病名单：出战成疑（腹股沟）"
-        },
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
-      "n": "扬尼斯·阿德托昆博",
-      "t": "热火"
-    },
-    "203897": {
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
+      "n": "扬尼斯·阿德托昆博",
+      "t": "热火",
+      "st": "c:2026-11-26:nba"
+    },
+    "203897": {
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
+      "source": "ESPN",
+      "others": [
+        {
+          "source": "Sleeper",
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
+        }
+      ],
       "n": "扎克·拉文",
       "t": "国王"
     },
@@ -442,22 +453,24 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "安德鲁·威金斯",
       "t": "热火"
     },
     "203954": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "乔尔·恩比德",
@@ -557,18 +570,11 @@
       "t": "灰熊"
     },
     "1626157": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "卡尔-安东尼·唐斯",
       "t": "尼克斯"
     },
@@ -612,8 +618,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "小鲍比·波蒂斯",
       "t": "热火"
     },
@@ -721,7 +729,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "巴迪·希尔德",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-26:rw"
     },
     "1627742": {
       "key": "available",
@@ -795,10 +804,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "杰伦·布朗",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-11-26:nba"
     },
     "1627777": {
       "key": "available",
@@ -1008,10 +1020,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "巴姆·阿德巴约",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-11-26:nba"
     },
     "1628392": {
       "key": "available",
@@ -1050,18 +1065,11 @@
       "t": "凯尔特人"
     },
     "1628404": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "约什·哈特",
       "t": "尼克斯"
     },
@@ -1159,18 +1167,11 @@
       "t": "尼克斯"
     },
     "1628973": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "杰伦·布伦森",
       "t": "尼克斯"
     },
@@ -1305,8 +1306,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "米切尔·罗宾逊",
@@ -1334,8 +1335,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "安芬尼·西蒙斯",
       "t": "76人"
     },
@@ -1604,7 +1607,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "科比·怀特",
-      "t": "黄蜂"
+      "t": "黄蜂",
+      "st": "c:2026-11-26:rw"
     },
     "1629636": {
       "key": "available",
@@ -1683,7 +1687,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "尼古拉斯·克拉克斯顿",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-26:rw"
     },
     "1629652": {
       "key": "available",
@@ -1755,7 +1760,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "纳兹·里德",
-      "t": "黄蜂"
+      "t": "黄蜂",
+      "st": "c:2026-11-26:rw"
     },
     "1629680": {
       "key": "available",
@@ -1788,8 +1794,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "迪恩·韦德",
       "t": "76人"
     },
@@ -1886,7 +1894,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "艾萨克·奥科罗",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-26:rw"
     },
     "1630172": {
       "key": "available",
@@ -1926,10 +1935,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "泰瑞斯·马克西",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-11-26:nba"
     },
     "1630180": {
       "key": "available",
@@ -1959,16 +1971,16 @@
       "t": "森林狼"
     },
     "1630188": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：缺阵",
       "source": "ESPN",
       "others": [
         {
           "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
+          "label": "缺阵",
+          "detail": "Sleeper伤病名单：缺阵"
         }
       ],
       "n": "杰伦·史密斯",
@@ -2319,10 +2331,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "戴维恩·米切尔",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-11-26:nba"
     },
     "1630559": {
       "key": "out",
@@ -2442,7 +2457,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "约什·吉迪",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-26:rw"
     },
     "1630583": {
       "key": "available",
@@ -2926,10 +2942,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "贾巴里·沃克",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-11-26:nba"
     },
     "1631157": {
       "key": "available",
@@ -3055,7 +3074,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "穆萨·迪亚巴特",
-      "t": "黄蜂"
+      "t": "黄蜂",
+      "st": "c:2026-11-26:rw"
     },
     "1631218": {
       "key": "available",
@@ -3088,8 +3108,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "多米尼克·巴洛",
       "t": "76人"
     },
@@ -3176,8 +3198,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "西莫内·丰泰基奥",
       "t": "热火"
     },
@@ -3222,7 +3246,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "布兰登·米勒",
-      "t": "黄蜂"
+      "t": "黄蜂",
+      "st": "c:2026-11-26:rw"
     },
     "1641707": {
       "key": "available",
@@ -3383,8 +3408,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "德里克·莱夫利二世",
@@ -3421,8 +3446,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "阿德姆·博纳",
       "t": "76人"
     },
@@ -3688,10 +3715,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "佩勒·拉尔松",
-      "t": "热火"
+      "t": "热火",
+      "st": "c:2026-11-26:nba"
     },
     "1641800": {
       "key": "available",
@@ -3745,7 +3775,8 @@
       "detail": "未出现在伤病名单中",
       "source": "公开名单",
       "n": "马塔斯·布泽利斯",
-      "t": "公牛"
+      "t": "公牛",
+      "st": "c:2026-11-26:rw"
     },
     "1641842": {
       "key": "available",
@@ -3765,8 +3796,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "塔里克·比贝罗维奇",
@@ -3822,8 +3853,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "迈伦·加德纳",
       "t": "热火"
     },
@@ -4465,10 +4498,13 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "VJ·埃奇库姆",
-      "t": "76人"
+      "t": "76人",
+      "st": "c:2026-11-26:nba"
     },
     "1642846": {
       "key": "available",
@@ -4824,20 +4860,14 @@
       "t": "鹈鹕"
     },
     "1642883": {
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：出战成疑",
-      "source": "ESPN",
-      "others": [
-        {
-          "source": "Sleeper",
-          "label": "出战成疑",
-          "detail": "Sleeper伤病名单：出战成疑"
-        }
-      ],
+      "key": "available",
+      "label": "可以出战",
+      "probability": "100%",
+      "detail": "未出现在伤病名单中",
+      "source": "公开名单",
       "n": "西翁·詹姆斯",
-      "t": "黄蜂"
+      "t": "黄蜂",
+      "st": "c:2026-11-26:rw"
     },
     "1642884": {
       "key": "available",
@@ -5484,8 +5514,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "塞尔吉奥·德·拉雷亚",
@@ -5522,8 +5552,10 @@
       "key": "available",
       "label": "可以出战",
       "probability": "100%",
-      "detail": "未出现在伤病名单中",
-      "source": "公开名单",
+      "detail": "今天已经上场（实时技术统计）",
+      "source": "NBA官方",
+      "asOf": "2026-11-25",
+      "carry": false,
       "n": "瑞安·康威尔",
       "t": "热火"
     },
@@ -5628,8 +5660,8 @@
       "others": [
         {
           "source": "Sleeper",
-          "label": "缺阵",
-          "detail": "Sleeper伤病名单：缺阵"
+          "label": "出战成疑",
+          "detail": "Sleeper伤病名单：出战成疑"
         }
       ],
       "n": "托比·拉瓦尔",
@@ -5788,8 +5820,8 @@
     }
   },
   "officialCount": 0,
-  "projectedCount": 631,
-  "filledCount": 99,
+  "projectedCount": 615,
+  "filledCount": 96,
   "espnCount": 2,
   "manualCount": 0,
   "fallbackSource": "mixed",
@@ -5800,6 +5832,6 @@
   "source": "ak-static.cms.nba.com",
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "reportUrl": null,
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出99人，其余631人未被列入（视为可出战）。",
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出96人，其余615人未被列入（视为可出战）。",
   "requestedDate": "2026-11-26"
 }
