@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T21:03:55.654Z",
+  "updatedAt": "2026-11-25T00:12:34.188Z",
   "serverDate": "2026-11-24",
   "requestedDate": "2026-11-25",
   "available": true,
@@ -8,9 +8,9 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 567,
-    "available": 440,
+    "available": 437,
     "out": 113,
-    "questionable": 13,
+    "questionable": 16,
     "probable": 1
   },
   "provenance": {
@@ -22,8 +22,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-24.json",
   "changesFile": "changes/changes_2026-11-24.json",
   "previousDate": "2026-11-23",
-  "changeCount": 134,
-  "restrictedCount": 127,
+  "changeCount": 138,
+  "restrictedCount": 130,
   "restricted": [
     {
       "id": "201939",
@@ -1612,7 +1612,21 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Embiid (illness) is out for Monday's game against Portland, Austin Krell of OnPattison.com reports.",
+      "detail": "ESPN伤病名单：Embiid (illness) is listed as doubtful for Wednesday's game versus Miami.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1626157",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Towns (knee) is questionable for Wednesday's game against Cleveland.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1650,6 +1664,20 @@
       "energy": null
     },
     {
+      "id": "1628404",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Hart (shoulder) is listed as questionable for Wednesday's game against Cleveland.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1629023",
       "key": "questionable",
       "label": "出战成疑",
@@ -1669,20 +1697,6 @@
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Hayes (knee) has been ruled out for Monday's game against the Lakers.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1629684",
-      "key": "questionable",
-      "label": "每日观察",
-      "probability": "50%",
-      "detail": "ESPN伤病名单：Williams (hamstring) won't play Monday's game against the Grizzlies.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1752,7 +1766,7 @@
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
-      "detail": "ESPN伤病名单：Kalkbrenner has been ruled out for the rest of Monday's game against Memphis due to left hip soreness. He'll end with two rebounds in nine minutes.",
+      "detail": "ESPN伤病名单：Kalkbrenner (hip) is doubtful to play Wednesday against the Bulls.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -1768,6 +1782,34 @@
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642865",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Lendeborg is questionable for Wednesday's game against the Kings with an illness.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642883",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：James is probable for Wednesday's game against the Bulls due to general soreness.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1804,5 +1846,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月24日 05:15 发布）：列出25人，今日出战的另外124人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月24日 03:00 发布）：列出25人，今日出战的另外124人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }

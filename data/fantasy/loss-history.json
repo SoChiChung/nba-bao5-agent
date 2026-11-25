@@ -1043,5 +1043,16 @@
     "bias": 0.691,
     "corr": 0.7549,
     "global": 0.9274
+  },
+  {
+    "generatedAt": "2026-11-25T00:14:11.128Z",
+    "modelVersion": "2026.11.fantasy.1",
+    "samples": 3583,
+    "events": 18,
+    "mae": 8.335,
+    "rmse": 10.851,
+    "bias": 0.691,
+    "corr": 0.7549,
+    "global": 0.9274
   }
 ]
