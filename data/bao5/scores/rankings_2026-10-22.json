@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-25T03:16:22.030Z",
+  "fetchedAt": "2026-11-25T04:48:31.615Z",
   "date": "2026-10-22",
   "userId": "00a5610a-08c9-4a02-b394-df3266cbf588",
   "displayName": "ZCJenius",
@@ -284,7 +284,7 @@
     {
       "userId": "f8c5dc40-2431-42d0-b03a-5bbc7acfae7f",
       "displayName": "桑滴二大妈",
-      "avatarKey": "badge:T04_G",
+      "avatarKey": "badge:S01",
       "score": 177.6,
       "remainingSalary": 0,
       "submittedAt": 1792594536930,
@@ -2736,5 +2736,5 @@
     "mine": "/api/rankings?mine=1&date=2026-10-22",
     "board": "/api/rankings?period=day&date=2026-10-22"
   },
-  "updatedAt": "2026-11-25T03:16:22.030Z"
+  "updatedAt": "2026-11-25T04:48:31.615Z"
 }
