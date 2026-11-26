@@ -1,7 +1,7 @@
 {
   "source": "playsport",
   "sourceLabel": "玩運彩 / 國際盤",
-  "capturedAt": "2026-11-23T14:05:27.000Z",
+  "capturedAt": "2026-11-26T00:19:09.442Z",
   "timezone": "Asia/Shanghai",
   "files": {
     "2026-11-22": {
@@ -17,6 +17,11 @@
     "2026-11-24": {
       "file": "odds_2026-11-24.json",
       "games": 10,
+      "status": "upcoming"
+    },
+    "2026-11-26": {
+      "file": "odds_2026-11-26.json",
+      "games": 9,
       "status": "upcoming"
     }
   },
