@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-26T11:27:07.899Z",
-  "serverDate": "2026-11-25",
+  "updatedAt": "2026-11-26T20:02:21.361Z",
+  "serverDate": "2026-11-27",
   "requestedDate": "2026-11-28",
   "available": false,
   "season": "2026-27",
@@ -8,21 +8,21 @@
   "sourceLabel": "ESPN、RotoWire、Sleeper伤病名单",
   "counts": {
     "total": 732,
-    "available": 633,
+    "available": 632,
     "out": 78,
-    "questionable": 21
+    "questionable": 22
   },
   "provenance": {
     "officialCount": 0,
-    "projectedCount": 633,
-    "filledCount": 97,
+    "projectedCount": 632,
+    "filledCount": 98,
     "fallbackSource": "mixed"
   },
-  "snapshotFile": "snapshots/injuries_2026-11-25.json",
-  "changesFile": "changes/changes_2026-11-25.json",
-  "previousDate": "2026-11-24",
-  "changeCount": 142,
-  "restrictedCount": 99,
+  "snapshotFile": "snapshots/injuries_2026-11-27.json",
+  "changesFile": "changes/changes_2026-11-27.json",
+  "previousDate": "2026-11-25",
+  "changeCount": 1,
+  "restrictedCount": 100,
   "restricted": [
     {
       "id": "201939",
@@ -1299,6 +1299,20 @@
       "energy": null
     },
     {
+      "id": "1630658",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：出战成疑",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1641725",
       "key": "questionable",
       "label": "出战成疑",
@@ -1411,5 +1425,5 @@
       "energy": null
     }
   ],
-  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出97人，其余633人未被列入（视为可出战）。"
+  "message": "暂无官方伤病报告（当天还没发布），当前以ESPN、RotoWire、Sleeper名单为准：列出98人，其余632人未被列入（视为可出战）。"
 }
