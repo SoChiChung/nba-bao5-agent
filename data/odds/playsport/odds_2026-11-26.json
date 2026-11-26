@@ -3,7 +3,7 @@
   "league": "NBA",
   "scheduleDate": "2026-11-26",
   "scheduleTimezone": "Asia/Taipei",
-  "capturedAt": "2026-11-26T00:19:09.442Z",
+  "capturedAt": "2026-11-26T08:54:54.246Z",
   "marketLabel": "國際盤",
   "games": [
     {
@@ -14,7 +14,7 @@
       "home": "PHI",
       "awayName": "熱火",
       "homeName": "76人",
-      "statusAtCapture": "live",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "away",
         "spread": 1,
@@ -33,7 +33,7 @@
       "home": "CHA",
       "awayName": "公牛",
       "homeName": "黃蜂",
-      "statusAtCapture": "live",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
         "spread": 4,
@@ -52,14 +52,14 @@
       "home": "NYK",
       "awayName": "騎士",
       "homeName": "尼克",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
         "spread": 4,
         "spreadFromHome": -4,
         "spreadText": "主 4分輸 50%",
-        "total": 219,
-        "totalText": "大 219 輸 50%"
+        "total": 220,
+        "totalText": "大 220 贏 50%"
       },
       "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112631003"
     },
@@ -71,14 +71,14 @@
       "home": "OKC",
       "awayName": "灰狼",
       "homeName": "雷霆",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
-        "spread": 3,
-        "spreadFromHome": -3,
-        "spreadText": "主 3分贏 50%",
-        "total": 223,
-        "totalText": "大 223 輸 50%"
+        "spread": 2,
+        "spreadFromHome": -2,
+        "spreadText": "主 2分輸 50%",
+        "total": 224,
+        "totalText": "大 224 贏 50%"
       },
       "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112631004"
     },
@@ -90,14 +90,14 @@
       "home": "MEM",
       "awayName": "快艇",
       "homeName": "灰熊",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
         "spread": 7,
         "spreadFromHome": -7,
         "spreadText": "主 7分輸 50%",
         "total": 228,
-        "totalText": "大 228 贏 50%"
+        "totalText": "大 228 輸 50%"
       },
       "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112631005"
     },
@@ -109,7 +109,7 @@
       "home": "MIL",
       "awayName": "籃網",
       "homeName": "公鹿",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
         "spread": 1,
@@ -128,14 +128,14 @@
       "home": "HOU",
       "awayName": "太陽",
       "homeName": "火箭",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
         "spread": 9,
         "spreadFromHome": -9,
         "spreadText": "主 9分輸 50%",
-        "total": 223,
-        "totalText": "大 223 贏 50%"
+        "total": 222,
+        "totalText": "大 222 輸 50%"
       },
       "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112631007"
     },
@@ -147,14 +147,14 @@
       "home": "POR",
       "awayName": "馬刺",
       "homeName": "拓荒者",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "away",
         "spread": 3,
         "spreadFromHome": 3,
         "spreadText": "客 3分輸 50%",
-        "total": 227,
-        "totalText": "大 227 贏 50%"
+        "total": 225,
+        "totalText": "大 225 贏 50%"
       },
       "url": "https://www.playsport.cc/gamesData/battle?allianceid=3&gameid=2026112631008"
     },
@@ -166,12 +166,12 @@
       "home": "GSW",
       "awayName": "國王",
       "homeName": "勇士",
-      "statusAtCapture": "upcoming",
+      "statusAtCapture": "finished",
       "international": {
         "spreadFavorite": "home",
-        "spread": 8,
-        "spreadFromHome": -8,
-        "spreadText": "主 8分贏 50%",
+        "spread": 9,
+        "spreadFromHome": -9,
+        "spreadText": "主 9分贏 50%",
         "total": 216,
         "totalText": "大 216 贏 50%"
       },

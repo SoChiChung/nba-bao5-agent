@@ -1,7 +1,7 @@
 {
   "source": "playsport",
   "sourceLabel": "玩運彩 / 國際盤",
-  "capturedAt": "2026-11-26T00:19:09.442Z",
+  "capturedAt": "2026-11-26T08:54:54.246Z",
   "timezone": "Asia/Shanghai",
   "files": {
     "2026-11-22": {
@@ -22,7 +22,7 @@
     "2026-11-26": {
       "file": "odds_2026-11-26.json",
       "games": 9,
-      "status": "upcoming"
+      "status": "finished"
     }
   },
   "nextStep": "PlaySport international odds are refreshed as a fallback for games missing OddsPapi main lines."
