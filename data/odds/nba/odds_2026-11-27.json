@@ -11,7 +11,7 @@
     "startTime": "2026-11-28T00:00:00.000Z",
     "trueStartTime": null,
     "trueEndTime": null,
-    "updatedAt": "2026-11-26T18:18:11.551Z",
+    "updatedAt": "2026-11-26T21:15:51.787Z",
     "externalProviders": {
       "betradarId": 73697040,
       "mollybetId": "2026-11-28,29093,29098",
@@ -40,17 +40,17 @@
       "pinnacle": {
         "markets": {
           "111696": {
-            "bookmakerMarketId": "1639854975/6671381272/1641211642",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381271/1641211642",
+            "marketActive": false,
             "outcomes": {
               "111696": {
                 "players": {
                   "1296164": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211643",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 247,
                     "playerName": "Mitchell, Davion",
                     "price": 1.757,
@@ -64,11 +64,11 @@
               "111697": {
                 "players": {
                   "1296164": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211644",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Mitchell, Davion",
                     "price": 2,
@@ -82,17 +82,17 @@
             }
           },
           "111704": {
-            "bookmakerMarketId": "1639854975/6671381290/1641211630",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381289/1641211630",
+            "marketActive": false,
             "outcomes": {
               "111704": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211631",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 243,
                     "playerName": "Adebayo, Bam",
                     "price": 1.769,
@@ -106,11 +106,11 @@
               "111705": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211632",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 191,
                     "playerName": "Adebayo, Bam",
                     "price": 1.98,
@@ -125,16 +125,16 @@
           },
           "111724": {
             "bookmakerMarketId": "1639854975/6671381264/1641211648",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111724": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211649",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 2,
@@ -148,11 +148,11 @@
               "111725": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211650",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 247,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.757,
@@ -166,17 +166,17 @@
             }
           },
           "111726": {
-            "bookmakerMarketId": "1639854975/6671381242/1641211663",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381241/1641211663",
+            "marketActive": false,
             "outcomes": {
               "111726": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211664",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 198,
                     "playerName": "Brunson, Jalen",
                     "price": 1.943,
@@ -190,11 +190,11 @@
               "111727": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211665",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 234,
                     "playerName": "Brunson, Jalen",
                     "price": 1.8,
@@ -208,17 +208,17 @@
             }
           },
           "111778": {
-            "bookmakerMarketId": "1639854975/6671381280/1641211636",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381279/1641211636",
+            "marketActive": false,
             "outcomes": {
               "111778": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211637",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Adebayo, Bam",
                     "price": 2.18,
@@ -232,11 +232,11 @@
               "111779": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211638",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 296,
                     "playerName": "Adebayo, Bam",
                     "price": 1.632,
@@ -251,16 +251,16 @@
           },
           "111784": {
             "bookmakerMarketId": "1639854975/6671381255/1641211654",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111784": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211655",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 195,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.961,
@@ -274,11 +274,11 @@
               "111785": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211656",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 240,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.781,
@@ -292,17 +292,17 @@
             }
           },
           "111794": {
-            "bookmakerMarketId": "1639854975/6671381297/1641211624",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381298/1641211624",
+            "marketActive": false,
             "outcomes": {
               "111794": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211625",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Adebayo, Bam",
                     "price": 2.68,
@@ -316,11 +316,11 @@
               "111795": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211626",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 432,
                     "playerName": "Adebayo, Bam",
                     "price": 1.434,
@@ -335,16 +335,16 @@
           },
           "111798": {
             "bookmakerMarketId": "1639854975/6671381250/1641211657",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111798": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211658",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Brunson, Jalen",
                     "price": 2.48,
@@ -358,11 +358,11 @@
               "111799": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211659",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 375,
                     "playerName": "Brunson, Jalen",
                     "price": 1.5,
@@ -376,17 +376,17 @@
             }
           },
           "111846": {
-            "bookmakerMarketId": "1639854975/6671381283/1641211633",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381284/1641211633",
+            "marketActive": false,
             "outcomes": {
               "111846": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211634",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 210,
                     "playerName": "Adebayo, Bam",
                     "price": 1.892,
@@ -400,11 +400,11 @@
               "111847": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211635",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 221,
                     "playerName": "Adebayo, Bam",
                     "price": 1.847,
@@ -418,17 +418,17 @@
             }
           },
           "111862": {
-            "bookmakerMarketId": "1639854975/6671381237/1641211666",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381238/1641211666",
+            "marketActive": false,
             "outcomes": {
               "111862": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211667",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 240,
                     "playerName": "Brunson, Jalen",
                     "price": 1.781,
@@ -442,11 +442,11 @@
               "111863": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211668",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 195,
                     "playerName": "Brunson, Jalen",
                     "price": 1.961,
@@ -461,16 +461,16 @@
           },
           "111874": {
             "bookmakerMarketId": "1639854975/6671381260/1641211651",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111874": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211652",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 221,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.847,
@@ -484,11 +484,11 @@
               "111875": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211653",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 210,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.892,
@@ -503,16 +503,16 @@
           },
           "111892": {
             "bookmakerMarketId": "1639854975/6671381294/1641211627",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111892": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211628",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 337,
                     "playerName": "Adebayo, Bam",
                     "price": 1.555,
@@ -526,11 +526,11 @@
               "111893": {
                 "players": {
                   "1124727": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211629",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Adebayo, Bam",
                     "price": 2.34,
@@ -545,16 +545,16 @@
           },
           "111898": {
             "bookmakerMarketId": "1639854975/6671381267/1641211645",
-            "marketActive": true,
+            "marketActive": false,
             "outcomes": {
               "111898": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211646",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 2.2,
@@ -568,11 +568,11 @@
               "111899": {
                 "players": {
                   "607336": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211647",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 300,
                     "playerName": "Antetokounmpo, Giannis",
                     "price": 1.625,
@@ -586,17 +586,17 @@
             }
           },
           "111900": {
-            "bookmakerMarketId": "1639854975/6671381245/1641211660",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381246/1641211660",
+            "marketActive": false,
             "outcomes": {
               "111900": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211661",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 213,
                     "playerName": "Brunson, Jalen",
                     "price": 1.877,
@@ -610,11 +610,11 @@
               "111901": {
                 "players": {
                   "1159266": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211662",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 213,
                     "playerName": "Brunson, Jalen",
                     "price": 1.877,
@@ -628,17 +628,17 @@
             }
           },
           "111902": {
-            "bookmakerMarketId": "1639854975/6671381275/1641211639",
-            "marketActive": true,
+            "bookmakerMarketId": "1639854975/6671381276/1641211639",
+            "marketActive": false,
             "outcomes": {
               "111902": {
                 "players": {
                   "1296164": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211640",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 258,
                     "playerName": "Mitchell, Davion",
                     "price": 1.724,
@@ -652,11 +652,11 @@
               "111903": {
                 "players": {
                   "1296164": {
-                    "active": true,
+                    "active": false,
                     "betslip": null,
                     "bookmakerOutcomeId": "1641211641",
                     "bookmakerChangedAt": null,
-                    "changedAt": "2026-11-26T18:27:46.816Z",
+                    "changedAt": "2026-11-26T20:17:22.111Z",
                     "limit": 187,
                     "playerName": "Mitchell, Davion",
                     "price": 2.04,
