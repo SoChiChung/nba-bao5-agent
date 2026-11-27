@@ -7,8 +7,35 @@ let lineupStatusRequestSeq=0;
 const playerConstraints={mustHave:[],notInclude:[]};
 let constraintsApplied=false;
 const $=id=>document.getElementById(id);
-function applyTheme(){const mode=$('theme-mode')?.value??'auto';const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Shanghai',hour:'numeric',hour12:false}).formatToParts(new Date());const hour=Number(parts.find(part=>part.type==='hour')?.value??12);const dark=mode==='dark'||(mode==='auto'&&(hour>=19||hour<7));document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#111722':'#f5f7fb');}
-const savedTheme=localStorage.getItem('bao5-theme-mode');$('theme-mode').value=['auto','light','dark'].includes(savedTheme)?savedTheme:'auto';$('theme-mode').onchange=()=>{localStorage.setItem('bao5-theme-mode',$('theme-mode').value);applyTheme();};applyTheme();setInterval(applyTheme,60000);
+function applyTheme(){const mode=$('theme-mode')?.value??'light';const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Shanghai',hour:'numeric',hour12:false}).formatToParts(new Date());const hour=Number(parts.find(part=>part.type==='hour')?.value??12);const dark=mode==='dark'||(mode==='auto'&&(hour>=19||hour<7));document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#111111':'#F3EEE3');}
+const savedTheme=localStorage.getItem('bao5-theme-mode');$('theme-mode').value=['auto','light','dark'].includes(savedTheme)?savedTheme:'light';$('theme-mode').onchange=()=>{localStorage.setItem('bao5-theme-mode',$('theme-mode').value);applyTheme();};applyTheme();setInterval(applyTheme,60000);
+function applyFontScale(){
+  const scale=$('font-scale')?.value??'large';
+  document.documentElement.dataset.fontScale=['compact','normal','large','xlarge'].includes(scale)?scale:'large';
+}
+const savedFontScale=localStorage.getItem('bao5-font-scale');
+if($('font-scale')){$('font-scale').value=['compact','normal','large','xlarge'].includes(savedFontScale)?savedFontScale:'large';$('font-scale').onchange=()=>{localStorage.setItem('bao5-font-scale',$('font-scale').value);applyFontScale();scheduleDashboardFlow();scheduleLineupNameMarquees();};}
+applyFontScale();
+function initSplashIntro(){
+  const splash=$('splash-screen');
+  if(!splash){document.body.classList.remove('is-splashing');return;}
+  let dismissed=false;
+  const dismiss=()=>{
+    if(dismissed)return;
+    dismissed=true;
+    splash.classList.add('is-leaving');
+    document.body.classList.remove('is-splashing');
+    document.body.classList.add('is-revealed');
+    setTimeout(()=>splash.remove(),680);
+  };
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const timer=setTimeout(dismiss,reduced?260:1650);
+  const skip=()=>{clearTimeout(timer);dismiss();};
+  splash.addEventListener('click',skip,{once:true});
+  $('splash-skip')?.addEventListener('click',e=>{e.stopPropagation();skip();},{once:true});
+  window.addEventListener('keydown',e=>{if(e.key==='Escape')skip();},{once:true});
+}
+initSplashIntro();
 const fmtDate=d=>{const x=new Date(`${d}T12:00:00Z`);return `${x.getUTCMonth()+1}/${x.getUTCDate()}`;};
 function formatTimestamp(value){const date=new Date(value??'');return Number.isNaN(date.getTime())?'暂无':date.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});}
 function shortTimestamp(value){return formatTimestamp(value).replace(/^\d{4}[\/-]/,'');}
@@ -40,17 +67,106 @@ function team(t){return teamNames[t]??t;}
 function toast(s){const el=$('toast');el.textContent=s;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600);}
 async function load(refresh=false){$('loading').classList.remove('hidden');$('dashboard').classList.add('hidden');$('live-state').textContent='正在同步比赛数据';$('live-detail').textContent='安全读取球员库、赛程和本地统计';try{const r=await fetch(`/api/dashboard${refresh?'?refresh=1':''}`);const d=await r.json();if(!r.ok)throw new Error(d.error);state=d;selectedDate=selectedDate??d.slates[0]?.dateKey;render();$('live-state').textContent='数据已同步';$('live-detail').textContent=`${d.live.players} 名球员 · ${d.live.games} 场赛程`;loadAutomationLog();applyRefreshBanner(d);}catch(e){$('live-state').textContent='数据读取失败';$('live-detail').textContent=e.message;toast(e.message);}finally{$('loading').classList.add('hidden');$('dashboard').classList.remove('hidden');scheduleDashboardFlow();scheduleLineupNameMarquees();}}
 
-// 后台刷新提示条：后端返回 refreshing=true 时说明全量计算仍在跑，
-// 当前展示的是缓存快照，完成后自动换上新数据。
-// 预计时间按「上一轮全量计算耗时」估算，随轮询递增逼近真实剩余时间。
-const REFRESH_ESTIMATE_MS = 5200;
+// 后台刷新 / 重新计算进度条：先快后慢指数缓动（渐近停在 95%，不停在 99%），
+// 完成时切为 100% 绿色，并让百分比轻微弹跳后淡出收起。
+const PROGRESS_MAX_PENDING = 95;
+const PROGRESS_TAU_MS = 4500;
 let refreshPollTimer = null;
 let refreshPollAttempts = 0;
+let progressRafId = null;
+let progressHideTimer = null;
+let progressFadeTimer = null;
+let progressStartedAt = 0;
+let progressValue = 0;
+let progressActive = false;
+
+function renderProgressVisual(value){
+  const clamped=Math.max(0,Math.min(100,value));
+  const rounded=Math.round(clamped);
+  const fill=$('refresh-progress-fill'),pct=$('refresh-banner-pct'),track=$('refresh-progress-track');
+  if(fill)fill.style.width=`${clamped.toFixed(1)}%`;
+  if(pct)pct.textContent=`${rounded}%`;
+  if(track)track.setAttribute('aria-valuenow',String(rounded));
+}
+function stopProgressTimers(){
+  if(progressRafId){cancelAnimationFrame(progressRafId);progressRafId=null;}
+  if(progressHideTimer){clearTimeout(progressHideTimer);progressHideTimer=null;}
+  if(progressFadeTimer){clearTimeout(progressFadeTimer);progressFadeTimer=null;}
+}
+function startProgressBanner({title,detail,initialElapsedMs=0}){
+  const banner=$('refresh-banner');
+  if(!banner)return;
+  stopProgressTimers();
+  banner.classList.remove('hidden','is-done','is-fading');
+  const icon=$('refresh-banner-icon');
+  if(icon)icon.innerHTML='<div class="loader"></div>';
+  const pct=$('refresh-banner-pct');
+  if(pct)pct.classList.remove('is-pop');
+  $('refresh-banner-title').textContent=title;
+  $('refresh-banner-detail').textContent=detail;
+  const now=performance.now();
+  const safeElapsed=Math.max(0,Number(initialElapsedMs)||0);
+  if(!progressActive){
+    progressActive=true;
+    progressStartedAt=now-safeElapsed;
+    progressValue=0;
+  }else if(safeElapsed>now-progressStartedAt){
+    progressStartedAt=now-safeElapsed;
+  }
+  const tick=()=>{
+    if(!progressActive)return;
+    const elapsed=Math.max(0,performance.now()-progressStartedAt);
+    // 先快后慢指数缓动：永不卡在 99%，柔和逼近 95% 等待完成
+    const target=PROGRESS_MAX_PENDING*(1-Math.exp(-elapsed/PROGRESS_TAU_MS));
+    progressValue=Math.max(progressValue,Math.min(PROGRESS_MAX_PENDING,target));
+    renderProgressVisual(progressValue);
+    progressRafId=requestAnimationFrame(tick);
+  };
+  progressRafId=requestAnimationFrame(tick);
+}
+function completeProgressBanner(title='计算完成，已更新最新数据',detail='已同步最新球员数据与推荐阵容'){
+  const banner=$('refresh-banner');
+  if(!banner||banner.classList.contains('hidden'))return;
+  stopProgressTimers();
+  progressActive=false;
+  progressValue=100;
+  banner.classList.remove('is-fading');
+  banner.classList.add('is-done');
+  const icon=$('refresh-banner-icon');
+  if(icon)icon.innerHTML='<span class="refresh-banner-check">✓</span>';
+  $('refresh-banner-title').textContent=title;
+  $('refresh-banner-detail').textContent=detail;
+  renderProgressVisual(100);
+  const pct=$('refresh-banner-pct');
+  if(pct){
+    pct.classList.remove('is-pop');
+    void pct.offsetWidth;
+    pct.classList.add('is-pop');
+  }
+  progressFadeTimer=setTimeout(()=>{banner.classList.add('is-fading');},1250);
+  progressHideTimer=setTimeout(()=>{
+    banner.classList.add('hidden');
+    banner.classList.remove('is-done','is-fading');
+    progressValue=0;
+  },1620);
+}
+function hideProgressBannerImmediate(){
+  const banner=$('refresh-banner');
+  stopProgressTimers();
+  progressActive=false;
+  progressValue=0;
+  if(banner)banner.classList.add('hidden'),banner.classList.remove('is-done','is-fading');
+}
+
 function applyRefreshBanner(d){
   const banner=$('refresh-banner');
   if(!banner)return;
-  if(!d?.refreshing){banner.classList.add('hidden');clearTimeout(refreshPollTimer);refreshPollTimer=null;refreshPollAttempts=0;return;}
-  banner.classList.remove('hidden');
+  if(!d?.refreshing){
+    clearTimeout(refreshPollTimer);refreshPollTimer=null;refreshPollAttempts=0;
+    if(progressActive)completeProgressBanner();
+    else hideProgressBannerImmediate();
+    return;
+  }
   const ageMs=Number(d.snapshotAgeMs??0);
   // 快照超过 30 分钟要明确警示，避免用户误以为看到的是实时数据
   const ageMinutes=ageMs>0?Math.round(ageMs/60000):0;
@@ -58,13 +174,13 @@ function applyRefreshBanner(d){
     ?(ageMinutes>=30?`快照已过期（${ageMinutes} 分钟前）`:ageMinutes>=1?`快照生成于 ${ageMinutes} 分钟前`:'快照刚刚生成')
     :'快照正在同步';
   const stale=ageMinutes>=30;
-  $('refresh-banner-title').textContent=stale?'数据较旧，正在重新计算':'正在后台刷新数据';
-  $('refresh-banner-detail').textContent=stale
-    ?`当前展示的是 ${ageMinutes} 分钟前的缓存数据，全量计算完成后会立即更新`
-    :`当前展示缓存快照（${ageText}），全量计算完成后自动更新`;
-  const elapsed=Number(d.estimatedRefreshMs??0);
-  const estimate=Math.max(1000,REFRESH_ESTIMATE_MS-elapsed);
-  $('refresh-banner-eta').textContent=`预计还需 ${estimate>=1000?`${Math.ceil(estimate/1000)} 秒`:'不到 1 秒'}`;
+  startProgressBanner({
+    title:stale?'数据较旧，正在重新计算':'正在后台刷新数据',
+    detail:stale
+      ?`当前展示的是 ${ageMinutes} 分钟前的缓存数据，全量计算完成后会立即更新`
+      :`当前展示缓存快照（${ageText}），全量计算完成后自动更新`,
+    initialElapsedMs:Number(d.estimatedRefreshMs??0),
+  });
   scheduleRefreshPoll();
 }
 function scheduleRefreshPoll(){
@@ -78,7 +194,7 @@ function scheduleRefreshPoll(){
       if(!r.ok)return;
       const d=await r.json();
       if(d.refreshing){applyRefreshBanner(d);return;}
-      // 后台计算完成：换上新数据
+      // 后台计算完成：换上新数据并触发绿色完成动画
       state=d;selectedDate=selectedDate??d.slates[0]?.dateKey;render();
       $('live-state').textContent='数据已同步';
       $('live-detail').textContent=`${d.live.players} 名球员 · ${d.live.games} 场赛程`;
@@ -434,11 +550,28 @@ function openReason(id,slate){const p=slate.players?.find(x=>x.id===id)??slate.l
 $('must-have-search').oninput=()=>showPlayerSuggestions('mustHave','must-have-search','must-have-results');$('not-include-search').oninput=()=>showPlayerSuggestions('notInclude','not-include-search','not-include-results');
  function showPlayerSuggestions(key,inputId,resultId){const input=$(inputId),box=$(resultId),slate=state?.slates.find(s=>s.dateKey===selectedDate),needle=input.value.trim().toLowerCase();if(!slate||needle.length<1){box.classList.add('hidden');return;}const candidates=(slate.players??[]).filter(p=>!playerConstraints[key].includes(String(p.id))&&(`${p.name??''} ${p.englishName??''} ${p.team??''}`.toLowerCase().includes(needle))).slice(0,8);box.innerHTML=candidates.map(p=>`<button type="button" class="suggestion-player" data-id="${p.id}">${constraintPlayerRow(p,key,false)}</button>`).join('')||'<button type="button" disabled>没有匹配球员</button>';box.classList.remove('hidden');box.querySelectorAll('[data-id]').forEach(button=>button.onclick=()=>{if(key==='mustHave'&&playerConstraints[key].length>=4){toast('必须包含的球员最多选择 4 人');return;}playerConstraints[key].push(String(button.dataset.id));constraintsApplied=false;input.value='';box.classList.add('hidden');renderConstraintOptions(slate);markModelPending(true);});}
 for(const [inputId,resultId] of [['must-have-search','must-have-results'],['not-include-search','not-include-results']]){$(inputId).onfocus=()=>$(inputId).dispatchEvent(new Event('input'));document.addEventListener('click',event=>{if(!event.target.closest(`#${inputId}`)&&!event.target.closest(`#${resultId}`))$(resultId).classList.add('hidden');});}
-$('close-dialog').onclick=()=>$('reason-dialog').close();$('refresh').onclick=()=>load(true);$('recalculate').onclick=async()=>{try{const r=await fetch('/api/recalculate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dateKey:selectedDate})});const d=await r.json();if(!r.ok)throw new Error(d.error);state=d;render();toast('已用最新数据重新计算并记录版本');}catch(e){toast(e.message);}};function closeSubmitDialog(){const dialog=$('submit-confirm-dialog');if(dialog.open)dialog.close();resetSubmitDialog();}
+function closeSubmitDialog(){const dialog=$('submit-confirm-dialog');if(dialog.open)dialog.close();resetSubmitDialog();}
 function resetSubmitDialog(){submitDialogMode='single';$('submit-token').value='';$('submit-token-error').textContent='';$('submit-token-label').hidden=false;$('submit-token').hidden=false;$('cancel-submit-lineup-bottom').hidden=false;$('confirm-submit-lineup').disabled=false;$('confirm-submit-lineup').textContent='确认并提交';$('confirm-submit-lineup').onclick=submitFromDialog;}
 let submitDialogMode='single';
 function openSubmitDialog(mode,title,summary){submitDialogMode=mode;$('submit-confirm-title').textContent=title;$('submit-confirm-summary').textContent=summary;$('submit-token').value='';$('submit-token-error').textContent='';$('submit-token-label').hidden=false;$('submit-token').hidden=false;$('cancel-submit-lineup-bottom').hidden=false;$('confirm-submit-lineup').disabled=false;$('confirm-submit-lineup').textContent='确认并提交';$('confirm-submit-lineup').onclick=submitFromDialog;$('submit-confirm-dialog').showModal();$('submit-token').focus();}
-$('close-dialog').onclick=()=>$('reason-dialog').close();$('refresh').onclick=()=>load(true);$('recalculate').onclick=async()=>{try{const r=await fetch('/api/recalculate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dateKey:selectedDate})});const d=await r.json();if(!r.ok)throw new Error(d.error);state=d;render();toast('已用最新数据重新计算并记录版本');}catch(e){toast(e.message);}};
+$('close-dialog').onclick=()=>$('reason-dialog').close();$('refresh').onclick=()=>load(true);$('recalculate').onclick=async()=>{
+  const btn=$('recalculate');
+  if(btn)btn.disabled=true;
+  startProgressBanner({title:'正在重新计算阵容',detail:'正在拉取最新伤病、赔率与球员数据并重算最优五人阵容'});
+  try{
+    const r=await fetch('/api/recalculate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dateKey:selectedDate})});
+    const d=await r.json();
+    if(!r.ok)throw new Error(d.error);
+    state=d;render();
+    completeProgressBanner('重新计算完成','已用最新数据更新阵容并记录版本');
+    toast('已用最新数据重新计算并记录版本');
+  }catch(e){
+    hideProgressBannerImmediate();
+    toast(e.message);
+  }finally{
+    if(btn)btn.disabled=false;
+  }
+};
 $('lineup-tab-recommended').onclick=()=>{lineupView='recommended';const slate=state?.slates.find(item=>item.dateKey===selectedDate);if(slate)renderLineupView(slate);};$('lineup-tab-submitted').onclick=()=>{lineupView='submitted';const slate=state?.slates.find(item=>item.dateKey===selectedDate);if(slate)renderLineupView(slate);};$('retry-lineup-status').onclick=()=>refreshLineupStatus(selectedDate,{force:true});$('refresh').addEventListener('click',()=>lineupStatusByDate.delete(selectedDate),{capture:true});$('submit-lineup').onclick=()=>{const slate=state?.slates.find(s=>s.dateKey===selectedDate);if(!slate?.lineup||slate.recommendationUnavailable)return toast('当前没有可提交的推荐阵容');const summary=`将 ${selectedDate} 的阵容提交到你的“每日一阵”账号：${slate.lineup.players.map(p=>p.name).join('、')}。预计 ${slate.lineup.expected} 分，能量 ${slate.lineup.energy}/${slate.lineup.energyCap??150}。`;openSubmitDialog('single','确认同步到每日一阵',summary);};
 $('sync-week').onclick=()=>{const slates=(state?.slates??[]).filter(s=>s.lineup&&!s.recommendationUnavailable).slice(0,7);if(!slates.length)return toast('当前没有可同步的阵容');const preview=slates.map(s=>`${s.dateKey}：${s.lineup.players.map(p=>p.name).join('、')}（预期 ${s.lineup.expected} 分，能量 ${s.lineup.energy}/${s.lineup.energyCap??150}）`).join('\n');openSubmitDialog('week',`确认同步未来 ${slates.length} 天`,`将逐日同步以下阵容：\n${preview}\n\n已锁定或比赛已开始的日期会自动跳过。`);};
 async function submitFromDialog(){const token=$('submit-token').value.trim();if(!token){$('submit-token-error').textContent='请输入网页提交口令后再继续。';$('submit-token').focus();return;}const mode=submitDialogMode,button=mode==='week'?$('sync-week'):$('submit-lineup'),confirmButton=$('confirm-submit-lineup');const slate=mode==='single'?state?.slates.find(s=>s.dateKey===selectedDate):null;if(mode==='single'&&(!slate?.lineup||slate.recommendationUnavailable)){closeSubmitDialog();return toast('当前没有可提交的阵容');}button.disabled=true;confirmButton.disabled=true;confirmButton.textContent='正在提交…';try{const endpoint=mode==='week'?'/api/submit-week':'/api/submit';const options={method:'POST',headers:{...(mode==='single'?{'Content-Type':'application/json'}:{}),'x-bao5-submit-token':token},...(mode==='single'?{body:JSON.stringify({dateKey:selectedDate,playerIds:slate.lineup.players.map(p=>p.id)})}:{body:'{}'})};const response=await fetch(endpoint,options);const result=await response.json();if(!response.ok)throw new Error(result.error??result.summary??'提交失败');if(mode==='single'){closeSubmitDialog();toast(result.message);await refreshLineupStatus(selectedDate,{force:true});return;}const details=(result.results??[]).map(x=>`${x.dateKey}：${x.status==='submitted'?'已提交':x.status==='unchanged'?'已一致':x.status==='skipped'?'已跳过':'失败'}${x.message?`（${x.message}）`:''}`).join('\n');$('submit-confirm-title').textContent='未来日期同步结果';$('submit-confirm-summary').textContent=`${result.summary??'同步处理完成'}\n\n${details}`;$('submit-token-label').hidden=true;$('submit-token').hidden=true;$('cancel-submit-lineup-bottom').hidden=true;confirmButton.disabled=false;confirmButton.textContent='关闭结果';confirmButton.onclick=closeSubmitDialog;submitDialogMode='result';lineupStatusByDate.delete(selectedDate);await load(true);}catch(error){$('submit-token-error').textContent=error.message;}finally{button.disabled=false;if(mode==='single')renderLineupSyncStatus(state?.slates.find(item=>item.dateKey===selectedDate));if(submitDialogMode!=='result'){confirmButton.disabled=false;confirmButton.textContent='确认并提交';}}}
