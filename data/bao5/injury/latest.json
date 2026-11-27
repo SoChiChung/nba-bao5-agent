@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T19:51:19.215Z",
+  "updatedAt": "2026-11-27T23:47:09.993Z",
   "serverDate": "2026-11-27",
   "requestedDate": "2026-11-28",
   "available": true,
@@ -8,11 +8,11 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 587,
-    "out": 121,
-    "questionable": 18,
-    "probable": 3,
-    "doubtful": 3
+    "available": 588,
+    "out": 126,
+    "questionable": 15,
+    "probable": 2,
+    "doubtful": 1
   },
   "provenance": {
     "officialCount": 108,
@@ -23,8 +23,8 @@
   "snapshotFile": "snapshots/injuries_2026-11-27.json",
   "changesFile": "changes/changes_2026-11-27.json",
   "previousDate": "2026-11-25",
-  "changeCount": 153,
-  "restrictedCount": 145,
+  "changeCount": 152,
+  "restrictedCount": 144,
   "restricted": [
     {
       "id": "201939",
@@ -200,6 +200,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "204456",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左腿筋）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -447,6 +461,34 @@
       "energy": null
     },
     {
+      "id": "1629645",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "ESPN伤病名单：Porter won't play Saturday against the Wizards as he's still in the process of getting up to speed on his conditioning.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629731",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左腿筋）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630162",
       "key": "out",
       "label": "缺阵",
@@ -578,6 +620,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630592",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1553,6 +1609,20 @@
       "energy": null
     },
     {
+      "id": "1643572",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1643573",
       "key": "out",
       "label": "缺阵",
@@ -1721,39 +1791,11 @@
       "energy": null
     },
     {
-      "id": "1630592",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1631097",
       "key": "doubtful",
       "label": "小概率出战",
       "probability": "25%",
       "detail": "NBA官方伤病报告：小概率出战 · 左",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1643572",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1769,6 +1811,20 @@
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（左膝盖）",
       "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203500",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Adams (knee) is questionable for Saturday's game against the 76ers.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1796,48 +1852,6 @@
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（右撕裂）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "204456",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左腿筋）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1626157",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右挫伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1626162",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1903,11 +1917,11 @@
       "energy": null
     },
     {
-      "id": "1629731",
+      "id": "1630191",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左腿筋）",
+      "detail": "NBA官方伤病报告：出战成疑（右髋部酸痛）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1917,12 +1931,12 @@
       "energy": null
     },
     {
-      "id": "1630191",
+      "id": "1641710",
       "key": "questionable",
-      "label": "出战成疑",
+      "label": "每日观察",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（右髋部酸痛）",
-      "source": "NBA官方",
+      "detail": "ESPN伤病名单：Black (back) is questionable for Saturday's game against the Wizards.",
+      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1987,39 +2001,11 @@
       "energy": null
     },
     {
-      "id": "1642918",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左膝盖酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1643568",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "203507",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右腹股沟肌腱炎）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2057,5 +2043,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月27日 14:45 发布）：列出108人，今日出战的另外420人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月27日 18:30 发布）：列出108人，今日出战的另外420人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
