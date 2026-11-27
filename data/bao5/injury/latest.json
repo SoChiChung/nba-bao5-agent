@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T11:22:04.455Z",
+  "updatedAt": "2026-11-27T19:51:19.215Z",
   "serverDate": "2026-11-27",
   "requestedDate": "2026-11-28",
   "available": true,
@@ -8,23 +8,23 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "available": 592,
-    "out": 113,
-    "questionable": 20,
+    "available": 587,
+    "out": 121,
+    "questionable": 18,
     "probable": 3,
-    "doubtful": 4
+    "doubtful": 3
   },
   "provenance": {
-    "officialCount": 102,
-    "projectedCount": 426,
+    "officialCount": 108,
+    "projectedCount": 420,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-27.json",
   "changesFile": "changes/changes_2026-11-27.json",
   "previousDate": "2026-11-25",
-  "changeCount": 147,
-  "restrictedCount": 140,
+  "changeCount": 153,
+  "restrictedCount": 145,
   "restricted": [
     {
       "id": "201939",
@@ -97,6 +97,34 @@
       "energy": null
     },
     {
+      "id": "203081",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（右小腿肚紧张/酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203083",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（脑震荡）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "203468",
       "key": "out",
       "label": "缺阵",
@@ -130,6 +158,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "上次官方报告 11月25日：缺阵（右膝盖酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "203903",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -265,6 +307,20 @@
       "energy": null
     },
     {
+      "id": "1628384",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左小腿肚拉伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1628960",
       "key": "out",
       "label": "缺阵",
@@ -298,6 +354,20 @@
       "label": "缺阵",
       "probability": "0%",
       "detail": "NBA官方伤病报告：缺阵",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1629011",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 疾病",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -391,6 +461,20 @@
       "energy": null
     },
     {
+      "id": "1630163",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝扭伤）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630169",
       "key": "out",
       "label": "缺阵",
@@ -433,6 +517,20 @@
       "energy": null
     },
     {
+      "id": "1630540",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 左",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1630541",
       "key": "out",
       "label": "缺阵",
@@ -465,7 +563,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵（右跟腱断裂/撕裂）",
+      "detail": "NBA官方伤病报告：缺阵（右跟腱）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1091,6 +1189,20 @@
       "energy": null
     },
     {
+      "id": "1642857",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵（左脚踝）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642869",
       "key": "out",
       "label": "缺阵",
@@ -1609,20 +1721,6 @@
       "energy": null
     },
     {
-      "id": "1628384",
-      "key": "doubtful",
-      "label": "小概率出战",
-      "probability": "25%",
-      "detail": "NBA官方伤病报告：小概率出战（左小腿肚拉伤）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1630592",
       "key": "doubtful",
       "label": "小概率出战",
@@ -1665,25 +1763,11 @@
       "energy": null
     },
     {
-      "id": "203083",
+      "id": "202681",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（头部）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "203903",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
+      "detail": "NBA官方伤病报告：出战成疑（左膝盖）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1735,11 +1819,11 @@
       "energy": null
     },
     {
-      "id": "1626162",
+      "id": "1626157",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑",
+      "detail": "NBA官方伤病报告：出战成疑（右挫伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1749,7 +1833,7 @@
       "energy": null
     },
     {
-      "id": "1626204",
+      "id": "1626162",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1777,7 +1861,7 @@
       "energy": null
     },
     {
-      "id": "1629011",
+      "id": "1628964",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
@@ -1819,11 +1903,11 @@
       "energy": null
     },
     {
-      "id": "1630163",
+      "id": "1629731",
       "key": "questionable",
       "label": "出战成疑",
       "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚踝扭伤）",
+      "detail": "NBA官方伤病报告：出战成疑（左腿筋）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1838,34 +1922,6 @@
       "label": "出战成疑",
       "probability": "50%",
       "detail": "NBA官方伤病报告：出战成疑（右髋部酸痛）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630540",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左紧张）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630559",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（左脚跟挫伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1917,6 +1973,20 @@
       "energy": null
     },
     {
+      "id": "1642855",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Essengue (thumb) is probable to play Saturday against the Pacers.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "1642918",
       "key": "questionable",
       "label": "出战成疑",
@@ -1959,11 +2029,11 @@
       "energy": null
     },
     {
-      "id": "203952",
+      "id": "1626204",
       "key": "probable",
       "label": "大概率出战",
       "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（右脚踝扭伤）",
+      "detail": "NBA官方伤病报告：大概率出战",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1987,5 +2057,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月27日 06:15 发布）：列出102人，今日出战的另外426人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月27日 14:45 发布）：列出108人，今日出战的另外420人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
