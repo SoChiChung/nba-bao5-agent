@@ -35038,6 +35038,12 @@
         }
       ]
     },
+    "1629645": {
+      "nameCn": "小凯文·波特",
+      "nameEn": "Kevin Porter Jr.",
+      "team": "ORL",
+      "logs": []
+    },
     "1629646": {
       "nameCn": "查尔斯·巴锡",
       "nameEn": "Charles Bassey",
@@ -49737,10 +49743,10 @@
           "points": 11,
           "rebounds": 14,
           "assists": 5,
-          "steals": 3,
+          "steals": 4,
           "blocks": 2,
           "turnovers": 0,
-          "bao5": 50.3
+          "bao5": 53.3
         }
       ]
     },
@@ -60685,10 +60691,10 @@
           "points": 7,
           "rebounds": 2,
           "assists": 3,
-          "steals": 2,
+          "steals": 1,
           "blocks": 0,
           "turnovers": 0,
-          "bao5": 19.9
+          "bao5": 16.9
         }
       ]
     },
@@ -105998,10 +106004,10 @@
   },
   "season": "2026-27",
   "source": "BAO5 /api/nba/player-log",
-  "lastAttemptAt": "2026-11-26T11:26:02.114Z",
-  "updatedAt": "2026-11-26T11:26:02.114Z",
-  "playerCount": 532,
-  "successfulPlayers": 529,
+  "lastAttemptAt": "2026-11-27T11:21:15.571Z",
+  "updatedAt": "2026-11-27T11:21:15.571Z",
+  "playerCount": 533,
+  "successfulPlayers": 530,
   "failedPlayers": 0,
   "gameCount": 6019
 }

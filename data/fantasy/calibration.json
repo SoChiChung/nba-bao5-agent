@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T04:08:35.149Z",
+  "generatedAt": "2026-11-27T11:22:53.936Z",
   "modelVersion": "2026.11.fantasy.1",
   "samples": 3915,
   "events": 20,
@@ -18,7 +18,7 @@
   },
   "metrics": {
     "mae": 8.262,
-    "rmse": 10.755,
+    "rmse": 10.756,
     "bias": 0.611,
     "corr": 0.7602
   },
@@ -219,9 +219,9 @@
       "coverage": 1,
       "n": 249,
       "mae": 7.619,
-      "rmse": 9.715,
+      "rmse": 9.735,
       "bias": -0.313,
-      "corr": 0.8119563040271934
+      "corr": 0.8118604220916096
     }
   ],
   "note": "由 evaluate-predictions.mjs 生成；样本 = 已结算比赛日的球员×比赛。未出场按 0 分计入。"
