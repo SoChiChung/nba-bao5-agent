@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T03:46:31.739Z",
+  "updatedAt": "2026-11-28T03:50:51.091Z",
   "dates": {
     "2026-10-04": {
       "date": "2026-10-04",
@@ -7603,14 +7603,14 @@
     },
     "2026-11-28": {
       "date": "2026-11-28",
-      "fetchedAt": "2026-11-28T03:46:27.970Z",
+      "fetchedAt": "2026-11-28T03:50:46.264Z",
       "source": "/api/rankings?period=day&date=2026-11-28",
       "lineups": [
         {
           "rank": 1,
           "userId": "3e5a152f-6b1e-4c09-98f8-df255fcc4273",
           "displayName": "Kkyrie23",
-          "score": 187.4,
+          "score": 196.6,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7624,8 +7624,8 @@
             "2544": 39.4,
             "1630183": 33.6,
             "1630198": 30.7,
-            "1630245": 42.6,
-            "1642907": 41.1
+            "1630245": 52.8,
+            "1642907": 40.1
           },
           "playerNames": {
             "2544": "勒布朗·詹姆斯",
@@ -7639,7 +7639,7 @@
           "rank": 2,
           "userId": "92562191-b47d-489b-9d60-ee76a9f8378f",
           "displayName": "最后冇事",
-          "score": 184.9,
+          "score": 195.1,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7653,7 +7653,7 @@
             "1628369": 46.3,
             "1628997": 16.6,
             "1630198": 30.7,
-            "1630245": 42.6,
+            "1630245": 52.8,
             "1630567": 48.7
           },
           "playerNames": {
@@ -7668,7 +7668,7 @@
           "rank": 3,
           "userId": "af01046f-b1a0-4ddd-bfc2-38ebfe6d26ce",
           "displayName": "江逐流",
-          "score": 181.8,
+          "score": 192,
           "remainingSalary": 1,
           "salaryUsed": 149,
           "playerIds": [
@@ -7681,7 +7681,7 @@
           "playerScores": {
             "1627751": 39.8,
             "1628404": 27.8,
-            "1630245": 42.6,
+            "1630245": 52.8,
             "1630567": 48.7,
             "1642450": 22.9
           },
@@ -7697,7 +7697,7 @@
           "rank": 4,
           "userId": "8a8bfd55-bdea-4ea5-bb2e-32b15d95625b",
           "displayName": "kkars",
-          "score": 178.8,
+          "score": 190.2,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7709,9 +7709,9 @@
           ],
           "playerScores": {
             "1628389": 42.4,
-            "1629001": 14.4,
+            "1629001": 15.6,
             "1630198": 30.7,
-            "1630245": 42.6,
+            "1630245": 52.8,
             "1630567": 48.7
           },
           "playerNames": {
@@ -7726,7 +7726,7 @@
           "rank": 5,
           "userId": "440ac1c6-e968-48bf-96cd-0b418966d90d",
           "displayName": "Kyujin",
-          "score": 178.5,
+          "score": 188.7,
           "remainingSalary": 0,
           "salaryUsed": 150,
           "playerIds": [
@@ -7739,7 +7739,7 @@
           "playerScores": {
             "1630183": 33.6,
             "1630198": 30.7,
-            "1630245": 42.6,
+            "1630245": 52.8,
             "1630567": 48.7,
             "1642450": 22.9
           },
