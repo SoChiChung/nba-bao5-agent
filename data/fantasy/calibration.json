@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-11-28T17:52:29.079Z",
+  "generatedAt": "2026-11-28T18:46:14.705Z",
   "modelVersion": "2026.11.fantasy.1",
-  "samples": 3914,
-  "events": 20,
-  "global": 0.9179,
+  "samples": 4222,
+  "events": 21,
+  "global": 0.9131,
   "groups": {
     "1": {
-      "all": 0.9238,
-      "top": 1.0323,
-      "rest": 0.903
+      "all": 0.9164,
+      "top": 1.0265,
+      "rest": 0.8999
     },
     "2": {
-      "all": 0.9171,
-      "top": 1.0611,
-      "rest": 0.9091
+      "all": 0.9112,
+      "top": 1.0613,
+      "rest": 0.9
     }
   },
   "metrics": {
-    "mae": 8.263,
-    "rmse": 10.757,
-    "bias": 0.613,
-    "corr": 0.7601
+    "mae": 8.198,
+    "rmse": 10.673,
+    "bias": 0.543,
+    "corr": 0.7646
   },
   "byEvent": [
     {
@@ -222,6 +222,16 @@
       "rmse": 9.735,
       "bias": -0.313,
       "corr": 0.8118604220916096
+    },
+    {
+      "eventId": 37,
+      "name": "Gameweek 6 - Day 4",
+      "coverage": 1,
+      "n": 308,
+      "mae": 7.38,
+      "rmse": 9.552,
+      "bias": -0.349,
+      "corr": 0.8205811308914355
     }
   ],
   "note": "由 evaluate-predictions.mjs 生成；样本 = 已结算比赛日的球员×比赛。未出场按 0 分计入。"

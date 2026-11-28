@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T10:41:47.572Z",
+  "updatedAt": "2026-11-28T18:45:26.019Z",
   "serverDate": "2026-11-28",
   "requestedDate": "2026-11-29",
   "available": true,
@@ -8,21 +8,21 @@
   "sourceLabel": "NBA官方伤病报告",
   "counts": {
     "total": 732,
-    "out": 139,
+    "out": 136,
     "available": 586,
-    "questionable": 4,
-    "probable": 3
+    "probable": 3,
+    "questionable": 7
   },
   "provenance": {
-    "officialCount": 36,
-    "projectedCount": 116,
+    "officialCount": 42,
+    "projectedCount": 132,
     "filledCount": 0,
     "fallbackSource": "none"
   },
   "snapshotFile": "snapshots/injuries_2026-11-28.json",
   "changesFile": "changes/changes_2026-11-28.json",
   "previousDate": "2026-11-27",
-  "changeCount": 135,
+  "changeCount": 131,
   "restrictedCount": 146,
   "restricted": [
     {
@@ -180,6 +180,20 @@
       "energy": null
     },
     {
+      "id": "203500",
+      "key": "out",
+      "label": "缺阵",
+      "probability": "0%",
+      "detail": "NBA官方伤病报告：缺阵 · 右",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
       "id": "203897",
       "key": "out",
       "label": "缺阵",
@@ -226,7 +240,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "ESPN伤病名单：Embiid has been ruled out for Saturday's game against the Rockets due to right foot plantar fasciitis management, Kris Rhim of ESPN.com reports.",
+      "detail": "ESPN伤病名单：Embiid (foot) chipped in 14 points (5-14 FG, 1-3 3Pt, 3-4 FT), 11 rebounds, three assists and three steals in 28 minutes during Friday's 111-87 victory over the Pacers.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -436,7 +450,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月27日：缺阵（左膝盖）",
+      "detail": "NBA官方伤病报告：缺阵（左膝盖）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -732,20 +746,6 @@
       "probability": "0%",
       "detail": "上次官方报告 11月25日：缺阵（左脚趾扭伤）",
       "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1630611",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Santos exited Friday's game against the Trail Blazers with a knee injury in the second half and won't return.",
-      "source": "ESPN",
       "name": null,
       "englishName": null,
       "team": null,
@@ -1216,20 +1216,6 @@
       "energy": null
     },
     {
-      "id": "1642266",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Walter won't return to Friday's game against Brooklyn due to a right quad contusion, Josh Lewenberg of TSN.ca reports.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642269",
       "key": "out",
       "label": "缺阵",
@@ -1346,7 +1332,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月27日：缺阵（右腿筋拉伤）",
+      "detail": "NBA官方伤病报告：缺阵（右腿筋拉伤）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1538,20 +1524,6 @@
       "energy": null
     },
     {
-      "id": "1642949",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "ESPN伤病名单：Niederhauser suffered a right toe injury during Friday's game against the Pelicans and won't return, Joey Linn of SI.com reports.",
-      "source": "ESPN",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1642959",
       "key": "out",
       "label": "缺阵",
@@ -1570,7 +1542,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月27日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1650,20 +1622,6 @@
       "energy": null
     },
     {
-      "id": "1643517",
-      "key": "out",
-      "label": "缺阵",
-      "probability": "0%",
-      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1643519",
       "key": "out",
       "label": "缺阵",
@@ -1710,7 +1668,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月27日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1752,7 +1710,7 @@
       "key": "out",
       "label": "缺阵",
       "probability": "0%",
-      "detail": "上次官方报告 11月27日：缺阵 · 发展联盟双向合同",
+      "detail": "NBA官方伤病报告：缺阵 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -1972,39 +1930,39 @@
       "energy": null
     },
     {
-      "id": "203500",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑 · 右",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
-      "id": "1628960",
-      "key": "questionable",
-      "label": "出战成疑",
-      "probability": "50%",
-      "detail": "NBA官方伤病报告：出战成疑（脑震荡）",
-      "source": "NBA官方",
-      "name": null,
-      "englishName": null,
-      "team": null,
-      "teamName": null,
-      "position": null,
-      "energy": null
-    },
-    {
       "id": "1628997",
       "key": "questionable",
       "label": "每日观察",
       "probability": "50%",
       "detail": "ESPN伤病名单：Martin didn't return for the second half of Friday's win over the Suns due to a left ankle sprain, Grant Afseth of DallasHoopsJournal.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630581",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑（右脚踝酸痛）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630611",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Santos exited Friday's game against the Trail Blazers with a knee injury in the second half and won't return.",
       "source": "ESPN",
       "name": null,
       "englishName": null,
@@ -2028,11 +1986,39 @@
       "energy": null
     },
     {
-      "id": "1630188",
-      "key": "probable",
-      "label": "大概率出战",
-      "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（疾病）",
+      "id": "1642266",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Walter won't return to Friday's game against Brooklyn due to a right quad contusion, Josh Lewenberg of TSN.ca reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1642949",
+      "key": "questionable",
+      "label": "每日观察",
+      "probability": "50%",
+      "detail": "ESPN伤病名单：Niederhauser suffered a right toe injury during Friday's game against the Pelicans and won't return, Joey Linn of SI.com reports.",
+      "source": "ESPN",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1643517",
+      "key": "questionable",
+      "label": "出战成疑",
+      "probability": "50%",
+      "detail": "NBA官方伤病报告：出战成疑 · 发展联盟双向合同",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2042,11 +2028,25 @@
       "energy": null
     },
     {
-      "id": "1641750",
+      "id": "1628960",
       "key": "probable",
       "label": "大概率出战",
       "probability": "75%",
-      "detail": "NBA官方伤病报告：大概率出战（左髋部紧张/酸痛）",
+      "detail": "NBA官方伤病报告：大概率出战（脑震荡）",
+      "source": "NBA官方",
+      "name": null,
+      "englishName": null,
+      "team": null,
+      "teamName": null,
+      "position": null,
+      "energy": null
+    },
+    {
+      "id": "1630188",
+      "key": "probable",
+      "label": "大概率出战",
+      "probability": "75%",
+      "detail": "NBA官方伤病报告：大概率出战（疾病）",
       "source": "NBA官方",
       "name": null,
       "englishName": null,
@@ -2070,5 +2070,5 @@
       "energy": null
     }
   ],
-  "message": "已读取官方伤病报告（11月28日 05:30 发布）：列出36人，今日出战的另外116人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
+  "message": "已读取官方伤病报告（11月28日 13:45 发布）：列出42人，今日出战的另外132人未被列入（视为可出战）；其余球队按各自最近一次官方结论显示。"
 }
